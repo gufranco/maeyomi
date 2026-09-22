@@ -15,9 +15,8 @@ from maeyomi.models.generated_card import GeneratedCard
 from maeyomi.rendering.calibration import draw_calibration
 from maeyomi.rendering.card import CardStyle, draw_card
 from maeyomi.rendering.document import describe
-from maeyomi.rendering.layout import SheetLayout
+from maeyomi.rendering.layout import CUT_MARK_LENGTH_MM, SheetLayout
 
-CUT_MARK_LENGTH_MM = 3.0
 CUT_MARK_LINE_WIDTH = 0.25
 
 

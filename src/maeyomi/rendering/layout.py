@@ -18,6 +18,8 @@ instructions ask for.
 from dataclasses import dataclass
 from typing import Final
 
+from maeyomi.rendering.calibration import FOOT_BAND_MM
+
 A4_WIDTH_MM: Final = 210.0
 A4_HEIGHT_MM: Final = 297.0
 CARD_WIDTH_MM: Final = 63.5
@@ -35,7 +37,17 @@ POKER_CARD_HEIGHT_MM: Final = CARD_HEIGHT_MM
 DEFAULT_MARGIN_MM: Final = 3.0
 DEFAULT_BLEED_MM: Final = 1.5
 DEFAULT_GUTTER_MM: Final = 2 * DEFAULT_BLEED_MM
-MARK_BAND_MM: Final = 9.0
+MARK_BAND_MM: Final = FOOT_BAND_MM
+"""What the marks need at the foot. Nothing is printed above the grid."""
+
+CUT_MARK_LENGTH_MM: Final = 2.0
+"""How far a corner tick reaches past a card, and so past the bottom row."""
+
+MARK_CLEARANCE_MM: Final = 1.5
+"""Kept between the lowest cut mark and the highest ink in the band below it."""
+
+EDGE_CLEARANCE_MM: Final = 5.0
+"""How close a trim line may come to the paper, which most printers can reach."""
 """Height kept clear above and below the grid for the ruler and the note.
 
 The cut marks live there too. Without it the grid centres on the page and the
@@ -98,16 +110,35 @@ class SheetLayout:
     def rows(self) -> int:
         """How many cards fit down the page, outside the bands the marks need."""
         return _fit(
-            self.page_height_mm - 2 * self._band_mm,
+            self.page_height_mm - self._head_mm - self._foot_mm,
             self.margin_mm,
             self.card_height_mm,
             self.gutter_mm,
         )
 
+    def _bottom_mm(self) -> float:
+        """Where the lowest row starts.
+
+        With marks on, the grid sits directly above their band rather than
+        centred in what is left. Centring would hand half the spare room to the
+        foot, which already has the widest band on the page, and take it from
+        the head, where the top row would then be trimmed by a printer that
+        cannot reach the paper's edge.
+        """
+        free = self.page_height_mm - self._head_mm - self._foot_mm
+        if not self.marks:
+            return self._foot_mm + _origin(free, self.rows, self.card_height_mm, self.gutter_mm)
+        return self._foot_mm + CUT_MARK_LENGTH_MM + MARK_CLEARANCE_MM
+
     @property
-    def _band_mm(self) -> float:
-        """The strip kept clear at the head and the foot of the page."""
-        return MARK_BAND_MM if self.marks else 0.0
+    def _head_mm(self) -> float:
+        """Nothing is printed above the grid, so the grid may reach the margin."""
+        return 0.0
+
+    @property
+    def _foot_mm(self) -> float:
+        """The strip kept clear below the grid, where the ruler is printed."""
+        return FOOT_BAND_MM if self.marks else 0.0
 
     @property
     def cards_per_page(self) -> int:
@@ -121,12 +152,7 @@ class SheetLayout:
     def positions(self) -> list[tuple[float, float]]:
         """Lower left corner of every card slot, in reading order."""
         left = _origin(self.page_width_mm, self.columns, self.card_width_mm, self.gutter_mm)
-        top = self._band_mm + _origin(
-            self.page_height_mm - 2 * self._band_mm,
-            self.rows,
-            self.card_height_mm,
-            self.gutter_mm,
-        )
+        top = self._bottom_mm()
         step_x = self.card_width_mm + self.gutter_mm
         step_y = self.card_height_mm + self.gutter_mm
         return [

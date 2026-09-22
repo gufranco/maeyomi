@@ -9,11 +9,15 @@ from reportlab.pdfgen.canvas import Canvas
 
 from maeyomi.barcode.rasterise import ink_box, render_pdf_pages
 from maeyomi.rendering.calibration import (
+    FOOT_BAND_MM,
+    JAPANESE_NOTE_BASELINE_MM,
     REFERENCE_LENGTH_MM,
+    RULER_BASELINE_MM,
     RULER_LENGTH_MM,
     draw_calibration,
     scale_error_percent,
 )
+from maeyomi.rendering.layout import SheetLayout
 
 MEASURE_DPI = 600
 
@@ -127,3 +131,26 @@ def test_the_note_sits_well_inside_the_printable_area(tmp_path: Path) -> None:
     per_mm = 150 / 25.4
     assert box[1] >= 5.0 * per_mm
     assert image.height - box[3] >= 5.0 * per_mm
+
+
+def test_every_mark_stays_inside_the_band_the_grid_keeps_clear() -> None:
+    assert RULER_BASELINE_MM < FOOT_BAND_MM
+    assert JAPANESE_NOTE_BASELINE_MM < FOOT_BAND_MM
+
+
+def test_no_card_reaches_the_marks() -> None:
+    layout = SheetLayout()
+
+    lowest = min(y for _, y in layout.positions())
+
+    assert lowest >= FOOT_BAND_MM
+
+
+def test_keeping_the_band_honest_still_leaves_three_rows() -> None:
+    assert SheetLayout().cards_per_page == 9
+
+
+def test_a_sheet_without_marks_uses_the_whole_page() -> None:
+    bare = SheetLayout(marks=False)
+
+    assert min(y for _, y in bare.positions()) < FOOT_BAND_MM

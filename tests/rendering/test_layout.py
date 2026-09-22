@@ -7,7 +7,10 @@ from maeyomi.rendering.layout import (
     A4_WIDTH_MM,
     CARD_HEIGHT_MM,
     CARD_WIDTH_MM,
+    CUT_MARK_LENGTH_MM,
+    EDGE_CLEARANCE_MM,
     MARK_BAND_MM,
+    MARK_CLEARANCE_MM,
     SheetLayout,
 )
 
@@ -112,11 +115,18 @@ def test_a_print_shop_page_holds_one_card_with_its_bleed() -> None:
 
 def test_the_grid_leaves_the_marks_their_band() -> None:
     layout = SheetLayout()
+
     lowest = min(y for _, y in layout.positions())
-    highest = max(y for _, y in layout.positions()) + layout.card_height_mm
 
     assert lowest >= MARK_BAND_MM
-    assert layout.page_height_mm - highest >= MARK_BAND_MM
+
+
+def test_no_trim_line_comes_closer_to_the_paper_than_a_printer_can_reach() -> None:
+    layout = SheetLayout()
+    highest = max(y for _, y in layout.positions()) + layout.card_height_mm
+
+    assert layout.page_height_mm - highest >= EDGE_CLEARANCE_MM
+    assert min(y for _, y in layout.positions()) >= EDGE_CLEARANCE_MM
 
 
 def test_a_card_is_taller_than_it_is_wide() -> None:
@@ -128,3 +138,11 @@ def test_a_card_is_taller_than_it_is_wide() -> None:
 
 def test_nine_cards_fill_a_page() -> None:
     assert SheetLayout().cards_per_page == 9
+
+
+def test_the_lowest_cut_mark_stays_clear_of_the_marks_below_it() -> None:
+    layout = SheetLayout()
+
+    lowest_tick = min(y for _, y in layout.positions()) - CUT_MARK_LENGTH_MM
+
+    assert lowest_tick >= MARK_BAND_MM + MARK_CLEARANCE_MM
