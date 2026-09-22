@@ -11,7 +11,8 @@ from pathlib import Path
 import pypdfium2 as pdfium
 import pytest
 
-from barcode_battler.barcode.verify import decode_pdf
+from barcode_battler.barcode.rasterise import render_pdf_pages
+from barcode_battler.barcode.verify import decode_image, decode_pdf
 from barcode_battler.generator.random_cards import generate_random
 from barcode_battler.models.card_request import CardRequest
 from barcode_battler.models.constraint import Constraint
@@ -135,3 +136,14 @@ def test_the_measuring_marks_do_not_stop_the_barcodes_decoding(tmp_path: Path) -
     write_sheet(batch, path)
 
     assert sorted(decode_pdf(path)) == sorted(card.barcode for card in batch)
+
+
+def test_every_barcode_still_decodes_from_a_black_and_white_print(tmp_path: Path) -> None:
+    path = tmp_path / "grey.pdf"
+    batch = cards(9)
+
+    write_sheet(batch, path)
+
+    pages = render_pdf_pages(path, dpi=300)
+    grey = pages[0].convert("L").convert("RGB")
+    assert sorted(decode_image(grey)) == sorted(card.barcode for card in batch)

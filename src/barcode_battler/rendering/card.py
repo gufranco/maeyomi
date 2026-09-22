@@ -23,11 +23,11 @@ from barcode_battler.models.character import BarcodeBattlerCharacter
 from barcode_battler.models.generated_card import GeneratedCard
 from barcode_battler.models.special_ability import UNDOCUMENTED, SpecialAbility
 from barcode_battler.rendering.icons import (
-    DF_COLOUR,
-    HP_COLOUR,
+    INK,
     RACE_COLOURS,
     RACE_LABELS,
-    ST_COLOUR,
+    STAT_STYLES,
+    WHITE,
     Colour,
     draw_heart,
     draw_race_icon,
@@ -37,11 +37,8 @@ from barcode_battler.rendering.icons import (
 
 TITLE_FONT: Final = "Helvetica-Bold"
 BODY_FONT: Final = "Helvetica"
-INK: Final[Colour] = (0.13, 0.14, 0.18)
-MUTED_INK: Final[Colour] = (0.38, 0.40, 0.46)
-PANEL_FILL: Final[Colour] = (0.95, 0.96, 0.97)
-WHITE: Final[Colour] = (1.0, 1.0, 1.0)
-TINT: Final = 0.86
+MUTED_INK: Final[Colour] = (0.35, 0.37, 0.43)
+PANEL_FILL: Final[Colour] = (0.94, 0.95, 0.96)
 MAX_NAME_LINES: Final = 2
 MAX_ABILITY_LINES: Final = 3
 ELLIPSIS: Final = "..."
@@ -249,21 +246,23 @@ def _draw_stats(
     """Draw the three battle numbers as tiles, and return the new cursor."""
     character = card.character
     tiles = (
-        ("HP", character.hp, HP_COLOUR, draw_heart),
-        ("ST", character.st, ST_COLOUR, draw_sword),
-        ("DF", character.df, DF_COLOUR, draw_shield),
+        ("HP", character.hp, draw_heart),
+        ("ST", character.st, draw_sword),
+        ("DF", character.df, draw_shield),
     )
     gap = 1.6
     available = width_mm - 2 * style.padding_mm
     tile_width = (available - gap * (len(tiles) - 1)) / len(tiles)
     tile_height = style.stat_block_mm - 2.0
     bottom = top_mm - 1.0 - tile_height
-    for index, (label, value, colour, icon) in enumerate(tiles):
+    for index, (label, value, icon) in enumerate(tiles):
         left = x_mm + style.padding_mm + index * (tile_width + gap)
         canvas.saveState()
-        canvas.setFillColorRGB(*_tint(colour))
+        canvas.setFillColorRGB(*STAT_STYLES[label].tint)
+        canvas.setStrokeColorRGB(*STAT_STYLES[label].icon)
+        canvas.setLineWidth(0.4)
         canvas.roundRect(
-            left * mm, bottom * mm, tile_width * mm, tile_height * mm, 1.6 * mm, stroke=0, fill=1
+            left * mm, bottom * mm, tile_width * mm, tile_height * mm, 1.6 * mm, stroke=1, fill=1
         )
         canvas.restoreState()
         icon_size = 5.4
@@ -417,8 +416,3 @@ def _cut(canvas: Canvas, text: str, limit: float, font: str, size_pt: float) -> 
     while trimmed and canvas.stringWidth(trimmed + ELLIPSIS, font, size_pt) > limit:
         trimmed = trimmed[:-1]
     return trimmed + ELLIPSIS
-
-
-def _tint(colour: Colour) -> Colour:
-    """A pale version of a colour, for a panel a dark number sits on."""
-    return tuple(channel + (1.0 - channel) * TINT for channel in colour)  # type: ignore[return-value]

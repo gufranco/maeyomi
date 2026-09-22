@@ -15,6 +15,7 @@ given the band colour to paint it with.
 
 from collections.abc import Callable, Generator
 from contextlib import contextmanager
+from dataclasses import dataclass
 from math import cos, pi, sin
 from typing import Any, Final, cast
 
@@ -25,23 +26,51 @@ from barcode_battler.models.race import Race
 
 Colour = tuple[float, float, float]
 
-HP_COLOUR: Final[Colour] = (0.87, 0.20, 0.27)
-ST_COLOUR: Final[Colour] = (0.95, 0.55, 0.13)
-DF_COLOUR: Final[Colour] = (0.18, 0.46, 0.82)
-BLADE_COLOUR: Final[Colour] = (0.45, 0.49, 0.57)
+
+def _hex(value: str) -> Colour:
+    """Read a six-digit hex colour as three channels."""
+    return tuple(int(value[index : index + 2], 16) / 255 for index in (0, 2, 4))  # type: ignore[return-value]
+
+
+def _tint(colour: Colour, strength: float) -> Colour:
+    """A pale version of a colour, for a panel a dark number sits on."""
+    return tuple(channel + (1.0 - channel) * strength for channel in colour)  # type: ignore[return-value]
+
+
+@dataclass(frozen=True, slots=True)
+class StatStyle:
+    """The colours one battle number is printed in."""
+
+    icon: Colour
+    tint: Colour
+
+
 WHITE: Final[Colour] = (1.0, 1.0, 1.0)
+INK: Final[Colour] = _hex("21242E")
+
+STAT_STYLES: Final[dict[str, StatStyle]] = {
+    "HP": StatStyle(icon=_hex("C21A2B"), tint=_tint(_hex("C21A2B"), 0.84)),
+    "ST": StatStyle(icon=_hex("4A5261"), tint=_tint(_hex("4A5261"), 0.90)),
+    "DF": StatStyle(icon=_hex("1B5FA8"), tint=_tint(_hex("1B5FA8"), 0.95)),
+}
+
+HP_COLOUR: Final[Colour] = STAT_STYLES["HP"].icon
+ST_COLOUR: Final[Colour] = STAT_STYLES["ST"].icon
+DF_COLOUR: Final[Colour] = STAT_STYLES["DF"].icon
+HILT_COLOUR: Final[Colour] = _hex("B25A00")
+BLADE_COLOUR: Final[Colour] = STAT_STYLES["ST"].icon
 
 RACE_COLOURS: Final[dict[Race, Colour]] = {
-    Race.MECHANICAL: (0.38, 0.42, 0.52),
-    Race.ANIMAL: (0.80, 0.49, 0.20),
-    Race.AQUATIC: (0.13, 0.62, 0.68),
-    Race.BIRD: (0.55, 0.36, 0.76),
-    Race.HUMAN: (0.20, 0.60, 0.36),
-    Race.SINGLE_USE_WEAPON: (0.85, 0.35, 0.22),
-    Race.WEAPON: (0.78, 0.26, 0.30),
-    Race.SINGLE_USE_ARMOUR: (0.35, 0.50, 0.72),
-    Race.ARMOUR: (0.24, 0.40, 0.66),
-    Race.SUPPORT_ITEM: (0.62, 0.52, 0.16),
+    Race.MECHANICAL: _hex("666874"),
+    Race.ANIMAL: _hex("874F00"),
+    Race.AQUATIC: _hex("0375D9"),
+    Race.BIRD: _hex("6A2A88"),
+    Race.HUMAN: _hex("11401F"),
+    Race.SINGLE_USE_WEAPON: _hex("C0431C"),
+    Race.WEAPON: _hex("7E1D10"),
+    Race.SINGLE_USE_ARMOUR: _hex("3F7099"),
+    Race.ARMOUR: _hex("1E4468"),
+    Race.SUPPORT_ITEM: _hex("7A5A00"),
 }
 
 RACE_LABELS: Final[dict[Race, str]] = {
@@ -141,7 +170,7 @@ def draw_sword(canvas: Canvas, *, x_mm: float, y_mm: float, size_mm: float) -> N
             .line_to(at(0.32, 0.78))
             .fill()
         )
-        canvas.setFillColorRGB(*ST_COLOUR)
+        canvas.setFillColorRGB(*HILT_COLOUR)
         canvas.rect(left + side * 0.04, bottom + side * 0.22, side * 0.92, side * 0.10, 0, 1)
         canvas.rect(left + side * 0.42, bottom, side * 0.16, side * 0.22, 0, 1)
 
