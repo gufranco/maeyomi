@@ -59,7 +59,10 @@ maeyomi web
 ```
 
 That starts a local page and opens your browser at it. Everything the program
-does is in there, so nothing below this point is required reading.
+does is in there, so nothing below this point is required reading. The page
+says what it is for in a line:
+
+> Design a fighter, print the sheet, cut the cards, swipe them through the machine. Every card is printed in English and Japanese, with pictures for anyone who cannot read yet.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/one-card-dark.png">

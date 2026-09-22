@@ -80,3 +80,14 @@ def test_every_public_surface_calls_the_project_by_its_name() -> None:
         match = re.search(pattern, path.read_text(encoding="utf-8"))
         assert match is not None, surface
         assert match.group(1) == PROJECT, surface
+
+
+def lede() -> str:
+    source = (ROOT / "src" / "maeyomi" / "ui" / "static" / "i18n.js").read_text(encoding="utf-8")
+    match = re.search(r"    lede:\n      '(.+?)' \+\n      '(.+?)',", source, re.DOTALL)
+    assert match is not None, "the page has no English lede"
+    return match.group(1) + match.group(2)
+
+
+def test_the_page_says_what_the_readme_says_it_says() -> None:
+    assert lede() in README.read_text(encoding="utf-8")
