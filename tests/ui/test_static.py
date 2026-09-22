@@ -45,7 +45,7 @@ def test_the_page_declares_a_language_and_a_viewport() -> None:
 
 def test_the_disclaimer_is_in_the_markup_rather_than_fetched(client: TestClient) -> None:
     assert "__DISCLAIMER__" in MARKUP
-    assert "not been tested on a physical" in client.get("/").text
+    assert "read on a physical Barcode Battler II" in client.get("/").text
     assert "/api/about" not in SCRIPT
 
 

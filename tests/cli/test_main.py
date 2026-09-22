@@ -184,12 +184,12 @@ def test_abilities_lists_the_published_table() -> None:
     assert "hero flag" in result.output
 
 
-def test_the_output_states_that_no_hardware_was_used(tmp_path: Path) -> None:
+def test_the_output_states_how_the_cards_were_verified(tmp_path: Path) -> None:
     result = runner.invoke(
         app, ["random", "--count", "1", "--seed", "1", "--output", str(tmp_path / "c.pdf")]
     )
 
-    assert "not been tested on a physical" in result.output.lower()
+    assert "read on a physical barcode battler ii" in result.output.lower()
 
 
 def test_images_are_written_when_asked(tmp_path: Path) -> None:

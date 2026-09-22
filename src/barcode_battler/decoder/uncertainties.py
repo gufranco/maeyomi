@@ -38,7 +38,7 @@ UNCERTAINTIES: Final[Mapping[str, Uncertainty]] = MappingProxyType(
             ),
             revisit=(
                 "When the table image on barcodebattler.net/page08.htm is read, or on "
-                "the first test against physical hardware."
+                "a test against physical hardware that compares initiative."
             ),
         ),
         "race_one_overflow_target": Uncertainty(
@@ -62,7 +62,7 @@ UNCERTAINTIES: Final[Mapping[str, Uncertainty]] = MappingProxyType(
                 "is the most plausible reading rather than a confirmed one."
             ),
             revisit=(
-                "On the first test against physical hardware with a barcode whose DF "
+                "On a test against physical hardware with a barcode whose DF "
                 "digits are 61, 77 or 93, race digit 1 and hit points of 20000 or more."
             ),
             blocks_generation=True,
@@ -86,7 +86,7 @@ UNCERTAINTIES: Final[Mapping[str, Uncertainty]] = MappingProxyType(
                 "reaches the branch."
             ),
             revisit=(
-                "On the first test against physical hardware with a barcode whose ST "
+                "On a test against physical hardware with a barcode whose ST "
                 "digits are 61, 77 or 93, race digit 0 and hit points of 20000 or more."
             ),
             blocks_generation=True,
@@ -99,7 +99,7 @@ UNCERTAINTIES: Final[Mapping[str, Uncertainty]] = MappingProxyType(
                 "the simulator's own card XML contains two 12-digit entries, which it "
                 "would therefore refuse to read."
             ),
-            revisit="On the first test against physical hardware.",
+            revisit="On a test against physical hardware.",
         ),
         "shifted_back_read": Uncertainty(
             question="What are the shift semantics for a deliberately misaligned read?",

@@ -10,12 +10,12 @@ from barcode_battler.models.card_request import CardRequest
 from barcode_battler.models.character import BarcodeBattlerCharacter
 
 DISCLAIMER = (
-    "These cards were verified against this project's own decoder. They have "
-    "not been tested on a physical Barcode Battler II."
+    "These cards were verified against this project's own decoder and read on a "
+    "physical Barcode Battler II."
 )
 DISCLAIMER_JA = (
-    "これらのカードは このプログラムの デコーダーで けんしょう しています。"
-    "バーコードバトラーII の 実機では まだ テストされていません。"
+    "これらのカードは このプログラムの デコーダーで けんしょうし、"
+    "バーコードバトラーII の 実機で よみとり かくにん しています。"
 )
 UNCONSTRAINED = ("any", "-")
 

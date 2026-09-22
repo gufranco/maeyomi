@@ -28,10 +28,10 @@ def test_the_page_is_served(client: TestClient) -> None:
     assert "Barcode Battler" in response.text
 
 
-def test_the_page_states_that_no_hardware_was_used(client: TestClient) -> None:
+def test_the_page_states_how_the_cards_were_verified(client: TestClient) -> None:
     response = client.get("/")
 
-    assert "not been tested on a physical" in response.text
+    assert "read on a physical Barcode Battler II" in response.text
 
 
 def test_decoding_a_barcode_returns_its_attributes(client: TestClient) -> None:
@@ -354,5 +354,5 @@ def test_every_official_card_can_be_downloaded_at_once(client: TestClient) -> No
 def test_the_disclaimer_is_served_in_both_languages(client: TestClient) -> None:
     text = client.get("/").text
 
-    assert "not been tested on a physical" in text
+    assert "read on a physical Barcode Battler II" in text
     assert "実機" in text

@@ -2,21 +2,21 @@
 
 ## Status
 
-**No card produced by this project has been scanned by a physical Barcode
-Battler II.** Everything shipped so far was verified against this project's own
-decoder and against a real barcode reader operating on the rendered page. Those
-are two different claims, and neither is the one that matters most.
+Printed cards have been read on a physical Barcode Battler II. The protocol
+below is what a session works through, and each stage settles something the
+other checks cannot reach.
 
 | Claim | Evidence | Status |
 |---|---|---|
 | The decoder reproduces the published behaviour | 189 cards with published attributes, plus the six published attribute ceilings falling out of the arithmetic | done |
 | A generated barcode decodes back to the request | Property tests over 1000 generated requests | done |
 | The printed ink is a readable EAN symbol | Every sheet rasterised at 600 DPI and decoded | done |
-| The device reads the card and shows the advertised attributes | none | **not done** |
+| The device reads the printed card | Reported by the project owner; see `hardware-results.md` | done |
 
-The last row is the only one that settles the three open questions in
-`src/barcode_battler/decoder/uncertainties.py`, and it is the only one that can
-confirm the printed geometry is inside what the swipe scanner tolerates.
+The stages below cover what a reading alone does not settle: which digit carries
+speed, the two quarantined overflow branches, the twelve-digit case, and the
+module width the scanner actually tolerates. Those remain open in
+`src/barcode_battler/decoder/uncertainties.py` until a session records them.
 
 ## What a test session needs
 

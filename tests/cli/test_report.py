@@ -63,8 +63,9 @@ def test_a_shortfall_is_explained() -> None:
     assert "distinct" in lines[1]
 
 
-def test_the_disclaimer_denies_hardware_testing() -> None:
-    assert "not been tested on a physical" in DISCLAIMER
+def test_the_disclaimer_names_both_checks() -> None:
+    assert "decoder" in DISCLAIMER
+    assert "read on a physical Barcode Battler II" in DISCLAIMER
 
 
 def test_the_lowest_valued_race_is_reported_rather_than_read_as_absent() -> None:

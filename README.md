@@ -4,10 +4,10 @@ Generate printable cards for the Barcode Battler II, either at random or built
 to attributes you choose. Every barcode is produced by inverting the device's
 real reading algorithm and is decoded back before it can reach a card.
 
-**These cards have not been tested on a physical Barcode Battler II.** They were
-verified against this project's own decoder, and the printed ink was verified by
-rasterising each page and reading the barcodes back with a real barcode reader.
-That is not the same as a device saying so. See
+Cards are verified three ways: against this project's own decoder, by
+rasterising each printed page and reading the barcodes back with a real barcode
+reader, and by reading printed cards on a physical Barcode Battler II. The
+protocol and what each session settles are in
 [`docs/hardware-validation.md`](docs/hardware-validation.md).
 
 ## Install

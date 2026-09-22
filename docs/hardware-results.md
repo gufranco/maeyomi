@@ -5,10 +5,9 @@ Sessions run against a physical Barcode Battler II, following
 
 ## Sessions
 
-None yet.
-
 | Date | Device | Stage | Cards | First-swipe reads | Finding |
 |---|---|---|---|---|---|
+| 2026-09-22 | Barcode Battler II | 1, does the device read our ink | not recorded | not recorded | The device reads cards printed by this project. Reported by the project owner; the counts and the later stages were not recorded. |
 
 ## Open questions this file would close
 
