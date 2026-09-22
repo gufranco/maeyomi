@@ -12,7 +12,7 @@ jobs:
     name: point the formula at the new release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           ref: main
 
