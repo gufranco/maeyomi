@@ -10,6 +10,7 @@
   --good: #1d6b3f;
   --warn: #8a5a00;
   --bad: #99231f;
+  --cheat: #6a2a88;
   --radius: 10px;
   --gap: 1.25rem;
 }
@@ -26,6 +27,7 @@
     --good: #6fce9a;
     --warn: #e0b35c;
     --bad: #f08a80;
+    --cheat: #c9a3ea;
   }
 }
 
@@ -40,9 +42,12 @@
   --good: #6fce9a;
   --warn: #e0b35c;
   --bad: #f08a80;
+  --cheat: #c9a3ea;
 }
 
 * { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
 
 body {
   margin: 0;
@@ -329,6 +334,8 @@ button[disabled] { opacity: .55; cursor: progress; }
 .status.is-good .tag { background: color-mix(in srgb, var(--good) 18%, transparent); color: var(--good); }
 .status.is-warn .tag { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
 .status.is-bad .tag { background: color-mix(in srgb, var(--bad) 18%, transparent); color: var(--bad); }
+.status.is-info .tag { background: color-mix(in srgb, var(--ink-soft) 18%, transparent); color: var(--ink-soft); }
+.status.is-cheat .tag { background: var(--cheat); color: var(--card); }
 
 .status ul { margin: .3rem 0 0; padding-left: 1.1rem; }
 
@@ -378,3 +385,58 @@ footer p { margin: 0 0 .5rem; max-width: 46rem; }
 }
 
 .is-loading { opacity: .5; }
+
+.cheat-banner {
+  max-width: 68rem;
+  margin: 0 auto var(--gap);
+  padding: .9rem 1.2rem;
+  border: 3px dashed var(--cheat);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--cheat) 12%, var(--card));
+  text-align: center;
+}
+
+.cheat-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cheat);
+}
+
+.cheat-quip { margin: .3rem 0 0; font-size: 1.05rem; }
+
+.cheat-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+
+.cheat-form label { font-weight: 600; }
+
+.cheat-form input {
+  width: 11rem;
+  min-height: 44px;
+  font-family: ui-monospace, monospace;
+  text-transform: uppercase;
+}
+
+.cheat-form button { min-height: 44px; }
+
+#official-rejected { margin: .5rem 0 0; padding-left: 1.1rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .cheat-shake { animation: cheat-shake .7s ease-in-out; }
+}
+
+@keyframes cheat-shake {
+  0%, 100% { transform: none; }
+  15% { transform: translate(-6px, 2px) rotate(-.6deg); }
+  30% { transform: translate(6px, -2px) rotate(.6deg); }
+  45% { transform: translate(-4px, 1px) rotate(-.4deg); }
+  60% { transform: translate(4px, -1px) rotate(.4deg); }
+  75% { transform: translate(-2px, 0); }
+}

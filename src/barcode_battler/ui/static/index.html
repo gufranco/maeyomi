@@ -24,6 +24,14 @@
   <button role="tab" id="tab-many" aria-controls="panel-many" aria-selected="false">
     A sheet of cards
   </button>
+  <button role="tab" id="tab-official" aria-controls="panel-official" aria-selected="false">
+    The real cards
+  </button>
+</div>
+
+<div id="cheat-banner" class="cheat-banner" role="status" aria-live="polite" hidden>
+  <p class="cheat-title">Cheat activated</p>
+  <p class="cheat-quip" id="cheat-quip"></p>
 </div>
 
 <main>
@@ -211,9 +219,60 @@
   </aside>
 </section>
 
+<section id="panel-official" role="tabpanel" aria-labelledby="tab-official" class="layout" hidden>
+  <form id="official" class="panel">
+    <fieldset>
+      <legend>Cards Epoch really sold</legend>
+      <p class="field">
+        <label for="official-set">Which set</label>
+        <select id="official-set" name="set"></select>
+        <span class="hint" id="official-hint"></span>
+      </p>
+    </fieldset>
+
+    <p class="note">
+      These are the barcodes printed on the cards Epoch released in Japan, typed
+      in by collectors on the Barcode Battler wiki. The numbers on each card are
+      read from the barcode by this program, not copied from the wiki.
+    </p>
+
+    <details class="advanced" id="official-skipped">
+      <summary>Cards left out</summary>
+      <p class="hint">
+        The wiki has a typo in these: the last digit does not match the others,
+        so the machine would refuse them. Guessing the right digit would mean
+        printing a card nobody ever sold, so they are left out instead.
+      </p>
+      <ul id="official-rejected"></ul>
+    </details>
+
+    <p class="actions">
+      <button type="submit" class="primary">Show the cards</button>
+      <button type="button" id="official-pdf">Download to print</button>
+    </p>
+  </form>
+
+  <aside class="preview" aria-live="polite">
+    <h2>The set</h2>
+    <div class="sheet-frame" id="official-frame">
+      <p class="placeholder">
+        Pick a set and press <strong>Show the cards</strong>.
+      </p>
+    </div>
+    <div id="official-status" class="status"></div>
+  </aside>
+</section>
+
 </main>
 
 <footer>
+  <form id="cheat" class="cheat-form">
+    <label for="cheat-code">Secret code</label>
+    <input id="cheat-code" name="code" autocomplete="off" spellcheck="false"
+           maxlength="20" placeholder="psst...">
+    <button type="submit">Try it</button>
+    <span class="hint" id="cheat-reply" role="status" aria-live="polite"></span>
+  </form>
   <p id="disclaimer">__DISCLAIMER__</p>
   <p>
     Printing: use plain matte paper, turn off any "fit to page" or "scale"

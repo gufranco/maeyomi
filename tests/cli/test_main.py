@@ -365,3 +365,58 @@ def test_the_nearest_flag_reports_when_there_is_no_close_card_either(tmp_path: P
     assert result.exit_code == 1
     assert "window" in result.output
     assert not output.exists()
+
+
+def test_cheat_writes_the_strongest_card_there_is(tmp_path: Path) -> None:
+    output = tmp_path / "cheat.pdf"
+
+    result = runner.invoke(app, ["cheat", "--output", str(output)])
+
+    assert result.exit_code == 0
+    character = decode(decode_pdf(output)[0])
+    assert (character.hp, character.st, character.df) == (99900, 24500, 19900)
+
+
+def test_cheat_takes_a_name(tmp_path: Path) -> None:
+    output = tmp_path / "grandma.pdf"
+
+    result = runner.invoke(app, ["cheat", "--name", "Grandma", "--output", str(output)])
+
+    assert result.exit_code == 0
+    assert "Grandma" in result.output
+
+
+def test_official_lists_every_set_with_its_count() -> None:
+    result = runner.invoke(app, ["official", "--list"])
+
+    assert result.exit_code == 0
+    assert "Barcode Battler II board game" in result.output
+    assert "572" in result.output
+
+
+def test_official_names_the_transcriptions_it_rejected() -> None:
+    result = runner.invoke(app, ["official", "--list"])
+
+    assert "1162864348006" in result.output
+
+
+def test_official_prints_one_set(tmp_path: Path) -> None:
+    output = tmp_path / "candy.pdf"
+
+    result = runner.invoke(app, ["official", "--set", "candy", "--output", str(output)])
+
+    assert result.exit_code == 0
+    assert len(decode_pdf(output)) == 10
+
+
+def test_official_rejects_a_set_it_does_not_know(tmp_path: Path) -> None:
+    result = runner.invoke(app, ["official", "--set", "nope", "--output", str(tmp_path / "x.pdf")])
+
+    assert result.exit_code == 2
+    assert "candy" in result.output
+
+
+def test_official_needs_an_output_unless_listing() -> None:
+    result = runner.invoke(app, ["official"])
+
+    assert result.exit_code == 2

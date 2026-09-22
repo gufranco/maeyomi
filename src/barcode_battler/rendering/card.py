@@ -12,9 +12,12 @@ than cut, and only trimmed when it will not fit even after wrapping.
 """
 
 from dataclasses import dataclass
-from typing import Final
+from functools import cache
+from typing import Any, Final, cast
 
 from reportlab.lib.units import mm
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 from reportlab.pdfgen.canvas import Canvas
 
 from barcode_battler.barcode.geometry import BarcodeGeometry
@@ -36,6 +39,14 @@ from barcode_battler.rendering.icons import (
 )
 
 TITLE_FONT: Final = "Helvetica-Bold"
+JAPANESE_FONT: Final = "HeiseiKakuGo-W5"
+"""A Japanese gothic face for names the Latin fonts have no glyphs for.
+
+It is one of the Adobe Japan1 fonts every PDF reader carries, so it needs no
+file here. It is referenced rather than embedded, which is what that font class
+is for; see the README on printing official cards.
+"""
+LATIN_1_LIMIT: Final = 0xFF
 BODY_FONT: Final = "Helvetica"
 MUTED_INK: Final[Colour] = (0.35, 0.37, 0.43)
 PANEL_FILL: Final[Colour] = (0.94, 0.95, 0.96)
@@ -217,16 +228,17 @@ def _draw_name(
 ) -> float:
     """Draw the name across up to two centred lines, and return the new cursor."""
     available = width_mm - 2 * style.padding_mm
+    font = _name_font(card.name)
     lines = _wrap(
         canvas,
         card.name,
         available,
-        font=TITLE_FONT,
+        font=font,
         size_pt=style.title_size_pt,
         max_lines=MAX_NAME_LINES,
     )
     canvas.setFillColorRGB(*INK)
-    canvas.setFont(TITLE_FONT, style.title_size_pt)
+    canvas.setFont(font, style.title_size_pt)
     baseline = top_mm - style.name_line_mm
     for line in lines:
         canvas.drawCentredString((x_mm + width_mm / 2) * mm, baseline * mm, line)
@@ -273,8 +285,9 @@ def _draw_stats(
             size_mm=icon_size,
         )
         canvas.setFillColorRGB(*INK)
-        canvas.setFont(TITLE_FONT, style.stat_size_pt)
-        canvas.drawCentredString((left + tile_width / 2) * mm, (bottom + 4.4) * mm, str(value))
+        number = str(value)
+        canvas.setFont(TITLE_FONT, _fit_size(number, tile_width - 1.6, style.stat_size_pt))
+        canvas.drawCentredString((left + tile_width / 2) * mm, (bottom + 4.4) * mm, number)
         canvas.setFillColorRGB(*MUTED_INK)
         canvas.setFont(BODY_FONT, style.stat_label_size_pt)
         canvas.drawCentredString((left + tile_width / 2) * mm, (bottom + 1.2) * mm, label)
@@ -375,17 +388,21 @@ def _wrap(
     size_pt: float,
     max_lines: int,
 ) -> list[str]:
-    """Break text on spaces to fit the width.
+    """Break text to fit the width, between words or, with no spaces, between characters.
 
-    Text that still does not fit is cut and the cut is marked, so a reader can
-    see that a name was shortened rather than reading a different name.
+    Japanese is written without spaces, so a name with none is broken between
+    characters instead. Text that still does not fit is cut and the cut is
+    marked, so a reader can see that a name was shortened rather than reading a
+    different name.
     """
     limit = available_mm * mm
+    joiner = " " if " " in text.strip() else ""
+    tokens = text.split() if joiner else list(text.strip())
     lines: list[str] = []
     current = ""
     truncated = False
-    for word in text.split():
-        candidate = f"{current} {word}".strip()
+    for word in tokens:
+        candidate = f"{current}{joiner}{word}" if current else word
         if current and canvas.stringWidth(candidate, font, size_pt) > limit:
             lines.append(current)
             current = word
@@ -401,6 +418,29 @@ def _wrap(
     if truncated and wrapped:
         wrapped[-1] = _cut(canvas, wrapped[-1], limit, font, size_pt)
     return wrapped
+
+
+def _name_font(name: str) -> str:
+    """The face a name is set in: Latin where it can be, Japanese where it must."""
+    if all(ord(character) <= LATIN_1_LIMIT for character in name):
+        return TITLE_FONT
+    _register_japanese_font()
+    return JAPANESE_FONT
+
+
+@cache
+def _register_japanese_font() -> None:
+    """Register the Japanese face once, the first time a name needs it."""
+    cast("Any", pdfmetrics).registerFont(UnicodeCIDFont(JAPANESE_FONT))
+
+
+def _fit_size(text: str, available_mm: float, size_pt: float) -> float:
+    """The largest size up to the preferred one at which the text fits the width."""
+    width = pdfmetrics.stringWidth(text, TITLE_FONT, size_pt)
+    limit = available_mm * mm
+    if width <= limit:
+        return size_pt
+    return size_pt * limit / width
 
 
 def _trim(canvas: Canvas, text: str, limit: float, font: str, size_pt: float) -> str:

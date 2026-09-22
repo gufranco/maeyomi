@@ -260,3 +260,92 @@ def test_a_sheet_preview_that_cannot_be_filled_reports_the_shortfall(client: Tes
 
     assert response.status_code == 422
     assert "distinct" in response.json()["detail"]
+
+
+def test_the_cheat_returns_the_strongest_card(client: TestClient) -> None:
+    response = client.post("/api/cheat", json={"name": "Grandma"})
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["name"] == "Grandma"
+    assert (body["character"]["hp"], body["character"]["st"], body["character"]["df"]) == (
+        99900,
+        24500,
+        19900,
+    )
+
+
+def test_the_cheat_has_a_silly_default_name(client: TestClient) -> None:
+    response = client.post("/api/cheat", json={})
+
+    assert response.json()["name"] == "Maximus Cheatimus"
+
+
+def test_the_accepted_cheat_codes_are_served_for_the_joke(client: TestClient) -> None:
+    response = client.get("/api/cheat-codes")
+
+    assert response.status_code == 200
+    assert "IDDQD" in response.json()
+
+
+def test_a_sheet_can_be_built_from_barcodes(client: TestClient, tmp_path: object) -> None:
+    response = client.post(
+        "/api/barcode-sheet",
+        json={"cards": [{"barcode": "9994599095183", "name": "Maximus"}]},
+    )
+
+    assert response.status_code == 200
+    assert sheet_codes(response.content, tmp_path) == ["9994599095183"]
+
+
+def test_a_barcode_sheet_rejects_a_bad_barcode(client: TestClient) -> None:
+    response = client.post("/api/barcode-sheet", json={"cards": [{"barcode": "123"}]})
+
+    assert response.status_code == 400
+
+
+def test_a_barcode_sheet_needs_at_least_one_card(client: TestClient) -> None:
+    response = client.post("/api/barcode-sheet", json={"cards": []})
+
+    assert response.status_code == 422
+
+
+def test_the_official_sets_are_listed_with_their_counts(client: TestClient) -> None:
+    response = client.get("/api/official")
+
+    assert response.status_code == 200
+    body = response.json()
+    board = next(entry for entry in body["sets"] if entry["key"] == "board_game")
+    assert board["english"] == "Barcode Battler II board game"
+    assert board["count"] > 0
+    assert body["total"] == 572
+    assert len(body["rejected"]) == 5
+
+
+def test_an_official_set_downloads_as_a_sheet(client: TestClient, tmp_path: object) -> None:
+    response = client.post("/api/official-sheet", json={"set": "candy"})
+
+    assert response.status_code == 200
+    assert len(sheet_codes(response.content, tmp_path)) == 10
+
+
+def test_an_unknown_official_set_is_rejected(client: TestClient) -> None:
+    response = client.post("/api/official-sheet", json={"set": "nope"})
+
+    assert response.status_code == 422
+
+
+def test_an_official_set_can_be_previewed(client: TestClient) -> None:
+    response = client.post("/api/official-preview", json={"set": "candy"})
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["count"] == 10
+    assert body["pages"][0].startswith("data:image/png;base64,")
+
+
+def test_every_official_card_can_be_downloaded_at_once(client: TestClient) -> None:
+    response = client.post("/api/official-sheet", json={})
+
+    assert response.status_code == 200
+    assert response.headers["content-type"] == "application/pdf"

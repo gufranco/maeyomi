@@ -27,6 +27,7 @@ from barcode_battler.cli.parsing import parse_character_class, parse_constraint,
 from barcode_battler.cli.report import DISCLAIMER
 from barcode_battler.decoder.decode import decode
 from barcode_battler.decoder.errors import BarcodeError
+from barcode_battler.generator.cheat import CHEAT_CODES, DEFAULT_CHEAT_NAME, strongest_card
 from barcode_battler.generator.nearest import solve_nearest
 from barcode_battler.generator.random_cards import generate_random
 from barcode_battler.generator.solve import solve
@@ -35,16 +36,28 @@ from barcode_battler.models.generated_card import GeneratedCard
 from barcode_battler.models.race import Race
 from barcode_battler.models.read_type import ReadType
 from barcode_battler.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
+from barcode_battler.official.catalogue import (
+    OfficialSet,
+    official_cards,
+    rejected_transcriptions,
+)
 from barcode_battler.rendering.preview import card_png, sheet_png_pages
 from barcode_battler.rendering.sheet import write_sheet
 from barcode_battler.ui.schemas import (
     AbilityView,
+    BarcodeSheetSpec,
     CardSpec,
     CharacterView,
+    CheatResult,
+    CheatSpec,
     GenerateResult,
+    OfficialCatalogue,
+    OfficialSetView,
+    OfficialSpec,
     PreviewSpec,
     RaceView,
     RandomSpec,
+    RejectedView,
     SheetPreview,
     SheetSpec,
 )
@@ -118,12 +131,7 @@ def generate_one(spec: CardSpec) -> GenerateResult:
 
 def preview(spec: PreviewSpec) -> Response:
     """Draw one card exactly as it would print, and return it as an image."""
-    try:
-        character = decode(spec.barcode)
-    except BarcodeError as error:
-        raise HTTPException(status_code=BAD_REQUEST, detail=str(error)) from error
-    card = GeneratedCard(name=spec.name, barcode=character.barcode, character=character)
-    return Response(content=card_png(card), media_type="image/png")
+    return Response(content=card_png(_decoded_card(spec)), media_type="image/png")
 
 
 def sheet_preview(spec: RandomSpec) -> SheetPreview:
@@ -145,6 +153,62 @@ def random_sheet(spec: RandomSpec) -> FileResponse:
     return _sheet_response(_random_cards(spec), "cards.pdf")
 
 
+def cheat(spec: CheatSpec) -> CheatResult:
+    """The strongest card the device will read, under whatever name was typed."""
+    card = strongest_card(spec.name or DEFAULT_CHEAT_NAME)
+    return CheatResult(
+        name=card.name, barcode=card.barcode, character=CharacterView.of(card.character)
+    )
+
+
+def cheat_codes() -> list[str]:
+    """The codes the page accepts. A joke, not a lock: the endpoint above is open."""
+    return sorted(CHEAT_CODES)
+
+
+def barcode_sheet(spec: BarcodeSheetSpec) -> FileResponse:
+    """Build a sheet from cards that already carry a barcode."""
+    if not spec.cards:
+        raise HTTPException(status_code=UNPROCESSABLE, detail="no cards were requested")
+    return _sheet_response([_decoded_card(card) for card in spec.cards], "cards.pdf")
+
+
+def official() -> OfficialCatalogue:
+    """Every official set, how many of its cards print, and which were left out."""
+    return OfficialCatalogue(
+        sets=[
+            OfficialSetView(
+                key=official_set.name.lower(),
+                english=official_set.english,
+                japanese=official_set.value,
+                count=len(official_cards(official_set)),
+            )
+            for official_set in OfficialSet
+        ],
+        total=len(official_cards()),
+        rejected=[
+            RejectedView(
+                barcode=entry.barcode,
+                name=entry.name,
+                reason="the check digit does not match the other twelve digits",
+            )
+            for entry in rejected_transcriptions()
+        ],
+    )
+
+
+def official_sheet(spec: OfficialSpec) -> FileResponse:
+    """Download one official set, or all of them."""
+    return _sheet_response(official_cards(_official_set(spec)), "official-cards.pdf")
+
+
+def official_preview(spec: OfficialSpec) -> SheetPreview:
+    """Draw the first pages of an official set."""
+    cards = official_cards(_official_set(spec))
+    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * 9])
+    return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
+
+
 def create_app() -> FastAPI:
     """Build the application with every route attached."""
     app = FastAPI(title="Barcode Battler II card maker", docs_url="/docs")
@@ -157,6 +221,12 @@ def create_app() -> FastAPI:
     app.add_api_route("/api/sheet-preview", sheet_preview, methods=["POST"])
     app.add_api_route("/api/sheet", sheet, methods=["POST"])
     app.add_api_route("/api/random", random_sheet, methods=["POST"])
+    app.add_api_route("/api/cheat", cheat, methods=["POST"])
+    app.add_api_route("/api/cheat-codes", cheat_codes, methods=["GET"])
+    app.add_api_route("/api/barcode-sheet", barcode_sheet, methods=["POST"])
+    app.add_api_route("/api/official", official, methods=["GET"])
+    app.add_api_route("/api/official-sheet", official_sheet, methods=["POST"])
+    app.add_api_route("/api/official-preview", official_preview, methods=["POST"])
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
     return app
 
@@ -198,6 +268,27 @@ def _solve_card(spec: CardSpec) -> GeneratedCard:
     if outcome.barcode is None or outcome.character is None:
         raise HTTPException(status_code=UNPROCESSABLE, detail=list(outcome.blockers))
     return GeneratedCard(name=spec.name, barcode=outcome.barcode, character=outcome.character)
+
+
+def _decoded_card(spec: PreviewSpec) -> GeneratedCard:
+    """Decode a card that already has a barcode, reporting one the device refuses."""
+    try:
+        character = decode(spec.barcode)
+    except BarcodeError as error:
+        raise HTTPException(status_code=BAD_REQUEST, detail=str(error)) from error
+    return GeneratedCard(name=spec.name, barcode=character.barcode, character=character)
+
+
+def _official_set(spec: OfficialSpec) -> OfficialSet | None:
+    """Resolve the named set, or None for every set."""
+    if spec.official_set is None:
+        return None
+    try:
+        return OfficialSet[spec.official_set.strip().upper()]
+    except KeyError as error:
+        raise HTTPException(
+            status_code=UNPROCESSABLE, detail=f"unknown set {spec.official_set!r}"
+        ) from error
 
 
 def _sheet_response(cards: Sequence[GeneratedCard], filename: str) -> FileResponse:

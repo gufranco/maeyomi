@@ -55,7 +55,19 @@ def test_the_placeholder_is_replaced_when_the_page_is_served(client: TestClient)
 
 @pytest.mark.parametrize(
     "endpoint",
-    ["/api/generate", "/api/preview", "/api/sheet", "/api/sheet-preview", "/api/random"],
+    [
+        "/api/generate",
+        "/api/preview",
+        "/api/sheet",
+        "/api/sheet-preview",
+        "/api/random",
+        "/api/cheat",
+        "/api/cheat-codes",
+        "/api/barcode-sheet",
+        "/api/official",
+        "/api/official-sheet",
+        "/api/official-preview",
+    ],
 )
 def test_the_script_calls_every_endpoint_it_needs(endpoint: str) -> None:
     assert endpoint in SCRIPT
@@ -63,7 +75,21 @@ def test_the_script_calls_every_endpoint_it_needs(endpoint: str) -> None:
 
 @pytest.mark.parametrize(
     "control",
-    ["name", "race", "class", "hp", "st", "df", "ability", "speed", "job", "count", "seed"],
+    [
+        "name",
+        "race",
+        "class",
+        "hp",
+        "st",
+        "df",
+        "ability",
+        "speed",
+        "job",
+        "count",
+        "seed",
+        "official-set",
+        "cheat-code",
+    ],
 )
 def test_every_control_exists(control: str) -> None:
     assert f'id="{control}"' in MARKUP
@@ -103,12 +129,14 @@ def test_every_control_meets_the_minimum_target_size() -> None:
 
 def test_the_tabs_carry_their_roles() -> None:
     assert 'role="tablist"' in MARKUP
-    assert MARKUP.count('role="tab"') == 2
-    assert MARKUP.count('role="tabpanel"') == 2
+    assert MARKUP.count('role="tab"') == 3
+    assert MARKUP.count('role="tabpanel"') == 3
 
 
 def test_the_preview_regions_announce_their_updates() -> None:
-    assert MARKUP.count('aria-live="polite"') == 2
+    for region in ("panel-one", "panel-many", "panel-official"):
+        section = MARKUP[MARKUP.index(f'id="{region}"') :]
+        assert 'aria-live="polite"' in section[: section.index("</section>")]
 
 
 def test_the_script_escapes_text_it_puts_into_markup() -> None:
@@ -129,3 +157,26 @@ def test_the_static_directory_is_inside_the_package() -> None:
     assert STATIC_DIR.name == "static"
     assert STATIC_DIR.parent.name == "ui"
     assert Path(STATIC_DIR).is_dir()
+
+
+def test_there_is_a_tab_for_the_official_cards() -> None:
+    assert 'id="tab-official"' in MARKUP
+    assert 'id="panel-official"' in MARKUP
+
+
+def test_the_konami_code_is_listened_for() -> None:
+    assert "ArrowUp" in SCRIPT
+    assert "ArrowDown" in SCRIPT
+
+
+def test_the_cheat_banner_is_announced_to_screen_readers() -> None:
+    assert re.search(r'id="cheat-banner"[^>]*aria-live="polite"', MARKUP)
+
+
+def test_the_cheat_animation_stops_for_anyone_who_asked_for_less_motion() -> None:
+    assert "prefers-reduced-motion" in STYLES
+    assert "cheat-shake" in STYLES
+
+
+def test_a_hidden_element_stays_hidden_whatever_its_layout_class_says() -> None:
+    assert re.search(r"\[hidden\]\s*\{\s*display:\s*none\s*!important", STYLES)

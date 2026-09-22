@@ -218,3 +218,43 @@ def test_a_name_longer_than_two_lines_is_cut_on_the_second(tmp_path: Path) -> No
     text = pdf_text(path)
     assert "..." in text
     assert "Peaks" not in text
+
+
+def test_a_japanese_name_is_printed_in_a_font_that_has_its_glyphs(tmp_path: Path) -> None:
+    path = tmp_path / "japanese.pdf"
+
+    render(path, sample("甲賀の巻物"))
+
+    assert "甲賀の巻物" in pdf_text(path)
+
+
+def test_a_long_japanese_name_breaks_between_characters(tmp_path: Path) -> None:
+    path = tmp_path / "long-japanese.pdf"
+    name = "外伝最後の死闘黒魔術王パノラマンダー大王"
+
+    render(path, sample(name))
+
+    text = pdf_text(path).replace("\r\n", "")
+    assert name in text
+
+
+def test_the_largest_numbers_the_device_holds_are_printed_whole(tmp_path: Path) -> None:
+    path = tmp_path / "huge.pdf"
+    barcode = "9994599095183"
+    card = GeneratedCard(name="Maximus", barcode=barcode, character=decode(barcode))
+
+    render(path, card)
+
+    text = pdf_text(path)
+    for value in ("99900", "24500", "19900"):
+        assert value in text
+
+
+def test_one_word_wider_than_the_card_is_cut_on_its_own_line(tmp_path: Path) -> None:
+    path = tmp_path / "wide-word.pdf"
+
+    render(path, sample("Sir " + "Supercalifragilistic" * 3))
+
+    text = pdf_text(path)
+    assert "Sir" in text
+    assert "..." in text

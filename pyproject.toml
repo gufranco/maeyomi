@@ -67,6 +67,7 @@ ignore = [
 "src/barcode_battler/rendering/sheet.py" = ["PLR0913"]
 "src/barcode_battler/rendering/preview.py" = ["PLR0913"]
 "src/barcode_battler/cli/main.py" = ["PLR0913", "PLR0917", "FBT002"]
+"src/barcode_battler/official/catalogue.py" = ["RUF001"]
 "tools/*" = ["ALL"]
 
 [tool.ruff.lint.pydocstyle]

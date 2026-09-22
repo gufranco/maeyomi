@@ -2,7 +2,30 @@ const HIGH_HP = 20000;
 const MARKER_REMAINDER = 900;
 const ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 
+const KONAMI = [
+  'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+  'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a',
+];
+const SHAKE_MS = 700;
+const CHEAT_QUIPS = [
+  'The machine is sweating.',
+  'Please do not tell the other fighters.',
+  '99900 health. Your friends will need a bigger calculator.',
+  'Attack doubled, because normal attack was just not enough.',
+  'Warning: may cause your friends to stop playing with you.',
+  'The barcode is real. The fairness is not.',
+];
+const WRONG_CODE_REPLIES = [
+  'Nice try. The machine is not impressed.',
+  'Nope. Maybe ask a grown-up who played in 1992?',
+  'That is not it. The machine yawns.',
+];
+
+let cheatCard = null;
+
 const $ = (id) => document.getElementById(id);
+
+const pick = (items) => items[Math.floor(Math.random() * items.length)];
 
 const escapeHtml = (text) => String(text).replace(/[&<>"']/g, (ch) => ESCAPES[ch]);
 
@@ -178,6 +201,7 @@ async function showPreview(barcode, name) {
 
 async function makeOneCard(event) {
   event?.preventDefault();
+  cheatCard = null;
   const button = $('one').querySelector('button[type="submit"]');
   button.toggleAttribute('disabled', true);
   try {
@@ -195,6 +219,11 @@ async function makeOneCard(event) {
 }
 
 async function downloadOneCard() {
+  if (cheatCard) {
+    const name = $('name').value.trim() || cheatCard.name;
+    await downloadBarcodes([{ ...cheatCard, name }], 'cheat-card.pdf', 'one-status');
+    return;
+  }
   const result = await makeOneCard();
   if (!result) return;
   const { ok, body, response } = await postJson('/api/sheet', {
@@ -260,6 +289,151 @@ async function downloadSheet() {
   download(await response.blob(), 'cards.pdf');
 }
 
+async function downloadBarcodes(cards, filename, statusId) {
+  const { ok, body, response } = await postJson('/api/barcode-sheet', { cards });
+  if (!ok) {
+    setStatus(statusId, 'bad', 'Not possible', 'Try again:', reasons(body));
+    return;
+  }
+  download(await response.blob(), filename);
+}
+
+function showPages(frameId, pages, label) {
+  const frame = $(frameId);
+  frame.replaceChildren();
+  frame.insertAdjacentHTML(
+    'afterbegin',
+    pages
+      .map((page, index) => `<img src="${page}" alt="${escapeHtml(label)}, page ${index + 1}">`)
+      .join(''),
+  );
+}
+
+function officialPayload() {
+  const chosen = $('official-set').value;
+  return chosen ? { set: chosen } : {};
+}
+
+async function setUpOfficial() {
+  const catalogue = await getJson('/api/official');
+  const select = $('official-set');
+  select.insertAdjacentHTML(
+    'afterbegin',
+    `<option value="">Every set, ${catalogue.total} cards</option>` +
+      catalogue.sets
+        .map(
+          (entry) =>
+            `<option value="${entry.key}" data-japanese="${escapeHtml(entry.japanese)}">` +
+            `${escapeHtml(entry.english)}, ${entry.count} cards</option>`,
+        )
+        .join(''),
+  );
+  const hint = () => {
+    const option = select.selectedOptions[0];
+    $('official-hint').textContent = option?.dataset.japanese
+      ? `In Japanese: ${option.dataset.japanese}`
+      : 'Every card from every set, one after another.';
+  };
+  select.addEventListener('change', hint);
+  hint();
+  $('official-rejected').insertAdjacentHTML(
+    'afterbegin',
+    catalogue.rejected
+      .map((entry) => `<li><code>${escapeHtml(entry.barcode)}</code> ${escapeHtml(entry.name)}</li>`)
+      .join(''),
+  );
+}
+
+async function showOfficial(event) {
+  event?.preventDefault();
+  const button = $('official').querySelector('button[type="submit"]');
+  button.toggleAttribute('disabled', true);
+  setStatus('official-status', 'info', 'Working', 'Drawing the cards...');
+  try {
+    const { ok, body } = await postJson('/api/official-preview', officialPayload());
+    if (!ok) {
+      setStatus('official-status', 'bad', 'Not possible', 'Try again:', reasons(body));
+      return;
+    }
+    showPages('official-frame', body.pages, 'Official cards');
+    const shown = body.pages.length * 9;
+    const more = body.count > shown ? ` The first ${shown} are shown here; the download has all of them.` : '';
+    setStatus('official-status', 'good', 'Ready', `${body.count} cards.${more}`);
+  } finally {
+    button.toggleAttribute('disabled', false);
+  }
+}
+
+async function downloadOfficial() {
+  setStatus('official-status', 'info', 'Working', 'Building the file. A big set takes a moment.');
+  const { ok, body, response } = await postJson('/api/official-sheet', officialPayload());
+  if (!ok) {
+    setStatus('official-status', 'bad', 'Not possible', 'Try again:', reasons(body));
+    return;
+  }
+  download(await response.blob(), 'official-cards.pdf');
+  setStatus('official-status', 'good', 'Done', 'The file is in your downloads.');
+}
+
+function celebrate() {
+  $('cheat-quip').textContent = pick(CHEAT_QUIPS);
+  $('cheat-banner').toggleAttribute('hidden', false);
+  document.body.classList.add('cheat-shake');
+  setTimeout(() => document.body.classList.remove('cheat-shake'), SHAKE_MS);
+}
+
+async function activateCheat() {
+  const field = $('name');
+  const typed = field.value.trim();
+  const custom = typed && typed !== field.defaultValue;
+  const { ok, body } = await postJson('/api/cheat', custom ? { name: typed } : {});
+  if (!ok) return;
+  cheatCard = { barcode: body.barcode, name: body.name };
+  field.value = body.name;
+  $('race').value = body.character.race;
+  $('race').dispatchEvent(new Event('change'));
+  $('class').value = body.character.character_class ?? '';
+  $('tab-one').click();
+  celebrate();
+  const { hp, st, df } = body.character;
+  setStatus(
+    'one-status',
+    'cheat',
+    'Cheat',
+    `${body.name}: ${hp} health, ${st} attack, ${df} defence, and its attack doubles.`,
+  );
+  $('one-code').toggleAttribute('hidden', false);
+  $('one-code-value').textContent = body.barcode;
+  await showPreview(body.barcode, body.name);
+}
+
+async function setUpCheat() {
+  const codes = new Set(await getJson('/api/cheat-codes'));
+  $('cheat').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const typed = $('cheat-code').value.toUpperCase().replace(/\s+/g, '');
+    if (codes.has(typed)) {
+      $('cheat-reply').textContent = 'Oh no. You found it.';
+      $('cheat-code').value = '';
+      await activateCheat();
+    } else {
+      $('cheat-reply').textContent = pick(WRONG_CODE_REPLIES);
+    }
+  });
+
+  let progress = 0;
+  document.addEventListener('keydown', async (event) => {
+    const typing = event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement;
+    if (typing) return;
+    const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
+    progress = key === KONAMI[progress] ? progress + 1 : Number(key === KONAMI[0]);
+    if (progress === KONAMI.length) {
+      progress = 0;
+      await activateCheat();
+    }
+  });
+}
+
 function copyCode() {
   navigator.clipboard?.writeText($('one-code-value').textContent);
   $('one-copy').textContent = 'Copied';
@@ -275,4 +449,8 @@ $('one-pdf').addEventListener('click', downloadOneCard);
 $('one-copy').addEventListener('click', copyCode);
 $('many').addEventListener('submit', makeSheet);
 $('many-pdf').addEventListener('click', downloadSheet);
+$('official').addEventListener('submit', showOfficial);
+$('official-pdf').addEventListener('click', downloadOfficial);
 setUpChoices();
+setUpOfficial();
+setUpCheat();

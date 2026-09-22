@@ -66,6 +66,57 @@ class PreviewSpec(BaseModel):
     name: str = "Card"
 
 
+class BarcodeSheetSpec(BaseModel):
+    """A sheet of cards that already have barcodes, so nothing is solved."""
+
+    cards: list[PreviewSpec]
+
+
+class CheatSpec(BaseModel):
+    """The name to print on the strongest card."""
+
+    name: str | None = None
+
+
+class CheatResult(BaseModel):
+    """The strongest card, decoded."""
+
+    name: str
+    barcode: str
+    character: CharacterView
+
+
+class OfficialSpec(BaseModel):
+    """One official set, or every set when none is named."""
+
+    official_set: str | None = Field(default=None, alias="set")
+
+
+class OfficialSetView(BaseModel):
+    """One official card list as the page shows it."""
+
+    key: str
+    english: str
+    japanese: str
+    count: int
+
+
+class RejectedView(BaseModel):
+    """A transcription that was left out, and why."""
+
+    barcode: str
+    name: str
+    reason: str
+
+
+class OfficialCatalogue(BaseModel):
+    """Every official set, the printable total, and what was left out."""
+
+    sets: list[OfficialSetView]
+    total: int
+    rejected: list[RejectedView]
+
+
 class AbilityView(BaseModel):
     """One row of the published ability table."""
 

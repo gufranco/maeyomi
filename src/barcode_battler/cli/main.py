@@ -1,8 +1,9 @@
 """Command line interface.
 
-Three verbs. `random` fills a sheet from ranges, `generate` builds one card to
-an exact specification, and `decode` reads a barcode back so a card can be
-checked by hand. `abilities` prints the published ability table, because the
+`random` fills a sheet from ranges, `generate` builds one card to an exact
+specification, `official` prints the cards Epoch released, `cheat` prints the
+strongest card the device will read, and `decode` reads a barcode back so a card
+can be checked by hand. `abilities` prints the published ability table, because the
 device has numeric ability codes rather than named elements.
 """
 
@@ -16,6 +17,7 @@ from barcode_battler.cli.parsing import parse_character_class, parse_constraint,
 from barcode_battler.cli.report import DISCLAIMER, comparison_lines, shortfall_lines
 from barcode_battler.decoder.decode import decode as decode_barcode
 from barcode_battler.decoder.errors import BarcodeError
+from barcode_battler.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
 from barcode_battler.generator.nearest import solve_nearest
 from barcode_battler.generator.random_cards import generate_random
 from barcode_battler.generator.solve import solve
@@ -24,6 +26,11 @@ from barcode_battler.models.character import BarcodeBattlerCharacter
 from barcode_battler.models.generated_card import GeneratedCard
 from barcode_battler.models.read_type import ReadType
 from barcode_battler.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
+from barcode_battler.official.catalogue import (
+    OfficialSet,
+    official_cards,
+    rejected_transcriptions,
+)
 from barcode_battler.rendering.export import ImageFormat, export_images
 from barcode_battler.rendering.sheet import write_sheet
 
@@ -183,6 +190,64 @@ def decode(barcode: Annotated[str, typer.Argument(help="8 or 13 digit code.")]) 
     typer.echo(f"Job       {character.job}")
     typer.echo(f"Speed     {character.speed if character.speed is not None else '-'}")
     typer.echo(f"Ability   {character.special.code:02d} {character.special.description}")
+
+
+@app.command()
+def cheat(
+    output: OutputOption,
+    name: Annotated[str, typer.Option("--name", help="Printed on the card only.")] = (
+        DEFAULT_CHEAT_NAME
+    ),
+    images: ImagesOption = None,
+) -> None:
+    """Print the strongest card the device will read. Nobody has to know."""
+    card = strongest_card(name)
+    character = card.character
+    typer.echo(f"{card.name}: HP {character.hp}, ST {character.st}, DF {character.df}")
+    typer.echo(f"Ability {character.special.code:02d} {character.special.description}")
+    _write((card,), output, images)
+
+
+@app.command()
+def official(
+    output: Annotated[Path | None, typer.Option("--output", "-o", help="PDF to write.")] = None,
+    set_name: Annotated[
+        str | None,
+        typer.Option("--set", help="One set, by the key --list prints."),
+    ] = None,
+    listing: Annotated[bool, typer.Option("--list", help="List the sets and stop.")] = False,
+    images: ImagesOption = None,
+) -> None:
+    """Print the cards Epoch released, as the community transcribed them."""
+    if listing:
+        _list_official()
+        return
+    if output is None:
+        typer.echo("--output is required unless --list is given", err=True)
+        raise typer.Exit(code=2)
+    chosen = _official_set(set_name) if set_name is not None else None
+    _write(official_cards(chosen), output, images)
+
+
+def _list_official() -> None:
+    """Print each set, its printable count, and the transcriptions left out."""
+    for official_set in OfficialSet:
+        count = len(official_cards(official_set))
+        typer.echo(f"{count:4d}  {official_set.name.lower():24s}  {official_set.english}")
+    typer.echo(f"{len(official_cards()):4d}  total printable")
+    for entry in rejected_transcriptions():
+        typer.echo(f"skipped {entry.barcode} {entry.name}: its check digit is wrong")
+
+
+def _official_set(value: str) -> OfficialSet:
+    """Resolve a set from its key, reporting the keys on a miss."""
+    key = value.strip().upper().replace("-", "_").replace(" ", "_")
+    try:
+        return OfficialSet[key]
+    except KeyError:
+        known = ", ".join(official_set.name.lower() for official_set in OfficialSet)
+        typer.echo(f"unknown set {value!r}; known sets: {known}", err=True)
+        raise typer.Exit(code=2) from None
 
 
 @app.command()
