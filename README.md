@@ -147,21 +147,20 @@ Print at 100 percent. Turn off "fit to page", "shrink to fit" and any other
 magnification. A scaled page still looks correct and still stops reading,
 because the module width is what a scanner measures.
 
-Cards print standing up, nine to an A4 sheet, at the size set by
+Cards print standing up, poker sized at 63.5 by 88.9 mm, nine to an A4 sheet.
+That is the size card sleeves and guillotines are built for, and it is a choice
+rather than a reproduction: Epoch never published the size of its own cards and
+no collector page, auction listing or wiki records it. The size lives in
 `CARD_WIDTH_MM` and `CARD_HEIGHT_MM` in
-[`layout.py`](src/barcode_battler/rendering/layout.py).
-
-**That size is a placeholder.** Epoch never published the dimensions of its own
-cards, and no collector page, auction listing or wiki records them, so the value
-there is the ISO/IEC 7810 ID-1 bank card, 53.98 by 85.60 mm. Measuring one
-original card with a ruler settles it, and changing those two numbers is the
-whole change: every other measurement on the page is derived.
+[`layout.py`](src/barcode_battler/rendering/layout.py), and changing those two
+numbers moves everything else, because the grid, the gutters, the marks and the
+fit check are all derived from them.
 
 Each sheet follows what print shops ask for:
 
 | Measure | Value | Why |
 |---|---|---|
-| Bleed | 2 mm on a sheet, 3 mm with `--print-shop` | A cut that lands a fraction off still finds ink |
+| Bleed | 1.5 mm on a sheet, 3 mm with `--print-shop` | A cut that lands a fraction off still finds ink |
 | Gutter between cards | 4 mm, twice the bleed | Each card is cut on its own line, not one shared with its neighbour |
 | Safe area | 4 mm from the trim | Nothing a reader needs sits where a trim can take it |
 | Crop marks | Corner ticks starting at the bleed edge | What a printer cuts to, with no line crossing the card |

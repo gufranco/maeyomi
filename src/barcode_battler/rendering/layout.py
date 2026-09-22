@@ -20,21 +20,22 @@ from typing import Final
 
 A4_WIDTH_MM: Final = 210.0
 A4_HEIGHT_MM: Final = 297.0
-CARD_WIDTH_MM: Final = 53.98
-CARD_HEIGHT_MM: Final = 85.60
-"""The printed size of one card.
+CARD_WIDTH_MM: Final = 63.5
+CARD_HEIGHT_MM: Final = 88.9
+"""The printed size of one card: poker size, which sleeves and guillotines fit.
 
-This is a placeholder until an original Epoch card is measured: no published
-figure for it exists, so the value here is the ISO/IEC 7810 ID-1 card, which is
-the size of a bank card. See the note in the README.
+Epoch never published the size of its own cards and no collector page records
+it, so this is a choice rather than a reproduction. Changing these two numbers
+moves everything else: the grid, the gutters, the marks and the fit check are
+all derived from them.
 """
 
 POKER_CARD_WIDTH_MM: Final = CARD_WIDTH_MM
 POKER_CARD_HEIGHT_MM: Final = CARD_HEIGHT_MM
-DEFAULT_MARGIN_MM: Final = 5.0
-DEFAULT_BLEED_MM: Final = 2.0
+DEFAULT_MARGIN_MM: Final = 3.0
+DEFAULT_BLEED_MM: Final = 1.5
 DEFAULT_GUTTER_MM: Final = 2 * DEFAULT_BLEED_MM
-MARK_BAND_MM: Final = 11.0
+MARK_BAND_MM: Final = 9.0
 """Height kept clear above and below the grid for the ruler and the note.
 
 The cut marks live there too. Without it the grid centres on the page and the
