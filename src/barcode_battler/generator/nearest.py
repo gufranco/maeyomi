@@ -38,7 +38,7 @@ from barcode_battler.generator.front_solver import (
     MAX_STAT_DISPLAY,
     assemble,
 )
-from barcode_battler.generator.quarantine import takes_quarantined_branch
+from barcode_battler.generator.quarantine import quarantines_digits
 from barcode_battler.generator.solve import solve
 from barcode_battler.models.card_request import CardRequest
 from barcode_battler.models.character import DISPLAY_SCALE, BarcodeBattlerCharacter
@@ -101,27 +101,29 @@ def _item_blockers(request: CardRequest) -> tuple[str, ...]:
 
 
 def _search(request: CardRequest, window: int) -> NearestOutcome:
-    """Walk the reachable cards inside the window and keep the closest."""
-    best: tuple[int, str] | None = None
+    """Walk the reachable cards inside the window and keep the closest.
+
+    Scoring works on digit values alone. A barcode is assembled once, for the
+    candidate that wins, rather than for every candidate examined.
+    """
+    best: tuple[int, int, int, int] | None = None
     searched = 0
     for hp_units in _hp_candidates(request, window):
-        for st_digits, df_digits in _digit_pairs():
+        for st_digits, df_digits in _DIGIT_PAIRS:
             searched += 1
             scored = _score(request, hp_units, st_digits, df_digits)
             if scored is not None and (best is None or scored[0] < best[0]):
                 best = scored
     if best is None:
         return NearestOutcome(request=request, searched=searched, blockers=_empty(window))
-    return _verified(request, best[1], searched)
+    return _verified(request, best, searched)
 
 
-def _digit_pairs() -> list[tuple[int, int]]:
-    """Every strength and defence digit pair, in ascending order."""
-    return [
-        (st_digits, df_digits)
-        for st_digits in range(MAX_DIGIT_PAIR + 1)
-        for df_digits in range(MAX_DIGIT_PAIR + 1)
-    ]
+_DIGIT_PAIRS: Final = tuple(
+    (st_digits, df_digits)
+    for st_digits in range(MAX_DIGIT_PAIR + 1)
+    for df_digits in range(MAX_DIGIT_PAIR + 1)
+)
 
 
 def _hp_candidates(request: CardRequest, window: int) -> list[int]:
@@ -147,7 +149,7 @@ def _window_bounds(request: CardRequest, target: int | None, window: int) -> tup
 
 def _score(
     request: CardRequest, hp_units: int, st_digits: int, df_digits: int
-) -> tuple[int, str] | None:
+) -> tuple[int, int, int, int] | None:
     """Score one reachable card, or None when it is out of range or quarantined."""
     race = request.race if request.race is not None else Race.HUMAN
     st_units, df_units = adjusted_stats(
@@ -155,19 +157,10 @@ def _score(
     )
     if not 0 <= st_units <= _MAX_STAT_UNITS or not 0 <= df_units <= _MAX_STAT_UNITS:
         return None
-    code = assemble(
-        hp_units=hp_units,
-        st_digits=st_digits,
-        df_digits=df_digits,
-        race=race,
-        job=_job(request),
-        speed=_speed(request, hp_units),
-        special=request.special if request.special is not None else 0,
-    )
-    if takes_quarantined_branch(code):
+    if quarantines_digits(race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits):
         return None
     distance = _distance(request, hp_units, st_units, df_units)
-    return distance, code
+    return distance, hp_units, st_digits, df_digits
 
 
 def _distance(request: CardRequest, hp_units: int, st_units: int, df_units: int) -> int:
@@ -209,8 +202,20 @@ def _speed(request: CardRequest, hp_units: int) -> int:
     return request.speed if request.speed is not None else 0
 
 
-def _verified(request: CardRequest, code: str, searched: int) -> NearestOutcome:
-    """Decode the winner and report what it does not match."""
+def _verified(
+    request: CardRequest, best: tuple[int, int, int, int], searched: int
+) -> NearestOutcome:
+    """Assemble the winner, decode it, and report what it does not match."""
+    _, hp_units, st_digits, df_digits = best
+    code = assemble(
+        hp_units=hp_units,
+        st_digits=st_digits,
+        df_digits=df_digits,
+        race=request.race if request.race is not None else Race.HUMAN,
+        job=_job(request),
+        speed=_speed(request, hp_units),
+        special=request.special if request.special is not None else 0,
+    )
     character = decode(code)
     distance = _distance(request, character.hp_units, character.st_units, character.df_units)
     return NearestOutcome(

@@ -50,7 +50,7 @@ class BackReadCandidate:
 
 def reachable_back_stats(race: Race) -> set[tuple[int, int, int]]:
     """Every hit point, strength and defence triple a back read can carry."""
-    return {_stats_of(digits, race) for digits in _stat_digit_combinations()}
+    return {_attributes_of(digits, race)[:3] for digits in _stat_digit_combinations()}
 
 
 def iter_back_candidates(request: CardRequest) -> Iterator[BackReadCandidate]:
@@ -83,31 +83,25 @@ def _group_by_attributes(
     """Collect digit combinations that produce identical attributes."""
     grouped: dict[tuple[int, int, int, int], list[tuple[int, int, int, int]]] = {}
     for digits in _stat_digit_combinations():
-        hp, st, df = _stats_of(digits, race)
-        special = _special_of(digits)
-        if not _wanted(request, hp, st, df, special):
+        attributes = _attributes_of(digits, race)
+        if not _wanted(request, attributes):
             continue
-        grouped.setdefault((hp, st, df, special), []).append(digits)
+        grouped.setdefault(attributes, []).append(digits)
     return grouped
 
 
-def _wanted(request: CardRequest, hp: int, st: int, df: int, special: int) -> bool:
+def _wanted(request: CardRequest, attributes: tuple[int, int, int, int]) -> bool:
     """Whether these attributes satisfy the request."""
+    hp, st, df, special = attributes
     if not (request.hp.admits(hp) and request.st.admits(st) and request.df.admits(df)):
         return False
     return request.special is None or request.special == special
 
 
-def _stats_of(digits: tuple[int, int, int, int], race: Race) -> tuple[int, int, int]:
-    """Decode the three stats a digit combination carries, in displayed units."""
-    code = _probe(digits, race)
-    character = read_back(code)
-    return character.hp, character.st, character.df
-
-
-def _special_of(digits: tuple[int, int, int, int]) -> int:
-    """Decode the special ability a digit combination carries."""
-    return read_back(_probe(digits, Race.HUMAN)).special.code
+def _attributes_of(digits: tuple[int, int, int, int], race: Race) -> tuple[int, int, int, int]:
+    """Decode the stats and ability a digit combination carries, in one read."""
+    character = read_back(_probe(digits, race))
+    return character.hp, character.st, character.df, character.special.code
 
 
 def _probe(digits: tuple[int, int, int, int], race: Race) -> str:

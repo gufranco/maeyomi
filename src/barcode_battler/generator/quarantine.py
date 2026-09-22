@@ -27,13 +27,26 @@ def takes_quarantined_branch(code: str) -> bool:
     """Whether reading this code would pass through an unresolved overflow branch."""
     if classify_read_type(code) is not ReadType.FRONT:
         return False
-    race = Race(int(code[RACE_INDEX]))
-    if int(code[HP_SLICE]) < HIGH_HP_THRESHOLD_UNITS:
+    return quarantines_digits(
+        Race(int(code[RACE_INDEX])),
+        hp_units=int(code[HP_SLICE]),
+        st_digits=int(code[ST_SLICE]),
+        df_digits=int(code[DF_SLICE]),
+    )
+
+
+def quarantines_digits(race: Race, *, hp_units: int, st_digits: int, df_digits: int) -> bool:
+    """The same test on digit values, for a caller that has not built a code yet.
+
+    A search that scores many candidates uses this and assembles a barcode only
+    for the one it keeps.
+    """
+    if hp_units < HIGH_HP_THRESHOLD_UNITS:
         return False
     if race is Race.MECHANICAL:
-        return _bonused(int(code[ST_SLICE])) > ST_OVERFLOW_THRESHOLD
+        return _bonused(st_digits) > ST_OVERFLOW_THRESHOLD
     if race is Race.ANIMAL:
-        return _bonused(int(code[DF_SLICE])) > DF_OVERFLOW_THRESHOLD
+        return _bonused(df_digits) > DF_OVERFLOW_THRESHOLD
     return False
 
 
