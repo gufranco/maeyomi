@@ -1,0 +1,807 @@
+{
+ "fetched_utc": "2026-09-22",
+ "source": "https://github.com/finalfighter/BarcodeBattler2-Simulator bin-release/xml",
+ "licence": "MIT",
+ "cards": [
+  {
+   "name": "キノコ",
+   "barcode": "0000000006446",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "ベルマーレ平塚",
+   "barcode": "0000000014113",
+   "source_file": "jl.xml"
+  },
+  {
+   "name": "ジェフユナイテッド市原",
+   "barcode": "0000000102711",
+   "source_file": "jl.xml"
+  },
+  {
+   "name": "横浜マリノス",
+   "barcode": "0000000261401",
+   "source_file": "jl.xml"
+  },
+  {
+   "name": "鹿島アントラーズ",
+   "barcode": "0000000291040",
+   "source_file": "jl.xml"
+  },
+  {
+   "name": "イナヅマ",
+   "barcode": "0000000300292",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "ヴェルディ川崎",
+   "barcode": "0000000632171",
+   "source_file": "jl.xml"
+  },
+  {
+   "name": "情報師ガデン",
+   "barcode": "0000000950008",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "知恵蔵",
+   "barcode": "0000000960007",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "ショルダー・シールド",
+   "barcode": "0000003811214",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "羽根",
+   "barcode": "0000005300518",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "魔法のランプ",
+   "barcode": "0000005990054",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "魔法のカバン",
+   "barcode": "0000006990077",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "鎖のよろい",
+   "barcode": "0000007801105",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "きびだんご",
+   "barcode": "0000007990038",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "魔法の風呂敷",
+   "barcode": "0000010802212",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "魔法の教典",
+   "barcode": "0000010980057",
+   "source_file": "s3.xml"
+  },
+  {
+   "name": "魔法のティアラ",
+   "barcode": "0000010990209",
+   "source_file": "s3.xml"
+  },
+  {
+   "name": "琺瑯のたて",
+   "barcode": "0000012802043",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "サイコヘッド",
+   "barcode": "0000014705250",
+   "source_file": "s3.xml"
+  },
+  {
+   "name": "ゲタ",
+   "barcode": "0000014802058",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "ハイパーグラス",
+   "barcode": "0000018703382",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "力の指輪",
+   "barcode": "0000019700328",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "ジュゲム",
+   "barcode": "0000100300130",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "凍結酒",
+   "barcode": "0000100970449",
+   "source_file": "s3.xml"
+  },
+  {
+   "name": "ミドリ甲羅",
+   "barcode": "0000400300489",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "手裏剣",
+   "barcode": "0000400603238",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "パルティザンソード",
+   "barcode": "0000500602155",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "朝鮮にんじん",
+   "barcode": "0000500970087",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "アカ甲羅",
+   "barcode": "0000600300388",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "流水剣",
+   "barcode": "0000600602017",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "またたびの実",
+   "barcode": "0000600970062",
+   "source_file": "s3.xml"
+  },
+  {
+   "name": "ポプリの実",
+   "barcode": "0000600970444",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "うさぎの爪",
+   "barcode": "0000700970375",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "サイバーロケット砲",
+   "barcode": "0001200500376",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "二枚刃ブーメラン",
+   "barcode": "0001400500022",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "灼熱ランサー",
+   "barcode": "0001500050083",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "マンハッタン・バスター",
+   "barcode": "0001500623386",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "飛龍剣",
+   "barcode": "0001800531138",
+   "source_file": "s3.xml"
+  },
+  {
+   "name": "超磁動ガン",
+   "barcode": "0007000603255",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "ドッスン",
+   "barcode": "0009900056186",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "コイン",
+   "barcode": "0010101300008",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "スター",
+   "barcode": "0070707300185",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "小銭",
+   "barcode": "0120000903115",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "カラーリンス",
+   "barcode": "0140000904127",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "聖米ヒトメボーレ",
+   "barcode": "0160000902138",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "ニンニクエキス",
+   "barcode": "0160000903159",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "戦略ビデオカセット",
+   "barcode": "0180000904307",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "ポケットライス",
+   "barcode": "0300000907157",
+   "source_file": "s3.xml"
+  },
+  {
+   "name": "プリンセスグミー",
+   "barcode": "0320813183500",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "有栖川 桜",
+   "barcode": "0321017070016",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "中華妖舞",
+   "barcode": "0331010383501",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "バーモンドクリフ",
+   "barcode": "0340912373503",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "聖闘士バーモンドクリフ",
+   "barcode": "0341011384506",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "麗剣士プリンセスグミー",
+   "barcode": "0361110484501",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "ウーロンリー",
+   "barcode": "0381108136502",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "マックスフライ",
+   "barcode": "0391110346509",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "龍神ウーロンリー",
+   "barcode": "0401207237501",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "ラーメン活武",
+   "barcode": "0401207336501",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "魔剣士活武",
+   "barcode": "0421305134502",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "スティーブ・セコイア",
+   "barcode": "0471621124008",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "掛須　巧",
+   "barcode": "0481524118004",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "エンゼルハイ",
+   "barcode": "0491406078715",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "虎堂 烈",
+   "barcode": "0492116128172",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "カロリーＭＴ",
+   "barcode": "0500000905300",
+   "source_file": "s3.xml"
+  },
+  {
+   "name": "ボンドナイト",
+   "barcode": "0521209429381",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "アーモンドポッキリ",
+   "barcode": "052316368252",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "エスカンニチョップ",
+   "barcode": "0551512179710",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "マーボマックス",
+   "barcode": "0601814354701",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "MAD・ラーク",
+   "barcode": "0642013418764",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "陽怒乱光",
+   "barcode": "0672410005809",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "聖シャルダン",
+   "barcode": "0682518275806",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "ティポン・カードロコ",
+   "barcode": "0752716104700",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "ムーニー・リー",
+   "barcode": "0772925115779",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "リプトン・Ｔ",
+   "barcode": "0792818344703",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "バドーワイザー",
+   "barcode": "0842927378288",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "デルモンテス",
+   "barcode": "0852718175651",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "スキ邪鬼1000K",
+   "barcode": "0873020325657",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "バナナの皮",
+   "barcode": "0878787121191",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "トンガリコンＧ",
+   "barcode": "0963225309764",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "ラリー",
+   "barcode": "1002325114812",
+   "source_file": "smw.xml"
+  },
+  {
+   "name": "キットカーン",
+   "barcode": "1003023025707",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "麻シャンヌ",
+   "barcode": "1003430079812",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "ハイチュー鬼",
+   "barcode": "1103335335812",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "バーモントクリフ",
+   "barcode": "1153229269235",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "エビセンマン",
+   "barcode": "1203531475654",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "オリゴンC2",
+   "barcode": "1253833055719",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "魔ジック",
+   "barcode": "1313526275753",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "カロピスナイト",
+   "barcode": "1383634085766",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "ボリンキー",
+   "barcode": "1403934047766",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "コマンドＬＰ",
+   "barcode": "1474036245664",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "ラ・シルフィード",
+   "barcode": "1503125370250",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "ホチキッス",
+   "barcode": "1544035073169",
+   "source_file": "bb2b.xml"
+  },
+  {
+   "name": "ジャイブ鋼火",
+   "barcode": "1544235125774",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "リー・ケイン",
+   "barcode": "1553730157715",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "ダダーンＰ",
+   "barcode": "1603938185284",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "華麗妖美",
+   "barcode": "1604238375825",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "カードメモ",
+   "barcode": "1622847045441",
+   "source_file": "bungu.xml"
+  },
+  {
+   "name": "KRブライトン",
+   "barcode": "1734337205713",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "ダッシュビートルII",
+   "barcode": "1734959324182",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "サクセス・ニック",
+   "barcode": "1744435064662",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "ＫＴ－１",
+   "barcode": "1815360026169",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "写ランデス",
+   "barcode": "1864541475777",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "バジール",
+   "barcode": "1885054077777",
+   "source_file": "ds.xml"
+  },
+  {
+   "name": "オイル",
+   "barcode": "1888888101496",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "白魔術王ホカロンダー",
+   "barcode": "1954840299829",
+   "source_file": "g1.xml"
+  },
+  {
+   "name": "キャプテン・ＵＳＡ",
+   "barcode": "1965848028007",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "鋼帝ミロ",
+   "barcode": "1984736163712",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "ヤング阻破",
+   "barcode": "1994542424495",
+   "source_file": "bb2b.xml"
+  },
+  {
+   "name": "火の玉",
+   "barcode": "1997770131234",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "ドンキーコングJr.",
+   "barcode": "2000070000281",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "ルイージ",
+   "barcode": "2000070007778",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "ネプチューンメイル",
+   "barcode": "2090320705042",
+   "source_file": "s3.xml"
+  },
+  {
+   "name": "グレートアックス",
+   "barcode": "2092208565014",
+   "source_file": "s3.xml"
+  },
+  {
+   "name": "プレミアヌス一世",
+   "barcode": "2094943325281",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "ハッターマン",
+   "barcode": "2095451375003",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "チューハイカーンJr.",
+   "barcode": "2194845415490",
+   "source_file": "bb2b.xml"
+  },
+  {
+   "name": "コーンフレッカー",
+   "barcode": "2195540425722",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "アルフォンソ博士",
+   "barcode": "2195556475001",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "デンタックP",
+   "barcode": "2296446465765",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "土管",
+   "barcode": "2298040405475",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "ティモテ姫",
+   "barcode": "2395941385230",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "アルフォンソ博士",
+   "barcode": "2494748425009",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "妖命洲",
+   "barcode": "2495744345711",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "ハッターマン",
+   "barcode": "2594644415002",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "アポロンチョコネス",
+   "barcode": "2596245485255",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "ハーゲンダッツ将軍",
+   "barcode": "2696043305493",
+   "source_file": "bb2b.xml"
+  },
+  {
+   "name": "ハーゲンダッツ将軍",
+   "barcode": "2696043365176",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "古魔術王グロンサンダー",
+   "barcode": "2796553395332",
+   "source_file": "g2.xml"
+  },
+  {
+   "name": "たまご",
+   "barcode": "2797080415289",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "プクプク",
+   "barcode": "2797570315464",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "パックンフラワー",
+   "barcode": "2896056305255",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "ダッシュビートル（後期型）",
+   "barcode": "2896068315006",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "キャプテンＵ・Ｓ・Ａ",
+   "barcode": "2996964425004",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "デスキャメル",
+   "barcode": "2997971385282",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "ノコノコ",
+   "barcode": "3000071789153",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "チョロプー",
+   "barcode": "3098080315425",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "マカロニグラダン",
+   "barcode": "3198879325700",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "源海",
+   "barcode": "3296752405409",
+   "source_file": "bb2b.xml"
+  },
+  {
+   "name": "源海",
+   "barcode": "3296752465410",
+   "source_file": "g3.xml"
+  },
+  {
+   "name": "土管×３",
+   "barcode": "3299095305566",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "血妖狐ドルテ",
+   "barcode": "3398587475661",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "ジャンプバン",
+   "barcode": "3399988305571",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "サイコジゼ",
+   "barcode": "3598791485238",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "スタッグ・ビートル",
+   "barcode": "3698188385377",
+   "source_file": "bfc.xml"
+  },
+  {
+   "name": "ブルーデッド",
+   "barcode": "3698994455851",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "メカ－プレシオス",
+   "barcode": "3896588455779",
+   "source_file": "bf2.xml"
+  },
+  {
+   "name": "ブラック華麗",
+   "barcode": "3899496375719",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "デスキン鳥―Ｒ",
+   "barcode": "3999105145846",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "ピーチ姫",
+   "barcode": "4000070071043",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "ラーメン堕悪大帝",
+   "barcode": "4090699045778",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "泥",
+   "barcode": "4097843305412",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "リサイクル博士",
+   "barcode": "4292519295862",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "池",
+   "barcode": "4598000305417",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "キノピオ",
+   "barcode": "5000079070053",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "デスチューハイカーン",
+   "barcode": "5091594055724",
+   "source_file": "bb2.xml"
+  },
+  {
+   "name": "パーフェクト",
+   "barcode": "5291420215159",
+   "source_file": "dr.xml"
+  },
+  {
+   "name": "クッパ",
+   "barcode": "6000071001382",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "マリオ",
+   "barcode": "7000070000262",
+   "source_file": "mct.xml"
+  },
+  {
+   "name": "ヨッシー",
+   "barcode": "800007000162",
+   "source_file": "mct.xml"
+  }
+ ]
+}
