@@ -180,3 +180,13 @@ def test_the_cheat_animation_stops_for_anyone_who_asked_for_less_motion() -> Non
 
 def test_a_hidden_element_stays_hidden_whatever_its_layout_class_says() -> None:
     assert re.search(r"\[hidden\]\s*\{\s*display:\s*none\s*!important", STYLES)
+
+
+def test_the_page_carries_the_arrow_doodle_as_a_hint() -> None:
+    assert "konami-doodle" in MARKUP
+    assert "/api/secret-symbol" in MARKUP
+
+
+def test_the_hints_get_warmer_with_each_wrong_guess() -> None:
+    assert "hints" in SCRIPT
+    assert re.search(r"wrongCount|attempts", SCRIPT)

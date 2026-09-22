@@ -84,6 +84,23 @@ const MESSAGES = {
     'cheat.placeholder': 'psst...',
     'cheat.try': 'Try it',
     'cheat.found': 'Oh no. You found it.',
+    'secret.alt': 'A small barcode nobody asked for',
+    shape: 'Card shape',
+    'shape.portrait': 'Standing up',
+    'shape.landscape': 'Lying down',
+    hints: [
+      "Not that one. It is something a player would have shouted in 1992.",
+      'Ten presses. Eight of them are arrows.',
+      'Up, up, down, down, left, right, left, right, and then two letters.',
+      'It is also printed down there, in bars, if you can read those.',
+    ],
+    riddles: [
+      'psst...',
+      'what the old games wanted',
+      'arrows first, letters last',
+      'ten presses',
+      'or the number in the bars',
+    ],
     printing:
       'Printing: use plain matte paper, turn off any "fit to page" or "scale" setting, and ' +
       'print at the highest quality your printer offers. The barcode only reads at its true size.',
@@ -209,6 +226,23 @@ const MESSAGES = {
     'cheat.placeholder': 'こっそり...',
     'cheat.try': 'ためす',
     'cheat.found': 'あっ。みつかっちゃった。',
+    'secret.alt': 'だれも たのんで いない ちいさな バーコード',
+    shape: 'カードの むき',
+    'shape.portrait': 'たて',
+    'shape.landscape': 'よこ',
+    hints: [
+      'それじゃ ない。1992ねんに みんなが さけんだ ことば だよ。',
+      '10かい おす。そのうち 8かいは やじるし。',
+      'うえ、うえ、した、した、ひだり、みぎ、ひだり、みぎ、そして もじが 2つ。',
+      'した の バーのなかにも かいて あるよ。よめるなら だけど。',
+    ],
+    riddles: [
+      'こっそり...',
+      'むかしの ゲームが ほしがった もの',
+      'やじるしが さき、もじが あと',
+      '10かい おす',
+      'バーの なかの すうじ でも いいよ',
+    ],
     printing:
       'いんさつ: ふつうの マットな かみを つかい、「ページに あわせる」や「かくだい しゅくしょう」を ' +
       'オフにして、いちばん きれいな がしつで いんさつしてね。バーコードは ほんとうの おおきさで ないと よめません。',
@@ -290,6 +324,9 @@ function applyLanguage(language) {
   });
   document.querySelectorAll('[data-i18n-aria-label]').forEach((node) => {
     node.setAttribute('aria-label', t(node.dataset.i18nAriaLabel));
+  });
+  document.querySelectorAll('[data-i18n-alt]').forEach((node) => {
+    node.setAttribute('alt', t(node.dataset.i18nAlt));
   });
   document.querySelectorAll('[data-only-language]').forEach((node) => {
     node.toggleAttribute('hidden', node.dataset.onlyLanguage !== currentLanguage);

@@ -13,6 +13,7 @@ let raceList = [];
 let abilityList = [];
 let catalogue = null;
 let cheatCard = null;
+let wrongCount = 0;
 
 const $ = (id) => document.getElementById(id);
 
@@ -21,6 +22,8 @@ const pick = (items) => items[Math.floor(Math.random() * items.length)];
 const escapeHtml = (text) => String(text).replace(/[&<>"']/g, (ch) => ESCAPES[ch]);
 
 const isJapanese = () => currentLanguage === 'ja';
+
+const orientation = () => $('orientation').value;
 
 async function getJson(url) {
   const response = await fetch(url);
@@ -174,6 +177,7 @@ function oneCardPayload() {
     ability: Number($('ability').value),
     nearest: $('nearest').checked,
     backRead: $('backRead').checked,
+    orientation: orientation(),
     ...($('class').value ? { class: $('class').value } : {}),
     ...($('speed').value !== '' ? { speed: Number($('speed').value) } : {}),
     ...($('job').value !== '' ? { job: Number($('job').value) } : {}),
@@ -191,7 +195,11 @@ function describeResult(body) {
 }
 
 async function showPreview(barcode, name) {
-  const { ok, response } = await postJson('/api/preview', { barcode, name });
+  const { ok, response } = await postJson('/api/preview', {
+    barcode,
+    name,
+    orientation: orientation(),
+  });
   if (!ok) return;
   const previous = $('card-image').getAttribute('src');
   $('card-image').setAttribute('src', URL.createObjectURL(await response.blob()));
@@ -241,6 +249,7 @@ function sheetPayload() {
   const range = (key) => `${$(`${key}-min`).value}-${$(`${key}-max`).value}`;
   return {
     count: Number($('count').value),
+    orientation: orientation(),
     hp: range('hp'),
     st: range('st'),
     df: range('df'),
@@ -296,7 +305,10 @@ async function downloadSheet() {
 }
 
 async function downloadBarcodes(cards, filename, statusId) {
-  const { ok, body, response } = await postJson('/api/barcode-sheet', { cards });
+  const { ok, body, response } = await postJson('/api/barcode-sheet', {
+    cards,
+    orientation: orientation(),
+  });
   if (!ok) {
     refuse(statusId, body, 'status.again');
     return;
@@ -306,7 +318,7 @@ async function downloadBarcodes(cards, filename, statusId) {
 
 function officialPayload() {
   const chosen = $('official-set').value;
-  return chosen ? { set: chosen } : {};
+  return chosen ? { set: chosen, orientation: orientation() } : { orientation: orientation() };
 }
 
 function renderOfficial() {
@@ -414,13 +426,16 @@ async function setUpCheat() {
     event.preventDefault();
     const typed = $('cheat-code').value.toUpperCase().replace(/\s+/g, '');
     if (codes.has(typed)) {
+      wrongCount = 0;
       $('cheat-reply').textContent = t('cheat.found');
       $('cheat-code').value = '';
       await activateCheat();
     } else {
-      $('cheat-reply').textContent = pick(t('wrong'));
+      $('cheat-reply').textContent = warmerHint();
     }
   });
+
+  $('cheat-code').addEventListener('focus', rotateRiddle);
 
   let progress = 0;
   document.addEventListener('keydown', async (event) => {
@@ -434,6 +449,18 @@ async function setUpCheat() {
       await activateCheat();
     }
   });
+}
+
+function warmerHint() {
+  const hints = t('hints');
+  const reply = wrongCount === 0 ? pick(t('wrong')) : hints[Math.min(wrongCount - 1, hints.length - 1)];
+  wrongCount += 1;
+  return reply;
+}
+
+function rotateRiddle() {
+  const riddles = t('riddles');
+  $('cheat-code').setAttribute('placeholder', pick(riddles));
 }
 
 function copyCode() {
@@ -457,6 +484,9 @@ function setUpLanguage() {
 
 setUpTabs();
 setUpStats();
+$('orientation').addEventListener('change', () => {
+  if (cheatCard) showPreview(cheatCard.barcode, $('name').value || cheatCard.name);
+});
 setUpLanguage();
 $('one').addEventListener('submit', makeOneCard);
 $('one-pdf').addEventListener('click', downloadOneCard);

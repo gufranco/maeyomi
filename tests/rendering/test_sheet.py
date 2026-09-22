@@ -147,3 +147,36 @@ def test_every_barcode_still_decodes_from_a_black_and_white_print(tmp_path: Path
     pages = render_pdf_pages(path, dpi=300)
     grey = pages[0].convert("L").convert("RGB")
     assert sorted(decode_image(grey)) == sorted(card.barcode for card in batch)
+
+
+def test_the_cut_marks_stay_clear_of_the_trimmed_card(tmp_path: Path) -> None:
+    path = tmp_path / "marks-clear.pdf"
+    layout = SheetLayout()
+
+    write_sheet(cards(1), path, layout=layout)
+
+    per_mm = 300 / 25.4
+    image = render_pdf_pages(path, dpi=300)[0].convert("L")
+    x, y = layout.positions()[0]
+    column = int((x + layout.card_width_mm / 2) * per_mm)
+    top = int((layout.page_height_mm - (y + layout.card_height_mm + layout.bleed_mm)) * per_mm)
+    grey = image.tobytes()
+    assert grey[(top - 2) * image.width + column] > 200
+
+
+def test_a_print_shop_pdf_has_one_card_per_page(tmp_path: Path) -> None:
+    path = tmp_path / "shop.pdf"
+    batch = cards(3)
+
+    pages = write_sheet(batch, path, layout=SheetLayout.print_shop())
+
+    assert pages == 3
+    assert sorted(decode_pdf(path)) == sorted(card.barcode for card in batch)
+
+
+def test_a_print_shop_page_carries_no_ruler(tmp_path: Path) -> None:
+    path = tmp_path / "shop-plain.pdf"
+
+    write_sheet(cards(1), path, layout=SheetLayout.print_shop())
+
+    assert "Ruler" not in page_text(path)

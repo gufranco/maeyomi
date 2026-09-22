@@ -4,8 +4,9 @@ import io
 
 import pytest
 from fastapi.testclient import TestClient
+from PIL import Image
 
-from barcode_battler.barcode.verify import decode_pdf
+from barcode_battler.barcode.verify import decode_image, decode_pdf
 from barcode_battler.ui.app import create_app
 
 
@@ -356,3 +357,53 @@ def test_the_disclaimer_is_served_in_both_languages(client: TestClient) -> None:
 
     assert "read on a physical Barcode Battler II" in text
     assert "実機" in text
+
+
+def test_the_hidden_barcode_is_served_as_an_image(client: TestClient) -> None:
+    response = client.get("/api/secret-symbol")
+
+    assert response.status_code == 200
+    assert response.headers["content-type"] == "image/png"
+
+
+def test_the_hidden_barcode_reads_as_the_cheat_card(client: TestClient) -> None:
+    response = client.get("/api/secret-symbol")
+
+    with Image.open(io.BytesIO(response.content)) as image:
+        assert decode_image(image.convert("RGB")) == ["9994599095183"]
+
+
+def test_the_cheat_card_s_barcode_is_one_of_the_codes(client: TestClient) -> None:
+    assert "9994599095183" in client.get("/api/cheat-codes").json()
+
+
+def test_a_sheet_can_be_asked_for_landscape(client: TestClient, tmp_path: object) -> None:
+    response = client.post(
+        "/api/barcode-sheet",
+        json={"cards": [{"barcode": "9994599095183"}], "orientation": "landscape"},
+    )
+
+    assert response.status_code == 200
+    assert sheet_codes(response.content, tmp_path) == ["9994599095183"]
+
+
+def test_a_preview_follows_the_orientation(client: TestClient) -> None:
+    portrait = client.post("/api/preview", json={"barcode": "0401207237501"})
+    landscape = client.post(
+        "/api/preview", json={"barcode": "0401207237501", "orientation": "landscape"}
+    )
+
+    with (
+        Image.open(io.BytesIO(portrait.content)) as tall,
+        Image.open(io.BytesIO(landscape.content)) as wide,
+    ):
+        assert tall.height > tall.width
+        assert wide.width > wide.height
+
+
+def test_an_unknown_orientation_is_rejected(client: TestClient) -> None:
+    response = client.post(
+        "/api/preview", json={"barcode": "0401207237501", "orientation": "sideways"}
+    )
+
+    assert response.status_code == 422

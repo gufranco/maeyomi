@@ -420,3 +420,34 @@ def test_official_needs_an_output_unless_listing() -> None:
     result = runner.invoke(app, ["official"])
 
     assert result.exit_code == 2
+
+
+def test_random_can_print_landscape_cards(tmp_path: Path) -> None:
+    output = tmp_path / "landscape.pdf"
+
+    result = runner.invoke(
+        app, ["random", "--count", "8", "--seed", "3", "--landscape", "--output", str(output)]
+    )
+
+    assert result.exit_code == 0
+    assert len(decode_pdf(output)) == 8
+
+
+def test_a_print_shop_file_has_one_card_per_page(tmp_path: Path) -> None:
+    output = tmp_path / "shop.pdf"
+
+    result = runner.invoke(
+        app, ["random", "--count", "3", "--seed", "4", "--print-shop", "--output", str(output)]
+    )
+
+    assert result.exit_code == 0
+    assert "3 page" in result.output
+
+
+def test_the_cheat_card_can_be_landscape(tmp_path: Path) -> None:
+    output = tmp_path / "cheat-landscape.pdf"
+
+    result = runner.invoke(app, ["cheat", "--landscape", "--output", str(output)])
+
+    assert result.exit_code == 0
+    assert decode_pdf(output) == ["9994599095183"]

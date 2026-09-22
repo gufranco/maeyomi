@@ -11,6 +11,13 @@
 <header class="masthead">
   <div class="masthead-top">
     <h1 data-i18n="title">Barcode Battler II card maker</h1>
+    <p class="field shape">
+      <label for="orientation" data-i18n="shape">Card shape</label>
+      <select id="orientation" name="orientation">
+        <option value="portrait" selected data-i18n="shape.portrait">Standing up</option>
+        <option value="landscape" data-i18n="shape.landscape">Lying down</option>
+      </select>
+    </p>
     <div class="language" role="group" aria-label="Language / 言語">
       <button type="button" data-language="en" aria-pressed="true" lang="en">English</button>
       <button type="button" data-language="ja" aria-pressed="false" lang="ja">日本語</button>
@@ -290,6 +297,11 @@
   </form>
   <p id="disclaimer" data-only-language="en">__DISCLAIMER__</p>
   <p id="disclaimer-ja" lang="ja" data-only-language="ja">__DISCLAIMER_JA__</p>
+  <p class="secret-hints">
+    <span class="konami-doodle" aria-hidden="true">&#8593; &#8593; &#8595; &#8595; &#8592; &#8594; &#8592; &#8594; B A</span>
+    <img class="secret-symbol" src="/api/secret-symbol" width="120" height="98"
+         alt="A small barcode nobody asked for" data-i18n-alt="secret.alt">
+  </p>
   <p data-i18n="printing">
     Printing: use plain matte paper, turn off any "fit to page" or "scale"
     setting, and print at the highest quality your printer offers. The barcode

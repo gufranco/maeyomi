@@ -13,7 +13,12 @@ from barcode_battler.barcode.verify import decode_image, decode_pdf
 from barcode_battler.decoder.decode import decode
 from barcode_battler.models.generated_card import GeneratedCard
 from barcode_battler.rendering.card import CardStyle, draw_card
-from barcode_battler.rendering.layout import POKER_CARD_HEIGHT_MM, POKER_CARD_WIDTH_MM
+from barcode_battler.rendering.layout import (
+    ID1_LONG_MM,
+    ID1_SHORT_MM,
+    POKER_CARD_HEIGHT_MM,
+    POKER_CARD_WIDTH_MM,
+)
 
 BARCODE = "0401207237501"
 
@@ -326,3 +331,151 @@ def test_a_two_line_name_still_leaves_both_languages_of_the_power(tmp_path: Path
     text = pdf_text(path).replace("\r\n", "")
     assert "hero flag" in text
     assert "主人公" in text
+
+
+def test_the_artwork_runs_past_the_trim_line_when_a_bleed_is_asked_for(tmp_path: Path) -> None:
+    path = tmp_path / "bleed.pdf"
+    bleed = 2.0
+    width, height = POKER_CARD_WIDTH_MM, POKER_CARD_HEIGHT_MM
+    canvas = Canvas(str(path), pagesize=((width + 2 * bleed) * mm, (height + 2 * bleed) * mm))
+    draw_card(
+        canvas,
+        sample(),
+        x_mm=bleed,
+        y_mm=bleed,
+        width_mm=width,
+        height_mm=height,
+        geometry=BarcodeGeometry(),
+        bleed_mm=bleed,
+    )
+    canvas.showPage()
+    canvas.save()
+
+    image = render_pdf_pages(path, dpi=300)[0].convert("RGB")
+    per_mm = 300 / 25.4
+    band = image.getpixel((int(1.0 * per_mm), int(1.0 * per_mm)))
+
+    assert band != (255, 255, 255)
+
+
+def test_without_a_bleed_nothing_is_drawn_outside_the_card(tmp_path: Path) -> None:
+    path = tmp_path / "no-bleed.pdf"
+    canvas = Canvas(str(path), pagesize=(70 * mm, 95 * mm))
+    draw_card(
+        canvas,
+        sample(),
+        x_mm=3,
+        y_mm=3,
+        width_mm=POKER_CARD_WIDTH_MM,
+        height_mm=POKER_CARD_HEIGHT_MM,
+        geometry=BarcodeGeometry(),
+    )
+    canvas.showPage()
+    canvas.save()
+
+    image = render_pdf_pages(path, dpi=300)[0].convert("RGB")
+    per_mm = 300 / 25.4
+
+    assert image.getpixel((int(1.0 * per_mm), int(1.0 * per_mm))) == (255, 255, 255)
+
+
+def landscape(path: Path, card: GeneratedCard) -> None:
+    width, height = ID1_LONG_MM, ID1_SHORT_MM
+    canvas = Canvas(str(path), pagesize=(width * mm, height * mm))
+    draw_card(
+        canvas,
+        card,
+        x_mm=0,
+        y_mm=0,
+        width_mm=width,
+        height_mm=height,
+        geometry=BarcodeGeometry(),
+    )
+    canvas.showPage()
+    canvas.save()
+
+
+def test_a_landscape_card_still_carries_a_scannable_barcode(tmp_path: Path) -> None:
+    path = tmp_path / "landscape.pdf"
+
+    landscape(path, sample())
+
+    assert decode_pdf(path) == [BARCODE]
+
+
+def test_a_landscape_card_says_everything_a_portrait_one_does(tmp_path: Path) -> None:
+    path = tmp_path / "landscape-text.pdf"
+
+    landscape(path, sample())
+
+    text = " ".join(pdf_text(path).split())
+    for expected in (
+        "Fire Knight",
+        "4000",
+        "1200",
+        "700",
+        "Sea creature",
+        "うみの いきもの",
+        "hero flag",
+        "主人公フラグ",
+    ):
+        assert expected in text
+
+
+def test_a_landscape_card_keeps_the_bars_at_their_full_height(tmp_path: Path) -> None:
+    path = tmp_path / "landscape-bars.pdf"
+
+    landscape(path, sample())
+
+    image = render_pdf_pages(path, dpi=300)[0]
+    assert decode_image(image) == [BARCODE]
+
+
+def test_a_landscape_card_too_short_for_the_symbol_is_rejected(tmp_path: Path) -> None:
+    path = tmp_path / "squashed.pdf"
+    canvas = Canvas(str(path), pagesize=(ID1_LONG_MM * mm, 30 * mm))
+
+    with pytest.raises(ValueError, match="too short"):
+        draw_card(
+            canvas,
+            sample(),
+            x_mm=0,
+            y_mm=0,
+            width_mm=ID1_LONG_MM,
+            height_mm=30,
+            geometry=BarcodeGeometry(),
+        )
+
+
+def test_a_landscape_card_too_narrow_for_the_symbol_beside_its_text_is_rejected(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "narrow-landscape.pdf"
+    canvas = Canvas(str(path), pagesize=(60 * mm, ID1_SHORT_MM * mm))
+
+    with pytest.raises(ValueError, match="beside its text"):
+        draw_card(
+            canvas,
+            sample(),
+            x_mm=0,
+            y_mm=0,
+            width_mm=60,
+            height_mm=ID1_SHORT_MM - 1,
+            geometry=BarcodeGeometry(),
+        )
+
+
+def test_a_portrait_card_too_short_for_its_text_is_rejected(tmp_path: Path) -> None:
+    path = tmp_path / "short-portrait.pdf"
+    canvas = Canvas(str(path), pagesize=(ID1_SHORT_MM * mm, 60 * mm))
+
+    with pytest.raises(ValueError, match="and its text"):
+        draw_card(
+            canvas,
+            sample(),
+            x_mm=0,
+            y_mm=0,
+            width_mm=ID1_SHORT_MM,
+            height_mm=60,
+            geometry=BarcodeGeometry(),
+        )

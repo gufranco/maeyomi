@@ -147,26 +147,31 @@ Print at 100 percent. Turn off "fit to page", "shrink to fit" and any other
 magnification. A scaled page still looks correct and still stops reading,
 because the module width is what a scanner measures.
 
-Each sheet carries a 100 mm ruler at its foot, numbered in centimetres, with a
-line naming the width each barcode should measure. Hold a ruler against it after
-the first print. If it comes out short, the printer scaled the page; correct the
-dialog and print again. The band sits below the lowest card, so it leaves with
-the offcut.
+Cards are exactly bank card sized, 85.60 by 53.98 mm, the ISO/IEC 7810 ID-1
+format, and print either way round: `--landscape` turns them on their side,
+where the barcode turns with them and keeps its full bar height. Nine portrait
+cards or eight landscape cards fit an A4 sheet.
 
-| Quantity | Printed | Source |
+Each sheet follows what print shops ask for:
+
+| Measure | Value | Why |
 |---|---|---|
-| Module width | 0.330 mm | GS1 EAN-13 nominal, SC2 |
-| Bar height | 22.85 mm | GS1 nominal, and the whole of a hand swipe's vertical tolerance |
-| Symbol width, quiet zones included | 37.29 mm | 113 modules |
-| Card | 63.5 by 88.9 mm | Poker size, nine to an A4 page |
-| Clearance around the symbol | 13.1 mm each side, 4.5 mm below | Well past the 3.6 mm quiet zone the standard requires |
+| Bleed | 2 mm on a sheet, 3 mm with `--print-shop` | A cut that lands a fraction off still finds ink |
+| Gutter between cards | 4 mm, twice the bleed | Each card is cut on its own line, not one shared with its neighbour |
+| Safe area | 4 mm from the trim | Nothing a reader needs sits where a trim can take it |
+| Crop marks | Corner ticks starting at the bleed edge | What a printer cuts to, with no line crossing the card |
+| Module width | 0.330 mm | GS1 EAN-13 nominal |
+| Bar height | 22.85 mm | GS1 nominal, and the whole of a hand swipe's tolerance |
 
-The bar height is the number to watch. A point-of-sale scanner sweeps a beam
-across a symbol many times a second; the Barcode Battler has a slot and a person
-pushes the card through it by hand, so short bars are the failure nobody
-notices. The renderer refuses a bar height below 80 percent of the nominal, and
-the tests measure the data bars off a rendered page rather than trusting the
-setting.
+`--print-shop` writes the other shape the same cards take: one card per page,
+the page sized to the card plus a 3 mm bleed, no ruler and no marks, which is
+what a commercial printer's own instructions ask for.
+
+Each sheet carries a 100 mm ruler at its foot, numbered in centimetres, and a
+line above the cards, in English and Japanese, naming the width each barcode
+should measure. Hold a ruler against it after the first print. If it comes out
+short, the printer scaled the page; correct the dialog and print again. Both
+bands sit outside the card grid, so they leave with the offcut.
 
 ## The real cards
 

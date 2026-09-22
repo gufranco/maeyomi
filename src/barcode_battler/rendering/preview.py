@@ -18,6 +18,7 @@ from reportlab.pdfgen.canvas import Canvas
 
 from barcode_battler.barcode.geometry import BarcodeGeometry
 from barcode_battler.barcode.rasterise import render_pdf_pages
+from barcode_battler.barcode.symbol import draw_symbol
 from barcode_battler.models.generated_card import GeneratedCard
 from barcode_battler.rendering.card import CardStyle, draw_card
 from barcode_battler.rendering.layout import (
@@ -29,6 +30,7 @@ from barcode_battler.rendering.sheet import write_sheet
 
 CARD_PREVIEW_DPI: Final = 150
 SHEET_PREVIEW_DPI: Final = 96
+SYMBOL_MARGIN_MM: Final = 2.0
 
 
 def card_png(
@@ -53,6 +55,31 @@ def card_png(
             height_mm=height_mm,
             geometry=geometry or BarcodeGeometry(),
             style=style,
+        )
+        canvas.showPage()
+        canvas.save()
+        return _encode(render_pdf_pages(path, dpi=dpi)[0])
+
+
+def symbol_png(barcode: str, *, dpi: int = CARD_PREVIEW_DPI) -> bytes:
+    """Render one barcode on its own, with its quiet zones, as PNG bytes.
+
+    The drawing already carries its quiet zones, so it starts at the left edge
+    and the page is exactly as wide as it is. A margin above and below keeps the
+    bars off the edge of the image.
+    """
+    geometry = BarcodeGeometry()
+    width = geometry.total_width_mm(len(barcode))
+    height = geometry.drawn_height_mm + 2 * SYMBOL_MARGIN_MM
+    with tempfile.TemporaryDirectory(prefix="barcode-battler-preview-") as directory:
+        path = Path(directory) / "symbol.pdf"
+        canvas = Canvas(str(path), pagesize=(width * mm, height * mm))
+        draw_symbol(
+            canvas,
+            barcode,
+            x_mm=0,
+            y_mm=SYMBOL_MARGIN_MM,
+            geometry=geometry,
         )
         canvas.showPage()
         canvas.save()

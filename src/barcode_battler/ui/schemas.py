@@ -14,6 +14,7 @@ from barcode_battler.models.character import BarcodeBattlerCharacter
 from barcode_battler.models.race import Race
 from barcode_battler.models.special_ability import FIRST_C1_C2_ONLY_CODE, SpecialAbility
 from barcode_battler.rendering.labels import race_label
+from barcode_battler.rendering.layout import CardOrientation, SheetLayout
 
 _RACE_DESCRIPTIONS = {
     Race.MECHANICAL: "Machines. Gain attack when very healthy.",
@@ -43,7 +44,23 @@ _RACE_DESCRIPTIONS_JA = {
 }
 
 
-class CardSpec(BaseModel):
+class Oriented(BaseModel):
+    """A request that says which way round the cards are printed."""
+
+    orientation: CardOrientation = CardOrientation.PORTRAIT
+
+    @property
+    def layout(self) -> SheetLayout:
+        """The sheet these cards are laid out on."""
+        return SheetLayout.of(self.orientation)
+
+    @property
+    def card_size_mm(self) -> tuple[float, float]:
+        """The width and height of one card."""
+        return self.orientation.size_mm
+
+
+class CardSpec(Oriented):
     """One card asked for over HTTP."""
 
     model_config = ConfigDict(populate_by_name=True)
@@ -68,20 +85,20 @@ class RandomSpec(CardSpec):
     seed: int | None = None
 
 
-class SheetSpec(BaseModel):
+class SheetSpec(Oriented):
     """A sheet built from an explicit list of cards."""
 
     cards: list[CardSpec]
 
 
-class PreviewSpec(BaseModel):
+class PreviewSpec(Oriented):
     """A barcode to draw a single card for."""
 
     barcode: str
     name: str = "Card"
 
 
-class BarcodeSheetSpec(BaseModel):
+class BarcodeSheetSpec(Oriented):
     """A sheet of cards that already have barcodes, so nothing is solved."""
 
     cards: list[PreviewSpec]
@@ -101,7 +118,7 @@ class CheatResult(BaseModel):
     character: CharacterView
 
 
-class OfficialSpec(BaseModel):
+class OfficialSpec(Oriented):
     """One official set, or every set when none is named."""
 
     official_set: str | None = Field(default=None, alias="set")

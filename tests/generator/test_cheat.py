@@ -1,7 +1,12 @@
 """Tests for the strongest card the device can be handed."""
 
 from barcode_battler.decoder.decode import decode
-from barcode_battler.generator.cheat import CHEAT_CODES, DEFAULT_CHEAT_NAME, strongest_card
+from barcode_battler.generator.cheat import (
+    CHEAT_CODES,
+    DEFAULT_CHEAT_NAME,
+    accepted_codes,
+    strongest_card,
+)
 from barcode_battler.generator.front_solver import MAX_HP_DISPLAY, MAX_STAT_DISPLAY
 from barcode_battler.generator.quarantine import takes_quarantined_branch
 from barcode_battler.models.character_class import CharacterClass
@@ -50,3 +55,11 @@ def test_the_card_has_a_silly_name_by_default() -> None:
 def test_every_cheat_code_is_written_without_spaces_in_capitals() -> None:
     assert CHEAT_CODES
     assert all(code == code.upper().replace(" ", "") for code in CHEAT_CODES)
+
+
+def test_the_card_s_own_barcode_opens_it_too() -> None:
+    assert strongest_card().barcode in accepted_codes()
+
+
+def test_every_written_code_is_accepted() -> None:
+    assert accepted_codes() >= CHEAT_CODES

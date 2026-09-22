@@ -27,7 +27,7 @@ from barcode_battler.cli.parsing import parse_character_class, parse_constraint,
 from barcode_battler.cli.report import DISCLAIMER, DISCLAIMER_JA
 from barcode_battler.decoder.decode import decode
 from barcode_battler.decoder.errors import BarcodeError
-from barcode_battler.generator.cheat import CHEAT_CODES, DEFAULT_CHEAT_NAME, strongest_card
+from barcode_battler.generator.cheat import DEFAULT_CHEAT_NAME, accepted_codes, strongest_card
 from barcode_battler.generator.nearest import solve_nearest
 from barcode_battler.generator.random_cards import generate_random
 from barcode_battler.generator.solve import solve
@@ -41,7 +41,8 @@ from barcode_battler.official.catalogue import (
     official_cards,
     rejected_transcriptions,
 )
-from barcode_battler.rendering.preview import card_png, sheet_png_pages
+from barcode_battler.rendering.layout import SheetLayout
+from barcode_battler.rendering.preview import card_png, sheet_png_pages, symbol_png
 from barcode_battler.rendering.sheet import write_sheet
 from barcode_battler.ui.schemas import (
     AbilityView,
@@ -133,13 +134,19 @@ def generate_one(spec: CardSpec) -> GenerateResult:
 
 def preview(spec: PreviewSpec) -> Response:
     """Draw one card exactly as it would print, and return it as an image."""
-    return Response(content=card_png(_decoded_card(spec)), media_type="image/png")
+    width, height = spec.card_size_mm
+    return Response(
+        content=card_png(_decoded_card(spec), width_mm=width, height_mm=height),
+        media_type="image/png",
+    )
 
 
 def sheet_preview(spec: RandomSpec) -> SheetPreview:
     """Draw the first pages of a random sheet, as images the page can show."""
     cards = _random_cards(spec)
-    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * 9])
+    layout = spec.layout
+    shown = cards[: PREVIEW_PAGE_LIMIT * layout.cards_per_page]
+    pages = sheet_png_pages(shown, layout=layout)
     return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
 
 
@@ -147,12 +154,12 @@ def sheet(spec: SheetSpec) -> FileResponse:
     """Build a sheet from an explicit list of cards."""
     if not spec.cards:
         raise HTTPException(status_code=UNPROCESSABLE, detail="no cards were requested")
-    return _sheet_response([_solve_card(card) for card in spec.cards], "card.pdf")
+    return _sheet_response([_solve_card(card) for card in spec.cards], "card.pdf", spec.layout)
 
 
 def random_sheet(spec: RandomSpec) -> FileResponse:
     """Build a sheet of random cards."""
-    return _sheet_response(_random_cards(spec), "cards.pdf")
+    return _sheet_response(_random_cards(spec), "cards.pdf", spec.layout)
 
 
 def cheat(spec: CheatSpec) -> CheatResult:
@@ -165,14 +172,19 @@ def cheat(spec: CheatSpec) -> CheatResult:
 
 def cheat_codes() -> list[str]:
     """The codes the page accepts. A joke, not a lock: the endpoint above is open."""
-    return sorted(CHEAT_CODES)
+    return sorted(accepted_codes())
+
+
+def secret_symbol() -> Response:
+    """The cheat card's barcode on its own, for the unlabelled symbol in the footer."""
+    return Response(content=symbol_png(strongest_card().barcode), media_type="image/png")
 
 
 def barcode_sheet(spec: BarcodeSheetSpec) -> FileResponse:
     """Build a sheet from cards that already carry a barcode."""
     if not spec.cards:
         raise HTTPException(status_code=UNPROCESSABLE, detail="no cards were requested")
-    return _sheet_response([_decoded_card(card) for card in spec.cards], "cards.pdf")
+    return _sheet_response([_decoded_card(card) for card in spec.cards], "cards.pdf", spec.layout)
 
 
 def official() -> OfficialCatalogue:
@@ -201,13 +213,14 @@ def official() -> OfficialCatalogue:
 
 def official_sheet(spec: OfficialSpec) -> FileResponse:
     """Download one official set, or all of them."""
-    return _sheet_response(official_cards(_official_set(spec)), "official-cards.pdf")
+    return _sheet_response(official_cards(_official_set(spec)), "official-cards.pdf", spec.layout)
 
 
 def official_preview(spec: OfficialSpec) -> SheetPreview:
     """Draw the first pages of an official set."""
     cards = official_cards(_official_set(spec))
-    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * 9])
+    layout = spec.layout
+    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * layout.cards_per_page], layout=layout)
     return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
 
 
@@ -225,6 +238,7 @@ def create_app() -> FastAPI:
     app.add_api_route("/api/random", random_sheet, methods=["POST"])
     app.add_api_route("/api/cheat", cheat, methods=["POST"])
     app.add_api_route("/api/cheat-codes", cheat_codes, methods=["GET"])
+    app.add_api_route("/api/secret-symbol", secret_symbol, methods=["GET"])
     app.add_api_route("/api/barcode-sheet", barcode_sheet, methods=["POST"])
     app.add_api_route("/api/official", official, methods=["GET"])
     app.add_api_route("/api/official-sheet", official_sheet, methods=["POST"])
@@ -293,9 +307,11 @@ def _official_set(spec: OfficialSpec) -> OfficialSet | None:
         ) from error
 
 
-def _sheet_response(cards: Sequence[GeneratedCard], filename: str) -> FileResponse:
+def _sheet_response(
+    cards: Sequence[GeneratedCard], filename: str, layout: SheetLayout | None = None
+) -> FileResponse:
     """Render the cards to a temporary PDF and serve it as a download."""
     directory = Path(tempfile.mkdtemp(prefix="barcode-battler-"))
     path = directory / filename
-    write_sheet(cards, path)
+    write_sheet(cards, path, layout=layout)
     return FileResponse(path, media_type="application/pdf", filename=filename)

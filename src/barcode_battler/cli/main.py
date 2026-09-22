@@ -32,6 +32,7 @@ from barcode_battler.official.catalogue import (
     rejected_transcriptions,
 )
 from barcode_battler.rendering.export import ImageFormat, export_images
+from barcode_battler.rendering.layout import CardOrientation, SheetLayout
 from barcode_battler.rendering.sheet import write_sheet
 
 app = typer.Typer(
@@ -58,6 +59,14 @@ OutputOption = Annotated[Path, typer.Option("--output", "-o", help="PDF to write
 ImagesOption = Annotated[
     ImageFormat | None, typer.Option("--images", help="Also export page images.")
 ]
+LandscapeOption = Annotated[bool, typer.Option("--landscape", help="Turn the cards on their side.")]
+PrintShopOption = Annotated[
+    bool,
+    typer.Option(
+        "--print-shop",
+        help="One card per page with a 3 mm bleed, as a commercial printer asks for.",
+    ),
+]
 NearestOption = Annotated[
     bool, typer.Option("--nearest", help="On an impossible request, offer the closest card.")
 ]
@@ -80,6 +89,8 @@ def random(
     ability: AbilityOption = None,
     seed: Annotated[int | None, typer.Option("--seed", help="Repeat an earlier run.")] = None,
     images: ImagesOption = None,
+    landscape: LandscapeOption = False,
+    print_shop: PrintShopOption = False,
 ) -> None:
     """Fill a sheet with random cards drawn through the real algorithm."""
     template = _request(
@@ -98,7 +109,7 @@ def random(
         for line in shortfall_lines(len(batch.cards), batch.requested, batch.reason):
             typer.echo(line, err=True)
         raise typer.Exit(code=1)
-    _write(batch.cards, output, images)
+    _write(batch.cards, output, images, _layout(landscape=landscape, print_shop=print_shop))
 
 
 @app.command()
@@ -116,6 +127,8 @@ def generate(
     images: ImagesOption = None,
     nearest: NearestOption = False,
     back_read: BackReadOption = False,
+    landscape: LandscapeOption = False,
+    print_shop: PrintShopOption = False,
 ) -> None:
     """Build one card whose barcode decodes to exactly the requested attributes."""
     request = _request(
@@ -141,7 +154,12 @@ def generate(
     for line in comparison_lines(request, character):
         typer.echo(line)
     typer.echo("")
-    _write((GeneratedCard(name=name, barcode=barcode, character=character),), output, images)
+    _write(
+        (GeneratedCard(name=name, barcode=barcode, character=character),),
+        output,
+        images,
+        _layout(landscape=landscape, print_shop=print_shop),
+    )
 
 
 def _report_blocked(
@@ -199,13 +217,15 @@ def cheat(
         DEFAULT_CHEAT_NAME
     ),
     images: ImagesOption = None,
+    landscape: LandscapeOption = False,
+    print_shop: PrintShopOption = False,
 ) -> None:
     """Print the strongest card the device will read. Nobody has to know."""
     card = strongest_card(name)
     character = card.character
     typer.echo(f"{card.name}: HP {character.hp}, ST {character.st}, DF {character.df}")
     typer.echo(f"Ability {character.special.code:02d} {character.special.description}")
-    _write((card,), output, images)
+    _write((card,), output, images, _layout(landscape=landscape, print_shop=print_shop))
 
 
 @app.command()
@@ -217,6 +237,8 @@ def official(
     ] = None,
     listing: Annotated[bool, typer.Option("--list", help="List the sets and stop.")] = False,
     images: ImagesOption = None,
+    landscape: LandscapeOption = False,
+    print_shop: PrintShopOption = False,
 ) -> None:
     """Print the cards Epoch released, as the community transcribed them."""
     if listing:
@@ -226,7 +248,9 @@ def official(
         typer.echo("--output is required unless --list is given", err=True)
         raise typer.Exit(code=2)
     chosen = _official_set(set_name) if set_name is not None else None
-    _write(official_cards(chosen), output, images)
+    _write(
+        official_cards(chosen), output, images, _layout(landscape=landscape, print_shop=print_shop)
+    )
 
 
 def _list_official() -> None:
@@ -288,9 +312,22 @@ def _request(
         raise typer.Exit(code=2) from error
 
 
-def _write(cards: tuple[GeneratedCard, ...], output: Path, images: ImageFormat | None) -> None:
+def _layout(*, landscape: bool, print_shop: bool) -> SheetLayout:
+    """The sheet the options ask for."""
+    orientation = CardOrientation.LANDSCAPE if landscape else CardOrientation.PORTRAIT
+    if print_shop:
+        return SheetLayout.print_shop(orientation)
+    return SheetLayout.of(orientation)
+
+
+def _write(
+    cards: tuple[GeneratedCard, ...],
+    output: Path,
+    images: ImageFormat | None,
+    layout: SheetLayout | None = None,
+) -> None:
     """Write the sheet, export images when asked, and state what was verified."""
-    pages = write_sheet(cards, output)
+    pages = write_sheet(cards, output, layout=layout)
     typer.echo(f"Wrote {len(cards)} card(s) across {pages} page(s) to {output}")
     if images is not None:
         directory = output.with_name(f"{output.stem}-images")
