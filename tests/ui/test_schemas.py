@@ -4,7 +4,9 @@ import pytest
 from pydantic import ValidationError
 
 from barcode_battler.decoder.decode import decode
-from barcode_battler.ui.schemas import CardSpec, CharacterView, RandomSpec
+from barcode_battler.models.race import Race
+from barcode_battler.models.special_ability import SpecialAbility
+from barcode_battler.ui.schemas import AbilityView, CardSpec, CharacterView, RaceView, RandomSpec
 
 
 def test_a_card_spec_defaults_to_no_constraints() -> None:
@@ -47,3 +49,21 @@ def test_an_item_view_has_no_class_and_no_speed() -> None:
 
     assert view.character_class is None
     assert view.speed is None
+
+
+def test_every_race_is_served_in_both_languages() -> None:
+
+    for race in Race:
+        view = RaceView.of(race)
+        assert view.label
+        assert view.label_ja
+        assert view.description_ja
+        assert not view.description_ja.isascii()
+
+
+def test_every_ability_is_served_in_both_languages() -> None:
+
+    view = AbilityView.of(SpecialAbility.from_code(18))
+
+    assert view.description == "own attack doubled"
+    assert view.description_ja == "自分の破壊力１００％アップ 2倍剣"

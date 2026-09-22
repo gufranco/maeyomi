@@ -8,7 +8,10 @@ barcode can only carry codes 00 to 29.
 from dataclasses import dataclass
 from typing import Final
 
+from barcode_battler.models.special_ability_ja import JAPANESE_DESCRIPTIONS
+
 UNDOCUMENTED: Final = "undocumented"
+JAPANESE_UNDOCUMENTED: Final = "不明"
 MIN_CODE: Final = 0
 MAX_CODE: Final = 99
 MAX_BACK_READ_CODE: Final = 29
@@ -24,7 +27,7 @@ _DESCRIPTIONS: Final[dict[int, str]] = {
     16: "own attack halved",
     17: "own attack increased by half",
     18: "own attack doubled",
-    19: "hero flag, C1 and C2 only",
+    19: "hero flag, C1 and C2 only; on the Famicom, double damage half the time",
     20: "own defence increased by 10 percent",
     21: "own defence increased by 30 percent",
     22: "own defence increased by 50 percent",
@@ -77,6 +80,11 @@ class SpecialAbility:
             message = f"special ability code {code} is outside {MIN_CODE}-{MAX_CODE}"
             raise ValueError(message)
         return cls(code=code, description=_DESCRIPTIONS.get(code, UNDOCUMENTED))
+
+    @property
+    def japanese(self) -> str:
+        """The published Japanese wording of the effect."""
+        return JAPANESE_DESCRIPTIONS.get(self.code, JAPANESE_UNDOCUMENTED)
 
     @property
     def is_documented(self) -> bool:

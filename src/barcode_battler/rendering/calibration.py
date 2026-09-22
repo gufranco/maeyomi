@@ -11,15 +11,18 @@ held against either one answers the question in a second, and
 `scale_error_percent` turns the measurement into the correction to type into
 the print dialog.
 
-The marks sit in the band below the card grid, between the cut marks and the
-lowest card edge, so they never touch a card and are thrown away with the
-offcut.
+The ruler sits in the band below the card grid and the note in the band above
+it, both clear of the cut marks and at least 5 mm from the paper's edge, which
+most printers can reach. Neither touches a card, and both leave with the offcut.
+The note is printed in English and in Japanese, like the cards.
 """
 
 from typing import Final
 
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
+
+from barcode_battler.rendering.text import font_for
 
 RULER_LENGTH_MM: Final = 100
 REFERENCE_LENGTH_MM: Final = float(RULER_LENGTH_MM)
@@ -35,7 +38,8 @@ LABEL_SIZE_PT: Final = 6.0
 
 RULER_BASELINE_MM: Final = 13.5
 NUMBER_BASELINE_MM: Final = 8.0
-NOTE_BASELINE_MM: Final = 5.0
+ENGLISH_NOTE_FROM_TOP_MM: Final = 7.5
+JAPANESE_NOTE_FROM_TOP_MM: Final = 10.5
 BAND_HEIGHT_MM: Final = RULER_BASELINE_MM + 1.0
 
 
@@ -55,7 +59,12 @@ def draw_calibration(
         raise ValueError(message)
     origin = (page_width_mm - RULER_LENGTH_MM) / 2
     _draw_ruler(canvas, origin)
-    _draw_note(canvas, origin=origin, symbol_width_mm=symbol_width_mm)
+    _draw_note(
+        canvas,
+        centre=page_width_mm / 2,
+        top=page_height_mm,
+        symbol_width_mm=symbol_width_mm,
+    )
 
 
 def scale_error_percent(measured_mm: float, *, reference_mm: float = REFERENCE_LENGTH_MM) -> float:
@@ -89,13 +98,19 @@ def _draw_ruler(canvas: Canvas, origin: float) -> None:
             canvas.drawCentredString(x * mm, NUMBER_BASELINE_MM * mm, str(offset // RULER_MAJOR_MM))
 
 
-def _draw_note(canvas: Canvas, *, origin: float, symbol_width_mm: float) -> None:
-    """Print what the marks mean and what each barcode should measure."""
-    canvas.setFont(LABEL_FONT, LABEL_SIZE_PT)
-    canvas.drawString(
-        origin * mm,
-        NOTE_BASELINE_MM * mm,
-        f"Ruler {RULER_LENGTH_MM:g} mm, numbered in cm. "
-        f"Barcode {symbol_width_mm:.1f} mm wide. "
-        "Shorter means the printer scaled the page: reprint at 100 percent.",
+def _draw_note(canvas: Canvas, *, centre: float, top: float, symbol_width_mm: float) -> None:
+    """Say what the ruler is for, in English and then in Japanese."""
+    english = (
+        f"The ruler at the foot of this page is {RULER_LENGTH_MM:g} mm, numbered in cm. "
+        f"Each barcode should be {symbol_width_mm:.1f} mm wide. "
+        "Shorter means the printer scaled the page: reprint at 100 percent."
     )
+    japanese = (
+        f"したの ものさしは {RULER_LENGTH_MM:g} mm です。"
+        f"バーコードの はばは {symbol_width_mm:.1f} mm。"
+        "みじかい ときは 100% で いんさつ しなおしてね。"
+    )
+    canvas.setFont(LABEL_FONT, LABEL_SIZE_PT)
+    canvas.drawCentredString(centre * mm, (top - ENGLISH_NOTE_FROM_TOP_MM) * mm, english)
+    canvas.setFont(font_for(japanese), LABEL_SIZE_PT)
+    canvas.drawCentredString(centre * mm, (top - JAPANESE_NOTE_FROM_TOP_MM) * mm, japanese)

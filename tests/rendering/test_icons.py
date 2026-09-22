@@ -16,12 +16,12 @@ from barcode_battler.barcode.rasterise import ink_box, render_pdf_pages
 from barcode_battler.models.race import Race
 from barcode_battler.rendering.icons import (
     RACE_COLOURS,
-    RACE_LABELS,
     draw_heart,
     draw_race_icon,
     draw_shield,
     draw_sword,
 )
+from barcode_battler.rendering.labels import race_label
 
 BOX_MM = 20.0
 MARGIN_MM = 5.0
@@ -96,8 +96,8 @@ def test_every_race_has_a_colour_and_a_child_readable_label(race: Race) -> None:
     assert 0.0 <= red <= 1.0
     assert 0.0 <= green <= 1.0
     assert 0.0 <= blue <= 1.0
-    assert RACE_LABELS[race]
-    assert RACE_LABELS[race][0].isupper()
+    assert race_label(race).english
+    assert race_label(race).english[0].isupper()
 
 
 def test_the_fighter_races_are_told_apart_by_colour() -> None:

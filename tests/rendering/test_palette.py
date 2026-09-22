@@ -23,7 +23,8 @@ from barcode_battler.rendering.colour import (
     greyscale,
     simulate,
 )
-from barcode_battler.rendering.icons import RACE_COLOURS, RACE_LABELS, STAT_STYLES
+from barcode_battler.rendering.icons import RACE_COLOURS, STAT_STYLES
+from barcode_battler.rendering.labels import race_label
 
 WHITE = (1.0, 1.0, 1.0)
 TEXT_CONTRAST = 4.5
@@ -69,13 +70,13 @@ def test_the_fighter_bands_print_as_different_tones_of_grey() -> None:
 
 @pytest.mark.parametrize(("first", "second"), SAME_ICON_PAIRS)
 def test_two_races_sharing_an_icon_are_told_apart_without_colour(first: Race, second: Race) -> None:
-    assert RACE_LABELS[first] != RACE_LABELS[second]
+    assert race_label(first).english != race_label(second).english
     tone = contrast_ratio(greyscale(RACE_COLOURS[first]), greyscale(RACE_COLOURS[second]))
     assert tone >= FAMILY_TONE_STEP
 
 
 def test_no_two_races_are_told_apart_by_colour_alone() -> None:
-    assert len(set(RACE_LABELS.values())) == len(RACE_LABELS)
+    assert len({race_label(race).english for race in Race}) == len(Race)
 
 
 @pytest.mark.parametrize("key", list(STAT_STYLES))

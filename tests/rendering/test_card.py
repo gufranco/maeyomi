@@ -258,3 +258,71 @@ def test_one_word_wider_than_the_card_is_cut_on_its_own_line(tmp_path: Path) -> 
     text = pdf_text(path)
     assert "Sir" in text
     assert "..." in text
+
+
+def test_the_kind_of_card_is_named_in_both_languages(tmp_path: Path) -> None:
+    path = tmp_path / "race.pdf"
+
+    render(path, sample())
+
+    text = pdf_text(path)
+    assert "Sea creature" in text
+    assert "うみの いきもの" in text
+    assert "Warrior" in text
+    assert "せんし" in text
+
+
+def test_the_three_numbers_are_named_in_both_languages(tmp_path: Path) -> None:
+    path = tmp_path / "stats.pdf"
+
+    render(path, sample())
+
+    text = pdf_text(path)
+    for english, japanese in (("HP", "たいりょく"), ("ST", "こうげき"), ("DF", "ぼうぎょ")):
+        assert english in text
+        assert japanese in text
+
+
+def test_the_special_power_is_described_in_both_languages(tmp_path: Path) -> None:
+    path = tmp_path / "power.pdf"
+
+    render(path, sample())
+
+    text = pdf_text(path).replace("\r\n", "")
+    assert "Special power" in text
+    assert "とくしゅ のうりょく" in text
+    assert "hero flag" in text
+    assert "主人公フラグ" in text
+
+
+def test_the_swipe_caption_is_in_both_languages(tmp_path: Path) -> None:
+    path = tmp_path / "swipe-both.pdf"
+
+    render(path, sample())
+
+    text = pdf_text(path)
+    assert "Swipe this end" in text
+    assert "ここを とおしてね" in text
+
+
+def test_a_long_power_is_printed_whole_in_both_languages(tmp_path: Path) -> None:
+    path = tmp_path / "long-power.pdf"
+    barcode = "0501209100305"
+    card = GeneratedCard(name="Trickster", barcode=barcode, character=decode(barcode))
+
+    render(path, card)
+
+    text = " ".join(pdf_text(path).split())
+    assert "one chance in two" in text
+    assert "HP減算" in text
+    assert "..." not in text
+
+
+def test_a_two_line_name_still_leaves_both_languages_of_the_power(tmp_path: Path) -> None:
+    path = tmp_path / "crowded.pdf"
+
+    render(path, sample("Thunder Dragon of the Northern Peaks"))
+
+    text = pdf_text(path).replace("\r\n", "")
+    assert "hero flag" in text
+    assert "主人公" in text

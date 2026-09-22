@@ -3,34 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Barcode Battler II card maker</title>
+<title data-i18n="title">Barcode Battler II card maker</title>
 <link rel="stylesheet" href="/static/app.css">
 </head>
 <body>
 
 <header class="masthead">
-  <h1>Barcode Battler II card maker</h1>
-  <p class="lede">
+  <div class="masthead-top">
+    <h1 data-i18n="title">Barcode Battler II card maker</h1>
+    <div class="language" role="group" aria-label="Language / 言語">
+      <button type="button" data-language="en" aria-pressed="true" lang="en">English</button>
+      <button type="button" data-language="ja" aria-pressed="false" lang="ja">日本語</button>
+    </div>
+  </div>
+  <p class="lede" data-i18n="lede">
     Design a fighter, print the sheet, cut the cards, swipe them through the
-    machine. Everything you see here is built from the barcodes the device
-    actually reads.
+    machine. Every card is printed in English and Japanese, with pictures for
+    anyone who cannot read yet.
   </p>
 </header>
 
-<div class="tabs" role="tablist" aria-label="What would you like to make">
-  <button role="tab" id="tab-one" aria-controls="panel-one" aria-selected="true">
-    One card
-  </button>
-  <button role="tab" id="tab-many" aria-controls="panel-many" aria-selected="false">
-    A sheet of cards
-  </button>
-  <button role="tab" id="tab-official" aria-controls="panel-official" aria-selected="false">
-    The real cards
-  </button>
+<div class="tabs" role="tablist" aria-label="What would you like to make"
+     data-i18n-aria-label="tabs.label">
+  <button role="tab" id="tab-one" aria-controls="panel-one" aria-selected="true"
+          data-i18n="tab.one">One card</button>
+  <button role="tab" id="tab-many" aria-controls="panel-many" aria-selected="false"
+          data-i18n="tab.many">A sheet of cards</button>
+  <button role="tab" id="tab-official" aria-controls="panel-official" aria-selected="false"
+          data-i18n="tab.official">The real cards</button>
 </div>
 
 <div id="cheat-banner" class="cheat-banner" role="status" aria-live="polite" hidden>
-  <p class="cheat-title">Cheat activated</p>
+  <p class="cheat-title" data-i18n="cheat.title">Cheat activated</p>
   <p class="cheat-quip" id="cheat-quip"></p>
 </div>
 
@@ -40,52 +44,54 @@
   <form id="one" class="panel">
 
     <fieldset>
-      <legend>Who is on the card</legend>
+      <legend data-i18n="one.who">Who is on the card</legend>
 
       <p class="field">
-        <label for="name">Name</label>
+        <label for="name" data-i18n="one.name">Name</label>
         <input id="name" name="name" value="Fire Knight" maxlength="40" autocomplete="off">
-        <span class="hint">Printed on the card. It does not change the barcode.</span>
+        <span class="hint" data-i18n="one.name.hint">
+          Printed on the card. It does not change the barcode.
+        </span>
       </p>
 
       <p class="field">
-        <label for="race">Kind of fighter</label>
+        <label for="race" data-i18n="one.race">Kind of fighter</label>
         <select id="race" name="race"></select>
         <span class="hint" id="race-hint"></span>
       </p>
 
       <p class="field">
-        <label for="class">Fights with</label>
+        <label for="class" data-i18n="one.class">Fights with</label>
         <select id="class" name="class">
-          <option value="">Either</option>
-          <option value="warrior" selected>A weapon, a warrior</option>
-          <option value="magician">Magic, a magician</option>
+          <option value="" data-i18n="class.either">Either</option>
+          <option value="warrior" selected data-i18n="class.warrior">A weapon, a warrior</option>
+          <option value="magician" data-i18n="class.magician">Magic, a magician</option>
         </select>
       </p>
     </fieldset>
 
     <fieldset>
-      <legend>How strong</legend>
+      <legend data-i18n="one.strong">How strong</legend>
 
       <p class="field stat">
-        <label for="hp">Health</label>
+        <label for="hp" data-i18n="stat.hp">Health</label>
         <input id="hp" name="hp" type="range" min="0" max="99900" step="100" value="5000">
         <output for="hp" id="hp-out">5000</output>
       </p>
 
       <p class="field stat">
-        <label for="st">Attack</label>
+        <label for="st" data-i18n="stat.st">Attack</label>
         <input id="st" name="st" type="range" min="0" max="19900" step="100" value="1800">
         <output for="st" id="st-out">1800</output>
       </p>
 
       <p class="field stat">
-        <label for="df">Defence</label>
+        <label for="df" data-i18n="stat.df">Defence</label>
         <input id="df" name="df" type="range" min="0" max="19900" step="100" value="1200">
         <output for="df" id="df-out">1200</output>
       </p>
 
-      <p class="note" id="hp-note" hidden>
+      <p class="note" id="hp-note" hidden data-i18n="one.hpNote">
         Above 20000 health the machine needs a marker in the barcode, so health
         has to end in 900 and speed is always 5. The slider snaps to the nearest
         one it can reach.
@@ -93,11 +99,11 @@
     </fieldset>
 
     <fieldset>
-      <legend>Special ability</legend>
+      <legend data-i18n="one.abilityLegend">Special ability</legend>
       <p class="field">
-        <label for="ability">Ability</label>
+        <label for="ability" data-i18n="one.ability">Ability</label>
         <select id="ability" name="ability"></select>
-        <span class="hint">
+        <span class="hint" data-i18n="one.ability.hint">
           The machine stores abilities as numbers. Only 00 to 49 work in an
           ordinary battle.
         </span>
@@ -105,54 +111,60 @@
     </fieldset>
 
     <details class="advanced">
-      <summary>Fine detail</summary>
+      <summary data-i18n="one.detail">Fine detail</summary>
       <p class="field">
-        <label for="speed">Speed, 0 to 9</label>
-        <input id="speed" name="speed" type="number" min="0" max="9" placeholder="any">
-        <span class="hint">Decides who strikes first.</span>
+        <label for="speed" data-i18n="one.speed">Speed, 0 to 9</label>
+        <input id="speed" name="speed" type="number" min="0" max="9" placeholder="any"
+               data-i18n-placeholder="any">
+        <span class="hint" data-i18n="one.speed.hint">Decides who strikes first.</span>
       </p>
       <p class="field">
-        <label for="job">Type number, 0 to 9</label>
-        <input id="job" name="job" type="number" min="0" max="9" placeholder="any">
-        <span class="hint">
+        <label for="job" data-i18n="one.job">Type number, 0 to 9</label>
+        <input id="job" name="job" type="number" min="0" max="9" placeholder="any"
+               data-i18n-placeholder="any">
+        <span class="hint" data-i18n="one.job.hint">
           0 to 6 is a warrior, 7 to 9 a magician. Some abilities target it.
         </span>
       </p>
       <p class="field check">
         <label for="backRead">
           <input id="backRead" name="backRead" type="checkbox">
-          Make a card the machine reads backwards
+          <span data-i18n="one.back">Make a card the machine reads backwards</span>
         </label>
-        <span class="hint">Lower limits, and far fewer combinations exist.</span>
+        <span class="hint" data-i18n="one.back.hint">
+          Lower limits, and far fewer combinations exist.
+        </span>
       </p>
     </details>
 
     <p class="field check">
       <label for="nearest">
         <input id="nearest" name="nearest" type="checkbox" checked>
-        If those exact numbers are impossible, use the closest ones
+        <span data-i18n="one.nearest">
+          If those exact numbers are impossible, use the closest ones
+        </span>
       </label>
     </p>
 
     <p class="actions">
-      <button type="submit" class="primary">Make this card</button>
-      <button type="button" id="one-pdf">Download to print</button>
+      <button type="submit" class="primary" data-i18n="one.make">Make this card</button>
+      <button type="button" id="one-pdf" data-i18n="download">Download to print</button>
     </p>
   </form>
 
   <aside class="preview" aria-live="polite">
-    <h2>Your card</h2>
+    <h2 data-i18n="one.preview">Your card</h2>
     <div class="card-frame">
       <img id="card-image" alt="" width="381" height="533">
-      <p class="placeholder" id="card-placeholder">
-        Choose your numbers, then press <strong>Make this card</strong>.
+      <p class="placeholder" id="card-placeholder" data-i18n="one.placeholder">
+        Choose your numbers, then press Make this card.
       </p>
     </div>
     <div id="one-status" class="status"></div>
     <p class="code" id="one-code" hidden>
-      <span class="code-label">Barcode number</span>
+      <span class="code-label" data-i18n="one.code">Barcode number</span>
       <code id="one-code-value"></code>
-      <button type="button" id="one-copy" class="link">Copy</button>
+      <button type="button" id="one-copy" class="link" data-i18n="copy">Copy</button>
     </p>
   </aside>
 </section>
@@ -160,59 +172,62 @@
 <section id="panel-many" role="tabpanel" aria-labelledby="tab-many" class="layout" hidden>
   <form id="many" class="panel">
     <fieldset>
-      <legend>How many</legend>
+      <legend data-i18n="many.howMany">How many</legend>
       <p class="field">
-        <label for="count">Cards</label>
+        <label for="count" data-i18n="many.count">Cards</label>
         <input id="count" name="count" type="number" min="1" max="200" value="9">
-        <span class="hint">Nine fit on a page.</span>
+        <span class="hint" data-i18n="many.count.hint">Nine fit on a page.</span>
       </p>
       <p class="field">
-        <label for="seed">Batch number</label>
-        <input id="seed" name="seed" type="number" placeholder="leave empty for a new set">
-        <span class="hint">Use the same number to get the same cards again.</span>
+        <label for="seed" data-i18n="many.seed">Batch number</label>
+        <input id="seed" name="seed" type="number" placeholder="leave empty for a new set"
+               data-i18n-placeholder="many.seed.placeholder">
+        <span class="hint" data-i18n="many.seed.hint">
+          Use the same number to get the same cards again.
+        </span>
       </p>
     </fieldset>
 
     <fieldset>
-      <legend>Keep them in this range</legend>
+      <legend data-i18n="many.range">Keep them in this range</legend>
       <p class="field pair">
-        <label for="hp-min">Health</label>
+        <label for="hp-min" data-i18n="stat.hp">Health</label>
         <input id="hp-min" type="number" min="0" max="99900" step="100" value="1000">
-        <span aria-hidden="true">to</span>
+        <span aria-hidden="true" data-i18n="to">to</span>
         <input id="hp-max" type="number" min="0" max="99900" step="100" value="10000"
-               aria-label="Highest health">
+               aria-label="Highest health" data-i18n-aria-label="many.hpMax">
       </p>
       <p class="field pair">
-        <label for="st-min">Attack</label>
+        <label for="st-min" data-i18n="stat.st">Attack</label>
         <input id="st-min" type="number" min="0" max="19900" step="100" value="100">
-        <span aria-hidden="true">to</span>
+        <span aria-hidden="true" data-i18n="to">to</span>
         <input id="st-max" type="number" min="0" max="19900" step="100" value="3000"
-               aria-label="Highest attack">
+               aria-label="Highest attack" data-i18n-aria-label="many.stMax">
       </p>
       <p class="field pair">
-        <label for="df-min">Defence</label>
+        <label for="df-min" data-i18n="stat.df">Defence</label>
         <input id="df-min" type="number" min="0" max="19900" step="100" value="100">
-        <span aria-hidden="true">to</span>
+        <span aria-hidden="true" data-i18n="to">to</span>
         <input id="df-max" type="number" min="0" max="19900" step="100" value="3000"
-               aria-label="Highest defence">
+               aria-label="Highest defence" data-i18n-aria-label="many.dfMax">
       </p>
       <p class="field">
-        <label for="many-race">Kind of fighter</label>
+        <label for="many-race" data-i18n="one.race">Kind of fighter</label>
         <select id="many-race" name="race"></select>
       </p>
     </fieldset>
 
     <p class="actions">
-      <button type="submit" class="primary">Make the sheet</button>
-      <button type="button" id="many-pdf">Download to print</button>
+      <button type="submit" class="primary" data-i18n="many.make">Make the sheet</button>
+      <button type="button" id="many-pdf" data-i18n="download">Download to print</button>
     </p>
   </form>
 
   <aside class="preview" aria-live="polite">
-    <h2>Your sheet</h2>
+    <h2 data-i18n="many.preview">Your sheet</h2>
     <div class="sheet-frame" id="sheet-frame">
-      <p class="placeholder">
-        Press <strong>Make the sheet</strong> to see the pages.
+      <p class="placeholder" data-i18n="many.placeholder">
+        Press Make the sheet to see the pages.
       </p>
     </div>
     <div id="many-status" class="status"></div>
@@ -222,23 +237,23 @@
 <section id="panel-official" role="tabpanel" aria-labelledby="tab-official" class="layout" hidden>
   <form id="official" class="panel">
     <fieldset>
-      <legend>Cards Epoch really sold</legend>
+      <legend data-i18n="official.legend">Cards Epoch really sold</legend>
       <p class="field">
-        <label for="official-set">Which set</label>
+        <label for="official-set" data-i18n="official.set">Which set</label>
         <select id="official-set" name="set"></select>
         <span class="hint" id="official-hint"></span>
       </p>
     </fieldset>
 
-    <p class="note">
+    <p class="note" data-i18n="official.note">
       These are the barcodes printed on the cards Epoch released in Japan, typed
       in by collectors on the Barcode Battler wiki. The numbers on each card are
       read from the barcode by this program, not copied from the wiki.
     </p>
 
     <details class="advanced" id="official-skipped">
-      <summary>Cards left out</summary>
-      <p class="hint">
+      <summary data-i18n="official.skipped">Cards left out</summary>
+      <p class="hint" data-i18n="official.skipped.hint">
         The wiki has a typo in these: the last digit does not match the others,
         so the machine would refuse them. Guessing the right digit would mean
         printing a card nobody ever sold, so they are left out instead.
@@ -247,16 +262,16 @@
     </details>
 
     <p class="actions">
-      <button type="submit" class="primary">Show the cards</button>
-      <button type="button" id="official-pdf">Download to print</button>
+      <button type="submit" class="primary" data-i18n="official.show">Show the cards</button>
+      <button type="button" id="official-pdf" data-i18n="download">Download to print</button>
     </p>
   </form>
 
   <aside class="preview" aria-live="polite">
-    <h2>The set</h2>
+    <h2 data-i18n="official.preview">The set</h2>
     <div class="sheet-frame" id="official-frame">
-      <p class="placeholder">
-        Pick a set and press <strong>Show the cards</strong>.
+      <p class="placeholder" data-i18n="official.placeholder">
+        Pick a set and press Show the cards.
       </p>
     </div>
     <div id="official-status" class="status"></div>
@@ -267,20 +282,22 @@
 
 <footer>
   <form id="cheat" class="cheat-form">
-    <label for="cheat-code">Secret code</label>
+    <label for="cheat-code" data-i18n="cheat.label">Secret code</label>
     <input id="cheat-code" name="code" autocomplete="off" spellcheck="false"
-           maxlength="20" placeholder="psst...">
-    <button type="submit">Try it</button>
+           maxlength="20" placeholder="psst..." data-i18n-placeholder="cheat.placeholder">
+    <button type="submit" data-i18n="cheat.try">Try it</button>
     <span class="hint" id="cheat-reply" role="status" aria-live="polite"></span>
   </form>
-  <p id="disclaimer">__DISCLAIMER__</p>
-  <p>
+  <p id="disclaimer" data-only-language="en">__DISCLAIMER__</p>
+  <p id="disclaimer-ja" lang="ja" data-only-language="ja">__DISCLAIMER_JA__</p>
+  <p data-i18n="printing">
     Printing: use plain matte paper, turn off any "fit to page" or "scale"
     setting, and print at the highest quality your printer offers. The barcode
     only reads at its true size.
   </p>
 </footer>
 
+<script src="/static/i18n.js"></script>
 <script src="/static/app.js"></script>
 </body>
 </html>

@@ -13,6 +13,10 @@ DISCLAIMER = (
     "These cards were verified against this project's own decoder. They have "
     "not been tested on a physical Barcode Battler II."
 )
+DISCLAIMER_JA = (
+    "これらのカードは このプログラムの デコーダーで けんしょう しています。"
+    "バーコードバトラーII の 実機では まだ テストされていません。"
+)
 UNCONSTRAINED = ("any", "-")
 
 

@@ -13,6 +13,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from barcode_battler.models.character import BarcodeBattlerCharacter
 from barcode_battler.models.race import Race
 from barcode_battler.models.special_ability import FIRST_C1_C2_ONLY_CODE, SpecialAbility
+from barcode_battler.rendering.labels import race_label
 
 _RACE_DESCRIPTIONS = {
     Race.MECHANICAL: "Machines. Gain attack when very healthy.",
@@ -25,6 +26,20 @@ _RACE_DESCRIPTIONS = {
     Race.SINGLE_USE_ARMOUR: "A defence boost that breaks after one battle.",
     Race.ARMOUR: "A defence boost that lasts.",
     Race.SUPPORT_ITEM: "Health, herbs or magic points.",
+}
+
+
+_RACE_DESCRIPTIONS_JA = {
+    Race.MECHANICAL: "きかい。たいりょくが とても おおいと こうげきが ふえる。",
+    Race.ANIMAL: "けもの。たいりょくが とても おおいと ぼうぎょが ふえる。",
+    Race.AQUATIC: "うみの いきもの。たいりょくが とても おおいと りょうほう ふえる。",
+    Race.BIRD: "そらを とぶ。ボーナスは ないので どの すうじでも つくれる。",
+    Race.HUMAN: "ひと。ボーナスは ないので どの すうじでも つくれる。",
+    Race.SINGLE_USE_WEAPON: "こうげきが ふえる。1かいの たたかいで こわれる。",
+    Race.WEAPON: "こうげきが ずっと ふえる。",
+    Race.SINGLE_USE_ARMOUR: "ぼうぎょが ふえる。1かいの たたかいで こわれる。",
+    Race.ARMOUR: "ぼうぎょが ずっと ふえる。",
+    Race.SUPPORT_ITEM: "たいりょく、やくそう、まほうの ポイント。",
 }
 
 
@@ -122,6 +137,7 @@ class AbilityView(BaseModel):
 
     code: int
     description: str
+    description_ja: str = ""
     usable_in_battle: bool = True
 
     @classmethod
@@ -130,6 +146,7 @@ class AbilityView(BaseModel):
         return cls(
             code=ability.code,
             description=ability.description,
+            description_ja=ability.japanese,
             usable_in_battle=ability.code < FIRST_C1_C2_ONLY_CODE,
         )
 
@@ -139,7 +156,9 @@ class RaceView(BaseModel):
 
     name: str
     label: str
+    label_ja: str
     description: str
+    description_ja: str
     is_fighter: bool
 
     @classmethod
@@ -147,8 +166,10 @@ class RaceView(BaseModel):
         """Build the view from the race enum."""
         return cls(
             name=race.name.lower(),
-            label=race.name.replace("_", " ").title(),
+            label=race_label(race).english,
+            label_ja=race_label(race).japanese,
             description=_RACE_DESCRIPTIONS[race],
+            description_ja=_RACE_DESCRIPTIONS_JA[race],
             is_fighter=race.is_fighter,
         )
 

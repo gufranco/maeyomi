@@ -58,7 +58,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*" = ["PLR2004", "INP001", "D100", "D101", "D102", "D103", "D104", "FBT001"]
+"tests/*" = ["PLR2004", "INP001", "D100", "D101", "D102", "D103", "D104", "FBT001", "RUF001"]
 "src/barcode_battler/decoder/front_read.py" = ["PLR0913"]
 "src/barcode_battler/decoder/back_read.py" = ["PLR0913"]
 "src/barcode_battler/generator/front_solver.py" = ["PLR0913", "PLR0917"]
@@ -68,6 +68,7 @@ ignore = [
 "src/barcode_battler/rendering/preview.py" = ["PLR0913"]
 "src/barcode_battler/cli/main.py" = ["PLR0913", "PLR0917", "FBT002"]
 "src/barcode_battler/official/catalogue.py" = ["RUF001"]
+"src/barcode_battler/models/special_ability_ja.py" = ["RUF001"]
 "tools/*" = ["ALL"]
 
 [tool.ruff.lint.pydocstyle]

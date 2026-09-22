@@ -1,6 +1,6 @@
 """Tests for the requested against generated comparison."""
 
-from barcode_battler.cli.report import DISCLAIMER, comparison_lines, shortfall_lines
+from barcode_battler.cli.report import DISCLAIMER, DISCLAIMER_JA, comparison_lines, shortfall_lines
 from barcode_battler.decoder.decode import decode
 from barcode_battler.models.card_request import CardRequest
 from barcode_battler.models.character_class import CharacterClass
@@ -73,3 +73,8 @@ def test_the_lowest_valued_race_is_reported_rather_than_read_as_absent() -> None
     lines = comparison_lines(request, CHARACTER)
 
     assert any(line.startswith("Race") and "mechanical" in line for line in lines)
+
+
+def test_the_disclaimer_exists_in_japanese() -> None:
+
+    assert "実機" in DISCLAIMER_JA

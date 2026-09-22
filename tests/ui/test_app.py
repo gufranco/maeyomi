@@ -349,3 +349,10 @@ def test_every_official_card_can_be_downloaded_at_once(client: TestClient) -> No
 
     assert response.status_code == 200
     assert response.headers["content-type"] == "application/pdf"
+
+
+def test_the_disclaimer_is_served_in_both_languages(client: TestClient) -> None:
+    text = client.get("/").text
+
+    assert "not been tested on a physical" in text
+    assert "実機" in text

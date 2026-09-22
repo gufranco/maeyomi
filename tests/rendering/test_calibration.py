@@ -103,3 +103,27 @@ def test_a_page_too_small_for_the_marks_is_rejected(tmp_path: Path) -> None:
 def test_a_page_too_short_for_the_band_is_rejected(tmp_path: Path) -> None:
     with pytest.raises(ValueError, match="cannot hold"):
         page(tmp_path / "flat.pdf", width_mm=210.0, height_mm=10.0)
+
+
+def test_the_note_is_printed_in_both_languages(tmp_path: Path) -> None:
+    path = tmp_path / "bilingual.pdf"
+
+    page(path)
+
+    text = text_of(path)
+    assert "reprint at 100 percent" in text
+    assert "100%" in text
+    assert "いんさつ" in text
+
+
+def test_the_note_sits_well_inside_the_printable_area(tmp_path: Path) -> None:
+    path = tmp_path / "margins.pdf"
+
+    page(path)
+
+    image = render_pdf_pages(path, dpi=150)[0]
+    box = ink_box(image)
+    assert box is not None
+    per_mm = 150 / 25.4
+    assert box[1] >= 5.0 * per_mm
+    assert image.height - box[3] >= 5.0 * per_mm

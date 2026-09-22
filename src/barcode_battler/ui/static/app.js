@@ -1,26 +1,17 @@
 const HIGH_HP = 20000;
 const MARKER_REMAINDER = 900;
+const CARDS_PER_PAGE = 9;
+const COPY_RESET_MS = 1500;
+const SHAKE_MS = 700;
 const ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-
 const KONAMI = [
   'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
   'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a',
 ];
-const SHAKE_MS = 700;
-const CHEAT_QUIPS = [
-  'The machine is sweating.',
-  'Please do not tell the other fighters.',
-  '99900 health. Your friends will need a bigger calculator.',
-  'Attack doubled, because normal attack was just not enough.',
-  'Warning: may cause your friends to stop playing with you.',
-  'The barcode is real. The fairness is not.',
-];
-const WRONG_CODE_REPLIES = [
-  'Nice try. The machine is not impressed.',
-  'Nope. Maybe ask a grown-up who played in 1992?',
-  'That is not it. The machine yawns.',
-];
 
+let raceList = [];
+let abilityList = [];
+let catalogue = null;
 let cheatCard = null;
 
 const $ = (id) => document.getElementById(id);
@@ -28,6 +19,8 @@ const $ = (id) => document.getElementById(id);
 const pick = (items) => items[Math.floor(Math.random() * items.length)];
 
 const escapeHtml = (text) => String(text).replace(/[&<>"']/g, (ch) => ESCAPES[ch]);
+
+const isJapanese = () => currentLanguage === 'ja';
 
 async function getJson(url) {
   const response = await fetch(url);
@@ -49,10 +42,10 @@ function reasons(body) {
   const detail = body?.detail;
   if (Array.isArray(detail)) return detail.map(String);
   if (typeof detail === 'string') return [detail];
-  return ['Something went wrong. Please try different numbers.'];
+  return [t('status.wrong')];
 }
 
-function setStatus(id, kind, label, message, items = []) {
+function setStatus(id, kind, tagKey, message, items = []) {
   const list = items.length
     ? `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
     : '';
@@ -61,9 +54,12 @@ function setStatus(id, kind, label, message, items = []) {
   node.replaceChildren();
   node.insertAdjacentHTML(
     'afterbegin',
-    `<p><span class="tag">${escapeHtml(label)}</span>${escapeHtml(message)}</p>${list}`,
+    `<p><span class="tag">${escapeHtml(t(tagKey))}</span>${escapeHtml(message)}</p>${list}`,
   );
 }
+
+const refuse = (id, body, key = 'status.adjust') =>
+  setStatus(id, 'bad', 'tag.impossible', t(key), reasons(body));
 
 function download(blob, filename) {
   const link = document.createElement('a');
@@ -103,57 +99,69 @@ function setUpTabs() {
 
 function setUpStats() {
   ['hp', 'st', 'df'].forEach((key) => {
-    const input = $(key);
     const sync = () => {
-      const snapped = key === 'hp' ? snapHitPoints(Number(input.value)) : Number(input.value);
-      if (String(snapped) !== input.value) input.value = String(snapped);
+      const raw = Number($(key).value);
+      const snapped = key === 'hp' ? snapHitPoints(raw) : raw;
+      if (snapped !== raw) $(key).value = String(snapped);
       $(`${key}-out`).textContent = snapped.toLocaleString('en-US');
       if (key === 'hp') $('hp-note').toggleAttribute('hidden', snapped < HIGH_HP);
     };
-    input.addEventListener('input', sync);
+    $(key).addEventListener('input', sync);
     sync();
   });
 }
 
-const optionsFor = (races) =>
-  races
-    .map((race) => `<option value="${race.name}">${escapeHtml(race.label)}</option>`)
-    .join('');
+const optionHtml = (value, label, chosen) =>
+  `<option value="${escapeHtml(value)}"${value === chosen ? ' selected' : ''}>` +
+  `${escapeHtml(label)}</option>`;
+
+function fillSelect(id, options, fallback) {
+  const current = $(id).value || fallback;
+  const chosen = options.some((option) => option.value === current) ? current : fallback;
+  $(id).replaceChildren();
+  $(id).insertAdjacentHTML(
+    'afterbegin',
+    options.map((option) => optionHtml(option.value, option.label, chosen)).join(''),
+  );
+}
+
+const raceName = (race) => (isJapanese() ? race.label_ja : race.label);
+const raceHint = (race) => (isJapanese() ? race.description_ja : race.description);
+const abilityText = (ability) => (isJapanese() ? ability.description_ja : ability.description);
+
+function renderChoices() {
+  const fighters = raceList
+    .filter((race) => race.is_fighter)
+    .map((race) => ({ value: race.name, label: raceName(race) }));
+  fillSelect('race', fighters, 'human');
+  fillSelect('many-race', [{ value: '', label: t('many.anyRace') }, ...fighters], '');
+  fillSelect(
+    'ability',
+    abilityList
+      .filter((ability) => ability.usable_in_battle)
+      .map((ability) => ({
+        value: String(ability.code),
+        label: `${String(ability.code).padStart(2, '0')} ${abilityText(ability)}`,
+      })),
+    '0',
+  );
+  showRaceHint();
+}
+
+function showRaceHint() {
+  const chosen = raceList.find((race) => race.name === $('race').value);
+  $('race-hint').textContent = chosen ? raceHint(chosen) : '';
+}
 
 async function setUpChoices() {
   const [races, abilities] = await Promise.all([
     getJson('/api/races'),
     getJson('/api/abilities'),
   ]);
-  const fighters = races.filter((race) => race.is_fighter);
-
-  $('race').insertAdjacentHTML('afterbegin', optionsFor(fighters));
-  $('race').value = 'human';
-  $('many-race').insertAdjacentHTML(
-    'afterbegin',
-    `<option value="">Any kind</option>${optionsFor(fighters)}`,
-  );
-
-  const hint = () => {
-    const chosen = fighters.find((race) => race.name === $('race').value);
-    $('race-hint').textContent = chosen ? chosen.description : '';
-  };
-  $('race').addEventListener('change', hint);
-  hint();
-
-  $('ability').insertAdjacentHTML(
-    'afterbegin',
-    abilities
-      .filter((ability) => ability.usable_in_battle)
-      .map(
-        (ability) =>
-          `<option value="${ability.code}">` +
-          `${String(ability.code).padStart(2, '0')} ${escapeHtml(ability.description)}` +
-          `</option>`,
-      )
-      .join(''),
-  );
-  $('ability').value = '0';
+  raceList = races;
+  abilityList = abilities;
+  renderChoices();
+  $('race').addEventListener('change', showRaceHint);
 }
 
 function oneCardPayload() {
@@ -174,15 +182,9 @@ function oneCardPayload() {
 
 function describeResult(body) {
   if (body.is_exact) {
-    setStatus('one-status', 'good', 'Exact', 'The machine will read exactly these numbers.');
+    setStatus('one-status', 'good', 'tag.exact', t('status.exact'));
   } else {
-    setStatus(
-      'one-status',
-      'warn',
-      'Closest',
-      'Those exact numbers are impossible on this machine. This is the nearest card.',
-      body.differences,
-    );
+    setStatus('one-status', 'warn', 'tag.closest', t('status.closest'), body.differences);
   }
   $('one-code').toggleAttribute('hidden', false);
   $('one-code-value').textContent = body.barcode;
@@ -191,10 +193,9 @@ function describeResult(body) {
 async function showPreview(barcode, name) {
   const { ok, response } = await postJson('/api/preview', { barcode, name });
   if (!ok) return;
-  const image = $('card-image');
-  const previous = image.getAttribute('src');
-  image.setAttribute('src', URL.createObjectURL(await response.blob()));
-  image.setAttribute('alt', `The card for ${name}, showing its stats and barcode`);
+  const previous = $('card-image').getAttribute('src');
+  $('card-image').setAttribute('src', URL.createObjectURL(await response.blob()));
+  $('card-image').setAttribute('alt', t('alt.card', { name }));
   if (previous) URL.revokeObjectURL(previous);
   $('card-placeholder').toggleAttribute('hidden', true);
 }
@@ -207,7 +208,7 @@ async function makeOneCard(event) {
   try {
     const { ok, body } = await postJson('/api/generate', oneCardPayload());
     if (!ok) {
-      setStatus('one-status', 'bad', 'Not possible', 'Try adjusting:', reasons(body));
+      refuse('one-status', body);
       return null;
     }
     describeResult(body);
@@ -230,7 +231,7 @@ async function downloadOneCard() {
     cards: [{ ...oneCardPayload(), hp: String(result.character.hp) }],
   });
   if (!ok) {
-    setStatus('one-status', 'bad', 'Not possible', 'Try adjusting:', reasons(body));
+    refuse('one-status', body);
     return;
   }
   download(await response.blob(), 'card.pdf');
@@ -248,6 +249,19 @@ function sheetPayload() {
   };
 }
 
+function showPages(frameId, pages, label) {
+  $(frameId).replaceChildren();
+  $(frameId).insertAdjacentHTML(
+    'afterbegin',
+    pages
+      .map(
+        (page, index) =>
+          `<img src="${page}" alt="${escapeHtml(t('alt.page', { label, page: index + 1 }))}">`,
+      )
+      .join(''),
+  );
+}
+
 async function makeSheet(event) {
   event?.preventDefault();
   const button = $('many').querySelector('button[type="submit"]');
@@ -255,24 +269,16 @@ async function makeSheet(event) {
   try {
     const { ok, body } = await postJson('/api/sheet-preview', sheetPayload());
     if (!ok) {
-      setStatus('many-status', 'bad', 'Not possible', 'Try adjusting:', reasons(body));
+      refuse('many-status', body);
       return false;
     }
-    const frame = $('sheet-frame');
-    frame.replaceChildren();
-    frame.insertAdjacentHTML(
-      'afterbegin',
-      body.pages
-        .map((page, index) => `<img src="${page}" alt="Page ${index + 1} of the sheet">`)
-        .join(''),
-    );
+    showPages('sheet-frame', body.pages, t('label.sheet'));
     const pages = body.pages.length;
-    setStatus(
-      'many-status',
-      'good',
-      'Ready',
-      `${body.count} cards across ${pages} ${pages === 1 ? 'page' : 'pages'}.`,
-    );
+    const message =
+      pages === 1
+        ? t('status.sheetOne', { count: body.count })
+        : t('status.sheet', { count: body.count, pages });
+    setStatus('many-status', 'good', 'tag.ready', message);
     return true;
   } finally {
     button.toggleAttribute('disabled', false);
@@ -283,7 +289,7 @@ async function downloadSheet() {
   if (!(await makeSheet())) return;
   const { ok, body, response } = await postJson('/api/random', sheetPayload());
   if (!ok) {
-    setStatus('many-status', 'bad', 'Not possible', 'Try adjusting:', reasons(body));
+    refuse('many-status', body);
     return;
   }
   download(await response.blob(), 'cards.pdf');
@@ -292,21 +298,10 @@ async function downloadSheet() {
 async function downloadBarcodes(cards, filename, statusId) {
   const { ok, body, response } = await postJson('/api/barcode-sheet', { cards });
   if (!ok) {
-    setStatus(statusId, 'bad', 'Not possible', 'Try again:', reasons(body));
+    refuse(statusId, body, 'status.again');
     return;
   }
   download(await response.blob(), filename);
-}
-
-function showPages(frameId, pages, label) {
-  const frame = $(frameId);
-  frame.replaceChildren();
-  frame.insertAdjacentHTML(
-    'afterbegin',
-    pages
-      .map((page, index) => `<img src="${page}" alt="${escapeHtml(label)}, page ${index + 1}">`)
-      .join(''),
-  );
 }
 
 function officialPayload() {
@@ -314,28 +309,37 @@ function officialPayload() {
   return chosen ? { set: chosen } : {};
 }
 
-async function setUpOfficial() {
-  const catalogue = await getJson('/api/official');
-  const select = $('official-set');
-  select.insertAdjacentHTML(
-    'afterbegin',
-    `<option value="">Every set, ${catalogue.total} cards</option>` +
-      catalogue.sets
-        .map(
-          (entry) =>
-            `<option value="${entry.key}" data-japanese="${escapeHtml(entry.japanese)}">` +
-            `${escapeHtml(entry.english)}, ${entry.count} cards</option>`,
-        )
-        .join(''),
+function renderOfficial() {
+  if (!catalogue) return;
+  const sets = catalogue.sets.map((entry) => ({
+    value: entry.key,
+    label: t('official.option', {
+      title: isJapanese() ? entry.japanese : entry.english,
+      count: entry.count,
+    }),
+  }));
+  fillSelect(
+    'official-set',
+    [{ value: '', label: t('official.every', { count: catalogue.total }) }, ...sets],
+    '',
   );
-  const hint = () => {
-    const option = select.selectedOptions[0];
-    $('official-hint').textContent = option?.dataset.japanese
-      ? `In Japanese: ${option.dataset.japanese}`
-      : 'Every card from every set, one after another.';
-  };
-  select.addEventListener('change', hint);
-  hint();
+  showOfficialHint();
+}
+
+function showOfficialHint() {
+  const entry = catalogue?.sets.find((set) => set.key === $('official-set').value);
+  if (!entry) {
+    $('official-hint').textContent = t('official.everyHint');
+    return;
+  }
+  const other = isJapanese() ? entry.english : entry.japanese;
+  $('official-hint').textContent = t('official.inJapanese', { title: other });
+}
+
+async function setUpOfficial() {
+  catalogue = await getJson('/api/official');
+  renderOfficial();
+  $('official-set').addEventListener('change', showOfficialHint);
   $('official-rejected').insertAdjacentHTML(
     'afterbegin',
     catalogue.rejected
@@ -348,60 +352,57 @@ async function showOfficial(event) {
   event?.preventDefault();
   const button = $('official').querySelector('button[type="submit"]');
   button.toggleAttribute('disabled', true);
-  setStatus('official-status', 'info', 'Working', 'Drawing the cards...');
+  setStatus('official-status', 'info', 'tag.working', t('status.drawing'));
   try {
     const { ok, body } = await postJson('/api/official-preview', officialPayload());
     if (!ok) {
-      setStatus('official-status', 'bad', 'Not possible', 'Try again:', reasons(body));
+      refuse('official-status', body, 'status.again');
       return;
     }
-    showPages('official-frame', body.pages, 'Official cards');
-    const shown = body.pages.length * 9;
-    const more = body.count > shown ? ` The first ${shown} are shown here; the download has all of them.` : '';
-    setStatus('official-status', 'good', 'Ready', `${body.count} cards.${more}`);
+    showPages('official-frame', body.pages, t('label.official'));
+    const shown = body.pages.length * CARDS_PER_PAGE;
+    const message =
+      body.count > shown
+        ? t('status.officialMore', { count: body.count, shown })
+        : t('status.official', { count: body.count });
+    setStatus('official-status', 'good', 'tag.ready', message);
   } finally {
     button.toggleAttribute('disabled', false);
   }
 }
 
 async function downloadOfficial() {
-  setStatus('official-status', 'info', 'Working', 'Building the file. A big set takes a moment.');
+  setStatus('official-status', 'info', 'tag.working', t('status.building'));
   const { ok, body, response } = await postJson('/api/official-sheet', officialPayload());
   if (!ok) {
-    setStatus('official-status', 'bad', 'Not possible', 'Try again:', reasons(body));
+    refuse('official-status', body, 'status.again');
     return;
   }
   download(await response.blob(), 'official-cards.pdf');
-  setStatus('official-status', 'good', 'Done', 'The file is in your downloads.');
+  setStatus('official-status', 'good', 'tag.done', t('status.saved'));
 }
 
 function celebrate() {
-  $('cheat-quip').textContent = pick(CHEAT_QUIPS);
+  $('cheat-quip').textContent = pick(t('quips'));
   $('cheat-banner').toggleAttribute('hidden', false);
   document.body.classList.add('cheat-shake');
   setTimeout(() => document.body.classList.remove('cheat-shake'), SHAKE_MS);
 }
 
 async function activateCheat() {
-  const field = $('name');
-  const typed = field.value.trim();
-  const custom = typed && typed !== field.defaultValue;
+  const typed = $('name').value.trim();
+  const custom = typed && typed !== $('name').defaultValue;
   const { ok, body } = await postJson('/api/cheat', custom ? { name: typed } : {});
   if (!ok) return;
   cheatCard = { barcode: body.barcode, name: body.name };
-  field.value = body.name;
+  $('name').value = body.name;
   $('race').value = body.character.race;
-  $('race').dispatchEvent(new Event('change'));
+  showRaceHint();
   $('class').value = body.character.character_class ?? '';
   $('tab-one').click();
   celebrate();
   const { hp, st, df } = body.character;
-  setStatus(
-    'one-status',
-    'cheat',
-    'Cheat',
-    `${body.name}: ${hp} health, ${st} attack, ${df} defence, and its attack doubles.`,
-  );
+  setStatus('one-status', 'cheat', 'tag.cheat', t('status.cheat', { name: body.name, hp, st, df }));
   $('one-code').toggleAttribute('hidden', false);
   $('one-code-value').textContent = body.barcode;
   await showPreview(body.barcode, body.name);
@@ -413,17 +414,18 @@ async function setUpCheat() {
     event.preventDefault();
     const typed = $('cheat-code').value.toUpperCase().replace(/\s+/g, '');
     if (codes.has(typed)) {
-      $('cheat-reply').textContent = 'Oh no. You found it.';
+      $('cheat-reply').textContent = t('cheat.found');
       $('cheat-code').value = '';
       await activateCheat();
     } else {
-      $('cheat-reply').textContent = pick(WRONG_CODE_REPLIES);
+      $('cheat-reply').textContent = pick(t('wrong'));
     }
   });
 
   let progress = 0;
   document.addEventListener('keydown', async (event) => {
-    const typing = event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement;
+    const typing =
+      event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement;
     if (typing) return;
     const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
     progress = key === KONAMI[progress] ? progress + 1 : Number(key === KONAMI[0]);
@@ -436,14 +438,26 @@ async function setUpCheat() {
 
 function copyCode() {
   navigator.clipboard?.writeText($('one-code-value').textContent);
-  $('one-copy').textContent = 'Copied';
+  $('one-copy').textContent = t('copied');
   setTimeout(() => {
-    $('one-copy').textContent = 'Copy';
-  }, 1500);
+    $('one-copy').textContent = t('copy');
+  }, COPY_RESET_MS);
+}
+
+function setUpLanguage() {
+  document.querySelectorAll('[data-language]').forEach((button) => {
+    button.addEventListener('click', () => applyLanguage(button.dataset.language));
+  });
+  document.addEventListener('languagechange', () => {
+    renderChoices();
+    renderOfficial();
+  });
+  applyLanguage(currentLanguage);
 }
 
 setUpTabs();
 setUpStats();
+setUpLanguage();
 $('one').addEventListener('submit', makeOneCard);
 $('one-pdf').addEventListener('click', downloadOneCard);
 $('one-copy').addEventListener('click', copyCode);

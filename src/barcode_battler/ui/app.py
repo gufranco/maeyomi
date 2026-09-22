@@ -24,7 +24,7 @@ from fastapi.responses import FileResponse, HTMLResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from barcode_battler.cli.parsing import parse_character_class, parse_constraint, parse_race
-from barcode_battler.cli.report import DISCLAIMER
+from barcode_battler.cli.report import DISCLAIMER, DISCLAIMER_JA
 from barcode_battler.decoder.decode import decode
 from barcode_battler.decoder.errors import BarcodeError
 from barcode_battler.generator.cheat import CHEAT_CODES, DEFAULT_CHEAT_NAME, strongest_card
@@ -76,7 +76,9 @@ def index() -> HTMLResponse:
     not depend on JavaScript.
     """
     markup = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
-    return HTMLResponse(markup.replace("__DISCLAIMER__", DISCLAIMER))
+    return HTMLResponse(
+        markup.replace("__DISCLAIMER__", DISCLAIMER).replace("__DISCLAIMER_JA__", DISCLAIMER_JA)
+    )
 
 
 def races() -> list[RaceView]:

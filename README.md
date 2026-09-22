@@ -168,6 +168,84 @@ notices. The renderer refuses a bar height below 80 percent of the nominal, and
 the tests measure the data bars off a rendered page rather than trusting the
 setting.
 
+## The real cards
+
+`barcode-battler official --list` names the fourteen card lists Epoch released
+and how many cards of each will print; `barcode-battler official --set candy -o
+candy.pdf` prints one, and leaving out `--set` prints all 572. The web page has
+the same thing under **The real cards**.
+
+Epoch never published a machine-readable list, so the barcodes come from the
+pages where collectors typed in the cards they own, on
+[wikiwiki.jp](https://wikiwiki.jp/barcode/). Every entry keeps the address of
+its page. Five entries fail their own check digit, which means someone mistyped
+a digit; the wrong one cannot be identified, so they are listed and left out
+rather than repaired by guessing. The numbers printed on each card are read from
+the barcode by this project's decoder, not copied from the wiki.
+
+## The cheat code
+
+`barcode-battler cheat -o cheat.pdf`, or type a code into the box at the foot of
+the web page, or press up, up, down, down, left, right, left, right, B, A
+anywhere on it. The card is a mechanical magician with 99900 health, 24500
+attack, 19900 defence and its attack doubled.
+
+It is found, not typed in: the generator walks every front-read fighter at full
+health through the decoder's own arithmetic and keeps the strongest one that
+avoids both unresolved overflow branches. The 24500 is above the 19900 that
+barcodebattler.net publishes, because a mechanical fighter whose attack digits
+fall in the dual bonus set collects two bonuses. The codes are a joke, not a
+lock.
+
+## Two languages and pictures
+
+Every card is printed in English and Japanese, whichever language the page is
+in. The kind of creature, how it fights, the three battle numbers, the special
+power and the swipe caption all appear in both. Each fact also has a picture
+for a child who reads neither yet: a coloured band with a pictogram for the kind
+of creature, a heart, a sword and a shield for the numbers, and a pictogram for
+the special power showing what it changes and which way, such as a sword with
+an arrow up for "own attack doubled". The arrow's direction carries the
+meaning, never its colour.
+
+The special power text is the published wording in both languages: the Japanese
+is copied from barcodebattler.net/page05.htm and the English is this project's
+reading of the same page. The race, class and stat names are this project's own
+translation, in the hiragana and katakana a young reader learns first. A
+player's chosen name is printed as typed, in either script.
+
+The web page switches between English and Japanese with the buttons at the top,
+and remembers the choice.
+
+Japanese is set in a font every PDF reader carries but which is referenced
+rather than embedded. For a print shop, send the page images instead of the PDF,
+`--images png`, which are 600 dpi with the lettering already drawn in.
+
+## Colour
+
+The cards go to a commercial printer, which often means the job runs in black
+and white, and they are handed to children, roughly one boy in twelve of whom
+does not see red and green apart. Both cases are handled by measurement.
+
+Nothing is told apart by colour alone. Every band carries its own name and its
+own pictogram, and every battle number carries its own shape and its two-letter
+label, so a card read in grey loses decoration and no information.
+
+`src/barcode_battler/rendering/colour.py` carries the arithmetic and
+`tests/rendering/test_palette.py` holds the palette to it:
+
+| Check | Threshold | Source |
+|---|---|---|
+| White text on a band, in colour and in grey | 4.5 to 1 | WCAG 2.2, contrast minimum |
+| A pictogram against its tile, in colour and in grey | 3 to 1 | WCAG 2.2, non-text contrast |
+| Two fighter bands, under normal vision and under protanopia, deuteranopia and tritanopia | 20 CIE 1976 units | The distance at which two colours read as different colours rather than two shades of one |
+| Two fighter bands printed in grey | 1.15 to 1 | A visible tonal step |
+| The one-use and permanent variants of a weapon or armour, in grey | 1.5 to 1 | They share a pictogram, so the tone has to carry more |
+
+The dichromacy simulation is the linear approximation of Brettel, Vienot and
+Mollon. A sheet is also rasterised, converted to grey, and every barcode on it
+decoded, so the print survives the printer that has no colour at all.
+
 ## Where this came from
 
 The decoder is a port of `src/BarcodeRead.as` from the MIT-licensed

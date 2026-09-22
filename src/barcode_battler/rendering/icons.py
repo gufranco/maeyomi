@@ -73,24 +73,10 @@ RACE_COLOURS: Final[dict[Race, Colour]] = {
     Race.SUPPORT_ITEM: _hex("7A5A00"),
 }
 
-RACE_LABELS: Final[dict[Race, str]] = {
-    Race.MECHANICAL: "Robot",
-    Race.ANIMAL: "Animal",
-    Race.AQUATIC: "Sea creature",
-    Race.BIRD: "Bird",
-    Race.HUMAN: "Human",
-    Race.SINGLE_USE_WEAPON: "Weapon, one use",
-    Race.WEAPON: "Weapon",
-    Race.SINGLE_USE_ARMOUR: "Armour, one use",
-    Race.ARMOUR: "Armour",
-    Race.SUPPORT_ITEM: "Helper item",
-}
-
-
 Point = tuple[float, float]
 
 
-class _Path:
+class VectorPath:
     """A typed boundary over ReportLab's untyped path object.
 
     Everything the drawing code touches goes through here, so the shapes below
@@ -99,20 +85,21 @@ class _Path:
     """
 
     def __init__(self, canvas: Canvas) -> None:
+        """Start an empty path on the canvas."""
         self._canvas = cast("Any", canvas)
         self._path = cast("Any", canvas.beginPath())
 
-    def move_to(self, point: Point) -> _Path:
+    def move_to(self, point: Point) -> VectorPath:
         """Start a new subpath."""
         self._path.moveTo(*point)
         return self
 
-    def line_to(self, point: Point) -> _Path:
+    def line_to(self, point: Point) -> VectorPath:
         """Draw a straight segment."""
         self._path.lineTo(*point)
         return self
 
-    def curve_to(self, control_a: Point, control_b: Point, end: Point) -> _Path:
+    def curve_to(self, control_a: Point, control_b: Point, end: Point) -> VectorPath:
         """Draw a cubic bezier segment."""
         self._path.curveTo(*control_a, *control_b, *end)
         return self
@@ -144,7 +131,7 @@ def draw_heart(canvas: Canvas, *, x_mm: float, y_mm: float, size_mm: float) -> N
             return (left + side * fx, bottom + side * fy)
 
         (
-            _Path(canvas)
+            VectorPath(canvas)
             .move_to(at(0.50, 0.04))
             .curve_to(at(0.08, 0.44), at(0.00, 0.74), at(0.25, 0.92))
             .curve_to(at(0.40, 1.02), at(0.50, 0.88), at(0.50, 0.76))
@@ -162,7 +149,7 @@ def draw_sword(canvas: Canvas, *, x_mm: float, y_mm: float, size_mm: float) -> N
             return (left + side * fx, bottom + side * fy)
 
         (
-            _Path(canvas)
+            VectorPath(canvas)
             .move_to(at(0.50, 1.00))
             .line_to(at(0.68, 0.78))
             .line_to(at(0.64, 0.32))
@@ -183,7 +170,7 @@ def draw_shield(canvas: Canvas, *, x_mm: float, y_mm: float, size_mm: float) -> 
             return (left + side * fx, bottom + side * fy)
 
         (
-            _Path(canvas)
+            VectorPath(canvas)
             .move_to(at(0.50, 1.00))
             .line_to(at(1.00, 0.80))
             .curve_to(at(1.00, 0.34), at(0.82, 0.10), at(0.50, 0.00))
@@ -242,13 +229,19 @@ def _fish(canvas: Canvas, box: Box, background: Colour) -> None:
     """A body with a tail fin and an eye."""
     at = _scaler(box)
     (
-        _Path(canvas)
+        VectorPath(canvas)
         .move_to(at(1.00, 0.50))
         .curve_to(at(0.74, 0.94), at(0.32, 0.94), at(0.18, 0.50))
         .curve_to(at(0.32, 0.06), at(0.74, 0.06), at(1.00, 0.50))
         .fill()
     )
-    (_Path(canvas).move_to(at(0.22, 0.50)).line_to(at(0.00, 0.84)).line_to(at(0.00, 0.16)).fill())
+    (
+        VectorPath(canvas)
+        .move_to(at(0.22, 0.50))
+        .line_to(at(0.00, 0.84))
+        .line_to(at(0.00, 0.16))
+        .fill()
+    )
     canvas.setFillColorRGB(*background)
     eye = at(0.78, 0.60)
     canvas.circle(eye[0], eye[1], box[2] * 0.07, 0, 1)
@@ -258,7 +251,7 @@ def _bird(canvas: Canvas, box: Box, background: Colour) -> None:
     """A head with a beak over a rounded body."""
     at = _scaler(box)
     (
-        _Path(canvas)
+        VectorPath(canvas)
         .move_to(at(0.72, 0.58))
         .curve_to(at(0.78, 0.14), at(0.28, 0.00), at(0.06, 0.30))
         .curve_to(at(0.16, 0.60), at(0.44, 0.70), at(0.72, 0.58))
@@ -266,7 +259,13 @@ def _bird(canvas: Canvas, box: Box, background: Colour) -> None:
     )
     head = at(0.64, 0.74)
     canvas.circle(head[0], head[1], box[2] * 0.20, 0, 1)
-    (_Path(canvas).move_to(at(0.82, 0.80)).line_to(at(1.00, 0.70)).line_to(at(0.82, 0.62)).fill())
+    (
+        VectorPath(canvas)
+        .move_to(at(0.82, 0.80))
+        .line_to(at(1.00, 0.70))
+        .line_to(at(0.82, 0.62))
+        .fill()
+    )
     canvas.setFillColorRGB(*background)
     eye = at(0.62, 0.80)
     canvas.circle(eye[0], eye[1], box[2] * 0.05, 0, 1)
@@ -278,7 +277,7 @@ def _human(canvas: Canvas, box: Box, _background: Colour) -> None:
     head = at(0.50, 0.78)
     canvas.circle(head[0], head[1], box[2] * 0.22, 0, 1)
     (
-        _Path(canvas)
+        VectorPath(canvas)
         .move_to(at(0.04, 0.00))
         .curve_to(at(0.06, 0.52), at(0.94, 0.52), at(0.96, 0.00))
         .fill()
@@ -290,7 +289,7 @@ def _weapon(canvas: Canvas, box: Box, _background: Colour) -> None:
     left, bottom, side = box
     at = _scaler(box)
     (
-        _Path(canvas)
+        VectorPath(canvas)
         .move_to(at(0.50, 1.00))
         .line_to(at(0.68, 0.76))
         .line_to(at(0.64, 0.28))
@@ -306,7 +305,7 @@ def _armour(canvas: Canvas, box: Box, _background: Colour) -> None:
     """A shield, marking an armour card."""
     at = _scaler(box)
     (
-        _Path(canvas)
+        VectorPath(canvas)
         .move_to(at(0.50, 1.00))
         .line_to(at(1.00, 0.78))
         .curve_to(at(1.00, 0.32), at(0.82, 0.10), at(0.50, 0.00))
@@ -319,7 +318,7 @@ def _star(canvas: Canvas, box: Box, _background: Colour) -> None:
     """A five-pointed star, marking a helper item."""
     left, bottom, side = box
     centre_x, centre_y = left + side * 0.5, bottom + side * 0.5
-    path = _Path(canvas)
+    path = VectorPath(canvas)
     for index in range(10):
         radius = side * (0.5 if index % 2 == 0 else 0.21)
         angle = pi / 2 + index * pi / 5
