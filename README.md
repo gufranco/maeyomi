@@ -10,11 +10,11 @@
 [![python](https://img.shields.io/badge/python-3.14-blue)](pyproject.toml)
 
 <p align="center">
-  <a href="#install"><strong>Install</strong></a> &nbsp;|&nbsp;
+  <a href="#install">Install</a> &nbsp;|&nbsp;
   <a href="#use">Use</a> &nbsp;|&nbsp;
   <a href="#how-it-works">How it works</a> &nbsp;|&nbsp;
   <a href="#the-supermarket">The supermarket</a> &nbsp;|&nbsp;
-  <a href="#where-this-came-from"><strong>Sources</strong></a>
+  <a href="#where-this-came-from">Sources</a>
 </p>
 
 </div>
@@ -24,10 +24,10 @@
 ---
 
 The Barcode Battler II reads a barcode and derives a fighter or an item from
-the digits alone. Maeyomi is its own name for the front read, the one that
-produces a fighter, and this program inverts that arithmetic: you ask for a
-2400 defence armour card, it works out which barcode the device would read that
-way, and prints it.
+the digits alone. Maeyomi is the device's own word for the front read, the one
+that produces a fighter. This program inverts that arithmetic: ask for a 2400
+defence armour card and it works out which barcode the device would read that
+way, then prints it.
 
 ```console
 $ maeyomi generate --name "Fire Knight" --hp 5000 --attack 1800 --defense 1200 \
@@ -46,10 +46,9 @@ wrote fire-knight.pdf
 
 Cut it out, swipe it, and the machine reads back exactly those numbers.
 
-Every barcode is decoded again before it reaches paper, every printed page is
-rasterised and read back with a barcode reader, and printed cards were swiped
-on a physical device. The protocol and what each session settled are in
-[`docs/hardware-validation.md`](docs/hardware-validation.md).
+Every barcode is decoded again before it reaches paper, and every printed page
+is rasterised and read back with a barcode reader. Printed cards were swiped on
+a physical Barcode Battler II.
 
 ## Install
 
@@ -157,14 +156,14 @@ the stats and the ability jointly, so far fewer combinations are reachable.
 ## The web interface
 
 `maeyomi web` starts the local page and opens it, which is the same
-program with pictures: every tab is a command, and every command is a tab.
+program with pictures: every tab is one of the commands above.
 `--no-open` starts it without a browser, and `maeyomi serve` is the
 same thing for a machine that has none.
 
 ## Checking the machine
 
 `maeyomi doctor` checks that this computer can print a card the device
-will read, and says what it found rather than that it looked. It reads a
+will read, and prints what each check saw. It reads a
 barcode whose answer is known, draws a symbol and decodes it back out of the
 PDF, confirms the Japanese font resolved, re-measures the palette against its
 contrast and colour-blindness thresholds, counts both card lists, and reports
@@ -187,8 +186,8 @@ Races 0 to 4 are characters: mechanical, animal, aquatic, bird, human. Races 5
 to 9 are items. Job digits 0 to 6 are warriors, 7 to 9 are magicians. Values are
 stored in units of 100, so every stat is a multiple of 100.
 
-Two constraints surprise people, and the tool reports both rather than silently
-producing something else:
+Two constraints narrow what can be asked for. A request that hits either one is
+refused with the reason, never quietly altered:
 
 - A character above 19900 HP needs the published front-read marker, which forces
   the third digit to 9. Such a card's HP always ends in 900, and its speed is
@@ -226,9 +225,9 @@ magnification. A scaled page still looks correct and still stops reading,
 because the module width is what a scanner measures.
 
 Cards print standing up, poker sized at 63.5 by 88.9 mm, nine to an A4 sheet.
-That is the size card sleeves and guillotines are built for, and it is a choice
-rather than a reproduction: Epoch never published the size of its own cards and
-no collector page, auction listing or wiki records it. The size lives in
+That is the size card sleeves and guillotines are built for. It is this
+project's choice: Epoch never published the size of its own cards, and no
+collector page, auction listing or wiki records it. The size lives in
 `CARD_WIDTH_MM` and `CARD_HEIGHT_MM` in
 [`layout.py`](src/maeyomi/rendering/layout.py), and changing those two
 numbers moves everything else, because the grid, the gutters, the marks and the
@@ -277,8 +276,7 @@ worth 2400 defence.
 `maeyomi products --search 茶` lists the real Japanese groceries that
 match, `--count 9 --seed 3` takes a handful at random, and `-o shopping.pdf`
 prints them. The web page has the same thing under **The supermarket**, with a
-**Surprise me** button. Tomato sauce against noodles is a fair fight, and this
-is the joke the machine was built on.
+**Surprise me** button. Tomato sauce against noodles is a fair fight.
 
 The shelf is a curated subset of [Open Food Facts](https://world.openfoodfacts.org/),
 kept to barcodes issued to Japanese companies, the 45 and 49 prefixes, with a
@@ -314,9 +312,9 @@ the web page, or type up, up, down, down, left, right, left, right, B, A
 anywhere on it. The card is a mechanical magician with 99900 health, 24500
 attack, 19900 defence and its attack doubled.
 
-It is found, not typed in: the generator walks every front-read fighter at full
-health through the decoder's own arithmetic and keeps the strongest one that
-avoids both unresolved overflow branches. The 24500 is above the 19900 that
+Nothing about it is hardcoded. The generator walks every front-read fighter at
+full health through the decoder's own arithmetic and keeps the strongest one
+that avoids both unresolved overflow branches. The 24500 is above the 19900 that
 barcodebattler.net publishes, because a mechanical fighter whose attack digits
 fall in the dual bonus set collects two bonuses.
 
@@ -373,8 +371,7 @@ What is not there: ReportLab emits no tag tree, so these are not PDF/UA files.
 There are no headings, no lists and no alternative text for the pictograms, and
 the Japanese runs are not individually marked as Japanese. The pictograms
 repeat what the words next to them already say, so nothing is lost by their
-having no description, but a validator will call these untagged, and it is
-right.
+having no description. A validator will call these untagged.
 
 ## Colour
 
@@ -384,7 +381,7 @@ does not see red and green apart. Both cases are handled by measurement.
 
 Nothing is told apart by colour alone. Every band carries its own name and its
 own pictogram, and every battle number carries its own shape and its two-letter
-label, so a card read in grey loses decoration and no information.
+label, so a card printed in grey still says everything it said in colour.
 
 `src/maeyomi/rendering/colour.py` carries the arithmetic and
 `tests/rendering/test_palette.py` holds the palette to it:

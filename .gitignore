@@ -13,5 +13,6 @@ out/
 *.png
 *.jpg
 *.webp
-!docs/**/*.png
 .DS_Store
+docs/
+specs/
