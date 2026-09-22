@@ -49,3 +49,23 @@ entry.
 `VITIMan/barcode-battler-engine` is GPL-3 licensed. No code, structure or naming
 from that project appears here. It is named only because its published card
 values pointed at the wikiwiki.jp lists that this project fetches directly.
+
+## Open Food Facts
+
+The product shelf in `src/barcode_battler/products/japan.json` holds barcodes,
+product names and brand names for products sold in Japan, taken from:
+
+- Project: Open Food Facts
+- Source: <https://world.openfoodfacts.org/>
+- Licence: Open Database License 1.0 (ODbL)
+- Full text: <https://opendatacommons.org/licenses/odbl/1-0/>
+
+The ODbL asks that the source be credited and that any redistributed database
+stay under the same licence. That file is a subset of theirs and carries the
+same terms; it is credited on the page that shows it and in the command line
+that prints it. Every number on a card is read from the barcode by this
+project's own decoder and is not part of their data.
+
+The same project answers the `products lookup` path at
+`src/barcode_battler/products/lookup.py`, which names this project in its user
+agent as their terms of use ask.

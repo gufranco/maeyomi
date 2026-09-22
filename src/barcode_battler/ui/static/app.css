@@ -301,6 +301,46 @@ button[disabled] { opacity: .55; cursor: progress; }
 
 .placeholder { color: var(--ink-soft); text-align: center; margin: 0; }
 
+.shelf {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: .35rem;
+  max-height: 26rem;
+  overflow-y: auto;
+}
+
+.shelf-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .1rem .6rem;
+  padding: .5rem .6rem;
+  border: 1px solid var(--line);
+  border-radius: .5rem;
+  background: var(--card);
+}
+
+.shelf-name { font-weight: 700; }
+
+.shelf-kind {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: .78rem;
+  color: var(--ink-soft);
+  text-align: right;
+}
+
+.shelf-stats { font-size: .78rem; color: var(--ink-soft); }
+
+.shelf-code {
+  grid-column: 2;
+  grid-row: 2;
+  font-size: .78rem;
+  color: var(--ink-soft);
+  text-align: right;
+}
+
 .sheet-frame {
   display: grid;
   gap: .8rem;

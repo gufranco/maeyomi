@@ -467,3 +467,28 @@ def test_the_kinds_of_card_are_listed_with_their_descriptions() -> None:
     assert "human" in result.output
     assert "Sea creature" in result.output
     assert "Helper item" in result.output
+
+
+def test_the_shelf_can_be_searched() -> None:
+    result = runner.invoke(app, ["products", "--search", "茶"])
+
+    assert result.exit_code == 0
+    assert "茶" in result.output
+
+
+def test_a_handful_of_products_prints_as_a_sheet(tmp_path: Path) -> None:
+    output = tmp_path / "shopping.pdf"
+
+    result = runner.invoke(
+        app, ["products", "--count", "9", "--seed", "3", "--output", str(output)]
+    )
+
+    assert result.exit_code == 0
+    assert len(decode_pdf(output)) == 9
+
+
+def test_searching_for_something_absent_says_so() -> None:
+    result = runner.invoke(app, ["products", "--search", "zzzzzzzz"])
+
+    assert result.exit_code == 1
+    assert "nothing" in result.output.lower()

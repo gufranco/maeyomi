@@ -31,6 +31,8 @@
           data-i18n="tab.many">A sheet of cards</button>
   <button role="tab" id="tab-official" aria-controls="panel-official" aria-selected="false"
           data-i18n="tab.official">The real cards</button>
+  <button role="tab" id="tab-shop" aria-controls="panel-shop" aria-selected="false"
+          data-i18n="tab.shop">The supermarket</button>
   <button role="tab" id="tab-read" aria-controls="panel-read" aria-selected="false"
           data-i18n="tab.read">Read a barcode</button>
 </div>
@@ -277,6 +279,45 @@
       </p>
     </div>
     <div id="official-status" class="status"></div>
+  </aside>
+</section>
+
+<section id="panel-shop" role="tabpanel" aria-labelledby="tab-shop" class="layout" hidden>
+  <form id="shop" class="panel">
+    <fieldset>
+      <legend data-i18n="shop.legend">Real Japanese groceries</legend>
+
+      <p class="field">
+        <label for="shop-query" data-i18n="shop.query">Look for something</label>
+        <input id="shop-query" name="query" maxlength="40" autocomplete="off"
+               placeholder="tomato sauce" data-i18n-placeholder="shop.query.placeholder">
+        <span class="hint" data-i18n="shop.query.hint">
+          Search by name, brand or barcode. Leave it empty to see the whole shelf.
+        </span>
+      </p>
+    </fieldset>
+
+    <p class="note" data-i18n="shop.note">
+      Every one of these is a real product sold in Japan. The numbers on the card
+      are not made up and are not theirs: this program reads them off the barcode,
+      exactly as the machine does. Tomato sauce against noodles is a fair fight.
+    </p>
+
+    <p class="actions">
+      <button type="submit" class="primary" data-i18n="shop.go">Search the shelf</button>
+      <button type="button" id="shop-surprise" data-i18n="shop.surprise">Surprise me</button>
+      <button type="button" id="shop-pdf" data-i18n="shop.pdf">Print what is listed</button>
+    </p>
+    <div id="shop-status" class="status"></div>
+  </form>
+
+  <aside class="preview" aria-live="polite">
+    <h2 data-i18n="shop.results">On the shelf</h2>
+    <p class="placeholder" id="shop-placeholder" data-i18n="shop.placeholder">
+      Search for something, or press Surprise me.
+    </p>
+    <ul id="shop-list" class="shelf"></ul>
+    <p class="hint" id="shop-credit"></p>
   </aside>
 </section>
 

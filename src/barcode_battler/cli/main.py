@@ -32,6 +32,7 @@ from barcode_battler.official.catalogue import (
     official_cards,
     rejected_transcriptions,
 )
+from barcode_battler.products.japan import product_cards, random_products, search_products
 from barcode_battler.rendering.export import ImageFormat, export_images
 from barcode_battler.rendering.labels import RACE_DESCRIPTIONS, race_label
 from barcode_battler.rendering.layout import SheetLayout
@@ -224,6 +225,39 @@ def decode(
         typer.echo(f"Name      {name}")
         card = GeneratedCard(name=name, barcode=character.barcode, character=character)
         _write((card,), output, images, _layout(print_shop=print_shop))
+
+
+@app.command()
+def products(
+    output: Annotated[
+        Path | None, typer.Option("--output", "-o", help="Print the chosen products.")
+    ] = None,
+    search: Annotated[
+        str, typer.Option("--search", help="Only products whose name, brand or barcode matches.")
+    ] = "",
+    count: Annotated[
+        int | None, typer.Option("--count", "-n", min=1, help="Take this many at random.")
+    ] = None,
+    seed: Annotated[int | None, typer.Option("--seed", help="Repeat an earlier handful.")] = None,
+    images: ImagesOption = None,
+    print_shop: PrintShopOption = False,
+) -> None:
+    """Browse or print real Japanese supermarket products as cards."""
+    found = random_products(count, seed=seed) if count else search_products(search)
+    if not found:
+        typer.echo(f"nothing on the shelf matches {search!r}", err=True)
+        raise typer.Exit(code=1)
+    if output is None:
+        for product in found:
+            character = decode_barcode(product.barcode)
+            typer.echo(
+                f"{product.barcode}  {product.name}  "
+                f"{race_label(product.kind).english}  "
+                f"HP {character.hp} ST {character.st} DF {character.df}"
+            )
+        typer.echo(f"{len(found)} product(s)")
+        return
+    _write(product_cards(found), output, images, _layout(print_shop=print_shop))
 
 
 @app.command()

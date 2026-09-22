@@ -129,12 +129,12 @@ def test_every_control_meets_the_minimum_target_size() -> None:
 
 def test_the_tabs_carry_their_roles() -> None:
     assert 'role="tablist"' in MARKUP
-    assert MARKUP.count('role="tab"') == 4
-    assert MARKUP.count('role="tabpanel"') == 4
+    assert MARKUP.count('role="tab"') == 5
+    assert MARKUP.count('role="tabpanel"') == 5
 
 
 def test_the_preview_regions_announce_their_updates() -> None:
-    for region in ("panel-one", "panel-many", "panel-official", "panel-read"):
+    for region in ("panel-one", "panel-many", "panel-official", "panel-read", "panel-shop"):
         section = MARKUP[MARKUP.index(f'id="{region}"') :]
         assert 'aria-live="polite"' in section[: section.index("</section>")]
 

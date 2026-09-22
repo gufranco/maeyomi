@@ -64,6 +64,36 @@ class BarcodeSheetSpec(BaseModel):
     cards: list[PreviewSpec]
 
 
+class ProductView(BaseModel):
+    """One real product, and what the device makes of its barcode."""
+
+    barcode: str
+    name: str
+    brand: str
+    kind: str
+    label: str
+    label_ja: str
+    hp: int
+    st: int
+    df: int
+
+
+class ProductShelf(BaseModel):
+    """The products that matched, and how many are on the shelf altogether."""
+
+    products: list[ProductView]
+    total: int
+    source: str
+    licence: str
+
+
+class LookupResult(BaseModel):
+    """What the open product database calls a barcode, when it knows."""
+
+    barcode: str
+    name: str | None = None
+
+
 class CheatSpec(BaseModel):
     """The name to print on the strongest card."""
 

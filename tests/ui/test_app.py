@@ -5,7 +5,9 @@ import io
 import pytest
 from fastapi.testclient import TestClient
 
+import barcode_battler.ui.app as app_module
 from barcode_battler.barcode.verify import decode_pdf
+from barcode_battler.products.lookup import ProductLookupError
 from barcode_battler.ui.app import create_app
 
 
@@ -371,3 +373,72 @@ def test_an_eight_digit_barcode_reads_too(client: TestClient) -> None:
     response = client.get("/api/decode/49010856")
 
     assert response.status_code in {200, 400}
+
+
+def test_the_shelf_is_served(client: TestClient) -> None:
+    response = client.get("/api/products")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["total"] >= 500
+    assert body["products"]
+
+
+def test_the_shelf_can_be_searched_over_http(client: TestClient) -> None:
+    response = client.get("/api/products", params={"q": "茶", "limit": 5})
+
+    assert response.status_code == 200
+    body = response.json()
+    assert len(body["products"]) <= 5
+    assert all("茶" in p["name"] or "茶" in p["brand"] for p in body["products"])
+
+
+def test_every_served_product_says_what_it_becomes(client: TestClient) -> None:
+    product = client.get("/api/products", params={"limit": 1}).json()["products"][0]
+
+    assert product["kind"]
+    assert product["label"]
+    assert product["label_ja"]
+
+
+def test_a_name_can_be_looked_up(client: TestClient, monkeypatch: pytest.MonkeyPatch) -> None:
+    def answer(_: str) -> str:
+        return "トマトソース"
+
+    monkeypatch.setattr(app_module, "look_up_name", answer)
+
+    response = client.get("/api/lookup/4901085061169")
+
+    assert response.status_code == 200
+    assert response.json() == {"barcode": "4901085061169", "name": "トマトソース"}
+
+
+def test_a_lookup_that_cannot_reach_the_service_is_not_an_error(
+    client: TestClient, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def refuse(_: str) -> str:
+        message = "no answer"
+        raise ProductLookupError(message)
+
+    monkeypatch.setattr(app_module, "look_up_name", refuse)
+
+    response = client.get("/api/lookup/4901085061169")
+
+    assert response.status_code == 200
+    assert response.json()["name"] is None
+
+
+def test_a_lookup_of_a_bad_barcode_is_refused(client: TestClient) -> None:
+    response = client.get("/api/lookup/12")
+
+    assert response.status_code == 400
+
+
+def test_the_shelf_prints_as_a_sheet(client: TestClient, tmp_path: object) -> None:
+    products = client.get("/api/products", params={"limit": 3}).json()["products"]
+    cards = [{"barcode": p["barcode"], "name": p["name"]} for p in products]
+
+    response = client.post("/api/barcode-sheet", json={"cards": cards})
+
+    assert response.status_code == 200
+    assert sheet_codes(response.content, tmp_path) == [p["barcode"] for p in products]

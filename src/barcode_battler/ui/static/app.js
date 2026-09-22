@@ -476,8 +476,19 @@ async function readBarcode(event) {
   }
   setStatus('read-status', 'good', 'tag.ready', t('read.ok'));
   showFacts(body);
+  await nameItFromShopping(barcode);
   await showReadPreview(barcode, typedName());
   return barcode;
+}
+
+async function nameItFromShopping(barcode) {
+  if ($('read-name').value.trim()) return;
+  try {
+    const { name } = await getJson(`/api/lookup/${barcode}`);
+    if (name) $('read-name').value = name;
+  } catch {
+    $('read-name').dataset.lookupFailed = 'true';
+  }
 }
 
 async function showReadPreview(barcode, name) {
@@ -488,6 +499,59 @@ async function showReadPreview(barcode, name) {
   $('read-image').setAttribute('alt', t('alt.card', { name }));
   if (previous) URL.revokeObjectURL(previous);
   $('read-placeholder').toggleAttribute('hidden', true);
+}
+
+let shelf = [];
+
+function shelfRow(product) {
+  const name = isJapanese() ? product.label_ja : product.label;
+  return [
+    '<li class="shelf-row">',
+    `<span class="shelf-name">${escapeHtml(product.name)}</span>`,
+    `<span class="shelf-kind">${escapeHtml(name)}</span>`,
+    `<span class="shelf-stats">${escapeHtml(t('shop.stats', product))}</span>`,
+    `<code class="shelf-code">${escapeHtml(product.barcode)}</code>`,
+    '</li>',
+  ].join('');
+}
+
+function showShelf(body) {
+  shelf = body.products;
+  $('shop-list').innerHTML = shelf.map(shelfRow).join('');
+  $('shop-placeholder').toggleAttribute('hidden', shelf.length > 0);
+  $('shop-credit').textContent = t('shop.credit', body);
+  if (!shelf.length) {
+    setStatus('shop-status', 'bad', 'tag.impossible', t('shop.empty'));
+    return;
+  }
+  setStatus('shop-status', 'good', 'tag.ready',
+    t('shop.found', { count: shelf.length, total: body.total }));
+}
+
+async function searchShelf(event) {
+  event?.preventDefault();
+  const query = encodeURIComponent($('shop-query').value.trim());
+  showShelf(await getJson(`/api/products?q=${query}`));
+}
+
+async function surpriseShelf() {
+  const body = await getJson('/api/products?q=');
+  const pool = [...body.products];
+  const picked = [];
+  while (picked.length < CARDS_PER_PAGE && pool.length) {
+    picked.push(...pool.splice(Math.floor(Math.random() * pool.length), 1));
+  }
+  $('shop-query').value = '';
+  showShelf({ ...body, products: picked });
+}
+
+async function downloadShelf() {
+  if (!shelf.length) {
+    setStatus('shop-status', 'bad', 'tag.impossible', t('shop.empty'));
+    return;
+  }
+  const cards = shelf.map(({ barcode, name }) => ({ barcode, name }));
+  await downloadBarcodes(cards, 'supermarket.pdf', 'shop-status');
 }
 
 async function downloadRead() {
@@ -526,6 +590,9 @@ $('many-pdf').addEventListener('click', downloadSheet);
 $('official').addEventListener('submit', showOfficial);
 $('read').addEventListener('submit', readBarcode);
 $('read-pdf').addEventListener('click', downloadRead);
+$('shop').addEventListener('submit', searchShelf);
+$('shop-surprise').addEventListener('click', surpriseShelf);
+$('shop-pdf').addEventListener('click', downloadShelf);
 $('official-pdf').addEventListener('click', downloadOfficial);
 setUpChoices();
 setUpOfficial();

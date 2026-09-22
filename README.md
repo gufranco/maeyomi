@@ -194,6 +194,26 @@ bottle of tomato sauce is a fighter and a packet of crisps is a weapon. Japanese
 product codes work like any other: `4902102072618`, a bottle of tea, is armour
 worth 2400 defence.
 
+## The supermarket
+
+`barcode-battler products --search 茶` lists the real Japanese groceries that
+match, `--count 9 --seed 3` takes a handful at random, and `-o shopping.pdf`
+prints them. The web page has the same thing under **The supermarket**, with a
+**Surprise me** button. Tomato sauce against noodles is a fair fight, and this
+is the joke the machine was built on.
+
+The shelf is a curated subset of [Open Food Facts](https://world.openfoodfacts.org/),
+kept to barcodes issued to Japanese companies, the 45 and 49 prefixes, with a
+name written in Japanese that the decoder accepts. Their data is published under
+the Open Database License and this subset carries the same terms; see
+[NOTICE.md](NOTICE.md). Nothing on a card comes from them: every number is read
+off the barcode by this project's decoder, so a wrong name spoils a joke and
+nothing else.
+
+`barcode-battler decode <barcode>` on the web page also asks Open Food Facts
+what a barcode is called, and fills the name in when it knows. It is a
+convenience: the lookup failing changes nothing about the card.
+
 ## The real cards
 
 `barcode-battler official --list` names the fourteen card lists Epoch released

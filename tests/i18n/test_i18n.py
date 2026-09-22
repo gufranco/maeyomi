@@ -15,7 +15,7 @@ from barcode_battler.ui.app import STATIC_DIR
 MARKUP = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
 SCRIPT = (STATIC_DIR / "app.js").read_text(encoding="utf-8")
 DICTIONARIES = (STATIC_DIR / "i18n.js").read_text(encoding="utf-8")
-THE_SAME_IN_BOTH_LANGUAGES = {"title", "read.placeholder"}
+THE_SAME_IN_BOTH_LANGUAGES = {"title", "read.placeholder", "shop.stats"}
 
 
 def _block(language: str) -> str:

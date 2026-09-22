@@ -41,6 +41,15 @@ from barcode_battler.official.catalogue import (
     official_cards,
     rejected_transcriptions,
 )
+from barcode_battler.products.japan import (
+    SHELF_LICENCE,
+    SHELF_SOURCE,
+    JapaneseProduct,
+    japanese_products,
+    search_products,
+)
+from barcode_battler.products.lookup import ProductLookupError, look_up_name
+from barcode_battler.rendering.labels import race_label
 from barcode_battler.rendering.preview import card_png, sheet_png_pages
 from barcode_battler.rendering.sheet import write_sheet
 from barcode_battler.ui.schemas import (
@@ -51,10 +60,13 @@ from barcode_battler.ui.schemas import (
     CheatResult,
     CheatSpec,
     GenerateResult,
+    LookupResult,
     OfficialCatalogue,
     OfficialSetView,
     OfficialSpec,
     PreviewSpec,
+    ProductShelf,
+    ProductView,
     RaceView,
     RandomSpec,
     RejectedView,
@@ -67,6 +79,7 @@ UNPROCESSABLE: Final = 422
 STATIC_DIR: Final = Path(str(resources.files("barcode_battler.ui") / "static"))
 PREVIEW_PAGE_LIMIT: Final = 4
 CARDS_PER_PAGE: Final = 9
+SHELF_PAGE: Final = 60
 
 
 def index() -> HTMLResponse:
@@ -207,6 +220,45 @@ def official_preview(spec: OfficialSpec) -> SheetPreview:
     return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
 
 
+def products(q: str = "", limit: int = SHELF_PAGE) -> ProductShelf:
+    """The shelf, or the part of it that matches what was typed."""
+    found = search_products(q)
+    return ProductShelf(
+        products=[_product_view(product) for product in found[: max(1, limit)]],
+        total=len(japanese_products()),
+        source=SHELF_SOURCE,
+        licence=SHELF_LICENCE,
+    )
+
+
+def lookup(barcode: str) -> LookupResult:
+    """Ask the open product database what a barcode is called."""
+    try:
+        name = look_up_name(barcode)
+    except BarcodeError as error:
+        raise HTTPException(status_code=BAD_REQUEST, detail=str(error)) from error
+    except ProductLookupError:
+        return LookupResult(barcode=barcode)
+    return LookupResult(barcode=barcode, name=name)
+
+
+def _product_view(product: JapaneseProduct) -> ProductView:
+    """Decode a product so the page can show what it becomes."""
+    character = decode(product.barcode)
+    label = race_label(product.kind)
+    return ProductView(
+        barcode=product.barcode,
+        name=product.name,
+        brand=product.brand,
+        kind=product.kind.name.lower(),
+        label=label.english,
+        label_ja=label.japanese,
+        hp=character.hp,
+        st=character.st,
+        df=character.df,
+    )
+
+
 def create_app() -> FastAPI:
     """Build the application with every route attached."""
     app = FastAPI(title="Barcode Battler II card maker", docs_url="/docs")
@@ -224,6 +276,8 @@ def create_app() -> FastAPI:
     app.add_api_route("/api/official", official, methods=["GET"])
     app.add_api_route("/api/official-sheet", official_sheet, methods=["POST"])
     app.add_api_route("/api/official-preview", official_preview, methods=["POST"])
+    app.add_api_route("/api/products", products, methods=["GET"])
+    app.add_api_route("/api/lookup/{barcode}", lookup, methods=["GET"])
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
     return app
 
