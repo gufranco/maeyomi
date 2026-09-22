@@ -3,8 +3,8 @@ class Maeyomi < Formula
 
   desc "Print playable cards for a 1992 Epoch Barcode Battler II"
   homepage "https://github.com/gufranco/maeyomi"
-  url "https://github.com/gufranco/maeyomi/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "f96db8b8671c41ca9b2bfe66e6a197ea547f92bc840506b67e61c4ed627f7237"
+  url "https://github.com/gufranco/maeyomi/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "35d221880bae92ff6a4e3bffa0a2763b3ebfc98c2019b4fb0c7e2f5cb3f361fd"
   license "MIT"
   head "https://github.com/gufranco/maeyomi.git", branch: "main"
 
