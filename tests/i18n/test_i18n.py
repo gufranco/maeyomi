@@ -10,7 +10,7 @@ import re
 
 import pytest
 
-from barcode_battler.ui.app import STATIC_DIR
+from maeyomi.ui.app import STATIC_DIR
 
 MARKUP = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
 SCRIPT = (STATIC_DIR / "app.js").read_text(encoding="utf-8")

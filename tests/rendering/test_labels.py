@@ -2,10 +2,10 @@
 
 import pytest
 
-from barcode_battler.models.character_class import CharacterClass
-from barcode_battler.models.race import Race
-from barcode_battler.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
-from barcode_battler.rendering.labels import (
+from maeyomi.models.character_class import CharacterClass
+from maeyomi.models.race import Race
+from maeyomi.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
+from maeyomi.rendering.labels import (
     ITEM_CARD,
     NO_POWER,
     SPECIAL_POWER,

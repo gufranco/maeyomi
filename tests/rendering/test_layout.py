@@ -2,7 +2,7 @@
 
 import pytest
 
-from barcode_battler.rendering.layout import (
+from maeyomi.rendering.layout import (
     A4_HEIGHT_MM,
     A4_WIDTH_MM,
     CARD_HEIGHT_MM,

@@ -11,11 +11,11 @@ import itertools
 from hypothesis import HealthCheck, given, settings
 from hypothesis import strategies as st
 
-from barcode_battler.generator.front_solver import iter_front_candidates
-from barcode_battler.generator.solve import verify
-from barcode_battler.models.card_request import CardRequest
-from barcode_battler.models.constraint import Constraint
-from barcode_battler.models.race import Race
+from maeyomi.generator.front_solver import iter_front_candidates
+from maeyomi.generator.solve import verify
+from maeyomi.models.card_request import CardRequest
+from maeyomi.models.constraint import Constraint
+from maeyomi.models.race import Race
 
 FIGHTERS = [race for race in Race if race.is_fighter]
 

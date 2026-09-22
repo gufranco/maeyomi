@@ -6,9 +6,9 @@ import pytest
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
-from barcode_battler.barcode.rasterise import ink_box, render_pdf_pages
-from barcode_battler.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
-from barcode_battler.rendering.ability_icons import (
+from maeyomi.barcode.rasterise import ink_box, render_pdf_pages
+from maeyomi.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
+from maeyomi.rendering.ability_icons import (
     Badge,
     Glyph,
     ability_icon,

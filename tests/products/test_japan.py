@@ -2,9 +2,9 @@
 
 import pytest
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.models.race import Race
-from barcode_battler.products.japan import (
+from maeyomi.decoder.decode import decode
+from maeyomi.models.race import Race
+from maeyomi.products.japan import (
     MINIMUM_PRODUCTS,
     JapaneseProduct,
     japanese_products,

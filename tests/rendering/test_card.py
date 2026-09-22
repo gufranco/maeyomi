@@ -7,13 +7,13 @@ import pytest
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
-from barcode_battler.barcode.geometry import BarcodeGeometry
-from barcode_battler.barcode.rasterise import render_pdf_pages
-from barcode_battler.barcode.verify import decode_image, decode_pdf
-from barcode_battler.decoder.decode import decode
-from barcode_battler.models.generated_card import GeneratedCard
-from barcode_battler.rendering.card import CardStyle, draw_card
-from barcode_battler.rendering.layout import (
+from maeyomi.barcode.geometry import BarcodeGeometry
+from maeyomi.barcode.rasterise import render_pdf_pages
+from maeyomi.barcode.verify import decode_image, decode_pdf
+from maeyomi.decoder.decode import decode
+from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.rendering.card import CardStyle, draw_card
+from maeyomi.rendering.layout import (
     CARD_WIDTH_MM,
     POKER_CARD_HEIGHT_MM,
     POKER_CARD_WIDTH_MM,

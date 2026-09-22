@@ -1,6 +1,6 @@
 """Tests for the register of behaviours the references disagree about."""
 
-from barcode_battler.decoder.uncertainties import UNCERTAINTIES, Uncertainty
+from maeyomi.decoder.uncertainties import UNCERTAINTIES, Uncertainty
 
 
 def test_the_register_is_not_empty() -> None:

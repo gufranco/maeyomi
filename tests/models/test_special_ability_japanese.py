@@ -2,7 +2,7 @@
 
 import pytest
 
-from barcode_battler.models.special_ability import (
+from maeyomi.models.special_ability import (
     JAPANESE_UNDOCUMENTED,
     MAX_CODE,
     MIN_CODE,

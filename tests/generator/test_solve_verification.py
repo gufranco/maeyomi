@@ -1,12 +1,12 @@
 """Tests for the check that stands between a candidate and a card."""
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.generator.solve import Mismatch, mismatches, solve, verify
-from barcode_battler.models.card_request import CardRequest
-from barcode_battler.models.character import BarcodeBattlerCharacter
-from barcode_battler.models.character_class import CharacterClass
-from barcode_battler.models.constraint import Constraint
-from barcode_battler.models.race import Race
+from maeyomi.decoder.decode import decode
+from maeyomi.generator.solve import Mismatch, mismatches, solve, verify
+from maeyomi.models.card_request import CardRequest
+from maeyomi.models.character import BarcodeBattlerCharacter
+from maeyomi.models.character_class import CharacterClass
+from maeyomi.models.constraint import Constraint
+from maeyomi.models.race import Race
 
 
 def test_a_candidate_that_satisfies_the_request_is_accepted() -> None:

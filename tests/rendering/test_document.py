@@ -11,10 +11,10 @@ from pathlib import Path
 import pypdfium2 as pdfium
 import pytest
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.models.generated_card import GeneratedCard
-from barcode_battler.rendering.document import AUTHOR, LANGUAGE, SUBJECT
-from barcode_battler.rendering.sheet import write_sheet
+from maeyomi.decoder.decode import decode
+from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.rendering.document import AUTHOR, LANGUAGE, SUBJECT
+from maeyomi.rendering.sheet import write_sheet
 
 BARCODE = "4902102072618"
 

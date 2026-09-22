@@ -2,10 +2,10 @@
 
 import pytest
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.decoder.errors import CheckDigitError, InvalidLengthError
-from barcode_battler.models.race import Race
-from barcode_battler.models.read_type import ReadType
+from maeyomi.decoder.decode import decode
+from maeyomi.decoder.errors import CheckDigitError, InvalidLengthError
+from maeyomi.models.race import Race
+from maeyomi.models.read_type import ReadType
 
 
 def test_a_front_read_card_decodes_end_to_end() -> None:

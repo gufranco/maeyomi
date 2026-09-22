@@ -2,7 +2,7 @@
 
 import pytest
 
-from barcode_battler.barcode.geometry import (
+from maeyomi.barcode.geometry import (
     MAX_MODULE_WIDTH_MM,
     MIN_BAR_HEIGHT_MM,
     MIN_MODULE_WIDTH_MM,

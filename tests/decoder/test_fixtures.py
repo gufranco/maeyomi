@@ -18,11 +18,11 @@ from typing import Any
 
 import pytest
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.decoder.errors import BarcodeError
-from barcode_battler.models.character import DISPLAY_SCALE, BarcodeBattlerCharacter
-from barcode_battler.models.race import Race
-from barcode_battler.models.read_type import ReadType
+from maeyomi.decoder.decode import decode
+from maeyomi.decoder.errors import BarcodeError
+from maeyomi.models.character import DISPLAY_SCALE, BarcodeBattlerCharacter
+from maeyomi.models.race import Race
+from maeyomi.models.read_type import ReadType
 
 FIXTURES = pathlib.Path(__file__).parent.parent / "fixtures"
 UNSUPPORTED_PAGE = "正伝3 破壊神伝 カードリスト"

@@ -16,7 +16,7 @@ other checks cannot reach.
 The stages below cover what a reading alone does not settle: which digit carries
 speed, the two quarantined overflow branches, the twelve-digit case, and the
 module width the scanner actually tolerates. Those remain open in
-`src/barcode_battler/decoder/uncertainties.py` until a session records them.
+`src/maeyomi/decoder/uncertainties.py` until a session records them.
 
 ## What a test session needs
 
@@ -37,7 +37,7 @@ different figure means the print pipeline scaled the page, and nothing measured
 after that tells you anything about the device.
 
 ```bash
-barcode-battler random --count 9 --seed 1 --output calibration.pdf
+maeyomi random --count 9 --seed 1 --output calibration.pdf
 ```
 
 ## The protocol
@@ -65,8 +65,8 @@ observe which one goes first, repeatedly enough to see past the random element
 in the hit calculation.
 
 ```bash
-barcode-battler generate --hp 4000 --st 1200 --df 700 --race human --speed 9 --output fast.pdf
-barcode-battler generate --hp 4000 --st 1200 --df 700 --race human --speed 0 --output slow.pdf
+maeyomi generate --hp 4000 --st 1200 --df 700 --race human --speed 9 --output fast.pdf
+maeyomi generate --hp 4000 --st 1200 --df 700 --race human --speed 0 --output slow.pdf
 ```
 
 This settles `front_read_speed_digit`.
@@ -100,7 +100,7 @@ result is the real floor for this device, which is the number the geometry
 default should be set from.
 
 ```bash
-barcode-battler random --count 9 --seed 1 --output narrow.pdf
+maeyomi random --count 9 --seed 1 --output narrow.pdf
 ```
 
 ## Recording a result

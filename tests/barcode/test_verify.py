@@ -6,9 +6,9 @@ from PIL import Image
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
-from barcode_battler.barcode.geometry import BarcodeGeometry
-from barcode_battler.barcode.symbol import draw_symbol, symbol_size_mm
-from barcode_battler.barcode.verify import decode_image, decode_pdf
+from maeyomi.barcode.geometry import BarcodeGeometry
+from maeyomi.barcode.symbol import draw_symbol, symbol_size_mm
+from maeyomi.barcode.verify import decode_image, decode_pdf
 
 
 def one_page(path: Path, codes: list[str]) -> None:

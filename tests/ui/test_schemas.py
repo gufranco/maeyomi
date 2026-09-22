@@ -3,10 +3,10 @@
 import pytest
 from pydantic import ValidationError
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.models.race import Race
-from barcode_battler.models.special_ability import SpecialAbility
-from barcode_battler.ui.schemas import AbilityView, CardSpec, CharacterView, RaceView, RandomSpec
+from maeyomi.decoder.decode import decode
+from maeyomi.models.race import Race
+from maeyomi.models.special_ability import SpecialAbility
+from maeyomi.ui.schemas import AbilityView, CardSpec, CharacterView, RaceView, RandomSpec
 
 
 def test_a_card_spec_defaults_to_no_constraints() -> None:

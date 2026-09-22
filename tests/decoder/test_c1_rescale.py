@@ -1,7 +1,7 @@
 """Tests for the C1 and C2 hero rescaling applied to a back-read card."""
 
-from barcode_battler.decoder.c1_rescale import rescale_for_c1
-from barcode_battler.decoder.decode import decode
+from maeyomi.decoder.c1_rescale import rescale_for_c1
+from maeyomi.decoder.decode import decode
 
 
 def test_the_rescale_divides_hit_points_by_ten() -> None:

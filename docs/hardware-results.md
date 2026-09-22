@@ -11,7 +11,7 @@ Sessions run against a physical Barcode Battler II, following
 
 ## Open questions this file would close
 
-Each of these is recorded in `src/barcode_battler/decoder/uncertainties.py` with
+Each of these is recorded in `src/maeyomi/decoder/uncertainties.py` with
 the evidence behind the choice this project made.
 
 | Key | Question | Current answer |

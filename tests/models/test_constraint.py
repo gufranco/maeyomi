@@ -2,7 +2,7 @@
 
 import pytest
 
-from barcode_battler.models.constraint import Constraint
+from maeyomi.models.constraint import Constraint
 
 
 def test_an_unconstrained_value_admits_everything() -> None:

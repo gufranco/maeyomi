@@ -1,5 +1,5 @@
 [project]
-name = "barcode-battler"
+name = "maeyomi"
 version = "0.1.0"
 description = "Generate printable Barcode Battler II compatible cards"
 readme = "README.md"
@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.scripts]
-barcode-battler = "barcode_battler.cli.main:app"
+maeyomi = "maeyomi.cli.main:app"
 
 [project.optional-dependencies]
 ui = ["fastapi==0.141.1", "uvicorn==0.53.0"]
@@ -36,7 +36,7 @@ requires = ["uv_build>=0.12.17,<0.13.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
-module-name = "barcode_battler"
+module-name = "maeyomi"
 module-root = "src"
 
 [tool.ruff]
@@ -59,16 +59,16 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["PLR2004", "INP001", "D100", "D101", "D102", "D103", "D104", "FBT001", "RUF001"]
-"src/barcode_battler/decoder/front_read.py" = ["PLR0913"]
-"src/barcode_battler/decoder/back_read.py" = ["PLR0913"]
-"src/barcode_battler/generator/front_solver.py" = ["PLR0913", "PLR0917"]
-"src/barcode_battler/generator/random_cards.py" = ["S311"]
-"src/barcode_battler/rendering/card.py" = ["PLR0913"]
-"src/barcode_battler/rendering/sheet.py" = ["PLR0913"]
-"src/barcode_battler/rendering/preview.py" = ["PLR0913"]
-"src/barcode_battler/cli/main.py" = ["PLR0913", "PLR0917", "FBT002"]
-"src/barcode_battler/official/catalogue.py" = ["RUF001"]
-"src/barcode_battler/models/special_ability_ja.py" = ["RUF001"]
+"src/maeyomi/decoder/front_read.py" = ["PLR0913"]
+"src/maeyomi/decoder/back_read.py" = ["PLR0913"]
+"src/maeyomi/generator/front_solver.py" = ["PLR0913", "PLR0917"]
+"src/maeyomi/generator/random_cards.py" = ["S311"]
+"src/maeyomi/rendering/card.py" = ["PLR0913"]
+"src/maeyomi/rendering/sheet.py" = ["PLR0913"]
+"src/maeyomi/rendering/preview.py" = ["PLR0913"]
+"src/maeyomi/cli/main.py" = ["PLR0913", "PLR0917", "FBT002"]
+"src/maeyomi/official/catalogue.py" = ["RUF001"]
+"src/maeyomi/models/special_ability_ja.py" = ["RUF001"]
 "tools/*" = ["ALL"]
 
 [tool.ruff.lint.pydocstyle]
@@ -91,7 +91,7 @@ filterwarnings = [
 ]
 
 [tool.coverage.run]
-source = ["src/barcode_battler"]
+source = ["src/maeyomi"]
 branch = true
 
 [tool.coverage.report]

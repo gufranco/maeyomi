@@ -7,8 +7,8 @@ import pytest
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
-from barcode_battler.barcode.rasterise import ink_box, render_pdf_pages
-from barcode_battler.rendering.calibration import (
+from maeyomi.barcode.rasterise import ink_box, render_pdf_pages
+from maeyomi.rendering.calibration import (
     REFERENCE_LENGTH_MM,
     RULER_LENGTH_MM,
     draw_calibration,

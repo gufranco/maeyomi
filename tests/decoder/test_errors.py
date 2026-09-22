@@ -2,7 +2,7 @@
 
 import pytest
 
-from barcode_battler.decoder.errors import (
+from maeyomi.decoder.errors import (
     BarcodeError,
     CheckDigitError,
     InvalidCharacterError,

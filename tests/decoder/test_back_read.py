@@ -4,9 +4,9 @@ import itertools
 
 import pytest
 
-from barcode_battler.decoder.back_read import read_back
-from barcode_battler.models.race import Race
-from barcode_battler.models.read_type import ReadType
+from maeyomi.decoder.back_read import read_back
+from maeyomi.models.race import Race
+from maeyomi.models.read_type import ReadType
 
 
 def code_with(**digits: int) -> str:

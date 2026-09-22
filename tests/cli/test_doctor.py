@@ -7,8 +7,8 @@ genuinely go either way on a real machine.
 
 import pytest
 
-from barcode_battler.cli import doctor
-from barcode_battler.cli.doctor import Finding, State, machine, package, report, worst
+from maeyomi.cli import doctor
+from maeyomi.cli.doctor import Finding, State, machine, package, report, worst
 
 
 def named(findings: tuple[Finding, ...], name: str) -> Finding:

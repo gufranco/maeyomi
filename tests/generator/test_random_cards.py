@@ -1,10 +1,10 @@
 """Tests for random card generation."""
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.generator.random_cards import generate_random
-from barcode_battler.models.card_request import CardRequest
-from barcode_battler.models.constraint import Constraint
-from barcode_battler.models.race import Race
+from maeyomi.decoder.decode import decode
+from maeyomi.generator.random_cards import generate_random
+from maeyomi.models.card_request import CardRequest
+from maeyomi.models.constraint import Constraint
+from maeyomi.models.race import Race
 
 
 def template() -> CardRequest:

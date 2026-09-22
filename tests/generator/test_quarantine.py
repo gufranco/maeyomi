@@ -2,9 +2,9 @@
 
 import pytest
 
-from barcode_battler.generator.front_solver import assemble
-from barcode_battler.generator.quarantine import quarantines_digits, takes_quarantined_branch
-from barcode_battler.models.race import Race
+from maeyomi.generator.front_solver import assemble
+from maeyomi.generator.quarantine import quarantines_digits, takes_quarantined_branch
+from maeyomi.models.race import Race
 
 
 @pytest.mark.parametrize("code", ["2099300045000", "2091093145004"])

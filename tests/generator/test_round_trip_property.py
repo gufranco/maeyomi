@@ -8,12 +8,12 @@ decoder disagree, which is the one defect class the round trip exists to catch.
 from hypothesis import HealthCheck, given, settings
 from hypothesis import strategies as st
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.generator.quarantine import takes_quarantined_branch
-from barcode_battler.generator.solve import mismatches, solve
-from barcode_battler.models.card_request import CardRequest
-from barcode_battler.models.constraint import Constraint
-from barcode_battler.models.race import Race
+from maeyomi.decoder.decode import decode
+from maeyomi.generator.quarantine import takes_quarantined_branch
+from maeyomi.generator.solve import mismatches, solve
+from maeyomi.models.card_request import CardRequest
+from maeyomi.models.constraint import Constraint
+from maeyomi.models.race import Race
 
 FIGHTERS = [race for race in Race if race.is_fighter]
 

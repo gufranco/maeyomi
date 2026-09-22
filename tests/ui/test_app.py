@@ -5,10 +5,10 @@ import io
 import pytest
 from fastapi.testclient import TestClient
 
-import barcode_battler.ui.app as app_module
-from barcode_battler.barcode.verify import decode_pdf
-from barcode_battler.products.lookup import ProductLookupError
-from barcode_battler.ui.app import create_app
+import maeyomi.ui.app as app_module
+from maeyomi.barcode.verify import decode_pdf
+from maeyomi.products.lookup import ProductLookupError
+from maeyomi.ui.app import create_app
 
 
 @pytest.fixture(name="client")

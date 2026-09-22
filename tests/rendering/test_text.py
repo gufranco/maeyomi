@@ -2,7 +2,7 @@
 
 import pytest
 
-from barcode_battler.rendering.text import (
+from maeyomi.rendering.text import (
     ELLIPSIS,
     JAPANESE_FONT,
     LATIN_BOLD_FONT,

@@ -4,18 +4,18 @@ import itertools
 
 import pytest
 
-from barcode_battler.decoder.check_digit import expected_check_digit
-from barcode_battler.decoder.decode import decode
-from barcode_battler.generator.back_solver import (
+from maeyomi.decoder.check_digit import expected_check_digit
+from maeyomi.decoder.decode import decode
+from maeyomi.generator.back_solver import (
     TUNING_INDEX,
     BackReadCandidate,
     iter_back_candidates,
     reachable_back_stats,
 )
-from barcode_battler.models.card_request import CardRequest
-from barcode_battler.models.constraint import Constraint
-from barcode_battler.models.race import Race
-from barcode_battler.models.read_type import ReadType
+from maeyomi.models.card_request import CardRequest
+from maeyomi.models.constraint import Constraint
+from maeyomi.models.race import Race
+from maeyomi.models.read_type import ReadType
 
 
 def first(request: CardRequest) -> BackReadCandidate:

@@ -4,12 +4,12 @@ import itertools
 
 import pytest
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.generator.front_solver import iter_front_candidates
-from barcode_battler.models.card_request import CardRequest
-from barcode_battler.models.character_class import CharacterClass
-from barcode_battler.models.constraint import Constraint
-from barcode_battler.models.race import Race
+from maeyomi.decoder.decode import decode
+from maeyomi.generator.front_solver import iter_front_candidates
+from maeyomi.models.card_request import CardRequest
+from maeyomi.models.character_class import CharacterClass
+from maeyomi.models.constraint import Constraint
+from maeyomi.models.race import Race
 
 
 def take(request: CardRequest, count: int) -> list[str]:

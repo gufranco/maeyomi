@@ -2,10 +2,10 @@
 
 import pytest
 
-from barcode_battler.cli.parsing import parse_character_class, parse_constraint, parse_race
-from barcode_battler.models.character_class import CharacterClass
-from barcode_battler.models.constraint import Constraint
-from barcode_battler.models.race import Race
+from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_race
+from maeyomi.models.character_class import CharacterClass
+from maeyomi.models.constraint import Constraint
+from maeyomi.models.race import Race
 
 
 @pytest.mark.parametrize("text", [None, "", "   "])

@@ -4,8 +4,8 @@ import dataclasses
 
 import pytest
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.models.generated_card import GeneratedCard
+from maeyomi.decoder.decode import decode
+from maeyomi.models.generated_card import GeneratedCard
 
 
 def build() -> GeneratedCard:

@@ -2,8 +2,8 @@
 
 import pytest
 
-from barcode_battler.decoder.read_type import classify_read_type
-from barcode_battler.models.read_type import ReadType
+from maeyomi.decoder.read_type import classify_read_type
+from maeyomi.models.read_type import ReadType
 
 
 def test_an_eight_digit_code_is_always_read_from_the_back() -> None:

@@ -11,15 +11,15 @@ from pathlib import Path
 import pypdfium2 as pdfium
 import pytest
 
-from barcode_battler.barcode.rasterise import render_pdf_pages
-from barcode_battler.barcode.verify import decode_image, decode_pdf
-from barcode_battler.generator.random_cards import generate_random
-from barcode_battler.models.card_request import CardRequest
-from barcode_battler.models.constraint import Constraint
-from barcode_battler.models.generated_card import GeneratedCard
-from barcode_battler.rendering.calibration import REFERENCE_LENGTH_MM
-from barcode_battler.rendering.layout import SheetLayout
-from barcode_battler.rendering.sheet import write_sheet
+from maeyomi.barcode.rasterise import render_pdf_pages
+from maeyomi.barcode.verify import decode_image, decode_pdf
+from maeyomi.generator.random_cards import generate_random
+from maeyomi.models.card_request import CardRequest
+from maeyomi.models.constraint import Constraint
+from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.rendering.calibration import REFERENCE_LENGTH_MM
+from maeyomi.rendering.layout import SheetLayout
+from maeyomi.rendering.sheet import write_sheet
 
 
 def cards(count: int) -> tuple[GeneratedCard, ...]:

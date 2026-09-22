@@ -2,12 +2,12 @@
 
 import pytest
 
-from barcode_battler.decoder.errors import (
+from maeyomi.decoder.errors import (
     CheckDigitError,
     InvalidCharacterError,
     InvalidLengthError,
 )
-from barcode_battler.decoder.validation import validate_barcode
+from maeyomi.decoder.validation import validate_barcode
 
 
 @pytest.mark.parametrize("code", ["0401207237501", "49123456"])

@@ -14,11 +14,11 @@ refuses to emit either branch; see `uncertainties.py`.
 
 import pytest
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.decoder.front_read import DUAL_BONUS_VALUES, adjusted_stats
-from barcode_battler.decoder.uncertainties import UNCERTAINTIES
-from barcode_battler.models.race import Race
-from barcode_battler.models.read_type import ReadType
+from maeyomi.decoder.decode import decode
+from maeyomi.decoder.front_read import DUAL_BONUS_VALUES, adjusted_stats
+from maeyomi.decoder.uncertainties import UNCERTAINTIES
+from maeyomi.models.race import Race
+from maeyomi.models.read_type import ReadType
 
 MECHANICAL_PLAIN = "2091000045007"
 MECHANICAL_OVERFLOW = "2099300045000"

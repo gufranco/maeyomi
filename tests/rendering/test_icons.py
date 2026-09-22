@@ -12,16 +12,16 @@ import pytest
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
-from barcode_battler.barcode.rasterise import ink_box, render_pdf_pages
-from barcode_battler.models.race import Race
-from barcode_battler.rendering.icons import (
+from maeyomi.barcode.rasterise import ink_box, render_pdf_pages
+from maeyomi.models.race import Race
+from maeyomi.rendering.icons import (
     RACE_COLOURS,
     draw_heart,
     draw_race_icon,
     draw_shield,
     draw_sword,
 )
-from barcode_battler.rendering.labels import race_label
+from maeyomi.rendering.labels import race_label
 
 BOX_MM = 20.0
 MARGIN_MM = 5.0

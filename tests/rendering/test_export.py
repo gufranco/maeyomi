@@ -5,11 +5,11 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from barcode_battler.barcode.verify import decode_image
-from barcode_battler.decoder.decode import decode
-from barcode_battler.models.generated_card import GeneratedCard
-from barcode_battler.rendering.export import ImageFormat, export_images
-from barcode_battler.rendering.sheet import write_sheet
+from maeyomi.barcode.verify import decode_image
+from maeyomi.decoder.decode import decode
+from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.rendering.export import ImageFormat, export_images
+from maeyomi.rendering.sheet import write_sheet
 
 BARCODE = "0401207237501"
 

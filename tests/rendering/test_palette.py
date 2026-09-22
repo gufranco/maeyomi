@@ -16,17 +16,17 @@ from itertools import combinations
 
 import pytest
 
-from barcode_battler.models.race import Race
-from barcode_battler.rendering.colour import (
+from maeyomi.models.race import Race
+from maeyomi.rendering.colour import (
     ColourVision,
     contrast_ratio,
     delta_e,
     greyscale,
     simulate,
 )
-from barcode_battler.rendering.icons import RACE_COLOURS, STAT_STYLES
-from barcode_battler.rendering.labels import race_label
-from barcode_battler.rendering.palette import (
+from maeyomi.rendering.icons import RACE_COLOURS, STAT_STYLES
+from maeyomi.rendering.labels import race_label
+from maeyomi.rendering.palette import (
     DISTINCT_DELTA_E,
     FAMILY_TONE_STEP,
     FIGHTERS,

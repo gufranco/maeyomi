@@ -22,14 +22,14 @@ uv sync --extra ui       # add the local web interface
 A sheet of 24 random cards, nine to an A4 page, reproducible from a seed:
 
 ```bash
-barcode-battler random --count 24 --hp 1000-10000 --st 100-3000 --df 100-3000 \
+maeyomi random --count 24 --hp 1000-10000 --st 100-3000 --df 100-3000 \
     --seed 1234 --output cards.pdf
 ```
 
 One card built to an exact specification:
 
 ```bash
-barcode-battler generate --name "Fire Knight" \
+maeyomi generate --name "Fire Knight" \
     --hp 5000 --attack 1800 --defense 1200 \
     --race human --class warrior --ability 17 \
     --output fire-knight.pdf
@@ -52,19 +52,19 @@ Ability  17              17
 Read a barcode the way the device reads it:
 
 ```bash
-barcode-battler decode 0401207237501
+maeyomi decode 0401207237501
 ```
 
 The device carries numeric ability codes rather than named elements. List them:
 
 ```bash
-barcode-battler abilities
+maeyomi abilities
 ```
 
 A local page with the same two forms:
 
 ```bash
-barcode-battler serve
+maeyomi serve
 ```
 
 Every stat option takes an exact value, a range, or a bound: `5000`,
@@ -75,7 +75,7 @@ When a request cannot be met exactly, `generate` says which field blocks it and
 writes nothing. Add `--nearest` to get the closest reachable card instead:
 
 ```bash
-barcode-battler generate --hp 20900 --st 11000 --df 10000 \
+maeyomi generate --hp 20900 --st 11000 --df 10000 \
     --race mechanical --nearest --output golem.pdf
 ```
 
@@ -95,14 +95,14 @@ the stats and the ability jointly, so far fewer combinations are reachable.
 
 ## The web interface
 
-`barcode-battler web` starts the local page and opens it, which is the same
+`maeyomi web` starts the local page and opens it, which is the same
 program with pictures: every tab is a command, and every command is a tab.
-`--no-open` starts it without a browser, and `barcode-battler serve` is the
+`--no-open` starts it without a browser, and `maeyomi serve` is the
 same thing for a machine that has none.
 
 ## Checking the machine
 
-`barcode-battler doctor` checks that this computer can print a card the device
+`maeyomi doctor` checks that this computer can print a card the device
 will read, and says what it found rather than that it looked. It reads a
 barcode whose answer is known, draws a symbol and decodes it back out of the
 PDF, confirms the Japanese font resolved, re-measures the palette against its
@@ -169,7 +169,7 @@ That is the size card sleeves and guillotines are built for, and it is a choice
 rather than a reproduction: Epoch never published the size of its own cards and
 no collector page, auction listing or wiki records it. The size lives in
 `CARD_WIDTH_MM` and `CARD_HEIGHT_MM` in
-[`layout.py`](src/barcode_battler/rendering/layout.py), and changing those two
+[`layout.py`](src/maeyomi/rendering/layout.py), and changing those two
 numbers moves everything else, because the grid, the gutters, the marks and the
 fit check are all derived from them.
 
@@ -196,14 +196,14 @@ bands sit outside the card grid, so they leave with the offcut.
 
 ## Reading a barcode you already have
 
-`barcode-battler decode 4901085061169` prints what the device would make of any
+`maeyomi decode 4901085061169` prints what the device would make of any
 barcode, and `-o card.pdf --name "Tomato sauce"` prints the card as well. The
 web page has the same thing under **Read a barcode**: type the digits printed
 under the bars, and it shows the kind of card, the three numbers, the special
 power and whether the device reads it from the front or the back, with a card
 you can print.
 
-`barcode-battler kinds` lists every kind of card the device knows, in both
+`maeyomi kinds` lists every kind of card the device knows, in both
 languages, with what each one does.
 
 This is how the machine was actually played. Any product barcode is a card, so a
@@ -213,7 +213,7 @@ worth 2400 defence.
 
 ## The supermarket
 
-`barcode-battler products --search 茶` lists the real Japanese groceries that
+`maeyomi products --search 茶` lists the real Japanese groceries that
 match, `--count 9 --seed 3` takes a handful at random, and `-o shopping.pdf`
 prints them. The web page has the same thing under **The supermarket**, with a
 **Surprise me** button. Tomato sauce against noodles is a fair fight, and this
@@ -227,14 +227,14 @@ the Open Database License and this subset carries the same terms; see
 off the barcode by this project's decoder, so a wrong name spoils a joke and
 nothing else.
 
-`barcode-battler decode <barcode>` on the web page also asks Open Food Facts
+`maeyomi decode <barcode>` on the web page also asks Open Food Facts
 what a barcode is called, and fills the name in when it knows. It is a
 convenience: the lookup failing changes nothing about the card.
 
 ## The real cards
 
-`barcode-battler official --list` names the fourteen card lists Epoch released
-and how many cards of each will print; `barcode-battler official --set candy -o
+`maeyomi official --list` names the fourteen card lists Epoch released
+and how many cards of each will print; `maeyomi official --set candy -o
 candy.pdf` prints one, and leaving out `--set` prints all 572. The web page has
 the same thing under **The real cards**.
 
@@ -248,7 +248,7 @@ the barcode by this project's decoder, not copied from the wiki.
 
 ## The cheat code
 
-`barcode-battler cheat -o cheat.pdf`, or press the row of arrows at the foot of
+`maeyomi cheat -o cheat.pdf`, or press the row of arrows at the foot of
 the web page, or type up, up, down, down, left, right, left, right, B, A
 anywhere on it. The card is a mechanical magician with 99900 health, 24500
 attack, 19900 defence and its attack doubled.
@@ -325,7 +325,7 @@ Nothing is told apart by colour alone. Every band carries its own name and its
 own pictogram, and every battle number carries its own shape and its two-letter
 label, so a card read in grey loses decoration and no information.
 
-`src/barcode_battler/rendering/colour.py` carries the arithmetic and
+`src/maeyomi/rendering/colour.py` carries the arithmetic and
 `tests/rendering/test_palette.py` holds the palette to it:
 
 | Check | Threshold | Source |
@@ -351,7 +351,7 @@ and fetch date recorded on every entry. Full attribution and the licence
 boundary: [`NOTICE.md`](NOTICE.md).
 
 Three behaviours are unresolved and recorded in
-`src/barcode_battler/decoder/uncertainties.py`. The decoder reproduces all three
+`src/maeyomi/decoder/uncertainties.py`. The decoder reproduces all three
 faithfully; the generator refuses to emit the two that would put an unverified
 value on a printed card.
 

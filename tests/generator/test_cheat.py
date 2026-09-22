@@ -1,11 +1,11 @@
 """Tests for the strongest card the device can be handed."""
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
-from barcode_battler.generator.front_solver import MAX_HP_DISPLAY, MAX_STAT_DISPLAY
-from barcode_battler.generator.quarantine import takes_quarantined_branch
-from barcode_battler.models.character_class import CharacterClass
-from barcode_battler.models.read_type import ReadType
+from maeyomi.decoder.decode import decode
+from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
+from maeyomi.generator.front_solver import MAX_HP_DISPLAY, MAX_STAT_DISPLAY
+from maeyomi.generator.quarantine import takes_quarantined_branch
+from maeyomi.models.character_class import CharacterClass
+from maeyomi.models.read_type import ReadType
 
 
 def test_the_strongest_card_decodes_to_what_it_claims() -> None:

@@ -1,11 +1,11 @@
 """Tests for the requested against generated comparison."""
 
-from barcode_battler.cli.report import DISCLAIMER, DISCLAIMER_JA, comparison_lines, shortfall_lines
-from barcode_battler.decoder.decode import decode
-from barcode_battler.models.card_request import CardRequest
-from barcode_battler.models.character_class import CharacterClass
-from barcode_battler.models.constraint import Constraint
-from barcode_battler.models.race import Race
+from maeyomi.cli.report import DISCLAIMER, DISCLAIMER_JA, comparison_lines, shortfall_lines
+from maeyomi.decoder.decode import decode
+from maeyomi.models.card_request import CardRequest
+from maeyomi.models.character_class import CharacterClass
+from maeyomi.models.constraint import Constraint
+from maeyomi.models.race import Race
 
 CHARACTER = decode("0401207237501")
 

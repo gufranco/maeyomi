@@ -5,7 +5,7 @@ import pathlib
 
 import pytest
 
-from barcode_battler.decoder.check_digit import expected_check_digit
+from maeyomi.decoder.check_digit import expected_check_digit
 
 FIXTURES = pathlib.Path(__file__).parent.parent / "fixtures"
 

@@ -6,7 +6,7 @@ import pytest
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
-from barcode_battler.barcode.rasterise import ink_box, render_pdf_pages
+from maeyomi.barcode.rasterise import ink_box, render_pdf_pages
 
 
 def blank_pdf(path: Path, pages: int) -> None:

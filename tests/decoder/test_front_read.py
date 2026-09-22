@@ -2,10 +2,10 @@
 
 import pytest
 
-from barcode_battler.decoder.front_read import read_front
-from barcode_battler.decoder.read_type import classify_read_type
-from barcode_battler.models.race import Race
-from barcode_battler.models.read_type import ReadType
+from maeyomi.decoder.front_read import read_front
+from maeyomi.decoder.read_type import classify_read_type
+from maeyomi.models.race import Race
+from maeyomi.models.read_type import ReadType
 
 
 def test_a_fighter_maps_every_slice() -> None:

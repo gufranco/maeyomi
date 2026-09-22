@@ -2,18 +2,18 @@
 
 import pytest
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.generator.nearest import (
+from maeyomi.decoder.decode import decode
+from maeyomi.generator.nearest import (
     CATEGORICAL_FIELDS,
     DEFAULT_WINDOW,
     solve_nearest,
 )
-from barcode_battler.generator.quarantine import takes_quarantined_branch
-from barcode_battler.generator.solve import solve
-from barcode_battler.models.card_request import CardRequest
-from barcode_battler.models.character_class import CharacterClass
-from barcode_battler.models.constraint import Constraint
-from barcode_battler.models.race import Race
+from maeyomi.generator.quarantine import takes_quarantined_branch
+from maeyomi.generator.solve import solve
+from maeyomi.models.card_request import CardRequest
+from maeyomi.models.character_class import CharacterClass
+from maeyomi.models.constraint import Constraint
+from maeyomi.models.race import Race
 
 
 def unreachable() -> CardRequest:

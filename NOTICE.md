@@ -2,7 +2,7 @@
 
 ## Barcode Battler II Simulator
 
-The decoder in `src/barcode_battler/decoder/` is a port of the barcode reading
+The decoder in `src/maeyomi/decoder/` is a port of the barcode reading
 logic in `src/BarcodeRead.as` from:
 
 - Project: Barcode Battler II Simulator
@@ -46,13 +46,13 @@ entry.
 
 ## Not used
 
-`VITIMan/barcode-battler-engine` is GPL-3 licensed. No code, structure or naming
+`VITIMan/maeyomi-engine` is GPL-3 licensed. No code, structure or naming
 from that project appears here. It is named only because its published card
 values pointed at the wikiwiki.jp lists that this project fetches directly.
 
 ## Open Food Facts
 
-The product shelf in `src/barcode_battler/products/japan.json` holds barcodes,
+The product shelf in `src/maeyomi/products/japan.json` holds barcodes,
 product names and brand names for products sold in Japan, taken from:
 
 - Project: Open Food Facts
@@ -67,5 +67,5 @@ that prints it. Every number on a card is read from the barcode by this
 project's own decoder and is not part of their data.
 
 The same project answers the `products lookup` path at
-`src/barcode_battler/products/lookup.py`, which names this project in its user
+`src/maeyomi/products/lookup.py`, which names this project in its user
 agent as their terms of use ask.

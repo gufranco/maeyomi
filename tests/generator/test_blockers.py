@@ -1,10 +1,10 @@
 """Tests for the per-field reasons a request cannot be satisfied."""
 
-from barcode_battler.generator.blockers import blockers
-from barcode_battler.models.card_request import CardRequest
-from barcode_battler.models.character_class import CharacterClass
-from barcode_battler.models.constraint import Constraint
-from barcode_battler.models.race import Race
+from maeyomi.generator.blockers import blockers
+from maeyomi.models.card_request import CardRequest
+from maeyomi.models.character_class import CharacterClass
+from maeyomi.models.constraint import Constraint
+from maeyomi.models.race import Race
 
 
 def test_a_satisfiable_request_has_no_blockers() -> None:

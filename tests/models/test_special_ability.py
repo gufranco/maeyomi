@@ -2,7 +2,7 @@
 
 import pytest
 
-from barcode_battler.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
+from maeyomi.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
 
 
 def test_code_zero_is_no_ability() -> None:

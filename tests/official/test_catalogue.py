@@ -2,8 +2,8 @@
 
 import pytest
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.official.catalogue import (
+from maeyomi.decoder.decode import decode
+from maeyomi.official.catalogue import (
     OfficialSet,
     official_cards,
     official_catalogue,

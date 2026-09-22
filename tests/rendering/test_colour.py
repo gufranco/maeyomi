@@ -2,7 +2,7 @@
 
 import pytest
 
-from barcode_battler.rendering.colour import (
+from maeyomi.rendering.colour import (
     ColourVision,
     contrast_ratio,
     delta_e,

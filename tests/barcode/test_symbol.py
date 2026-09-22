@@ -7,15 +7,15 @@ import pytest
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
-from barcode_battler.barcode.geometry import (
+from maeyomi.barcode.geometry import (
     MIN_BAR_HEIGHT_MM,
     NOMINAL_BAR_HEIGHT_MM,
     NOMINAL_TOTAL_HEIGHT_MM,
     BarcodeGeometry,
 )
-from barcode_battler.barcode.rasterise import ink_box, render_pdf_pages
-from barcode_battler.barcode.symbol import draw_symbol, symbol_size_mm
-from barcode_battler.barcode.verify import decode_pdf
+from maeyomi.barcode.rasterise import ink_box, render_pdf_pages
+from maeyomi.barcode.symbol import draw_symbol, symbol_size_mm
+from maeyomi.barcode.verify import decode_pdf
 
 MARGIN_MM = 10.0
 MEASURE_DPI = 600

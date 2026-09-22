@@ -4,11 +4,11 @@ import dataclasses
 
 import pytest
 
-from barcode_battler.models.character import BarcodeBattlerCharacter
-from barcode_battler.models.character_class import CharacterClass
-from barcode_battler.models.race import Race
-from barcode_battler.models.read_type import ReadType
-from barcode_battler.models.special_ability import SpecialAbility
+from maeyomi.models.character import BarcodeBattlerCharacter
+from maeyomi.models.character_class import CharacterClass
+from maeyomi.models.race import Race
+from maeyomi.models.read_type import ReadType
+from maeyomi.models.special_ability import SpecialAbility
 
 
 def build(**overrides: object) -> BarcodeBattlerCharacter:

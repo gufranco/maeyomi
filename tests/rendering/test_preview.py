@@ -10,11 +10,11 @@ import io
 import pytest
 from PIL import Image
 
-from barcode_battler.barcode.verify import decode_image
-from barcode_battler.decoder.decode import decode
-from barcode_battler.models.generated_card import GeneratedCard
-from barcode_battler.rendering.layout import CARD_HEIGHT_MM, CARD_WIDTH_MM
-from barcode_battler.rendering.preview import card_png, sheet_png_pages
+from maeyomi.barcode.verify import decode_image
+from maeyomi.decoder.decode import decode
+from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.rendering.layout import CARD_HEIGHT_MM, CARD_WIDTH_MM
+from maeyomi.rendering.preview import card_png, sheet_png_pages
 
 BARCODE = "0401207237501"
 

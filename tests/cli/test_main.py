@@ -5,11 +5,11 @@ from pathlib import Path
 import pytest
 from typer.testing import CliRunner
 
-from barcode_battler.barcode.verify import decode_pdf
-from barcode_battler.cli import main
-from barcode_battler.cli.doctor import Finding, State
-from barcode_battler.cli.main import app
-from barcode_battler.decoder.decode import decode
+from maeyomi.barcode.verify import decode_pdf
+from maeyomi.cli import main
+from maeyomi.cli.doctor import Finding, State
+from maeyomi.cli.main import app
+from maeyomi.decoder.decode import decode
 
 runner = CliRunner()
 
@@ -262,7 +262,7 @@ def test_serve_explains_how_to_install_the_optional_dependencies(
         message = "No module named 'uvicorn'"
         raise ImportError(message)
 
-    monkeypatch.setattr("barcode_battler.cli.main._web_server", missing)
+    monkeypatch.setattr("maeyomi.cli.main._web_server", missing)
 
     result = runner.invoke(app, ["serve"])
 

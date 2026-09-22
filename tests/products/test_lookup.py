@@ -12,8 +12,8 @@ from urllib.request import Request
 
 import pytest
 
-import barcode_battler.products.lookup as lookup_module
-from barcode_battler.products.lookup import (
+import maeyomi.products.lookup as lookup_module
+from maeyomi.products.lookup import (
     API_URL,
     FIELDS,
     TIMEOUT_SECONDS,

@@ -4,18 +4,18 @@ import itertools
 
 import pytest
 
-from barcode_battler.decoder.decode import decode
-from barcode_battler.decoder.front_read import DUAL_BONUS_VALUES, adjusted_stats
-from barcode_battler.generator.front_solver import (
+from maeyomi.decoder.decode import decode
+from maeyomi.decoder.front_read import DUAL_BONUS_VALUES, adjusted_stats
+from maeyomi.generator.front_solver import (
     assemble,
     iter_front_candidates,
     stat_digit_options,
 )
-from barcode_battler.generator.quarantine import takes_quarantined_branch
-from barcode_battler.models.card_request import CardRequest
-from barcode_battler.models.constraint import Constraint
-from barcode_battler.models.race import Race
-from barcode_battler.models.read_type import ReadType
+from maeyomi.generator.quarantine import takes_quarantined_branch
+from maeyomi.models.card_request import CardRequest
+from maeyomi.models.constraint import Constraint
+from maeyomi.models.race import Race
+from maeyomi.models.read_type import ReadType
 
 
 def first(request: CardRequest) -> str:
