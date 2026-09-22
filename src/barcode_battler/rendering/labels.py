@@ -54,6 +54,35 @@ STAT_LABELS: Final[dict[str, Bilingual]] = {
     "DF": Bilingual("DF", "ぼうぎょ"),
 }
 
+RACE_DESCRIPTIONS: Final[dict[Race, str]] = {
+    Race.MECHANICAL: "Machines. Gain attack when very healthy.",
+    Race.ANIMAL: "Beasts. Gain defence when very healthy.",
+    Race.AQUATIC: "Sea creatures. Gain both when very healthy.",
+    Race.BIRD: "Fliers. No bonus, so every number is reachable.",
+    Race.HUMAN: "People. No bonus, so every number is reachable.",
+    Race.SINGLE_USE_WEAPON: "An attack boost that breaks after one battle.",
+    Race.WEAPON: "An attack boost that lasts.",
+    Race.SINGLE_USE_ARMOUR: "A defence boost that breaks after one battle.",
+    Race.ARMOUR: "A defence boost that lasts.",
+    Race.SUPPORT_ITEM: "Health, herbs or magic points.",
+}
+
+RACE_DESCRIPTIONS_JA: Final[dict[Race, str]] = {
+    Race.MECHANICAL: "きかい。たいりょくが とても おおいと こうげきが ふえる。",
+    Race.ANIMAL: "けもの。たいりょくが とても おおいと ぼうぎょが ふえる。",
+    Race.AQUATIC: "うみの いきもの。たいりょくが とても おおいと りょうほう ふえる。",
+    Race.BIRD: "そらを とぶ。ボーナスは ないので どの すうじでも つくれる。",
+    Race.HUMAN: "ひと。ボーナスは ないので どの すうじでも つくれる。",
+    Race.SINGLE_USE_WEAPON: "こうげきが ふえる。1かいの たたかいで こわれる。",
+    Race.WEAPON: "こうげきが ずっと ふえる。",
+    Race.SINGLE_USE_ARMOUR: "ぼうぎょが ふえる。1かいの たたかいで こわれる。",
+    Race.ARMOUR: "ぼうぎょが ずっと ふえる。",
+    Race.SUPPORT_ITEM: "たいりょく、やくそう、まほうの ポイント。",
+}
+
+"""What each kind of card does, for a player who has not read the manual."""
+
+
 SPECIAL_POWER: Final = Bilingual("Special power", "とくしゅ のうりょく")
 SWIPE: Final = Bilingual("Swipe this end", "ここを とおしてね")
 NO_POWER: Final = Bilingual("No special power", "のうりょく なし")

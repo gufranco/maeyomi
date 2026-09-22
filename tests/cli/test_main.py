@@ -431,3 +431,39 @@ def test_a_print_shop_file_has_one_card_per_page(tmp_path: Path) -> None:
 
     assert result.exit_code == 0
     assert "3 page" in result.output
+
+
+def test_decode_can_print_the_card_it_read(tmp_path: Path) -> None:
+    output = tmp_path / "tea.pdf"
+
+    result = runner.invoke(
+        app, ["decode", "4902102072618", "--name", "Green tea", "--output", str(output)]
+    )
+
+    assert result.exit_code == 0
+    assert decode_pdf(output) == ["4902102072618"]
+    assert "Green tea" in result.output
+
+
+def test_decode_without_an_output_only_reports(tmp_path: Path) -> None:
+    result = runner.invoke(app, ["decode", "4902102072618"])
+
+    assert result.exit_code == 0
+    assert "Armour" in result.output
+    assert not list(tmp_path.iterdir())
+
+
+def test_decode_refuses_a_barcode_the_device_would_refuse(tmp_path: Path) -> None:
+    result = runner.invoke(app, ["decode", "4901777018888", "--output", str(tmp_path / "no.pdf")])
+
+    assert result.exit_code == 1
+    assert not (tmp_path / "no.pdf").exists()
+
+
+def test_the_kinds_of_card_are_listed_with_their_descriptions() -> None:
+    result = runner.invoke(app, ["kinds"])
+
+    assert result.exit_code == 0
+    assert "human" in result.output
+    assert "Sea creature" in result.output
+    assert "Helper item" in result.output

@@ -180,10 +180,14 @@ bands sit outside the card grid, so they leave with the offcut.
 ## Reading a barcode you already have
 
 `barcode-battler decode 4901085061169` prints what the device would make of any
-barcode, and the web page has the same thing under **Read a barcode**: type the
-digits printed under the bars, and it shows the kind of card, the three numbers,
-the special power and whether the device reads it from the front or the back,
-with a card you can print.
+barcode, and `-o card.pdf --name "Tomato sauce"` prints the card as well. The
+web page has the same thing under **Read a barcode**: type the digits printed
+under the bars, and it shows the kind of card, the three numbers, the special
+power and whether the device reads it from the front or the back, with a card
+you can print.
+
+`barcode-battler kinds` lists every kind of card the device knows, in both
+languages, with what each one does.
 
 This is how the machine was actually played. Any product barcode is a card, so a
 bottle of tomato sauce is a fighter and a packet of crisps is a weapon. Japanese

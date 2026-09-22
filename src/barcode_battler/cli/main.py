@@ -24,6 +24,7 @@ from barcode_battler.generator.solve import solve
 from barcode_battler.models.card_request import CardRequest
 from barcode_battler.models.character import BarcodeBattlerCharacter
 from barcode_battler.models.generated_card import GeneratedCard
+from barcode_battler.models.race import Race
 from barcode_battler.models.read_type import ReadType
 from barcode_battler.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
 from barcode_battler.official.catalogue import (
@@ -32,6 +33,7 @@ from barcode_battler.official.catalogue import (
     rejected_transcriptions,
 )
 from barcode_battler.rendering.export import ImageFormat, export_images
+from barcode_battler.rendering.labels import RACE_DESCRIPTIONS, race_label
 from barcode_battler.rendering.layout import SheetLayout
 from barcode_battler.rendering.sheet import write_sheet
 
@@ -187,8 +189,21 @@ def _nearest_or_exit(request: CardRequest, reasons: tuple[str, ...]) -> BarcodeB
 
 
 @app.command()
-def decode(barcode: Annotated[str, typer.Argument(help="8 or 13 digit code.")]) -> None:
-    """Read a barcode the way the device reads it."""
+def decode(
+    barcode: Annotated[str, typer.Argument(help="8 or 13 digit code.")],
+    output: Annotated[
+        Path | None,
+        typer.Option("--output", "-o", help="Also print the card this barcode makes."),
+    ] = None,
+    name: Annotated[str, typer.Option("--name", help="Printed on the card only.")] = "Card",
+    images: ImagesOption = None,
+    print_shop: PrintShopOption = False,
+) -> None:
+    """Read a barcode the way the device reads it.
+
+    Any product barcode is a card, which is how the device was played: read
+    what is printed on the shopping and print the card it makes.
+    """
     try:
         character = decode_barcode(barcode)
     except BarcodeError as error:
@@ -205,6 +220,19 @@ def decode(barcode: Annotated[str, typer.Argument(help="8 or 13 digit code.")]) 
     typer.echo(f"Job       {character.job}")
     typer.echo(f"Speed     {character.speed if character.speed is not None else '-'}")
     typer.echo(f"Ability   {character.special.code:02d} {character.special.description}")
+    if output is not None:
+        typer.echo(f"Name      {name}")
+        card = GeneratedCard(name=name, barcode=character.barcode, character=character)
+        _write((card,), output, images, _layout(print_shop=print_shop))
+
+
+@app.command()
+def kinds() -> None:
+    """Print every kind of card the device knows, and what each one does."""
+    for race in Race:
+        label = race_label(race)
+        typer.echo(f"{race.value}  {race.name.lower():18s} {label.english} / {label.japanese}")
+        typer.echo(f"   {RACE_DESCRIPTIONS[race]}")
 
 
 @app.command()

@@ -13,34 +13,11 @@ from pydantic import BaseModel, ConfigDict, Field
 from barcode_battler.models.character import BarcodeBattlerCharacter
 from barcode_battler.models.race import Race
 from barcode_battler.models.special_ability import FIRST_C1_C2_ONLY_CODE, SpecialAbility
-from barcode_battler.rendering.labels import race_label
-
-_RACE_DESCRIPTIONS = {
-    Race.MECHANICAL: "Machines. Gain attack when very healthy.",
-    Race.ANIMAL: "Beasts. Gain defence when very healthy.",
-    Race.AQUATIC: "Sea creatures. Gain both when very healthy.",
-    Race.BIRD: "Fliers. No bonus, so every number is reachable.",
-    Race.HUMAN: "People. No bonus, so every number is reachable.",
-    Race.SINGLE_USE_WEAPON: "An attack boost that breaks after one battle.",
-    Race.WEAPON: "An attack boost that lasts.",
-    Race.SINGLE_USE_ARMOUR: "A defence boost that breaks after one battle.",
-    Race.ARMOUR: "A defence boost that lasts.",
-    Race.SUPPORT_ITEM: "Health, herbs or magic points.",
-}
-
-
-_RACE_DESCRIPTIONS_JA = {
-    Race.MECHANICAL: "きかい。たいりょくが とても おおいと こうげきが ふえる。",
-    Race.ANIMAL: "けもの。たいりょくが とても おおいと ぼうぎょが ふえる。",
-    Race.AQUATIC: "うみの いきもの。たいりょくが とても おおいと りょうほう ふえる。",
-    Race.BIRD: "そらを とぶ。ボーナスは ないので どの すうじでも つくれる。",
-    Race.HUMAN: "ひと。ボーナスは ないので どの すうじでも つくれる。",
-    Race.SINGLE_USE_WEAPON: "こうげきが ふえる。1かいの たたかいで こわれる。",
-    Race.WEAPON: "こうげきが ずっと ふえる。",
-    Race.SINGLE_USE_ARMOUR: "ぼうぎょが ふえる。1かいの たたかいで こわれる。",
-    Race.ARMOUR: "ぼうぎょが ずっと ふえる。",
-    Race.SUPPORT_ITEM: "たいりょく、やくそう、まほうの ポイント。",
-}
+from barcode_battler.rendering.labels import (
+    RACE_DESCRIPTIONS,
+    RACE_DESCRIPTIONS_JA,
+    race_label,
+)
 
 
 class CardSpec(BaseModel):
@@ -168,8 +145,8 @@ class RaceView(BaseModel):
             name=race.name.lower(),
             label=race_label(race).english,
             label_ja=race_label(race).japanese,
-            description=_RACE_DESCRIPTIONS[race],
-            description_ja=_RACE_DESCRIPTIONS_JA[race],
+            description=RACE_DESCRIPTIONS[race],
+            description_ja=RACE_DESCRIPTIONS_JA[race],
             is_fighter=race.is_fighter,
         )
 
