@@ -6,6 +6,7 @@ checked by hand. `abilities` prints the published ability table, because the
 device has numeric ability codes rather than named elements.
 """
 
+from collections.abc import Callable
 from pathlib import Path
 from typing import Annotated
 
@@ -190,3 +191,27 @@ def _write(cards: tuple[GeneratedCard, ...], output: Path, images: ImageFormat |
         written = export_images(output, directory, image_format=images)
         typer.echo(f"Wrote {len(written)} image(s) to {directory}")
     typer.echo(DISCLAIMER)
+
+
+@app.command()
+def serve(
+    host: Annotated[str, typer.Option("--host", help="Interface to bind.")] = "127.0.0.1",
+    port: Annotated[int, typer.Option("--port", min=1, max=65535)] = 8000,
+) -> None:
+    """Run the local web interface."""
+    try:
+        run, build = _web_server()
+    except ImportError as error:
+        typer.echo("the web interface needs the ui extra: uv sync --extra ui", err=True)
+        raise typer.Exit(code=1) from error
+    typer.echo(DISCLAIMER)
+    run(build(), host=host, port=port)
+
+
+def _web_server() -> tuple[Callable[..., None], Callable[[], object]]:
+    """Import the optional web dependencies only when the server is asked for."""
+    import uvicorn  # noqa: PLC0415
+
+    from barcode_battler.ui.app import create_app  # noqa: PLC0415
+
+    return uvicorn.run, create_app

@@ -2,6 +2,7 @@
 
 from pathlib import Path
 
+import pytest
 from typer.testing import CliRunner
 
 from barcode_battler.barcode.verify import decode_pdf
@@ -233,3 +234,35 @@ def test_an_unknown_race_is_rejected_before_anything_is_written(tmp_path: Path) 
     assert result.exit_code == 2
     assert "mechanical" in result.output
     assert not output.exists()
+
+
+def test_serve_starts_the_local_interface(monkeypatch: pytest.MonkeyPatch) -> None:
+    started: dict[str, object] = {}
+
+    def fake_run(application: object, *, host: str, port: int) -> None:
+        started["host"] = host
+        started["port"] = port
+        started["app"] = application
+
+    monkeypatch.setattr("uvicorn.run", fake_run)
+
+    result = runner.invoke(app, ["serve", "--host", "127.0.0.2", "--port", "8123"])
+
+    assert result.exit_code == 0
+    assert started["host"] == "127.0.0.2"
+    assert started["port"] == 8123
+
+
+def test_serve_explains_how_to_install_the_optional_dependencies(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def missing() -> tuple[object, object]:
+        message = "No module named 'uvicorn'"
+        raise ImportError(message)
+
+    monkeypatch.setattr("barcode_battler.cli.main._web_server", missing)
+
+    result = runner.invoke(app, ["serve"])
+
+    assert result.exit_code == 1
+    assert "uv sync --extra ui" in result.output

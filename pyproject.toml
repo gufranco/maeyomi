@@ -28,6 +28,7 @@ dev = [
     "hypothesis==6.168.0",
     "ruff==0.16.8",
     "pyright==1.1.414",
+    "httpx2==2.13.0",
 ]
 
 [build-system]
@@ -81,6 +82,10 @@ reportMissingTypeStubs = false
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q --strict-markers"
+filterwarnings = [
+    "error",
+    "ignore:The anyio.abc.BlockingPortal alias is deprecated:DeprecationWarning:starlette.testclient",
+]
 
 [tool.coverage.run]
 source = ["src/barcode_battler"]
