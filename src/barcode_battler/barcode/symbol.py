@@ -9,6 +9,12 @@ Quiet zones come from the widget's own `quiet` flag rather than from explicit
 values, because its `lquiet` and `rquiet` attributes are declared as booleans
 and reject a length. The width it produces is measured against the standard in
 `test_symbol.py` rather than assumed.
+
+The widget's `barHeight` is the guard bar height, not the data bar height: the
+data bars are shorter by the zone the digits sit in. The geometry is therefore
+asked for its drawn height, which already includes that zone, and the tests
+measure the data bars off a rendered page rather than trusting the setting to
+reach them.
 """
 
 from typing import Final
@@ -47,7 +53,7 @@ def _drawing(code: str, geometry: BarcodeGeometry) -> Drawing:
     widget = widget_class(
         normalised,
         barWidth=geometry.module_width_mm * mm,
-        barHeight=geometry.height_mm * mm,
+        barHeight=geometry.drawn_height_mm * mm,
         humanReadable=geometry.show_digits,
         quiet=True,
     )

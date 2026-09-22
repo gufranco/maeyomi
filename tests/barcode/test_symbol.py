@@ -1,18 +1,25 @@
 """Tests for drawing an EAN symbol as vectors and reading it back."""
 
+from collections import Counter
 from pathlib import Path
 
 import pytest
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
-from barcode_battler.barcode.geometry import BarcodeGeometry
+from barcode_battler.barcode.geometry import (
+    MIN_BAR_HEIGHT_MM,
+    NOMINAL_BAR_HEIGHT_MM,
+    NOMINAL_TOTAL_HEIGHT_MM,
+    BarcodeGeometry,
+)
 from barcode_battler.barcode.rasterise import ink_box, render_pdf_pages
 from barcode_battler.barcode.symbol import draw_symbol, symbol_size_mm
 from barcode_battler.barcode.verify import decode_pdf
 
 MARGIN_MM = 10.0
 MEASURE_DPI = 600
+INK_THRESHOLD = 128
 
 
 def write_pdf(path: Path, code: str, geometry: BarcodeGeometry) -> tuple[float, float]:
@@ -24,6 +31,40 @@ def write_pdf(path: Path, code: str, geometry: BarcodeGeometry) -> tuple[float, 
     canvas.showPage()
     canvas.save()
     return width, height
+
+
+def bar_heights_mm(path: Path) -> list[float]:
+    """Every column's tallest unbroken run of ink, in millimetres."""
+    image = render_pdf_pages(path, dpi=MEASURE_DPI)[0].convert("L")
+    width, height = image.size
+    grey = image.tobytes()
+    per_mm = MEASURE_DPI / 25.4
+    runs: list[float] = []
+    for x in range(width):
+        best = run = 0
+        for y in range(height):
+            run = run + 1 if grey[y * width + x] < INK_THRESHOLD else 0
+            best = max(best, run)
+        if best:
+            runs.append(best / per_mm)
+    return runs
+
+
+def data_bar_height_mm(path: Path) -> float:
+    """The height of the ordinary data bars, which is the specification's bar height."""
+    runs = bar_heights_mm(path)
+    return min(runs, key=lambda value: abs(value - _mode(runs)))
+
+
+def tallest_bar_height_mm(path: Path) -> float:
+    """The height of the guard bars, which run past the data bars."""
+    return max(bar_heights_mm(path))
+
+
+def _mode(values: list[float]) -> float:
+    """The most common measured height, rounded to a hundredth of a millimetre."""
+    tally = Counter(round(value, 2) for value in values)
+    return tally.most_common(1)[0][0]
 
 
 def ink_size_mm(path: Path) -> tuple[float, float]:
@@ -79,12 +120,38 @@ def test_a_thirteen_digit_symbol_is_the_exact_standard_width() -> None:
     assert width / geometry.module_width_mm == pytest.approx(113.0)
 
 
-def test_the_drawn_height_is_the_requested_height() -> None:
-    geometry = BarcodeGeometry(module_width_mm=0.33, height_mm=18.0)
+def test_the_drawn_height_clears_the_nominal_total() -> None:
+    geometry = BarcodeGeometry(module_width_mm=0.33)
 
     _, height = symbol_size_mm("0401207237501", geometry)
 
-    assert height == pytest.approx(18.0)
+    assert height >= NOMINAL_TOTAL_HEIGHT_MM
+
+
+def test_the_data_bars_reach_the_published_height(tmp_path: Path) -> None:
+    path = tmp_path / "bars.pdf"
+    geometry = BarcodeGeometry()
+
+    write_pdf(path, "0401207237501", geometry)
+
+    assert data_bar_height_mm(path) >= NOMINAL_BAR_HEIGHT_MM
+
+
+def test_a_shorter_setting_still_clears_the_floor(tmp_path: Path) -> None:
+    path = tmp_path / "short.pdf"
+    geometry = BarcodeGeometry(bar_height_mm=MIN_BAR_HEIGHT_MM)
+
+    write_pdf(path, "0401207237501", geometry)
+
+    assert data_bar_height_mm(path) >= MIN_BAR_HEIGHT_MM * 0.98
+
+
+def test_the_guard_bars_are_taller_than_the_data_bars(tmp_path: Path) -> None:
+    path = tmp_path / "guards.pdf"
+
+    write_pdf(path, "0401207237501", BarcodeGeometry())
+
+    assert tallest_bar_height_mm(path) > data_bar_height_mm(path)
 
 
 def test_the_bars_fit_inside_the_declared_width_leaving_the_quiet_zones_blank(

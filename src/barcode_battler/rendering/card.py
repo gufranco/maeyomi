@@ -18,7 +18,6 @@ from barcode_battler.models.generated_card import GeneratedCard
 
 TITLE_FONT: Final = "Helvetica-Bold"
 BODY_FONT: Final = "Helvetica"
-DIGITS_FONT: Final = "Courier"
 _TEXT_LINES_ABOVE_SYMBOL: Final = 8
 
 
@@ -31,7 +30,6 @@ class CardStyle:
     stat_label_size_pt: float = 7.0
     stat_size_pt: float = 15.0
     detail_size_pt: float = 7.5
-    digits_size_pt: float = 7.0
     line_spacing_mm: float = 4.6
     rule_width: float = 0.4
     border: bool = True
@@ -201,10 +199,13 @@ def _draw_barcode(
     geometry: BarcodeGeometry,
     style: CardStyle,
 ) -> None:
-    """Draw the symbol centred near the foot of the card, with its digits beneath."""
+    """Draw the symbol centred near the foot of the card.
+
+    The digits under the bars are drawn by the symbol itself, in the zone the
+    standard reserves for them. Printing them a second time would put an
+    unrelated line of text inside the quiet zone below the bars.
+    """
     symbol_x = x_mm + (width_mm - symbol_width) / 2
-    digits_baseline = y_mm + style.padding_mm
-    symbol_y = digits_baseline + style.line_spacing_mm
-    draw_symbol(canvas, card.barcode, x_mm=symbol_x, y_mm=symbol_y, geometry=geometry)
-    canvas.setFont(DIGITS_FONT, style.digits_size_pt)
-    canvas.drawCentredString((x_mm + width_mm / 2) * mm, digits_baseline * mm, card.barcode)
+    draw_symbol(
+        canvas, card.barcode, x_mm=symbol_x, y_mm=y_mm + style.padding_mm, geometry=geometry
+    )

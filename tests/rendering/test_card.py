@@ -81,7 +81,15 @@ def test_the_card_prints_the_numeric_code(tmp_path: Path) -> None:
 
     render(path, sample())
 
-    assert BARCODE in pdf_text(path)
+    assert "0 401207 237501" in pdf_text(path)
+
+
+def test_the_numeric_code_is_printed_once(tmp_path: Path) -> None:
+    path = tmp_path / "once.pdf"
+
+    render(path, sample())
+
+    assert pdf_text(path).count("237501") == 1
 
 
 def test_a_long_name_is_trimmed_rather_than_overflowing(tmp_path: Path) -> None:

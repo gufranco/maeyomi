@@ -8,6 +8,7 @@ scanner can read.
 
 from pathlib import Path
 
+import pypdfium2 as pdfium
 import pytest
 
 from barcode_battler.barcode.verify import decode_pdf
@@ -15,6 +16,7 @@ from barcode_battler.generator.random_cards import generate_random
 from barcode_battler.models.card_request import CardRequest
 from barcode_battler.models.constraint import Constraint
 from barcode_battler.models.generated_card import GeneratedCard
+from barcode_battler.rendering.calibration import REFERENCE_LENGTH_MM
 from barcode_battler.rendering.layout import SheetLayout
 from barcode_battler.rendering.sheet import write_sheet
 
@@ -92,3 +94,44 @@ def test_a_card_too_small_for_its_barcode_is_rejected(tmp_path: Path) -> None:
 
     with pytest.raises(ValueError, match="too narrow"):
         write_sheet(cards(1), tmp_path / "small.pdf", layout=layout)
+
+
+def page_text(path: Path) -> str:
+    document = pdfium.PdfDocument(str(path))
+    try:
+        return str(document[0].get_textpage().get_text_range())
+    finally:
+        document.close()
+
+
+def test_a_sheet_carries_the_measuring_marks(tmp_path: Path) -> None:
+    path = tmp_path / "marks.pdf"
+
+    write_sheet(cards(1), path)
+
+    assert f"{REFERENCE_LENGTH_MM:g} mm" in page_text(path)
+
+
+def test_the_measuring_marks_name_the_expected_barcode_width(tmp_path: Path) -> None:
+    path = tmp_path / "width.pdf"
+
+    write_sheet(cards(1), path)
+
+    assert "37.3 mm wide" in page_text(path)
+
+
+def test_the_measuring_marks_can_be_turned_off(tmp_path: Path) -> None:
+    path = tmp_path / "bare.pdf"
+
+    write_sheet(cards(1), path, calibration=False)
+
+    assert f"{REFERENCE_LENGTH_MM:g} mm" not in page_text(path)
+
+
+def test_the_measuring_marks_do_not_stop_the_barcodes_decoding(tmp_path: Path) -> None:
+    path = tmp_path / "full.pdf"
+    batch = cards(9)
+
+    write_sheet(batch, path)
+
+    assert sorted(decode_pdf(path)) == sorted(card.barcode for card in batch)

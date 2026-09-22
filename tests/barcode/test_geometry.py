@@ -4,8 +4,12 @@ import pytest
 
 from barcode_battler.barcode.geometry import (
     MAX_MODULE_WIDTH_MM,
+    MIN_BAR_HEIGHT_MM,
     MIN_MODULE_WIDTH_MM,
+    NOMINAL_BAR_HEIGHT_MM,
     NOMINAL_MODULE_WIDTH_MM,
+    NOMINAL_TOTAL_HEIGHT_MM,
+    TEXT_ZONE_MM,
     BarcodeGeometry,
 )
 
@@ -14,6 +18,33 @@ def test_the_default_geometry_is_the_nominal_size() -> None:
     geometry = BarcodeGeometry()
 
     assert geometry.module_width_mm == NOMINAL_MODULE_WIDTH_MM
+    assert geometry.bar_height_mm == NOMINAL_BAR_HEIGHT_MM
+
+
+def test_the_drawn_height_clears_the_nominal_total() -> None:
+    drawn = BarcodeGeometry().drawn_height_mm
+
+    assert drawn >= NOMINAL_TOTAL_HEIGHT_MM
+    assert drawn == pytest.approx(NOMINAL_BAR_HEIGHT_MM + TEXT_ZONE_MM)
+
+
+def test_the_text_zone_is_the_measured_one_rather_than_the_published_difference() -> None:
+    published = NOMINAL_TOTAL_HEIGHT_MM - NOMINAL_BAR_HEIGHT_MM
+
+    assert published < TEXT_ZONE_MM
+
+
+def test_a_truncated_bar_height_is_rejected() -> None:
+    with pytest.raises(ValueError, match="truncates"):
+        BarcodeGeometry(bar_height_mm=MIN_BAR_HEIGHT_MM - 0.01)
+
+
+def test_the_eighty_percent_floor_is_accepted() -> None:
+    assert BarcodeGeometry(bar_height_mm=MIN_BAR_HEIGHT_MM).bar_height_mm == MIN_BAR_HEIGHT_MM
+
+
+def test_the_height_floor_is_eighty_percent_of_the_nominal() -> None:
+    assert pytest.approx(NOMINAL_BAR_HEIGHT_MM * 0.8) == MIN_BAR_HEIGHT_MM
 
 
 def test_a_module_width_below_the_standard_minimum_is_rejected() -> None:
@@ -26,9 +57,9 @@ def test_a_module_width_above_the_standard_maximum_is_rejected() -> None:
         BarcodeGeometry(module_width_mm=MAX_MODULE_WIDTH_MM + 0.01)
 
 
-def test_a_non_positive_height_is_rejected() -> None:
-    with pytest.raises(ValueError, match="height"):
-        BarcodeGeometry(height_mm=0)
+def test_a_zero_height_is_rejected() -> None:
+    with pytest.raises(ValueError, match="truncates"):
+        BarcodeGeometry(bar_height_mm=0)
 
 
 def test_the_quiet_zones_are_expressed_in_modules_and_scale_with_the_module() -> None:

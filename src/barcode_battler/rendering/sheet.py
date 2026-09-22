@@ -13,6 +13,7 @@ from reportlab.pdfgen.canvas import Canvas
 
 from barcode_battler.barcode.geometry import BarcodeGeometry
 from barcode_battler.models.generated_card import GeneratedCard
+from barcode_battler.rendering.calibration import draw_calibration
 from barcode_battler.rendering.card import CardStyle, draw_card
 from barcode_battler.rendering.layout import SheetLayout
 
@@ -28,6 +29,7 @@ def write_sheet(
     geometry: BarcodeGeometry | None = None,
     style: CardStyle | None = None,
     cut_marks: bool = True,
+    calibration: bool = True,
 ) -> int:
     """Write every card across as many pages as it takes, and return the page count."""
     if not cards:
@@ -40,7 +42,15 @@ def write_sheet(
     )
     pages = 0
     for page in _pages(cards, resolved_layout.cards_per_page):
-        _draw_page(canvas, page, resolved_layout, resolved_geometry, style, cut_marks=cut_marks)
+        _draw_page(
+            canvas,
+            page,
+            resolved_layout,
+            resolved_geometry,
+            style,
+            cut_marks=cut_marks,
+            calibration=calibration,
+        )
         canvas.showPage()
         pages += 1
     canvas.save()
@@ -60,8 +70,9 @@ def _draw_page(
     style: CardStyle | None,
     *,
     cut_marks: bool,
+    calibration: bool,
 ) -> None:
-    """Draw one sheet of cards and, when asked, the marks to cut them apart."""
+    """Draw one sheet of cards, the marks to cut them apart and the ruler to check the scale."""
     for card, (x_mm, y_mm) in zip(cards, layout.positions(), strict=False):
         draw_card(
             canvas,
@@ -75,6 +86,13 @@ def _draw_page(
         )
     if cut_marks:
         _draw_cut_marks(canvas, layout)
+    if calibration:
+        draw_calibration(
+            canvas,
+            page_width_mm=layout.page_width_mm,
+            page_height_mm=layout.page_height_mm,
+            symbol_width_mm=geometry.total_width_mm(13),
+        )
 
 
 def _draw_cut_marks(canvas: Canvas, layout: SheetLayout) -> None:
