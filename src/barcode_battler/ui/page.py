@@ -22,6 +22,7 @@ PAGE = """<!doctype html>
   label { display: inline-block; margin: .3rem .8rem .3rem 0; }
   label span { display: block; font-size: .8rem; }
   input { padding: .3rem; min-width: 8rem; }
+  input[type="checkbox"] { min-width: 0; margin-right: .4rem; }
   :focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
   button { padding: .5rem 1rem; font-size: 1rem; cursor: pointer; }
   pre { background: rgba(127,127,127,.15); padding: .8rem; overflow-x: auto; }
@@ -45,6 +46,14 @@ PAGE = """<!doctype html>
     <label>Speed <span>0-9</span><input name="speed" type="number" min="0" max="9"></label>
     <label>Ability <span>code 0-99</span>
       <input name="ability" type="number" min="0" max="99"></label>
+    <p>
+      <label><input name="nearest" type="checkbox" value="1">
+        Offer the closest card when the exact one is impossible</label>
+    </p>
+    <p>
+      <label><input name="backRead" type="checkbox" value="1">
+        Build a card the device reads from the back</label>
+    </p>
     <p><button type="submit">Check</button>
        <button type="button" id="custom-pdf">Download PDF</button></p>
   </fieldset>
@@ -69,11 +78,13 @@ PAGE = """<!doctype html>
 <script>
 const out = document.getElementById('out');
 const numeric = ['count', 'seed', 'job', 'speed', 'ability'];
+const flags = ['nearest', 'backRead'];
 
 function body(form) {
   const data = {};
   for (const [key, value] of new FormData(form).entries()) {
     if (value === '') continue;
+    if (flags.includes(key)) { data[key] = true; continue; }
     data[key] = numeric.includes(key) ? Number(value) : value;
   }
   return data;

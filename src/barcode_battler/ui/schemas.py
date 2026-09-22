@@ -23,6 +23,8 @@ class CardSpec(BaseModel):
     job: int | None = Field(default=None, ge=0, le=9)
     speed: int | None = Field(default=None, ge=0, le=9)
     ability: int | None = Field(default=None, ge=0, le=99)
+    nearest: bool = False
+    back_read: bool = Field(default=False, alias="backRead")
 
 
 class RandomSpec(CardSpec):
@@ -92,3 +94,6 @@ class GenerateResult(BaseModel):
     character: CharacterView
     mismatches: list[str]
     searched: int
+    is_exact: bool = True
+    distance: int = 0
+    differences: list[str] = Field(default_factory=list)

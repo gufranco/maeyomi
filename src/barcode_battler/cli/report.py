@@ -49,8 +49,12 @@ def _optional(value: object) -> str:
 
 
 def _race_name(request: CardRequest) -> str:
-    """The requested race name, or a dash when no race was requested."""
-    return request.race.name.lower() if request.race else "-"
+    """The requested race name, or a dash when no race was requested.
+
+    Race is an IntEnum whose first member is zero, so this tests for None
+    rather than for truth.
+    """
+    return request.race.name.lower() if request.race is not None else "-"
 
 
 def _requested_class(request: CardRequest) -> str | None:

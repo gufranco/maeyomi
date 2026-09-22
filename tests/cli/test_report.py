@@ -65,3 +65,11 @@ def test_a_shortfall_is_explained() -> None:
 
 def test_the_disclaimer_denies_hardware_testing() -> None:
     assert "not been tested on a physical" in DISCLAIMER
+
+
+def test_the_lowest_valued_race_is_reported_rather_than_read_as_absent() -> None:
+    request = CardRequest(race=Race.MECHANICAL)
+
+    lines = comparison_lines(request, CHARACTER)
+
+    assert any(line.startswith("Race") and "mechanical" in line for line in lines)

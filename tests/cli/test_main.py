@@ -266,3 +266,102 @@ def test_serve_explains_how_to_install_the_optional_dependencies(
 
     assert result.exit_code == 1
     assert "uv sync --extra ui" in result.output
+
+
+def unreachable_args(output: Path) -> list[str]:
+    return [
+        "generate",
+        "--hp",
+        "20900",
+        "--st",
+        "11000",
+        "--df",
+        "10000",
+        "--race",
+        "mechanical",
+        "--output",
+        str(output),
+    ]
+
+
+def test_an_impossible_request_writes_nothing_without_the_nearest_flag(tmp_path: Path) -> None:
+    output = tmp_path / "none.pdf"
+
+    result = runner.invoke(app, unreachable_args(output))
+
+    assert result.exit_code == 1
+    assert not output.exists()
+
+
+def test_the_nearest_flag_offers_the_closest_card(tmp_path: Path) -> None:
+    output = tmp_path / "near.pdf"
+
+    result = runner.invoke(app, [*unreachable_args(output), "--nearest"])
+
+    assert result.exit_code == 0
+    assert "closest card differs by" in result.output
+    assert "differs" in result.output
+    assert decode_pdf(output)
+
+
+def test_the_nearest_flag_keeps_the_requested_race(tmp_path: Path) -> None:
+    output = tmp_path / "near-race.pdf"
+
+    runner.invoke(app, [*unreachable_args(output), "--nearest"])
+
+    assert decode(decode_pdf(output)[0]).race.name.lower() == "mechanical"
+
+
+def test_the_back_read_flag_produces_a_back_read_card(tmp_path: Path) -> None:
+    output = tmp_path / "back.pdf"
+
+    result = runner.invoke(
+        app, ["generate", "--race", "human", "--back-read", "--output", str(output)]
+    )
+
+    assert result.exit_code == 0
+    assert decode(decode_pdf(output)[0]).read_type.value == "back"
+
+
+def test_the_nearest_flag_is_refused_alongside_a_back_read(tmp_path: Path) -> None:
+    output = tmp_path / "both.pdf"
+
+    result = runner.invoke(
+        app,
+        [
+            "generate",
+            "--hp",
+            "99900",
+            "--race",
+            "human",
+            "--back-read",
+            "--nearest",
+            "--output",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 1
+    assert "front reads only" in result.output
+
+
+def test_the_nearest_flag_reports_when_there_is_no_close_card_either(tmp_path: Path) -> None:
+    output = tmp_path / "none.pdf"
+
+    result = runner.invoke(
+        app,
+        [
+            "generate",
+            "--hp",
+            "20000-20800",
+            "--race",
+            "human",
+            "--nearest",
+            "--output",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 1
+    assert "window" in result.output
+    assert not output.exists()

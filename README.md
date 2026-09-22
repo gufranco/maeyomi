@@ -71,6 +71,28 @@ Every stat option takes an exact value, a range, or a bound: `5000`,
 `5000-6000`, `>=1500`, `<=3000`. Add `--images png` to export page images
 beside the PDF.
 
+When a request cannot be met exactly, `generate` says which field blocks it and
+writes nothing. Add `--nearest` to get the closest reachable card instead:
+
+```bash
+barcode-battler generate --hp 20900 --st 11000 --df 10000 \
+    --race mechanical --nearest --output golem.pdf
+```
+
+```
+closest card differs by 100 across the requested stats
+  df: requested 10000, produced 9900
+```
+
+The distance is the sum of the gaps on HP, ST and DF in displayed units,
+counting only the stats the request constrained. Race, class, job, ability and
+speed are never approximated: a request for a human is not better served by a
+bird, so a request blocked on one of those comes back unsatisfied.
+
+Add `--back-read` for a card the device reads from the back rather than the
+front. Those carry lower ceilings, 49900 HP against 99900, and four digits feed
+the stats and the ability jointly, so far fewer combinations are reachable.
+
 ## What the device actually stores
 
 From [barcodebattler.net](https://barcodebattler.net/), reproduced by the
@@ -107,6 +129,13 @@ placement rather than search: a fully specified request determines every digit
 and the check digit is computed, leaving one candidate rather than the 10^12 a
 brute force would walk. Every candidate still goes back through the decoder, and
 one that disagrees on any field is discarded.
+
+The back reading is not a bijection. Four digits feed hit points, strength,
+defence and the ability jointly, and the race sits on the check digit position,
+so it cannot be placed and has to be arrived at by tuning a free digit. The
+reachable set is small enough to enumerate outright: 10000 digit combinations
+produce 5000 distinct stat triples, because the hit point hundreds digit is
+halved.
 
 Barcodes are drawn as vectors at an explicit module width, defaulting to the EAN
 nominal 0.33 mm. A rasterised barcode scaled to fit a layout rounds its modules

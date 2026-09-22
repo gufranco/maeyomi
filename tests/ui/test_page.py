@@ -38,3 +38,12 @@ def test_no_brace_placeholder_survived_formatting() -> None:
 def test_the_page_declares_its_own_focus_indicator() -> None:
     assert ":focus-visible" in PAGE
     assert "outline: 3px solid currentColor" in PAGE
+
+
+@pytest.mark.parametrize("flag", ["nearest", "backRead"])
+def test_the_form_offers_the_optional_flags(flag: str) -> None:
+    assert f'name="{flag}"' in PAGE
+
+
+def test_a_checkbox_is_sent_as_a_boolean_rather_than_its_value() -> None:
+    assert "flags.includes(key)) { data[key] = true" in PAGE

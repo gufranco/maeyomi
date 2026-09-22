@@ -148,3 +148,48 @@ def test_a_sheet_containing_an_impossible_card_is_rejected(client: TestClient) -
 
     assert response.status_code == 422
     assert any("multiple of 100" in reason for reason in response.json()["detail"])
+
+
+UNREACHABLE = {"hp": "20900", "st": "11000", "df": "10000", "race": "mechanical"}
+
+
+def test_an_impossible_card_is_refused_without_the_nearest_flag(client: TestClient) -> None:
+    response = client.post("/api/generate", json=UNREACHABLE)
+
+    assert response.status_code == 422
+
+
+def test_the_nearest_flag_returns_the_closest_card(client: TestClient) -> None:
+    response = client.post("/api/generate", json={**UNREACHABLE, "nearest": True})
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["is_exact"] is False
+    assert body["distance"] > 0
+    assert body["differences"]
+    assert body["character"]["race"] == "mechanical"
+
+
+def test_a_back_read_card_can_be_requested(client: TestClient) -> None:
+    response = client.post("/api/generate", json={"race": "human", "backRead": True})
+
+    assert response.status_code == 200
+    assert response.json()["character"]["read_type"] == "back"
+
+
+def test_the_nearest_flag_is_refused_alongside_a_back_read(client: TestClient) -> None:
+    response = client.post(
+        "/api/generate",
+        json={"hp": "99900", "race": "human", "backRead": True, "nearest": True},
+    )
+
+    assert response.status_code == 422
+
+
+def test_the_nearest_flag_reports_when_there_is_no_close_card_either(client: TestClient) -> None:
+    response = client.post(
+        "/api/generate", json={"hp": "20000-20800", "race": "human", "nearest": True}
+    )
+
+    assert response.status_code == 422
+    assert any("window" in reason for reason in response.json()["detail"])

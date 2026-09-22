@@ -4,6 +4,10 @@ Every candidate the inverter proposes is decoded and compared against the
 request. A candidate that disagrees on any field is discarded, and a candidate
 that would rest on an unresolved branch is discarded as well. No path returns a
 barcode that skipped this check.
+
+The front reading is tried by default because it carries the wider ranges. A
+caller that wants a card the device reads from the back asks for it explicitly,
+and the back-read inverter is used instead.
 """
 
 import itertools
@@ -12,11 +16,13 @@ from typing import Final
 
 from barcode_battler.decoder.decode import decode
 from barcode_battler.decoder.errors import BarcodeError
+from barcode_battler.generator.back_solver import iter_back_candidates
 from barcode_battler.generator.blockers import blockers
 from barcode_battler.generator.front_solver import iter_front_candidates
 from barcode_battler.generator.quarantine import takes_quarantined_branch
 from barcode_battler.models.card_request import CardRequest
 from barcode_battler.models.character import BarcodeBattlerCharacter
+from barcode_battler.models.read_type import ReadType
 
 DEFAULT_BUDGET: Final = 500_000
 
@@ -52,13 +58,23 @@ class SolveOutcome:
         return self.barcode is not None
 
 
-def solve(request: CardRequest, *, budget: int = DEFAULT_BUDGET) -> SolveOutcome:
+def solve(
+    request: CardRequest,
+    *,
+    budget: int = DEFAULT_BUDGET,
+    read_type: ReadType = ReadType.FRONT,
+) -> SolveOutcome:
     """Find a barcode that decodes to the request, or explain why none exists."""
-    known = blockers(request)
+    known = blockers(request) if read_type is ReadType.FRONT else ()
     if known:
         return SolveOutcome(request=request, blockers=known)
+    candidates = (
+        iter_front_candidates(request)
+        if read_type is ReadType.FRONT
+        else (candidate.barcode for candidate in iter_back_candidates(request))
+    )
     searched = 0
-    for candidate in itertools.islice(iter_front_candidates(request), budget):
+    for candidate in itertools.islice(candidates, budget):
         searched += 1
         character = verify(request, candidate)
         if character is not None:

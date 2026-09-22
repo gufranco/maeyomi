@@ -213,9 +213,9 @@ def _support_sub_type(request: CardRequest) -> int:
     """The sub-type digit a support item uses, inferred when the request omits it."""
     if request.job is not None:
         return request.job
-    if request.st.minimum:
+    if request.st.minimum is not None:
         return SUPPORT_POWER_POINT_SUB_TYPE
-    if request.df.minimum:
+    if request.df.minimum is not None:
         return SUPPORT_POWER_POINT_SUB_TYPE + 1
     return 0
 

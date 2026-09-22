@@ -5,8 +5,13 @@ import itertools
 import pytest
 
 from barcode_battler.decoder.decode import decode
-from barcode_battler.decoder.front_read import DUAL_BONUS_VALUES
-from barcode_battler.generator.front_solver import iter_front_candidates, stat_digit_options
+from barcode_battler.decoder.front_read import DUAL_BONUS_VALUES, adjusted_stats
+from barcode_battler.generator.front_solver import (
+    assemble,
+    iter_front_candidates,
+    stat_digit_options,
+)
+from barcode_battler.generator.quarantine import takes_quarantined_branch
 from barcode_battler.models.card_request import CardRequest
 from barcode_battler.models.constraint import Constraint
 from barcode_battler.models.race import Race
@@ -191,3 +196,57 @@ def test_stat_digit_options_offer_the_dual_bonus_route_when_it_applies() -> None
 
 def test_stat_digit_options_are_empty_when_the_value_is_unreachable() -> None:
     assert stat_digit_options(Race.MECHANICAL, hp_units=209, st_units=6, df_units=0) == []
+
+
+@pytest.mark.parametrize("race", list(Race))
+def test_the_inverse_agrees_with_the_forward_adjustment(race: Race) -> None:
+    disagreements: list[tuple[int, int, int]] = []
+    for hp_units in (40, 209, 299):
+        for st_digits, df_digits in itertools.product(range(0, 100, 7), repeat=2):
+            st_units, df_units = adjusted_stats(
+                race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits
+            )
+            options = stat_digit_options(
+                race, hp_units=hp_units, st_units=st_units, df_units=df_units
+            )
+            forward_is_reachable = any(
+                adjusted_stats(race, hp_units=hp_units, st_digits=a, df_digits=b)
+                == (st_units, df_units)
+                for a, b in options
+            )
+            if options and not forward_is_reachable:
+                disagreements.append((hp_units, st_digits, df_digits))
+
+    assert disagreements == []
+
+
+def test_the_inverse_only_declines_values_that_need_a_quarantined_branch() -> None:
+    race = Race.MECHANICAL
+    hp_units = 209
+    produced: dict[tuple[int, int], list[tuple[int, int]]] = {}
+    for st_digits, df_digits in itertools.product(range(100), repeat=2):
+        stats = adjusted_stats(race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits)
+        produced.setdefault(stats, []).append((st_digits, df_digits))
+
+    declined = {
+        stats: digits
+        for stats, digits in produced.items()
+        if not stat_digit_options(race, hp_units=hp_units, st_units=stats[0], df_units=stats[1])
+    }
+
+    assert declined
+    for digits in declined.values():
+        assert all(
+            takes_quarantined_branch(
+                assemble(
+                    hp_units=hp_units,
+                    st_digits=st_digits,
+                    df_digits=df_digits,
+                    race=race,
+                    job=0,
+                    speed=5,
+                    special=0,
+                )
+            )
+            for st_digits, df_digits in digits
+        )

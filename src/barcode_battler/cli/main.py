@@ -16,10 +16,13 @@ from barcode_battler.cli.parsing import parse_character_class, parse_constraint,
 from barcode_battler.cli.report import DISCLAIMER, comparison_lines, shortfall_lines
 from barcode_battler.decoder.decode import decode as decode_barcode
 from barcode_battler.decoder.errors import BarcodeError
+from barcode_battler.generator.nearest import solve_nearest
 from barcode_battler.generator.random_cards import generate_random
 from barcode_battler.generator.solve import solve
 from barcode_battler.models.card_request import CardRequest
+from barcode_battler.models.character import BarcodeBattlerCharacter
 from barcode_battler.models.generated_card import GeneratedCard
+from barcode_battler.models.read_type import ReadType
 from barcode_battler.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
 from barcode_battler.rendering.export import ImageFormat, export_images
 from barcode_battler.rendering.sheet import write_sheet
@@ -47,6 +50,12 @@ AbilityOption = Annotated[
 OutputOption = Annotated[Path, typer.Option("--output", "-o", help="PDF to write.")]
 ImagesOption = Annotated[
     ImageFormat | None, typer.Option("--images", help="Also export page images.")
+]
+NearestOption = Annotated[
+    bool, typer.Option("--nearest", help="On an impossible request, offer the closest card.")
+]
+BackReadOption = Annotated[
+    bool, typer.Option("--back-read", help="Build a card the device reads from the back.")
 ]
 
 
@@ -98,6 +107,8 @@ def generate(
     speed: SpeedOption = None,
     ability: AbilityOption = None,
     images: ImagesOption = None,
+    nearest: NearestOption = False,
+    back_read: BackReadOption = False,
 ) -> None:
     """Build one card whose barcode decodes to exactly the requested attributes."""
     request = _request(
@@ -111,16 +122,46 @@ def generate(
         speed=speed,
         ability=ability,
     )
-    outcome = solve(request)
+    reading = ReadType.BACK if back_read else ReadType.FRONT
+    outcome = solve(request, read_type=reading)
     if outcome.barcode is None or outcome.character is None:
-        for reason in outcome.blockers:
-            typer.echo(reason, err=True)
-        raise typer.Exit(code=1)
-    for line in comparison_lines(request, outcome.character):
+        _report_blocked(request, outcome.blockers, nearest=nearest, back_read=back_read)
+        character = _nearest_or_exit(request, outcome.blockers)
+        barcode = character.barcode
+    else:
+        character = outcome.character
+        barcode = outcome.barcode
+    for line in comparison_lines(request, character):
         typer.echo(line)
     typer.echo("")
-    card = GeneratedCard(name=name, barcode=outcome.barcode, character=outcome.character)
-    _write((card,), output, images)
+    _write((GeneratedCard(name=name, barcode=barcode, character=character),), output, images)
+
+
+def _report_blocked(
+    request: CardRequest, reasons: tuple[str, ...], *, nearest: bool, back_read: bool
+) -> None:
+    """Print why the exact request failed, and stop unless a nearest match was asked for."""
+    for reason in reasons:
+        typer.echo(reason, err=True)
+    if not nearest:
+        raise typer.Exit(code=1)
+    if back_read:
+        typer.echo("--nearest covers front reads only", err=True)
+        raise typer.Exit(code=1)
+    typer.echo(f"no exact match for {request.name or 'this card'}; offering the closest", err=True)
+
+
+def _nearest_or_exit(request: CardRequest, reasons: tuple[str, ...]) -> BarcodeBattlerCharacter:
+    """Return the closest reachable card, or exit reporting why there is none."""
+    near = solve_nearest(request)
+    if near.character is None:
+        for reason in near.blockers or reasons:
+            typer.echo(reason, err=True)
+        raise typer.Exit(code=1)
+    typer.echo(f"closest card differs by {near.distance} across the requested stats", err=True)
+    for difference in near.differences:
+        typer.echo(f"  {difference}", err=True)
+    return near.character
 
 
 @app.command()

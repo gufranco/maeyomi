@@ -106,3 +106,11 @@ def test_an_item_request_pinned_to_another_speed_yields_nothing() -> None:
     request = CardRequest(st=Constraint.exactly(600), race=Race.WEAPON, speed=3)
 
     assert take(request, 1) == []
+
+
+def test_a_zero_strength_support_item_still_picks_the_power_point_sub_type() -> None:
+    request = CardRequest(st=Constraint.exactly(0), race=Race.SUPPORT_ITEM)
+
+    decoded = decode(take(request, 1)[0])
+
+    assert decoded.job == 7

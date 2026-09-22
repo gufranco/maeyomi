@@ -8,6 +8,7 @@ from barcode_battler.models.card_request import CardRequest
 from barcode_battler.models.character_class import CharacterClass
 from barcode_battler.models.constraint import Constraint
 from barcode_battler.models.race import Race
+from barcode_battler.models.read_type import ReadType
 
 
 def fire_knight() -> CardRequest:
@@ -169,4 +170,21 @@ def test_asking_an_item_for_a_speed_is_reported_rather_than_silently_ignored() -
 
     assert outcome.barcode is None
     assert outcome.searched > 0
+    assert outcome.blockers
+
+
+def test_a_back_read_card_can_be_requested_explicitly() -> None:
+    outcome = solve(CardRequest(race=Race.HUMAN), read_type=ReadType.BACK)
+
+    assert outcome.character is not None
+    assert outcome.character.read_type is ReadType.BACK
+    assert outcome.character.race is Race.HUMAN
+
+
+def test_a_back_read_request_that_cannot_be_met_is_reported() -> None:
+    request = CardRequest(hp=Constraint.exactly(99900), race=Race.HUMAN)
+
+    outcome = solve(request, read_type=ReadType.BACK)
+
+    assert outcome.barcode is None
     assert outcome.blockers

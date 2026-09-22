@@ -53,7 +53,9 @@ def read_front(code: str) -> BarcodeBattlerCharacter:
 def _read_fighter(code: str, race: Race, special: SpecialAbility) -> BarcodeBattlerCharacter:
     """Decode a character, applying the high-HP adjustment its race calls for."""
     hp = int(code[HP_SLICE])
-    st, df = _adjust_for_high_hp(code, race, hp)
+    st, df = adjusted_stats(
+        race, hp_units=hp, st_digits=int(code[ST_SLICE]), df_digits=int(code[DF_SLICE])
+    )
     job = int(code[JOB_INDEX])
     return _build(
         code,
@@ -69,15 +71,19 @@ def _read_fighter(code: str, race: Race, special: SpecialAbility) -> BarcodeBatt
     )
 
 
-def _adjust_for_high_hp(code: str, race: Race, hp: int) -> tuple[int, int]:
-    """Return ST and DF after the race-specific bonus that a high HP triggers."""
-    st = int(code[ST_SLICE])
-    df = int(code[DF_SLICE])
-    if hp < HIGH_HP_THRESHOLD_UNITS or race not in _HIGH_HP_RACES:
+def adjusted_stats(race: Race, *, hp_units: int, st_digits: int, df_digits: int) -> tuple[int, int]:
+    """Return ST and DF in device units after the bonus a high HP triggers.
+
+    This is the forward direction of `stat_digit_options` in the generator. The
+    two are asserted to agree in the generator's tests.
+    """
+    st = st_digits
+    df = df_digits
+    if hp_units < HIGH_HP_THRESHOLD_UNITS or race not in _HIGH_HP_RACES:
         return st, df
     if race is Race.AQUATIC:
         return st + HIGH_HP_BONUS_UNITS, df + HIGH_HP_BONUS_UNITS
-    partner = int(code[ST_SLICE if race is Race.MECHANICAL else DF_SLICE])
+    partner = st_digits if race is Race.MECHANICAL else df_digits
     if partner in DUAL_BONUS_VALUES:
         st += HIGH_HP_BONUS_UNITS
         df += HIGH_HP_BONUS_UNITS

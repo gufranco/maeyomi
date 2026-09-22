@@ -65,7 +65,7 @@ ignore = [
 "src/barcode_battler/generator/random_cards.py" = ["S311"]
 "src/barcode_battler/rendering/card.py" = ["PLR0913"]
 "src/barcode_battler/rendering/sheet.py" = ["PLR0913"]
-"src/barcode_battler/cli/main.py" = ["PLR0913", "PLR0917"]
+"src/barcode_battler/cli/main.py" = ["PLR0913", "PLR0917", "FBT002"]
 "tools/*" = ["ALL"]
 
 [tool.ruff.lint.pydocstyle]

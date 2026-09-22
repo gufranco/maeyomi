@@ -19,10 +19,12 @@ from fastapi.responses import FileResponse, HTMLResponse
 from barcode_battler.cli.parsing import parse_character_class, parse_constraint, parse_race
 from barcode_battler.decoder.decode import decode
 from barcode_battler.decoder.errors import BarcodeError
+from barcode_battler.generator.nearest import solve_nearest
 from barcode_battler.generator.random_cards import generate_random
 from barcode_battler.generator.solve import solve
 from barcode_battler.models.card_request import CardRequest
 from barcode_battler.models.generated_card import GeneratedCard
+from barcode_battler.models.read_type import ReadType
 from barcode_battler.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
 from barcode_battler.rendering.sheet import write_sheet
 from barcode_battler.ui.page import PAGE
@@ -63,14 +65,30 @@ def decode_one(barcode: str) -> CharacterView:
 def generate_one(spec: CardSpec) -> GenerateResult:
     """Solve one card and report what it decodes to."""
     request = _request(spec)
-    outcome = solve(request)
-    if outcome.barcode is None or outcome.character is None:
+    reading = ReadType.BACK if spec.back_read else ReadType.FRONT
+    outcome = solve(request, read_type=reading)
+    if outcome.barcode is not None and outcome.character is not None:
+        return GenerateResult(
+            barcode=outcome.barcode,
+            character=CharacterView.of(outcome.character),
+            mismatches=[str(mismatch) for mismatch in outcome.mismatches],
+            searched=outcome.searched,
+        )
+    if not spec.nearest or spec.back_read:
         raise HTTPException(status_code=UNPROCESSABLE, detail=list(outcome.blockers))
+    near = solve_nearest(request)
+    if near.barcode is None or near.character is None:
+        raise HTTPException(
+            status_code=UNPROCESSABLE, detail=list(near.blockers or outcome.blockers)
+        )
     return GenerateResult(
-        barcode=outcome.barcode,
-        character=CharacterView.of(outcome.character),
-        mismatches=[str(mismatch) for mismatch in outcome.mismatches],
-        searched=outcome.searched,
+        barcode=near.barcode,
+        character=CharacterView.of(near.character),
+        mismatches=[],
+        searched=near.searched,
+        is_exact=False,
+        distance=near.distance,
+        differences=list(near.differences),
     )
 
 
