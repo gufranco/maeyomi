@@ -39,7 +39,19 @@ from barcode_battler.models.constraint import Constraint
 from barcode_battler.models.race import Race
 
 MAX_HP_DISPLAY: Final = 99900
-MAX_STAT_DISPLAY: Final = 19900
+PUBLISHED_MAX_STAT_DISPLAY: Final = 19900
+"""The strength and defence ceiling barcodebattler.net publishes."""
+
+MAX_STAT_DISPLAY: Final = 24500
+"""The ceiling the arithmetic actually reaches, which is above the published one.
+
+A mechanical fighter above the high hit point threshold whose strength digits
+fall in the dual bonus set takes both the dual bonus and its own, so 45 becomes
+45 plus 100 plus 100, which is 245 internal units. An animal reaches the same
+figure on defence. Both are verified against the decoder in
+`tests/generator/test_solve.py`. The published 19900 is the ceiling without the
+dual bonus and is kept as the range random cards are drawn from.
+"""
 MAX_DIGIT_PAIR: Final = 99
 MARKER_HP_UNITS_ENDING: Final = 9
 MARKER_SPEED_DIGIT: Final = 5

@@ -188,3 +188,32 @@ def test_a_back_read_request_that_cannot_be_met_is_reported() -> None:
 
     assert outcome.barcode is None
     assert outcome.blockers
+
+
+def test_the_dual_bonus_reaches_a_strength_above_the_published_ceiling() -> None:
+    request = CardRequest(
+        hp=Constraint.exactly(99900),
+        st=Constraint.exactly(24500),
+        df=Constraint.exactly(19900),
+        race=Race.MECHANICAL,
+    )
+
+    outcome = solve(request)
+
+    assert outcome.blockers == ()
+    assert outcome.character is not None
+    assert outcome.character.st == 24500
+
+
+def test_the_mirror_of_the_dual_bonus_reaches_the_same_defence() -> None:
+    request = CardRequest(
+        hp=Constraint.exactly(99900),
+        st=Constraint.exactly(19900),
+        df=Constraint.exactly(24500),
+        race=Race.ANIMAL,
+    )
+
+    outcome = solve(request)
+
+    assert outcome.character is not None
+    assert outcome.character.df == 24500

@@ -14,7 +14,7 @@ import random
 from dataclasses import dataclass
 from typing import Final
 
-from barcode_battler.generator.front_solver import MAX_HP_DISPLAY, MAX_STAT_DISPLAY
+from barcode_battler.generator.front_solver import MAX_HP_DISPLAY, PUBLISHED_MAX_STAT_DISPLAY
 from barcode_battler.generator.solve import solve
 from barcode_battler.models.card_request import CardRequest
 from barcode_battler.models.character import DISPLAY_SCALE
@@ -87,8 +87,8 @@ def _sample(rng: random.Random, template: CardRequest, index: int) -> CardReques
     return CardRequest(
         name=template.name or f"{race.name.replace('_', ' ').title()} {index + 1:02d}",
         hp=Constraint.exactly(_pick_hp(rng, template.hp)),
-        st=Constraint.exactly(_pick(rng, template.st, MAX_STAT_DISPLAY)),
-        df=Constraint.exactly(_pick(rng, template.df, MAX_STAT_DISPLAY)),
+        st=Constraint.exactly(_pick(rng, template.st, PUBLISHED_MAX_STAT_DISPLAY)),
+        df=Constraint.exactly(_pick(rng, template.df, PUBLISHED_MAX_STAT_DISPLAY)),
         race=race,
         job=template.job if template.job is not None else rng.randrange(10),
         character_class=template.character_class,
