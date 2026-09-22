@@ -6,6 +6,8 @@ import pytest
 from typer.testing import CliRunner
 
 from barcode_battler.barcode.verify import decode_pdf
+from barcode_battler.cli import main
+from barcode_battler.cli.doctor import Finding, State
 from barcode_battler.cli.main import app
 from barcode_battler.decoder.decode import decode
 
@@ -492,3 +494,75 @@ def test_searching_for_something_absent_says_so() -> None:
 
     assert result.exit_code == 1
     assert "nothing" in result.output.lower()
+
+
+def test_the_doctor_reports_on_the_machine_and_the_package() -> None:
+    result = runner.invoke(app, ["doctor"])
+
+    assert result.exit_code == 0
+    assert "the machine" in result.output
+    assert "this package" in result.output
+    assert "decoder" in result.output
+
+
+def test_the_doctor_ends_with_a_verdict() -> None:
+    result = runner.invoke(app, ["doctor"])
+
+    assert "everything checked out" in result.output.lower()
+
+
+def test_the_web_command_opens_a_browser_at_the_served_address(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    opened: list[str] = []
+    served: list[tuple[str, int]] = []
+
+    def serve(_app: object, host: str, port: int) -> None:
+        served.append((host, port))
+
+    def remember(url: str) -> bool:
+        opened.append(url)
+        return True
+
+    monkeypatch.setattr(main, "_web_server", lambda: (serve, object))
+    monkeypatch.setattr(main.webbrowser, "open", remember)
+
+    result = runner.invoke(app, ["web", "--port", "8123"])
+
+    assert result.exit_code == 0
+    assert served == [("127.0.0.1", 8123)]
+    assert opened == ["http://127.0.0.1:8123/"]
+
+
+def test_the_web_command_can_be_told_not_to_open_a_browser(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    opened: list[str] = []
+
+    def serve(_app: object, host: str, port: int) -> None:
+        assert host
+        assert port
+
+    def remember(url: str) -> bool:
+        opened.append(url)
+        return True
+
+    monkeypatch.setattr(main, "_web_server", lambda: (serve, object))
+    monkeypatch.setattr(main.webbrowser, "open", remember)
+
+    result = runner.invoke(app, ["web", "--no-open"])
+
+    assert result.exit_code == 0
+    assert opened == []
+
+
+def test_a_failing_check_makes_the_doctor_exit_non_zero(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    broken = (Finding("barcode", State.FAIL, "the drawn symbol read back as []"),)
+    monkeypatch.setattr(main, "package", lambda: broken)
+
+    result = runner.invoke(app, ["doctor"])
+
+    assert result.exit_code == 1
+    assert "may not read" in result.output

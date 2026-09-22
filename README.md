@@ -93,6 +93,23 @@ Add `--back-read` for a card the device reads from the back rather than the
 front. Those carry lower ceilings, 49900 HP against 99900, and four digits feed
 the stats and the ability jointly, so far fewer combinations are reachable.
 
+## The web interface
+
+`barcode-battler web` starts the local page and opens it, which is the same
+program with pictures: every tab is a command, and every command is a tab.
+`--no-open` starts it without a browser, and `barcode-battler serve` is the
+same thing for a machine that has none.
+
+## Checking the machine
+
+`barcode-battler doctor` checks that this computer can print a card the device
+will read, and says what it found rather than that it looked. It reads a
+barcode whose answer is known, draws a symbol and decodes it back out of the
+PDF, confirms the Japanese font resolved, re-measures the palette against its
+contrast and colour-blindness thresholds, counts both card lists, and reports
+what runs it, whether the terminal can print Japanese and how much room is
+left. It exits non-zero only when something is genuinely wrong.
+
 ## What the device actually stores
 
 From [barcodebattler.net](https://barcodebattler.net/), reproduced by the

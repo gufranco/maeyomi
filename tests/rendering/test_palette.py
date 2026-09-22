@@ -11,6 +11,7 @@ CIE 1976 distance at which two colours read as clearly different rather than as
 two shades of one colour.
 """
 
+from dataclasses import replace
 from itertools import combinations
 
 import pytest
@@ -25,20 +26,18 @@ from barcode_battler.rendering.colour import (
 )
 from barcode_battler.rendering.icons import RACE_COLOURS, STAT_STYLES
 from barcode_battler.rendering.labels import race_label
-
-WHITE = (1.0, 1.0, 1.0)
-TEXT_CONTRAST = 4.5
-GRAPHIC_CONTRAST = 3.0
-DISTINCT_DELTA_E = 20.0
-TONE_STEP = 1.15
-TILE_TONE_STEP = 1.08
-FAMILY_TONE_STEP = 1.5
-
-FIGHTERS = [race for race in Race if race.is_fighter]
-SAME_ICON_PAIRS = [
-    (Race.SINGLE_USE_WEAPON, Race.WEAPON),
-    (Race.SINGLE_USE_ARMOUR, Race.ARMOUR),
-]
+from barcode_battler.rendering.palette import (
+    DISTINCT_DELTA_E,
+    FAMILY_TONE_STEP,
+    FIGHTERS,
+    GRAPHIC_CONTRAST,
+    SAME_ICON_PAIRS,
+    TEXT_CONTRAST,
+    TILE_TONE_STEP,
+    TONE_STEP,
+    WHITE,
+    audit_palette,
+)
 
 
 @pytest.mark.parametrize("race", list(Race))
@@ -99,3 +98,53 @@ def test_the_three_stat_tiles_print_as_different_tones_of_grey() -> None:
             greyscale(STAT_STYLES[first].tint), greyscale(STAT_STYLES[second].tint)
         )
         assert tone >= TILE_TONE_STEP, f"{first} and {second} print as the same grey"
+
+
+def test_the_audit_agrees_with_every_threshold_checked_above() -> None:
+    assert audit_palette() == ()
+
+
+def test_the_audit_names_two_kinds_that_print_as_one_grey(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    first, second = FIGHTERS[0], FIGHTERS[1]
+    monkeypatch.setitem(RACE_COLOURS, second, RACE_COLOURS[first])
+
+    failures = audit_palette()
+
+    assert any("print as the same grey" in failure for failure in failures)
+    assert any(second.name.lower() in failure for failure in failures)
+
+
+def test_the_audit_names_a_family_that_lost_its_tone_step(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    single_use, lasting = SAME_ICON_PAIRS[0]
+    monkeypatch.setitem(RACE_COLOURS, single_use, RACE_COLOURS[lasting])
+
+    assert any("share a pictogram and a grey" in failure for failure in audit_palette())
+
+
+def test_the_audit_names_a_band_white_text_cannot_sit_on(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setitem(RACE_COLOURS, Race.HUMAN, WHITE)
+
+    assert any("under 4.5" in failure for failure in audit_palette())
+
+
+def test_the_audit_names_a_stat_icon_that_vanished_into_its_tile(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    style = STAT_STYLES["HP"]
+    monkeypatch.setitem(STAT_STYLES, "HP", replace(style, icon=style.tint))
+
+    assert any("on its tile" in failure for failure in audit_palette())
+
+
+def test_the_audit_names_two_tiles_that_print_as_one_grey(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setitem(STAT_STYLES, "ST", STAT_STYLES["HP"])
+
+    assert any("print as the same grey" in failure for failure in audit_palette())

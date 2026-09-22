@@ -7,12 +7,14 @@ can be checked by hand. `abilities` prints the published ability table, because 
 device has numeric ability codes rather than named elements.
 """
 
+import webbrowser
 from collections.abc import Callable
 from pathlib import Path
 from typing import Annotated
 
 import typer
 
+from barcode_battler.cli.doctor import State, machine, package, worst
 from barcode_battler.cli.parsing import parse_character_class, parse_constraint, parse_race
 from barcode_battler.cli.report import DISCLAIMER, comparison_lines, shortfall_lines
 from barcode_battler.decoder.decode import decode as decode_barcode
@@ -43,6 +45,13 @@ app = typer.Typer(
     help="Generate printable cards for the Barcode Battler II.",
     no_args_is_help=True,
 )
+
+MARKS = {State.OK: "ok  ", State.WARN: "warn", State.FAIL: "FAIL"}
+VERDICTS = {
+    State.OK: "everything checked out",
+    State.WARN: "everything checked out, with something worth knowing above",
+    State.FAIL: "something is wrong, and a card printed now may not read",
+}
 
 HpOption = Annotated[str | None, typer.Option("--hp", help="Exact value, range or bound.")]
 StOption = Annotated[
@@ -389,18 +398,56 @@ def _write(
 
 
 @app.command()
+def doctor() -> None:
+    """Check that this machine can print a card the device will read."""
+    sections = (("the machine", machine()), ("this package", package()))
+    for heading, section in sections:
+        typer.echo(f"\n{heading}")
+        for finding in section:
+            typer.echo(f"  {MARKS[finding.state]} {finding.name}: {finding.detail}")
+    verdict = worst(tuple(finding for _, section in sections for finding in section))
+    typer.echo("")
+    typer.echo(VERDICTS[verdict], err=verdict is State.FAIL)
+    if verdict is State.FAIL:
+        raise typer.Exit(code=1)
+
+
+@app.command()
+def web(
+    host: Annotated[str, typer.Option("--host", help="Interface to bind.")] = "127.0.0.1",
+    port: Annotated[int, typer.Option("--port", min=1, max=65535)] = 8000,
+    open_browser: Annotated[
+        bool, typer.Option("--open/--no-open", help="Open the page once the server is up.")
+    ] = True,
+) -> None:
+    """Run the web interface and open it, which is this program with pictures."""
+    run, build = _require_web()
+    address = f"http://{host}:{port}/"
+    typer.echo(DISCLAIMER)
+    typer.echo(f"the card maker is at {address}")
+    if open_browser:
+        webbrowser.open(address)
+    run(build(), host=host, port=port)
+
+
+@app.command()
 def serve(
     host: Annotated[str, typer.Option("--host", help="Interface to bind.")] = "127.0.0.1",
     port: Annotated[int, typer.Option("--port", min=1, max=65535)] = 8000,
 ) -> None:
-    """Run the local web interface."""
+    """Run the local web interface without opening a browser."""
+    run, build = _require_web()
+    typer.echo(DISCLAIMER)
+    run(build(), host=host, port=port)
+
+
+def _require_web() -> tuple[Callable[..., None], Callable[[], object]]:
+    """Load the optional web dependencies, or say which extra is missing."""
     try:
-        run, build = _web_server()
+        return _web_server()
     except ImportError as error:
         typer.echo("the web interface needs the ui extra: uv sync --extra ui", err=True)
         raise typer.Exit(code=1) from error
-    typer.echo(DISCLAIMER)
-    run(build(), host=host, port=port)
 
 
 def _web_server() -> tuple[Callable[..., None], Callable[[], object]]:
