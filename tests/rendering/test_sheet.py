@@ -1,0 +1,94 @@
+"""Tests for writing a printable sheet of cards.
+
+The assertion that matters is the last one in each case: every barcode on the
+rendered page is rasterised and decoded, and must equal the code printed on
+that card. A test on the digit string alone would pass on a sheet whose ink no
+scanner can read.
+"""
+
+from pathlib import Path
+
+import pytest
+
+from barcode_battler.barcode.verify import decode_pdf
+from barcode_battler.generator.random_cards import generate_random
+from barcode_battler.models.card_request import CardRequest
+from barcode_battler.models.constraint import Constraint
+from barcode_battler.models.generated_card import GeneratedCard
+from barcode_battler.rendering.layout import SheetLayout
+from barcode_battler.rendering.sheet import write_sheet
+
+
+def cards(count: int) -> tuple[GeneratedCard, ...]:
+    template = CardRequest(
+        hp=Constraint.between(1000, 10000),
+        st=Constraint.between(100, 3000),
+        df=Constraint.between(100, 3000),
+    )
+    return generate_random(count, template=template, seed=42).cards
+
+
+def test_a_sheet_is_written_and_reports_its_page_count(tmp_path: Path) -> None:
+    path = tmp_path / "one.pdf"
+
+    pages = write_sheet(cards(9), path)
+
+    assert pages == 1
+    assert path.exists()
+
+
+def test_every_barcode_on_the_sheet_decodes_to_the_code_it_prints(tmp_path: Path) -> None:
+    path = tmp_path / "nine.pdf"
+    batch = cards(9)
+
+    write_sheet(batch, path)
+
+    assert sorted(decode_pdf(path)) == sorted(card.barcode for card in batch)
+
+
+def test_a_batch_larger_than_one_page_spans_pages(tmp_path: Path) -> None:
+    path = tmp_path / "many.pdf"
+    batch = cards(24)
+
+    pages = write_sheet(batch, path)
+
+    assert pages == 3
+    assert sorted(decode_pdf(path)) == sorted(card.barcode for card in batch)
+
+
+def test_an_empty_batch_writes_no_pages(tmp_path: Path) -> None:
+    path = tmp_path / "empty.pdf"
+
+    assert write_sheet((), path) == 0
+    assert not path.exists()
+
+
+def test_a_custom_layout_is_honoured(tmp_path: Path) -> None:
+    path = tmp_path / "two-up.pdf"
+    layout = SheetLayout(card_width_mm=90.0, card_height_mm=130.0)
+    batch = cards(2)
+
+    pages = write_sheet(batch, path, layout=layout)
+
+    assert layout.cards_per_page == 4
+    assert pages == 1
+    assert sorted(decode_pdf(path)) == sorted(card.barcode for card in batch)
+
+
+def test_cut_marks_can_be_turned_off(tmp_path: Path) -> None:
+    with_marks = tmp_path / "marks.pdf"
+    without_marks = tmp_path / "plain.pdf"
+    batch = cards(1)
+
+    write_sheet(batch, with_marks, cut_marks=True)
+    write_sheet(batch, without_marks, cut_marks=False)
+
+    assert with_marks.stat().st_size != without_marks.stat().st_size
+    assert decode_pdf(without_marks) == [batch[0].barcode]
+
+
+def test_a_card_too_small_for_its_barcode_is_rejected(tmp_path: Path) -> None:
+    layout = SheetLayout(card_width_mm=30.0, card_height_mm=40.0)
+
+    with pytest.raises(ValueError, match="too narrow"):
+        write_sheet(cards(1), tmp_path / "small.pdf", layout=layout)
