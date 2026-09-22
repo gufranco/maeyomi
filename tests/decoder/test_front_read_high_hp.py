@@ -12,8 +12,10 @@ the decoder stays faithful and so a change cannot pass unnoticed. The generator
 refuses to emit either branch; see `uncertainties.py`.
 """
 
+import pytest
+
 from barcode_battler.decoder.decode import decode
-from barcode_battler.decoder.front_read import DUAL_BONUS_VALUES
+from barcode_battler.decoder.front_read import DUAL_BONUS_VALUES, adjusted_stats
 from barcode_battler.decoder.uncertainties import UNCERTAINTIES
 from barcode_battler.models.race import Race
 from barcode_battler.models.read_type import ReadType
@@ -56,15 +58,37 @@ def test_an_animal_race_partner_in_the_dual_set_raises_both_stats() -> None:
     assert (character.st, character.df) == (11000, 21300)
 
 
-def test_the_animal_overflow_branch_writes_defence_from_strength() -> None:
+def test_the_animal_overflow_branch_corrects_defence_rather_than_copying_strength() -> None:
     character = decode(ANIMAL_OVERFLOW)
 
     assert character.race is Race.ANIMAL
     assert character.st == 11000
-    assert character.df == -14500
+    assert character.df == (int(ANIMAL_OVERFLOW[5:7]) + 200 - 255) * 100
 
 
 def test_both_quarantined_branches_are_recorded_as_blocking_generation() -> None:
     blocking = {key for key, entry in UNCERTAINTIES.items() if entry.blocks_generation}
 
     assert blocking == {"race_one_overflow_target", "st_overflow_threshold"}
+
+
+@pytest.mark.parametrize("race", [race for race in Race if race.is_fighter])
+def test_no_fighter_decodes_to_a_negative_stat(race: Race) -> None:
+    for st_digits in range(100):
+        for df_digits in range(100):
+            st, df = adjusted_stats(race, hp_units=209, st_digits=st_digits, df_digits=df_digits)
+            assert st >= 0, f"{race.name} {st_digits} {df_digits}"
+            assert df >= 0, f"{race.name} {st_digits} {df_digits}"
+
+
+def test_the_animal_overflow_corrects_the_stat_it_overflowed() -> None:
+    st, df = adjusted_stats(Race.ANIMAL, hp_units=209, st_digits=50, df_digits=61)
+
+    assert (st, df) == (150, 61 + 200 - 255)
+
+
+def test_the_animal_overflow_mirrors_the_mechanical_one() -> None:
+    mechanical = adjusted_stats(Race.MECHANICAL, hp_units=209, st_digits=77, df_digits=50)
+    animal = adjusted_stats(Race.ANIMAL, hp_units=209, st_digits=50, df_digits=77)
+
+    assert mechanical == (animal[1], animal[0])

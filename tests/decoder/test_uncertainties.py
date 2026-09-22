@@ -28,3 +28,10 @@ def test_the_generator_blocking_entries_are_flagged() -> None:
     blocking = {key for key, entry in UNCERTAINTIES.items() if entry.blocks_generation}
 
     assert blocking == {"race_one_overflow_target", "st_overflow_threshold"}
+
+
+def test_the_overflow_threshold_is_not_described_as_unreachable() -> None:
+    evidence = UNCERTAINTIES["st_overflow_threshold"].evidence
+
+    assert "unreachable" not in evidence
+    assert "261" in evidence

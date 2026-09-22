@@ -46,25 +46,49 @@ UNCERTAINTIES: Final[Mapping[str, Uncertainty]] = MappingProxyType(
                 "In the race 1 high-HP branch, does the overflow correction write to "
                 "DF from ST, or to DF from DF?"
             ),
-            decision="Ported verbatim as DF = ST - 255; the generator never emits it.",
-            evidence=(
-                "src/BarcodeRead.as reads `barcode_data.df = barcode_data.st - 255` "
-                "while every sibling branch adjusts the field it is correcting. No "
-                "fixture reaches the branch, so neither reading can be confirmed."
+            decision=(
+                "DF = DF - 255, diverging from the simulator; the generator still never "
+                "emits the branch."
             ),
-            revisit="On the first test against physical hardware.",
+            evidence=(
+                "src/BarcodeRead.as reads `barcode_data.df = barcode_data.st - 255`. The "
+                "branch is only reached with DF digits 61, 77 or 93, where ST is at most "
+                "199, so the simulator's line always yields a negative DF, from -15500 to "
+                "-5600. A device stores DF unsigned and cannot display a negative value, "
+                "so the verbatim line is wrong whatever the hardware does. The race 0 "
+                "branch corrects the field it is correcting, and VITIMan/barcode-battler-"
+                "engine copies the line with the comment `sounds strange, should be DF?`. "
+                "No transcribed card among 577 reaches the branch, so the corrected value "
+                "is the most plausible reading rather than a confirmed one."
+            ),
+            revisit=(
+                "On the first test against physical hardware with a barcode whose DF "
+                "digits are 61, 77 or 93, race digit 1 and hit points of 20000 or more."
+            ),
             blocks_generation=True,
         ),
         "st_overflow_threshold": Uncertainty(
-            question="Why is the ST overflow test 256 when the documented ST ceiling is 199?",
-            decision="Ported verbatim as ST > 256; the generator never emits it.",
-            evidence=(
-                "src/BarcodeRead.as tests `st > 256`. barcodebattler.net/page01.htm "
-                "publishes a front-read ST ceiling of 19900, which is 199 internal "
-                "units, so the threshold is unreachable by the arithmetic that "
-                "precedes it and its intent cannot be inferred."
+            question=(
+                "When a mechanical fighter's ST overflows, is 255 subtracted, as the "
+                "simulator does, or 256, as a one-byte register wrapping would?"
             ),
-            revisit="On the first test against physical hardware.",
+            decision="255, as the simulator does; the generator never emits the branch.",
+            evidence=(
+                "src/BarcodeRead.as tests `st > 256` and subtracts 255. The branch is "
+                "reachable: ST digits 61, 77 and 93 are in the dual bonus set, collect "
+                "two bonuses of 100, and reach 261, 277 and 293. No reachable value equals "
+                "256, so the threshold's exact form does not matter; only the subtrahend "
+                "does, and it moves the printed ST by 100. barcodebattler.net/page10.htm "
+                "shows the device comparing against a random byte from 0 to 255, which "
+                "fits a one-byte register and therefore 256, but does not settle it. The "
+                "handheld ran on an NEC uPD75 microcontroller whose firmware has never "
+                "been dumped, so no emulator can answer it. No transcribed card among 577 "
+                "reaches the branch."
+            ),
+            revisit=(
+                "On the first test against physical hardware with a barcode whose ST "
+                "digits are 61, 77 or 93, race digit 0 and hit points of 20000 or more."
+            ),
             blocks_generation=True,
         ),
         "upc_a_twelve_digits": Uncertainty(

@@ -1,9 +1,12 @@
 """The front reading, where fixed digit slices map directly onto attributes.
 
 Source: `pre_reading` in `src/BarcodeRead.as` of
-finalfighter/BarcodeBattler2-Simulator (MIT), with one deliberate divergence:
-speed is read from index 9 rather than index 11. See the
-`front_read_speed_digit` entry in `uncertainties.py`.
+finalfighter/BarcodeBattler2-Simulator (MIT), with two deliberate divergences:
+speed is read from index 9 rather than index 11, and the race 1 overflow
+correction subtracts from defence rather than from strength, because the
+simulator's line produces a negative defence no device can hold. See the
+`front_read_speed_digit` and `race_one_overflow_target` entries in
+`uncertainties.py`.
 """
 
 from typing import Final
@@ -94,7 +97,7 @@ def adjusted_stats(race: Race, *, hp_units: int, st_digits: int, df_digits: int)
         return st, df
     df += HIGH_HP_BONUS_UNITS
     if df > DF_OVERFLOW_THRESHOLD:
-        df = st - OVERFLOW_SUBTRAHEND
+        df -= OVERFLOW_SUBTRAHEND
     return st, df
 
 

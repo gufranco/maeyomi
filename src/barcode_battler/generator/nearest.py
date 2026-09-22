@@ -35,7 +35,6 @@ from barcode_battler.generator.front_solver import (
     MARKER_HP_UNITS_ENDING,
     MARKER_SPEED_DIGIT,
     MAX_HP_DISPLAY,
-    MAX_STAT_DISPLAY,
     assemble,
 )
 from barcode_battler.generator.quarantine import quarantines_digits
@@ -51,7 +50,6 @@ CATEGORICAL_FIELDS: Final = ("race", "job", "character_class", "special", "speed
 MAX_DIGIT_PAIR: Final = 99
 LOWEST_MAGICIAN_JOB: Final = 7
 _MAX_HP_UNITS: Final = MAX_HP_DISPLAY // DISPLAY_SCALE
-_MAX_STAT_UNITS: Final = MAX_STAT_DISPLAY // DISPLAY_SCALE
 
 
 @dataclass(frozen=True, slots=True)
@@ -150,13 +148,11 @@ def _window_bounds(request: CardRequest, target: int | None, window: int) -> tup
 def _score(
     request: CardRequest, hp_units: int, st_digits: int, df_digits: int
 ) -> tuple[int, int, int, int] | None:
-    """Score one reachable card, or None when it is out of range or quarantined."""
+    """Score one reachable card, or None when it passes through a quarantined branch."""
     race = request.race if request.race is not None else Race.HUMAN
     st_units, df_units = adjusted_stats(
         race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits
     )
-    if not 0 <= st_units <= _MAX_STAT_UNITS or not 0 <= df_units <= _MAX_STAT_UNITS:
-        return None
     if quarantines_digits(race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits):
         return None
     distance = _distance(request, hp_units, st_units, df_units)
