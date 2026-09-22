@@ -11,7 +11,8 @@
 
 <p align="center">
   <a href="#install">Install</a> &nbsp;|&nbsp;
-  <a href="#use">Use</a> &nbsp;|&nbsp;
+  <a href="#open-it">Open it</a> &nbsp;|&nbsp;
+  <a href="#from-the-command-line">Command line</a> &nbsp;|&nbsp;
   <a href="#how-it-works">How it works</a> &nbsp;|&nbsp;
   <a href="#the-supermarket">The supermarket</a> &nbsp;|&nbsp;
   <a href="#where-this-came-from">Sources</a>
@@ -28,31 +29,6 @@ the digits alone. Maeyomi is the device's own word for the front read, the one
 that produces a fighter. This program inverts that arithmetic: ask for a 2400
 defence armour card and it works out which barcode the device would read that
 way, then prints it.
-
-```console
-$ maeyomi generate --name "Fire Knight" --hp 5000 --attack 1800 --defense 1200 \
-    --race human --class warrior --output fire-knight.pdf
-
-Field    Requested       Generated       Difference
----------------------------------------------------
-HP       5000            5000
-ST       1800            1800
-DF       1200            1200
-Race     human           human
-Class    warrior         warrior
-
-wrote fire-knight.pdf
-```
-
-Cut it out, swipe it, and the machine reads back exactly those numbers.
-
-The same thing with a preview, for anyone who would rather not type:
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/one-card-dark.png">
-  <img alt="The card maker, with a fighter designed on the left and the printable card drawn on the right" src="assets/screenshots/one-card-light.png">
-</picture>
-
 
 Every barcode is decoded again before it reaches paper, and every printed page
 is rasterised and read back with a barcode reader. Printed cards were swiped on
@@ -73,19 +49,56 @@ Installing pulls in Python 3.14 and builds an isolated environment from the
 committed lockfile, so you get the versions the tests ran against and nothing
 lands in your own Python.
 
-From a checkout instead:
+From a checkout instead, `uv sync --extra ui` and put `uv run` in front of
+every command below.
+
+## Open it
 
 ```bash
-uv sync --extra ui
-uv run maeyomi doctor
+maeyomi web
 ```
 
-`maeyomi doctor` is the first thing to run either way. It reads a barcode whose
-answer is known, draws a symbol and decodes it back out of a PDF, and checks
-that the Japanese font resolved, which is the failure that otherwise shows up
-as blank text on a printed card.
+That starts a local page and opens your browser at it. Everything the program
+does is in there, so nothing below this point is required reading.
 
-## Use
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/one-card-dark.png">
+  <img alt="The card maker, with a fighter designed on the left and the printable card drawn on the right" src="assets/screenshots/one-card-light.png">
+</picture>
+
+Design a fighter with the sliders, watch the card redraw as you move them, and
+print it. The panel underneath says whether the machine will read back exactly
+the numbers you asked for, and shows the barcode it worked out.
+
+**Any barcode you already own is also a card.** Type the digits from the
+shopping into **Read a barcode** and the page shows what the device makes of
+it. This one is a bottle of Coca-Cola, which the machine reads as armour worth
+2400 defence.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/read-a-barcode-dark.png">
+  <img alt="A bottle of Coca-Cola typed in as a barcode, read back as an armour card worth 2400 defence" src="assets/screenshots/read-a-barcode-light.png">
+</picture>
+
+**The supermarket** holds 2958 real Japanese groceries, so a game can be played
+without a shopping trip. Search it, or press **Surprise me** and print the nine
+you get.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/supermarket-dark.png">
+  <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
+</picture>
+
+The other two tabs print a sheet of random cards and the 572 cards Epoch
+actually released. The page is in English and Japanese, and switches with the
+buttons at the top.
+
+`maeyomi web --no-open` starts the server without a browser, and `maeyomi
+serve` is the same thing for a machine that has none.
+
+## From the command line
+
+Every tab above is also a command.
 
 A sheet of 24 random cards, nine to an A4 page, reproducible from a seed:
 
@@ -129,12 +142,6 @@ The device carries numeric ability codes rather than named elements. List them:
 maeyomi abilities
 ```
 
-A local page with the same two forms:
-
-```bash
-maeyomi serve
-```
-
 Every stat option takes an exact value, a range, or a bound: `5000`,
 `5000-6000`, `>=1500`, `<=3000`. Add `--images png` to export page images
 beside the PDF.
@@ -161,22 +168,16 @@ Add `--back-read` for a card the device reads from the back rather than the
 front. Those carry lower ceilings, 49900 HP against 99900, and four digits feed
 the stats and the ability jointly, so far fewer combinations are reachable.
 
-## The web interface
-
-`maeyomi web` starts the local page and opens it, which is the same
-program with pictures: every tab is one of the commands above.
-`--no-open` starts it without a browser, and `maeyomi serve` is the
-same thing for a machine that has none.
-
 ## Checking the machine
 
-`maeyomi doctor` checks that this computer can print a card the device
-will read, and prints what each check saw. It reads a
-barcode whose answer is known, draws a symbol and decodes it back out of the
-PDF, confirms the Japanese font resolved, re-measures the palette against its
-contrast and colour-blindness thresholds, counts both card lists, and reports
-what runs it, whether the terminal can print Japanese and how much room is
-left. It exits non-zero only when something is genuinely wrong.
+`maeyomi doctor` checks that this computer can print a card the device will
+read, and prints what each check saw. It reads a barcode whose answer is known,
+draws a symbol and decodes it back out of the PDF, confirms the Japanese font
+resolved, re-measures the palette against its contrast and colour-blindness
+thresholds, counts both card lists, and reports what runs it, whether the
+terminal can print Japanese and how much room is left. It exits non-zero only
+when something is genuinely wrong. Run it first, either way: a font that did
+not resolve otherwise shows up as blank text on a printed card.
 
 ## What the device actually stores
 
@@ -274,11 +275,6 @@ you can print.
 `maeyomi kinds` lists every kind of card the device knows, in both
 languages, with what each one does.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/read-a-barcode-dark.png">
-  <img alt="A bottle of Coca-Cola typed in as a barcode, read back as an armour card worth 2400 defence" src="assets/screenshots/read-a-barcode-light.png">
-</picture>
-
 
 This is how the machine was actually played. Any product barcode is a card, so a
 bottle of tomato sauce is a fighter and a packet of crisps is a weapon. Japanese
@@ -291,11 +287,6 @@ worth 2400 defence.
 match, `--count 9 --seed 3` takes a handful at random, and `-o shopping.pdf`
 prints them. The web page has the same thing under **The supermarket**, with a
 **Surprise me** button. Tomato sauce against noodles is a fair fight.
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/supermarket-dark.png">
-  <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
-</picture>
 
 
 The shelf is a curated subset of [Open Food Facts](https://world.openfoodfacts.org/),
