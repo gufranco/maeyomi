@@ -510,3 +510,15 @@ footer p { margin: 0 auto .5rem; max-width: 46rem; }
   .secret-hints { flex-wrap: wrap; }
   .cheat-title { font-size: 1.25rem; }
 }
+
+.facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .25rem .75rem;
+  margin: .75rem 0 0;
+  font-size: .92rem;
+}
+
+.facts dt { color: var(--ink-soft); }
+
+.facts dd { margin: 0; font-weight: 600; }

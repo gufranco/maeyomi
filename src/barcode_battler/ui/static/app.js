@@ -432,6 +432,70 @@ function setUpCheat() {
 }
 
 
+function factRow(key, value) {
+  return `<dt>${escapeHtml(t(key))}</dt><dd>${escapeHtml(String(value))}</dd>`;
+}
+
+function showFacts(character) {
+  const race = raceList.find((entry) => entry.name === character.race);
+  const rows = [
+    factRow('fact.kind', race ? raceName(race) : character.race),
+    factRow('fact.hp', character.hp),
+    factRow('fact.st', character.st),
+    factRow('fact.df', character.df),
+    factRow('fact.power', `${String(character.special.code).padStart(2, '0')} ` +
+      `${isJapanese() ? character.special.description_ja : character.special.description}`),
+    factRow('fact.reading', t(`reading.${character.read_type}`)),
+  ];
+  if (character.character_class) {
+    rows.splice(1, 0, factRow('fact.class', t(`class.${character.character_class}`)));
+  }
+  if (character.speed !== null) rows.push(factRow('fact.speed', character.speed));
+  $('read-facts').replaceChildren();
+  $('read-facts').insertAdjacentHTML('afterbegin', rows.join(''));
+  $('read-facts').toggleAttribute('hidden', false);
+}
+
+const typedBarcode = () => $('read-barcode').value.replace(/\D/g, '');
+
+const typedName = () => $('read-name').value.trim() || t('read.name.placeholder');
+
+async function readBarcode(event) {
+  event?.preventDefault();
+  const barcode = typedBarcode();
+  if (!barcode) {
+    setStatus('read-status', 'bad', 'tag.impossible', t('read.empty'));
+    return null;
+  }
+  const response = await fetch(`/api/decode/${barcode}`);
+  const body = await response.json();
+  if (!response.ok) {
+    setStatus('read-status', 'bad', 'tag.impossible', t('read.refused'), reasons(body));
+    $('read-facts').toggleAttribute('hidden', true);
+    return null;
+  }
+  setStatus('read-status', 'good', 'tag.ready', t('read.ok'));
+  showFacts(body);
+  await showReadPreview(barcode, typedName());
+  return barcode;
+}
+
+async function showReadPreview(barcode, name) {
+  const { ok, response } = await postJson('/api/preview', { barcode, name });
+  if (!ok) return;
+  const previous = $('read-image').getAttribute('src');
+  $('read-image').setAttribute('src', URL.createObjectURL(await response.blob()));
+  $('read-image').setAttribute('alt', t('alt.card', { name }));
+  if (previous) URL.revokeObjectURL(previous);
+  $('read-placeholder').toggleAttribute('hidden', true);
+}
+
+async function downloadRead() {
+  const barcode = await readBarcode();
+  if (!barcode) return;
+  await downloadBarcodes([{ barcode, name: typedName() }], 'card.pdf', 'read-status');
+}
+
 function copyCode() {
   navigator.clipboard?.writeText($('one-code-value').textContent);
   $('one-copy').textContent = t('copied');
@@ -460,6 +524,8 @@ $('one-copy').addEventListener('click', copyCode);
 $('many').addEventListener('submit', makeSheet);
 $('many-pdf').addEventListener('click', downloadSheet);
 $('official').addEventListener('submit', showOfficial);
+$('read').addEventListener('submit', readBarcode);
+$('read-pdf').addEventListener('click', downloadRead);
 $('official-pdf').addEventListener('click', downloadOfficial);
 setUpChoices();
 setUpOfficial();

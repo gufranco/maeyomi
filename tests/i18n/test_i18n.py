@@ -15,7 +15,7 @@ from barcode_battler.ui.app import STATIC_DIR
 MARKUP = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
 SCRIPT = (STATIC_DIR / "app.js").read_text(encoding="utf-8")
 DICTIONARIES = (STATIC_DIR / "i18n.js").read_text(encoding="utf-8")
-ENGLISH_ONLY = {"title"}
+THE_SAME_IN_BOTH_LANGUAGES = {"title", "read.placeholder"}
 
 
 def _block(language: str) -> str:
@@ -61,7 +61,7 @@ def test_every_japanese_string_is_japanese() -> None:
     untranslated = {
         key
         for key, value in _values("ja").items()
-        if value.isascii() and key not in ENGLISH_ONLY and not value.startswith("{")
+        if value.isascii() and key not in THE_SAME_IN_BOTH_LANGUAGES and not value.startswith("{")
     }
 
     assert untranslated == set()

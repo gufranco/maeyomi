@@ -177,6 +177,19 @@ should measure. Hold a ruler against it after the first print. If it comes out
 short, the printer scaled the page; correct the dialog and print again. Both
 bands sit outside the card grid, so they leave with the offcut.
 
+## Reading a barcode you already have
+
+`barcode-battler decode 4901085061169` prints what the device would make of any
+barcode, and the web page has the same thing under **Read a barcode**: type the
+digits printed under the bars, and it shows the kind of card, the three numbers,
+the special power and whether the device reads it from the front or the back,
+with a card you can print.
+
+This is how the machine was actually played. Any product barcode is a card, so a
+bottle of tomato sauce is a fighter and a packet of crisps is a weapon. Japanese
+product codes work like any other: `4902102072618`, a bottle of tea, is armour
+worth 2400 defence.
+
 ## The real cards
 
 `barcode-battler official --list` names the fourteen card lists Epoch released

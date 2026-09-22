@@ -87,6 +87,8 @@ def test_the_script_calls_every_endpoint_it_needs(endpoint: str) -> None:
         "count",
         "seed",
         "official-set",
+        "read-barcode",
+        "read-name",
     ],
 )
 def test_every_control_exists(control: str) -> None:
@@ -127,12 +129,12 @@ def test_every_control_meets_the_minimum_target_size() -> None:
 
 def test_the_tabs_carry_their_roles() -> None:
     assert 'role="tablist"' in MARKUP
-    assert MARKUP.count('role="tab"') == 3
-    assert MARKUP.count('role="tabpanel"') == 3
+    assert MARKUP.count('role="tab"') == 4
+    assert MARKUP.count('role="tabpanel"') == 4
 
 
 def test_the_preview_regions_announce_their_updates() -> None:
-    for region in ("panel-one", "panel-many", "panel-official"):
+    for region in ("panel-one", "panel-many", "panel-official", "panel-read"):
         section = MARKUP[MARKUP.index(f'id="{region}"') :]
         assert 'aria-live="polite"' in section[: section.index("</section>")]
 
@@ -192,3 +194,16 @@ def test_the_cheat_button_has_an_accessible_name() -> None:
 def test_the_arrows_still_work_from_the_keyboard() -> None:
     assert "ArrowUp" in SCRIPT
     assert "ArrowDown" in SCRIPT
+
+
+def test_there_is_a_tab_for_reading_a_barcode() -> None:
+    assert 'id="tab-read"' in MARKUP
+    assert 'id="panel-read"' in MARKUP
+    assert 'id="read-barcode"' in MARKUP
+
+
+def test_the_barcode_field_accepts_only_digits() -> None:
+    field = re.search(r'<input[^>]*id="read-barcode"[^>]*>', MARKUP, re.DOTALL)
+    assert field is not None
+    assert 'inputmode="numeric"' in field.group()
+    assert "pattern=" in field.group()

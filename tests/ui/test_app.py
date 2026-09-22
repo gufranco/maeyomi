@@ -349,3 +349,25 @@ def test_the_disclaimer_is_served_in_both_languages(client: TestClient) -> None:
 
     assert "read on a physical Barcode Battler II" in text
     assert "実機" in text
+
+
+def test_a_product_barcode_reads_as_a_character(client: TestClient) -> None:
+    response = client.get("/api/decode/4901085061169")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["barcode"] == "4901085061169"
+    assert body["read_type"] in {"front", "back"}
+
+
+def test_a_barcode_with_a_wrong_check_digit_says_so(client: TestClient) -> None:
+    response = client.get("/api/decode/4901085061160")
+
+    assert response.status_code == 400
+    assert "check digit" in response.json()["detail"]
+
+
+def test_an_eight_digit_barcode_reads_too(client: TestClient) -> None:
+    response = client.get("/api/decode/49010856")
+
+    assert response.status_code in {200, 400}

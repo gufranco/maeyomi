@@ -31,6 +31,8 @@
           data-i18n="tab.many">A sheet of cards</button>
   <button role="tab" id="tab-official" aria-controls="panel-official" aria-selected="false"
           data-i18n="tab.official">The real cards</button>
+  <button role="tab" id="tab-read" aria-controls="panel-read" aria-selected="false"
+          data-i18n="tab.read">Read a barcode</button>
 </div>
 
 <div id="cheat-banner" class="cheat-banner" role="status" aria-live="polite" hidden>
@@ -275,6 +277,56 @@
       </p>
     </div>
     <div id="official-status" class="status"></div>
+  </aside>
+</section>
+
+<section id="panel-read" role="tabpanel" aria-labelledby="tab-read" class="layout" hidden>
+  <form id="read" class="panel">
+    <fieldset>
+      <legend data-i18n="read.legend">Any barcode at all</legend>
+
+      <p class="field">
+        <label for="read-barcode" data-i18n="read.barcode">Barcode number</label>
+        <input id="read-barcode" name="barcode" inputmode="numeric" pattern="[0-9 ]*"
+               maxlength="20" autocomplete="off" placeholder="4901085061169"
+               data-i18n-placeholder="read.placeholder">
+        <span class="hint" data-i18n="read.barcode.hint">
+          The 8 or 13 digits printed under the bars. Spaces are fine.
+        </span>
+      </p>
+
+      <p class="field">
+        <label for="read-name" data-i18n="read.name">Name it</label>
+        <input id="read-name" name="name" maxlength="40" autocomplete="off"
+               placeholder="Tomato sauce" data-i18n-placeholder="read.name.placeholder">
+        <span class="hint" data-i18n="read.name.hint">
+          Printed on the card. The barcode decides everything else.
+        </span>
+      </p>
+    </fieldset>
+
+    <p class="note" data-i18n="read.note">
+      Any product barcode works, which is how the machine was played in 1992:
+      a bottle of tomato sauce is a fighter, a packet of crisps is a weapon.
+      Type what is printed on the shopping and see what comes out.
+    </p>
+
+    <p class="actions">
+      <button type="submit" class="primary" data-i18n="read.go">Read it</button>
+      <button type="button" id="read-pdf" data-i18n="download">Download to print</button>
+    </p>
+  </form>
+
+  <aside class="preview" aria-live="polite">
+    <h2 data-i18n="read.preview">What it is</h2>
+    <div class="card-frame">
+      <img id="read-image" alt="" width="381" height="533">
+      <p class="placeholder" id="read-placeholder" data-i18n="read.placeholder.card">
+        Type a barcode and press Read it.
+      </p>
+    </div>
+    <div id="read-status" class="status"></div>
+    <dl id="read-facts" class="facts" hidden></dl>
   </aside>
 </section>
 
