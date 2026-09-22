@@ -370,9 +370,10 @@ footer {
   border-top: 1px solid var(--line);
   color: var(--ink-soft);
   font-size: .88rem;
+  text-align: center;
 }
 
-footer p { margin: 0 0 .5rem; max-width: 46rem; }
+footer p { margin: 0 auto .5rem; max-width: 46rem; }
 
 :focus-visible {
   outline: 3px solid var(--accent);
@@ -478,6 +479,7 @@ footer p { margin: 0 0 .5rem; max-width: 46rem; }
 .secret-hints {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   opacity: .45;
 }
