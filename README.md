@@ -4,6 +4,8 @@
 
 <strong>Print playable cards for a 1992 Epoch Barcode Battler II.</strong>
 
+English &nbsp;|&nbsp; [日本語](README.ja.md)
+
 [![ci](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml/badge.svg)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](#development)

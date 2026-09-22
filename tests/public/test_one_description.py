@@ -19,6 +19,8 @@ README: Final = ROOT / "README.md"
 FORMULA: Final = ROOT / "Formula" / "maeyomi.rb"
 MANIFEST: Final = ROOT / "pyproject.toml"
 PROJECT: Final = "maeyomi"
+ASCII_MAX: Final = 127
+JAPANESE_SHARE: Final = 0.4
 
 
 def strapline() -> str:
@@ -91,3 +93,34 @@ def lede() -> str:
 
 def test_the_page_says_what_the_readme_says_it_says() -> None:
     assert lede() in README.read_text(encoding="utf-8")
+
+
+JAPANESE_README: Final = ROOT / "README.ja.md"
+
+
+def test_the_project_is_readable_in_japanese() -> None:
+    japanese = JAPANESE_README.read_text(encoding="utf-8")
+    kana_and_kanji = sum(1 for character in japanese if ord(character) > ASCII_MAX)
+
+    assert kana_and_kanji / len(japanese) > JAPANESE_SHARE
+
+
+def test_the_two_readmes_cover_the_same_ground() -> None:
+    sections = {
+        path: len(re.findall(r"^## ", path.read_text(encoding="utf-8"), re.MULTILINE))
+        for path in (README, JAPANESE_README)
+    }
+
+    assert len(set(sections.values())) == 1, sections
+
+
+def test_both_readmes_show_the_same_screenshots() -> None:
+    def shots(path: Path) -> set[str]:
+        return set(re.findall(r'(?:src|srcset)="(assets/[^"]+)"', path.read_text(encoding="utf-8")))
+
+    assert shots(README) == shots(JAPANESE_README)
+
+
+def test_each_readme_offers_the_other_language() -> None:
+    assert "[日本語](README.ja.md)" in README.read_text(encoding="utf-8")
+    assert "[English](README.md)" in JAPANESE_README.read_text(encoding="utf-8")
