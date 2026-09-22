@@ -52,6 +52,16 @@ let a release note say something the README does not.
 push. Adding a new public surface means adding it to one of those two, or it
 will drift the moment the wording changes.
 
+The README comes as a pair: `README.md` in English and `README.ja.md` in
+Japanese. The device was sold in Japan, so the Japanese one is the whole
+document rather than a summary, and it uses the terms the device uses, 前読み
+and 後読み for the two read types. A section added to one is added to the
+other. The same tests check that they carry the same sections, the same
+screenshots, and a link to each other.
+
+`docs/` and `specs/` are working notes and are ignored. They stay on disk and
+never reach GitHub, so nothing published may link into them.
+
 ## Accessibility is a gate, not a pass
 
 The page: axe-core reports zero violations on every tab, in both colour
@@ -94,6 +104,27 @@ drift into a compliance claim.
   clean before a commit.
 - Files under 500 lines, functions under 30, no magic numbers, immutable by
   default, explicit types at every boundary.
+
+## Shipping
+
+Homebrew installs this, and the formula lives in this repository rather than a
+separate tap, which is why `brew tap` needs the URL spelled out. Publishing a
+release is the whole release process: the workflow rewrites the formula's url
+and checksum, refusing to do it when the tag disagrees with the version inside
+the archive.
+
+Three things about that path cost a debugging cycle each and are cheap to
+forget:
+
+- `uv sync` installs the project itself editable, which leaves the formula
+  pointing at a build directory Homebrew then deletes. `--no-editable` is what
+  makes the install a copy.
+- `brew install` never runs the formula's `test do` block. Run `brew test`
+  after any change to the formula, or the test that would have caught the
+  problem never runs.
+- Homebrew decides an upgrade exists by comparing versions, and the version is
+  parsed out of the tag in the url. A formula without one is refused outright,
+  so the pin is what makes `brew upgrade` work rather than what prevents it.
 
 ## Working style
 
