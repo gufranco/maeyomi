@@ -60,9 +60,9 @@ def test_the_card_prints_its_name_and_stats(tmp_path: Path) -> None:
 
     text = pdf_text(path)
     assert "Fire Knight" in text
-    assert "HP: 4000" in text
-    assert "ST: 1200" in text
-    assert "DF: 700" in text
+    for label, value in (("HP", "4000"), ("ST", "1200"), ("DF", "700")):
+        assert label in text
+        assert value in text
 
 
 def test_the_card_prints_race_class_and_ability(tmp_path: Path) -> None:

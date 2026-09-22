@@ -26,12 +26,14 @@ _TEXT_LINES_ABOVE_SYMBOL: Final = 8
 class CardStyle:
     """Type sizes and spacing for one card face."""
 
-    padding_mm: float = 4.0
-    title_size_pt: float = 11.0
-    stat_size_pt: float = 10.0
+    padding_mm: float = 4.5
+    title_size_pt: float = 12.0
+    stat_label_size_pt: float = 7.0
+    stat_size_pt: float = 15.0
     detail_size_pt: float = 7.5
     digits_size_pt: float = 7.0
     line_spacing_mm: float = 4.6
+    rule_width: float = 0.4
     border: bool = True
 
 
@@ -101,27 +103,64 @@ def _draw_text(
     height_mm: float,
     style: CardStyle,
 ) -> None:
-    """Draw the name, the three stats and the three categorical fields."""
+    """Draw the name, the three stats and the three categorical fields.
+
+    The three battle numbers are the only thing a player reads mid-game, so
+    they are set large and in their own band, with a rule above and below. The
+    name sits above that band and the descriptive lines below it.
+    """
     left = x_mm + style.padding_mm
     available = width_mm - 2 * style.padding_mm
     cursor = y_mm + height_mm - style.padding_mm - style.line_spacing_mm
     canvas.setFont(TITLE_FONT, style.title_size_pt)
-    title = _clip(canvas, card.name, available, TITLE_FONT, style.title_size_pt)
-    canvas.drawString(left * mm, cursor * mm, title)
-    cursor -= style.line_spacing_mm * 1.4
+    canvas.drawString(
+        left * mm,
+        cursor * mm,
+        _clip(canvas, card.name, available, TITLE_FONT, style.title_size_pt),
+    )
 
-    character = card.character
-    canvas.setFont(BODY_FONT, style.stat_size_pt)
-    for label, value in (("HP", character.hp), ("ST", character.st), ("DF", character.df)):
-        canvas.drawString(left * mm, cursor * mm, f"{label}: {value}")
-        cursor -= style.line_spacing_mm
+    cursor -= style.line_spacing_mm * 0.7
+    _rule(canvas, left, cursor, available, style)
+    cursor -= style.line_spacing_mm * 1.5
+    cursor = _draw_stats(canvas, card, left=left, cursor=cursor, width_mm=available, style=style)
 
-    cursor -= style.line_spacing_mm * 0.3
+    cursor -= style.line_spacing_mm * 0.5
+    _rule(canvas, left, cursor, available, style)
+    cursor -= style.line_spacing_mm
+
     canvas.setFont(BODY_FONT, style.detail_size_pt)
     for line in _detail_lines(card):
         clipped = _clip(canvas, line, available, BODY_FONT, style.detail_size_pt)
         canvas.drawString(left * mm, cursor * mm, clipped)
         cursor -= style.line_spacing_mm * 0.85
+
+
+def _draw_stats(
+    canvas: Canvas,
+    card: GeneratedCard,
+    *,
+    left: float,
+    cursor: float,
+    width_mm: float,
+    style: CardStyle,
+) -> float:
+    """Draw the three battle numbers side by side, and return the new cursor."""
+    character = card.character
+    columns = (("HP", character.hp), ("ST", character.st), ("DF", character.df))
+    step = width_mm / len(columns)
+    for index, (label, value) in enumerate(columns):
+        column = left + index * step
+        canvas.setFont(BODY_FONT, style.stat_label_size_pt)
+        canvas.drawString(column * mm, (cursor + style.line_spacing_mm) * mm, label)
+        canvas.setFont(TITLE_FONT, style.stat_size_pt)
+        canvas.drawString(column * mm, cursor * mm, str(value))
+    return cursor
+
+
+def _rule(canvas: Canvas, left: float, y_mm: float, width_mm: float, style: CardStyle) -> None:
+    """Draw a thin horizontal rule across the card's text column."""
+    canvas.setLineWidth(style.rule_width)
+    canvas.line(left * mm, y_mm * mm, (left + width_mm) * mm, y_mm * mm)
 
 
 def _detail_lines(card: GeneratedCard) -> list[str]:

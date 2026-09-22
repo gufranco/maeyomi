@@ -4,19 +4,27 @@ Nothing here decides anything. Every route parses its payload into a
 `CardRequest`, hands it to the solver, and reports what came back, so the two
 surfaces cannot drift apart.
 
+The page is served as static files rather than built here, and every choice it
+offers comes from an endpoint backed by an enum, so a race or an ability added
+to the models appears in the interface without a second edit.
+
 Handlers are module level rather than nested inside the factory, so each one
 stays independently readable and testable.
 """
 
+import base64
 import tempfile
 from collections.abc import Sequence
+from importlib import resources
 from pathlib import Path
 from typing import Final
 
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse, HTMLResponse
+from fastapi.responses import FileResponse, HTMLResponse, Response
+from fastapi.staticfiles import StaticFiles
 
 from barcode_battler.cli.parsing import parse_character_class, parse_constraint, parse_race
+from barcode_battler.cli.report import DISCLAIMER
 from barcode_battler.decoder.decode import decode
 from barcode_battler.decoder.errors import BarcodeError
 from barcode_battler.generator.nearest import solve_nearest
@@ -24,33 +32,49 @@ from barcode_battler.generator.random_cards import generate_random
 from barcode_battler.generator.solve import solve
 from barcode_battler.models.card_request import CardRequest
 from barcode_battler.models.generated_card import GeneratedCard
+from barcode_battler.models.race import Race
 from barcode_battler.models.read_type import ReadType
 from barcode_battler.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
+from barcode_battler.rendering.preview import card_png, sheet_png_pages
 from barcode_battler.rendering.sheet import write_sheet
-from barcode_battler.ui.page import PAGE
 from barcode_battler.ui.schemas import (
     AbilityView,
     CardSpec,
     CharacterView,
     GenerateResult,
+    PreviewSpec,
+    RaceView,
     RandomSpec,
+    SheetPreview,
     SheetSpec,
 )
 
 BAD_REQUEST: Final = 400
 UNPROCESSABLE: Final = 422
+STATIC_DIR: Final = Path(str(resources.files("barcode_battler.ui") / "static"))
+PREVIEW_PAGE_LIMIT: Final = 4
 
 
-def index() -> str:
-    """Serve the single page."""
-    return PAGE
+def index() -> HTMLResponse:
+    """Serve the page, with the disclaimer already in the markup.
+
+    The disclaimer is placed here rather than fetched, so it is present even if
+    the script never runs. A claim about what has and has not been tested must
+    not depend on JavaScript.
+    """
+    markup = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
+    return HTMLResponse(markup.replace("__DISCLAIMER__", DISCLAIMER))
+
+
+def races() -> list[RaceView]:
+    """Serve every kind of card, named for someone who has not read the manual."""
+    return [RaceView.of(race) for race in Race]
 
 
 def abilities() -> list[AbilityView]:
     """Serve the published ability table."""
     return [
-        AbilityView(code=code, description=SpecialAbility.from_code(code).description)
-        for code in range(MIN_CODE, MAX_CODE + 1)
+        AbilityView.of(SpecialAbility.from_code(code)) for code in range(MIN_CODE, MAX_CODE + 1)
     ]
 
 
@@ -92,6 +116,23 @@ def generate_one(spec: CardSpec) -> GenerateResult:
     )
 
 
+def preview(spec: PreviewSpec) -> Response:
+    """Draw one card exactly as it would print, and return it as an image."""
+    try:
+        character = decode(spec.barcode)
+    except BarcodeError as error:
+        raise HTTPException(status_code=BAD_REQUEST, detail=str(error)) from error
+    card = GeneratedCard(name=spec.name, barcode=character.barcode, character=character)
+    return Response(content=card_png(card), media_type="image/png")
+
+
+def sheet_preview(spec: RandomSpec) -> SheetPreview:
+    """Draw the first pages of a random sheet, as images the page can show."""
+    cards = _random_cards(spec)
+    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * 9])
+    return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
+
+
 def sheet(spec: SheetSpec) -> FileResponse:
     """Build a sheet from an explicit list of cards."""
     if not spec.cards:
@@ -101,22 +142,36 @@ def sheet(spec: SheetSpec) -> FileResponse:
 
 def random_sheet(spec: RandomSpec) -> FileResponse:
     """Build a sheet of random cards."""
-    batch = generate_random(spec.count, template=_request(spec), seed=spec.seed)
-    if batch.shortfall:
-        raise HTTPException(status_code=UNPROCESSABLE, detail=batch.reason)
-    return _sheet_response(batch.cards, "cards.pdf")
+    return _sheet_response(_random_cards(spec), "cards.pdf")
 
 
 def create_app() -> FastAPI:
     """Build the application with every route attached."""
-    app = FastAPI(title="Barcode Battler II card generator", docs_url="/docs")
+    app = FastAPI(title="Barcode Battler II card maker", docs_url="/docs")
     app.add_api_route("/", index, methods=["GET"], response_class=HTMLResponse)
+    app.add_api_route("/api/races", races, methods=["GET"])
     app.add_api_route("/api/abilities", abilities, methods=["GET"])
     app.add_api_route("/api/decode/{barcode}", decode_one, methods=["GET"])
     app.add_api_route("/api/generate", generate_one, methods=["POST"])
+    app.add_api_route("/api/preview", preview, methods=["POST"])
+    app.add_api_route("/api/sheet-preview", sheet_preview, methods=["POST"])
     app.add_api_route("/api/sheet", sheet, methods=["POST"])
     app.add_api_route("/api/random", random_sheet, methods=["POST"])
+    app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
     return app
+
+
+def _random_cards(spec: RandomSpec) -> tuple[GeneratedCard, ...]:
+    """Draw a batch, reporting a shortfall rather than returning a short one."""
+    batch = generate_random(spec.count, template=_request(spec), seed=spec.seed)
+    if batch.shortfall:
+        raise HTTPException(status_code=UNPROCESSABLE, detail=batch.reason)
+    return batch.cards
+
+
+def _data_url(png: bytes) -> str:
+    """Wrap PNG bytes as a data URL the page can put straight into an image."""
+    return "data:image/png;base64," + base64.b64encode(png).decode("ascii")
 
 
 def _request(spec: CardSpec) -> CardRequest:

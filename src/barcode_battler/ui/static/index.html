@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barcode Battler II card maker</title>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+
+<header class="masthead">
+  <h1>Barcode Battler II card maker</h1>
+  <p class="lede">
+    Design a fighter, print the sheet, cut the cards, swipe them through the
+    machine. Everything you see here is built from the barcodes the device
+    actually reads.
+  </p>
+</header>
+
+<div class="tabs" role="tablist" aria-label="What would you like to make">
+  <button role="tab" id="tab-one" aria-controls="panel-one" aria-selected="true">
+    One card
+  </button>
+  <button role="tab" id="tab-many" aria-controls="panel-many" aria-selected="false">
+    A sheet of cards
+  </button>
+</div>
+
+<main>
+
+<section id="panel-one" role="tabpanel" aria-labelledby="tab-one" class="layout">
+  <form id="one" class="panel">
+
+    <fieldset>
+      <legend>Who is on the card</legend>
+
+      <p class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" value="Fire Knight" maxlength="40" autocomplete="off">
+        <span class="hint">Printed on the card. It does not change the barcode.</span>
+      </p>
+
+      <p class="field">
+        <label for="race">Kind of fighter</label>
+        <select id="race" name="race"></select>
+        <span class="hint" id="race-hint"></span>
+      </p>
+
+      <p class="field">
+        <label for="class">Fights with</label>
+        <select id="class" name="class">
+          <option value="">Either</option>
+          <option value="warrior" selected>A weapon, a warrior</option>
+          <option value="magician">Magic, a magician</option>
+        </select>
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>How strong</legend>
+
+      <p class="field stat">
+        <label for="hp">Health</label>
+        <input id="hp" name="hp" type="range" min="0" max="99900" step="100" value="5000">
+        <output for="hp" id="hp-out">5000</output>
+      </p>
+
+      <p class="field stat">
+        <label for="st">Attack</label>
+        <input id="st" name="st" type="range" min="0" max="19900" step="100" value="1800">
+        <output for="st" id="st-out">1800</output>
+      </p>
+
+      <p class="field stat">
+        <label for="df">Defence</label>
+        <input id="df" name="df" type="range" min="0" max="19900" step="100" value="1200">
+        <output for="df" id="df-out">1200</output>
+      </p>
+
+      <p class="note" id="hp-note" hidden>
+        Above 20000 health the machine needs a marker in the barcode, so health
+        has to end in 900 and speed is always 5. The slider snaps to the nearest
+        one it can reach.
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Special ability</legend>
+      <p class="field">
+        <label for="ability">Ability</label>
+        <select id="ability" name="ability"></select>
+        <span class="hint">
+          The machine stores abilities as numbers. Only 00 to 49 work in an
+          ordinary battle.
+        </span>
+      </p>
+    </fieldset>
+
+    <details class="advanced">
+      <summary>Fine detail</summary>
+      <p class="field">
+        <label for="speed">Speed, 0 to 9</label>
+        <input id="speed" name="speed" type="number" min="0" max="9" placeholder="any">
+        <span class="hint">Decides who strikes first.</span>
+      </p>
+      <p class="field">
+        <label for="job">Type number, 0 to 9</label>
+        <input id="job" name="job" type="number" min="0" max="9" placeholder="any">
+        <span class="hint">
+          0 to 6 is a warrior, 7 to 9 a magician. Some abilities target it.
+        </span>
+      </p>
+      <p class="field check">
+        <label for="backRead">
+          <input id="backRead" name="backRead" type="checkbox">
+          Make a card the machine reads backwards
+        </label>
+        <span class="hint">Lower limits, and far fewer combinations exist.</span>
+      </p>
+    </details>
+
+    <p class="field check">
+      <label for="nearest">
+        <input id="nearest" name="nearest" type="checkbox" checked>
+        If those exact numbers are impossible, use the closest ones
+      </label>
+    </p>
+
+    <p class="actions">
+      <button type="submit" class="primary">Make this card</button>
+      <button type="button" id="one-pdf">Download to print</button>
+    </p>
+  </form>
+
+  <aside class="preview" aria-live="polite">
+    <h2>Your card</h2>
+    <div class="card-frame">
+      <img id="card-image" alt="" width="381" height="533">
+      <p class="placeholder" id="card-placeholder">
+        Choose your numbers, then press <strong>Make this card</strong>.
+      </p>
+    </div>
+    <div id="one-status" class="status"></div>
+    <p class="code" id="one-code" hidden>
+      <span class="code-label">Barcode number</span>
+      <code id="one-code-value"></code>
+      <button type="button" id="one-copy" class="link">Copy</button>
+    </p>
+  </aside>
+</section>
+
+<section id="panel-many" role="tabpanel" aria-labelledby="tab-many" class="layout" hidden>
+  <form id="many" class="panel">
+    <fieldset>
+      <legend>How many</legend>
+      <p class="field">
+        <label for="count">Cards</label>
+        <input id="count" name="count" type="number" min="1" max="200" value="9">
+        <span class="hint">Nine fit on a page.</span>
+      </p>
+      <p class="field">
+        <label for="seed">Batch number</label>
+        <input id="seed" name="seed" type="number" placeholder="leave empty for a new set">
+        <span class="hint">Use the same number to get the same cards again.</span>
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Keep them in this range</legend>
+      <p class="field pair">
+        <label for="hp-min">Health</label>
+        <input id="hp-min" type="number" min="0" max="99900" step="100" value="1000">
+        <span aria-hidden="true">to</span>
+        <input id="hp-max" type="number" min="0" max="99900" step="100" value="10000"
+               aria-label="Highest health">
+      </p>
+      <p class="field pair">
+        <label for="st-min">Attack</label>
+        <input id="st-min" type="number" min="0" max="19900" step="100" value="100">
+        <span aria-hidden="true">to</span>
+        <input id="st-max" type="number" min="0" max="19900" step="100" value="3000"
+               aria-label="Highest attack">
+      </p>
+      <p class="field pair">
+        <label for="df-min">Defence</label>
+        <input id="df-min" type="number" min="0" max="19900" step="100" value="100">
+        <span aria-hidden="true">to</span>
+        <input id="df-max" type="number" min="0" max="19900" step="100" value="3000"
+               aria-label="Highest defence">
+      </p>
+      <p class="field">
+        <label for="many-race">Kind of fighter</label>
+        <select id="many-race" name="race"></select>
+      </p>
+    </fieldset>
+
+    <p class="actions">
+      <button type="submit" class="primary">Make the sheet</button>
+      <button type="button" id="many-pdf">Download to print</button>
+    </p>
+  </form>
+
+  <aside class="preview" aria-live="polite">
+    <h2>Your sheet</h2>
+    <div class="sheet-frame" id="sheet-frame">
+      <p class="placeholder">
+        Press <strong>Make the sheet</strong> to see the pages.
+      </p>
+    </div>
+    <div id="many-status" class="status"></div>
+  </aside>
+</section>
+
+</main>
+
+<footer>
+  <p id="disclaimer">__DISCLAIMER__</p>
+  <p>
+    Printing: use plain matte paper, turn off any "fit to page" or "scale"
+    setting, and print at the highest quality your printer offers. The barcode
+    only reads at its true size.
+  </p>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

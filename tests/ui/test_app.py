@@ -193,3 +193,70 @@ def test_the_nearest_flag_reports_when_there_is_no_close_card_either(client: Tes
 
     assert response.status_code == 422
     assert any("window" in reason for reason in response.json()["detail"])
+
+
+def test_the_races_endpoint_names_every_kind(client: TestClient) -> None:
+    body = client.get("/api/races").json()
+
+    assert len(body) == 10
+    assert {race["name"] for race in body if race["is_fighter"]} == {
+        "mechanical",
+        "animal",
+        "aquatic",
+        "bird",
+        "human",
+    }
+    assert all(race["description"] for race in body)
+
+
+def test_the_abilities_endpoint_flags_the_ones_a_battle_ignores(client: TestClient) -> None:
+    body = client.get("/api/abilities").json()
+
+    assert body[0]["usable_in_battle"] is True
+    assert body[49]["usable_in_battle"] is True
+    assert body[50]["usable_in_battle"] is False
+
+
+def test_a_card_preview_is_a_png_of_the_real_card(client: TestClient) -> None:
+    response = client.post("/api/preview", json={"barcode": "0401207237501", "name": "Knight"})
+
+    assert response.status_code == 200
+    assert response.headers["content-type"] == "image/png"
+    assert response.content[:8] == b"\x89PNG\r\n\x1a\n"
+
+
+def test_a_preview_of_an_invalid_barcode_is_refused(client: TestClient) -> None:
+    response = client.post("/api/preview", json={"barcode": "0401207237509"})
+
+    assert response.status_code == 400
+    assert "check digit" in response.json()["detail"]
+
+
+def test_a_sheet_preview_returns_page_images(client: TestClient) -> None:
+    response = client.post("/api/sheet-preview", json={"count": 2, "seed": 4})
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["count"] == 2
+    assert len(body["pages"]) == 1
+    assert body["pages"][0].startswith("data:image/png;base64,")
+
+
+def test_a_sheet_preview_that_cannot_be_filled_reports_the_shortfall(client: TestClient) -> None:
+    response = client.post(
+        "/api/sheet-preview",
+        json={
+            "count": 5,
+            "seed": 1,
+            "hp": "5000",
+            "st": "1500",
+            "df": "1200",
+            "race": "human",
+            "job": 3,
+            "speed": 7,
+            "ability": 0,
+        },
+    )
+
+    assert response.status_code == 422
+    assert "distinct" in response.json()["detail"]

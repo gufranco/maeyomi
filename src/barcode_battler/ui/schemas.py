@@ -2,11 +2,30 @@
 
 Every field arrives as text or a small integer and is parsed into the same
 typed request the command line builds, so both surfaces go through one solver.
+
+The choice lists the page renders come from these views rather than being
+retyped in the page, so a race or an ability added to the enums appears in the
+interface without a second edit.
 """
 
 from pydantic import BaseModel, ConfigDict, Field
 
 from barcode_battler.models.character import BarcodeBattlerCharacter
+from barcode_battler.models.race import Race
+from barcode_battler.models.special_ability import FIRST_C1_C2_ONLY_CODE, SpecialAbility
+
+_RACE_DESCRIPTIONS = {
+    Race.MECHANICAL: "Machines. Gain attack when very healthy.",
+    Race.ANIMAL: "Beasts. Gain defence when very healthy.",
+    Race.AQUATIC: "Sea creatures. Gain both when very healthy.",
+    Race.BIRD: "Fliers. No bonus, so every number is reachable.",
+    Race.HUMAN: "People. No bonus, so every number is reachable.",
+    Race.SINGLE_USE_WEAPON: "An attack boost that breaks after one battle.",
+    Race.WEAPON: "An attack boost that lasts.",
+    Race.SINGLE_USE_ARMOUR: "A defence boost that breaks after one battle.",
+    Race.ARMOUR: "A defence boost that lasts.",
+    Race.SUPPORT_ITEM: "Health, herbs or magic points.",
+}
 
 
 class CardSpec(BaseModel):
@@ -40,11 +59,47 @@ class SheetSpec(BaseModel):
     cards: list[CardSpec]
 
 
+class PreviewSpec(BaseModel):
+    """A barcode to draw a single card for."""
+
+    barcode: str
+    name: str = "Card"
+
+
 class AbilityView(BaseModel):
     """One row of the published ability table."""
 
     code: int
     description: str
+    usable_in_battle: bool = True
+
+    @classmethod
+    def of(cls, ability: SpecialAbility) -> AbilityView:
+        """Build the view, flagging the codes an ordinary battle ignores."""
+        return cls(
+            code=ability.code,
+            description=ability.description,
+            usable_in_battle=ability.code < FIRST_C1_C2_ONLY_CODE,
+        )
+
+
+class RaceView(BaseModel):
+    """One kind of card, named for someone who has not read the manual."""
+
+    name: str
+    label: str
+    description: str
+    is_fighter: bool
+
+    @classmethod
+    def of(cls, race: Race) -> RaceView:
+        """Build the view from the race enum."""
+        return cls(
+            name=race.name.lower(),
+            label=race.name.replace("_", " ").title(),
+            description=_RACE_DESCRIPTIONS[race],
+            is_fighter=race.is_fighter,
+        )
 
 
 class CharacterView(BaseModel):
@@ -80,9 +135,7 @@ class CharacterView(BaseModel):
             speed=character.speed,
             pp=character.pp,
             mp=character.mp,
-            special=AbilityView(
-                code=character.special.code, description=character.special.description
-            ),
+            special=AbilityView.of(character.special),
             sign_is_volatile=character.sign_is_volatile,
         )
 
@@ -97,3 +150,10 @@ class GenerateResult(BaseModel):
     is_exact: bool = True
     distance: int = 0
     differences: list[str] = Field(default_factory=list)
+
+
+class SheetPreview(BaseModel):
+    """Page images for a sheet, as data URLs the page can show directly."""
+
+    count: int
+    pages: list[str]
