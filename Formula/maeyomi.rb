@@ -15,7 +15,8 @@ class Maeyomi < Formula
     python = Formula["python@3.14"].opt_bin/"python3.14"
     ENV["UV_PROJECT_ENVIRONMENT"] = libexec
     ENV["UV_PYTHON_DOWNLOADS"] = "never"
-    system "uv", "sync", "--frozen", "--no-dev", "--extra", "ui", "--python", python
+    system "uv", "sync", "--frozen", "--no-dev", "--no-editable", "--extra", "ui",
+           "--python", python
     bin.install_symlink libexec/"bin/maeyomi"
   end
 
