@@ -71,9 +71,9 @@ def test_the_card_prints_race_class_and_ability(tmp_path: Path) -> None:
     render(path, sample())
 
     text = pdf_text(path)
-    assert "Race: Aquatic" in text
-    assert "Class: Warrior" in text
-    assert "Ability: 50" in text
+    assert "Sea creature" in text
+    assert "Warrior" in text
+    assert "hero flag" in text
 
 
 def test_the_card_prints_the_numeric_code(tmp_path: Path) -> None:
@@ -92,12 +92,42 @@ def test_the_numeric_code_is_printed_once(tmp_path: Path) -> None:
     assert pdf_text(path).count("237501") == 1
 
 
-def test_a_long_name_is_trimmed_rather_than_overflowing(tmp_path: Path) -> None:
+def test_a_long_name_wraps_onto_a_second_line(tmp_path: Path) -> None:
     path = tmp_path / "long.pdf"
 
-    render(path, sample("A" * 200))
+    render(path, sample("Thunder Dragon of the Northern Peaks"))
+
+    text = pdf_text(path)
+    assert "Thunder" in text
+    assert "Peaks" in text
+
+
+def test_a_name_too_long_to_wrap_is_trimmed_rather_than_overflowing(tmp_path: Path) -> None:
+    path = tmp_path / "huge.pdf"
+
+    render(path, sample("A" * 400))
 
     assert "..." in pdf_text(path)
+
+
+def test_a_long_ability_wraps_instead_of_being_cut(tmp_path: Path) -> None:
+    path = tmp_path / "ability.pdf"
+    barcode = "0501209100305"
+    card = GeneratedCard(name="Trickster", barcode=barcode, character=decode(barcode))
+
+    render(path, card)
+
+    text = pdf_text(path)
+    assert card.character.special.description.split()[-1] in text
+    assert "..." not in text
+
+
+def test_nothing_is_drawn_over_the_symbol(tmp_path: Path) -> None:
+    path = tmp_path / "clear.pdf"
+
+    render(path, sample("Thunder Dragon of the Northern Peaks"))
+
+    assert decode_image(render_pdf_pages(path, dpi=300)[0]) == [BARCODE]
 
 
 def test_a_card_too_narrow_for_its_symbol_is_rejected(tmp_path: Path) -> None:
@@ -135,3 +165,56 @@ def pdf_text(path: Path) -> str:
         return str(document[0].get_textpage().get_text_range())
     finally:
         document.close()
+
+
+def test_an_undocumented_ability_is_named_in_plain_words(tmp_path: Path) -> None:
+    path = tmp_path / "unknown.pdf"
+    barcode = "0221219400645"
+    card = GeneratedCard(name="Mystery", barcode=barcode, character=decode(barcode))
+
+    render(path, card)
+
+    text = pdf_text(path)
+    assert "undocumented" not in text
+    assert "Unknown power" in text
+
+
+def test_a_card_with_no_ability_says_so_in_plain_words(tmp_path: Path) -> None:
+    path = tmp_path / "none.pdf"
+    barcode = "0392110470003"
+    card = GeneratedCard(name="Pip", barcode=barcode, character=decode(barcode))
+
+    render(path, card)
+
+    assert "No special power" in pdf_text(path)
+
+
+def test_the_card_tells_a_child_which_end_to_swipe(tmp_path: Path) -> None:
+    path = tmp_path / "swipe.pdf"
+
+    render(path, sample())
+
+    assert "Swipe this end" in pdf_text(path)
+
+
+def test_an_item_card_says_it_is_an_item_rather_than_naming_a_class(tmp_path: Path) -> None:
+    path = tmp_path / "item.pdf"
+    barcode = "0000021600005"
+    card = GeneratedCard(name="Sharp Stick", barcode=barcode, character=decode(barcode))
+
+    render(path, card)
+
+    text = pdf_text(path)
+    assert "Item card" in text
+    assert "Weapon, one use" in text
+
+
+def test_a_name_longer_than_two_lines_is_cut_on_the_second(tmp_path: Path) -> None:
+    path = tmp_path / "overflow.pdf"
+    name = "The Extremely Enormous Thundering Dragon King of the Far Northern Mountain Peaks"
+
+    render(path, sample(name))
+
+    text = pdf_text(path)
+    assert "..." in text
+    assert "Peaks" not in text
