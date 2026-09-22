@@ -1,21 +1,76 @@
-# Barcode Battler II card generator
+<div align="center">
 
-Generate printable cards for the Barcode Battler II, either at random or built
-to attributes you choose. Every barcode is produced by inverting the device's
-real reading algorithm and is decoded back before it can reach a card.
+# maeyomi
 
-Cards are verified three ways: against this project's own decoder, by
-rasterising each printed page and reading the barcodes back with a real barcode
-reader, and by reading printed cards on a physical Barcode Battler II. The
-protocol and what each session settles are in
+<strong>Print playable cards for a 1992 Epoch Barcode Battler II.</strong>
+
+[![ci](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml/badge.svg)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
+[![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](#development)
+[![python](https://img.shields.io/badge/python-3.14-blue)](pyproject.toml)
+
+<p align="center">
+  <a href="#install"><strong>Install</strong></a> &nbsp;|&nbsp;
+  <a href="#use">Use</a> &nbsp;|&nbsp;
+  <a href="#how-it-works">How it works</a> &nbsp;|&nbsp;
+  <a href="#the-supermarket">The supermarket</a> &nbsp;|&nbsp;
+  <a href="#where-this-came-from"><strong>Sources</strong></a>
+</p>
+
+</div>
+
+**572** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Verified on the real machine.
+
+---
+
+The Barcode Battler II reads a barcode and derives a fighter or an item from
+the digits alone. Maeyomi is its own name for the front read, the one that
+produces a fighter, and this program inverts that arithmetic: you ask for a
+2400 defence armour card, it works out which barcode the device would read that
+way, and prints it.
+
+```console
+$ maeyomi generate --name "Fire Knight" --hp 5000 --attack 1800 --defense 1200 \
+    --race human --class warrior --output fire-knight.pdf
+
+Field    Requested       Generated       Difference
+---------------------------------------------------
+HP       5000            5000
+ST       1800            1800
+DF       1200            1200
+Race     human           human
+Class    warrior         warrior
+
+wrote fire-knight.pdf
+```
+
+Cut it out, swipe it, and the machine reads back exactly those numbers.
+
+Every barcode is decoded again before it reaches paper, every printed page is
+rasterised and read back with a barcode reader, and printed cards were swiped
+on a physical device. The protocol and what each session settled are in
 [`docs/hardware-validation.md`](docs/hardware-validation.md).
 
 ## Install
 
 ```bash
-uv sync                  # command line only
-uv sync --extra ui       # add the local web interface
+brew install gufranco/maeyomi/maeyomi
 ```
+
+That pulls in Python 3.14 and builds an isolated environment from the
+lockfile, so nothing lands in your own Python.
+
+From a checkout instead:
+
+```bash
+uv sync --extra ui
+uv run maeyomi doctor
+```
+
+`maeyomi doctor` is the first thing to run either way. It reads a barcode whose
+answer is known, draws a symbol and decodes it back out of a PDF, and checks
+that the Japanese font resolved, which is the failure that otherwise shows up
+as blank text on a printed card.
 
 ## Use
 

@@ -1,4 +1,4 @@
-# Barcode Battler II card maker
+# maeyomi
 
 Print-ready cards for a 1992 Epoch handheld. A barcode is the whole card: the
 device reads thirteen digits and derives the kind, the three numbers and the
