@@ -26,6 +26,21 @@ if [[ ! "$checksum" =~ ^[0-9a-f]{64}$ ]]; then
   exit 1
 fi
 
+tar -xzf "${work}/source.tar.gz" -C "$work"
+packaged_manifest=$(find "$work" -maxdepth 2 -name pyproject.toml | head -1)
+if [[ -z "$packaged_manifest" ]]; then
+  printf 'the release archive has no pyproject.toml to read a version from\n' >&2
+  exit 1
+fi
+packaged_version=$(sed -n 's/^version = "\(.*\)"$/\1/p' "$packaged_manifest" | head -1)
+tagged_version=${tag#v}
+
+if [[ "$packaged_version" != "$tagged_version" ]]; then
+  printf 'the release is tagged %s but the code in it says %s\n' "$tag" "$packaged_version" >&2
+  printf 'bump version in pyproject.toml, re-tag, and publish again\n' >&2
+  exit 1
+fi
+
 python3 - "$formula" "$url" "$checksum" <<'PY'
 import re
 import sys
