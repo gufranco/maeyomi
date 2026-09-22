@@ -41,3 +41,8 @@ jobs:
 
       - name: Check the machine
         run: uv run maeyomi doctor
+
+      - name: Check that GitHub says what the README says
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/check-public-text.sh

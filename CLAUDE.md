@@ -33,6 +33,25 @@ The two known divergences from the simulator are recorded at the top of
 | It survives a screen reader | The page and the PDFs both. See the accessibility section below |
 | Everything on the page exists in the CLI | A feature added to one is added to the other in the same change |
 
+## The README is the source for everything public
+
+Anything a person outside the code will read is made from the README, never
+written twice. That covers the repository description and homepage on GitHub,
+the `description` in `pyproject.toml`, the `desc` in the Homebrew formula,
+release notes, and any listing, post or page about this project anywhere.
+
+The sentence in `<strong>` tags under the title is the product description.
+Every other copy of it is that sentence, with only the mechanical changes a
+target demands, such as Homebrew rejecting a trailing full stop.
+
+Change the README first, then propagate. Never edit a copy directly, and never
+let a release note say something the README does not.
+
+`tests/public/test_one_description.py` fails when a file drifts, and
+`scripts/check-public-text.sh` fails when GitHub does, which CI runs on every
+push. Adding a new public surface means adding it to one of those two, or it
+will drift the moment the wording changes.
+
 ## Accessibility is a gate, not a pass
 
 The page: axe-core reports zero violations on every tab, in both colour
