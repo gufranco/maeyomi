@@ -128,12 +128,20 @@ def draw_card(
     if bleed_mm > 0:
         _draw_bleed(canvas, card, frame, bleed_mm)
     _draw_band(canvas, card, frame)
-    bottom_of_text = _draw_barcode(canvas, card, frame, symbol_width, geometry)
+    bottom_of_text = _barcode_block_top(frame, symbol_height)
     content = frame
     cursor = frame.y + frame.height - frame.style.band_height_mm - frame.style.block_gap_mm
     cursor = _draw_name(canvas, card, content, cursor)
     cursor = _draw_stats(canvas, card, content, cursor)
     _draw_ability(canvas, card, content, top=cursor, bottom=bottom_of_text)
+    _draw_barcode(
+        canvas,
+        card,
+        frame,
+        symbol_width=symbol_width,
+        symbol_height=symbol_height,
+        geometry=geometry,
+    )
     if frame.style.border:
         canvas.setStrokeColorRGB(*MUTED_INK)
         canvas.setLineWidth(0.4)
@@ -325,13 +333,6 @@ def _draw_stats(canvas: Canvas, card: GeneratedCard, frame: _Frame, top: float) 
             y_mm=bottom + tile_height - style.stat_icon_mm - 1.1,
             size_mm=style.stat_icon_mm,
         )
-        number = str(value)
-        number_font = font_for(number, bold=True)
-        canvas.setFillColorRGB(*INK)
-        canvas.setFont(
-            number_font, fit_size(number, number_font, tile_width - 1.6, style.stat_size_pt)
-        )
-        canvas.drawCentredString(centre * mm, (bottom + 4.2) * mm, number)
         canvas.setFillColorRGB(*MUTED_INK)
         _draw_pair(
             canvas,
@@ -344,6 +345,13 @@ def _draw_stats(canvas: Canvas, card: GeneratedCard, frame: _Frame, top: float) 
             centred=True,
             gap=PAIR_GAP_MM / 2,
         )
+        number = str(value)
+        number_font = font_for(number, bold=True)
+        canvas.setFillColorRGB(*INK)
+        canvas.setFont(
+            number_font, fit_size(number, number_font, tile_width - 1.6, style.stat_size_pt)
+        )
+        canvas.drawCentredString(centre * mm, (bottom + 4.2) * mm, number)
     return bottom - style.block_gap_mm
 
 
@@ -368,13 +376,6 @@ def _draw_ability(
     canvas.restoreState()
 
     icon_size = min(style.ability_icon_mm, height - 2.0)
-    draw_ability_icon(
-        canvas,
-        special,
-        x_mm=frame.inner_left + 1.2,
-        y_mm=top - 1.0 - icon_size,
-        size_mm=icon_size,
-    )
     text_left = frame.inner_left + 1.2 + icon_size + 1.6
     available = frame.x + frame.width - style.padding_mm - 1.2 - text_left
     header = Bilingual(f"{SPECIAL_POWER.english} {special.code:02d}", SPECIAL_POWER.japanese)
@@ -395,6 +396,13 @@ def _draw_ability(
         canvas.setFont(font, style.ability_size_pt)
         canvas.drawString(text_left * mm, baseline * mm, line)
         baseline -= style.ability_line_mm
+    draw_ability_icon(
+        canvas,
+        special,
+        x_mm=frame.inner_left + 1.2,
+        y_mm=top - 1.0 - icon_size,
+        size_mm=icon_size,
+    )
 
 
 def _ability_lines(
@@ -425,14 +433,31 @@ def _ability_lines(
     return [(line, english_font) for line in english] + [(line, japanese_font) for line in japanese]
 
 
+def _barcode_block_top(frame: _Frame, symbol_height: float) -> float:
+    """The line the text above the symbol must stay clear of.
+
+    Taken without drawing anything, so the symbol can be drawn last. A reader
+    that walks the page in the order it was written then hears the card the way
+    a person reads it, ending on the number rather than opening with it.
+    """
+    return _caption_baseline(frame, symbol_height) + frame.style.swipe_block_mm - 1.0
+
+
+def _caption_baseline(frame: _Frame, symbol_height: float) -> float:
+    """Where the swipe caption sits, just above the bars."""
+    return frame.y + frame.style.padding_mm + symbol_height + 1.0
+
+
 def _draw_barcode(
     canvas: Canvas,
     card: GeneratedCard,
     frame: _Frame,
+    *,
     symbol_width: float,
+    symbol_height: float,
     geometry: BarcodeGeometry,
-) -> float:
-    """Draw the symbol at the foot, captioned in both languages, and return its top.
+) -> None:
+    """Draw the symbol at the foot, captioned in both languages.
 
     The digits under the bars are drawn by the symbol itself, in the zone the
     standard reserves for them. Printing them a second time would put an
@@ -440,10 +465,10 @@ def _draw_barcode(
     """
     style = frame.style
     symbol_x = frame.x + (frame.width - symbol_width) / 2
-    _, symbol_height = draw_symbol(
+    draw_symbol(
         canvas, card.barcode, x_mm=symbol_x, y_mm=frame.y + style.padding_mm, geometry=geometry
     )
-    caption_baseline = frame.y + style.padding_mm + symbol_height + 1.0
+    caption_baseline = _caption_baseline(frame, symbol_height)
     canvas.setFillColorRGB(*MUTED_INK)
     _draw_pair(
         canvas,
@@ -455,4 +480,3 @@ def _draw_barcode(
         centred=True,
         gap=SWIPE_GAP_MM,
     )
-    return caption_baseline + style.swipe_block_mm - 1.0

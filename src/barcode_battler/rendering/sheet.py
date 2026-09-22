@@ -14,6 +14,7 @@ from barcode_battler.barcode.geometry import BarcodeGeometry
 from barcode_battler.models.generated_card import GeneratedCard
 from barcode_battler.rendering.calibration import draw_calibration
 from barcode_battler.rendering.card import CardStyle, draw_card
+from barcode_battler.rendering.document import describe
 from barcode_battler.rendering.layout import SheetLayout
 
 CUT_MARK_LENGTH_MM = 3.0
@@ -29,6 +30,7 @@ def write_sheet(
     style: CardStyle | None = None,
     cut_marks: bool = True,
     calibration: bool = True,
+    title: str | None = None,
 ) -> int:
     """Write every card across as many pages as it takes, and return the page count."""
     if not cards:
@@ -39,6 +41,7 @@ def write_sheet(
         str(path),
         pagesize=(resolved_layout.page_width_mm * mm, resolved_layout.page_height_mm * mm),
     )
+    describe(canvas, title or _title(cards))
     pages = 0
     for page in _pages(cards, resolved_layout.cards_per_page):
         _draw_page(
@@ -122,3 +125,10 @@ def _draw_cut_marks(canvas: Canvas, layout: SheetLayout) -> None:
 def _mark(canvas: Canvas, x1_mm: float, y1_mm: float, x2_mm: float, y2_mm: float) -> None:
     """Draw one cut mark, taking millimetres."""
     canvas.line(x1_mm * mm, y1_mm * mm, x2_mm * mm, y2_mm * mm)
+
+
+def _title(cards: Sequence[GeneratedCard]) -> str:
+    """Name the sheet after what is on it, for the reader who hears it spoken."""
+    if len(cards) == 1:
+        return f"Barcode Battler II card: {cards[0].name}"
+    return f"Barcode Battler II cards: {len(cards)} to cut out"

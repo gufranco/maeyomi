@@ -207,3 +207,31 @@ def test_the_barcode_field_accepts_only_digits() -> None:
     assert field is not None
     assert 'inputmode="numeric"' in field.group()
     assert "pattern=" in field.group()
+
+
+def test_a_keyboard_reader_can_skip_the_masthead() -> None:
+    assert 'class="skip-link" href="#panel-one"' in MARKUP
+
+
+def test_every_tab_and_panel_sits_inside_the_main_landmark() -> None:
+    main = MARKUP[MARKUP.index("<main>") : MARKUP.index("</main>")]
+
+    assert 'role="tablist"' in main
+    assert main.count('role="tabpanel"') == 5
+
+
+def test_the_shelf_can_be_scrolled_from_the_keyboard_and_has_a_name() -> None:
+    shelf = MARKUP[MARKUP.index('id="shop-list"') :][:200]
+
+    assert 'tabindex="0"' in shelf
+    assert 'aria-labelledby="shop-results-heading"' in shelf
+
+
+def test_the_cheat_hint_is_not_dimmed_below_the_contrast_floor() -> None:
+    hints = STYLES[STYLES.index(".secret-hints {") :]
+
+    assert "opacity" not in hints[: hints.index("}")]
+
+
+def test_the_tablist_moves_focus_with_one_tab_stop() -> None:
+    assert "tab.tabIndex = on ? 0 : -1;" in SCRIPT

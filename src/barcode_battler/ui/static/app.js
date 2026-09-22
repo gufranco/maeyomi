@@ -82,16 +82,21 @@ function setUpTabs() {
     tabs.forEach((tab) => {
       const on = tab === chosen;
       tab.setAttribute('aria-selected', String(on));
+      tab.tabIndex = on ? 0 : -1;
       $(tab.getAttribute('aria-controls')).toggleAttribute('hidden', !on);
     });
   };
+  select(tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') ?? tabs[0]);
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => select(tab));
     tab.addEventListener('keydown', (event) => {
+      const ends = { Home: 0, End: tabs.length - 1 };
       const step = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
-      if (!step) return;
+      if (!step && !(event.key in ends)) return;
       event.preventDefault();
-      const next = tabs[(tabs.indexOf(tab) + step + tabs.length) % tabs.length];
+      const next = step
+        ? tabs[(tabs.indexOf(tab) + step + tabs.length) % tabs.length]
+        : tabs[ends[event.key]];
       next.focus();
       select(next);
     });

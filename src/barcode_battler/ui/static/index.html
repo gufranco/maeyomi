@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#panel-one" data-i18n="skip">Skip to the card maker</a>
+
 <header class="masthead">
   <div class="masthead-top">
     <h1 data-i18n="title">Barcode Battler II card maker</h1>
@@ -22,6 +24,8 @@
     anyone who cannot read yet.
   </p>
 </header>
+
+<main>
 
 <div class="tabs" role="tablist" aria-label="What would you like to make"
      data-i18n-aria-label="tabs.label">
@@ -42,7 +46,6 @@
   <p class="cheat-quip" id="cheat-quip"></p>
 </div>
 
-<main>
 
 <section id="panel-one" role="tabpanel" aria-labelledby="tab-one" class="layout">
   <form id="one" class="panel">
@@ -312,11 +315,12 @@
   </form>
 
   <aside class="preview" aria-live="polite">
-    <h2 data-i18n="shop.results">On the shelf</h2>
+    <h2 id="shop-results-heading" data-i18n="shop.results">On the shelf</h2>
     <p class="placeholder" id="shop-placeholder" data-i18n="shop.placeholder">
       Search for something, or press Surprise me.
     </p>
-    <ul id="shop-list" class="shelf"></ul>
+    <ul id="shop-list" class="shelf" tabindex="0"
+        aria-labelledby="shop-results-heading"></ul>
     <p class="hint" id="shop-credit"></p>
   </aside>
 </section>

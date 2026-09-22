@@ -1,3 +1,19 @@
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: 0;
+  padding: .6rem 1rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: 0 0 var(--radius) 0;
+  font-weight: 700;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
 :root {
   color-scheme: light dark;
   --ink: #16181d;
@@ -301,6 +317,11 @@ button[disabled] { opacity: .55; cursor: progress; }
 
 .placeholder { color: var(--ink-soft); text-align: center; margin: 0; }
 
+.shelf:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .shelf {
   list-style: none;
   margin: 0;
@@ -521,16 +542,15 @@ footer p { margin: 0 auto .5rem; max-width: 46rem; }
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  opacity: .45;
 }
 
 .konami-doodle {
   min-height: 44px;
+  color: var(--ink-soft);
   padding: 0 .75rem;
   border: 1px dashed var(--line);
   border-radius: 999px;
   background: none;
-  color: inherit;
   font-family: ui-monospace, monospace;
   font-size: .8rem;
   letter-spacing: .25em;

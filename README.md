@@ -266,6 +266,38 @@ Japanese is set in a font every PDF reader carries but which is referenced
 rather than embedded. For a print shop, send the page images instead of the PDF,
 `--images png`, which are 600 dpi with the lettering already drawn in.
 
+## Getting at it without a mouse or without sight
+
+The page answers to a keyboard alone. A skip link jumps past the masthead, the
+five tabs are one stop with the arrow keys moving between them, Home and End go
+to the ends, every control paints a visible focus ring, every control is at
+least 44 by 44 pixels, and the list of groceries can be scrolled from the
+keyboard. The language switch changes the `lang` on the document, so a screen
+reader changes voice with it. Animation is dropped when the system asks for
+less of it.
+
+axe-core reports no violation on any of the five tabs, in the light scheme and
+in the dark one, against WCAG 2.2 A and AA plus its own best-practice set. The
+checks that a rule set cannot make were made by hand in a real browser: the
+focus ring was read back off the focused element rather than off the
+stylesheet, and the cheat hint in the footer measures 7.43:1 against the page.
+
+The PDFs carry what a PDF can carry without a structure tree. Each one names
+itself, so a reader announces "Barcode Battler II card: Tea" instead of
+`sheet.pdf`, and is told to prefer that title over the filename. The document
+declares its language, its author and what it is. Every word on a card is real
+text: the names, the numbers, the special power, both languages, and the digits
+under the bars, all of which come back out of the file in the order a person
+would read them, kind first, then the name, then each number after the label
+that says what it measures, then the power, and the barcode last.
+
+What is not there: ReportLab emits no tag tree, so these are not PDF/UA files.
+There are no headings, no lists and no alternative text for the pictograms, and
+the Japanese runs are not individually marked as Japanese. The pictograms
+repeat what the words next to them already say, so nothing is lost by their
+having no description, but a validator will call these untagged, and it is
+right.
+
 ## Colour
 
 The cards go to a commercial printer, which often means the job runs in black
