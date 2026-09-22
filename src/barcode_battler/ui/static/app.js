@@ -23,7 +23,6 @@ const escapeHtml = (text) => String(text).replace(/[&<>"']/g, (ch) => ESCAPES[ch
 
 const isJapanese = () => currentLanguage === 'ja';
 
-const orientation = () => $('orientation').value;
 
 async function getJson(url) {
   const response = await fetch(url);
@@ -177,7 +176,6 @@ function oneCardPayload() {
     ability: Number($('ability').value),
     nearest: $('nearest').checked,
     backRead: $('backRead').checked,
-    orientation: orientation(),
     ...($('class').value ? { class: $('class').value } : {}),
     ...($('speed').value !== '' ? { speed: Number($('speed').value) } : {}),
     ...($('job').value !== '' ? { job: Number($('job').value) } : {}),
@@ -198,7 +196,6 @@ async function showPreview(barcode, name) {
   const { ok, response } = await postJson('/api/preview', {
     barcode,
     name,
-    orientation: orientation(),
   });
   if (!ok) return;
   const previous = $('card-image').getAttribute('src');
@@ -249,7 +246,6 @@ function sheetPayload() {
   const range = (key) => `${$(`${key}-min`).value}-${$(`${key}-max`).value}`;
   return {
     count: Number($('count').value),
-    orientation: orientation(),
     hp: range('hp'),
     st: range('st'),
     df: range('df'),
@@ -307,7 +303,6 @@ async function downloadSheet() {
 async function downloadBarcodes(cards, filename, statusId) {
   const { ok, body, response } = await postJson('/api/barcode-sheet', {
     cards,
-    orientation: orientation(),
   });
   if (!ok) {
     refuse(statusId, body, 'status.again');
@@ -318,7 +313,7 @@ async function downloadBarcodes(cards, filename, statusId) {
 
 function officialPayload() {
   const chosen = $('official-set').value;
-  return chosen ? { set: chosen, orientation: orientation() } : { orientation: orientation() };
+  return chosen ? { set: chosen } : {};
 }
 
 function renderOfficial() {
@@ -484,9 +479,6 @@ function setUpLanguage() {
 
 setUpTabs();
 setUpStats();
-$('orientation').addEventListener('change', () => {
-  if (cheatCard) showPreview(cheatCard.barcode, $('name').value || cheatCard.name);
-});
 setUpLanguage();
 $('one').addEventListener('submit', makeOneCard);
 $('one-pdf').addEventListener('click', downloadOneCard);

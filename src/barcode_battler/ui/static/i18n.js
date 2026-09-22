@@ -85,9 +85,6 @@ const MESSAGES = {
     'cheat.try': 'Try it',
     'cheat.found': 'Oh no. You found it.',
     'secret.alt': 'A small barcode nobody asked for',
-    shape: 'Card shape',
-    'shape.portrait': 'Standing up',
-    'shape.landscape': 'Lying down',
     hints: [
       "Not that one. It is something a player would have shouted in 1992.",
       'Ten presses. Eight of them are arrows.',
@@ -227,9 +224,6 @@ const MESSAGES = {
     'cheat.try': 'ためす',
     'cheat.found': 'あっ。みつかっちゃった。',
     'secret.alt': 'だれも たのんで いない ちいさな バーコード',
-    shape: 'カードの むき',
-    'shape.portrait': 'たて',
-    'shape.landscape': 'よこ',
     hints: [
       'それじゃ ない。1992ねんに みんなが さけんだ ことば だよ。',
       '10かい おす。そのうち 8かいは やじるし。',

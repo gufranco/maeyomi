@@ -14,8 +14,7 @@ from barcode_battler.decoder.decode import decode
 from barcode_battler.models.generated_card import GeneratedCard
 from barcode_battler.rendering.card import CardStyle, draw_card
 from barcode_battler.rendering.layout import (
-    ID1_LONG_MM,
-    ID1_SHORT_MM,
+    CARD_WIDTH_MM,
     POKER_CARD_HEIGHT_MM,
     POKER_CARD_WIDTH_MM,
 )
@@ -379,95 +378,9 @@ def test_without_a_bleed_nothing_is_drawn_outside_the_card(tmp_path: Path) -> No
     assert image.getpixel((int(1.0 * per_mm), int(1.0 * per_mm))) == (255, 255, 255)
 
 
-def landscape(path: Path, card: GeneratedCard) -> None:
-    width, height = ID1_LONG_MM, ID1_SHORT_MM
-    canvas = Canvas(str(path), pagesize=(width * mm, height * mm))
-    draw_card(
-        canvas,
-        card,
-        x_mm=0,
-        y_mm=0,
-        width_mm=width,
-        height_mm=height,
-        geometry=BarcodeGeometry(),
-    )
-    canvas.showPage()
-    canvas.save()
-
-
-def test_a_landscape_card_still_carries_a_scannable_barcode(tmp_path: Path) -> None:
-    path = tmp_path / "landscape.pdf"
-
-    landscape(path, sample())
-
-    assert decode_pdf(path) == [BARCODE]
-
-
-def test_a_landscape_card_says_everything_a_portrait_one_does(tmp_path: Path) -> None:
-    path = tmp_path / "landscape-text.pdf"
-
-    landscape(path, sample())
-
-    text = " ".join(pdf_text(path).split())
-    for expected in (
-        "Fire Knight",
-        "4000",
-        "1200",
-        "700",
-        "Sea creature",
-        "うみの いきもの",
-        "hero flag",
-        "主人公フラグ",
-    ):
-        assert expected in text
-
-
-def test_a_landscape_card_keeps_the_bars_at_their_full_height(tmp_path: Path) -> None:
-    path = tmp_path / "landscape-bars.pdf"
-
-    landscape(path, sample())
-
-    image = render_pdf_pages(path, dpi=300)[0]
-    assert decode_image(image) == [BARCODE]
-
-
-def test_a_landscape_card_too_short_for_the_symbol_is_rejected(tmp_path: Path) -> None:
-    path = tmp_path / "squashed.pdf"
-    canvas = Canvas(str(path), pagesize=(ID1_LONG_MM * mm, 30 * mm))
-
-    with pytest.raises(ValueError, match="too short"):
-        draw_card(
-            canvas,
-            sample(),
-            x_mm=0,
-            y_mm=0,
-            width_mm=ID1_LONG_MM,
-            height_mm=30,
-            geometry=BarcodeGeometry(),
-        )
-
-
-def test_a_landscape_card_too_narrow_for_the_symbol_beside_its_text_is_rejected(
-    tmp_path: Path,
-) -> None:
-    path = tmp_path / "narrow-landscape.pdf"
-    canvas = Canvas(str(path), pagesize=(60 * mm, ID1_SHORT_MM * mm))
-
-    with pytest.raises(ValueError, match="beside its text"):
-        draw_card(
-            canvas,
-            sample(),
-            x_mm=0,
-            y_mm=0,
-            width_mm=60,
-            height_mm=ID1_SHORT_MM - 1,
-            geometry=BarcodeGeometry(),
-        )
-
-
 def test_a_portrait_card_too_short_for_its_text_is_rejected(tmp_path: Path) -> None:
     path = tmp_path / "short-portrait.pdf"
-    canvas = Canvas(str(path), pagesize=(ID1_SHORT_MM * mm, 60 * mm))
+    canvas = Canvas(str(path), pagesize=(CARD_WIDTH_MM * mm, 60 * mm))
 
     with pytest.raises(ValueError, match="and its text"):
         draw_card(
@@ -475,7 +388,7 @@ def test_a_portrait_card_too_short_for_its_text_is_rejected(tmp_path: Path) -> N
             sample(),
             x_mm=0,
             y_mm=0,
-            width_mm=ID1_SHORT_MM,
+            width_mm=CARD_WIDTH_MM,
             height_mm=60,
             geometry=BarcodeGeometry(),
         )

@@ -147,10 +147,15 @@ Print at 100 percent. Turn off "fit to page", "shrink to fit" and any other
 magnification. A scaled page still looks correct and still stops reading,
 because the module width is what a scanner measures.
 
-Cards are exactly bank card sized, 85.60 by 53.98 mm, the ISO/IEC 7810 ID-1
-format, and print either way round: `--landscape` turns them on their side,
-where the barcode turns with them and keeps its full bar height. Nine portrait
-cards or eight landscape cards fit an A4 sheet.
+Cards print standing up, nine to an A4 sheet, at the size set by
+`CARD_WIDTH_MM` and `CARD_HEIGHT_MM` in
+[`layout.py`](src/barcode_battler/rendering/layout.py).
+
+**That size is a placeholder.** Epoch never published the dimensions of its own
+cards, and no collector page, auction listing or wiki records them, so the value
+there is the ISO/IEC 7810 ID-1 bank card, 53.98 by 85.60 mm. Measuring one
+original card with a ruler settles it, and changing those two numbers is the
+whole change: every other measurement on the page is derived.
 
 Each sheet follows what print shops ask for:
 

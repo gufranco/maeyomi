@@ -41,7 +41,6 @@ from barcode_battler.official.catalogue import (
     official_cards,
     rejected_transcriptions,
 )
-from barcode_battler.rendering.layout import SheetLayout
 from barcode_battler.rendering.preview import card_png, sheet_png_pages, symbol_png
 from barcode_battler.rendering.sheet import write_sheet
 from barcode_battler.ui.schemas import (
@@ -67,6 +66,7 @@ BAD_REQUEST: Final = 400
 UNPROCESSABLE: Final = 422
 STATIC_DIR: Final = Path(str(resources.files("barcode_battler.ui") / "static"))
 PREVIEW_PAGE_LIMIT: Final = 4
+CARDS_PER_PAGE: Final = 9
 
 
 def index() -> HTMLResponse:
@@ -134,19 +134,13 @@ def generate_one(spec: CardSpec) -> GenerateResult:
 
 def preview(spec: PreviewSpec) -> Response:
     """Draw one card exactly as it would print, and return it as an image."""
-    width, height = spec.card_size_mm
-    return Response(
-        content=card_png(_decoded_card(spec), width_mm=width, height_mm=height),
-        media_type="image/png",
-    )
+    return Response(content=card_png(_decoded_card(spec)), media_type="image/png")
 
 
 def sheet_preview(spec: RandomSpec) -> SheetPreview:
     """Draw the first pages of a random sheet, as images the page can show."""
     cards = _random_cards(spec)
-    layout = spec.layout
-    shown = cards[: PREVIEW_PAGE_LIMIT * layout.cards_per_page]
-    pages = sheet_png_pages(shown, layout=layout)
+    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE])
     return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
 
 
@@ -154,12 +148,12 @@ def sheet(spec: SheetSpec) -> FileResponse:
     """Build a sheet from an explicit list of cards."""
     if not spec.cards:
         raise HTTPException(status_code=UNPROCESSABLE, detail="no cards were requested")
-    return _sheet_response([_solve_card(card) for card in spec.cards], "card.pdf", spec.layout)
+    return _sheet_response([_solve_card(card) for card in spec.cards], "card.pdf")
 
 
 def random_sheet(spec: RandomSpec) -> FileResponse:
     """Build a sheet of random cards."""
-    return _sheet_response(_random_cards(spec), "cards.pdf", spec.layout)
+    return _sheet_response(_random_cards(spec), "cards.pdf")
 
 
 def cheat(spec: CheatSpec) -> CheatResult:
@@ -184,7 +178,7 @@ def barcode_sheet(spec: BarcodeSheetSpec) -> FileResponse:
     """Build a sheet from cards that already carry a barcode."""
     if not spec.cards:
         raise HTTPException(status_code=UNPROCESSABLE, detail="no cards were requested")
-    return _sheet_response([_decoded_card(card) for card in spec.cards], "cards.pdf", spec.layout)
+    return _sheet_response([_decoded_card(card) for card in spec.cards], "cards.pdf")
 
 
 def official() -> OfficialCatalogue:
@@ -213,14 +207,13 @@ def official() -> OfficialCatalogue:
 
 def official_sheet(spec: OfficialSpec) -> FileResponse:
     """Download one official set, or all of them."""
-    return _sheet_response(official_cards(_official_set(spec)), "official-cards.pdf", spec.layout)
+    return _sheet_response(official_cards(_official_set(spec)), "official-cards.pdf")
 
 
 def official_preview(spec: OfficialSpec) -> SheetPreview:
     """Draw the first pages of an official set."""
     cards = official_cards(_official_set(spec))
-    layout = spec.layout
-    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * layout.cards_per_page], layout=layout)
+    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE])
     return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
 
 
@@ -307,11 +300,9 @@ def _official_set(spec: OfficialSpec) -> OfficialSet | None:
         ) from error
 
 
-def _sheet_response(
-    cards: Sequence[GeneratedCard], filename: str, layout: SheetLayout | None = None
-) -> FileResponse:
+def _sheet_response(cards: Sequence[GeneratedCard], filename: str) -> FileResponse:
     """Render the cards to a temporary PDF and serve it as a download."""
     directory = Path(tempfile.mkdtemp(prefix="barcode-battler-"))
     path = directory / filename
-    write_sheet(cards, path, layout=layout)
+    write_sheet(cards, path)
     return FileResponse(path, media_type="application/pdf", filename=filename)

@@ -5,10 +5,9 @@ import pytest
 from barcode_battler.rendering.layout import (
     A4_HEIGHT_MM,
     A4_WIDTH_MM,
-    ID1_LONG_MM,
-    ID1_SHORT_MM,
+    CARD_HEIGHT_MM,
+    CARD_WIDTH_MM,
     MARK_BAND_MM,
-    CardOrientation,
     SheetLayout,
 )
 
@@ -111,38 +110,6 @@ def test_a_print_shop_page_holds_one_card_with_its_bleed() -> None:
     assert layout.bleed_mm == pytest.approx(3.0)
 
 
-def test_a_card_is_exactly_credit_card_sized() -> None:
-    assert (ID1_LONG_MM, ID1_SHORT_MM) == (85.60, 53.98)
-
-
-def test_the_default_card_is_a_credit_card_standing_up() -> None:
-    layout = SheetLayout()
-
-    assert (layout.card_width_mm, layout.card_height_mm) == (ID1_SHORT_MM, ID1_LONG_MM)
-    assert layout.orientation is CardOrientation.PORTRAIT
-
-
-def test_a_landscape_card_is_the_same_card_turned_over() -> None:
-    layout = SheetLayout.of(CardOrientation.LANDSCAPE)
-
-    assert (layout.card_width_mm, layout.card_height_mm) == (ID1_LONG_MM, ID1_SHORT_MM)
-    assert layout.card_width_mm * layout.card_height_mm == pytest.approx(
-        SheetLayout().card_width_mm * SheetLayout().card_height_mm
-    )
-
-
-def test_both_orientations_fill_a_page() -> None:
-    assert SheetLayout.of(CardOrientation.PORTRAIT).cards_per_page == 9
-    assert SheetLayout.of(CardOrientation.LANDSCAPE).cards_per_page == 8
-
-
-def test_a_print_shop_page_follows_the_orientation() -> None:
-    landscape = SheetLayout.print_shop(CardOrientation.LANDSCAPE)
-
-    assert landscape.card_width_mm == ID1_LONG_MM
-    assert landscape.page_width_mm == pytest.approx(ID1_LONG_MM + 2 * landscape.bleed_mm)
-
-
 def test_the_grid_leaves_the_marks_their_band() -> None:
     layout = SheetLayout()
     lowest = min(y for _, y in layout.positions())
@@ -152,14 +119,12 @@ def test_the_grid_leaves_the_marks_their_band() -> None:
     assert layout.page_height_mm - highest >= MARK_BAND_MM
 
 
-def test_a_landscape_grid_also_leaves_the_band() -> None:
-    layout = SheetLayout.of(CardOrientation.LANDSCAPE)
-    lowest = min(y for _, y in layout.positions())
+def test_a_card_is_taller_than_it_is_wide() -> None:
+    layout = SheetLayout()
 
-    assert lowest >= MARK_BAND_MM
+    assert (layout.card_width_mm, layout.card_height_mm) == (CARD_WIDTH_MM, CARD_HEIGHT_MM)
+    assert layout.card_height_mm > layout.card_width_mm
 
 
-def test_a_layout_built_by_hand_reports_its_orientation() -> None:
-    wide = SheetLayout(card_width_mm=85.6, card_height_mm=53.98)
-
-    assert wide.orientation is CardOrientation.LANDSCAPE
+def test_nine_cards_fill_a_page() -> None:
+    assert SheetLayout().cards_per_page == 9

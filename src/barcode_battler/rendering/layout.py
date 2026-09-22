@@ -16,32 +16,21 @@ instructions ask for.
 """
 
 from dataclasses import dataclass
-from enum import Enum
 from typing import Final
-
-
-class CardOrientation(Enum):
-    """Which way round a card is printed."""
-
-    PORTRAIT = "portrait"
-    LANDSCAPE = "landscape"
-
-    @property
-    def size_mm(self) -> tuple[float, float]:
-        """The width and height of a card in this orientation."""
-        if self is CardOrientation.LANDSCAPE:
-            return (ID1_LONG_MM, ID1_SHORT_MM)
-        return (ID1_SHORT_MM, ID1_LONG_MM)
-
 
 A4_WIDTH_MM: Final = 210.0
 A4_HEIGHT_MM: Final = 297.0
-ID1_LONG_MM: Final = 85.60
-ID1_SHORT_MM: Final = 53.98
-"""The ISO/IEC 7810 ID-1 card, which is the size of a bank card."""
+CARD_WIDTH_MM: Final = 53.98
+CARD_HEIGHT_MM: Final = 85.60
+"""The printed size of one card.
 
-POKER_CARD_WIDTH_MM: Final = ID1_SHORT_MM
-POKER_CARD_HEIGHT_MM: Final = ID1_LONG_MM
+This is a placeholder until an original Epoch card is measured: no published
+figure for it exists, so the value here is the ISO/IEC 7810 ID-1 card, which is
+the size of a bank card. See the note in the README.
+"""
+
+POKER_CARD_WIDTH_MM: Final = CARD_WIDTH_MM
+POKER_CARD_HEIGHT_MM: Final = CARD_HEIGHT_MM
 DEFAULT_MARGIN_MM: Final = 5.0
 DEFAULT_BLEED_MM: Final = 2.0
 DEFAULT_GUTTER_MM: Final = 2 * DEFAULT_BLEED_MM
@@ -74,33 +63,17 @@ class SheetLayout:
     marks: bool = True
 
     @classmethod
-    def of(cls, orientation: CardOrientation) -> SheetLayout:
-        """A sheet of cards in the given orientation."""
-        width, height = orientation.size_mm
-        return cls(card_width_mm=width, card_height_mm=height)
-
-    @classmethod
-    def print_shop(cls, orientation: CardOrientation = CardOrientation.PORTRAIT) -> SheetLayout:
+    def print_shop(cls) -> SheetLayout:
         """One card per page, sized to the card plus the bleed a printer asks for."""
         bleed = PRINT_SHOP_BLEED_MM
-        width, height = orientation.size_mm
         return cls(
-            page_width_mm=width + 2 * bleed,
-            page_height_mm=height + 2 * bleed,
-            card_width_mm=width,
-            card_height_mm=height,
+            page_width_mm=CARD_WIDTH_MM + 2 * bleed,
+            page_height_mm=CARD_HEIGHT_MM + 2 * bleed,
             margin_mm=0.0,
             gutter_mm=0.0,
             bleed_mm=bleed,
             marks=False,
         )
-
-    @property
-    def orientation(self) -> CardOrientation:
-        """Which way round these cards are."""
-        if self.card_width_mm > self.card_height_mm:
-            return CardOrientation.LANDSCAPE
-        return CardOrientation.PORTRAIT
 
     def __post_init__(self) -> None:
         """Reject a grid that cannot be printed."""

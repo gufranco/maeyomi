@@ -51,7 +51,6 @@ PANEL_FILL: Final[Colour] = (0.94, 0.95, 0.96)
 MAX_NAME_LINES: Final = 2
 PAIR_GAP_MM: Final = 1.6
 SWIPE_GAP_MM: Final = 2.4
-_MIN_CONTENT_WIDTH_MM: Final = 40.0
 
 
 @dataclass(frozen=True, slots=True)
@@ -125,16 +124,12 @@ def draw_card(
     """
     frame = _Frame(x_mm, y_mm, width_mm, height_mm, style or CardStyle())
     symbol_width, symbol_height = symbol_size_mm(card.barcode, geometry)
-    sideways = width_mm > height_mm
-    _check_fits(frame, symbol_width, symbol_height, sideways=sideways)
-    content = _content_frame(frame, symbol_height) if sideways else frame
+    _check_fits(frame, symbol_width, symbol_height)
     if bleed_mm > 0:
-        _draw_bleed(canvas, card, frame, content, bleed_mm)
-    _draw_band(canvas, card, content)
-    if sideways:
-        bottom_of_text = _draw_sideways_barcode(canvas, card, frame, symbol_width, geometry)
-    else:
-        bottom_of_text = _draw_barcode(canvas, card, frame, symbol_width, geometry)
+        _draw_bleed(canvas, card, frame, bleed_mm)
+    _draw_band(canvas, card, frame)
+    bottom_of_text = _draw_barcode(canvas, card, frame, symbol_width, geometry)
+    content = frame
     cursor = frame.y + frame.height - frame.style.band_height_mm - frame.style.block_gap_mm
     cursor = _draw_name(canvas, card, content, cursor)
     cursor = _draw_stats(canvas, card, content, cursor)
@@ -147,72 +142,7 @@ def draw_card(
         )
 
 
-def _check_sideways_fits(frame: _Frame, symbol_width: float, symbol_height: float) -> None:
-    """Reject a landscape card that cannot hold the symbol turned on its side."""
-    style = frame.style
-    needed_height = symbol_width + 2 * style.padding_mm
-    if frame.height < needed_height:
-        message = (
-            f"card is too short: {frame.height} mm cannot hold a {symbol_width:.2f} mm "
-            f"symbol turned on its side, which needs {needed_height:.2f} mm"
-        )
-        raise ValueError(message)
-    needed_width = symbol_height + 2 * style.padding_mm + _MIN_CONTENT_WIDTH_MM
-    if frame.width < needed_width:
-        message = (
-            f"card is too narrow: {frame.width} mm cannot hold a {symbol_height:.2f} mm "
-            f"symbol beside its text, which need {needed_width:.2f} mm"
-        )
-        raise ValueError(message)
-
-
-def _content_frame(frame: _Frame, symbol_height: float) -> _Frame:
-    """The part of a landscape card the text gets, left of the turned symbol."""
-    style = frame.style
-    width = frame.width - symbol_height - style.swipe_block_mm - style.padding_mm
-    return _Frame(frame.x, frame.y, width, frame.height, style)
-
-
-def _draw_sideways_barcode(
-    canvas: Canvas,
-    card: GeneratedCard,
-    frame: _Frame,
-    symbol_width: float,
-    geometry: BarcodeGeometry,
-) -> float:
-    """Draw the symbol turned a quarter turn against the right edge.
-
-    A landscape card is too short to carry the bars across the foot at their
-    full height, and the height of the bars is the whole of a hand swipe's
-    tolerance, so the symbol turns rather than shrinks. Returns the height the
-    lowest block of text may reach.
-    """
-    style = frame.style
-    right = frame.x + frame.width - style.padding_mm
-    span = frame.height - 2 * style.padding_mm
-    baseline = frame.y + style.padding_mm + (span - symbol_width) / 2
-    canvas.saveState()
-    canvas.translate(right * mm, baseline * mm)
-    canvas.rotate(90)
-    _, drawn_height = draw_symbol(canvas, card.barcode, x_mm=0, y_mm=0, geometry=geometry)
-    canvas.setFillColorRGB(*MUTED_INK)
-    _draw_pair(
-        canvas,
-        SWIPE,
-        x=symbol_width / 2,
-        baseline=-drawn_height - 1.4,
-        size_pt=style.swipe_size_pt,
-        available=symbol_width,
-        centred=True,
-        gap=SWIPE_GAP_MM,
-    )
-    canvas.restoreState()
-    return frame.y + style.padding_mm
-
-
-def _draw_bleed(
-    canvas: Canvas, card: GeneratedCard, frame: _Frame, band: _Frame, bleed: float
-) -> None:
+def _draw_bleed(canvas: Canvas, card: GeneratedCard, frame: _Frame, bleed: float) -> None:
     """Paint the card's background past the trim line on every side."""
     style = frame.style
     canvas.saveState()
@@ -227,9 +157,9 @@ def _draw_bleed(
     )
     canvas.setFillColorRGB(*RACE_COLOURS[card.character.race])
     canvas.rect(
-        (band.x - bleed) * mm,
-        (band.y + band.height - style.band_height_mm) * mm,
-        (band.width + bleed + (bleed if band.width == frame.width else 0)) * mm,
+        (frame.x - bleed) * mm,
+        (frame.y + frame.height - style.band_height_mm) * mm,
+        (frame.width + 2 * bleed) * mm,
         (style.band_height_mm + bleed) * mm,
         stroke=0,
         fill=1,
@@ -237,14 +167,9 @@ def _draw_bleed(
     canvas.restoreState()
 
 
-def _check_fits(
-    frame: _Frame, symbol_width: float, symbol_height: float, *, sideways: bool = False
-) -> None:
+def _check_fits(frame: _Frame, symbol_width: float, symbol_height: float) -> None:
     """Reject a card that cannot hold its own barcode at the required module width."""
     style = frame.style
-    if sideways:
-        _check_sideways_fits(frame, symbol_width, symbol_height)
-        return
     if frame.width < symbol_width + 2 * style.padding_mm:
         message = (
             f"card is too narrow: {frame.width} mm cannot hold a {symbol_width:.2f} mm "

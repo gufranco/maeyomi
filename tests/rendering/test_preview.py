@@ -13,7 +13,7 @@ from PIL import Image
 from barcode_battler.barcode.verify import decode_image
 from barcode_battler.decoder.decode import decode
 from barcode_battler.models.generated_card import GeneratedCard
-from barcode_battler.rendering.layout import ID1_LONG_MM, ID1_SHORT_MM
+from barcode_battler.rendering.layout import CARD_HEIGHT_MM, CARD_WIDTH_MM
 from barcode_battler.rendering.preview import card_png, sheet_png_pages, symbol_png
 
 BARCODE = "0401207237501"
@@ -42,7 +42,7 @@ def test_a_card_preview_has_the_aspect_ratio_of_the_printed_card() -> None:
     with opened(card_png(sample())) as image:
         ratio = image.width / image.height
 
-    assert ratio == pytest.approx(ID1_SHORT_MM / ID1_LONG_MM, abs=0.02)
+    assert ratio == pytest.approx(CARD_WIDTH_MM / CARD_HEIGHT_MM, abs=0.02)
 
 
 def test_a_higher_resolution_preview_is_larger() -> None:
