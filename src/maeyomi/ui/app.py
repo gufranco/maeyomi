@@ -261,7 +261,7 @@ def _product_view(product: JapaneseProduct) -> ProductView:
 
 def create_app() -> FastAPI:
     """Build the application with every route attached."""
-    app = FastAPI(title="Barcode Battler II card maker", docs_url="/docs")
+    app = FastAPI(title="maeyomi", docs_url="/docs")
     app.add_api_route("/", index, methods=["GET"], response_class=HTMLResponse)
     app.add_api_route("/api/races", races, methods=["GET"])
     app.add_api_route("/api/abilities", abilities, methods=["GET"])

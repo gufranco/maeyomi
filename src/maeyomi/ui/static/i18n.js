@@ -3,7 +3,7 @@ const LANGUAGE_KEY = 'maeyomi-language';
 
 const MESSAGES = {
   en: {
-    title: 'Barcode Battler II card maker',
+    title: 'maeyomi',
     lede:
       'Design a fighter, print the sheet, cut the cards, swipe them through the machine. ' +
       'Every card is printed in English and Japanese, with pictures for anyone who cannot read yet.',
@@ -169,7 +169,7 @@ const MESSAGES = {
     ],
   },
   ja: {
-    title: 'バーコードバトラーII カードメーカー',
+    title: 'maeyomi',
     lede:
       'せんしを つくって、いんさつして、きって、マシンに とおそう。' +
       'カードは すべて えいごと にほんごで いんさつされ、もじが よめない こにも わかるように えが つきます。',

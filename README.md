@@ -46,6 +46,14 @@ wrote fire-knight.pdf
 
 Cut it out, swipe it, and the machine reads back exactly those numbers.
 
+The same thing with a preview, for anyone who would rather not type:
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/one-card-dark.png">
+  <img alt="The card maker, with a fighter designed on the left and the printable card drawn on the right" src="assets/screenshots/one-card-light.png">
+</picture>
+
+
 Every barcode is decoded again before it reaches paper, and every printed page
 is rasterised and read back with a barcode reader. Printed cards were swiped on
 a physical Barcode Battler II.
@@ -266,6 +274,12 @@ you can print.
 `maeyomi kinds` lists every kind of card the device knows, in both
 languages, with what each one does.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/read-a-barcode-dark.png">
+  <img alt="A bottle of Coca-Cola typed in as a barcode, read back as an armour card worth 2400 defence" src="assets/screenshots/read-a-barcode-light.png">
+</picture>
+
+
 This is how the machine was actually played. Any product barcode is a card, so a
 bottle of tomato sauce is a fighter and a packet of crisps is a weapon. Japanese
 product codes work like any other: `4902102072618`, a bottle of tea, is armour
@@ -277,6 +291,12 @@ worth 2400 defence.
 match, `--count 9 --seed 3` takes a handful at random, and `-o shopping.pdf`
 prints them. The web page has the same thing under **The supermarket**, with a
 **Surprise me** button. Tomato sauce against noodles is a fair fight.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/supermarket-dark.png">
+  <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
+</picture>
+
 
 The shelf is a curated subset of [Open Food Facts](https://world.openfoodfacts.org/),
 kept to barcodes issued to Japanese companies, the 45 and 49 prefixes, with a
