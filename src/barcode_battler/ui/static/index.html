@@ -281,20 +281,14 @@
 </main>
 
 <footer>
-  <form id="cheat" class="cheat-form">
-    <label for="cheat-code" data-i18n="cheat.label">Secret code</label>
-    <input id="cheat-code" name="code" autocomplete="off" spellcheck="false"
-           maxlength="20" placeholder="psst..." data-i18n-placeholder="cheat.placeholder">
-    <button type="submit" data-i18n="cheat.try">Try it</button>
-    <span class="hint" id="cheat-reply" role="status" aria-live="polite"></span>
-  </form>
+  <p class="secret-hints">
+    <button type="button" id="konami" class="konami-doodle"
+            aria-label="Cheat" data-i18n-aria-label="cheat.button">
+      &#8593; &#8593; &#8595; &#8595; &#8592; &#8594; &#8592; &#8594; B A
+    </button>
+  </p>
   <p id="disclaimer" data-only-language="en">__DISCLAIMER__</p>
   <p id="disclaimer-ja" lang="ja" data-only-language="ja">__DISCLAIMER_JA__</p>
-  <p class="secret-hints">
-    <span class="konami-doodle" aria-hidden="true">&#8593; &#8593; &#8595; &#8595; &#8592; &#8594; &#8592; &#8594; B A</span>
-    <img class="secret-symbol" src="/api/secret-symbol" width="120" height="98"
-         alt="A small barcode nobody asked for" data-i18n-alt="secret.alt">
-  </p>
   <p data-i18n="printing">
     Printing: use plain matte paper, turn off any "fit to page" or "scale"
     setting, and print at the highest quality your printer offers. The barcode

@@ -27,7 +27,7 @@ from barcode_battler.cli.parsing import parse_character_class, parse_constraint,
 from barcode_battler.cli.report import DISCLAIMER, DISCLAIMER_JA
 from barcode_battler.decoder.decode import decode
 from barcode_battler.decoder.errors import BarcodeError
-from barcode_battler.generator.cheat import DEFAULT_CHEAT_NAME, accepted_codes, strongest_card
+from barcode_battler.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
 from barcode_battler.generator.nearest import solve_nearest
 from barcode_battler.generator.random_cards import generate_random
 from barcode_battler.generator.solve import solve
@@ -41,7 +41,7 @@ from barcode_battler.official.catalogue import (
     official_cards,
     rejected_transcriptions,
 )
-from barcode_battler.rendering.preview import card_png, sheet_png_pages, symbol_png
+from barcode_battler.rendering.preview import card_png, sheet_png_pages
 from barcode_battler.rendering.sheet import write_sheet
 from barcode_battler.ui.schemas import (
     AbilityView,
@@ -164,16 +164,6 @@ def cheat(spec: CheatSpec) -> CheatResult:
     )
 
 
-def cheat_codes() -> list[str]:
-    """The codes the page accepts. A joke, not a lock: the endpoint above is open."""
-    return sorted(accepted_codes())
-
-
-def secret_symbol() -> Response:
-    """The cheat card's barcode on its own, for the unlabelled symbol in the footer."""
-    return Response(content=symbol_png(strongest_card().barcode), media_type="image/png")
-
-
 def barcode_sheet(spec: BarcodeSheetSpec) -> FileResponse:
     """Build a sheet from cards that already carry a barcode."""
     if not spec.cards:
@@ -230,8 +220,6 @@ def create_app() -> FastAPI:
     app.add_api_route("/api/sheet", sheet, methods=["POST"])
     app.add_api_route("/api/random", random_sheet, methods=["POST"])
     app.add_api_route("/api/cheat", cheat, methods=["POST"])
-    app.add_api_route("/api/cheat-codes", cheat_codes, methods=["GET"])
-    app.add_api_route("/api/secret-symbol", secret_symbol, methods=["GET"])
     app.add_api_route("/api/barcode-sheet", barcode_sheet, methods=["POST"])
     app.add_api_route("/api/official", official, methods=["GET"])
     app.add_api_route("/api/official-sheet", official_sheet, methods=["POST"])

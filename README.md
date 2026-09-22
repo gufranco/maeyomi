@@ -194,8 +194,8 @@ the barcode by this project's decoder, not copied from the wiki.
 
 ## The cheat code
 
-`barcode-battler cheat -o cheat.pdf`, or type a code into the box at the foot of
-the web page, or press up, up, down, down, left, right, left, right, B, A
+`barcode-battler cheat -o cheat.pdf`, or press the row of arrows at the foot of
+the web page, or type up, up, down, down, left, right, left, right, B, A
 anywhere on it. The card is a mechanical magician with 99900 health, 24500
 attack, 19900 defence and its attack doubled.
 
@@ -203,8 +203,7 @@ It is found, not typed in: the generator walks every front-read fighter at full
 health through the decoder's own arithmetic and keeps the strongest one that
 avoids both unresolved overflow branches. The 24500 is above the 19900 that
 barcodebattler.net publishes, because a mechanical fighter whose attack digits
-fall in the dual bonus set collects two bonuses. The codes are a joke, not a
-lock.
+fall in the dual bonus set collects two bonuses.
 
 ## Two languages and pictures
 

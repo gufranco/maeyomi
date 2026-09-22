@@ -31,18 +31,6 @@ from barcode_battler.models.race import Race
 DEFAULT_CHEAT_NAME: Final = "Maximus Cheatimus"
 STRONGEST_MAGICIAN_JOB: Final = 9
 ATTACK_DOUBLED: Final = 18
-CHEAT_CODES: Final = frozenset({"IDDQD", "UUDDLRLRBA", "KONAMI", "MAXIMUS", "BATTLER"})
-"""Words the interface accepts. They are a joke, not a lock: the endpoint is open."""
-
-
-def accepted_codes() -> frozenset[str]:
-    """Every code the interface accepts, including the card's own barcode.
-
-    The barcode is in the list so that the unlabelled symbol printed at the foot
-    of the page is a way in: read it with a phone, type the digits, and the card
-    appears.
-    """
-    return CHEAT_CODES | {strongest_card().barcode}
 
 
 def strongest_card(name: str = DEFAULT_CHEAT_NAME) -> GeneratedCard:

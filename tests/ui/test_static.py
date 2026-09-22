@@ -62,7 +62,6 @@ def test_the_placeholder_is_replaced_when_the_page_is_served(client: TestClient)
         "/api/sheet-preview",
         "/api/random",
         "/api/cheat",
-        "/api/cheat-codes",
         "/api/barcode-sheet",
         "/api/official",
         "/api/official-sheet",
@@ -88,7 +87,6 @@ def test_the_script_calls_every_endpoint_it_needs(endpoint: str) -> None:
         "count",
         "seed",
         "official-set",
-        "cheat-code",
     ],
 )
 def test_every_control_exists(control: str) -> None:
@@ -182,11 +180,15 @@ def test_a_hidden_element_stays_hidden_whatever_its_layout_class_says() -> None:
     assert re.search(r"\[hidden\]\s*\{\s*display:\s*none\s*!important", STYLES)
 
 
-def test_the_page_carries_the_arrow_doodle_as_a_hint() -> None:
-    assert "konami-doodle" in MARKUP
-    assert "/api/secret-symbol" in MARKUP
+def test_the_cheat_is_one_button_in_the_footer() -> None:
+    assert 'id="konami"' in MARKUP
+    assert MARKUP.count("konami-doodle") == 1
 
 
-def test_the_hints_get_warmer_with_each_wrong_guess() -> None:
-    assert "hints" in SCRIPT
-    assert re.search(r"wrongCount|attempts", SCRIPT)
+def test_the_cheat_button_has_an_accessible_name() -> None:
+    assert re.search(r'id="konami"[^>]*aria-label="[^"]+"', MARKUP, re.DOTALL)
+
+
+def test_the_arrows_still_work_from_the_keyboard() -> None:
+    assert "ArrowUp" in SCRIPT
+    assert "ArrowDown" in SCRIPT

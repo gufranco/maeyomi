@@ -13,7 +13,6 @@ let raceList = [];
 let abilityList = [];
 let catalogue = null;
 let cheatCard = null;
-let wrongCount = 0;
 
 const $ = (id) => document.getElementById(id);
 
@@ -415,22 +414,8 @@ async function activateCheat() {
   await showPreview(body.barcode, body.name);
 }
 
-async function setUpCheat() {
-  const codes = new Set(await getJson('/api/cheat-codes'));
-  $('cheat').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const typed = $('cheat-code').value.toUpperCase().replace(/\s+/g, '');
-    if (codes.has(typed)) {
-      wrongCount = 0;
-      $('cheat-reply').textContent = t('cheat.found');
-      $('cheat-code').value = '';
-      await activateCheat();
-    } else {
-      $('cheat-reply').textContent = warmerHint();
-    }
-  });
-
-  $('cheat-code').addEventListener('focus', rotateRiddle);
+function setUpCheat() {
+  $('konami').addEventListener('click', activateCheat);
 
   let progress = 0;
   document.addEventListener('keydown', async (event) => {
@@ -446,17 +431,6 @@ async function setUpCheat() {
   });
 }
 
-function warmerHint() {
-  const hints = t('hints');
-  const reply = wrongCount === 0 ? pick(t('wrong')) : hints[Math.min(wrongCount - 1, hints.length - 1)];
-  wrongCount += 1;
-  return reply;
-}
-
-function rotateRiddle() {
-  const riddles = t('riddles');
-  $('cheat-code').setAttribute('placeholder', pick(riddles));
-}
 
 function copyCode() {
   navigator.clipboard?.writeText($('one-code-value').textContent);
