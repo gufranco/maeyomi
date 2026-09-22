@@ -54,11 +54,17 @@ on a physical device. The protocol and what each session settled are in
 ## Install
 
 ```bash
+brew tap gufranco/maeyomi https://github.com/gufranco/maeyomi
 brew install gufranco/maeyomi/maeyomi
 ```
 
-That pulls in Python 3.14 and builds an isolated environment from the
-lockfile, so nothing lands in your own Python.
+The tap is this repository. Homebrew wants the explicit URL because the repo is
+not called `homebrew-maeyomi`, which keeps the formula, the source and the
+release beside each other instead of in a second repo that drifts.
+
+Installing pulls in Python 3.14 and builds an isolated environment from the
+committed lockfile, so you get the versions the tests ran against and nothing
+lands in your own Python.
 
 From a checkout instead:
 
