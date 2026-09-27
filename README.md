@@ -536,4 +536,7 @@ uv run pyright
 uv run pytest --cov
 ```
 
-Fixtures are rebuilt with `uv run python tools/fetch_fixtures.py`.
+Fixtures are rebuilt with `uv run python tools/fetch_fixtures.py`. The Datach
+Dragon Ball Z record comes from `uv run python tools/oracle/record_dbz.py`, which
+needs MAME and a dump of your own cartridge whose SHA-256 matches
+[`artifacts.manifest.json`](artifacts.manifest.json); MAME runs without a window.

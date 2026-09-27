@@ -1,0 +1,14 @@
+{
+  "artifacts": [
+    {
+      "id": "datach_dbz_prg",
+      "what": "Program ROM of Datach Dragon Ball Z: Gekitou Tenkaichi Budoukai, Bandai 1992, as MAME's nes_datach software list names it",
+      "path": "nes_datach/dtc_dbz/datach - dragon ball z - gekitou tenkaichi budou kai (japan).prg",
+      "size": 262144,
+      "sha256": "a1370e7410a98a4a2de19f4872281a065b1d7d7cd7b5f2ba0da70504b4a1d52d",
+      "sha1": "87478b635fefb25fa13c4876e20f505a97426c1b",
+      "crc32": "19e81461",
+      "used_by": "tools/oracle/record_dbz.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    }
+  ]
+}

@@ -308,4 +308,4 @@ uv run pyright
 uv run pytest --cov
 ```
 
-テストデータは `uv run python tools/fetch_fixtures.py` で作り直します。
+テストデータは `uv run python tools/fetch_fixtures.py` で作り直します。データック ドラゴンボールZ の記録は `uv run python tools/oracle/record_dbz.py` で作ります。MAME と、SHA-256 が [`artifacts.manifest.json`](artifacts.manifest.json) と一致する手持ちのカートリッジのダンプが必要です。MAME はウィンドウを開かずに動きます。
