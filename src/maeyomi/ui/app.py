@@ -15,13 +15,13 @@ stays independently readable and testable.
 import base64
 import tempfile
 from collections.abc import Sequence
+from functools import cache
 from importlib import resources
 from pathlib import Path
 from typing import Final
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse, HTMLResponse, Response
-from fastapi.staticfiles import StaticFiles
 
 from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_race
 from maeyomi.decoder.decode import decode
@@ -65,6 +65,7 @@ from maeyomi.rendering.face import summary_of
 from maeyomi.rendering.labels import UNREADABLE, UNREADABLE_KIND, Bilingual
 from maeyomi.rendering.preview import card_png, sheet_png_pages
 from maeyomi.rendering.sheet import write_sheet
+from maeyomi.ui.assets import PAGE_HEADERS, CachedStaticFiles, asset_stamp, stamped
 from maeyomi.ui.devices import dbz_choices, device_views, facts_of
 from maeyomi.ui.schemas import (
     AbilityView,
@@ -102,8 +103,15 @@ SHELF_PAGE: Final = 60
 
 
 def index() -> HTMLResponse:
-    """Serve the page."""
-    return HTMLResponse((STATIC_DIR / "index.html").read_text(encoding="utf-8"))
+    """Serve the page, never cached, with its assets stamped and its security headers."""
+    markup = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
+    return HTMLResponse(stamped(markup, _stamp()), headers=PAGE_HEADERS)
+
+
+@cache
+def _stamp() -> str:
+    """The stamp of the static files, computed once per process."""
+    return asset_stamp(STATIC_DIR)
 
 
 def races() -> list[RaceView]:
@@ -362,7 +370,7 @@ def create_app() -> FastAPI:
     app.add_api_route("/api/read/{device}/{barcode}", read_on, methods=["GET"])
     app.add_api_route("/api/device-card", device_card, methods=["POST"])
     app.add_api_route("/api/device-cheat", device_cheat, methods=["POST"])
-    app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+    app.mount("/static", CachedStaticFiles(directory=STATIC_DIR), name="static")
     return app
 
 

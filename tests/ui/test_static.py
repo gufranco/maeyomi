@@ -12,6 +12,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from maeyomi.ui.app import STATIC_DIR, create_app
+from maeyomi.ui.assets import asset_stamp, stamped
 
 MARKUP = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
 SCRIPT = (STATIC_DIR / "app.js").read_text(encoding="utf-8")
@@ -51,8 +52,8 @@ def test_the_page_carries_no_verification_footer(client: TestClient) -> None:
     assert "never read by a physical Datach" not in page
 
 
-def test_the_page_is_served_as_it_is_written(client: TestClient) -> None:
-    assert client.get("/").text == MARKUP
+def test_the_page_is_served_as_it_is_written_with_stamped_assets(client: TestClient) -> None:
+    assert client.get("/").text == stamped(MARKUP, asset_stamp(STATIC_DIR))
 
 
 @pytest.mark.parametrize(
