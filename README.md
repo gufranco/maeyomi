@@ -390,9 +390,21 @@ card lists in [barcodebattler.co.uk](https://www.barcodebattler.co.uk/)'s
 `deeta.js`, which publishes them in English, so those cards carry English
 names. One Zelda item, the red potion, is also a card of the II board game.
 
-The 36 cards Bandai packed with Datach Dragon Ball Z come from the list in the
-[puNES](https://github.com/punesemu/puNES) emulator's source, and each one was
-read by the game in MAME before it was added.
+Datach Dragon Ball Z came with 40 cards. Its
+[manual](https://setsumei.cloudfree.jp/famicom/datachdragonballz/datachdragonballz.html)
+says some of them, Super Saiyan Goku, Super Saiyan Trunks, final-form Frieza and
+Perfect Cell among them, carry no barcode, and asks players to stick one of their
+own on those. The 35 that carry one, plus a special Super Saiyan Goku card, are
+the 36 printed here, taken from the list in the
+[puNES](https://github.com/punesemu/puNES) emulator's source and each read by
+the game in MAME before it was added.
+
+The game reads a barcode only when its bars, and its spaces, come in at least
+three different widths; it sorts the widths it measures into classes in its
+program at $B085 and refuses a scan with fewer. A code whose three widths are
+1, 2 and 4 reads only at some swipe speeds. Every code this program builds for
+the game reads at any speed, `maeyomi decode --device dbz` names a code the
+game refuses, and the supermarket marks the products it cannot read.
 
 ## The cheat code
 

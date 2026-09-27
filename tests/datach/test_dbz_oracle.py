@@ -55,3 +55,10 @@ def test_the_codes_the_game_refused_under_emulation_are_kept_visible() -> None:
     refused = sorted(str(entry["barcode"]) for entry in recorded() if not entry["accepted"])
 
     assert refused == ["20158231", "3623401959035", "5532403373177", "6312422195214"]
+
+
+def test_every_code_the_solver_built_was_read_by_the_game() -> None:
+    built = [entry for entry in recorded() if entry.get("generated")]
+
+    assert len(built) >= 19
+    assert all(entry["accepted"] for entry in built)

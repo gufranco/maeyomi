@@ -258,7 +258,5 @@ def test_the_sheet_marks_the_fields_only_some_devices_read() -> None:
     assert set(re.findall(r'data-sheet-field="(\w+)"', MARKUP)) == {"race"}
 
 
-def test_the_dragon_ball_refusal_note_appears_where_any_barcode_can_be_read() -> None:
-    for region in ("panel-shop", "panel-read"):
-        section = MARKUP[MARKUP.index(f'id="{region}"') :]
-        assert 'data-device-note="dbz"' in section[: section.index("</section>")]
+def test_no_blanket_warning_about_unreadable_codes_remains() -> None:
+    assert "data-device-note" not in MARKUP

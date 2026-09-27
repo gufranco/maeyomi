@@ -82,3 +82,16 @@ def test_the_language_choice_survives_storage_being_unavailable() -> None:
 def test_the_dictionaries_load_before_the_page_script() -> None:
     assert MARKUP.index("/static/i18n.js") < MARKUP.index("/static/devices.js")
     assert MARKUP.index("/static/devices.js") < MARKUP.index("/static/app.js")
+
+
+def test_every_continued_string_belongs_to_a_key() -> None:
+    lines = DICTIONARIES.splitlines()
+    orphans = [
+        number
+        for number, (previous, line) in enumerate(zip(lines, lines[1:], strict=False), start=2)
+        if re.match(r"\s+'", line)
+        and not re.match(r"\s+'[\w.]+':", line)
+        and re.match(r"\s+('[\w.]+'|\w+): .+,$", previous)
+    ]
+
+    assert orphans == []

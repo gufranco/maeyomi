@@ -492,3 +492,19 @@ def test_a_shelf_sheet_prints_for_the_chosen_device(client: TestClient, tmp_path
     response = client.post("/api/barcode-sheet", json={"cards": cards})
 
     assert sheet_codes(response.content, tmp_path) == [p["barcode"] for p in products["products"]]
+
+
+def test_a_product_the_game_cannot_read_is_marked_and_not_scored(client: TestClient) -> None:
+    body = client.get("/api/products", params={"q": "サンドイッチ", "device": "dbz"}).json()
+
+    product = next(p for p in body["products"] if p["barcode"] == "4974111777266")
+    assert product["readable"] is False
+    assert product["stats"] == "The game's reader cannot read this barcode"
+
+
+def test_a_product_that_reads_only_at_some_speeds_says_so(client: TestClient) -> None:
+    body = client.get("/api/products", params={"q": "4536471112837", "device": "dbz"}).json()
+
+    product = body["products"][0]
+    assert product["readable"] is True
+    assert product["note"] == "Reads only at some swipe speeds"

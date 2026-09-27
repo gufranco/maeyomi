@@ -51,6 +51,13 @@ ITEM_CARD: Final = Bilingual("Item card", "アイテム カード")
 UNKNOWN_KIND: Final = Bilingual("Enemy, kind unknown", "てき・しゅるい ふめい")
 DBZ_FIGHTER: Final = Bilingual("Fighter", "せんし")
 DBZ_MOVES: Final = Bilingual("Special moves", "ひっさつわざ")
+UNREADABLE: Final = Bilingual(
+    "The game's reader cannot read this barcode", "ゲームの リーダーでは よめない バーコード"
+)
+UNREADABLE_KIND: Final = Bilingual("Cannot be read", "よめない")
+SPEED_DEPENDENT: Final = Bilingual(
+    "Reads only at some swipe speeds", "とおす はやさに よっては よめない"
+)
 DBZ_EFFECT: Final = Bilingual("Effect", "こうか")
 UNKNOWN_FIGHTER: Final = Bilingual("Fighter, kind unknown", "キャラクター・しゅるい ふめい")
 PRIEST: Final = Bilingual("Priest", "そうりょ")

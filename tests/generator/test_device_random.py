@@ -4,6 +4,7 @@ import pytest
 
 from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.datach.dbz import DbzCard, DbzKind
+from maeyomi.datach.dbz_reader import Readability, readability
 from maeyomi.double.card import DoubleCard
 from maeyomi.generator.device_random import random_for
 from maeyomi.models.card_request import CardRequest
@@ -96,3 +97,9 @@ def test_ranges_nothing_can_meet_report_a_shortfall() -> None:
 
     assert batch.shortfall == 2
     assert "produced 0 of 2" in batch.reason
+
+
+def test_a_dragon_ball_sheet_holds_only_codes_the_game_reads_at_any_speed() -> None:
+    batch = random_for(Device.DATACH_DBZ, 30, template=DBZ_RANGES, seed=9)
+
+    assert all(readability(card.barcode) is Readability.READS for card in batch.cards)

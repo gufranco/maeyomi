@@ -138,9 +138,6 @@ function applyDeviceForm() {
   applySliders(form);
   applySheetForm(form);
   applyStatLabels();
-  document.querySelectorAll('[data-device-note]').forEach((node) => {
-    node.toggleAttribute('hidden', node.dataset.deviceNote !== chosenDevice);
-  });
   cheatCard = null;
   $('one-code').toggleAttribute('hidden', true);
 }

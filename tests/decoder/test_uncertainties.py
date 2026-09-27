@@ -47,13 +47,6 @@ def test_the_bonus_set_entry_cites_the_card_a_device_showed() -> None:
     assert "4994699095453" in UNCERTAINTIES["high_hp_bonus_sets"].evidence
 
 
-def test_the_codes_datach_dragon_ball_z_refused_under_emulation_are_recorded() -> None:
-    evidence = UNCERTAINTIES["dbz_emulated_refusals"].evidence
-
-    for barcode in ("20158231", "3623401959035", "5532403373177", "6312422195214"):
-        assert barcode in evidence
-
-
 def test_the_double_egg_that_reads_as_armour_is_recorded() -> None:
     entry = UNCERTAINTIES["double_onsen_tamago"]
 

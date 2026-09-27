@@ -18,6 +18,7 @@ from maeyomi.bb1.solve import solve_first
 from maeyomi.datach.dbz import decode_dbz
 from maeyomi.datach.dbz_cheat import strongest_dbz_card
 from maeyomi.datach.dbz_names import character_id
+from maeyomi.datach.dbz_reader import Readability, ReaderRefusalError, readability
 from maeyomi.datach.dbz_solve import request_from, solve_dbz, solve_dbz_nearest, unread_fields
 from maeyomi.decoder.decode import decode
 from maeyomi.double.cheat import strongest_double_card
@@ -29,6 +30,7 @@ from maeyomi.models.card_request import CardRequest
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import AnyCard, CardResult, GeneratedCard
 from maeyomi.models.read_type import ReadType
+from maeyomi.rendering.labels import SPEED_DEPENDENT, Bilingual
 
 NOT_READ: Final = "Datach Dragon Ball Z does not read {fields}"
 NO_DOUBLE_BACK_READ: Final = (
@@ -69,6 +71,21 @@ def device_named(key: str) -> Device:
 def read_as(device: Device, barcode: str) -> CardResult:
     """Decode a barcode the way the device reads it, raising BarcodeError on a refusal."""
     return printable_as(device, barcode, "").character
+
+
+def readable_as(device: Device, barcode: str) -> CardResult | None:
+    """The card, or None when the device's reader can never read this valid code."""
+    try:
+        return read_as(device, barcode)
+    except ReaderRefusalError:
+        return None
+
+
+def speed_note(device: Device, barcode: str) -> Bilingual | None:
+    """A caution when the device reads the code only at some swipe speeds."""
+    if device is Device.DATACH_DBZ and readability(barcode) is Readability.SPEED_DEPENDENT:
+        return SPEED_DEPENDENT
+    return None
 
 
 def printable_as(device: Device, barcode: str, name: str) -> AnyCard:

@@ -111,3 +111,11 @@ def test_every_product_is_a_card_on_every_device(device: Device) -> None:
     assert [card.character for card in cards] == [
         read_as(device, product.barcode) for product in japanese_products()[:20]
     ]
+
+
+def test_a_product_the_game_cannot_read_is_left_off_the_sheet() -> None:
+    shelf = [p for p in japanese_products() if p.barcode in {"4974111777266", "4536471112837"}]
+
+    cards = product_cards(shelf, device=Device.DATACH_DBZ)
+
+    assert [card.barcode for card in cards] == ["4536471112837"]

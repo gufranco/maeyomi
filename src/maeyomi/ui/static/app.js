@@ -585,6 +585,9 @@ function shelfRow(product) {
     `<span class="shelf-name">${escapeHtml(product.name)}</span>`,
     `<span class="shelf-kind">${escapeHtml(name)}</span>`,
     `<span class="shelf-stats">${escapeHtml(isJapanese() ? product.stats_ja : product.stats)}</span>`,
+    product.note
+      ? `<span class="shelf-note">${escapeHtml(isJapanese() ? product.note_ja : product.note)}</span>`
+      : '',
     `<code class="shelf-code">${escapeHtml(product.barcode)}</code>`,
     '</li>',
   ].join('');
@@ -626,7 +629,9 @@ async function downloadShelf() {
     return;
   }
   const device = currentDevice();
-  const cards = shelf.map(({ barcode, name }) => ({ barcode, name, device }));
+  const cards = shelf
+    .filter((product) => product.readable)
+    .map(({ barcode, name }) => ({ barcode, name, device }));
   await downloadBarcodes(cards, 'supermarket.pdf', 'shop-status');
 }
 

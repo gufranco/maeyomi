@@ -7,7 +7,7 @@
   "sha1": "87478b635fefb25fa13c4876e20f505a97426c1b"
  },
  "emulator": "MAME 0.289",
- "method": "the barcode was fed to the Datach reader's save state from Lua in カリン様の部屋, and the result read from RAM $0407, $0416 and $0417 to $041C",
+ "method": "the barcode was fed to the Datach reader's save state from Lua in カリン様の部屋, and the result read from RAM $0407, $0416 and $0417 to $041C; codes marked generated were built by this project's solver and recorded with tools/oracle/record_dbz.py",
  "recorded_utc": "2026-09-27",
  "official_names_source": "puNES src/gui/dlgDetachBarcode.cpp card list; each name is checked here only by the game's own result",
  "cards": [
@@ -2150,6 +2150,196 @@
    "hp": 41500,
    "bp": 22750,
    "dp": 32250
+  },
+  {
+   "barcode": "0036338232325",
+   "accepted": true,
+   "character": 9,
+   "level": 3,
+   "hp": 99500,
+   "bp": 48250,
+   "dp": 33250,
+   "generated": true
+  },
+  {
+   "barcode": "0000005000050",
+   "accepted": true,
+   "character": 33,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "generated": true
+  },
+  {
+   "barcode": "0000003000052",
+   "accepted": true,
+   "character": 35,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "generated": true
+  },
+  {
+   "barcode": "0000405001053",
+   "accepted": true,
+   "character": 39,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "generated": true
+  },
+  {
+   "barcode": "0000445001013",
+   "accepted": true,
+   "character": 43,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "generated": true
+  },
+  {
+   "barcode": "0000401000012",
+   "accepted": true,
+   "character": 45,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "generated": true
+  },
+  {
+   "barcode": "0000403001055",
+   "accepted": true,
+   "character": 71,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "generated": true
+  },
+  {
+   "barcode": "2864578657640",
+   "accepted": true,
+   "character": 21,
+   "level": 3,
+   "hp": 38000,
+   "bp": 23000,
+   "dp": 12750,
+   "generated": true
+  },
+  {
+   "barcode": "9589122555946",
+   "accepted": true,
+   "character": 7,
+   "level": 0,
+   "hp": 14500,
+   "bp": 19000,
+   "dp": 11750,
+   "generated": true
+  },
+  {
+   "barcode": "2905786332810",
+   "accepted": true,
+   "character": 18,
+   "level": 1,
+   "hp": 36500,
+   "bp": 12750,
+   "dp": 21000,
+   "generated": true
+  },
+  {
+   "barcode": "7670404406321",
+   "accepted": true,
+   "character": 1,
+   "level": 2,
+   "hp": 43500,
+   "bp": 22500,
+   "dp": 17750,
+   "generated": true
+  },
+  {
+   "barcode": "3525967974289",
+   "accepted": true,
+   "character": 5,
+   "level": 0,
+   "hp": 35500,
+   "bp": 22500,
+   "dp": 17500,
+   "generated": true
+  },
+  {
+   "barcode": "7788661300600",
+   "accepted": true,
+   "character": 22,
+   "level": 0,
+   "hp": 36500,
+   "bp": 24250,
+   "dp": 22750,
+   "generated": true
+  },
+  {
+   "barcode": "3776496802530",
+   "accepted": true,
+   "character": 24,
+   "level": 0,
+   "hp": 43000,
+   "bp": 17750,
+   "dp": 26250,
+   "generated": true
+  },
+  {
+   "barcode": "6679426941330",
+   "accepted": true,
+   "character": 8,
+   "level": 0,
+   "hp": 41000,
+   "bp": 21750,
+   "dp": 27250,
+   "generated": true
+  },
+  {
+   "barcode": "3082143750520",
+   "accepted": true,
+   "character": 3,
+   "level": 1,
+   "hp": 15500,
+   "bp": 28750,
+   "dp": 17750,
+   "generated": true
+  },
+  {
+   "barcode": "2097462013585",
+   "accepted": true,
+   "character": 6,
+   "level": 1,
+   "hp": 47500,
+   "bp": 18750,
+   "dp": 18250,
+   "generated": true
+  },
+  {
+   "barcode": "4633861533804",
+   "accepted": true,
+   "character": 2,
+   "level": 0,
+   "hp": 23500,
+   "bp": 17750,
+   "dp": 14500,
+   "generated": true
+  },
+  {
+   "barcode": "5294906228865",
+   "accepted": true,
+   "character": 6,
+   "level": 2,
+   "hp": 36500,
+   "bp": 10250,
+   "dp": 26500,
+   "generated": true
   }
  ]
 }

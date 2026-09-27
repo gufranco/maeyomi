@@ -79,6 +79,9 @@ class ProductView(BaseModel):
     stats_ja: str
     effect: str
     effect_ja: str
+    readable: bool = True
+    note: str = ""
+    note_ja: str = ""
 
 
 class ProductShelf(BaseModel):

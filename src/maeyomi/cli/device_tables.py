@@ -24,9 +24,9 @@ from maeyomi.official.catalogue import (
     rejected_transcriptions,
 )
 from maeyomi.products.japan import JapaneseProduct
-from maeyomi.registry import read_as
+from maeyomi.registry import readable_as, speed_note
 from maeyomi.rendering.face import summary_of
-from maeyomi.rendering.labels import RACE_DESCRIPTIONS, race_label
+from maeyomi.rendering.labels import RACE_DESCRIPTIONS, UNREADABLE, race_label
 
 SEVEN_READ_NOTE: Final = (
     "   A 7-read card has no race any source records; it prints as kind unknown."
@@ -64,12 +64,21 @@ def ability_lines(device: Device) -> list[str]:
 
 def product_lines(products: Sequence[JapaneseProduct], device: Device) -> list[str]:
     """One line per product: what the device makes of it, and its numbers."""
-    summaries = [(product, summary_of(read_as(device, product.barcode))) for product in products]
     lines = [
-        f"{product.barcode}  {product.name}  {summary.label.english}  {summary.stats.english}"
-        for product, summary in summaries
+        f"{product.barcode}  {product.name}  {_shelf_text(product, device)}" for product in products
     ]
     return [*lines, f"{len(products)} product(s)"]
+
+
+def _shelf_text(product: JapaneseProduct, device: Device) -> str:
+    """What the device makes of a product, or that its reader cannot read it."""
+    card = readable_as(device, product.barcode)
+    if card is None:
+        return UNREADABLE.english
+    summary = summary_of(card)
+    note = speed_note(device, product.barcode)
+    text = f"{summary.label.english}  {summary.stats.english}"
+    return text if note is None else f"{text}; {note.english}"
 
 
 def official_sets(device: Device | None) -> tuple[OfficialSet, ...]:

@@ -58,8 +58,11 @@ from maeyomi.registry import (
     device_named,
     printable_as,
     read_as,
+    readable_as,
+    speed_note,
 )
 from maeyomi.rendering.face import summary_of
+from maeyomi.rendering.labels import UNREADABLE, UNREADABLE_KIND, Bilingual
 from maeyomi.rendering.preview import card_png, sheet_png_pages
 from maeyomi.rendering.sheet import write_sheet
 from maeyomi.ui.devices import dbz_choices, device_views, facts_of
@@ -256,8 +259,11 @@ def lookup(barcode: str) -> LookupResult:
 
 def _product_view(product: JapaneseProduct, device: Device) -> ProductView:
     """Read a product the way the chosen device does, so the page shows what it becomes."""
-    card = read_as(device, product.barcode)
+    card = readable_as(device, product.barcode)
+    if card is None:
+        return _unreadable_view(product)
     shown = summary_of(card)
+    note = speed_note(device, product.barcode) or Bilingual("", "")
     return ProductView(
         barcode=product.barcode,
         name=product.name,
@@ -269,6 +275,25 @@ def _product_view(product: JapaneseProduct, device: Device) -> ProductView:
         stats_ja=shown.stats.japanese,
         effect=shown.effect.english,
         effect_ja=shown.effect.japanese,
+        note=note.english,
+        note_ja=note.japanese,
+    )
+
+
+def _unreadable_view(product: JapaneseProduct) -> ProductView:
+    """A product whose barcode the chosen device's reader cannot read."""
+    return ProductView(
+        barcode=product.barcode,
+        name=product.name,
+        brand=product.brand,
+        kind="unreadable",
+        label=UNREADABLE_KIND.english,
+        label_ja=UNREADABLE_KIND.japanese,
+        stats=UNREADABLE.english,
+        stats_ja=UNREADABLE.japanese,
+        effect=UNREADABLE.english,
+        effect_ja=UNREADABLE.japanese,
+        readable=False,
     )
 
 

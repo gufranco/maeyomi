@@ -23,7 +23,7 @@ from typing import Final
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import AnyCard
 from maeyomi.models.race import Race
-from maeyomi.registry import printable_as
+from maeyomi.registry import printable_as, readable_as
 
 DATA_FILE: Final = "japan.json"
 MINIMUM_PRODUCTS: Final = 500
@@ -82,5 +82,9 @@ def random_products(count: int, *, seed: int | None = None) -> tuple[JapanesePro
 def product_cards(
     products: Sequence[JapaneseProduct], *, device: Device = Device.BB2
 ) -> tuple[AnyCard, ...]:
-    """Turn products into cards, reading every number off the barcode the device's way."""
-    return tuple(printable_as(device, product.barcode, product.name) for product in products)
+    """Turn products into cards the device's way, leaving out any its reader cannot read."""
+    return tuple(
+        printable_as(device, product.barcode, product.name)
+        for product in products
+        if readable_as(device, product.barcode) is not None
+    )

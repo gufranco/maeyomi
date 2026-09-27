@@ -22,6 +22,7 @@ from enum import StrEnum
 from itertools import accumulate
 from typing import Final
 
+from maeyomi.datach.dbz_reader import check_readable
 from maeyomi.datach.dbz_tables import (
     ADDENDS,
     BASES,
@@ -72,6 +73,7 @@ class DbzCard:
 def decode_dbz(code: str) -> DbzCard:
     """Decode a barcode, raising a typed error when it is not a valid EAN."""
     normalised = validate_barcode(code)
+    check_readable(normalised)
     stream = stream_of(normalised)
     if stream == SECRET_STREAM:
         return _hidden(normalised)

@@ -6,8 +6,8 @@ barcode is drawn at random, read the way that device reads it, and kept when
 it is a fighter whose numbers sit inside the requested ranges. Nothing is
 adjusted after the read, so a printed card always shows what the device will.
 
-Datach Dragon Ball Z codes start with two zeros, as every code this project
-builds for it does, since those are the codes the game accepted every time.
+A Dragon Ball Z code is kept only when the game's reader reads it at any
+swipe speed, per `maeyomi.datach.dbz_reader`.
 """
 
 import random
@@ -16,6 +16,7 @@ from typing import Final
 
 from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.datach.dbz import DbzCard, DbzKind
+from maeyomi.datach.dbz_reader import Readability, readability
 from maeyomi.datach.dbz_solve import unread_fields
 from maeyomi.decoder.check_digit import expected_check_digit
 from maeyomi.double.card import DoubleCard
@@ -27,7 +28,6 @@ from maeyomi.registry import NOT_READ, printable_as
 from maeyomi.rendering.face import face_of
 
 BODY_DIGITS: Final = 12
-DBZ_LEAD: Final = "00"
 FIELD_OF_TILE: Final = {"HP": "hp", "ST": "st", "BP": "st", "DF": "df", "DP": "df"}
 
 
@@ -74,9 +74,10 @@ def _draw_batch(
     for _ in range(budget):
         if len(cards) == count:
             break
-        code = _random_code(device, rng)
-        card = printable_as(device, code, "").character
-        if code in seen or not _admits(template, card):
+        code = _random_code(rng)
+        if code in seen or not _reads_everywhere(device, code):
+            continue
+        if not _admits(template, printable_as(device, code, "").character):
             continue
         seen.add(code)
         cards.append(_named(device, code, len(cards)))
@@ -85,11 +86,15 @@ def _draw_batch(
     )
 
 
-def _random_code(device: Device, rng: random.Random) -> str:
-    """A valid EAN-13 with random digits, led by two zeros for Dragon Ball Z."""
-    lead = DBZ_LEAD if device is Device.DATACH_DBZ else ""
-    body = lead + "".join(str(rng.randrange(10)) for _ in range(BODY_DIGITS - len(lead)))
+def _random_code(rng: random.Random) -> str:
+    """A valid EAN-13 with random digits."""
+    body = "".join(str(rng.randrange(10)) for _ in range(BODY_DIGITS))
     return body + str(expected_check_digit(body))
+
+
+def _reads_everywhere(device: Device, code: str) -> bool:
+    """Whether the device reads the code at any swipe speed."""
+    return device is not Device.DATACH_DBZ or readability(code) is Readability.READS
 
 
 def _admits(template: CardRequest, card: CardResult) -> bool:

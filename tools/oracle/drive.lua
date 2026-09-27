@@ -15,9 +15,13 @@ local function reader_items()
   local items = dev.items
   return function(name) return emu.item(items[name]) end
 end
-local function scan(code)
+local function digits(code)
   local d = {}
   for i = 1, #code do d[i] = tonumber(code:sub(i, i)) end
+  return d
+end
+local function pattern(code)
+  local d = digits(code)
   local px = {0, 1, 0}
   local function put(t) for _, v in ipairs(t) do px[#px + 1] = v end end
   if #d == 13 then
@@ -32,6 +36,30 @@ local function scan(code)
     put(RE[d[8] + 1])
   end
   put({0, 1, 0})
+  return px
+end
+local QUIET = 61
+local swiping = nil
+local function swipe(arg)
+  local code, period = arg:match("^(%d+)%s+([%d%.]+)$")
+  local px = pattern(code)
+  local stream = {}
+  for _ = 1, QUIET do stream[#stream + 1] = 1 end
+  for _, v in ipairs(px) do stream[#stream + 1] = v end
+  for _ = 1, QUIET do stream[#stream + 1] = 1 end
+  local start = manager.machine.time:as_double()
+  local seconds = tonumber(period) / 1000000
+  local mem = manager.machine.devices[":maincpu"].spaces["program"]
+  swiping = mem:install_read_tap(0x6000, 0x7fff, "swipe", function(offset, data, mask)
+    local index = math.floor((manager.machine.time:as_double() - start) / seconds) + 1
+    local pixel = stream[index] or 0
+    return (data & 0xf7) | (pixel << 3)
+  end)
+  print("SWIPED", code, period, #stream)
+end
+local function scan(code)
+  local d = digits(code)
+  local px = pattern(code)
   local item = reader_items()
   for i = 1, #d do item("0/DATACH/m_byte_data"):write(i - 1, d[i]) end
   for i = 1, #px do item("0/DATACH/m_pixel_data"):write(i - 1, px[i]) end
@@ -50,6 +78,7 @@ emu.register_frame_done(function()
       local a, x = step[2], step[3]
       if a == "press" then local f = pad.fields["P1 " .. x]; if not f then print("NOFIELD", x); manager.machine:exit() else f:set_value(1); held["P1 " .. x] = n + 6 end end
       if a == "scan" then scan(x) end
+      if a == "swipe" then swipe(x) end
       if a == "snap" then manager.machine.video:snapshot(); print("SNAP", n, x) end
       if a == "dumpram" then
         local mem = manager.machine.devices[":maincpu"].spaces["program"]

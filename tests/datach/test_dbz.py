@@ -43,7 +43,7 @@ def test_an_item_card_names_an_item_and_carries_no_numbers() -> None:
 
 
 def test_the_hidden_stream_gives_the_fixed_card() -> None:
-    card = decode_dbz("0002425373738")
+    card = decode_dbz("0102425373735")
 
     assert card.kind is DbzKind.HIDDEN
     assert (card.hp, card.bp, card.dp) == (59000, 49990, 49990)

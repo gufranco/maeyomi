@@ -96,10 +96,8 @@ function checkSheetAndShop() {
   browser('click', '#shop-surprise');
   browser('wait', '2500');
   const shop = evaluate(`JSON.stringify({
-    note: document.querySelector('#panel-shop [data-device-note=dbz]').offsetParent !== null,
     rows: [...document.querySelectorAll('.shelf-stats')].map((row) => row.textContent),
   })`);
-  expect(shop.note, 'the supermarket hides the Dragon Ball Z refusal note');
   expect(shop.rows.length === 9, `the surprise shelf has ${shop.rows.length} products`);
   expect(!shop.rows.some((row) => row.includes('ST ')), 'the shelf shows II numbers for DBZ');
   browser('select', '#device', 'bb2');

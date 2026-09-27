@@ -427,6 +427,12 @@ button[disabled] { opacity: .55; cursor: progress; }
 
 .shelf-stats { font-size: .78rem; color: var(--ink-soft); }
 
+.shelf-note {
+  grid-column: 1 / -1;
+  font-size: .78rem;
+  color: var(--warn);
+}
+
 .shelf-code {
   grid-column: 2;
   grid-row: 2;

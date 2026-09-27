@@ -125,9 +125,6 @@ const MESSAGES = {
     'dbz.items': 'Items',
     'dbz.level': 'Special move level',
     'dbz.level.any': 'Any',
-    'dbz.refusalNote':
-      'Datach Dragon Ball Z, running in the MAME emulator, refused 4 of 236 valid barcodes ' +
-      'for a reason not yet known, so a few product codes may not read in the game.',
     'status.deviceCard': 'This card reads exactly as asked on the {device}.',
     'status.deviceCheat': '{name}: the strongest card the {device} will read.',
     'status.searching': 'Looking for a barcode the {device} reads this way.',
@@ -141,10 +138,11 @@ const MESSAGES = {
       'The numbers on every card are read from its barcode by this program, never copied ' +
       'from the wiki.',
     'official.note.dbz':
-      'The 36 cards Bandai packed with Datach Dragon Ball Z come from the card list in the ' +
-      'source code of puNES, a Famicom emulator, and each one was read by the game itself ' +
-      'running in the MAME emulator. The numbers on every card are read from its barcode by ' +
-      'this program, never copied from that list.',
+      'Datach Dragon Ball Z came with 40 cards, and its manual says some of them, such as ' +
+      'Super Saiyan Goku and Perfect Cell, carry no barcode: players stuck one of their own on ' +
+      'them. The 35 that carry one, plus a special Super Saiyan Goku card, are the 36 here, ' +
+      'taken from the card list in the source code of puNES, a Famicom emulator, and each read ' +
+      'by the game itself in the MAME emulator. The numbers on every card come from its barcode.',
     'official.sources': 'Where the barcodes come from',
     'official.source.epoch': 'Epoch cards:',
     'official.source.dbz': 'Dragon Ball Z cards:',
@@ -326,10 +324,6 @@ const MESSAGES = {
     'dbz.items': 'アイテム',
     'dbz.level': 'ひっさつわざ レベル',
     'dbz.level.any': 'どれでも',
-    'dbz.refusalNote':
-      'エミュレーター MAME で うごく データック ドラゴンボールZ は、ただしい バーコード 236こ の うち ' +
-      '4こ を まだ わからない りゆうで よみませんでした。なので しょうひんの バーコードの なかには ' +
-      'ゲームで よめない ものが すこし あるかも しれません。',
     'status.deviceCard': '{device} で ちゅうもん どおりに よめる カードです。',
     'status.deviceCheat': '{name}: {device} が よめる いちばん つよい カード。',
     'status.searching': '{device} が こう よむ バーコードを さがしています。',
@@ -343,10 +337,11 @@ const MESSAGES = {
       'カードの すうじは この プログラムが バーコードから よみとった もので、wiki から ' +
       'うつした ものでは ありません。',
     'official.note.dbz':
-      'バンダイの データック ドラゴンボールZ に ついていた 36まいは、ファミコンの エミュレーター ' +
-      'puNES の ソースコードに ある いちらんから とり、1まいずつ エミュレーター MAME で ' +
-      'ゲームに よませて たしかめました。カードの すうじは この プログラムが バーコードから ' +
-      'よみとった もので、いちらんから うつした ものでは ありません。',
+      'データック ドラゴンボールZ には 40まいの カードが ついていて、せつめいしょに よると ' +
+      'スーパーサイヤ人の 悟空や 完全体の セルなど いくつかには バーコードが なく、じぶんで ' +
+      'バーコードを はって つかいました。バーコードの ある 35まいと、とくべつな スーパーサイヤ人の ' +
+      '悟空の カードが ここの 36まいで、エミュレーター puNES の ソースコードの いちらんから とり、' +
+      '1まいずつ MAME で ゲームに よませて たしかめました。',
     'official.sources': 'バーコードの でどころ',
     'official.source.epoch': 'エポック社の カード:',
     'official.source.dbz': 'ドラゴンボールZ の カード:',

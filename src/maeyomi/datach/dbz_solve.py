@@ -27,6 +27,7 @@ from maeyomi.datach.dbz import (
     decode_dbz,
 )
 from maeyomi.datach.dbz_names import ITEMS
+from maeyomi.datach.dbz_reader import Readability, readability
 from maeyomi.datach.dbz_tables import (
     ADDENDS,
     BASES,
@@ -46,7 +47,7 @@ STREAM_LIMIT: Final = 400_000
 ITEM_TAILS: Final = 4096
 FIGHTER_KINDS: Final = (0, 1, 2)
 ITEM_KIND: Final = 3
-LEAD: Final = "00"
+LEADS: Final = 100
 MAX_HP: Final = (max(BASES) + max(ADDENDS) + BONUS) * UNIT
 MAX_HALVED: Final = MAX_HP // 2
 NO_LEVEL: Final = 255
@@ -162,7 +163,8 @@ def unread_fields(shared: CardRequest, *, back_read: bool) -> tuple[str, ...]:
 def _found(request: DbzRequest) -> Iterator[DbzCard]:
     """Every card the search reaches that the game reads as the request, in search order."""
     streams = itertools.islice(_streams(request), STREAM_LIMIT)
-    codes = (_barcode(digits) for digits in map(digits_for, streams) if digits)
+    built = (_barcode(digits) for digits in map(digits_for, streams) if digits)
+    codes = (code for code in built if code is not None)
     decoded = map(decode_dbz, itertools.islice(codes, SEARCH_LIMIT))
     return (card for card in decoded if _matches(request, card))
 
@@ -198,10 +200,23 @@ def _decimal(spread: int) -> bool:
     return not (spread & (spread << 1 | spread << 2) & _HIGH_BITS)
 
 
-def _barcode(digits: tuple[int, ...]) -> str:
-    """An EAN-13 carrying the ten digits after two free ones."""
-    body = LEAD + "".join(map(str, digits))
-    return body + str(expected_check_digit(body))
+def _barcode(digits: tuple[int, ...]) -> str | None:
+    """An EAN-13 carrying the ten digits after two free ones, readable at any swipe speed.
+
+    The game never looks at the two lead digits, so they are chosen, 00 first,
+    to give bars and spaces the game can always sort into width classes.
+    """
+    used = "".join(map(str, digits))
+    candidates = (f"{lead:02d}{used}" for lead in range(LEADS))
+    codes = (body + str(expected_check_digit(body)) for body in candidates)
+    return next((code for code in codes if readability(code) is Readability.READS), None)
+
+
+def _printable(spread: int) -> str | None:
+    """The readable barcode a spread of digits prints as, or None when it has none."""
+    if not _decimal(spread):
+        return None
+    return _barcode(tuple(spread >> (4 * index) & 0x0F for index in range(10)))
 
 
 def _matches(request: DbzRequest, card: DbzCard) -> bool:
@@ -414,9 +429,10 @@ def _best_dp(
         if total <= best[0]:
             return best
         spread = fixed | _spread(_assemble(0, 0, 0, ((0, 0, 0), (0, 0, 0), dp_choice)))
-        if not _decimal(spread):
+        code = _printable(spread)
+        if code is None:
             continue
-        card = decode_dbz(_barcode(tuple(spread >> (4 * index) & 0x0F for index in range(10))))
+        card = decode_dbz(code)
         if _matches(search.request, card):
             return total, card
     return best
