@@ -23,25 +23,10 @@ from reportlab.pdfgen.canvas import Canvas
 from maeyomi.barcode.geometry import BarcodeGeometry
 from maeyomi.barcode.symbol import draw_symbol, symbol_size_mm
 from maeyomi.models.generated_card import GeneratedCard
-from maeyomi.rendering.ability_icons import draw_ability_icon
-from maeyomi.rendering.icons import (
-    INK,
-    RACE_COLOURS,
-    STAT_STYLES,
-    WHITE,
-    Colour,
-    draw_race_icon,
-)
-from maeyomi.rendering.labels import (
-    SPECIAL_POWER,
-    STAT_LABELS,
-    SWIPE,
-    Bilingual,
-    class_label,
-    panel_text,
-    race_label,
-)
-from maeyomi.rendering.stat_tiles import stat_tiles
+from maeyomi.rendering.ability_icons import draw_icon
+from maeyomi.rendering.face import CardFace, face_of
+from maeyomi.rendering.icons import INK, STAT_STYLES, WHITE, Colour
+from maeyomi.rendering.labels import SPECIAL_POWER, STAT_LABELS, SWIPE, Bilingual
 from maeyomi.rendering.text import fit_size, font_for, text_width_mm, wrap
 
 MUTED_INK: Final[Colour] = (0.35, 0.37, 0.43)
@@ -121,17 +106,17 @@ def draw_card(
     that lands a fraction off still finds ink rather than white paper.
     """
     frame = _Frame(x_mm, y_mm, width_mm, height_mm, style or CardStyle())
+    face = face_of(card.character)
     symbol_width, symbol_height = symbol_size_mm(card.barcode, geometry)
     _check_fits(frame, symbol_width, symbol_height)
     if bleed_mm > 0:
-        _draw_bleed(canvas, card, frame, bleed_mm)
-    _draw_band(canvas, card, frame)
+        _draw_bleed(canvas, face, frame, bleed_mm)
+    _draw_band(canvas, face, frame)
     bottom_of_text = _barcode_block_top(frame, symbol_height)
-    content = frame
     cursor = frame.y + frame.height - frame.style.band_height_mm - frame.style.block_gap_mm
-    cursor = _draw_name(canvas, card, content, cursor)
-    cursor = _draw_stats(canvas, card, content, cursor)
-    _draw_ability(canvas, card, content, top=cursor, bottom=bottom_of_text)
+    cursor = _draw_name(canvas, card, frame, cursor)
+    cursor = _draw_stats(canvas, face, frame, cursor)
+    _draw_ability(canvas, face, frame, top=cursor, bottom=bottom_of_text)
     _draw_barcode(
         canvas,
         card,
@@ -148,7 +133,7 @@ def draw_card(
         )
 
 
-def _draw_bleed(canvas: Canvas, card: GeneratedCard, frame: _Frame, bleed: float) -> None:
+def _draw_bleed(canvas: Canvas, face: CardFace, frame: _Frame, bleed: float) -> None:
     """Paint the card's background past the trim line on every side."""
     style = frame.style
     canvas.saveState()
@@ -161,7 +146,7 @@ def _draw_bleed(canvas: Canvas, card: GeneratedCard, frame: _Frame, bleed: float
         stroke=0,
         fill=1,
     )
-    canvas.setFillColorRGB(*RACE_COLOURS[card.character.race])
+    canvas.setFillColorRGB(*face.band_colour)
     canvas.rect(
         (frame.x - bleed) * mm,
         (frame.y + frame.height - style.band_height_mm) * mm,
@@ -200,13 +185,12 @@ def _check_fits(frame: _Frame, symbol_width: float, symbol_height: float) -> Non
         raise ValueError(message)
 
 
-def _draw_band(canvas: Canvas, card: GeneratedCard, frame: _Frame) -> None:
-    """Fill the top band with the race colour, and name the kind of card on it."""
+def _draw_band(canvas: Canvas, face: CardFace, frame: _Frame) -> None:
+    """Fill the top band with the kind's colour, and name the kind of card on it."""
     style = frame.style
-    race = card.character.race
     band_bottom = frame.y + frame.height - style.band_height_mm
     canvas.saveState()
-    canvas.setFillColorRGB(*RACE_COLOURS[race])
+    canvas.setFillColorRGB(*face.band_colour)
     canvas.roundRect(
         frame.x * mm,
         band_bottom * mm,
@@ -223,14 +207,14 @@ def _draw_band(canvas: Canvas, card: GeneratedCard, frame: _Frame) -> None:
 
     inset = 1.8
     icon_size = style.band_height_mm - 2 * inset
-    draw_race_icon(canvas, race, x_mm=frame.inner_left, y_mm=band_bottom + inset, size_mm=icon_size)
+    face.band_icon(canvas, x_mm=frame.inner_left, y_mm=band_bottom + inset, size_mm=icon_size)
     text_left = frame.inner_left + icon_size + 2.2
     available = frame.x + frame.width - style.padding_mm - text_left
     middle = band_bottom + style.band_height_mm / 2
     canvas.setFillColorRGB(*WHITE)
     _draw_pair(
         canvas,
-        race_label(race),
+        face.kind,
         x=text_left,
         baseline=middle + 0.5,
         size_pt=style.band_title_size_pt,
@@ -239,7 +223,7 @@ def _draw_band(canvas: Canvas, card: GeneratedCard, frame: _Frame) -> None:
     )
     _draw_pair(
         canvas,
-        class_label(card.character.character_class),
+        face.detail,
         x=text_left,
         baseline=middle - 3.4,
         size_pt=style.band_detail_size_pt,
@@ -300,10 +284,10 @@ def _draw_name(canvas: Canvas, card: GeneratedCard, frame: _Frame, top: float) -
     return top - max(len(lines), 1) * style.name_line_mm - style.block_gap_mm
 
 
-def _draw_stats(canvas: Canvas, card: GeneratedCard, frame: _Frame, top: float) -> float:
+def _draw_stats(canvas: Canvas, face: CardFace, frame: _Frame, top: float) -> float:
     """Draw the numbers this kind of card carries as tiles, each named in both languages."""
     style = frame.style
-    tiles = stat_tiles(card.character)
+    tiles = face.tiles
     if not tiles:
         return top
     gap = 1.6
@@ -352,11 +336,10 @@ def _draw_stats(canvas: Canvas, card: GeneratedCard, frame: _Frame, top: float) 
 
 
 def _draw_ability(
-    canvas: Canvas, card: GeneratedCard, frame: _Frame, *, top: float, bottom: float
+    canvas: Canvas, face: CardFace, frame: _Frame, *, top: float, bottom: float
 ) -> None:
     """Draw the special power: a pictogram, then its effect in both languages."""
     style = frame.style
-    special = card.character.special
     height = top - bottom
     canvas.saveState()
     canvas.setFillColorRGB(*PANEL_FILL)
@@ -374,7 +357,7 @@ def _draw_ability(
     icon_size = min(style.ability_icon_mm, height - 2.0)
     text_left = frame.inner_left + 1.2 + icon_size + 1.6
     available = frame.x + frame.width - style.padding_mm - 1.2 - text_left
-    header = Bilingual(f"{SPECIAL_POWER.english} {special.code:02d}", SPECIAL_POWER.japanese)
+    header = Bilingual(f"{SPECIAL_POWER.english} {face.power_code:02d}", SPECIAL_POWER.japanese)
     canvas.setFillColorRGB(*MUTED_INK)
     _draw_pair(
         canvas,
@@ -385,16 +368,16 @@ def _draw_ability(
         available=available,
         bold=True,
     )
-    lines = _ability_lines(panel_text(card.character), available, height, style)
+    lines = _ability_lines(face.power_text, available, height, style)
     canvas.setFillColorRGB(*INK)
     baseline = top - 2.6 - style.ability_line_mm
     for line, font in lines:
         canvas.setFont(font, style.ability_size_pt)
         canvas.drawString(text_left * mm, baseline * mm, line)
         baseline -= style.ability_line_mm
-    draw_ability_icon(
+    draw_icon(
         canvas,
-        special,
+        face.power_icon,
         x_mm=frame.inner_left + 1.2,
         y_mm=top - 1.0 - icon_size,
         size_mm=icon_size,

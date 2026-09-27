@@ -116,8 +116,14 @@ def ability_icon(special: SpecialAbility) -> AbilityIcon:
 def draw_ability_icon(
     canvas: Canvas, special: SpecialAbility, *, x_mm: float, y_mm: float, size_mm: float
 ) -> None:
-    """Draw the icon inside a square whose lower left corner is given."""
-    icon = ability_icon(special)
+    """Draw a Barcode Battler II ability's icon inside a square whose lower left is given."""
+    draw_icon(canvas, ability_icon(special), x_mm=x_mm, y_mm=y_mm, size_mm=size_mm)
+
+
+def draw_icon(
+    canvas: Canvas, icon: AbilityIcon, *, x_mm: float, y_mm: float, size_mm: float
+) -> None:
+    """Draw an icon inside a square whose lower left corner is given."""
     if icon.glyph is Glyph.NONE:
         return
     glyph_size = size_mm * GLYPH_SHARE
