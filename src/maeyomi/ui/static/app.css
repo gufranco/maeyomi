@@ -180,6 +180,14 @@ legend {
 
 .hint { color: var(--ink-soft); font-size: .85rem; }
 
+.field-problem { color: var(--bad); font-size: .85rem; font-weight: 600; }
+
+.field-problem:empty { display: none; }
+
+.field.invalid input { border-color: var(--bad); }
+
+button[aria-busy="true"] { cursor: progress; }
+
 input, select, button {
   font: inherit;
   color: inherit;
@@ -202,7 +210,7 @@ select { cursor: pointer; }
   gap: .75rem;
 }
 
-.field.stat output {
+.field.stat .stat-box {
   font-variant-numeric: tabular-nums;
   font-weight: 700;
   text-align: right;

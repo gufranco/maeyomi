@@ -144,9 +144,11 @@ function sliderLimits(form) {
 function applySliders(form) {
   const limits = sliderLimits(form);
   STAT_KEYS.forEach((key, index) => {
-    $(key).setAttribute('min', String(limits[index][0]));
-    $(key).setAttribute('max', String(limits[index][1]));
-    $(key).setAttribute('step', String(form.steps[index]));
+    [$(key), $(`${key}-box`)].forEach((control) => {
+      control.setAttribute('min', String(limits[index][0]));
+      control.setAttribute('max', String(limits[index][1]));
+      control.setAttribute('step', String(form.steps[index]));
+    });
     $(key).dispatchEvent(new Event('input'));
   });
 }

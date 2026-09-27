@@ -103,8 +103,12 @@ def test_every_input_has_a_label_or_an_aria_label() -> None:
     labelled = set(re.findall(r'<label[^>]*\bfor="([^"]+)"', MARKUP))
     self_labelled = set(re.findall(r'<(?:input|select)[^>]*\bid="([^"]+)"[^>]*aria-label=', MARKUP))
     wrapped = set(re.findall(r'<label[^>]*>\s*<input[^>]*\bid="([^"]+)"', MARKUP, re.DOTALL))
+    named_by = dict(
+        re.findall(r'<(?:input|select)[^>]*\bid="([^"]+)"[^>]*aria-labelledby="([^"]+)"', MARKUP)
+    )
+    referenced = {control for control, label in named_by.items() if f'id="{label}"' in MARKUP}
 
-    assert ids - labelled - self_labelled - wrapped == set()
+    assert ids - labelled - self_labelled - wrapped - referenced == set()
 
 
 def test_the_choices_are_filled_from_the_api_rather_than_typed_into_the_page() -> None:

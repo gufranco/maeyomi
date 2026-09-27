@@ -119,21 +119,24 @@
       <legend data-i18n="one.strong">How strong</legend>
 
       <p class="field stat">
-        <label for="hp" data-i18n="stat.hp">Health</label>
+        <label for="hp" id="hp-label" data-i18n="stat.hp">Health</label>
         <input id="hp" name="hp" type="range" min="0" max="99900" step="100" value="5000">
-        <output for="hp" id="hp-out">5000</output>
+        <input id="hp-box" class="stat-box" type="number" inputmode="numeric" min="0" step="100" value="5000"
+               aria-labelledby="hp-label">
       </p>
 
       <p class="field stat">
-        <label for="st" data-i18n="stat.st">Attack</label>
+        <label for="st" id="st-label" data-i18n="stat.st">Attack</label>
         <input id="st" name="st" type="range" min="0" max="19900" step="100" value="1800">
-        <output for="st" id="st-out">1800</output>
+        <input id="st-box" class="stat-box" type="number" inputmode="numeric" min="0" step="100" value="1800"
+               aria-labelledby="st-label">
       </p>
 
       <p class="field stat">
-        <label for="df" data-i18n="stat.df">Defence</label>
+        <label for="df" id="df-label" data-i18n="stat.df">Defence</label>
         <input id="df" name="df" type="range" min="0" max="19900" step="100" value="1200">
-        <output for="df" id="df-out">1200</output>
+        <input id="df-box" class="stat-box" type="number" inputmode="numeric" min="0" step="100" value="1200"
+               aria-labelledby="df-label">
       </p>
 
       <p class="note" id="hp-note" hidden data-i18n="one.hpNote">
@@ -445,6 +448,7 @@
 
 <script src="/static/i18n.js"></script>
 <script src="/static/devices.js"></script>
+<script src="/static/ux.js"></script>
 <script src="/static/app.js"></script>
 </body>
 </html>

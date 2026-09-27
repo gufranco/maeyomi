@@ -53,6 +53,17 @@ function checkBackRead() {
     [document.getElementById(key).min, document.getElementById(key).max]))`);
   expect(JSON.stringify(back) === JSON.stringify([['0', '49900'], ['2000', '11900'], ['0', '9900']]),
     `a backwards II card offers ${JSON.stringify(back)}`);
+  const boxes = evaluate(`JSON.stringify(['hp', 'st', 'df'].map((key) =>
+    document.getElementById(key + '-box').value === document.getElementById(key).value))`);
+  expect(boxes.every(Boolean), `a number box disagrees with its slider: ${boxes}`);
+  browser('fill', '#hp-box', '60000');
+  browser('press', 'Tab');
+  const tooHigh = evaluate(`JSON.stringify(document.getElementById('hp-box-problem')?.textContent)`);
+  expect(tooHigh === 'Use a number from 0 to 49900.', `typing 60000 backwards says ${tooHigh}`);
+  browser('fill', '#hp-box', '30000');
+  browser('press', 'Tab');
+  const typed = evaluate(`document.getElementById('hp').value`);
+  expect(typed === 30000, `typing 30000 moves the slider to ${typed}`);
   browser('uncheck', '#backRead');
   const front = evaluate(`document.getElementById('hp').max`);
   expect(front === 99900, `a front-read II card stops health at ${front}`);
@@ -130,6 +141,20 @@ function checkSheetAndShop() {
   browser('select', '#device', 'bb2');
 }
 
+function checkBehaviour() {
+  browser('click', '#tab-many');
+  browser('fill', '#count', '500');
+  const problem = evaluate(`JSON.stringify(document.getElementById('count-problem')?.textContent)`);
+  expect(problem === 'Use a number from 1 to 200.', `an out-of-range count says ${problem}`);
+  browser('fill', '#count', '9');
+  const hash = evaluate('JSON.stringify(window.location.hash)');
+  expect(hash === '#many', `the address does not name the open tab: ${hash}`);
+  browser('open', URL.replace(/#.*$/, '') + '#official');
+  browser('wait', '1500');
+  const open = evaluate(`JSON.stringify(document.getElementById('tab-official').getAttribute('aria-selected'))`);
+  expect(open === 'true', 'a link to #official does not open that tab');
+}
+
 browser('open', URL);
 browser('wait', '1500');
 checkDeviceMenu();
@@ -139,6 +164,7 @@ checkWidths();
 checkDeviceSwitch();
 checkRealCards();
 checkSheetAndShop();
+checkBehaviour();
 failures.forEach((failure) => process.stderr.write(`FAIL ${failure}\n`));
 process.stdout.write(failures.length ? '' : 'layout checks passed\n');
 process.exit(failures.length ? 1 : 0);

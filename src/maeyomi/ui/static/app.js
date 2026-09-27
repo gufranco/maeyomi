@@ -85,8 +85,13 @@ function setUpTabs() {
       tab.tabIndex = on ? 0 : -1;
       $(tab.getAttribute('aria-controls')).toggleAttribute('hidden', !on);
     });
+    rememberTab(chosen);
   };
-  select(tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') ?? tabs[0]);
+  select(tabFromHash() ?? tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') ?? tabs[0]);
+  window.addEventListener('hashchange', () => {
+    const chosen = tabFromHash();
+    if (chosen) select(chosen);
+  });
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => select(tab));
     tab.addEventListener('keydown', (event) => {
@@ -110,10 +115,15 @@ function setUpStats() {
       const frontRead = isSecond() && !$('backRead').checked;
       const snapped = key === 'hp' && frontRead ? snapHitPoints(raw) : raw;
       if (snapped !== raw) $(key).value = String(snapped);
-      $(`${key}-out`).textContent = snapped.toLocaleString('en-US');
+      $(`${key}-box`).value = String(snapped);
       if (key === 'hp') $('hp-note').toggleAttribute('hidden', !frontRead || snapped < HIGH_HP);
     };
     $(key).addEventListener('input', sync);
+    $(`${key}-box`).addEventListener('change', () => {
+      if (!showProblem($(`${key}-box`))) return;
+      $(key).value = $(`${key}-box`).value;
+      sync();
+    });
     sync();
   });
 }
@@ -213,9 +223,10 @@ async function showPreview(barcode, name) {
 
 async function makeOneCard(event) {
   event?.preventDefault();
+  if (!checkForm($('one'))) return null;
   cheatCard = null;
   const button = $('one').querySelector('button[type="submit"]');
-  button.toggleAttribute('disabled', true);
+  setBusy(button, true);
   try {
     if (!isSecond()) return await makeDeviceCard();
     const { ok, body } = await postJson('/api/generate', oneCardPayload());
@@ -227,7 +238,7 @@ async function makeOneCard(event) {
     await showPreview(body.barcode, $('name').value || 'Card');
     return body;
   } finally {
-    button.toggleAttribute('disabled', false);
+    setBusy(button, false);
   }
 }
 
@@ -283,8 +294,9 @@ function showPages(frameId, pages, label) {
 
 async function makeSheet(event) {
   event?.preventDefault();
+  if (!checkForm($('many'))) return false;
   const button = $('many').querySelector('button[type="submit"]');
-  button.toggleAttribute('disabled', true);
+  setBusy(button, true);
   try {
     const { ok, body } = await postJson('/api/sheet-preview', sheetPayload());
     if (!ok) {
@@ -300,7 +312,7 @@ async function makeSheet(event) {
     setStatus('many-status', 'good', 'tag.ready', message);
     return true;
   } finally {
-    button.toggleAttribute('disabled', false);
+    setBusy(button, false);
   }
 }
 
@@ -405,7 +417,7 @@ async function setUpOfficial() {
 async function showOfficial(event) {
   event?.preventDefault();
   const button = $('official').querySelector('button[type="submit"]');
-  button.toggleAttribute('disabled', true);
+  setBusy(button, true);
   setStatus('official-status', 'info', 'tag.working', t('status.drawing'));
   try {
     const { ok, body } = await postJson('/api/official-preview', officialPayload());
@@ -421,7 +433,7 @@ async function showOfficial(event) {
         : t('status.official', { count: body.count });
     setStatus('official-status', 'good', 'tag.ready', message);
   } finally {
-    button.toggleAttribute('disabled', false);
+    setBusy(button, false);
   }
 }
 
@@ -583,7 +595,7 @@ function shelfRow(product) {
   const name = isJapanese() ? product.label_ja : product.label;
   return [
     '<li class="shelf-row">',
-    `<span class="shelf-name">${escapeHtml(product.name)}</span>`,
+    `<span class="shelf-name" lang="ja">${escapeHtml(product.name)}</span>`,
     `<span class="shelf-kind">${escapeHtml(name)}</span>`,
     `<span class="shelf-stats">${escapeHtml(isJapanese() ? product.stats_ja : product.stats)}</span>`,
     product.note
@@ -663,6 +675,7 @@ function setUpLanguage() {
   applyLanguage(currentLanguage);
 }
 
+setUpValidation();
 setUpTabs();
 setUpStats();
 setUpLanguage();
@@ -675,6 +688,7 @@ $('official').addEventListener('submit', showOfficial);
 $('read').addEventListener('submit', readBarcode);
 $('read-pdf').addEventListener('click', downloadRead);
 $('shop').addEventListener('submit', searchShelf);
+setUpSearchAsYouType($('shop-query'), searchShelf);
 $('shop-surprise').addEventListener('click', surpriseShelf);
 $('shop-pdf').addEventListener('click', downloadShelf);
 $('official-pdf').addEventListener('click', downloadOfficial);
