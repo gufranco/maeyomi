@@ -30,10 +30,7 @@ from maeyomi.rendering.icons import (
     STAT_STYLES,
     WHITE,
     Colour,
-    draw_heart,
     draw_race_icon,
-    draw_shield,
-    draw_sword,
 )
 from maeyomi.rendering.labels import (
     SPECIAL_POWER,
@@ -44,6 +41,7 @@ from maeyomi.rendering.labels import (
     panel_text,
     race_label,
 )
+from maeyomi.rendering.stat_tiles import stat_tiles
 from maeyomi.rendering.text import fit_size, font_for, text_width_mm, wrap
 
 MUTED_INK: Final[Colour] = (0.35, 0.37, 0.43)
@@ -303,19 +301,17 @@ def _draw_name(canvas: Canvas, card: GeneratedCard, frame: _Frame, top: float) -
 
 
 def _draw_stats(canvas: Canvas, card: GeneratedCard, frame: _Frame, top: float) -> float:
-    """Draw the three battle numbers as tiles, each named in both languages."""
+    """Draw the numbers this kind of card carries as tiles, each named in both languages."""
     style = frame.style
-    character = card.character
-    tiles = (
-        ("HP", character.hp, draw_heart),
-        ("ST", character.st, draw_sword),
-        ("DF", character.df, draw_shield),
-    )
+    tiles = stat_tiles(card.character)
+    if not tiles:
+        return top
     gap = 1.6
     tile_width = (frame.inner_width - gap * (len(tiles) - 1)) / len(tiles)
     tile_height = style.stat_block_mm
     bottom = top - tile_height
-    for index, (key, value, icon) in enumerate(tiles):
+    for index, tile in enumerate(tiles):
+        key, value, icon = tile.key, tile.value, tile.icon
         left = frame.inner_left + index * (tile_width + gap)
         centre = left + tile_width / 2
         colours = STAT_STYLES[key]

@@ -36,8 +36,9 @@ from maeyomi.decoder.read_type import (
     FALLBACK_MAX_HP_UNITS,
     FALLBACK_MAX_ST_UNITS,
 )
+from maeyomi.generator.carried import SUB_TYPE_FOR, Carried, carried
 from maeyomi.generator.quarantine import quarantines_digits
-from maeyomi.models.card_request import CardRequest
+from maeyomi.models.card_request import MAX_POINTS, CardRequest
 from maeyomi.models.character import DISPLAY_SCALE, HIGHEST_WARRIOR_JOB
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.constraint import Constraint
@@ -63,8 +64,6 @@ MARKER_HP_UNITS_ENDING: Final = 9
 MARKER_SPEED_DIGIT: Final = 5
 MARKER_CARRIER_HP_UNITS: Final = 209
 PLAIN_CARRIER_HP_UNITS: Final = 0
-SUPPORT_HP_SUB_TYPES: Final = range(5)
-SUPPORT_POWER_POINT_SUB_TYPE: Final = 7
 ALL_DIGITS: Final = tuple(range(10))
 ALL_SPECIALS: Final = tuple(range(100))
 
@@ -170,6 +169,11 @@ def _speeds(request: CardRequest, hp_units: int) -> Sequence[int]:
     return (request.speed,) if request.speed is not None else ALL_DIGITS
 
 
+def _counts(constraint: Constraint) -> Sequence[int]:
+    """Walk a constrained count of herbs or magic points."""
+    return list(constraint.values(step=1, ceiling=MAX_POINTS))
+
+
 def _units(constraint: Constraint, ceiling: int) -> Sequence[int]:
     """Walk the constrained display values as device units."""
     return [
@@ -226,23 +230,25 @@ def _item_candidates(request: CardRequest, race: Race) -> Iterator[str]:
 
 def _support_values(request: CardRequest) -> list[tuple[int, int, int]]:
     """Strength, defence and hit point digits for a support item's sub-type."""
-    sub_type = _support_sub_type(request)
-    if sub_type in SUPPORT_HP_SUB_TYPES:
+    gives = carried(Race.SUPPORT_ITEM, _support_sub_type(request))
+    if Carried.HP in gives:
         return [(0, 0, value) for value in _units(request.hp, MAX_HP_DISPLAY)]
-    if sub_type == SUPPORT_POWER_POINT_SUB_TYPE:
-        return [(value, 0, 0) for value in _units(request.st, MAX_STAT_DISPLAY)]
-    return [(0, value, 0) for value in _units(request.df, MAX_STAT_DISPLAY)]
+    if Carried.PP in gives:
+        return [(value, 0, 0) for value in _counts(request.pp)]
+    if Carried.MP in gives:
+        return [(0, value, 0) for value in _counts(request.mp)]
+    return [(0, 0, 0)]
 
 
 def _support_sub_type(request: CardRequest) -> int:
     """The sub-type digit a support item uses, inferred when the request omits it."""
     if request.job is not None:
         return request.job
-    if request.st.minimum is not None:
-        return SUPPORT_POWER_POINT_SUB_TYPE
-    if request.df.minimum is not None:
-        return SUPPORT_POWER_POINT_SUB_TYPE + 1
-    return 0
+    if request.pp.minimum is not None:
+        return SUB_TYPE_FOR[Carried.PP]
+    if request.mp.minimum is not None:
+        return SUB_TYPE_FOR[Carried.MP]
+    return SUB_TYPE_FOR[Carried.HP]
 
 
 def _carried(
@@ -255,7 +261,7 @@ def _carried(
 ) -> Iterator[str]:
     """Emit the item under each carrier that can make the code a front read."""
     job = _support_sub_type(request) if race is Race.SUPPORT_ITEM else 0
-    hp_is_free = hp_units == 0 and race is not Race.SUPPORT_ITEM
+    hp_is_free = hp_units == 0 and Carried.HP not in carried(race, job)
     for carrier_hp, speed in _carriers(
         request, hp_units, st_digits, df_digits, hp_is_free=hp_is_free
     ):

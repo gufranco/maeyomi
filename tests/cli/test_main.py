@@ -380,6 +380,17 @@ def test_cheat_writes_the_strongest_card_there_is(tmp_path: Path) -> None:
     assert "Fights with ST 24600, DF 19900" in result.output
 
 
+def test_cheat_with_items_adds_one_card_of_every_kind(tmp_path: Path) -> None:
+    output = tmp_path / "deck.pdf"
+
+    result = runner.invoke(app, ["cheat", "--items", "--output", str(output)])
+
+    assert result.exit_code == 0
+    assert len(decode_pdf(output)) == 6
+    assert "Cheat Blade: ST 9900; ability 27 opponent DF reduced by 80 percent" in result.output
+    assert "Cheat Herbs: PP 99; ability 24" in result.output
+
+
 def test_cheat_takes_a_name(tmp_path: Path) -> None:
     output = tmp_path / "grandma.pdf"
 

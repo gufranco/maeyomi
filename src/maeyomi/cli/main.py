@@ -20,6 +20,7 @@ from maeyomi.cli.report import DISCLAIMER, comparison_lines, shortfall_lines
 from maeyomi.decoder.decode import decode as decode_barcode
 from maeyomi.decoder.errors import BarcodeError
 from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
+from maeyomi.generator.cheat_items import strongest_items
 from maeyomi.generator.nearest import solve_nearest
 from maeyomi.generator.random_cards import generate_random
 from maeyomi.generator.solve import solve
@@ -39,6 +40,7 @@ from maeyomi.rendering.export import ImageFormat, export_images
 from maeyomi.rendering.labels import RACE_DESCRIPTIONS, race_label
 from maeyomi.rendering.layout import SheetLayout
 from maeyomi.rendering.sheet import write_sheet
+from maeyomi.rendering.stat_tiles import stat_tiles
 
 app = typer.Typer(
     add_completion=False,
@@ -59,6 +61,14 @@ StOption = Annotated[
 ]
 DfOption = Annotated[
     str | None, typer.Option("--df", "--defense", help="Exact value, range or bound.")
+]
+HerbsOption = Annotated[
+    str | None,
+    typer.Option("--herbs", "--pp", help="Herbs a helper item gives, 0-99: exact, range or bound."),
+]
+MagicOption = Annotated[
+    str | None,
+    typer.Option("--magic", "--mp", help="Magic points a helper item gives, 0-99."),
 ]
 RaceOption = Annotated[str | None, typer.Option("--race", help="Race or item type by name.")]
 ClassOption = Annotated[str | None, typer.Option("--class", help="warrior or magician.")]
@@ -93,6 +103,8 @@ def random(
     hp: HpOption = None,
     st: StOption = None,
     df: DfOption = None,
+    herbs: HerbsOption = None,
+    magic: MagicOption = None,
     race: RaceOption = None,
     character_class: ClassOption = None,
     job: JobOption = None,
@@ -108,6 +120,8 @@ def random(
         hp,
         st,
         df,
+        herbs=herbs,
+        magic=magic,
         race=race,
         character_class=character_class,
         job=job,
@@ -129,6 +143,8 @@ def generate(
     hp: HpOption = None,
     st: StOption = None,
     df: DfOption = None,
+    herbs: HerbsOption = None,
+    magic: MagicOption = None,
     race: RaceOption = None,
     character_class: ClassOption = None,
     job: JobOption = None,
@@ -145,6 +161,8 @@ def generate(
         hp,
         st,
         df,
+        herbs=herbs,
+        magic=magic,
         race=race,
         character_class=character_class,
         job=job,
@@ -284,6 +302,12 @@ def cheat(
     name: Annotated[str, typer.Option("--name", help="Printed on the card only.")] = (
         DEFAULT_CHEAT_NAME
     ),
+    items: Annotated[
+        bool,
+        typer.Option(
+            "--items", help="Add the strongest weapon, armour, health, herbs and magic items."
+        ),
+    ] = False,
     images: ImagesOption = None,
     print_shop: PrintShopOption = False,
 ) -> None:
@@ -293,7 +317,17 @@ def cheat(
     typer.echo(f"{card.name}: HP {character.hp}, ST {character.st}, DF {character.df}")
     typer.echo(f"Fights with ST {character.fighting_st}, DF {character.fighting_df}")
     typer.echo(f"Ability {character.special.code:02d} {character.special.description}")
-    _write((card,), output, images, _layout(print_shop=print_shop))
+    extras = strongest_items() if items else ()
+    for extra in extras:
+        typer.echo(_item_line(extra))
+    _write((card, *extras), output, images, _layout(print_shop=print_shop))
+
+
+def _item_line(card: GeneratedCard) -> str:
+    """One line naming an item, what it carries, and the power it passes on."""
+    carried_text = ", ".join(f"{tile.key} {tile.value}" for tile in stat_tiles(card.character))
+    special = card.character.special
+    return f"{card.name}: {carried_text}; ability {special.code:02d} {special.description}"
 
 
 @app.command()
@@ -353,6 +387,8 @@ def _request(
     st: str | None,
     df: str | None,
     *,
+    herbs: str | None,
+    magic: str | None,
     race: str | None,
     character_class: str | None,
     job: int | None,
@@ -366,6 +402,8 @@ def _request(
             hp=parse_constraint(hp),
             st=parse_constraint(st),
             df=parse_constraint(df),
+            pp=parse_constraint(herbs),
+            mp=parse_constraint(magic),
             race=parse_race(race),
             character_class=parse_character_class(character_class),
             job=job,

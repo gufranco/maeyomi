@@ -87,3 +87,20 @@ def test_every_generated_card_carries_its_decoded_character() -> None:
 
     for card in batch.cards:
         assert card.character.barcode == card.barcode
+
+
+def test_random_herb_items_draw_only_the_herbs_they_carry() -> None:
+    template = CardRequest(race=Race.SUPPORT_ITEM, job=7, pp=Constraint.between(10, 20))
+
+    batch = generate_random(5, template=template, seed=3)
+
+    herbs = [decode(card.barcode).pp for card in batch.cards]
+    assert len(herbs) == 5
+    assert all(10 <= count <= 20 for count in herbs)
+
+
+def test_random_weapons_draw_only_their_attack() -> None:
+    batch = generate_random(3, template=CardRequest(race=Race.WEAPON), seed=1)
+
+    assert {decode(card.barcode).race for card in batch.cards} == {Race.WEAPON}
+    assert batch.shortfall == 0

@@ -61,3 +61,15 @@ def test_a_job_that_contradicts_the_requested_class_is_blocked() -> None:
 
 def test_a_job_that_agrees_with_the_requested_class_is_not_blocked() -> None:
     assert blockers(CardRequest(job=8, character_class=CharacterClass.MAGICIAN)) == ()
+
+
+def test_herbs_above_ninety_nine_name_the_ceiling() -> None:
+    reasons = blockers(CardRequest(pp=Constraint.exactly(100)))
+
+    assert reasons == ("pp of 100 is above the ceiling of 99",)
+
+
+def test_negative_magic_points_are_blocked() -> None:
+    reasons = blockers(CardRequest(mp=Constraint.exactly(-1)))
+
+    assert reasons == ("mp of -1 is below zero",)

@@ -130,8 +130,12 @@ Field    Requested       Generated       Difference
 HP       5000            5000
 ST       1800            1800
 DF       1200            1200
+PP       any             5
+MP       any             0
 Race     human           human
+Job      -               0
 Class    warrior         warrior
+Speed    -               0
 Ability  17              17
 ```
 
@@ -145,6 +149,15 @@ The device carries numeric ability codes rather than named elements. List them:
 
 ```bash
 maeyomi abilities
+```
+
+Items are built the same way. A weapon carries only attack, armour only
+defence, and a helper item one thing: health, herbs or magic points. Herbs and
+magic points are plain counts from 0 to 99:
+
+```bash
+maeyomi generate --name "Herb Pouch" --race support_item --herbs 99 \
+    --output herbs.pdf
 ```
 
 Every stat option takes an exact value, a range, or a bound: `5000`,
@@ -207,7 +220,9 @@ refused with the reason, never quietly altered:
   the third digit to 9. Such a card's HP always ends in 900, and its speed is
   always 5.
 - Races 0, 1 and 2 have their strength and defence rewritten above 20000 HP, so
-  not every pair of values is reachable at that size.
+  not every pair of values is reachable at that size. Some of those codes make
+  the device fight with more attack or defence than it displays, up to 24600;
+  the card prints that value too.
 
 ## How it works
 
@@ -337,6 +352,14 @@ whose attack digits are 46 gains a bonus the display never shows. A device was
 seen doing exactly that with the code 4994699095453, per
 [barcodebattler.net](https://barcodebattler.net/page21.htm). The card prints the
 hidden value beside its special power.
+
+`maeyomi cheat --items -o cheat.pdf` adds five items at the most their digits
+can hold: a weapon of 9900 attack, armour of 9900 defence, a potion of 99900
+health, 99 herbs and 99 magic points. Each passes a different documented power
+to whoever uses it: the opponent's defence cut by 80 percent, your own defence
+up by half, the opponent's health halved, the opponent's attack halved, and the
+opponent's special powers cancelled. Whether the powers of several items add up
+is not documented, so none of this relies on it.
 
 ## Two languages and pictures
 

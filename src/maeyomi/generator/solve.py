@@ -96,7 +96,13 @@ def solve(
 def mismatches(request: CardRequest, character: BarcodeBattlerCharacter) -> tuple[Mismatch, ...]:
     """Every field where the decoded character disagrees with the request."""
     found: list[Mismatch] = []
-    for name, constraint in (("hp", request.hp), ("st", request.st), ("df", request.df)):
+    for name, constraint in (
+        ("hp", request.hp),
+        ("st", request.st),
+        ("df", request.df),
+        ("pp", request.pp),
+        ("mp", request.mp),
+    ):
         produced: int = getattr(character, name)
         if not constraint.admits(produced):
             found.append(Mismatch(name, str(constraint), str(produced)))

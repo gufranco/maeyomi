@@ -57,8 +57,8 @@ def test_a_requested_class_narrows_the_job_digit(
     assert jobs
 
 
-def test_a_support_item_sub_type_is_inferred_from_a_strength_request() -> None:
-    request = CardRequest(st=Constraint.exactly(300), race=Race.SUPPORT_ITEM)
+def test_a_support_item_sub_type_is_inferred_from_a_herb_request() -> None:
+    request = CardRequest(pp=Constraint.exactly(3), race=Race.SUPPORT_ITEM)
 
     decoded = decode(take(request, 1)[0])
 
@@ -66,8 +66,8 @@ def test_a_support_item_sub_type_is_inferred_from_a_strength_request() -> None:
     assert decoded.pp == 3
 
 
-def test_a_support_item_sub_type_is_inferred_from_a_defence_request() -> None:
-    request = CardRequest(df=Constraint.exactly(500), race=Race.SUPPORT_ITEM)
+def test_a_support_item_sub_type_is_inferred_from_a_magic_request() -> None:
+    request = CardRequest(mp=Constraint.exactly(5), race=Race.SUPPORT_ITEM)
 
     decoded = decode(take(request, 1)[0])
 
@@ -108,9 +108,17 @@ def test_an_item_request_pinned_to_another_speed_yields_nothing() -> None:
     assert take(request, 1) == []
 
 
-def test_a_zero_strength_support_item_still_picks_the_power_point_sub_type() -> None:
-    request = CardRequest(st=Constraint.exactly(0), race=Race.SUPPORT_ITEM)
+def test_a_zero_herb_support_item_still_picks_the_power_point_sub_type() -> None:
+    request = CardRequest(pp=Constraint.exactly(0), race=Race.SUPPORT_ITEM)
 
     decoded = decode(take(request, 1)[0])
 
     assert decoded.job == 7
+
+
+def test_an_information_item_carries_no_number() -> None:
+    request = CardRequest(race=Race.SUPPORT_ITEM, job=5)
+
+    decoded = decode(take(request, 1)[0])
+
+    assert (decoded.job, decoded.hp, decoded.pp, decoded.mp) == (5, 0, 0, 0)

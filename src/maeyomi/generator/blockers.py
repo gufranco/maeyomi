@@ -13,7 +13,7 @@ from maeyomi.generator.front_solver import (
     MAX_HP_DISPLAY,
     MAX_STAT_DISPLAY,
 )
-from maeyomi.models.card_request import CardRequest
+from maeyomi.models.card_request import MAX_POINTS, CardRequest
 from maeyomi.models.character import DISPLAY_SCALE, HIGHEST_WARRIOR_JOB
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.constraint import Constraint
@@ -28,6 +28,8 @@ def blockers(request: CardRequest) -> tuple[str, ...]:
     reasons += _stat_blockers("hp", request.hp, MAX_HP_DISPLAY)
     reasons += _stat_blockers("st", request.st, MAX_STAT_DISPLAY)
     reasons += _stat_blockers("df", request.df, MAX_STAT_DISPLAY)
+    reasons += _count_blockers("pp", request.pp)
+    reasons += _count_blockers("mp", request.mp)
     reasons += _high_hp_blockers(request)
     reasons += _class_blockers(request)
     return tuple(reasons)
@@ -43,6 +45,16 @@ def _stat_blockers(name: str, constraint: Constraint, ceiling: int) -> Sequence[
         reasons.append(
             f"{name} of {constraint.minimum} is above the front-read ceiling of {ceiling}"
         )
+    if constraint.minimum is not None and constraint.minimum < 0:
+        reasons.append(f"{name} of {constraint.minimum} is below zero")
+    return reasons
+
+
+def _count_blockers(name: str, constraint: Constraint) -> Sequence[str]:
+    """Reasons a count of herbs or magic points cannot be met."""
+    reasons: list[str] = []
+    if constraint.minimum is not None and constraint.minimum > MAX_POINTS:
+        reasons.append(f"{name} of {constraint.minimum} is above the ceiling of {MAX_POINTS}")
     if constraint.minimum is not None and constraint.minimum < 0:
         reasons.append(f"{name} of {constraint.minimum} is below zero")
     return reasons

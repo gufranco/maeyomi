@@ -2,7 +2,8 @@
 
 The name is metadata for the printed card and never reaches the barcode. Every
 attribute the device actually reads is expressed as a `Constraint`, or as an
-exact categorical value.
+exact categorical value. HP, ST and DF are displayed values in steps of 100;
+PP and MP are plain counts of herbs and magic points, 0 to 99.
 """
 
 from dataclasses import dataclass, field
@@ -14,6 +15,7 @@ from maeyomi.models.race import Race
 MAX_JOB_DIGIT = 9
 MAX_SPEED_DIGIT = 9
 MAX_SPECIAL_CODE = 99
+MAX_POINTS = 99
 
 
 @dataclass(frozen=True, slots=True)
@@ -24,6 +26,8 @@ class CardRequest:
     hp: Constraint = field(default_factory=Constraint.anything)
     st: Constraint = field(default_factory=Constraint.anything)
     df: Constraint = field(default_factory=Constraint.anything)
+    pp: Constraint = field(default_factory=Constraint.anything)
+    mp: Constraint = field(default_factory=Constraint.anything)
     race: Race | None = None
     job: int | None = None
     character_class: CharacterClass | None = None

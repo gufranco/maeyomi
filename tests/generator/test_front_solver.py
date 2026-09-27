@@ -164,7 +164,7 @@ def test_a_support_item_carries_hit_points() -> None:
 
 
 def test_a_support_item_sub_type_seven_carries_power_points() -> None:
-    request = CardRequest(st=Constraint.exactly(300), race=Race.SUPPORT_ITEM, job=7)
+    request = CardRequest(pp=Constraint.exactly(3), race=Race.SUPPORT_ITEM, job=7)
 
     decoded = decode(first(request))
 
@@ -172,7 +172,7 @@ def test_a_support_item_sub_type_seven_carries_power_points() -> None:
 
 
 def test_a_support_item_sub_type_eight_carries_magic_points() -> None:
-    request = CardRequest(df=Constraint.exactly(500), race=Race.SUPPORT_ITEM, job=8)
+    request = CardRequest(mp=Constraint.exactly(5), race=Race.SUPPORT_ITEM, job=8)
 
     decoded = decode(first(request))
 

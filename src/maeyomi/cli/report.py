@@ -26,6 +26,8 @@ def comparison_lines(request: CardRequest, character: BarcodeBattlerCharacter) -
         ("HP", str(request.hp), str(character.hp)),
         ("ST", str(request.st), str(character.st)),
         ("DF", str(request.df), str(character.df)),
+        ("PP", str(request.pp), str(character.pp)),
+        ("MP", str(request.mp), str(character.mp)),
         ("Race", _race_name(request), character.race.name.lower()),
         ("Job", _optional(request.job), str(character.job)),
         ("Class", _optional(_requested_class(request)), _generated_class(character)),

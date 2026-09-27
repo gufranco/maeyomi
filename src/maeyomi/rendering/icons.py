@@ -52,6 +52,8 @@ STAT_STYLES: Final[dict[str, StatStyle]] = {
     "HP": StatStyle(icon=_hex("C21A2B"), tint=_tint(_hex("C21A2B"), 0.84)),
     "ST": StatStyle(icon=_hex("4A5261"), tint=_tint(_hex("4A5261"), 0.90)),
     "DF": StatStyle(icon=_hex("1B5FA8"), tint=_tint(_hex("1B5FA8"), 0.95)),
+    "PP": StatStyle(icon=_hex("1E7B34"), tint=_tint(_hex("1E7B34"), 0.70)),
+    "MP": StatStyle(icon=_hex("6A2C91"), tint=_tint(_hex("6A2C91"), 0.70)),
 }
 
 HP_COLOUR: Final[Colour] = STAT_STYLES["HP"].icon
@@ -180,6 +182,48 @@ def draw_shield(canvas: Canvas, *, x_mm: float, y_mm: float, size_mm: float) -> 
         canvas.setFillColorRGB(*WHITE)
         canvas.rect(left + side * 0.44, bottom + side * 0.26, side * 0.12, side * 0.48, 0, 1)
         canvas.rect(left + side * 0.28, bottom + side * 0.44, side * 0.44, side * 0.12, 0, 1)
+
+
+def draw_leaf(canvas: Canvas, *, x_mm: float, y_mm: float, size_mm: float) -> None:
+    """Draw a leaf with its midrib, which marks herbs."""
+    with _box(canvas, STAT_STYLES["PP"].icon, x_mm, y_mm, size_mm) as (left, bottom, side):
+
+        def at(fx: float, fy: float) -> Point:
+            return (left + side * fx, bottom + side * fy)
+
+        (
+            VectorPath(canvas)
+            .move_to(at(0.12, 0.08))
+            .curve_to(at(0.06, 0.62), at(0.40, 0.98), at(0.94, 0.94))
+            .curve_to(at(0.98, 0.40), at(0.62, 0.06), at(0.12, 0.08))
+            .fill()
+        )
+        canvas.setStrokeColorRGB(*WHITE)
+        canvas.setLineWidth(side * 0.06)
+        canvas.line(*at(0.16, 0.12), *at(0.84, 0.84))
+
+
+def draw_crystal(canvas: Canvas, *, x_mm: float, y_mm: float, size_mm: float) -> None:
+    """Draw a cut crystal, which marks magic points."""
+    with _box(canvas, STAT_STYLES["MP"].icon, x_mm, y_mm, size_mm) as (left, bottom, side):
+
+        def at(fx: float, fy: float) -> Point:
+            return (left + side * fx, bottom + side * fy)
+
+        (
+            VectorPath(canvas)
+            .move_to(at(0.50, 0.00))
+            .line_to(at(0.96, 0.62))
+            .line_to(at(0.76, 0.92))
+            .line_to(at(0.24, 0.92))
+            .line_to(at(0.04, 0.62))
+            .fill()
+        )
+        canvas.setStrokeColorRGB(*WHITE)
+        canvas.setLineWidth(side * 0.05)
+        canvas.line(*at(0.04, 0.62), *at(0.96, 0.62))
+        canvas.line(*at(0.50, 0.00), *at(0.36, 0.62))
+        canvas.line(*at(0.50, 0.00), *at(0.64, 0.62))
 
 
 def draw_race_icon(canvas: Canvas, race: Race, *, x_mm: float, y_mm: float, size_mm: float) -> None:

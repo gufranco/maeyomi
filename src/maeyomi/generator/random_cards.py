@@ -11,12 +11,13 @@ than returning fewer cards silently.
 """
 
 import random
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import Final
 
+from maeyomi.generator.carried import Carried, carried
 from maeyomi.generator.front_solver import MAX_HP_DISPLAY, MAX_STAT_DISPLAY
 from maeyomi.generator.solve import solve
-from maeyomi.models.card_request import CardRequest
+from maeyomi.models.card_request import MAX_POINTS, CardRequest
 from maeyomi.models.character import DISPLAY_SCALE
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.generated_card import GeneratedCard
@@ -82,19 +83,33 @@ def _try_one(rng: random.Random, template: CardRequest, index: int) -> Generated
 
 
 def _sample(rng: random.Random, template: CardRequest, index: int) -> CardRequest:
-    """Draw one exact request from the template's ranges."""
+    """Draw one exact request from the template's ranges.
+
+    Only the numbers the chosen kind of card carries are drawn. The rest keep
+    the template's constraint, because an item asked for a number it does not
+    carry can never be solved.
+    """
     race = template.race if template.race is not None else rng.choice(_FIGHTERS)
-    return CardRequest(
+    job = template.job if template.job is not None else rng.randrange(10)
+    drawn = {field.value: _draw(rng, template, field) for field in carried(race, job)}
+    return replace(
+        template,
         name=template.name or f"{race.name.replace('_', ' ').title()} {index + 1:02d}",
-        hp=Constraint.exactly(_pick_hp(rng, template.hp)),
-        st=Constraint.exactly(_pick(rng, template.st, MAX_STAT_DISPLAY)),
-        df=Constraint.exactly(_pick(rng, template.df, MAX_STAT_DISPLAY)),
         race=race,
-        job=template.job if template.job is not None else rng.randrange(10),
-        character_class=template.character_class,
+        job=job,
         special=template.special if template.special is not None else rng.randrange(100),
-        speed=template.speed,
+        **drawn,
     )
+
+
+def _draw(rng: random.Random, template: CardRequest, field: Carried) -> Constraint:
+    """Draw one exact value for a carried number from the template's range."""
+    constraint: Constraint = getattr(template, field.value)
+    if field is Carried.HP:
+        return Constraint.exactly(_pick_hp(rng, constraint))
+    if field in (Carried.PP, Carried.MP):
+        return Constraint.exactly(_pick_count(rng, constraint))
+    return Constraint.exactly(_pick(rng, constraint, MAX_STAT_DISPLAY))
 
 
 _FIGHTERS: Final = tuple(race for race in Race if race.is_fighter)
@@ -103,6 +118,12 @@ _FIGHTERS: Final = tuple(race for race in Race if race.is_fighter)
 def _pick(rng: random.Random, constraint: Constraint, ceiling: int) -> int:
     """Draw one admissible display value from a constraint."""
     values = list(constraint.values(step=DISPLAY_SCALE, ceiling=ceiling))
+    return rng.choice(values) if values else 0
+
+
+def _pick_count(rng: random.Random, constraint: Constraint) -> int:
+    """Draw one admissible count of herbs or magic points."""
+    values = list(constraint.values(step=1, ceiling=MAX_POINTS))
     return rng.choice(values) if values else 0
 
 
