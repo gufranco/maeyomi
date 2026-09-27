@@ -2,7 +2,7 @@
 
 # maeyomi
 
-<strong>Print playable cards for a 1992 Epoch Barcode Battler II.</strong>
+<strong>Print playable cards for Epoch's Barcode Battler and Barcode Battler II.</strong>
 
 English &nbsp;|&nbsp; [日本語](README.ja.md)
 
@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**572** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Verified on the real machine.
+**572** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -35,6 +35,14 @@ way, then prints it.
 Every barcode is decoded again before it reaches paper, and every printed page
 is rasterised and read back with a barcode reader. Printed cards were swiped on
 a physical Barcode Battler II.
+
+The first Barcode Battler, from 1991, reads the same digits its own way: every
+fighter is a warrior, health stops at 19900, attack and defence at 9900, and the
+two-digit code is a flag from a different table, so 18 is the hero where the II
+doubles the attack. Add `--device bb1` to `decode`, `generate` and `cheat` to
+make cards for it. Its decoder reproduces 113 published cards from the four
+lists written for it, and no card for it has been read on a physical first
+Barcode Battler yet, which every sheet for it says.
 
 ## Install
 
@@ -323,8 +331,8 @@ convenience: the lookup failing changes nothing about the card.
 
 ## The real cards
 
-`maeyomi official --list` names the fourteen card lists Epoch released
-and how many cards of each will print; `maeyomi official --set candy -o
+`maeyomi official --list` names the fourteen card lists Epoch released,
+how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
 candy.pdf` prints one, and leaving out `--set` prints all 572. The web page has
 the same thing under **The real cards**.
 
@@ -335,6 +343,11 @@ its page. Five entries fail their own check digit, which means someone mistyped
 a digit; the wrong one cannot be identified, so they are listed and left out
 rather than repaired by guessing. The numbers printed on each card are read from
 the barcode by this project's decoder, not copied from the wiki.
+
+Four lists were written for the first Barcode Battler: the original set,
+Chuhai Khan Strikes Back, The Final Battle: God versus Mother, and the candy
+cards. Their pages describe the flags with the first device's table, so they
+print with it; the other ten print with the II's.
 
 ## The cheat code
 
@@ -360,6 +373,18 @@ to whoever uses it: the opponent's defence cut by 80 percent, your own defence
 up by half, the opponent's health halved, the opponent's attack halved, and the
 opponent's special powers cancelled. Whether the powers of several items add up
 is not documented, so none of this relies on it.
+
+The command says which jobs can use each item, from the equipment table in the
+[note.com analysis](https://note.com/sakigomyway_5634/n/n61808a7245e5). No
+magician can hold a weapon or armour, so the blade and the shield are for a
+warrior of any job, while the potion, the herbs and the crystal all work with
+the cheat magician.
+
+`maeyomi cheat --device bb1 --items -o cheat.pdf` does the same for the first
+Barcode Battler: a warrior with every number at its ceiling, 19900 health, 9900
+attack and 9900 defence, and its attack doubled, plus a weapon, armour and a
+potion at their ceilings. The warrior is job 9, which that device lets equip
+every weapon and gives weapons of types 0 to 4 half as much attack again.
 
 ## Two languages and pictures
 

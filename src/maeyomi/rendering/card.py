@@ -22,7 +22,7 @@ from reportlab.pdfgen.canvas import Canvas
 
 from maeyomi.barcode.geometry import BarcodeGeometry
 from maeyomi.barcode.symbol import draw_symbol, symbol_size_mm
-from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.models.generated_card import AnyCard
 from maeyomi.rendering.ability_icons import draw_icon
 from maeyomi.rendering.face import CardFace, face_of
 from maeyomi.rendering.icons import INK, STAT_STYLES, WHITE, Colour
@@ -90,7 +90,7 @@ class _Frame:
 
 def draw_card(
     canvas: Canvas,
-    card: GeneratedCard,
+    card: AnyCard,
     *,
     x_mm: float,
     y_mm: float,
@@ -264,7 +264,7 @@ def _draw_pair(
     canvas.drawString(japanese_left * mm, baseline * mm, text.japanese)
 
 
-def _draw_name(canvas: Canvas, card: GeneratedCard, frame: _Frame, top: float) -> float:
+def _draw_name(canvas: Canvas, card: AnyCard, frame: _Frame, top: float) -> float:
     """Draw the name on one centred line, or two when it needs them."""
     style = frame.style
     font = font_for(card.name, bold=True)
@@ -429,7 +429,7 @@ def _caption_baseline(frame: _Frame, symbol_height: float) -> float:
 
 def _draw_barcode(
     canvas: Canvas,
-    card: GeneratedCard,
+    card: AnyCard,
     frame: _Frame,
     *,
     symbol_width: float,

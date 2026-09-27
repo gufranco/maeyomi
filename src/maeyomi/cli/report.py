@@ -6,8 +6,11 @@ the three columns are printed whether or not anything differs.
 
 from collections.abc import Sequence
 
+from maeyomi.bb1.card import FirstBattlerCard
+from maeyomi.generator.equip import ALL_JOBS, equipping_jobs
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.character import BarcodeBattlerCharacter
+from maeyomi.models.generated_card import AnyCard
 
 DISCLAIMER = (
     "These cards were verified against this project's own decoder and read on a "
@@ -17,7 +20,24 @@ DISCLAIMER_JA = (
     "これらのカードは このプログラムの デコーダーで けんしょうし、"
     "バーコードバトラーII の 実機で よみとり かくにん しています。"
 )
+FIRST_DEVICE_DISCLAIMER = (
+    "Cards for the first Barcode Battler were verified against this project's own "
+    "decoder, which reproduces the published card lists, and were never read on a "
+    "physical first Barcode Battler."
+)
+FIRST_DEVICE_DISCLAIMER_JA = (
+    "初代バーコードバトラー用の カードは このプログラムの デコーダーで けんしょうしました。"
+    "デコーダーは こうかいされた カードリストを さいげんしますが、"
+    "初代の 実機では まだ よみとって いません。"
+)
 UNCONSTRAINED = ("any", "-")
+
+
+def disclaimers(cards: Sequence[AnyCard]) -> list[str]:
+    """What was verified, one line per device the cards were made for."""
+    first = [card for card in cards if isinstance(card.character, FirstBattlerCard)]
+    lines = [DISCLAIMER] if len(first) < len(cards) else []
+    return [*lines, FIRST_DEVICE_DISCLAIMER] if first else lines
 
 
 def comparison_lines(request: CardRequest, character: BarcodeBattlerCharacter) -> list[str]:
@@ -34,8 +54,29 @@ def comparison_lines(request: CardRequest, character: BarcodeBattlerCharacter) -
         ("Speed", _optional(request.speed), _optional(character.speed)),
         ("Ability", _optional(request.special), f"{character.special.code:02d}"),
     ]
+    return comparison_table(rows)
+
+
+def comparison_table(rows: Sequence[tuple[str, str, str]]) -> list[str]:
+    """Lay out field, requested and generated rows under one header."""
     header = f"{'Field':<9}{'Requested':<16}{'Generated':<16}Difference"
     return [header, "-" * len(header), *[_row(*row) for row in rows]]
+
+
+def fit_line(fighter_job: int, item: BarcodeBattlerCharacter) -> str:
+    """Which jobs can use an item, and whether the fighter it came with is one of them."""
+    jobs = equipping_jobs(item)
+    fits = "fits this fighter" if fighter_job in jobs else "not this fighter"
+    return f"{job_span(jobs)}, {fits}"
+
+
+def job_span(jobs: Sequence[int]) -> str:
+    """Name a set of jobs the short way: every job, a run, or a list."""
+    if tuple(jobs) == ALL_JOBS:
+        return "every job"
+    if list(jobs) == list(range(jobs[0], jobs[-1] + 1)):
+        return f"jobs {jobs[0]} to {jobs[-1]}"
+    return "jobs " + " and ".join(str(job) for job in jobs)
 
 
 def shortfall_lines(produced: int, requested: int, reason: str) -> Sequence[str]:

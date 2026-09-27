@@ -27,7 +27,12 @@ def test_the_front_read_speed_digit_is_recorded() -> None:
 def test_the_generator_blocking_entries_are_flagged() -> None:
     blocking = {key for key, entry in UNCERTAINTIES.items() if entry.blocks_generation}
 
-    assert blocking == {"battle_stat_wrap", "animal_partner_set", "low_leading_item_read_type"}
+    assert blocking == {
+        "battle_stat_wrap",
+        "animal_partner_set",
+        "low_leading_item_read_type",
+        "bb1_back_read_flag",
+    }
 
 
 def test_the_wrap_entry_names_both_subtrahends_it_chose_between() -> None:

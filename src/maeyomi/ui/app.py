@@ -24,7 +24,12 @@ from fastapi.responses import FileResponse, HTMLResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_race
-from maeyomi.cli.report import DISCLAIMER, DISCLAIMER_JA
+from maeyomi.cli.report import (
+    DISCLAIMER,
+    DISCLAIMER_JA,
+    FIRST_DEVICE_DISCLAIMER,
+    FIRST_DEVICE_DISCLAIMER_JA,
+)
 from maeyomi.decoder.decode import decode
 from maeyomi.decoder.errors import BarcodeError
 from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
@@ -32,7 +37,7 @@ from maeyomi.generator.nearest import solve_nearest
 from maeyomi.generator.random_cards import generate_random
 from maeyomi.generator.solve import solve
 from maeyomi.models.card_request import CardRequest
-from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.models.generated_card import AnyCard, GeneratedCard
 from maeyomi.models.race import Race
 from maeyomi.models.read_type import ReadType
 from maeyomi.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
@@ -91,7 +96,10 @@ def index() -> HTMLResponse:
     """
     markup = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
     return HTMLResponse(
-        markup.replace("__DISCLAIMER__", DISCLAIMER).replace("__DISCLAIMER_JA__", DISCLAIMER_JA)
+        markup.replace("__DISCLAIMER__", DISCLAIMER)
+        .replace("__DISCLAIMER_JA__", DISCLAIMER_JA)
+        .replace("__FIRST_DISCLAIMER__", FIRST_DEVICE_DISCLAIMER)
+        .replace("__FIRST_DISCLAIMER_JA__", FIRST_DEVICE_DISCLAIMER_JA)
     )
 
 
@@ -342,7 +350,7 @@ def _official_set(spec: OfficialSpec) -> OfficialSet | None:
         ) from error
 
 
-def _sheet_response(cards: Sequence[GeneratedCard], filename: str) -> FileResponse:
+def _sheet_response(cards: Sequence[AnyCard], filename: str) -> FileResponse:
     """Render the cards to a temporary PDF and serve it as a download."""
     directory = Path(tempfile.mkdtemp(prefix="maeyomi-"))
     path = directory / filename

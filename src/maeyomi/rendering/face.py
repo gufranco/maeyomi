@@ -12,11 +12,29 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from functools import partial
 
+from maeyomi.bb1.card import FirstBattlerCard
+from maeyomi.generator.carried import Carried
 from maeyomi.models.character import BarcodeBattlerCharacter
-from maeyomi.rendering.ability_icons import AbilityIcon, ability_icon
-from maeyomi.rendering.icons import RACE_COLOURS, Colour, draw_race_icon
-from maeyomi.rendering.labels import Bilingual, class_label, panel_text, race_label
-from maeyomi.rendering.stat_tiles import StatTile, stat_tiles
+from maeyomi.models.character_class import CharacterClass
+from maeyomi.models.generated_card import CardResult
+from maeyomi.models.race import Race
+from maeyomi.rendering.ability_icons import AbilityIcon, ability_icon, flag_icon
+from maeyomi.rendering.icons import (
+    RACE_COLOURS,
+    UNKNOWN_KIND_COLOUR,
+    Colour,
+    draw_race_icon,
+    draw_unknown_kind,
+)
+from maeyomi.rendering.labels import (
+    ITEM_CARD,
+    UNKNOWN_KIND,
+    Bilingual,
+    class_label,
+    panel_text,
+    race_label,
+)
+from maeyomi.rendering.stat_tiles import StatTile, stat_tiles, tiles_for
 
 BandIcon = Callable[..., None]
 
@@ -35,7 +53,14 @@ class CardFace:
     power_icon: AbilityIcon
 
 
-def face_of(character: BarcodeBattlerCharacter) -> CardFace:
+def face_of(result: CardResult) -> CardFace:
+    """The face of a card, whichever device reads it."""
+    if isinstance(result, FirstBattlerCard):
+        return _first_battler_face(result)
+    return _second_battler_face(result)
+
+
+def _second_battler_face(character: BarcodeBattlerCharacter) -> CardFace:
     """The face of a Barcode Battler II card."""
     race = character.race
     return CardFace(
@@ -48,3 +73,38 @@ def face_of(character: BarcodeBattlerCharacter) -> CardFace:
         power_text=panel_text(character),
         power_icon=ability_icon(character.special),
     )
+
+
+def _first_battler_face(card: FirstBattlerCard) -> CardFace:
+    """The face of a first Barcode Battler card, whose fighters are all warriors."""
+    flag = card.flag
+    return CardFace(
+        band_colour=UNKNOWN_KIND_COLOUR if card.race is None else RACE_COLOURS[card.race],
+        band_icon=draw_unknown_kind
+        if card.race is None
+        else partial(draw_race_icon, race=card.race),
+        kind=UNKNOWN_KIND if card.race is None else race_label(card.race),
+        detail=_first_battler_detail(card.race),
+        tiles=tiles_for(_first_battler_fields(card.race), card),
+        power_code=flag.code,
+        power_text=Bilingual(flag.description, flag.japanese),
+        power_icon=flag_icon(flag),
+    )
+
+
+def _first_battler_detail(race: Race | None) -> Bilingual:
+    """Warrior for a fighter or an enemy, item card for an item."""
+    if race is None or race.is_fighter:
+        return class_label(CharacterClass.WARRIOR)
+    return ITEM_CARD
+
+
+def _first_battler_fields(race: Race | None) -> tuple[Carried, ...]:
+    """What a first Barcode Battler card carries: its helper item only ever gives health."""
+    if race is None or race.is_fighter:
+        return (Carried.HP, Carried.ST, Carried.DF)
+    if race.is_weapon:
+        return (Carried.ST,)
+    if race.is_armour:
+        return (Carried.DF,)
+    return (Carried.HP,)

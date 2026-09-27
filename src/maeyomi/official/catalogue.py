@@ -18,7 +18,10 @@ over:
 
 Each card is decoded by this project's own decoder before it is offered for
 printing, so the numbers on the printed face come from the barcode rather than
-from the transcription.
+from the transcription. Each list is read by the device its ability wording
+belongs to: four lists use the first Barcode Battler's flag table, where 05
+doubles the attack and 18 is the hero, and the rest use the Barcode Battler
+II's.
 """
 
 import json
@@ -28,9 +31,11 @@ from functools import cache
 from importlib import resources
 from typing import Final
 
+from maeyomi.bb1.decode import decode_first
 from maeyomi.decoder.decode import decode
 from maeyomi.decoder.errors import BarcodeError
-from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.models.device import Device
+from maeyomi.models.generated_card import AnyCard, GeneratedCard
 
 DATA_FILE: Final = "cards.json"
 
@@ -58,10 +63,24 @@ class OfficialSet(Enum):
     CANDY = "バーコードバトラーキャンデー カードリスト"
 
     @property
+    def device(self) -> Device:
+        """The device whose ability table this list's wording follows."""
+        return Device.BB1 if self in _FIRST_DEVICE_SETS else Device.BB2
+
+    @property
     def english(self) -> str:
         """A title a reader without Japanese can use."""
         return _ENGLISH_TITLES[self]
 
+
+_FIRST_DEVICE_SETS: Final = frozenset(
+    {
+        OfficialSet.ORIGINAL,
+        OfficialSet.CHUHAI_KHAN,
+        OfficialSet.GOD_VERSUS_MOTHER,
+        OfficialSet.CANDY,
+    }
+)
 
 _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.ORIGINAL: "Barcode Battler",
@@ -107,13 +126,22 @@ def official_catalogue() -> tuple[OfficialCard, ...]:
     )
 
 
-def official_cards(official_set: OfficialSet | None = None) -> tuple[GeneratedCard, ...]:
-    """Every card that decodes, optionally from one set, ready to print."""
+def official_cards(official_set: OfficialSet | None = None) -> tuple[AnyCard, ...]:
+    """Every card that decodes, optionally from one set, read by the device it was made for."""
     return tuple(
-        GeneratedCard(name=entry.name, barcode=entry.barcode, character=decode(entry.barcode))
+        _card(entry)
         for entry in official_catalogue()
         if (official_set is None or entry.official_set is official_set) and _decodes(entry)
     )
+
+
+def _card(entry: OfficialCard) -> AnyCard:
+    """Decode one card with its own device's reading."""
+    if entry.official_set.device is Device.BB1:
+        return GeneratedCard(
+            name=entry.name, barcode=entry.barcode, character=decode_first(entry.barcode)
+        )
+    return GeneratedCard(name=entry.name, barcode=entry.barcode, character=decode(entry.barcode))
 
 
 def rejected_transcriptions() -> tuple[OfficialCard, ...]:

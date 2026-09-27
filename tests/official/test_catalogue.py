@@ -2,7 +2,10 @@
 
 import pytest
 
+from maeyomi.bb1.card import FirstBattlerCard
+from maeyomi.bb1.decode import decode_first
 from maeyomi.decoder.decode import decode
+from maeyomi.models.device import Device
 from maeyomi.official.catalogue import (
     OfficialSet,
     official_cards,
@@ -51,8 +54,30 @@ def test_a_transcription_with_a_wrong_check_digit_is_rejected_rather_than_repair
 
 
 def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
-    for card in official_cards():
-        assert decode(card.barcode) == card.character
+    for official_set in OfficialSet:
+        reader = decode_first if official_set.device is Device.BB1 else decode
+        for card in official_cards(official_set):
+            assert reader(card.barcode) == card.character
+
+
+def test_a_first_device_card_prints_the_first_device_flag() -> None:
+    cards = {card.name: card.character for card in official_cards(OfficialSet.ORIGINAL)}
+
+    hero = cards["ラーメン大帝"]
+
+    assert isinstance(hero, FirstBattlerCard)
+    assert hero.flag.description == "Hero"
+
+
+def test_exactly_the_four_lists_with_first_device_wording_use_that_device() -> None:
+    first = {official_set for official_set in OfficialSet if official_set.device is Device.BB1}
+
+    assert first == {
+        OfficialSet.ORIGINAL,
+        OfficialSet.CHUHAI_KHAN,
+        OfficialSet.GOD_VERSUS_MOTHER,
+        OfficialSet.CANDY,
+    }
 
 
 def test_the_printable_cards_are_every_transcription_that_decodes() -> None:

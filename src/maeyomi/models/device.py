@@ -1,0 +1,27 @@
+"""The devices a card can be made for, each with its own way of reading a barcode."""
+
+from enum import StrEnum
+from typing import Final
+
+
+class Device(StrEnum):
+    """One reader. The value is the short key the command line and the page use."""
+
+    BB2 = "bb2"
+    BB1 = "bb1"
+
+    @property
+    def english(self) -> str:
+        """The device's name in English."""
+        return _NAMES[self][0]
+
+    @property
+    def japanese(self) -> str:
+        """The device's name in Japanese, as Epoch printed it."""
+        return _NAMES[self][1]
+
+
+_NAMES: Final[dict[Device, tuple[str, str]]] = {
+    Device.BB2: ("Barcode Battler II", "バーコードバトラーII"),
+    Device.BB1: ("Barcode Battler", "バーコードバトラー"),
+}

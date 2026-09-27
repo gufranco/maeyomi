@@ -17,7 +17,7 @@ from typing import Any, Final, cast
 from reportlab.pdfgen.canvas import Canvas
 
 AUTHOR: Final = "maeyomi"
-SUBJECT: Final = "Print playable cards for a 1992 Epoch Barcode Battler II"
+SUBJECT: Final = "Print playable cards for Epoch's Barcode Battler and Barcode Battler II"
 KEYWORDS: Final = "barcode battler, barcode, cards, EAN-13, printable"
 LANGUAGE: Final = "en"
 

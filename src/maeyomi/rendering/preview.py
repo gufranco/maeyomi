@@ -18,7 +18,7 @@ from reportlab.pdfgen.canvas import Canvas
 
 from maeyomi.barcode.geometry import BarcodeGeometry
 from maeyomi.barcode.rasterise import render_pdf_pages
-from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.models.generated_card import AnyCard
 from maeyomi.rendering.card import CardStyle, draw_card
 from maeyomi.rendering.layout import (
     POKER_CARD_HEIGHT_MM,
@@ -32,7 +32,7 @@ SHEET_PREVIEW_DPI: Final = 96
 
 
 def card_png(
-    card: GeneratedCard,
+    card: AnyCard,
     *,
     dpi: int = CARD_PREVIEW_DPI,
     width_mm: float = POKER_CARD_WIDTH_MM,
@@ -60,7 +60,7 @@ def card_png(
 
 
 def sheet_png_pages(
-    cards: Sequence[GeneratedCard],
+    cards: Sequence[AnyCard],
     *,
     dpi: int = SHEET_PREVIEW_DPI,
     layout: SheetLayout | None = None,

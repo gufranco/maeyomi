@@ -11,7 +11,7 @@ from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
 from maeyomi.barcode.geometry import BarcodeGeometry
-from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.models.generated_card import AnyCard
 from maeyomi.rendering.calibration import draw_calibration
 from maeyomi.rendering.card import CardStyle, draw_card
 from maeyomi.rendering.document import describe
@@ -21,7 +21,7 @@ CUT_MARK_LINE_WIDTH = 0.25
 
 
 def write_sheet(
-    cards: Sequence[GeneratedCard],
+    cards: Sequence[AnyCard],
     path: str | Path,
     *,
     layout: SheetLayout | None = None,
@@ -58,14 +58,14 @@ def write_sheet(
     return pages
 
 
-def _pages(cards: Sequence[GeneratedCard], per_page: int) -> list[Sequence[GeneratedCard]]:
+def _pages(cards: Sequence[AnyCard], per_page: int) -> list[Sequence[AnyCard]]:
     """Split the cards into one list per sheet."""
     return [cards[start : start + per_page] for start in range(0, len(cards), per_page)]
 
 
 def _draw_page(
     canvas: Canvas,
-    cards: Sequence[GeneratedCard],
+    cards: Sequence[AnyCard],
     layout: SheetLayout,
     geometry: BarcodeGeometry,
     style: CardStyle | None,
@@ -126,7 +126,7 @@ def _mark(canvas: Canvas, x1_mm: float, y1_mm: float, x2_mm: float, y2_mm: float
     canvas.line(x1_mm * mm, y1_mm * mm, x2_mm * mm, y2_mm * mm)
 
 
-def _title(cards: Sequence[GeneratedCard]) -> str:
+def _title(cards: Sequence[AnyCard]) -> str:
     """Name the sheet after what is on it, for the reader who hears it spoken."""
     if len(cards) == 1:
         return f"Barcode Battler II card: {cards[0].name}"

@@ -1,7 +1,16 @@
 """Tests for the requested against generated comparison."""
 
-from maeyomi.cli.report import DISCLAIMER, DISCLAIMER_JA, comparison_lines, shortfall_lines
+from maeyomi.bb1.cheat import strongest_first_card
+from maeyomi.cli.report import (
+    DISCLAIMER,
+    DISCLAIMER_JA,
+    FIRST_DEVICE_DISCLAIMER,
+    comparison_lines,
+    disclaimers,
+    shortfall_lines,
+)
 from maeyomi.decoder.decode import decode
+from maeyomi.generator.cheat import strongest_card
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.constraint import Constraint
@@ -79,3 +88,20 @@ def test_the_lowest_valued_race_is_reported_rather_than_read_as_absent() -> None
 def test_the_disclaimer_exists_in_japanese() -> None:
 
     assert "実機" in DISCLAIMER_JA
+
+
+def test_a_sheet_of_both_devices_states_both_verifications() -> None:
+    cards = (strongest_card(), strongest_first_card())
+
+    assert disclaimers(cards) == [DISCLAIMER, FIRST_DEVICE_DISCLAIMER]
+
+
+def test_a_first_device_sheet_never_claims_a_physical_read() -> None:
+    lines = disclaimers((strongest_first_card(),))
+
+    assert lines == [FIRST_DEVICE_DISCLAIMER]
+    assert "never read on a physical first Barcode Battler" in lines[0]
+
+
+def test_a_second_device_sheet_keeps_its_hardware_line() -> None:
+    assert disclaimers((strongest_card(),)) == [DISCLAIMER]

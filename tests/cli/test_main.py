@@ -389,6 +389,13 @@ def test_cheat_with_items_adds_one_card_of_every_kind(tmp_path: Path) -> None:
     assert len(decode_pdf(output)) == 6
     assert "Cheat Blade: ST 9900; ability 27 opponent DF reduced by 80 percent" in result.output
     assert "Cheat Herbs: PP 99; ability 24" in result.output
+    assert "Cheat Blade: ST 9900; ability 27" in result.output
+    assert "jobs 0 to 6, not this fighter" in result.output
+    assert "Cheat Herbs: PP 99; ability 24 opponent ST reduced by 50 percent; every job, fits" in (
+        result.output
+    )
+    crystal = next(line for line in result.output.splitlines() if line.startswith("Cheat Crystal"))
+    assert crystal.endswith("jobs 7 and 9, fits this fighter")
 
 
 def test_cheat_takes_a_name(tmp_path: Path) -> None:

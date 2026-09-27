@@ -1,7 +1,7 @@
 [project]
 name = "maeyomi"
 version = "1.0.0"
-description = "Print playable cards for a 1992 Epoch Barcode Battler II"
+description = "Print playable cards for Epoch's Barcode Battler and Barcode Battler II"
 readme = "README.md"
 authors = [{ name = "Gustavo Franco", email = "gufranco@users.noreply.github.com" }]
 requires-python = ">=3.14"
@@ -67,8 +67,10 @@ ignore = [
 "src/maeyomi/rendering/sheet.py" = ["PLR0913"]
 "src/maeyomi/rendering/preview.py" = ["PLR0913"]
 "src/maeyomi/cli/main.py" = ["PLR0913", "PLR0917", "FBT002"]
+"src/maeyomi/cli/common.py" = ["PLR0913"]
 "src/maeyomi/official/catalogue.py" = ["RUF001"]
 "src/maeyomi/models/special_ability_ja.py" = ["RUF001"]
+"src/maeyomi/bb1/flags.py" = ["RUF001"]
 "tools/*" = ["ALL"]
 
 [tool.ruff.lint.pydocstyle]

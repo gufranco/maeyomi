@@ -17,6 +17,7 @@ from typing import Final
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
+from maeyomi.bb1.flags import Flag
 from maeyomi.models.special_ability import UNDOCUMENTED, SpecialAbility
 from maeyomi.rendering.icons import (
     INK,
@@ -104,6 +105,33 @@ _ICONS: Final[dict[int, AbilityIcon]] = {
     **_span(75, 79, AbilityIcon(Glyph.SHIELD, Badge.UP)),
     **_span(80, 99, AbilityIcon(Glyph.KEY)),
 }
+
+
+_FLAG_ICONS: Final[dict[int, AbilityIcon]] = {
+    0: AbilityIcon(Glyph.NONE),
+    1: AbilityIcon(Glyph.TARGET, Badge.UP),
+    2: AbilityIcon(Glyph.TARGET, Badge.DOWN),
+    3: AbilityIcon(Glyph.TARGET, Badge.UP),
+    **_span(4, 5, AbilityIcon(Glyph.SWORD, Badge.UP)),
+    6: AbilityIcon(Glyph.SHIELD, Badge.UP),
+    **_span(7, 8, AbilityIcon(Glyph.SWORD, Badge.UP)),
+    **_span(9, 12, AbilityIcon(Glyph.SWORD, Badge.TRIPLE)),
+    13: AbilityIcon(Glyph.SHIELD, Badge.DOWN),
+    14: AbilityIcon(Glyph.HEART, Badge.DOWN),
+    **_span(15, 17, AbilityIcon(Glyph.KEY)),
+    **_span(18, 19, AbilityIcon(Glyph.CROWN)),
+    **_span(20, 22, AbilityIcon(Glyph.SWORD, Badge.UP)),
+    **_span(23, 25, AbilityIcon(Glyph.SHIELD, Badge.UP)),
+    **_span(26, 38, AbilityIcon(Glyph.KEY)),
+    39: AbilityIcon(Glyph.SHIELD, Badge.DOWN),
+}
+
+
+def flag_icon(flag: Flag) -> AbilityIcon:
+    """The icon for a first Barcode Battler flag, and a question mark past the documented ones."""
+    if not flag.is_documented:
+        return AbilityIcon(Glyph.UNKNOWN)
+    return _FLAG_ICONS[flag.code]
 
 
 def ability_icon(special: SpecialAbility) -> AbilityIcon:

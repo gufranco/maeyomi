@@ -75,6 +75,8 @@ RACE_COLOURS: Final[dict[Race, Colour]] = {
     Race.SUPPORT_ITEM: _hex("7A5A00"),
 }
 
+UNKNOWN_KIND_COLOUR: Final[Colour] = INK
+
 Point = tuple[float, float]
 
 
@@ -224,6 +226,16 @@ def draw_crystal(canvas: Canvas, *, x_mm: float, y_mm: float, size_mm: float) ->
         canvas.line(*at(0.04, 0.62), *at(0.96, 0.62))
         canvas.line(*at(0.50, 0.00), *at(0.36, 0.62))
         canvas.line(*at(0.50, 0.00), *at(0.64, 0.62))
+
+
+def draw_unknown_kind(canvas: Canvas, *, x_mm: float, y_mm: float, size_mm: float) -> None:
+    """Draw a question mark in a ring, for a card whose kind no source records."""
+    with _box(canvas, WHITE, x_mm, y_mm, size_mm) as (left, bottom, side):
+        canvas.setStrokeColorRGB(*WHITE)
+        canvas.setLineWidth(side * 0.08)
+        canvas.circle(left + side / 2, bottom + side / 2, side * 0.44, stroke=1, fill=0)
+        canvas.setFont("Helvetica-Bold", side * 0.62)
+        canvas.drawCentredString(left + side / 2, bottom + side * 0.28, "?")
 
 
 def draw_race_icon(canvas: Canvas, race: Race, *, x_mm: float, y_mm: float, size_mm: float) -> None:

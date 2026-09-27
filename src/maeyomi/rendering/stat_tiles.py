@@ -5,7 +5,7 @@ carries, so a herb item shows its herbs rather than three zeros, and an
 information item prints no tile at all.
 """
 
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from dataclasses import dataclass
 from typing import Final
 
@@ -35,8 +35,13 @@ _ICONS: Final[dict[Carried, IconDrawer]] = {
 
 
 def stat_tiles(character: BarcodeBattlerCharacter) -> tuple[StatTile, ...]:
-    """The tiles for this card, in the order they print."""
+    """The tiles for a Barcode Battler II card, in the order they print."""
+    return tiles_for(carried(character.race, character.job), character)
+
+
+def tiles_for(fields: Sequence[Carried], values: object) -> tuple[StatTile, ...]:
+    """One tile per field, reading each value off the object by its field name."""
     return tuple(
-        StatTile(key=field.name, value=getattr(character, field.value), icon=_ICONS[field])
-        for field in carried(character.race, character.job)
+        StatTile(key=field.name, value=getattr(values, field.value), icon=_ICONS[field])
+        for field in fields
     )

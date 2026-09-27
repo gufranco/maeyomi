@@ -113,6 +113,24 @@ UNCERTAINTIES: Final[Mapping[str, Uncertainty]] = MappingProxyType(
             ),
             revisit="On a hardware test that casts a spell with a job 6 fighter.",
         ),
+        "bb1_back_read_flag": Uncertainty(
+            question=(
+                "On the first Barcode Battler, does an enemy read from the back carry a flag?"
+            ),
+            decision=(
+                "The check digit, as the note.com analysis reads it; the generator tunes "
+                "the check digit to 0 and refuses a request that names an enemy's flag."
+            ),
+            evidence=(
+                "The note.com analysis of the original device by sakigomyway gives the "
+                "flag as 0 followed by the thirteenth digit. barcodebattler.co.uk, "
+                "Original Barcode Battler technical info, Method 2, says no "
+                "representation for the flag was found. No listed card is read from the "
+                "back, so no transcription settles it."
+            ),
+            revisit="On a hardware test of an enemy code whose check digit is 5.",
+            blocks_generation=True,
+        ),
         "upc_a_twelve_digits": Uncertainty(
             question="Does the hardware left-pad a 12-digit UPC-A code to 13 digits?",
             decision="Rejected, matching the simulator.",

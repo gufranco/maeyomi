@@ -48,6 +48,7 @@ _CLASSES: Final[dict[CharacterClass, Bilingual]] = {
 }
 
 ITEM_CARD: Final = Bilingual("Item card", "アイテム カード")
+UNKNOWN_KIND: Final = Bilingual("Enemy, kind unknown", "てき・しゅるい ふめい")
 
 STAT_LABELS: Final[dict[str, Bilingual]] = {
     "HP": Bilingual("HP", "たいりょく"),

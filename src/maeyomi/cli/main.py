@@ -14,9 +14,10 @@ from typing import Annotated
 
 import typer
 
+from maeyomi.cli.common import build_request, sheet_layout, write_cards
 from maeyomi.cli.doctor import State, machine, package, worst
-from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_race
-from maeyomi.cli.report import DISCLAIMER, comparison_lines, shortfall_lines
+from maeyomi.cli.first_device import cheat_first, generate_first, show_first
+from maeyomi.cli.report import DISCLAIMER, comparison_lines, fit_line, shortfall_lines
 from maeyomi.decoder.decode import decode as decode_barcode
 from maeyomi.decoder.errors import BarcodeError
 from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
@@ -26,6 +27,7 @@ from maeyomi.generator.random_cards import generate_random
 from maeyomi.generator.solve import solve
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.character import BarcodeBattlerCharacter
+from maeyomi.models.device import Device
 from maeyomi.models.generated_card import GeneratedCard
 from maeyomi.models.race import Race
 from maeyomi.models.read_type import ReadType
@@ -36,10 +38,8 @@ from maeyomi.official.catalogue import (
     rejected_transcriptions,
 )
 from maeyomi.products.japan import product_cards, random_products, search_products
-from maeyomi.rendering.export import ImageFormat, export_images
+from maeyomi.rendering.export import ImageFormat
 from maeyomi.rendering.labels import RACE_DESCRIPTIONS, race_label
-from maeyomi.rendering.layout import SheetLayout
-from maeyomi.rendering.sheet import write_sheet
 from maeyomi.rendering.stat_tiles import stat_tiles
 
 app = typer.Typer(
@@ -91,6 +91,12 @@ PrintShopOption = Annotated[
 NearestOption = Annotated[
     bool, typer.Option("--nearest", help="On an impossible request, offer the closest card.")
 ]
+DeviceOption = Annotated[
+    Device,
+    typer.Option(
+        "--device", help="bb2 for the Barcode Battler II, bb1 for the first Barcode Battler."
+    ),
+]
 BackReadOption = Annotated[
     bool, typer.Option("--back-read", help="Build a card the device reads from the back.")
 ]
@@ -115,7 +121,7 @@ def random(
     print_shop: PrintShopOption = False,
 ) -> None:
     """Fill a sheet with random cards drawn through the real algorithm."""
-    template = _request(
+    template = build_request(
         "",
         hp,
         st,
@@ -133,7 +139,7 @@ def random(
         for line in shortfall_lines(len(batch.cards), batch.requested, batch.reason):
             typer.echo(line, err=True)
         raise typer.Exit(code=1)
-    _write(batch.cards, output, images, _layout(print_shop=print_shop))
+    write_cards(batch.cards, output, images, sheet_layout(print_shop=print_shop))
 
 
 @app.command()
@@ -153,10 +159,11 @@ def generate(
     images: ImagesOption = None,
     nearest: NearestOption = False,
     back_read: BackReadOption = False,
+    device: DeviceOption = Device.BB2,
     print_shop: PrintShopOption = False,
 ) -> None:
     """Build one card whose barcode decodes to exactly the requested attributes."""
-    request = _request(
+    request = build_request(
         name,
         hp,
         st,
@@ -169,6 +176,11 @@ def generate(
         speed=speed,
         ability=ability,
     )
+    if device is Device.BB1:
+        generate_first(
+            request, back_read=back_read, output=output, images=images, print_shop=print_shop
+        )
+        return
     reading = ReadType.BACK if back_read else ReadType.FRONT
     outcome = solve(request, read_type=reading)
     if outcome.barcode is None or outcome.character is None:
@@ -181,11 +193,11 @@ def generate(
     for line in comparison_lines(request, character):
         typer.echo(line)
     typer.echo("")
-    _write(
+    write_cards(
         (GeneratedCard(name=name, barcode=barcode, character=character),),
         output,
         images,
-        _layout(print_shop=print_shop),
+        sheet_layout(print_shop=print_shop),
     )
 
 
@@ -224,6 +236,7 @@ def decode(
         typer.Option("--output", "-o", help="Also print the card this barcode makes."),
     ] = None,
     name: Annotated[str, typer.Option("--name", help="Printed on the card only.")] = "Card",
+    device: DeviceOption = Device.BB2,
     images: ImagesOption = None,
     print_shop: PrintShopOption = False,
 ) -> None:
@@ -232,6 +245,9 @@ def decode(
     Any product barcode is a card, which is how the device was played: read
     what is printed on the shopping and print the card it makes.
     """
+    if device is Device.BB1:
+        show_first(barcode, output=output, name=name, images=images, print_shop=print_shop)
+        return
     try:
         character = decode_barcode(barcode)
     except BarcodeError as error:
@@ -251,7 +267,7 @@ def decode(
     if output is not None:
         typer.echo(f"Name      {name}")
         card = GeneratedCard(name=name, barcode=character.barcode, character=character)
-        _write((card,), output, images, _layout(print_shop=print_shop))
+        write_cards((card,), output, images, sheet_layout(print_shop=print_shop))
 
 
 @app.command()
@@ -284,7 +300,7 @@ def products(
             )
         typer.echo(f"{len(found)} product(s)")
         return
-    _write(product_cards(found), output, images, _layout(print_shop=print_shop))
+    write_cards(product_cards(found), output, images, sheet_layout(print_shop=print_shop))
 
 
 @app.command()
@@ -308,10 +324,14 @@ def cheat(
             "--items", help="Add the strongest weapon, armour, health, herbs and magic items."
         ),
     ] = False,
+    device: DeviceOption = Device.BB2,
     images: ImagesOption = None,
     print_shop: PrintShopOption = False,
 ) -> None:
     """Print the strongest card the device will read. Nobody has to know."""
+    if device is Device.BB1:
+        cheat_first(name, items=items, output=output, images=images, print_shop=print_shop)
+        return
     card = strongest_card(name)
     character = card.character
     typer.echo(f"{card.name}: HP {character.hp}, ST {character.st}, DF {character.df}")
@@ -319,8 +339,8 @@ def cheat(
     typer.echo(f"Ability {character.special.code:02d} {character.special.description}")
     extras = strongest_items() if items else ()
     for extra in extras:
-        typer.echo(_item_line(extra))
-    _write((card, *extras), output, images, _layout(print_shop=print_shop))
+        typer.echo(f"{_item_line(extra)}; {fit_line(character.job, extra.character)}")
+    write_cards((card, *extras), output, images, sheet_layout(print_shop=print_shop))
 
 
 def _item_line(card: GeneratedCard) -> str:
@@ -349,14 +369,17 @@ def official(
         typer.echo("--output is required unless --list is given", err=True)
         raise typer.Exit(code=2)
     chosen = _official_set(set_name) if set_name is not None else None
-    _write(official_cards(chosen), output, images, _layout(print_shop=print_shop))
+    write_cards(official_cards(chosen), output, images, sheet_layout(print_shop=print_shop))
 
 
 def _list_official() -> None:
     """Print each set, its printable count, and the transcriptions left out."""
     for official_set in OfficialSet:
         count = len(official_cards(official_set))
-        typer.echo(f"{count:4d}  {official_set.name.lower():24s}  {official_set.english}")
+        typer.echo(
+            f"{count:4d}  {official_set.name.lower():24s}  {official_set.english}, "
+            f"read by the {official_set.device.english}"
+        )
     typer.echo(f"{len(official_cards()):4d}  total printable")
     for entry in rejected_transcriptions():
         typer.echo(f"skipped {entry.barcode} {entry.name}: its check digit is wrong")
@@ -379,61 +402,6 @@ def abilities() -> None:
     for code in range(MIN_CODE, MAX_CODE + 1):
         ability = SpecialAbility.from_code(code)
         typer.echo(f"{ability.code:02d}  {ability.description}")
-
-
-def _request(
-    name: str,
-    hp: str | None,
-    st: str | None,
-    df: str | None,
-    *,
-    herbs: str | None,
-    magic: str | None,
-    race: str | None,
-    character_class: str | None,
-    job: int | None,
-    speed: int | None,
-    ability: int | None,
-) -> CardRequest:
-    """Build a request from the options, reporting an unreadable one."""
-    try:
-        return CardRequest(
-            name=name,
-            hp=parse_constraint(hp),
-            st=parse_constraint(st),
-            df=parse_constraint(df),
-            pp=parse_constraint(herbs),
-            mp=parse_constraint(magic),
-            race=parse_race(race),
-            character_class=parse_character_class(character_class),
-            job=job,
-            speed=speed,
-            special=ability,
-        )
-    except ValueError as error:
-        typer.echo(str(error), err=True)
-        raise typer.Exit(code=2) from error
-
-
-def _layout(*, print_shop: bool) -> SheetLayout:
-    """The sheet the options ask for."""
-    return SheetLayout.print_shop() if print_shop else SheetLayout()
-
-
-def _write(
-    cards: tuple[GeneratedCard, ...],
-    output: Path,
-    images: ImageFormat | None,
-    layout: SheetLayout | None = None,
-) -> None:
-    """Write the sheet, export images when asked, and state what was verified."""
-    pages = write_sheet(cards, output, layout=layout)
-    typer.echo(f"Wrote {len(cards)} card(s) across {pages} page(s) to {output}")
-    if images is not None:
-        directory = output.with_name(f"{output.stem}-images")
-        written = export_images(output, directory, image_format=images)
-        typer.echo(f"Wrote {len(written)} image(s) to {directory}")
-    typer.echo(DISCLAIMER)
 
 
 @app.command()
