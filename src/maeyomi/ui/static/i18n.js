@@ -3,10 +3,10 @@ const LANGUAGE_KEY = 'maeyomi-language';
 
 const MESSAGES = {
   en: {
-    title: 'maeyomi',
+    title: 'Maeyomi',
     lede:
-      'Design a fighter, print the sheet, cut the cards, swipe them through the machine. ' +
-      'Every card is printed in English and Japanese, with pictures for anyone who cannot read yet.',
+      'Playable cards for Barcode Battler machines and barcode games, ' +
+      'printed in English and Japanese.',
     'tabs.label': 'What would you like to make',
     'tab.one': 'One card',
     'tab.many': 'A sheet of cards',
@@ -205,10 +205,10 @@ const MESSAGES = {
     ],
   },
   ja: {
-    title: 'maeyomi',
+    title: 'Maeyomi',
     lede:
-      'せんしを つくって、いんさつして、きって、マシンに とおそう。' +
-      'カードは すべて えいごと にほんごで いんさつされ、もじが よめない こにも わかるように えが つきます。',
+      'バーコードバトラーや バーコードで あそぶ ゲームの カードを、' +
+      'えいごと にほんごで いんさつしよう。',
     'tabs.label': 'なにを つくる？',
     'tab.one': 'カード 1まい',
     'tab.many': 'カードを まとめて',

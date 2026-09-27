@@ -73,15 +73,17 @@ def test_every_public_surface_calls_the_project_by_its_name() -> None:
             r'AUTHOR: Final = "(.+)"',
         ),
         "the served page": (ROOT / "src" / "maeyomi" / "ui" / "app.py", r'FastAPI\(title="(.+?)"'),
-        "the page title": (
-            ROOT / "src" / "maeyomi" / "ui" / "static" / "i18n.js",
-            r"    title: '(.+)',",
-        ),
     }
     for surface, (path, pattern) in named.items():
         match = re.search(pattern, path.read_text(encoding="utf-8"))
         assert match is not None, surface
         assert match.group(1) == PROJECT, surface
+
+
+def test_the_page_heading_is_the_project_name_capitalised() -> None:
+    source = (ROOT / "src" / "maeyomi" / "ui" / "static" / "i18n.js").read_text(encoding="utf-8")
+
+    assert re.findall(r"    title: '(.+)',", source) == [PROJECT.capitalize()] * 2
 
 
 def lede() -> str:

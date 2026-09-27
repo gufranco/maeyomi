@@ -79,11 +79,6 @@ def test_the_language_choice_survives_storage_being_unavailable() -> None:
     assert "localStorage" in DICTIONARIES
 
 
-def test_the_disclaimer_is_in_both_languages_without_a_script() -> None:
-    assert "__DISCLAIMER__" in MARKUP
-    assert "__DISCLAIMER_JA__" in MARKUP
-
-
 def test_the_dictionaries_load_before_the_page_script() -> None:
     assert MARKUP.index("/static/i18n.js") < MARKUP.index("/static/devices.js")
     assert MARKUP.index("/static/devices.js") < MARKUP.index("/static/app.js")

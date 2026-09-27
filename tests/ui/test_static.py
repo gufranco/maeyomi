@@ -43,21 +43,16 @@ def test_the_page_declares_a_language_and_a_viewport() -> None:
     assert 'name="viewport"' in MARKUP
 
 
-def test_the_disclaimer_is_in_the_markup_rather_than_fetched(client: TestClient) -> None:
-    assert "__DISCLAIMER__" in MARKUP
-    assert "read on a physical Barcode Battler II" in client.get("/").text
-    assert "/api/about" not in SCRIPT
-
-
-def test_the_placeholder_is_replaced_when_the_page_is_served(client: TestClient) -> None:
-    assert "__DISCLAIMER__" not in client.get("/").text
-
-
-def test_the_page_says_the_dbz_cards_were_never_read_by_a_datach(client: TestClient) -> None:
+def test_the_page_carries_no_verification_footer(client: TestClient) -> None:
     page = client.get("/").text
 
-    assert "never read by a physical Datach" in page
-    assert "__DBZ_DISCLAIMER" not in page
+    assert "DISCLAIMER" not in MARKUP
+    assert "read on a physical" not in page
+    assert "never read by a physical Datach" not in page
+
+
+def test_the_page_is_served_as_it_is_written(client: TestClient) -> None:
+    assert client.get("/").text == MARKUP
 
 
 @pytest.mark.parametrize(
@@ -156,7 +151,7 @@ def test_the_printing_advice_is_shown(client: TestClient) -> None:
 
 
 def test_no_placeholder_survives_in_any_static_file() -> None:
-    assert "__DISCLAIMER__" not in SCRIPT
+    assert "__" not in SCRIPT.replace("__proto__", "")
     assert "__DISCLAIMER__" not in STYLES
 
 

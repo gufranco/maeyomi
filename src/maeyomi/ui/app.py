@@ -24,16 +24,6 @@ from fastapi.responses import FileResponse, HTMLResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_race
-from maeyomi.cli.report import (
-    DBZ_DISCLAIMER,
-    DBZ_DISCLAIMER_JA,
-    DISCLAIMER,
-    DISCLAIMER_JA,
-    DOUBLE_DISCLAIMER,
-    DOUBLE_DISCLAIMER_JA,
-    FIRST_DEVICE_DISCLAIMER,
-    FIRST_DEVICE_DISCLAIMER_JA,
-)
 from maeyomi.decoder.decode import decode
 from maeyomi.decoder.errors import BarcodeError
 from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
@@ -109,23 +99,8 @@ SHELF_PAGE: Final = 60
 
 
 def index() -> HTMLResponse:
-    """Serve the page, with the disclaimer already in the markup.
-
-    The disclaimer is placed here rather than fetched, so it is present even if
-    the script never runs. A claim about what has and has not been tested must
-    not depend on JavaScript.
-    """
-    markup = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
-    return HTMLResponse(
-        markup.replace("__DISCLAIMER__", DISCLAIMER)
-        .replace("__DISCLAIMER_JA__", DISCLAIMER_JA)
-        .replace("__FIRST_DISCLAIMER__", FIRST_DEVICE_DISCLAIMER)
-        .replace("__FIRST_DISCLAIMER_JA__", FIRST_DEVICE_DISCLAIMER_JA)
-        .replace("__DOUBLE_DISCLAIMER__", DOUBLE_DISCLAIMER)
-        .replace("__DOUBLE_DISCLAIMER_JA__", DOUBLE_DISCLAIMER_JA)
-        .replace("__DBZ_DISCLAIMER__", DBZ_DISCLAIMER)
-        .replace("__DBZ_DISCLAIMER_JA__", DBZ_DISCLAIMER_JA)
-    )
+    """Serve the page."""
+    return HTMLResponse((STATIC_DIR / "index.html").read_text(encoding="utf-8"))
 
 
 def races() -> list[RaceView]:

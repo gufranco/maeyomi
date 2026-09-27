@@ -30,12 +30,6 @@ def test_the_page_is_served(client: TestClient) -> None:
     assert "Barcode Battler" in response.text
 
 
-def test_the_page_states_how_the_cards_were_verified(client: TestClient) -> None:
-    response = client.get("/")
-
-    assert "read on a physical Barcode Battler II" in response.text
-
-
 def test_decoding_a_barcode_returns_its_attributes(client: TestClient) -> None:
     response = client.get("/api/decode/0401207237501")
 
@@ -377,16 +371,6 @@ def test_every_official_card_can_be_downloaded_at_once(client: TestClient) -> No
 
     assert response.status_code == 200
     assert response.headers["content-type"] == "application/pdf"
-
-
-def test_the_disclaimer_is_served_in_both_languages(client: TestClient) -> None:
-    text = client.get("/").text
-
-    assert "read on a physical Barcode Battler II" in text
-    assert "実機" in text
-    assert "never read on a physical first Barcode Battler" in text
-    assert "初代の 実機では まだ よみとって いません" in text
-    assert "never read on a physical Double" in text
 
 
 def test_a_product_barcode_reads_as_a_character(client: TestClient) -> None:
