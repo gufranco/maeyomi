@@ -146,8 +146,8 @@ def test_the_script_escapes_text_it_puts_into_markup() -> None:
     assert "&lt;" in SCRIPT
 
 
-def test_the_printing_advice_is_shown(client: TestClient) -> None:
-    assert "fit to page" in client.get("/").text
+def test_the_page_says_nothing_leaves_this_machine(client: TestClient) -> None:
+    assert "Nothing leaves this machine" in client.get("/").text
 
 
 def test_no_placeholder_survives_in_any_static_file() -> None:

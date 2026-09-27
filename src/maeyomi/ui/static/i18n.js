@@ -161,9 +161,7 @@ const MESSAGES = {
     'official.option': '{title}, {count} cards',
     'official.inJapanese': 'In Japanese: {title}',
     'official.everyHint': 'Every card from every set, one after another.',
-    printing:
-      'Printing: use plain matte paper, turn off any "fit to page" or "scale" setting, and ' +
-      'print at the highest quality your printer offers. The barcode only reads at its true size.',
+    'footer.local': 'Nothing leaves this machine. The page talks to a server you started.',
     'tag.exact': 'Exact',
     'tag.closest': 'Closest',
     'tag.impossible': 'Not possible',
@@ -365,9 +363,7 @@ const MESSAGES = {
     'official.option': '{title} ({count}まい)',
     'official.inJapanese': '{title}',
     'official.everyHint': 'すべての シリーズの カードを じゅんばんに。',
-    printing:
-      'いんさつ: ふつうの マットな かみを つかい、「ページに あわせる」や「かくだい しゅくしょう」を ' +
-      'オフにして、いちばん きれいな がしつで いんさつしてね。バーコードは ほんとうの おおきさで ないと よめません。',
+    'footer.local': 'データは この きかいから そとに でません。この ページは、あなたが うごかした サーバーと だけ はなします。',
     'tag.exact': 'ぴったり',
     'tag.closest': 'いちばん ちかい',
     'tag.impossible': 'つくれない',
