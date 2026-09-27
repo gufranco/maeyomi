@@ -10,8 +10,14 @@ bonus: health tops out at 19900. Every other code, and every 8-digit code, is
 an enemy read from its last five digits. The note.com analysis reads the last
 of those, the check digit, as the flag; the UK source found no flag at all.
 That disagreement is recorded as `bb1_back_read_flag` and blocks generation.
+
+The barcode on the device's own box is read as a hero, per the note.com
+analysis: 5200 HP, 1500 ST, 100 DF, DX 2, race 0, job 2 and flag 18, which it
+marks with a question mark. It is read as the ordinary code carrying those
+values.
 """
 
+import dataclasses
 from typing import Final
 
 from maeyomi.bb1.card import FirstBattlerCard
@@ -35,11 +41,15 @@ ENEMY_DIGITS: Final = 5
 EMPTY_HP_UNITS: Final = 100
 BASE_ST_UNITS: Final = 10
 EMPTY_DF_UNITS: Final = 1
+OWN_BOX: Final = "4905040352507"
+OWN_BOX_EQUIVALENT: Final = "0521501022181"
 
 
 def decode_first(code: str) -> FirstBattlerCard:
     """Decode a barcode, raising a typed error when the device would reject it."""
     normalised = validate_barcode(code)
+    if normalised == OWN_BOX:
+        return dataclasses.replace(_front(OWN_BOX_EQUIVALENT), barcode=OWN_BOX)
     if len(normalised) == EAN_13_LENGTH and int(normalised[0]) in LOW_LEADING_DIGITS:
         return _front(normalised)
     return _back(normalised)

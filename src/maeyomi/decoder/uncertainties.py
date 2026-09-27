@@ -144,6 +144,29 @@ UNCERTAINTIES: Final[Mapping[str, Uncertainty]] = MappingProxyType(
             revisit="On a Double, or a source that describes how it reads a 7-read race.",
             blocks_generation=True,
         ),
+        "epoch_software_boxes": Uncertainty(
+            question=(
+                "How does the Barcode Battler II read the boxes of the dedicated card "
+                "software, 4905040352606, 4905040352705 and 4905040352804?"
+            ),
+            decision="Refused with a named reason rather than read as ordinary codes.",
+            evidence=(
+                "barcodebattler.co.uk, Barcode Battler II technical info, lists them among "
+                "the Epoch product barcodes the device reads differently, marked "
+                '"Requires further testing". The two boxes it does give are read as heroes.'
+            ),
+            revisit="On a hardware test of each box.",
+        ),
+        "bb1_box_flag": Uncertainty(
+            question="Is the first Barcode Battler's own box a hero, flag 18?",
+            decision="Flag 18, as the note.com analysis gives it.",
+            evidence=(
+                "The note.com analysis of the original device lists the box as usable as "
+                "the hero with 5200 HP, 1500 ST and 100 DF, and marks flag 18 with a "
+                "question mark."
+            ),
+            revisit="On a hardware test that starts B1 mode with the box.",
+        ),
         "upc_a_twelve_digits": Uncertainty(
             question="Does the hardware left-pad a 12-digit UPC-A code to 13 digits?",
             decision="Rejected, matching the simulator.",
