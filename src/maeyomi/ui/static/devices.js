@@ -135,12 +135,27 @@ function applySheetForm(form) {
   });
 }
 
+function sliderLimits(form) {
+  const backwards = reads('backRead') && $('backRead').checked && form.back_ranges;
+  if (backwards) return form.back_ranges;
+  return [[0, form.hp_max], [0, form.st_max], [0, form.df_max]];
+}
+
 function applySliders(form) {
-  const limits = { hp: form.hp_max, st: form.st_max, df: form.df_max };
-  STAT_KEYS.forEach((key) => {
-    $(key).setAttribute('max', String(limits[key]));
-    $(key).setAttribute('step', String(form.steps[STAT_KEYS.indexOf(key)]));
+  const limits = sliderLimits(form);
+  STAT_KEYS.forEach((key, index) => {
+    $(key).setAttribute('min', String(limits[index][0]));
+    $(key).setAttribute('max', String(limits[index][1]));
+    $(key).setAttribute('step', String(form.steps[index]));
     $(key).dispatchEvent(new Event('input'));
+  });
+}
+
+function hideEmptySections() {
+  document.querySelectorAll('#one fieldset').forEach((section) => {
+    const fields = [...section.querySelectorAll('.field')];
+    const shown = fields.some((field) => !field.hidden);
+    section.toggleAttribute('hidden', !shown);
   });
 }
 
@@ -150,9 +165,7 @@ function applyDeviceForm() {
   document.querySelectorAll('[data-device-field]').forEach((node) => {
     node.toggleAttribute('hidden', !form.fields.includes(node.dataset.deviceField));
   });
-  const detailShown = [...$('one-detail').querySelectorAll('[data-device-field]')]
-    .some((node) => !node.hidden);
-  $('one-detail').toggleAttribute('hidden', !detailShown);
+  hideEmptySections();
   applySliders(form);
   applySheetForm(form);
   renderJobOptions();
@@ -180,6 +193,7 @@ async function setUpDevices() {
   renderDevices();
   chooseDevice(savedDevice());
   $('device').addEventListener('change', () => chooseDevice($('device').value));
+  $('backRead').addEventListener('change', () => applySliders(deviceForm()));
 }
 
 function deviceCardPayload() {

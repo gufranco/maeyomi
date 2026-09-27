@@ -240,3 +240,14 @@ def test_a_random_sheet_names_a_field_the_game_cannot_read(client: TestClient) -
 
     assert response.status_code == 422
     assert response.json()["detail"] == "Datach Dragon Ball Z does not read race"
+
+
+def test_the_back_read_ranges_are_offered_where_a_device_reads_backwards(
+    client: TestClient,
+) -> None:
+    body = {entry["key"]: entry for entry in client.get("/api/devices").json()}
+
+    assert body["bb2"]["back_ranges"] == [[0, 49900], [2000, 11900], [0, 9900]]
+    assert body["bb1"]["back_ranges"] == [[100, 10000], [1000, 1900], [100, 900]]
+    assert body["double"]["back_ranges"] is None
+    assert body["dbz"]["back_ranges"] is None

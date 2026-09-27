@@ -79,21 +79,20 @@
         </span>
       </p>
 
-      <p class="field" data-device-field="dbz" hidden>
-        <label for="dbz-level" data-i18n="dbz.level">Special move level</label>
-        <select id="dbz-level">
-          <option value="" data-i18n="dbz.level.any">Any</option>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
-      </p>
-
       <p class="field" data-device-field="race">
         <label for="race" data-i18n="one.race">Kind of fighter</label>
         <select id="race" name="race"></select>
         <span class="hint" id="race-hint"></span>
+      </p>
+
+      <p class="field check" data-device-field="backRead">
+        <label for="backRead">
+          <input id="backRead" name="backRead" type="checkbox">
+          <span data-i18n="one.back">Make a card the machine reads backwards</span>
+        </label>
+        <span class="hint" data-i18n="one.back.hint">
+          A backwards card carries other numbers: the sliders move to its limits.
+        </span>
       </p>
 
       <p class="field" data-device-field="class">
@@ -103,6 +102,16 @@
           <option value="warrior" selected data-i18n="class.warrior">A weapon, a warrior</option>
           <option value="magician" data-i18n="class.magician">Magic, a magician</option>
         </select>
+      </p>
+
+      <p class="field" data-device-field="job">
+        <label for="job" data-i18n="one.job">Type</label>
+        <select id="job" name="job" aria-describedby="job-hint">
+          <option value="">Any</option>
+        </select>
+        <span class="hint" id="job-hint" data-i18n="one.job.hint">
+          Some special powers hit only certain types.
+        </span>
       </p>
     </fieldset>
 
@@ -134,15 +143,25 @@
       </p>
     </fieldset>
 
-    <fieldset data-device-field="ability">
+    <fieldset>
       <legend data-i18n="one.abilityLegend">Special ability</legend>
-      <p class="field">
+      <p class="field" data-device-field="ability">
         <label for="ability" data-i18n="one.ability">Ability</label>
         <select id="ability" name="ability"></select>
         <span class="hint" data-i18n="one.ability.hint">
           The machine stores abilities as numbers. Only 00 to 49 work in an
           ordinary battle.
         </span>
+      </p>
+      <p class="field" data-device-field="dbz" hidden>
+        <label for="dbz-level" data-i18n="dbz.level">Special move level</label>
+        <select id="dbz-level">
+          <option value="" data-i18n="dbz.level.any">Any</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
       </p>
     </fieldset>
 
@@ -153,24 +172,6 @@
         <input id="speed" name="speed" type="number" min="0" max="9" placeholder="any"
                data-i18n-placeholder="any">
         <span class="hint" data-i18n="one.speed.hint">Decides who strikes first.</span>
-      </p>
-      <p class="field" data-device-field="job">
-        <label for="job" data-i18n="one.job">Type</label>
-        <select id="job" name="job" aria-describedby="job-hint">
-          <option value="">Any</option>
-        </select>
-        <span class="hint" id="job-hint" data-i18n="one.job.hint">
-          Some special powers hit only certain types.
-        </span>
-      </p>
-      <p class="field check" data-device-field="backRead">
-        <label for="backRead">
-          <input id="backRead" name="backRead" type="checkbox">
-          <span data-i18n="one.back">Make a card the machine reads backwards</span>
-        </label>
-        <span class="hint" data-i18n="one.back.hint">
-          Lower limits, and far fewer combinations exist.
-        </span>
       </p>
     </fieldset>
 

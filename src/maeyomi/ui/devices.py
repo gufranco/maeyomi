@@ -12,6 +12,7 @@ paper cannot say different things about one barcode.
 from dataclasses import dataclass
 from typing import Final
 
+from maeyomi.bb1.solve import ENEMY_DF, ENEMY_HP, ENEMY_ST
 from maeyomi.bb1.solve import MAX_HP as FIRST_MAX_HP
 from maeyomi.bb1.solve import MAX_STAT as FIRST_MAX_STAT
 from maeyomi.datach.dbz import BONUS, UNIT
@@ -20,6 +21,7 @@ from maeyomi.datach.dbz_solve import (
     MAX_HALVED,
     MAX_HP,
 )
+from maeyomi.decoder.back_read import fighter_limits
 from maeyomi.double.solve import MAX_VALUE as DOUBLE_MAX
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import CardResult
@@ -56,6 +58,7 @@ class DeviceForm:
     stat_keys: tuple[str, ...] = tuple(CLASSIC_STATS)
     sheet_fields: tuple[str, ...] = ()
     ranges: tuple[Range, Range, Range] = CLASSIC_RANGES
+    back_ranges: tuple[Range, Range, Range] | None = None
 
 
 FORMS: Final[dict[Device, DeviceForm]] = {
@@ -65,6 +68,7 @@ FORMS: Final[dict[Device, DeviceForm]] = {
         SECOND_MAX_STAT,
         SECOND_MAX_STAT,
         sheet_fields=("race",),
+        back_ranges=fighter_limits(),
     ),
     Device.BB1: DeviceForm(
         ("race", "job", "backRead"),
@@ -72,6 +76,7 @@ FORMS: Final[dict[Device, DeviceForm]] = {
         FIRST_MAX_STAT,
         FIRST_MAX_STAT,
         sheet_fields=("race",),
+        back_ranges=(ENEMY_HP, ENEMY_ST, ENEMY_DF),
     ),
     Device.DOUBLE: DeviceForm(("job",), DOUBLE_MAX, DOUBLE_MAX, DOUBLE_MAX),
     Device.DATACH_DBZ: DeviceForm(
@@ -102,9 +107,15 @@ def device_views() -> list[DeviceView]:
             stat_keys=list(FORMS[device].stat_keys),
             sheet_fields=list(FORMS[device].sheet_fields),
             ranges=[list(bounds) for bounds in FORMS[device].ranges],
+            back_ranges=_listed(FORMS[device].back_ranges),
         )
         for device in Device
     ]
+
+
+def _listed(ranges: tuple[Range, Range, Range] | None) -> list[list[int]] | None:
+    """Ranges as the JSON lists the page reads, or None when there are none."""
+    return None if ranges is None else [list(bounds) for bounds in ranges]
 
 
 def dbz_choices() -> list[DbzChoiceView]:

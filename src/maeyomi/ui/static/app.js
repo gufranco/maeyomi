@@ -107,10 +107,11 @@ function setUpStats() {
   ['hp', 'st', 'df'].forEach((key) => {
     const sync = () => {
       const raw = Number($(key).value);
-      const snapped = key === 'hp' && isSecond() ? snapHitPoints(raw) : raw;
+      const frontRead = isSecond() && !$('backRead').checked;
+      const snapped = key === 'hp' && frontRead ? snapHitPoints(raw) : raw;
       if (snapped !== raw) $(key).value = String(snapped);
       $(`${key}-out`).textContent = snapped.toLocaleString('en-US');
-      if (key === 'hp') $('hp-note').toggleAttribute('hidden', !isSecond() || snapped < HIGH_HP);
+      if (key === 'hp') $('hp-note').toggleAttribute('hidden', !frontRead || snapped < HIGH_HP);
     };
     $(key).addEventListener('input', sync);
     sync();

@@ -45,6 +45,23 @@ function checkJobMenu() {
   expect(second[8] === '7: Magician', `the II's types are ${second}`);
 }
 
+function checkBackRead() {
+  browser('select', '#device', 'bb2');
+  browser('click', '#tab-one');
+  browser('check', '#backRead');
+  const back = evaluate(`JSON.stringify(['hp', 'st', 'df'].map((key) =>
+    [document.getElementById(key).min, document.getElementById(key).max]))`);
+  expect(JSON.stringify(back) === JSON.stringify([['0', '49900'], ['2000', '11900'], ['0', '9900']]),
+    `a backwards II card offers ${JSON.stringify(back)}`);
+  browser('uncheck', '#backRead');
+  const front = evaluate(`document.getElementById('hp').max`);
+  expect(front === 99900, `a front-read II card stops health at ${front}`);
+  const order = evaluate(`JSON.stringify([...document.querySelectorAll('#one .field:not([hidden]) label')]
+    .map((label) => label.getAttribute('for')))`);
+  expect(order.indexOf('backRead') === order.indexOf('race') + 1,
+    `reading backwards does not follow the kind of fighter: ${order}`);
+}
+
 function checkDeviceSwitch() {
   browser('click', '#tab-one');
   browser('select', '#device', 'dbz');
@@ -117,6 +134,7 @@ browser('open', URL);
 browser('wait', '1500');
 checkDeviceMenu();
 checkJobMenu();
+checkBackRead();
 checkWidths();
 checkDeviceSwitch();
 checkRealCards();

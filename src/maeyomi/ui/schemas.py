@@ -279,6 +279,7 @@ class DeviceView(BaseModel):
     stat_keys: list[str]
     sheet_fields: list[str]
     ranges: list[list[int]]
+    back_ranges: list[list[int]] | None
 
 
 class FactView(BaseModel):

@@ -7,10 +7,12 @@ implemented; the shifted variant used by the C1 and C2 game modes is recorded in
 `uncertainties.py` as out of scope.
 """
 
+import itertools
 from dataclasses import dataclass
+from functools import cache
 from typing import Final
 
-from maeyomi.decoder.check_digit import EAN_8_LENGTH
+from maeyomi.decoder.check_digit import EAN_8_LENGTH, EAN_13_LENGTH
 from maeyomi.models.character import (
     DISPLAY_SCALE,
     HIGHEST_WARRIOR_JOB,
@@ -28,6 +30,7 @@ ST_UNITS_OFFSET: Final = 5
 DF_OFFSET: Final = 7
 
 STARTING_POWER_POINTS: Final = 5
+DIGITS: Final = range(10)
 STARTING_MAGIC_POINTS: Final = 10
 EIGHT_DIGIT_JOB: Final = 4
 
@@ -200,3 +203,31 @@ def _build(
         pp=pp,
         mp=mp,
     )
+
+
+@cache
+def fighter_limits() -> tuple[tuple[int, int], tuple[int, int], tuple[int, int]]:
+    """The lowest and highest HP, ST and DF a back-read fighter can show.
+
+    Measured by reading every value of the four digits that carry the numbers,
+    so the limits are the reading's own rather than a second copy of its sums.
+    """
+    cards = [read_back(_fighter_code(digits)) for digits in itertools.product(DIGITS, repeat=4)]
+    columns = (
+        [card.hp for card in cards],
+        [card.st for card in cards],
+        [card.df for card in cards],
+    )
+    hp, st, df = ((min(values), max(values)) for values in columns)
+    return hp, st, df
+
+
+def _fighter_code(digits: tuple[int, ...]) -> str:
+    """A 13-digit code for a mechanical fighter with the given number digits."""
+    layout = _LAYOUTS[EAN_13_LENGTH]
+    code = ["0"] * EAN_13_LENGTH
+    for index, digit in zip(
+        (layout.df_low, layout.hp_low, layout.hp_mid, layout.hp_high), digits, strict=True
+    ):
+        code[index] = str(digit)
+    return "".join(code)

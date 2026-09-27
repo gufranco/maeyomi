@@ -4,7 +4,7 @@ import itertools
 
 import pytest
 
-from maeyomi.decoder.back_read import read_back
+from maeyomi.decoder.back_read import fighter_limits, read_back
 from maeyomi.models.race import Race
 from maeyomi.models.read_type import ReadType
 
@@ -114,3 +114,7 @@ def test_armour_with_a_bare_marker_has_no_tens_digit() -> None:
     character = read_back(code_with(d12=8, d9=3, d8=0))
 
     assert character.df == 700
+
+
+def test_the_back_read_fighter_limits_are_measured_from_the_reading_itself() -> None:
+    assert fighter_limits() == ((0, 49900), (2000, 11900), (0, 9900))
