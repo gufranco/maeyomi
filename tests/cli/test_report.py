@@ -2,6 +2,7 @@
 
 from maeyomi.bb1.cheat import strongest_first_card
 from maeyomi.cli.report import (
+    DBZ_DISCLAIMER,
     DISCLAIMER,
     DISCLAIMER_JA,
     DOUBLE_DISCLAIMER,
@@ -10,6 +11,7 @@ from maeyomi.cli.report import (
     disclaimers,
     shortfall_lines,
 )
+from maeyomi.datach.dbz_cheat import strongest_dbz_card
 from maeyomi.decoder.decode import decode
 from maeyomi.double.cheat import strongest_double_card
 from maeyomi.generator.cheat import strongest_card
@@ -117,9 +119,17 @@ def test_a_double_sheet_never_claims_a_physical_read() -> None:
     assert "never read on a physical Double" in lines[0]
 
 
+def test_a_dbz_sheet_says_it_was_checked_in_an_emulator_only() -> None:
+    lines = disclaimers((strongest_dbz_card(),))
+
+    assert lines == [DBZ_DISCLAIMER]
+    assert "never read by a physical Datach" in lines[0]
+
+
 def test_the_official_sheet_names_every_device_once_in_order() -> None:
     assert disclaimers(official_cards()) == [
         DISCLAIMER,
         FIRST_DEVICE_DISCLAIMER,
         DOUBLE_DISCLAIMER,
+        DBZ_DISCLAIMER,
     ]

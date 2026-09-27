@@ -48,6 +48,16 @@ Card attribute fixtures in `tests/fixtures/wiki_cards.json` were taken from the
 card lists on <https://wikiwiki.jp/barcode/>, with the source page and URL
 recorded on every entry.
 
+## Datach Dragon Ball Z
+
+The rule `src/maeyomi/datach/` reads a barcode by, and the numbers in
+`dbz_tables.py`, were derived from the game's own program and confirmed against
+the game running in MAME. No ROM bytes are shipped. The barcodes and names of
+the 36 cards packed with the game come from the card list in
+`src/gui/dlgDetachBarcode.cpp` of <https://github.com/punesemu/puNES>, which is
+GPL-2 licensed. Only those facts are taken, and each one was checked by the
+game itself; no code from puNES appears here.
+
 ## Not used
 
 `VITIMan/barcode-battler-engine` is GPL-3 licensed. No code, structure or naming

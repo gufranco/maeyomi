@@ -177,6 +177,28 @@ UNCERTAINTIES: Final[Mapping[str, Uncertainty]] = MappingProxyType(
             ),
             revisit="On a test against physical hardware.",
         ),
+        "dbz_emulated_refusals": Uncertainty(
+            question=(
+                "Why does Datach Dragon Ball Z, running in MAME, refuse a few valid codes "
+                "whose digits decode to an ordinary card?"
+            ),
+            decision=(
+                "Decoded by the rule like any other code. Generated codes are not "
+                "filtered, because the refused codes share no digit pattern that could "
+                "be tested for."
+            ),
+            evidence=(
+                "Of 236 codes fed to the game's reader in MAME 0.289, 232 were accepted "
+                "and every one decoded as this project's decoder predicts. 20158231, "
+                "3623401959035, 5532403373177 and 6312422195214 were refused before any "
+                "card was shown, in the routine at $B379 that normalises the bar widths "
+                "the reader measured. That routine depends on how the emulated reader "
+                "times the bars, which MAME models and a real reader may not."
+            ),
+            revisit=(
+                "On a trace of $B379 for the four codes, or on a read with a physical Datach."
+            ),
+        ),
         "shifted_back_read": Uncertainty(
             question="What are the shift semantics for a deliberately misaligned read?",
             decision="Not implemented; only the aligned back read is supported.",

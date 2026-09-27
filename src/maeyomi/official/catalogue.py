@@ -4,7 +4,9 @@ Epoch never published a machine-readable card list. What exists is the set of
 pages on wikiwiki.jp where collectors typed in the barcode printed on each card
 they own. That is the source here, fetched on the date recorded in `cards.json`
 and kept with the address of the page every entry came from, so any one of
-them can be checked again.
+them can be checked again. The 36 cards Bandai packed with Datach Dragon Ball Z
+come from the list in the puNES emulator's source instead, and each was read by
+the game itself running in MAME before it was added.
 
 Two limits follow from the source and are kept visible rather than smoothed
 over:
@@ -21,8 +23,8 @@ printing, so the numbers on the printed face come from the barcode rather than
 from the transcription. Each list is read by the device its ability wording
 belongs to: four lists use the first Barcode Battler's flag table, where 05
 doubles the attack and 18 is the hero; 正伝3 破壊神伝 was bundled with the
-Barcode Battler II Double and needs its 7-read; the rest use the Barcode
-Battler II's.
+Barcode Battler II Double and needs its 7-read; the Dragon Ball Z list is read the
+way that game reads it; the rest use the Barcode Battler II's.
 """
 
 import json
@@ -33,6 +35,7 @@ from importlib import resources
 from typing import Final
 
 from maeyomi.bb1.decode import decode_first
+from maeyomi.datach.dbz import decode_dbz
 from maeyomi.decoder.decode import decode
 from maeyomi.decoder.errors import BarcodeError
 from maeyomi.double.decode import decode_double
@@ -63,13 +66,12 @@ class OfficialSet(Enum):
     SIDE_STORY_THREE = "外伝3 最後の死闘！ＶＳ黒魔術王パノラマンダー カードリスト"
     MAIN_STORY_THREE = "正伝3 破壊神伝 カードリスト"
     CANDY = "バーコードバトラーキャンデー カードリスト"
+    DATACH_DBZ = "データック ドラゴンボールZ 激闘天下一武道会 カードリスト"
 
     @property
     def device(self) -> Device:
         """The device whose ability table this list's wording follows."""
-        if self in _FIRST_DEVICE_SETS:
-            return Device.BB1
-        return Device.DOUBLE if self is OfficialSet.MAIN_STORY_THREE else Device.BB2
+        return _DEVICES.get(self, Device.BB2)
 
     @property
     def english(self) -> str:
@@ -86,6 +88,12 @@ _FIRST_DEVICE_SETS: Final = frozenset(
     }
 )
 
+_DEVICES: Final[dict[OfficialSet, Device]] = {
+    **dict.fromkeys(_FIRST_DEVICE_SETS, Device.BB1),
+    OfficialSet.MAIN_STORY_THREE: Device.DOUBLE,
+    OfficialSet.DATACH_DBZ: Device.DATACH_DBZ,
+}
+
 _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.ORIGINAL: "Barcode Battler",
     OfficialSet.SECOND: "Barcode Battler II",
@@ -101,6 +109,7 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.SIDE_STORY_THREE: "Side Story 3: The Last Duel with the Black Sorcerer King",
     OfficialSet.MAIN_STORY_THREE: "Main Story 3: Legend of the God of Destruction",
     OfficialSet.CANDY: "Barcode Battler candy",
+    OfficialSet.DATACH_DBZ: "Datach Dragon Ball Z: Gekitou Tenkaichi Budoukai",
 }
 
 
@@ -142,15 +151,14 @@ def official_cards(official_set: OfficialSet | None = None) -> tuple[AnyCard, ..
 def _card(entry: OfficialCard) -> AnyCard:
     """Decode one card with its own device's reading."""
     device = entry.official_set.device
+    name, barcode = entry.name, entry.barcode
     if device is Device.BB1:
-        return GeneratedCard(
-            name=entry.name, barcode=entry.barcode, character=decode_first(entry.barcode)
-        )
+        return GeneratedCard(name=name, barcode=barcode, character=decode_first(barcode))
     if device is Device.DOUBLE:
-        return GeneratedCard(
-            name=entry.name, barcode=entry.barcode, character=decode_double(entry.barcode)
-        )
-    return GeneratedCard(name=entry.name, barcode=entry.barcode, character=decode(entry.barcode))
+        return GeneratedCard(name=name, barcode=barcode, character=decode_double(barcode))
+    if device is Device.DATACH_DBZ:
+        return GeneratedCard(name=name, barcode=barcode, character=decode_dbz(barcode))
+    return GeneratedCard(name=name, barcode=barcode, character=decode(barcode))
 
 
 def rejected_transcriptions() -> tuple[OfficialCard, ...]:

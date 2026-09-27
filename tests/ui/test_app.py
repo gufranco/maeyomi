@@ -314,7 +314,7 @@ def test_the_official_sets_are_listed_with_their_counts(client: TestClient) -> N
     board = next(entry for entry in body["sets"] if entry["key"] == "board_game")
     assert board["english"] == "Barcode Battler II board game"
     assert board["count"] > 0
-    assert body["total"] == 572
+    assert body["total"] == 608
     assert len(body["rejected"]) == 5
 
 

@@ -7,6 +7,7 @@ the three columns are printed whether or not anything differs.
 from collections.abc import Sequence
 
 from maeyomi.bb1.card import FirstBattlerCard
+from maeyomi.datach.dbz import DbzCard
 from maeyomi.double.card import DoubleCard
 from maeyomi.generator.equip import ALL_JOBS, equipping_jobs
 from maeyomi.models.card_request import CardRequest
@@ -41,6 +42,16 @@ DOUBLE_DISCLAIMER_JA = (
     "デコーダーは どうこんの 正伝3 の カードリストを さいげんしますが、"
     "II² の 実機では まだ よみとって いません。"
 )
+DBZ_DISCLAIMER = (
+    "Cards for Datach Dragon Ball Z were verified against this project's own decoder, "
+    "which agrees with the game running in MAME on 232 codes, and were never read by a "
+    "physical Datach."
+)
+DBZ_DISCLAIMER_JA = (
+    "データック ドラゴンボールZ 用の カードは このプログラムの デコーダーで けんしょうしました。"
+    "デコーダーは MAME で うごく ゲームと 232の コードで いっちしますが、"
+    "データックの 実機では まだ よみとって いません。"
+)
 UNCONSTRAINED = ("any", "-")
 
 
@@ -51,6 +62,7 @@ def disclaimers(cards: Sequence[AnyCard]) -> list[str]:
         (BarcodeBattlerCharacter, DISCLAIMER),
         (FirstBattlerCard, FIRST_DEVICE_DISCLAIMER),
         (DoubleCard, DOUBLE_DISCLAIMER),
+        (DbzCard, DBZ_DISCLAIMER),
     ]
     return [line for kind, line in lines if kind in kinds]
 

@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**572** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**608** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -53,6 +53,17 @@ from a II. It reads them the II's way, except a code that starts with 7 and has
 reading explains the eleven cards of the 正伝3 list that no II reading could.
 The Double also names two classes the II does not, the priest for job 4 and the
 holy warrior for job 6, and has its own table of special powers.
+
+Bandai's Datach Dragon Ball Z: Gekitou Tenkaichi Budoukai, a Famicom game of
+1992, came with a barcode reader. `--device dbz` makes cards for it. The game
+scatters the bits of ten digits into a 40-bit number and reads a fighter or an
+item, a special move level, HP, BP and DP from it. That rule was read out of
+the game's own program, and the decoder agrees with the game running in MAME on
+every one of the 232 codes the game accepted there. Pick the fighter or item
+with `--character`, by the name the game shows or by its id, the level with
+`--level`, and the numbers with `--hp`, `--bp` and `--dp`; a fighter whose
+numbers are high enough turns into its stronger form, as the game does. No card
+for it has been read by a physical Datach yet, which every sheet for it says.
 
 ## Install
 
@@ -112,8 +123,8 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other two tabs print a sheet of random cards and the 572 cards Epoch
-actually released. The page is in English and Japanese, and switches with the
+The other two tabs print a sheet of random cards and the 608 cards Epoch and
+Bandai actually released. The page is in English and Japanese, and switches with the
 buttons at the top.
 
 `maeyomi web --no-open` starts the server without a browser, and `maeyomi
@@ -341,9 +352,9 @@ convenience: the lookup failing changes nothing about the card.
 
 ## The real cards
 
-`maeyomi official --list` names the fourteen card lists Epoch released,
+`maeyomi official --list` names the fifteen card lists Epoch and Bandai released,
 how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
-candy.pdf` prints one, and leaving out `--set` prints all 572. The web page has
+candy.pdf` prints one, and leaving out `--set` prints all 608. The web page has
 the same thing under **The real cards**.
 
 Epoch never published a machine-readable list, so the barcodes come from the
@@ -359,6 +370,10 @@ Chuhai Khan Strikes Back, The Final Battle: God versus Mother, and the candy
 cards. Their pages describe the flags with the first device's table, so they
 print with it. The 正伝3 破壊神伝 list came with the Barcode Battler II Double
 and prints with its reading, and the other nine print with the II's.
+
+The 36 cards Bandai packed with Datach Dragon Ball Z come from the list in the
+[puNES](https://github.com/punesemu/puNES) emulator's source, and each one was
+read by the game in MAME before it was added.
 
 ## The cheat code
 
@@ -404,6 +419,14 @@ two of the health's digits, so it leaves 92900 health. The items are the II's,
 each carrying a power from the Double's own table. No equipment table for the
 Double has been published, so the command does not say which job can use
 which item.
+
+`maeyomi cheat --device dbz --items -o cheat.pdf` is Super Saiyan Goku at
+special move level 3 with 99500 HP, 48250 BP and 33250 DP. HP is the most the
+game's rule can carry; BP and DP are the strongest pair whose barcode still
+comes out as ten decimal digits, found by a search over every printable card.
+That is more than ten times the card the game hides in its own program. The
+items are one of each strongest effect: the senzu bean, Shenron, Kami, Guru,
+ultra divine water and Porunga at level 4.
 
 ## Two languages and pictures
 
@@ -501,7 +524,7 @@ chosen. The decoder follows the simulator except where sources that tested
 printed codes on a device say otherwise: the high health bonus follows
 [barcodebattler.net](https://barcodebattler.net/page21.htm) and a
 [note.com analysis](https://note.com/sakigomyway_5634/n/n61808a7245e5), and job 6
-is a warrior. Three of the recorded questions would put an unverified value on
+is a warrior. Five of the recorded questions would put an unverified value on
 a printed card, and the generator refuses to emit any code that reaches them.
 
 ## Development

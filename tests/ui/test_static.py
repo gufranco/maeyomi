@@ -53,6 +53,13 @@ def test_the_placeholder_is_replaced_when_the_page_is_served(client: TestClient)
     assert "__DISCLAIMER__" not in client.get("/").text
 
 
+def test_the_page_says_the_dbz_cards_were_never_read_by_a_datach(client: TestClient) -> None:
+    page = client.get("/").text
+
+    assert "never read by a physical Datach" in page
+    assert "__DBZ_DISCLAIMER" not in page
+
+
 @pytest.mark.parametrize(
     "endpoint",
     [

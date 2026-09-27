@@ -3463,6 +3463,222 @@
    "name": "地上破壊神ゼナ・バスター",
    "set": "正伝3 破壊神伝 カードリスト",
    "source_url": "https://wikiwiki.jp/barcode/%E6%AD%A3%E4%BC%9D3%20%E7%A0%B4%E5%A3%8A%E7%A5%9E%E4%BC%9D%20%E3%82%AB%E3%83%BC%E3%83%89%E3%83%AA%E3%82%B9%E3%83%88"
+  },
+  {
+   "barcode": "0000210303212",
+   "name": "天津飯",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0000616107230",
+   "name": "フリーザ",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0000636053258",
+   "name": "セル",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0002852100013",
+   "name": "悟飯",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0004732055154",
+   "name": "サイバイマン",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0020242205254",
+   "name": "ヤムチャ",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0020502044333",
+   "name": "人造人間16",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0020850515295",
+   "name": "餃子",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0022248300117",
+   "name": "孫 悟空",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0022738106373",
+   "name": "スーパーサイヤ人　べジータ",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0040416100376",
+   "name": "人造人間17",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0040600205054",
+   "name": "人造人間19",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0044444185152",
+   "name": "ザーボン",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0048734105257",
+   "name": "ラティッツ",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0062446208037",
+   "name": "人造人間18",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0062982144233",
+   "name": "スーパーサイヤ人　トランクス",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0068400144373",
+   "name": "べジータ",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0088302101212",
+   "name": "ピッコロ",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0088640910255",
+   "name": "クリリン",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0088658921113",
+   "name": "ギニュー",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0120215307258",
+   "name": "亀仙人",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0120631203219",
+   "name": "カリン様",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0120637202254",
+   "name": "ブリーフ博士",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0120671203255",
+   "name": "エンマ大王",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0120675202216",
+   "name": "バブルス",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0122815544019",
+   "name": "回復カプセル",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0140601201052",
+   "name": "ブルマ",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0140643200013",
+   "name": "ブルマの母",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0140645200059",
+   "name": "ウーロン",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0162347145254",
+   "name": "バトルスーツ",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0162413545018",
+   "name": "ポルンガ",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0162415545016",
+   "name": "ミスターポポ",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0162453544057",
+   "name": "牛魔王",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0162741145218",
+   "name": "ドラゴンボール",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "0162747144253",
+   "name": "チチ",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+  },
+  {
+   "barcode": "9210340180138",
+   "name": "スーパーサイヤ人　孫 悟空",
+   "set": "データック ドラゴンボールZ 激闘天下一武道会 カードリスト",
+   "source_url": "https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
   }
  ]
 }

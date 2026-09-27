@@ -7,6 +7,9 @@ from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.race import Race
 from maeyomi.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
 from maeyomi.rendering.labels import (
+    DBZ_EFFECT,
+    DBZ_FIGHTER,
+    DBZ_MOVES,
     ITEM_CARD,
     NO_POWER,
     SPECIAL_POWER,
@@ -16,6 +19,7 @@ from maeyomi.rendering.labels import (
     Bilingual,
     ability_text,
     class_label,
+    dbz_level_text,
     panel_text,
     race_label,
 )
@@ -49,12 +53,15 @@ def test_an_item_is_called_an_item_card() -> None:
     assert class_label(None) == ITEM_CARD
 
 
-@pytest.mark.parametrize("key", ["HP", "ST", "DF"])
+@pytest.mark.parametrize("key", ["HP", "ST", "DF", "BP", "DP"])
 def test_every_stat_is_named_in_both_languages(key: str) -> None:
     _both(STAT_LABELS[key])
 
 
-@pytest.mark.parametrize("label", [SWIPE, SPECIAL_POWER, NO_POWER, UNKNOWN_POWER, ITEM_CARD])
+@pytest.mark.parametrize(
+    "label",
+    [SWIPE, SPECIAL_POWER, NO_POWER, UNKNOWN_POWER, ITEM_CARD, DBZ_FIGHTER, DBZ_MOVES, DBZ_EFFECT],
+)
 def test_every_caption_is_in_both_languages(label: Bilingual) -> None:
     _both(label)
 
@@ -95,3 +102,12 @@ def test_a_hidden_battle_defence_leads_the_panel_in_both_languages() -> None:
 
     assert text.english.startswith("Fights with DF 24600; ")
     assert text.japanese.startswith("たたかうと ぼうぎょ 24600。")
+
+
+@pytest.mark.parametrize("level", [None, 0, 1, 2, 3])
+def test_every_dragon_ball_level_is_worded_in_both_languages(level: int | None) -> None:
+    _both(dbz_level_text(level))
+
+
+def test_a_dragon_ball_level_names_its_number() -> None:
+    assert dbz_level_text(2) == Bilingual("Special move level 2", "ひっさつわざ レベル2")

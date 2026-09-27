@@ -147,6 +147,30 @@ _DOUBLE_ICONS: Final[dict[int, AbilityIcon]] = {
 }
 
 
+_DBZ_ITEM_ICONS: Final[dict[int, AbilityIcon]] = {
+    **_span(32, 39, AbilityIcon(Glyph.HEART, Badge.UP)),
+    **_span(40, 43, AbilityIcon(Glyph.SWORD, Badge.UP)),
+    **_span(44, 45, AbilityIcon(Glyph.SHIELD, Badge.UP)),
+    **_span(46, 47, AbilityIcon(Glyph.SWORD, Badge.DOWN)),
+    48: AbilityIcon(Glyph.TARGET, Badge.UP),
+    49: AbilityIcon(Glyph.TARGET, Badge.DOWN),
+    50: AbilityIcon(Glyph.CROWN, Badge.UP),
+    51: AbilityIcon(Glyph.CROWN, Badge.DOWN),
+    52: AbilityIcon(Glyph.SHIELD, Badge.UP),
+    53: AbilityIcon(Glyph.CANCEL),
+    54: AbilityIcon(Glyph.SWORD, Badge.UP),
+    **_span(55, 58, AbilityIcon(Glyph.KEY)),
+    59: AbilityIcon(Glyph.UNKNOWN),
+    **_span(61, 67, AbilityIcon(Glyph.KEY)),
+    **_span(68, 71, AbilityIcon(Glyph.CROWN, Badge.UP)),
+}
+
+
+def dbz_item_icon(identifier: int) -> AbilityIcon:
+    """The icon for a Datach Dragon Ball Z item, and a question mark for an unknown id."""
+    return _DBZ_ITEM_ICONS.get(identifier, AbilityIcon(Glyph.UNKNOWN))
+
+
 def double_icon(ability: DoubleAbility) -> AbilityIcon:
     """The icon for a Double power, and a question mark for one the source does not list."""
     return _DOUBLE_ICONS.get(ability.code, AbilityIcon(Glyph.UNKNOWN))

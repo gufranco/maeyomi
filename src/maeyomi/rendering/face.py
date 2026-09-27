@@ -13,13 +13,22 @@ from dataclasses import dataclass
 from functools import partial
 
 from maeyomi.bb1.card import FirstBattlerCard
+from maeyomi.datach.dbz import DbzCard, DbzKind
+from maeyomi.datach.dbz_names import fighter_name, item_entry
 from maeyomi.double.card import DoubleCard
 from maeyomi.generator.carried import Carried, carried
 from maeyomi.models.character import BarcodeBattlerCharacter
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.generated_card import CardResult
 from maeyomi.models.race import Race
-from maeyomi.rendering.ability_icons import AbilityIcon, ability_icon, double_icon, flag_icon
+from maeyomi.rendering.ability_icons import (
+    AbilityIcon,
+    Glyph,
+    ability_icon,
+    dbz_item_icon,
+    double_icon,
+    flag_icon,
+)
 from maeyomi.rendering.icons import (
     RACE_COLOURS,
     UNKNOWN_KIND_COLOUR,
@@ -28,16 +37,21 @@ from maeyomi.rendering.icons import (
     draw_unknown_kind,
 )
 from maeyomi.rendering.labels import (
+    DBZ_EFFECT,
+    DBZ_FIGHTER,
+    DBZ_MOVES,
     ITEM_CARD,
     UNKNOWN_FIGHTER,
     UNKNOWN_KIND,
+    UNKNOWN_POWER,
     Bilingual,
     class_label,
+    dbz_level_text,
     double_class_label,
     panel_text,
     race_label,
 )
-from maeyomi.rendering.stat_tiles import StatTile, stat_tiles, tiles_for
+from maeyomi.rendering.stat_tiles import StatTile, stat_tiles, tiles_for, tiles_from
 
 BandIcon = Callable[..., None]
 
@@ -54,6 +68,7 @@ class CardFace:
     power_code: int
     power_text: Bilingual
     power_icon: AbilityIcon
+    power_heading: Bilingual | None = None
 
 
 def face_of(result: CardResult) -> CardFace:
@@ -62,6 +77,8 @@ def face_of(result: CardResult) -> CardFace:
         return _first_battler_face(result)
     if isinstance(result, DoubleCard):
         return _double_face(result)
+    if isinstance(result, DbzCard):
+        return _dbz_item_face(result) if result.kind is DbzKind.ITEM else _dbz_fighter_face(result)
     return _second_battler_face(result)
 
 
@@ -116,6 +133,46 @@ def _double_face(card: DoubleCard) -> CardFace:
         power_code=special.code,
         power_text=Bilingual(special.description, special.japanese),
         power_icon=double_icon(special),
+    )
+
+
+def _dbz_fighter_face(card: DbzCard) -> CardFace:
+    """The face of a Datach Dragon Ball Z fighter: its name, three numbers and its level."""
+    name = fighter_name(card.character)
+    return CardFace(
+        band_colour=RACE_COLOURS[Race.HUMAN],
+        band_icon=partial(draw_race_icon, race=Race.HUMAN),
+        kind=UNKNOWN_FIGHTER if name is None else Bilingual(*name),
+        detail=DBZ_FIGHTER,
+        tiles=tiles_from(
+            (
+                ("HP", Carried.HP, card.hp),
+                ("BP", Carried.ST, card.bp),
+                ("DP", Carried.DF, card.dp),
+            )
+        ),
+        power_code=card.level or 0,
+        power_text=dbz_level_text(card.level),
+        power_icon=AbilityIcon(Glyph.NONE if card.level is None else Glyph.CROWN),
+        power_heading=DBZ_MOVES,
+    )
+
+
+def _dbz_item_face(card: DbzCard) -> CardFace:
+    """The face of a Datach Dragon Ball Z item: its name and what it does, with no numbers."""
+    entry = item_entry(card.character)
+    return CardFace(
+        band_colour=RACE_COLOURS[Race.SUPPORT_ITEM],
+        band_icon=partial(draw_race_icon, race=Race.SUPPORT_ITEM),
+        kind=UNKNOWN_KIND if entry is None else Bilingual(entry.english, entry.japanese),
+        detail=ITEM_CARD,
+        tiles=(),
+        power_code=0,
+        power_text=UNKNOWN_POWER
+        if entry is None
+        else Bilingual(entry.effect, entry.effect_japanese),
+        power_icon=dbz_item_icon(card.character),
+        power_heading=DBZ_EFFECT,
     )
 
 

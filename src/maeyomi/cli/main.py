@@ -10,11 +10,18 @@ device has numeric ability codes rather than named elements.
 import webbrowser
 from collections.abc import Callable
 from pathlib import Path
-from typing import Annotated
+from typing import Annotated, Final
 
 import typer
 
 from maeyomi.cli.common import build_request, sheet_layout, write_cards
+from maeyomi.cli.datach_device import (
+    DbzPick,
+    cheat_dbz,
+    generate_dbz,
+    refuse_dbz_options,
+    show_dbz,
+)
 from maeyomi.cli.doctor import State, machine, package, worst
 from maeyomi.cli.double_device import cheat_double, generate_double, show_double
 from maeyomi.cli.first_device import cheat_first, generate_first, show_first
@@ -58,10 +65,10 @@ VERDICTS = {
 
 HpOption = Annotated[str | None, typer.Option("--hp", help="Exact value, range or bound.")]
 StOption = Annotated[
-    str | None, typer.Option("--st", "--attack", help="Exact value, range or bound.")
+    str | None, typer.Option("--st", "--attack", "--bp", help="Exact value, range or bound.")
 ]
 DfOption = Annotated[
-    str | None, typer.Option("--df", "--defense", help="Exact value, range or bound.")
+    str | None, typer.Option("--df", "--defense", "--dp", help="Exact value, range or bound.")
 ]
 HerbsOption = Annotated[
     str | None,
@@ -98,10 +105,20 @@ DeviceOption = Annotated[
         "--device",
         help=(
             "bb2 for the Barcode Battler II, bb1 for the first Barcode Battler, "
-            "double for the Barcode Battler II Double."
+            "double for the Barcode Battler II Double, dbz for Datach Dragon Ball Z."
         ),
     ),
 ]
+CharacterOption = Annotated[
+    str | None,
+    typer.Option("--character", help="Datach Dragon Ball Z fighter or item, by name or id."),
+]
+LevelOption = Annotated[
+    int | None,
+    typer.Option("--level", min=0, max=3, help="Datach Dragon Ball Z special move level."),
+]
+_SHOW: Final = {Device.BB1: show_first, Device.DOUBLE: show_double, Device.DATACH_DBZ: show_dbz}
+_CHEAT: Final = {Device.BB1: cheat_first, Device.DOUBLE: cheat_double, Device.DATACH_DBZ: cheat_dbz}
 BackReadOption = Annotated[
     bool, typer.Option("--back-read", help="Build a card the device reads from the back.")
 ]
@@ -165,6 +182,8 @@ def generate(
     nearest: NearestOption = False,
     back_read: BackReadOption = False,
     device: DeviceOption = Device.BB2,
+    dbz_character: CharacterOption = None,
+    level: LevelOption = None,
     print_shop: PrintShopOption = False,
 ) -> None:
     """Build one card whose barcode decodes to exactly the requested attributes."""
@@ -181,6 +200,11 @@ def generate(
         speed=speed,
         ability=ability,
     )
+    if device is Device.DATACH_DBZ:
+        pick = DbzPick(character=dbz_character, level=level, back_read=back_read)
+        generate_dbz(request, pick, output=output, images=images, print_shop=print_shop)
+        return
+    refuse_dbz_options(dbz_character, level)
     if device is not Device.BB2:
         build = generate_first if device is Device.BB1 else generate_double
         build(request, back_read=back_read, output=output, images=images, print_shop=print_shop)
@@ -250,7 +274,7 @@ def decode(
     what is printed on the shopping and print the card it makes.
     """
     if device is not Device.BB2:
-        show = show_first if device is Device.BB1 else show_double
+        show = _SHOW[device]
         show(barcode, output=output, name=name, images=images, print_shop=print_shop)
         return
     try:
@@ -335,7 +359,7 @@ def cheat(
 ) -> None:
     """Print the strongest card the device will read. Nobody has to know."""
     if device is not Device.BB2:
-        cheat = cheat_first if device is Device.BB1 else cheat_double
+        cheat = _CHEAT[device]
         cheat(name, items=items, output=output, images=images, print_shop=print_shop)
         return
     card = strongest_card(name)

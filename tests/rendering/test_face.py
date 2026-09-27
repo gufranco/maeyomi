@@ -2,6 +2,7 @@
 
 from maeyomi.bb1.decode import decode_first
 from maeyomi.bb1.flags import Flag
+from maeyomi.datach.dbz import DbzCard, DbzKind, decode_dbz
 from maeyomi.decoder.decode import decode
 from maeyomi.double.abilities import DoubleAbility
 from maeyomi.double.decode import decode_double
@@ -12,17 +13,23 @@ from maeyomi.rendering.ability_icons import (
     Badge,
     Glyph,
     ability_icon,
+    dbz_item_icon,
     double_icon,
     flag_icon,
 )
 from maeyomi.rendering.face import face_of
 from maeyomi.rendering.icons import RACE_COLOURS, UNKNOWN_KIND_COLOUR
 from maeyomi.rendering.labels import (
+    DBZ_EFFECT,
+    DBZ_FIGHTER,
+    DBZ_MOVES,
     ITEM_CARD,
     UNKNOWN_FIGHTER,
     UNKNOWN_KIND,
+    UNKNOWN_POWER,
     Bilingual,
     class_label,
+    dbz_level_text,
     double_class_label,
     panel_text,
     race_label,
@@ -44,6 +51,7 @@ def test_a_fighter_face_carries_its_race_class_numbers_and_power() -> None:
     assert face.power_code == 18
     assert face.power_text == panel_text(character)
     assert face.power_icon == ability_icon(character.special)
+    assert face.power_heading is None
 
 
 def test_an_item_face_names_itself_an_item_card() -> None:
@@ -139,3 +147,50 @@ def test_every_double_power_has_an_icon() -> None:
     assert icons[35] == AbilityIcon(Glyph.TARGET, Badge.DOWN)
     assert icons[33] == AbilityIcon(Glyph.UNKNOWN)
     assert icons[90] == AbilityIcon(Glyph.KEY)
+
+
+def test_a_dragon_ball_fighter_face_carries_its_name_numbers_and_level() -> None:
+    card = decode_dbz("0022248300117")
+
+    face = face_of(card)
+
+    assert face.kind == Bilingual("Goku", "ゴクウ")
+    assert face.detail == DBZ_FIGHTER
+    assert [(tile.key, tile.style) for tile in face.tiles] == [
+        ("HP", "HP"),
+        ("BP", "ST"),
+        ("DP", "DF"),
+    ]
+    assert [tile.value for tile in face.tiles] == [card.hp, card.bp, card.dp]
+    assert face.power_code == card.level
+    assert face.power_text == dbz_level_text(card.level)
+    assert face.power_heading == DBZ_MOVES
+
+
+def test_a_dragon_ball_fighter_without_a_level_has_no_special_moves() -> None:
+    card = DbzCard("0000000000000", DbzKind.FIGHTER, 19, None, 100, 100, 100)
+
+    face = face_of(card)
+
+    assert face.power_code == 0
+    assert face.power_text == dbz_level_text(None)
+    assert face.power_icon == AbilityIcon(Glyph.NONE)
+
+
+def test_a_dragon_ball_item_face_carries_its_effect_and_no_tiles() -> None:
+    face = face_of(decode_dbz("0120631203219"))
+
+    assert face.kind == Bilingual("Korin", "カリンさま")
+    assert face.detail == ITEM_CARD
+    assert face.tiles == ()
+    assert face.power_text == Bilingual("Adds 6000 to HP, BP and DP", "HP BP DPに 6000P プラス")
+    assert face.power_icon == dbz_item_icon(34)
+    assert face.power_heading == DBZ_EFFECT
+
+
+def test_a_dragon_ball_id_the_game_never_produces_is_named_unknown() -> None:
+    fighter = face_of(DbzCard("0000000000000", DbzKind.FIGHTER, 14, 1, 100, 100, 100))
+    item = face_of(DbzCard("0000000000000", DbzKind.ITEM, 60, None))
+
+    assert fighter.kind == UNKNOWN_FIGHTER
+    assert (item.kind, item.power_text) == (UNKNOWN_KIND, UNKNOWN_POWER)

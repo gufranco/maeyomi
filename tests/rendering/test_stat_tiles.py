@@ -33,3 +33,9 @@ def test_an_item_prints_only_what_it_carries(name: str, expected: list[tuple[str
 
 def test_an_information_item_prints_no_tile() -> None:
     assert keys_and_values("0000000950008") == []
+
+
+def test_a_tile_is_coloured_by_the_number_it_is_filed_under() -> None:
+    tiles = stat_tiles(decode("9994699095182"))
+
+    assert [tile.style for tile in tiles] == ["HP", "ST", "DF"]

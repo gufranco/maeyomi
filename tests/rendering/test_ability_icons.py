@@ -7,11 +7,14 @@ from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
 from maeyomi.barcode.rasterise import ink_box, render_pdf_pages
+from maeyomi.datach.dbz_names import ITEMS
 from maeyomi.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
 from maeyomi.rendering.ability_icons import (
+    AbilityIcon,
     Badge,
     Glyph,
     ability_icon,
+    dbz_item_icon,
     draw_ability_icon,
 )
 
@@ -90,3 +93,31 @@ def test_code_zero_draws_nothing(tmp_path: Path) -> None:
     canvas.showPage()
     canvas.save()
     assert ink_box(render_pdf_pages(path, dpi=100)[0]) is None
+
+
+@pytest.mark.parametrize(
+    ("identifier", "glyph", "badge"),
+    [
+        (33, Glyph.HEART, Badge.UP),
+        (42, Glyph.SWORD, Badge.UP),
+        (44, Glyph.SHIELD, Badge.UP),
+        (47, Glyph.SWORD, Badge.DOWN),
+        (49, Glyph.TARGET, Badge.DOWN),
+        (53, Glyph.CANCEL, Badge.NONE),
+        (59, Glyph.UNKNOWN, Badge.NONE),
+        (64, Glyph.KEY, Badge.NONE),
+        (71, Glyph.CROWN, Badge.UP),
+    ],
+)
+def test_a_dragon_ball_item_has_the_icon_of_its_effect(
+    identifier: int, glyph: Glyph, badge: Badge
+) -> None:
+    assert dbz_item_icon(identifier) == AbilityIcon(glyph, badge)
+
+
+def test_every_dragon_ball_item_has_an_icon() -> None:
+    assert all(dbz_item_icon(identifier).glyph is not Glyph.NONE for identifier in ITEMS)
+
+
+def test_an_unknown_dragon_ball_item_is_a_question_mark() -> None:
+    assert dbz_item_icon(60) == AbilityIcon(Glyph.UNKNOWN)

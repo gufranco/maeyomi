@@ -10,6 +10,7 @@ class Device(StrEnum):
     BB2 = "bb2"
     BB1 = "bb1"
     DOUBLE = "double"
+    DATACH_DBZ = "dbz"
 
     @property
     def english(self) -> str:
@@ -18,7 +19,7 @@ class Device(StrEnum):
 
     @property
     def japanese(self) -> str:
-        """The device's name in Japanese, as Epoch printed it."""
+        """The device's name in Japanese, as its maker printed it."""
         return _NAMES[self][1]
 
 
@@ -26,4 +27,8 @@ _NAMES: Final[dict[Device, tuple[str, str]]] = {
     Device.BB2: ("Barcode Battler II", "バーコードバトラーII"),
     Device.BB1: ("Barcode Battler", "バーコードバトラー"),
     Device.DOUBLE: ("Barcode Battler II Double", "バーコードバトラーII²"),
+    Device.DATACH_DBZ: (
+        "Datach Dragon Ball Z: Gekitou Tenkaichi Budoukai",
+        "データック ドラゴンボールZ 激闘天下一武道会",
+    ),
 }

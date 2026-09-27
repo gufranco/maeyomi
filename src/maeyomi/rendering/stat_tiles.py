@@ -18,11 +18,12 @@ IconDrawer = Callable[..., None]
 
 @dataclass(frozen=True, slots=True)
 class StatTile:
-    """One number to print, the key its label and colours are filed under, and its icon."""
+    """One number to print, the keys its label and its colours are filed under, and its icon."""
 
     key: str
     value: int
     icon: IconDrawer
+    style: str
 
 
 _ICONS: Final[dict[Carried, IconDrawer]] = {
@@ -42,6 +43,19 @@ def stat_tiles(character: BarcodeBattlerCharacter) -> tuple[StatTile, ...]:
 def tiles_for(fields: Sequence[Carried], values: object) -> tuple[StatTile, ...]:
     """One tile per field, reading each value off the object by its field name."""
     return tuple(
-        StatTile(key=field.name, value=getattr(values, field.value), icon=_ICONS[field])
+        StatTile(
+            key=field.name,
+            value=getattr(values, field.value),
+            icon=_ICONS[field],
+            style=field.name,
+        )
         for field in fields
+    )
+
+
+def tiles_from(entries: Sequence[tuple[str, Carried, int]]) -> tuple[StatTile, ...]:
+    """Tiles named by their own label, drawn in the colours and icon of the number they match."""
+    return tuple(
+        StatTile(key=label, value=value, icon=_ICONS[field], style=field.name)
+        for label, field, value in entries
     )

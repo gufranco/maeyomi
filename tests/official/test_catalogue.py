@@ -1,9 +1,13 @@
 """Tests for the officially released cards, as transcribed by the community."""
 
+import json
+from pathlib import Path
+
 import pytest
 
 from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.bb1.decode import decode_first
+from maeyomi.datach.dbz import decode_dbz
 from maeyomi.decoder.decode import decode
 from maeyomi.double.decode import decode_double
 from maeyomi.models.device import Device
@@ -14,6 +18,11 @@ from maeyomi.official.catalogue import (
     rejected_transcriptions,
 )
 
+DBZ_CARDS = 36
+SOURCES = {
+    False: "https://wikiwiki.jp/barcode/",
+    True: "https://github.com/punesemu/puNES/",
+}
 KNOWN_BAD_CHECK_DIGITS = {
     "1162864348006",
     "1273634357000",
@@ -26,13 +35,13 @@ KNOWN_BAD_CHECK_DIGITS = {
 def test_the_catalogue_holds_every_transcribed_barcode_once() -> None:
     barcodes = [card.barcode for card in official_catalogue()]
 
-    assert len(barcodes) == 577
+    assert len(barcodes) == 577 + DBZ_CARDS
     assert len(set(barcodes)) == len(barcodes)
 
 
 def test_every_card_names_the_page_it_came_from() -> None:
     for card in official_catalogue():
-        assert card.source_url.startswith("https://wikiwiki.jp/barcode/")
+        assert card.source_url.startswith(SOURCES[card.official_set is OfficialSet.DATACH_DBZ])
         assert card.name
 
 
@@ -56,7 +65,12 @@ def test_a_transcription_with_a_wrong_check_digit_is_rejected_rather_than_repair
 
 def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
     for official_set in OfficialSet:
-        readers = {Device.BB1: decode_first, Device.DOUBLE: decode_double, Device.BB2: decode}
+        readers = {
+            Device.BB1: decode_first,
+            Device.DOUBLE: decode_double,
+            Device.BB2: decode,
+            Device.DATACH_DBZ: decode_dbz,
+        }
         for card in official_cards(official_set):
             assert readers[official_set.device](card.barcode) == card.character
 
@@ -86,7 +100,7 @@ def test_exactly_the_four_lists_with_first_device_wording_use_that_device() -> N
 
 
 def test_the_printable_cards_are_every_transcription_that_decodes() -> None:
-    assert len(official_cards()) == 577 - len(KNOWN_BAD_CHECK_DIGITS)
+    assert len(official_cards()) == 577 + DBZ_CARDS - len(KNOWN_BAD_CHECK_DIGITS)
 
 
 @pytest.mark.parametrize("official_set", list(OfficialSet))
@@ -103,3 +117,17 @@ def test_a_card_keeps_its_published_name() -> None:
     names = {card.name for card in official_cards(OfficialSet.BOARD_GAME)}
 
     assert "甲賀の巻物" in names
+
+
+def test_the_dragon_ball_z_cards_are_the_36_the_game_accepted() -> None:
+    cards = official_cards(OfficialSet.DATACH_DBZ)
+
+    assert OfficialSet.DATACH_DBZ.device is Device.DATACH_DBZ
+    assert len(cards) == DBZ_CARDS
+    assert {card.barcode for card in cards} == oracle_official_barcodes()
+
+
+def oracle_official_barcodes() -> set[str]:
+    fixture = Path(__file__).parent.parent / "fixtures" / "oracle" / "datach_dbz.json"
+    entries = json.loads(fixture.read_text("utf-8"))["cards"]
+    return {entry["barcode"] for entry in entries if "official_name" in entry}

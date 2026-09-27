@@ -1,0 +1,2155 @@
+{
+ "game": "Datach Dragon Ball Z: Gekitou Tenkaichi Budoukai",
+ "rom": {
+  "entry": "nes_datach/dtc_dbz",
+  "size": 262144,
+  "crc32": "19e81461",
+  "sha1": "87478b635fefb25fa13c4876e20f505a97426c1b"
+ },
+ "emulator": "MAME 0.289",
+ "method": "the barcode was fed to the Datach reader's save state from Lua in カリン様の部屋, and the result read from RAM $0407, $0416 and $0417 to $041C",
+ "recorded_utc": "2026-09-27",
+ "official_names_source": "puNES src/gui/dlgDetachBarcode.cpp card list; each name is checked here only by the game's own result",
+ "cards": [
+  {
+   "barcode": "0000210303212",
+   "accepted": true,
+   "character": 3,
+   "level": 0,
+   "hp": 36500,
+   "bp": 22750,
+   "dp": 23250,
+   "official_name": "Character Card: 天津飯"
+  },
+  {
+   "barcode": "0000616107230",
+   "accepted": true,
+   "character": 16,
+   "level": 0,
+   "hp": 35500,
+   "bp": 22500,
+   "dp": 33250,
+   "official_name": "Character Card: フリーザ"
+  },
+  {
+   "barcode": "0000636053258",
+   "accepted": true,
+   "character": 17,
+   "level": 3,
+   "hp": 24500,
+   "bp": 22750,
+   "dp": 23250,
+   "official_name": "Character Card: セル"
+  },
+  {
+   "barcode": "0002852100013",
+   "accepted": true,
+   "character": 6,
+   "level": 0,
+   "hp": 35500,
+   "bp": 27750,
+   "dp": 17500,
+   "official_name": "Character Card: 悟飯"
+  },
+  {
+   "barcode": "0004732055154",
+   "accepted": true,
+   "character": 21,
+   "level": 3,
+   "hp": 14500,
+   "bp": 12500,
+   "dp": 22750,
+   "official_name": "Character Card: サイバイマン"
+  },
+  {
+   "barcode": "0020242205254",
+   "accepted": true,
+   "character": 2,
+   "level": 2,
+   "hp": 39500,
+   "bp": 22500,
+   "dp": 22750,
+   "official_name": "Character Card: ヤムチャ"
+  },
+  {
+   "barcode": "0020502044333",
+   "accepted": true,
+   "character": 22,
+   "level": 2,
+   "hp": 61500,
+   "bp": 22500,
+   "dp": 27750,
+   "official_name": "Character Card: 人造人間16"
+  },
+  {
+   "barcode": "0020850515295",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 28500,
+   "bp": 22500,
+   "dp": 12500,
+   "official_name": "Character Card: 餃子"
+  },
+  {
+   "barcode": "0022248300117",
+   "accepted": true,
+   "character": 0,
+   "level": 1,
+   "hp": 49500,
+   "bp": 28250,
+   "dp": 22750,
+   "official_name": "Character Card: 孫 悟空"
+  },
+  {
+   "barcode": "0022738106373",
+   "accepted": true,
+   "character": 11,
+   "level": null,
+   "hp": 63500,
+   "bp": 33000,
+   "dp": 33250,
+   "official_name": "Character Card: スーパーサイヤ人　べジータ"
+  },
+  {
+   "barcode": "0032395867289",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 35500,
+   "bp": 42500,
+   "dp": 22000
+  },
+  {
+   "barcode": "0040416100376",
+   "accepted": true,
+   "character": 23,
+   "level": 0,
+   "hp": 45500,
+   "bp": 22750,
+   "dp": 27250,
+   "official_name": "Character Card: 人造人間17"
+  },
+  {
+   "barcode": "0040600205054",
+   "accepted": true,
+   "character": 25,
+   "level": 2,
+   "hp": 36500,
+   "bp": 17500,
+   "dp": 22250,
+   "official_name": "Character Card: 人造人間19"
+  },
+  {
+   "barcode": "0044444185152",
+   "accepted": true,
+   "character": 20,
+   "level": 1,
+   "hp": 45500,
+   "bp": 12500,
+   "dp": 37250,
+   "official_name": "Character Card: ザーボン"
+  },
+  {
+   "barcode": "0048734105257",
+   "accepted": true,
+   "character": 18,
+   "level": null,
+   "hp": 55500,
+   "bp": 21500,
+   "dp": 22250,
+   "official_name": "Character Card: ラティッツ"
+  },
+  {
+   "barcode": "0050482526345",
+   "accepted": true,
+   "character": 23,
+   "level": 1,
+   "hp": 45500,
+   "bp": 22500,
+   "dp": 11250
+  },
+  {
+   "barcode": "0062446208037",
+   "accepted": true,
+   "character": 24,
+   "level": 2,
+   "hp": 39500,
+   "bp": 27250,
+   "dp": 27250,
+   "official_name": "Character Card: 人造人間18"
+  },
+  {
+   "barcode": "0062982144233",
+   "accepted": true,
+   "character": 8,
+   "level": 1,
+   "hp": 51500,
+   "bp": 32500,
+   "dp": 25000,
+   "official_name": "Character Card: スーパーサイヤ人　トランクス"
+  },
+  {
+   "barcode": "0068400144373",
+   "accepted": true,
+   "character": 7,
+   "level": 1,
+   "hp": 41500,
+   "bp": 21500,
+   "dp": 27250,
+   "official_name": "Character Card: べジータ"
+  },
+  {
+   "barcode": "0088302101212",
+   "accepted": true,
+   "character": 5,
+   "level": 1,
+   "hp": 55500,
+   "bp": 24250,
+   "dp": 22750,
+   "official_name": "Character Card: ピッコロ"
+  },
+  {
+   "barcode": "0088640910255",
+   "accepted": true,
+   "character": 1,
+   "level": 1,
+   "hp": 25000,
+   "bp": 24250,
+   "dp": 22750,
+   "official_name": "Character Card: クリリン"
+  },
+  {
+   "barcode": "0088658921113",
+   "accepted": true,
+   "character": 19,
+   "level": 0,
+   "hp": 45000,
+   "bp": 16000,
+   "dp": 22750,
+   "official_name": "Character Card: ギニュー"
+  },
+  {
+   "barcode": "0120215307258",
+   "accepted": true,
+   "character": 38,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: 亀仙人"
+  },
+  {
+   "barcode": "0120631203219",
+   "accepted": true,
+   "character": 34,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: カリン様"
+  },
+  {
+   "barcode": "0120637202254",
+   "accepted": true,
+   "character": 55,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: ブリーフ博士"
+  },
+  {
+   "barcode": "0120671203255",
+   "accepted": true,
+   "character": 42,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: エンマ大王"
+  },
+  {
+   "barcode": "0120675202216",
+   "accepted": true,
+   "character": 52,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: バブルス"
+  },
+  {
+   "barcode": "0122815544019",
+   "accepted": true,
+   "character": 32,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: 回復カプセル"
+  },
+  {
+   "barcode": "0140601201052",
+   "accepted": true,
+   "character": 36,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: ブルマ"
+  },
+  {
+   "barcode": "0140643200013",
+   "accepted": true,
+   "character": 56,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: ブルマの母"
+  },
+  {
+   "barcode": "0140645200059",
+   "accepted": true,
+   "character": 51,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: ウーロン"
+  },
+  {
+   "barcode": "0162347145254",
+   "accepted": true,
+   "character": 44,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: バトルスーツ"
+  },
+  {
+   "barcode": "0162413545018",
+   "accepted": true,
+   "character": 68,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: ポルンガ"
+  },
+  {
+   "barcode": "0162415545016",
+   "accepted": true,
+   "character": 40,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: ミスターポポ"
+  },
+  {
+   "barcode": "0162453544057",
+   "accepted": true,
+   "character": 57,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: 牛魔王"
+  },
+  {
+   "barcode": "0162741145218",
+   "accepted": true,
+   "character": 64,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: ドラゴンボール"
+  },
+  {
+   "barcode": "0162747144253",
+   "accepted": true,
+   "character": 46,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0,
+   "official_name": "Item Card: チチ"
+  },
+  {
+   "barcode": "0167656689369",
+   "accepted": true,
+   "character": 6,
+   "level": 0,
+   "hp": 49500,
+   "bp": 7250,
+   "dp": 47250
+  },
+  {
+   "barcode": "0204242483922",
+   "accepted": true,
+   "character": 2,
+   "level": 2,
+   "hp": 45500,
+   "bp": 12750,
+   "dp": 49750
+  },
+  {
+   "barcode": "0253260659444",
+   "accepted": true,
+   "character": 7,
+   "level": 1,
+   "hp": 25500,
+   "bp": 17250,
+   "dp": 22250
+  },
+  {
+   "barcode": "02729220",
+   "accepted": true,
+   "character": 8,
+   "level": 1,
+   "hp": 83500,
+   "bp": 17750,
+   "dp": 28750
+  },
+  {
+   "barcode": "0338504388943",
+   "accepted": true,
+   "character": 1,
+   "level": 1,
+   "hp": 69500,
+   "bp": 35750,
+   "dp": 36750
+  },
+  {
+   "barcode": "04262909",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 33000,
+   "bp": 7250,
+   "dp": 33750
+  },
+  {
+   "barcode": "0480663562891",
+   "accepted": true,
+   "character": 56,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "0482940162053",
+   "accepted": true,
+   "character": 8,
+   "level": 1,
+   "hp": 34500,
+   "bp": 28750,
+   "dp": 18000
+  },
+  {
+   "barcode": "04868408",
+   "accepted": true,
+   "character": 8,
+   "level": 2,
+   "hp": 35000,
+   "bp": 18500,
+   "dp": 26500
+  },
+  {
+   "barcode": "0635964218972",
+   "accepted": true,
+   "character": 3,
+   "level": 1,
+   "hp": 19500,
+   "bp": 12250,
+   "dp": 26500
+  },
+  {
+   "barcode": "06586447",
+   "accepted": true,
+   "character": 23,
+   "level": 1,
+   "hp": 32500,
+   "bp": 21500,
+   "dp": 22250
+  },
+  {
+   "barcode": "0693282854302",
+   "accepted": true,
+   "character": 3,
+   "level": 2,
+   "hp": 44000,
+   "bp": 43500,
+   "dp": 23750
+  },
+  {
+   "barcode": "0710022841450",
+   "accepted": true,
+   "character": 2,
+   "level": 1,
+   "hp": 34000,
+   "bp": 37750,
+   "dp": 17750
+  },
+  {
+   "barcode": "0734453795403",
+   "accepted": true,
+   "character": 0,
+   "level": 0,
+   "hp": 29500,
+   "bp": 12500,
+   "dp": 12750
+  },
+  {
+   "barcode": "0746220986525",
+   "accepted": true,
+   "character": 0,
+   "level": 0,
+   "hp": 45000,
+   "bp": 17500,
+   "dp": 42750
+  },
+  {
+   "barcode": "0844814129225",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 75500,
+   "bp": 22250,
+   "dp": 27000
+  },
+  {
+   "barcode": "0890155078074",
+   "accepted": true,
+   "character": 61,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "0913372187616",
+   "accepted": true,
+   "character": 22,
+   "level": null,
+   "hp": 55500,
+   "bp": 42500,
+   "dp": 23250
+  },
+  {
+   "barcode": "1010575305362",
+   "accepted": true,
+   "character": 20,
+   "level": null,
+   "hp": 66500,
+   "bp": 22500,
+   "dp": 27750
+  },
+  {
+   "barcode": "1037193577636",
+   "accepted": true,
+   "character": 48,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "1082034139368",
+   "accepted": true,
+   "character": 4,
+   "level": null,
+   "hp": 5500,
+   "bp": 30250,
+   "dp": 27750
+  },
+  {
+   "barcode": "11962366",
+   "accepted": true,
+   "character": 2,
+   "level": 3,
+   "hp": 75500,
+   "bp": 48750,
+   "dp": 8250
+  },
+  {
+   "barcode": "12599370",
+   "accepted": true,
+   "character": 59,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "1285373353413",
+   "accepted": true,
+   "character": 50,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "1289734991061",
+   "accepted": true,
+   "character": 17,
+   "level": null,
+   "hp": 35000,
+   "bp": 19250,
+   "dp": 42750
+  },
+  {
+   "barcode": "1300298109713",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 45500,
+   "bp": 22750,
+   "dp": 23750
+  },
+  {
+   "barcode": "1383015738748",
+   "accepted": true,
+   "character": 3,
+   "level": 0,
+   "hp": 6500,
+   "bp": 30250,
+   "dp": 12750
+  },
+  {
+   "barcode": "1399891577296",
+   "accepted": true,
+   "character": 41,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "14518522",
+   "accepted": true,
+   "character": 1,
+   "level": 0,
+   "hp": 76500,
+   "bp": 37500,
+   "dp": 15500
+  },
+  {
+   "barcode": "14792830",
+   "accepted": true,
+   "character": 37,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "1497254868750",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 44000,
+   "bp": 45250,
+   "dp": 22750
+  },
+  {
+   "barcode": "1561362687418",
+   "accepted": true,
+   "character": 22,
+   "level": 1,
+   "hp": 59500,
+   "bp": 17500,
+   "dp": 2750
+  },
+  {
+   "barcode": "1610906024957",
+   "accepted": true,
+   "character": 6,
+   "level": 2,
+   "hp": 85500,
+   "bp": 37500,
+   "dp": 16500
+  },
+  {
+   "barcode": "1611317444563",
+   "accepted": true,
+   "character": 5,
+   "level": 0,
+   "hp": 64500,
+   "bp": 37500,
+   "dp": 7750
+  },
+  {
+   "barcode": "1612794811121",
+   "accepted": true,
+   "character": 18,
+   "level": 0,
+   "hp": 15000,
+   "bp": 17750,
+   "dp": 33750
+  },
+  {
+   "barcode": "17010016",
+   "accepted": true,
+   "character": 61,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "1724149412584",
+   "accepted": true,
+   "character": 8,
+   "level": 2,
+   "hp": 18500,
+   "bp": 13250,
+   "dp": 13250
+  },
+  {
+   "barcode": "20158231",
+   "accepted": false
+  },
+  {
+   "barcode": "20208943",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 38000,
+   "bp": 17250,
+   "dp": 19000
+  },
+  {
+   "barcode": "2126038414911",
+   "accepted": true,
+   "character": 0,
+   "level": 3,
+   "hp": 43500,
+   "bp": 18000,
+   "dp": 11750
+  },
+  {
+   "barcode": "2136295274494",
+   "accepted": true,
+   "character": 61,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "2239073767598",
+   "accepted": true,
+   "character": 50,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "22797667",
+   "accepted": true,
+   "character": 16,
+   "level": 0,
+   "hp": 85500,
+   "bp": 21500,
+   "dp": 22750
+  },
+  {
+   "barcode": "2302742541925",
+   "accepted": true,
+   "character": 0,
+   "level": 1,
+   "hp": 64500,
+   "bp": 27750,
+   "dp": 6750
+  },
+  {
+   "barcode": "2327926721108",
+   "accepted": true,
+   "character": 1,
+   "level": 0,
+   "hp": 89500,
+   "bp": 17750,
+   "dp": 12500
+  },
+  {
+   "barcode": "2341910218788",
+   "accepted": true,
+   "character": 6,
+   "level": 0,
+   "hp": 14000,
+   "bp": 22250,
+   "dp": 17000
+  },
+  {
+   "barcode": "23728240",
+   "accepted": true,
+   "character": 0,
+   "level": 1,
+   "hp": 31500,
+   "bp": 17750,
+   "dp": 28750
+  },
+  {
+   "barcode": "2384781206935",
+   "accepted": true,
+   "character": 45,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "2389806448444",
+   "accepted": true,
+   "character": 5,
+   "level": 2,
+   "hp": 34500,
+   "bp": 18000,
+   "dp": 12500
+  },
+  {
+   "barcode": "2497115041734",
+   "accepted": true,
+   "character": 44,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "2511874125211",
+   "accepted": true,
+   "character": 7,
+   "level": null,
+   "hp": 75500,
+   "bp": 22500,
+   "dp": 17500
+  },
+  {
+   "barcode": "2549413790118",
+   "accepted": true,
+   "character": 34,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "2564396068320",
+   "accepted": true,
+   "character": 6,
+   "level": 0,
+   "hp": 81500,
+   "bp": 22250,
+   "dp": 30250
+  },
+  {
+   "barcode": "25851731",
+   "accepted": true,
+   "character": 49,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "25978797",
+   "accepted": true,
+   "character": 67,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "2761955108156",
+   "accepted": true,
+   "character": 37,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "27849026",
+   "accepted": true,
+   "character": 6,
+   "level": 2,
+   "hp": 86500,
+   "bp": 13750,
+   "dp": 11500
+  },
+  {
+   "barcode": "2806187724412",
+   "accepted": true,
+   "character": 62,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "2857649556348",
+   "accepted": true,
+   "character": 24,
+   "level": 1,
+   "hp": 44500,
+   "bp": 48000,
+   "dp": 22750
+  },
+  {
+   "barcode": "2949772643504",
+   "accepted": true,
+   "character": 6,
+   "level": 3,
+   "hp": 65500,
+   "bp": 16750,
+   "dp": 22750
+  },
+  {
+   "barcode": "3014855888505",
+   "accepted": true,
+   "character": 6,
+   "level": 0,
+   "hp": 45000,
+   "bp": 12250,
+   "dp": 37500
+  },
+  {
+   "barcode": "3078414606122",
+   "accepted": true,
+   "character": 1,
+   "level": 0,
+   "hp": 49500,
+   "bp": 36500,
+   "dp": 17750
+  },
+  {
+   "barcode": "3081286706517",
+   "accepted": true,
+   "character": 5,
+   "level": 1,
+   "hp": 46500,
+   "bp": 18500,
+   "dp": 22000
+  },
+  {
+   "barcode": "3117771516092",
+   "accepted": true,
+   "character": 56,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "3173471938497",
+   "accepted": true,
+   "character": 34,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "3185393359083",
+   "accepted": true,
+   "character": 7,
+   "level": 0,
+   "hp": 32500,
+   "bp": 10250,
+   "dp": 23750
+  },
+  {
+   "barcode": "3387954175426",
+   "accepted": true,
+   "character": 1,
+   "level": 0,
+   "hp": 34500,
+   "bp": 18500,
+   "dp": 27500
+  },
+  {
+   "barcode": "33994413",
+   "accepted": true,
+   "character": 34,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "34276945",
+   "accepted": true,
+   "character": 0,
+   "level": 0,
+   "hp": 31500,
+   "bp": 7250,
+   "dp": 8750
+  },
+  {
+   "barcode": "3428720963882",
+   "accepted": true,
+   "character": 25,
+   "level": 0,
+   "hp": 35500,
+   "bp": 16750,
+   "dp": 24750
+  },
+  {
+   "barcode": "3506421441769",
+   "accepted": true,
+   "character": 19,
+   "level": 1,
+   "hp": 44500,
+   "bp": 7750,
+   "dp": 17750
+  },
+  {
+   "barcode": "3531442316567",
+   "accepted": true,
+   "character": 21,
+   "level": 1,
+   "hp": 49500,
+   "bp": 37500,
+   "dp": 28250
+  },
+  {
+   "barcode": "3535377513374",
+   "accepted": true,
+   "character": 51,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "3579126195657",
+   "accepted": true,
+   "character": 22,
+   "level": 0,
+   "hp": 33500,
+   "bp": 21500,
+   "dp": 37250
+  },
+  {
+   "barcode": "3616648871390",
+   "accepted": true,
+   "character": 19,
+   "level": 2,
+   "hp": 0,
+   "bp": 48250,
+   "dp": 22750
+  },
+  {
+   "barcode": "3623401959035",
+   "accepted": false
+  },
+  {
+   "barcode": "3736252524700",
+   "accepted": true,
+   "character": 3,
+   "level": 0,
+   "hp": 43500,
+   "bp": 47500,
+   "dp": 22750
+  },
+  {
+   "barcode": "37511173",
+   "accepted": true,
+   "character": 59,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "37557089",
+   "accepted": true,
+   "character": 24,
+   "level": 1,
+   "hp": 65000,
+   "bp": 3250,
+   "dp": 22250
+  },
+  {
+   "barcode": "3774325921155",
+   "accepted": true,
+   "character": 38,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "38065903",
+   "accepted": true,
+   "character": 19,
+   "level": 0,
+   "hp": 66500,
+   "bp": 17250,
+   "dp": 28750
+  },
+  {
+   "barcode": "3829503840503",
+   "accepted": true,
+   "character": 19,
+   "level": 2,
+   "hp": 61000,
+   "bp": 16750,
+   "dp": 17750
+  },
+  {
+   "barcode": "3880567857654",
+   "accepted": true,
+   "character": 61,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "3883195650109",
+   "accepted": true,
+   "character": 6,
+   "level": 0,
+   "hp": 15500,
+   "bp": 28750,
+   "dp": 13750
+  },
+  {
+   "barcode": "39999597",
+   "accepted": true,
+   "character": 67,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "4040670802869",
+   "accepted": true,
+   "character": 1,
+   "level": 3,
+   "hp": 35000,
+   "bp": 17750,
+   "dp": 34000
+  },
+  {
+   "barcode": "4055670684391",
+   "accepted": true,
+   "character": 24,
+   "level": 3,
+   "hp": 44000,
+   "bp": 2500,
+   "dp": 2250
+  },
+  {
+   "barcode": "4148797845209",
+   "accepted": true,
+   "character": 16,
+   "level": 0,
+   "hp": 54000,
+   "bp": 21500,
+   "dp": 20250
+  },
+  {
+   "barcode": "4190384339844",
+   "accepted": true,
+   "character": 4,
+   "level": 1,
+   "hp": 36500,
+   "bp": 35250,
+   "dp": 24250
+  },
+  {
+   "barcode": "4284407993820",
+   "accepted": true,
+   "character": 16,
+   "level": 1,
+   "hp": 25000,
+   "bp": 13750,
+   "dp": 19750
+  },
+  {
+   "barcode": "4317344453772",
+   "accepted": true,
+   "character": 1,
+   "level": 2,
+   "hp": 14500,
+   "bp": 47750,
+   "dp": 8250
+  },
+  {
+   "barcode": "4325507697567",
+   "accepted": true,
+   "character": 6,
+   "level": 2,
+   "hp": 19500,
+   "bp": 12500,
+   "dp": 18250
+  },
+  {
+   "barcode": "4391618471891",
+   "accepted": true,
+   "character": 21,
+   "level": 0,
+   "hp": 20500,
+   "bp": 37000,
+   "dp": 21750
+  },
+  {
+   "barcode": "44249908",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 63000,
+   "bp": 12250,
+   "dp": 19000
+  },
+  {
+   "barcode": "4441227200655",
+   "accepted": true,
+   "character": 63,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "44540487",
+   "accepted": true,
+   "character": 8,
+   "level": 1,
+   "hp": 36500,
+   "bp": 13000,
+   "dp": 12250
+  },
+  {
+   "barcode": "4519919069238",
+   "accepted": true,
+   "character": 41,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "4538327355825",
+   "accepted": true,
+   "character": 2,
+   "level": 0,
+   "hp": 38000,
+   "bp": 36500,
+   "dp": 31750
+  },
+  {
+   "barcode": "4553940598725",
+   "accepted": true,
+   "character": 3,
+   "level": 1,
+   "hp": 15500,
+   "bp": 42250,
+   "dp": 17000
+  },
+  {
+   "barcode": "4606886778543",
+   "accepted": true,
+   "character": 3,
+   "level": 1,
+   "hp": 5500,
+   "bp": 17250,
+   "dp": 13500
+  },
+  {
+   "barcode": "4643952448764",
+   "accepted": true,
+   "character": 2,
+   "level": 0,
+   "hp": 64500,
+   "bp": 32250,
+   "dp": 17000
+  },
+  {
+   "barcode": "46454232",
+   "accepted": true,
+   "character": 42,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "4727776911915",
+   "accepted": true,
+   "character": 6,
+   "level": null,
+   "hp": 13000,
+   "bp": 17750,
+   "dp": 21750
+  },
+  {
+   "barcode": "4760557634887",
+   "accepted": true,
+   "character": 24,
+   "level": 0,
+   "hp": 32000,
+   "bp": 17500,
+   "dp": 10750
+  },
+  {
+   "barcode": "47629226",
+   "accepted": true,
+   "character": 8,
+   "level": 1,
+   "hp": 89500,
+   "bp": 27750,
+   "dp": 18750
+  },
+  {
+   "barcode": "4775790434880",
+   "accepted": true,
+   "character": 22,
+   "level": 0,
+   "hp": 38500,
+   "bp": 12500,
+   "dp": 23000
+  },
+  {
+   "barcode": "4857127153715",
+   "accepted": true,
+   "character": 52,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "48678711",
+   "accepted": true,
+   "character": 67,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "4906668483864",
+   "accepted": true,
+   "character": 19,
+   "level": 1,
+   "hp": 35500,
+   "bp": 18250,
+   "dp": 49750
+  },
+  {
+   "barcode": "49209082",
+   "accepted": true,
+   "character": 0,
+   "level": 2,
+   "hp": 69500,
+   "bp": 18250,
+   "dp": 36500
+  },
+  {
+   "barcode": "4925435633929",
+   "accepted": true,
+   "character": 16,
+   "level": 3,
+   "hp": 9500,
+   "bp": 12750,
+   "dp": 19750
+  },
+  {
+   "barcode": "4972719339954",
+   "accepted": true,
+   "character": 36,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "49735291",
+   "accepted": true,
+   "character": 56,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "5021013689827",
+   "accepted": true,
+   "character": 7,
+   "level": 0,
+   "hp": 39500,
+   "bp": 17250,
+   "dp": 16750
+  },
+  {
+   "barcode": "50678235",
+   "accepted": true,
+   "character": 37,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "5082196394021",
+   "accepted": true,
+   "character": 6,
+   "level": 0,
+   "hp": 36500,
+   "bp": 28500,
+   "dp": 18750
+  },
+  {
+   "barcode": "51885533",
+   "accepted": true,
+   "character": 0,
+   "level": 0,
+   "hp": 94000,
+   "bp": 19000,
+   "dp": 17750
+  },
+  {
+   "barcode": "5294341773128",
+   "accepted": true,
+   "character": 4,
+   "level": 1,
+   "hp": 95500,
+   "bp": 13750,
+   "dp": 8250
+  },
+  {
+   "barcode": "5296933339361",
+   "accepted": true,
+   "character": 2,
+   "level": null,
+   "hp": 96500,
+   "bp": 45250,
+   "dp": 27500
+  },
+  {
+   "barcode": "5330596459872",
+   "accepted": true,
+   "character": 17,
+   "level": 0,
+   "hp": 31500,
+   "bp": 37250,
+   "dp": 19250
+  },
+  {
+   "barcode": "5393071430599",
+   "accepted": true,
+   "character": 37,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "5425898174513",
+   "accepted": true,
+   "character": 6,
+   "level": 0,
+   "hp": 1500,
+   "bp": 13000,
+   "dp": 18500
+  },
+  {
+   "barcode": "5440411546950",
+   "accepted": true,
+   "character": 45,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "5485858819908",
+   "accepted": true,
+   "character": 2,
+   "level": 0,
+   "hp": 45000,
+   "bp": 11250,
+   "dp": 16500
+  },
+  {
+   "barcode": "5530417776373",
+   "accepted": true,
+   "character": 55,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "5532403373177",
+   "accepted": false
+  },
+  {
+   "barcode": "5574514704662",
+   "accepted": true,
+   "character": 22,
+   "level": 0,
+   "hp": 59500,
+   "bp": 2500,
+   "dp": 17250
+  },
+  {
+   "barcode": "5578605993980",
+   "accepted": true,
+   "character": 18,
+   "level": 1,
+   "hp": 48000,
+   "bp": 36750,
+   "dp": 24000
+  },
+  {
+   "barcode": "5627594175744",
+   "accepted": true,
+   "character": 0,
+   "level": 0,
+   "hp": 91500,
+   "bp": 7500,
+   "dp": 18750
+  },
+  {
+   "barcode": "5708361757100",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 15500,
+   "bp": 16500,
+   "dp": 23250
+  },
+  {
+   "barcode": "5728547785536",
+   "accepted": true,
+   "character": 61,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "57473819",
+   "accepted": true,
+   "character": 35,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "57715193",
+   "accepted": true,
+   "character": 32,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "5807397270949",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 95500,
+   "bp": 17750,
+   "dp": 24250
+  },
+  {
+   "barcode": "5818580579466",
+   "accepted": true,
+   "character": 19,
+   "level": 1,
+   "hp": 34500,
+   "bp": 35750,
+   "dp": 18750
+  },
+  {
+   "barcode": "58517970",
+   "accepted": true,
+   "character": 35,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "6012215869222",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 74000,
+   "bp": 42250,
+   "dp": 32750
+  },
+  {
+   "barcode": "6030524491279",
+   "accepted": true,
+   "character": 18,
+   "level": 1,
+   "hp": 33500,
+   "bp": 22750,
+   "dp": 17750
+  },
+  {
+   "barcode": "6106189646924",
+   "accepted": true,
+   "character": 0,
+   "level": 2,
+   "hp": 65500,
+   "bp": 18000,
+   "dp": 16000
+  },
+  {
+   "barcode": "6134502844672",
+   "accepted": true,
+   "character": 24,
+   "level": 2,
+   "hp": 51000,
+   "bp": 2500,
+   "dp": 27750
+  },
+  {
+   "barcode": "6138945532998",
+   "accepted": true,
+   "character": 61,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "62152273",
+   "accepted": true,
+   "character": 38,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "6266284599508",
+   "accepted": true,
+   "character": 5,
+   "level": 1,
+   "hp": 43500,
+   "bp": 17250,
+   "dp": 250
+  },
+  {
+   "barcode": "6312422195214",
+   "accepted": false
+  },
+  {
+   "barcode": "6357057313947",
+   "accepted": true,
+   "character": 22,
+   "level": 0,
+   "hp": 46500,
+   "bp": 17750,
+   "dp": 19000
+  },
+  {
+   "barcode": "63737066",
+   "accepted": true,
+   "character": 20,
+   "level": 2,
+   "hp": 88000,
+   "bp": 42750,
+   "dp": 7250
+  },
+  {
+   "barcode": "6414640318748",
+   "accepted": true,
+   "character": 23,
+   "level": 1,
+   "hp": 46500,
+   "bp": 2250,
+   "dp": 22750
+  },
+  {
+   "barcode": "6452622165690",
+   "accepted": true,
+   "character": 0,
+   "level": 0,
+   "hp": 70500,
+   "bp": 42500,
+   "dp": 22250
+  },
+  {
+   "barcode": "6514127440259",
+   "accepted": true,
+   "character": 35,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "6601309173217",
+   "accepted": true,
+   "character": 41,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "6666984566167",
+   "accepted": true,
+   "character": 0,
+   "level": 1,
+   "hp": 81500,
+   "bp": 17500,
+   "dp": 16000
+  },
+  {
+   "barcode": "6797058058292",
+   "accepted": true,
+   "character": 6,
+   "level": 0,
+   "hp": 20500,
+   "bp": 46250,
+   "dp": 17750
+  },
+  {
+   "barcode": "6901759916984",
+   "accepted": true,
+   "character": 24,
+   "level": 0,
+   "hp": 17000,
+   "bp": 18000,
+   "dp": 24750
+  },
+  {
+   "barcode": "70221145",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 61500,
+   "bp": 27750,
+   "dp": 17750
+  },
+  {
+   "barcode": "7041379810831",
+   "accepted": true,
+   "character": 62,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "70707410",
+   "accepted": true,
+   "character": 22,
+   "level": 2,
+   "hp": 13500,
+   "bp": 22500,
+   "dp": 22250
+  },
+  {
+   "barcode": "7070897536596",
+   "accepted": true,
+   "character": 62,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "7159716209740",
+   "accepted": true,
+   "character": 6,
+   "level": 0,
+   "hp": 66500,
+   "bp": 20750,
+   "dp": 22250
+  },
+  {
+   "barcode": "72742068",
+   "accepted": true,
+   "character": 6,
+   "level": 2,
+   "hp": 71000,
+   "bp": 2750,
+   "dp": 22250
+  },
+  {
+   "barcode": "7292860925989",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 47000,
+   "bp": 18500,
+   "dp": 16500
+  },
+  {
+   "barcode": "7296672569287",
+   "accepted": true,
+   "character": 0,
+   "level": null,
+   "hp": 70500,
+   "bp": 45250,
+   "dp": 22750
+  },
+  {
+   "barcode": "7371085568857",
+   "accepted": true,
+   "character": 35,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "7492196700254",
+   "accepted": true,
+   "character": 6,
+   "level": 0,
+   "hp": 56500,
+   "bp": 43750,
+   "dp": 13750
+  },
+  {
+   "barcode": "7607123016814",
+   "accepted": true,
+   "character": 37,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "76597176",
+   "accepted": true,
+   "character": 35,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "7694538281647",
+   "accepted": true,
+   "character": 19,
+   "level": 3,
+   "hp": 56500,
+   "bp": 2000,
+   "dp": 37750
+  },
+  {
+   "barcode": "7783192968619",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 34000,
+   "bp": 30250,
+   "dp": 18750
+  },
+  {
+   "barcode": "78192263",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 72500,
+   "bp": 21750,
+   "dp": 23250
+  },
+  {
+   "barcode": "7822432899471",
+   "accepted": true,
+   "character": 0,
+   "level": 3,
+   "hp": 23000,
+   "bp": 27250,
+   "dp": 17750
+  },
+  {
+   "barcode": "8059773548198",
+   "accepted": true,
+   "character": 64,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "8079354739579",
+   "accepted": true,
+   "character": 1,
+   "level": 0,
+   "hp": 99500,
+   "bp": 35750,
+   "dp": 7250
+  },
+  {
+   "barcode": "81439843",
+   "accepted": true,
+   "character": 6,
+   "level": 1,
+   "hp": 65500,
+   "bp": 27250,
+   "dp": 27750
+  },
+  {
+   "barcode": "81881703",
+   "accepted": true,
+   "character": 4,
+   "level": null,
+   "hp": 64000,
+   "bp": 19000,
+   "dp": 18250
+  },
+  {
+   "barcode": "8207774627774",
+   "accepted": true,
+   "character": 8,
+   "level": 3,
+   "hp": 86500,
+   "bp": 7500,
+   "dp": 8250
+  },
+  {
+   "barcode": "8217572159902",
+   "accepted": true,
+   "character": 8,
+   "level": null,
+   "hp": 14500,
+   "bp": 17250,
+   "dp": 16750
+  },
+  {
+   "barcode": "8301750234243",
+   "accepted": true,
+   "character": 24,
+   "level": 0,
+   "hp": 36500,
+   "bp": 22500,
+   "dp": 22750
+  },
+  {
+   "barcode": "84110022",
+   "accepted": true,
+   "character": 3,
+   "level": 2,
+   "hp": 76500,
+   "bp": 37750,
+   "dp": 17750
+  },
+  {
+   "barcode": "84962089",
+   "accepted": true,
+   "character": 0,
+   "level": 1,
+   "hp": 35000,
+   "bp": 47000,
+   "dp": 42750
+  },
+  {
+   "barcode": "8574830103474",
+   "accepted": true,
+   "character": 5,
+   "level": null,
+   "hp": 33500,
+   "bp": 12750,
+   "dp": 27500
+  },
+  {
+   "barcode": "86690461",
+   "accepted": true,
+   "character": 5,
+   "level": 1,
+   "hp": 76000,
+   "bp": 16500,
+   "dp": 17250
+  },
+  {
+   "barcode": "8687134773332",
+   "accepted": true,
+   "character": 2,
+   "level": null,
+   "hp": 95500,
+   "bp": 8750,
+   "dp": 18250
+  },
+  {
+   "barcode": "8723017113298",
+   "accepted": true,
+   "character": 59,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "8844712830812",
+   "accepted": true,
+   "character": 22,
+   "level": 0,
+   "hp": 35000,
+   "bp": 12750,
+   "dp": 20750
+  },
+  {
+   "barcode": "8930828143967",
+   "accepted": true,
+   "character": 4,
+   "level": 0,
+   "hp": 41500,
+   "bp": 38250,
+   "dp": 29500
+  },
+  {
+   "barcode": "9082001917212",
+   "accepted": true,
+   "character": 37,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "9113484341178",
+   "accepted": true,
+   "character": 17,
+   "level": 1,
+   "hp": 45500,
+   "bp": 17750,
+   "dp": 28750
+  },
+  {
+   "barcode": "9210340180138",
+   "accepted": true,
+   "character": 9,
+   "level": 1,
+   "hp": 65500,
+   "bp": 37750,
+   "dp": 42750,
+   "official_name": "Special Character Card: スーパーサイヤ人　孫 悟空"
+  },
+  {
+   "barcode": "92432536",
+   "accepted": true,
+   "character": 48,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "9366011796341",
+   "accepted": true,
+   "character": 0,
+   "level": 0,
+   "hp": 49500,
+   "bp": 7500,
+   "dp": 12750
+  },
+  {
+   "barcode": "9428599941671",
+   "accepted": true,
+   "character": 42,
+   "level": 0,
+   "hp": 0,
+   "bp": 0,
+   "dp": 0
+  },
+  {
+   "barcode": "9438362974935",
+   "accepted": true,
+   "character": 10,
+   "level": 0,
+   "hp": 91000,
+   "bp": 36500,
+   "dp": 31750
+  },
+  {
+   "barcode": "94560176",
+   "accepted": true,
+   "character": 2,
+   "level": 0,
+   "hp": 25500,
+   "bp": 17750,
+   "dp": 17250
+  },
+  {
+   "barcode": "95288376",
+   "accepted": true,
+   "character": 2,
+   "level": 3,
+   "hp": 25500,
+   "bp": 16750,
+   "dp": 14500
+  },
+  {
+   "barcode": "9541412566353",
+   "accepted": true,
+   "character": 25,
+   "level": 0,
+   "hp": 44500,
+   "bp": 22500,
+   "dp": 12750
+  },
+  {
+   "barcode": "9650037814388",
+   "accepted": true,
+   "character": 6,
+   "level": 3,
+   "hp": 47000,
+   "bp": 22500,
+   "dp": 17250
+  },
+  {
+   "barcode": "96558966",
+   "accepted": true,
+   "character": 1,
+   "level": 0,
+   "hp": 75500,
+   "bp": 12250,
+   "dp": 12750
+  },
+  {
+   "barcode": "9658228503127",
+   "accepted": true,
+   "character": 3,
+   "level": 0,
+   "hp": 45500,
+   "bp": 39750,
+   "dp": 7750
+  },
+  {
+   "barcode": "9703370786017",
+   "accepted": true,
+   "character": 6,
+   "level": null,
+   "hp": 56500,
+   "bp": 27500,
+   "dp": 3250
+  },
+  {
+   "barcode": "9970600140769",
+   "accepted": true,
+   "character": 1,
+   "level": 1,
+   "hp": 41500,
+   "bp": 22750,
+   "dp": 32250
+  }
+ ]
+}

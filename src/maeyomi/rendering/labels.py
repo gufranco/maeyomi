@@ -49,6 +49,9 @@ _CLASSES: Final[dict[CharacterClass, Bilingual]] = {
 
 ITEM_CARD: Final = Bilingual("Item card", "アイテム カード")
 UNKNOWN_KIND: Final = Bilingual("Enemy, kind unknown", "てき・しゅるい ふめい")
+DBZ_FIGHTER: Final = Bilingual("Fighter", "せんし")
+DBZ_MOVES: Final = Bilingual("Special moves", "ひっさつわざ")
+DBZ_EFFECT: Final = Bilingual("Effect", "こうか")
 UNKNOWN_FIGHTER: Final = Bilingual("Fighter, kind unknown", "キャラクター・しゅるい ふめい")
 PRIEST: Final = Bilingual("Priest", "そうりょ")
 HOLY_WARRIOR: Final = Bilingual("Holy warrior", "せいせんし")
@@ -62,6 +65,8 @@ STAT_LABELS: Final[dict[str, Bilingual]] = {
     "DF": Bilingual("DF", "ぼうぎょ"),
     "PP": Bilingual("Herbs", "やくそう"),
     "MP": Bilingual("Magic", "まほう"),
+    "BP": Bilingual("BP", "せんとうりょく"),
+    "DP": Bilingual("DP", "ぼうぎょりょく"),
 }
 
 RACE_DESCRIPTIONS: Final[dict[Race, str]] = {
@@ -170,3 +175,10 @@ def _battle_notes(character: BarcodeBattlerCharacter) -> list[Bilingual]:
             )
         )
     return notes
+
+
+def dbz_level_text(level: int | None) -> Bilingual:
+    """A Datach Dragon Ball Z fighter's special move level, from 0, or that it shows none."""
+    if level is None:
+        return Bilingual("No special move level", "ひっさつわざ レベル なし")
+    return Bilingual(f"Special move level {level}", f"ひっさつわざ レベル{level}")

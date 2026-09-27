@@ -298,7 +298,7 @@ def _draw_stats(canvas: Canvas, face: CardFace, frame: _Frame, top: float) -> fl
         key, value, icon = tile.key, tile.value, tile.icon
         left = frame.inner_left + index * (tile_width + gap)
         centre = left + tile_width / 2
-        colours = STAT_STYLES[key]
+        colours = STAT_STYLES[tile.style]
         canvas.saveState()
         canvas.setFillColorRGB(*colours.tint)
         canvas.setStrokeColorRGB(*colours.icon)
@@ -357,7 +357,9 @@ def _draw_ability(
     icon_size = min(style.ability_icon_mm, height - 2.0)
     text_left = frame.inner_left + 1.2 + icon_size + 1.6
     available = frame.x + frame.width - style.padding_mm - 1.2 - text_left
-    header = Bilingual(f"{SPECIAL_POWER.english} {face.power_code:02d}", SPECIAL_POWER.japanese)
+    header = face.power_heading or Bilingual(
+        f"{SPECIAL_POWER.english} {face.power_code:02d}", SPECIAL_POWER.japanese
+    )
     canvas.setFillColorRGB(*MUTED_INK)
     _draw_pair(
         canvas,

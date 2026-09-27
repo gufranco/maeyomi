@@ -25,6 +25,8 @@ from fastapi.staticfiles import StaticFiles
 
 from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_race
 from maeyomi.cli.report import (
+    DBZ_DISCLAIMER,
+    DBZ_DISCLAIMER_JA,
     DISCLAIMER,
     DISCLAIMER_JA,
     DOUBLE_DISCLAIMER,
@@ -104,6 +106,8 @@ def index() -> HTMLResponse:
         .replace("__FIRST_DISCLAIMER_JA__", FIRST_DEVICE_DISCLAIMER_JA)
         .replace("__DOUBLE_DISCLAIMER__", DOUBLE_DISCLAIMER)
         .replace("__DOUBLE_DISCLAIMER_JA__", DOUBLE_DISCLAIMER_JA)
+        .replace("__DBZ_DISCLAIMER__", DBZ_DISCLAIMER)
+        .replace("__DBZ_DISCLAIMER_JA__", DBZ_DISCLAIMER_JA)
     )
 
 
