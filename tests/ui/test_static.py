@@ -260,3 +260,8 @@ def test_the_sheet_marks_the_fields_only_some_devices_read() -> None:
 
 def test_no_blanket_warning_about_unreadable_codes_remains() -> None:
     assert "data-device-note" not in MARKUP
+
+
+def test_the_type_is_picked_from_a_list_rather_than_typed() -> None:
+    assert '<select id="job"' in MARKUP
+    assert 'id="job" name="job" type="number"' not in MARKUP

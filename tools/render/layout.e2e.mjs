@@ -35,6 +35,16 @@ function checkDeviceMenu() {
   expect(!machines.some((name) => /\bII\b|²/.test(name)), `a machine name is ${machines}`);
 }
 
+function checkJobMenu() {
+  browser('select', '#device', 'double');
+  const double = evaluate(`JSON.stringify([...document.querySelectorAll('#job option')].map((o) => o.text))`);
+  expect(double.length === 11 && double[5] === '4: Priest' && double[7] === '6: Holy warrior',
+    `the Double's types are ${double}`);
+  browser('select', '#device', 'bb2');
+  const second = evaluate(`JSON.stringify([...document.querySelectorAll('#job option')].map((o) => o.text))`);
+  expect(second[8] === '7: Magician', `the II's types are ${second}`);
+}
+
 function checkDeviceSwitch() {
   browser('click', '#tab-one');
   browser('select', '#device', 'dbz');
@@ -106,6 +116,7 @@ function checkSheetAndShop() {
 browser('open', URL);
 browser('wait', '1500');
 checkDeviceMenu();
+checkJobMenu();
 checkWidths();
 checkDeviceSwitch();
 checkRealCards();

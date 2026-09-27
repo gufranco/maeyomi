@@ -155,11 +155,12 @@
         <span class="hint" data-i18n="one.speed.hint">Decides who strikes first.</span>
       </p>
       <p class="field" data-device-field="job">
-        <label for="job" data-i18n="one.job">Type number, 0 to 9</label>
-        <input id="job" name="job" type="number" min="0" max="9" placeholder="any"
-               data-i18n-placeholder="any">
-        <span class="hint" data-i18n="one.job.hint">
-          0 to 6 is a warrior, 7 to 9 a magician. Some abilities target it.
+        <label for="job" data-i18n="one.job">Type</label>
+        <select id="job" name="job" aria-describedby="job-hint">
+          <option value="">Any</option>
+        </select>
+        <span class="hint" id="job-hint" data-i18n="one.job.hint">
+          Some special powers hit only certain types.
         </span>
       </p>
       <p class="field check" data-device-field="backRead">

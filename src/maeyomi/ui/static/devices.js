@@ -83,9 +83,27 @@ function renderDeviceOptions() {
   );
 }
 
+const JOB_NAMES = {
+  bb2: [0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+  bb1: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  double: [0, 0, 0, 0, 2, 0, 3, 1, 1, 1],
+};
+const JOB_KEYS = ['job.warrior', 'job.magician', 'job.priest', 'job.holy'];
+
+function renderJobOptions() {
+  const names = JOB_NAMES[chosenDevice] ?? JOB_NAMES.bb2;
+  const chosen = $('job').value;
+  const options = names.map((kind, number) => ({
+    value: String(number),
+    label: t('job.option', { number, name: t(JOB_KEYS[kind]) }),
+  }));
+  fillSelect('job', [{ value: '', label: t('job.any') }, ...options], chosen || '');
+}
+
 function renderDevices() {
   renderDeviceOptions();
   renderDbzChoices();
+  renderJobOptions();
   applyStatLabels();
 }
 
@@ -137,6 +155,7 @@ function applyDeviceForm() {
   $('one-detail').toggleAttribute('hidden', !detailShown);
   applySliders(form);
   applySheetForm(form);
+  renderJobOptions();
   applyStatLabels();
   cheatCard = null;
   $('one-code').toggleAttribute('hidden', true);
