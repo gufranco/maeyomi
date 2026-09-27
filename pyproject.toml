@@ -63,6 +63,7 @@ ignore = [
 "src/maeyomi/decoder/back_read.py" = ["PLR0913"]
 "src/maeyomi/generator/front_solver.py" = ["PLR0913", "PLR0917"]
 "src/maeyomi/generator/random_cards.py" = ["S311"]
+"src/maeyomi/generator/device_random.py" = ["S311"]
 "src/maeyomi/rendering/card.py" = ["PLR0913"]
 "src/maeyomi/rendering/sheet.py" = ["PLR0913"]
 "src/maeyomi/rendering/preview.py" = ["PLR0913"]

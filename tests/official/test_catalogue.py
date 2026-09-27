@@ -13,9 +13,11 @@ from maeyomi.double.decode import decode_double
 from maeyomi.models.device import Device
 from maeyomi.official.catalogue import (
     OfficialSet,
+    device_cards,
     official_cards,
     official_catalogue,
     rejected_transcriptions,
+    sets_for,
 )
 
 DBZ_CARDS = 36
@@ -131,3 +133,10 @@ def oracle_official_barcodes() -> set[str]:
     fixture = Path(__file__).parent.parent / "fixtures" / "oracle" / "datach_dbz.json"
     entries = json.loads(fixture.read_text("utf-8"))["cards"]
     return {entry["barcode"] for entry in entries if "official_name" in entry}
+
+
+def test_a_device_owns_exactly_the_sets_written_for_it() -> None:
+    assert sets_for(Device.DATACH_DBZ) == (OfficialSet.DATACH_DBZ,)
+    assert len(device_cards(Device.BB1)) == sum(
+        len(official_cards(official_set)) for official_set in sets_for(Device.BB1)
+    )

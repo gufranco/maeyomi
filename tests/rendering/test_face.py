@@ -17,7 +17,7 @@ from maeyomi.rendering.ability_icons import (
     double_icon,
     flag_icon,
 )
-from maeyomi.rendering.face import face_of
+from maeyomi.rendering.face import face_of, summary_of
 from maeyomi.rendering.icons import RACE_COLOURS, UNKNOWN_KIND_COLOUR
 from maeyomi.rendering.labels import (
     DBZ_EFFECT,
@@ -194,3 +194,21 @@ def test_a_dragon_ball_id_the_game_never_produces_is_named_unknown() -> None:
 
     assert fighter.kind == UNKNOWN_FIGHTER
     assert (item.kind, item.power_text) == (UNKNOWN_KIND, UNKNOWN_POWER)
+
+
+def test_a_summary_names_a_fighter_and_its_numbers() -> None:
+    summary = summary_of(decode_dbz("0022248300117"))
+
+    assert summary.kind == "fighter"
+    assert summary.label == Bilingual("Goku", "ゴクウ")
+    assert summary.stats.english == "HP 49500 / BP 28250 / DP 22750"
+
+
+def test_a_summary_of_an_item_with_no_numbers_is_its_effect() -> None:
+    summary = summary_of(decode_dbz("0120631203219"))
+
+    assert summary.stats == summary.effect
+
+
+def test_a_summary_of_a_card_with_no_race_says_so() -> None:
+    assert summary_of(decode_double("7821818898978")).kind == "unknown"

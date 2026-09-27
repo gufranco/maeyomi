@@ -28,6 +28,8 @@ def test_every_device_is_offered_with_its_form(client: TestClient) -> None:
     assert dbz["fields"] == ["dbz", "nearest"]
     assert (dbz["hp_max"], dbz["steps"]) == (99500, [500, 250, 250])
     assert dbz["stat_keys"] == ["stat.hp", "stat.bp", "stat.dp"]
+    assert dbz["sheet_fields"] == []
+    assert dbz["ranges"] == [[10000, 60000], [5000, 30000], [5000, 30000]]
 
 
 def test_every_device_has_a_form() -> None:
@@ -199,3 +201,40 @@ def test_the_second_barcode_battler_cheat_is_reachable_through_the_same_route(
 
     facts = {entry["label"]: entry["value"] for entry in body["facts"]}
     assert facts["HP"] == "99900"
+
+
+def test_a_random_sheet_is_drawn_for_the_chosen_device(
+    client: TestClient, tmp_path: object
+) -> None:
+    payload = {
+        "device": "dbz",
+        "count": 3,
+        "seed": 4,
+        "hp": "10000-60000",
+        "st": "5000-30000",
+        "df": "5000-30000",
+    }
+
+    response = client.post("/api/random", json=payload)
+    path = f"{tmp_path}/random.pdf"
+    with open(path, "wb") as handle:  # noqa: PTH123
+        handle.write(response.content)
+
+    codes = decode_pdf(path)
+    assert len(codes) == 3
+    assert all(10000 <= decode_dbz(code).hp <= 60000 for code in codes)
+
+
+def test_a_random_preview_counts_the_chosen_device(client: TestClient) -> None:
+    payload = {"device": "bb1", "count": 2, "seed": 4, "hp": "1000-9000"}
+
+    body = client.post("/api/sheet-preview", json=payload).json()
+
+    assert body["count"] == 2
+
+
+def test_a_random_sheet_names_a_field_the_game_cannot_read(client: TestClient) -> None:
+    response = client.post("/api/sheet-preview", json={"device": "dbz", "race": "human"})
+
+    assert response.status_code == 422
+    assert response.json()["detail"] == "Datach Dragon Ball Z does not read race"

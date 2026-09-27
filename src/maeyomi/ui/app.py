@@ -37,8 +37,8 @@ from maeyomi.cli.report import (
 from maeyomi.decoder.decode import decode
 from maeyomi.decoder.errors import BarcodeError
 from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
+from maeyomi.generator.device_random import random_for
 from maeyomi.generator.nearest import solve_nearest
-from maeyomi.generator.random_cards import generate_random
 from maeyomi.generator.solve import solve
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.device import Device
@@ -48,8 +48,10 @@ from maeyomi.models.read_type import ReadType
 from maeyomi.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
 from maeyomi.official.catalogue import (
     OfficialSet,
+    device_cards,
     official_cards,
     rejected_transcriptions,
+    sets_for,
 )
 from maeyomi.products.japan import (
     SHELF_LICENCE,
@@ -59,20 +61,18 @@ from maeyomi.products.japan import (
     search_products,
 )
 from maeyomi.products.lookup import ProductLookupError, look_up_name
-from maeyomi.rendering.labels import race_label
-from maeyomi.rendering.preview import card_png, sheet_png_pages
-from maeyomi.rendering.sheet import write_sheet
-from maeyomi.ui.devices import (
+from maeyomi.registry import (
     DeviceChoice,
     build_as,
     cheat_as,
-    dbz_choices,
     device_named,
-    device_views,
-    facts_of,
     printable_as,
     read_as,
 )
+from maeyomi.rendering.face import summary_of
+from maeyomi.rendering.preview import card_png, sheet_png_pages
+from maeyomi.rendering.sheet import write_sheet
+from maeyomi.ui.devices import dbz_choices, device_views, facts_of
 from maeyomi.ui.schemas import (
     AbilityView,
     BarcodeSheetSpec,
@@ -217,8 +217,10 @@ def barcode_sheet(spec: BarcodeSheetSpec) -> FileResponse:
     return _sheet_response([_decoded_card(card) for card in spec.cards], "cards.pdf")
 
 
-def official() -> OfficialCatalogue:
-    """Every official set, how many of its cards print, and which were left out."""
+def official(device: str = "bb2") -> OfficialCatalogue:
+    """The official sets of one device, how many of their cards print, and which were left out."""
+    chosen = _device(device)
+    sets = sets_for(chosen)
     return OfficialCatalogue(
         sets=[
             OfficialSetView(
@@ -227,9 +229,9 @@ def official() -> OfficialCatalogue:
                 japanese=official_set.value,
                 count=len(official_cards(official_set)),
             )
-            for official_set in OfficialSet
+            for official_set in sets
         ],
-        total=len(official_cards()),
+        total=len(device_cards(chosen)),
         rejected=[
             RejectedView(
                 barcode=entry.barcode,
@@ -237,27 +239,29 @@ def official() -> OfficialCatalogue:
                 reason="the check digit does not match the other twelve digits",
             )
             for entry in rejected_transcriptions()
+            if entry.official_set in sets
         ],
     )
 
 
 def official_sheet(spec: OfficialSpec) -> FileResponse:
     """Download one official set, or all of them."""
-    return _sheet_response(official_cards(_official_set(spec)), "official-cards.pdf")
+    return _sheet_response(_official_cards(spec), "official-cards.pdf")
 
 
 def official_preview(spec: OfficialSpec) -> SheetPreview:
     """Draw the first pages of an official set."""
-    cards = official_cards(_official_set(spec))
+    cards = _official_cards(spec)
     pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE])
     return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
 
 
-def products(q: str = "", limit: int = SHELF_PAGE) -> ProductShelf:
-    """The shelf, or the part of it that matches what was typed."""
+def products(q: str = "", limit: int = SHELF_PAGE, device: str = "bb2") -> ProductShelf:
+    """The shelf, or the part of it that matches what was typed, read by the chosen device."""
+    chosen = _device(device)
     found = search_products(q)
     return ProductShelf(
-        products=[_product_view(product) for product in found[: max(1, limit)]],
+        products=[_product_view(product, chosen) for product in found[: max(1, limit)]],
         total=len(japanese_products()),
         source=SHELF_SOURCE,
         licence=SHELF_LICENCE,
@@ -275,20 +279,21 @@ def lookup(barcode: str) -> LookupResult:
     return LookupResult(barcode=barcode, name=name)
 
 
-def _product_view(product: JapaneseProduct) -> ProductView:
-    """Decode a product so the page can show what it becomes."""
-    character = decode(product.barcode)
-    label = race_label(product.kind)
+def _product_view(product: JapaneseProduct, device: Device) -> ProductView:
+    """Read a product the way the chosen device does, so the page shows what it becomes."""
+    card = read_as(device, product.barcode)
+    shown = summary_of(card)
     return ProductView(
         barcode=product.barcode,
         name=product.name,
         brand=product.brand,
-        kind=product.kind.name.lower(),
-        label=label.english,
-        label_ja=label.japanese,
-        hp=character.hp,
-        st=character.st,
-        df=character.df,
+        kind=shown.kind,
+        label=shown.label.english,
+        label_ja=shown.label.japanese,
+        stats=shown.stats.english,
+        stats_ja=shown.stats.japanese,
+        effect=shown.effect.english,
+        effect_ja=shown.effect.japanese,
     )
 
 
@@ -361,9 +366,9 @@ def create_app() -> FastAPI:
     return app
 
 
-def _random_cards(spec: RandomSpec) -> tuple[GeneratedCard, ...]:
-    """Draw a batch, reporting a shortfall rather than returning a short one."""
-    batch = generate_random(spec.count, template=_request(spec), seed=spec.seed)
+def _random_cards(spec: RandomSpec) -> tuple[AnyCard, ...]:
+    """Draw a batch for the chosen device, reporting a shortfall rather than a short one."""
+    batch = random_for(_device(spec.device), spec.count, template=_request(spec), seed=spec.seed)
     if batch.shortfall:
         raise HTTPException(status_code=UNPROCESSABLE, detail=batch.reason)
     return batch.cards
@@ -422,6 +427,12 @@ def _device(key: str) -> Device:
         return device_named(key)
     except ValueError as error:
         raise HTTPException(status_code=UNPROCESSABLE, detail=str(error)) from error
+
+
+def _official_cards(spec: OfficialSpec) -> tuple[AnyCard, ...]:
+    """The named set, or every set of the chosen device when none is named."""
+    chosen = _official_set(spec)
+    return device_cards(_device(spec.device)) if chosen is None else official_cards(chosen)
 
 
 def _official_set(spec: OfficialSpec) -> OfficialSet | None:

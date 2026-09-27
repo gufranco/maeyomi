@@ -40,24 +40,66 @@ function checkDeviceSwitch() {
   browser('select', '#device', 'bb2');
 }
 
-function checkNotes() {
+function realCards(device) {
+  browser('select', '#device', device);
   browser('click', '#tab-official');
-  const notes = evaluate(`JSON.stringify({
+  browser('wait', '800');
+  return evaluate(`JSON.stringify({
     details: document.querySelectorAll('details').length,
-    links: [...document.querySelectorAll('#official-note a')].map((link) => link.href),
-    skipped: getComputedStyle(document.getElementById('official-rejected')).display,
+    links: [...document.querySelectorAll('#official-note a')]
+      .filter((link) => link.offsetParent !== null).map((link) => link.href),
+    picker: document.getElementById('official-set-field').offsetParent !== null,
+    single: document.getElementById('official-single').textContent,
+    skipped: document.getElementById('official-skipped').offsetParent !== null,
   })`);
-  expect(notes.details === 0, `${notes.details} explanations hide behind a click`);
-  expect(notes.links.some((link) => link.includes('wikiwiki.jp')), 'the wiki is not linked');
-  expect(notes.links.some((link) => link.includes('puNES')), 'puNES is not linked');
-  expect(notes.skipped !== 'none', 'the cards left out are not visible');
+}
+
+function checkRealCards() {
+  const second = realCards('bb2');
+  expect(second.details === 0, `${second.details} explanations hide behind a click`);
+  expect(second.picker, 'the II has nine sets but no set picker');
+  expect(second.links.length === 1 && second.links[0].includes('wikiwiki.jp'),
+    `the II's real cards link ${second.links}`);
+  expect(second.skipped, 'the II hides the cards left out');
+  const dbz = realCards('dbz');
+  expect(!dbz.picker, 'Dragon Ball Z has one set yet shows a set picker');
+  expect(dbz.single.includes('36'), `Dragon Ball Z names its set as ${dbz.single}`);
+  expect(dbz.links.length === 1 && dbz.links[0].includes('puNES'),
+    `Dragon Ball Z's real cards link ${dbz.links}`);
+  expect(!dbz.skipped, 'Dragon Ball Z shows an empty list of cards left out');
+  browser('select', '#device', 'bb2');
+}
+
+function checkSheetAndShop() {
+  browser('select', '#device', 'dbz');
+  browser('click', '#tab-many');
+  const sheet = evaluate(`JSON.stringify({
+    race: document.querySelector('[data-sheet-field=race]').offsetParent !== null,
+    hpMin: document.getElementById('hp-min').value,
+    label: document.querySelector('label[for=st-min]').textContent,
+  })`);
+  expect(!sheet.race, 'the sheet offers a race for Dragon Ball Z');
+  expect(sheet.hpMin === '10000', `the Dragon Ball Z sheet starts at ${sheet.hpMin} health`);
+  expect(sheet.label === 'Battle power', `the sheet labels attack as ${sheet.label}`);
+  browser('click', '#tab-shop');
+  browser('click', '#shop-surprise');
+  browser('wait', '2500');
+  const shop = evaluate(`JSON.stringify({
+    note: document.querySelector('#panel-shop [data-device-note=dbz]').offsetParent !== null,
+    rows: [...document.querySelectorAll('.shelf-stats')].map((row) => row.textContent),
+  })`);
+  expect(shop.note, 'the supermarket hides the Dragon Ball Z refusal note');
+  expect(shop.rows.length === 9, `the surprise shelf has ${shop.rows.length} products`);
+  expect(!shop.rows.some((row) => row.includes('ST ')), 'the shelf shows II numbers for DBZ');
+  browser('select', '#device', 'bb2');
 }
 
 browser('open', URL);
 browser('wait', '1500');
 checkWidths();
 checkDeviceSwitch();
-checkNotes();
+checkRealCards();
+checkSheetAndShop();
 failures.forEach((failure) => process.stderr.write(`FAIL ${failure}\n`));
 process.stdout.write(failures.length ? '' : 'layout checks passed\n');
 process.exit(failures.length ? 1 : 0);

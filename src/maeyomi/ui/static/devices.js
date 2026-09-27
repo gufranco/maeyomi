@@ -21,6 +21,10 @@ const deviceName = () => {
 
 const reads = (field) => deviceForm()?.fields.includes(field) ?? false;
 
+const readsOnSheet = (field) => deviceForm()?.sheet_fields.includes(field) ?? false;
+
+const SHEET_KEYS = ['hp', 'st', 'df'];
+
 function savedDevice() {
   try {
     return window.localStorage.getItem(DEVICE_KEY) ?? SECOND_DEVICE;
@@ -75,9 +79,27 @@ function applyStatLabels() {
   const form = deviceForm();
   if (!form) return;
   STAT_KEYS.forEach((key, index) => {
-    const label = document.querySelector(`label[for="${key}"]`);
-    label.setAttribute('data-i18n', form.stat_keys[index]);
-    label.textContent = t(form.stat_keys[index]);
+    [`label[for="${key}"]`, `label[for="${key}-min"]`].forEach((selector) => {
+      const label = document.querySelector(selector);
+      label.setAttribute('data-i18n', form.stat_keys[index]);
+      label.textContent = t(form.stat_keys[index]);
+    });
+  });
+}
+
+function applySheetForm(form) {
+  const limits = [form.hp_max, form.st_max, form.df_max];
+  SHEET_KEYS.forEach((key, index) => {
+    ['min', 'max'].forEach((end, bound) => {
+      const input = $(`${key}-${end}`);
+      input.setAttribute('max', String(limits[index]));
+      input.setAttribute('step', String(form.steps[index]));
+      input.setAttribute('value', String(form.ranges[index][bound]));
+    });
+  });
+  $('many').reset();
+  document.querySelectorAll('[data-sheet-field]').forEach((node) => {
+    node.toggleAttribute('hidden', !form.sheet_fields.includes(node.dataset.sheetField));
   });
 }
 
@@ -100,7 +122,11 @@ function applyDeviceForm() {
     .some((node) => !node.hidden);
   $('one-detail').toggleAttribute('hidden', !detailShown);
   applySliders(form);
+  applySheetForm(form);
   applyStatLabels();
+  document.querySelectorAll('[data-device-note]').forEach((node) => {
+    node.toggleAttribute('hidden', node.dataset.deviceNote !== chosenDevice);
+  });
   cheatCard = null;
   $('one-code').toggleAttribute('hidden', true);
 }
@@ -117,6 +143,8 @@ function chooseDevice(key) {
   );
   rememberDevice();
   applyDeviceForm();
+  resetShelf();
+  loadOfficial().catch(() => setStatus('official-status', 'bad', 'tag.impossible', t('status.wrong')));
 }
 
 async function setUpDevices() {

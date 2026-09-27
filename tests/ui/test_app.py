@@ -314,8 +314,40 @@ def test_the_official_sets_are_listed_with_their_counts(client: TestClient) -> N
     board = next(entry for entry in body["sets"] if entry["key"] == "board_game")
     assert board["english"] == "Barcode Battler II board game"
     assert board["count"] > 0
-    assert body["total"] == 608
-    assert len(body["rejected"]) == 5
+    assert body["total"] == 429
+    assert len(body["rejected"]) == 4
+
+
+@pytest.mark.parametrize(
+    ("device", "sets", "total", "rejected"),
+    [("bb2", 9, 429, 4), ("bb1", 4, 118, 1), ("double", 1, 25, 0), ("dbz", 1, 36, 0)],
+)
+def test_the_real_cards_are_only_those_of_the_chosen_device(
+    client: TestClient, device: str, sets: int, total: int, rejected: int
+) -> None:
+    body = client.get(f"/api/official?device={device}").json()
+
+    assert len(body["sets"]) == sets
+    assert body["total"] == total
+    assert len(body["rejected"]) == rejected
+
+
+def test_every_card_of_a_device_prints_when_no_set_is_named(
+    client: TestClient, tmp_path: object
+) -> None:
+    response = client.post("/api/official-sheet", json={"device": "dbz"})
+
+    assert len(sheet_codes(response.content, tmp_path)) == 36
+
+
+def test_a_device_preview_counts_only_that_device(client: TestClient) -> None:
+    body = client.post("/api/official-preview", json={"device": "double"}).json()
+
+    assert body["count"] == 25
+
+
+def test_an_unknown_device_has_no_real_cards(client: TestClient) -> None:
+    assert client.get("/api/official?device=gameboy").status_code == 422
 
 
 def test_an_official_set_downloads_as_a_sheet(client: TestClient, tmp_path: object) -> None:
@@ -446,3 +478,33 @@ def test_the_shelf_prints_as_a_sheet(client: TestClient, tmp_path: object) -> No
 
     assert response.status_code == 200
     assert sheet_codes(response.content, tmp_path) == [p["barcode"] for p in products]
+
+
+def test_the_shelf_reads_every_product_the_way_the_chosen_device_does(client: TestClient) -> None:
+    body = client.get("/api/products", params={"limit": 40, "device": "dbz"}).json()
+
+    kinds = {product["kind"] for product in body["products"]}
+    assert kinds <= {"fighter", "item", "hidden"}
+    fighter = next(product for product in body["products"] if product["kind"] == "fighter")
+    assert "BP " in fighter["stats"]
+    assert "DP " in fighter["stats"]
+    item = next(product for product in body["products"] if product["kind"] == "item")
+    assert item["stats"] == item["effect"]
+
+
+def test_the_shelf_keeps_the_second_barcode_battler_numbers_by_default(client: TestClient) -> None:
+    product = client.get("/api/products", params={"limit": 1}).json()["products"][0]
+
+    assert product["kind"] == "single_use_armour"
+    assert product["stats"] == "DF 100"
+
+
+def test_a_shelf_sheet_prints_for_the_chosen_device(client: TestClient, tmp_path: object) -> None:
+    products = client.get("/api/products", params={"limit": 2, "device": "dbz"}).json()
+    cards = [
+        {"barcode": p["barcode"], "name": p["name"], "device": "dbz"} for p in products["products"]
+    ]
+
+    response = client.post("/api/barcode-sheet", json={"cards": cards})
+
+    assert sheet_codes(response.content, tmp_path) == [p["barcode"] for p in products["products"]]

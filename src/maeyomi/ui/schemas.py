@@ -43,6 +43,7 @@ class RandomSpec(CardSpec):
 
     count: int = Field(default=9, ge=1, le=200)
     seed: int | None = None
+    device: str = "bb2"
 
 
 class SheetSpec(BaseModel):
@@ -74,9 +75,10 @@ class ProductView(BaseModel):
     kind: str
     label: str
     label_ja: str
-    hp: int
-    st: int
-    df: int
+    stats: str
+    stats_ja: str
+    effect: str
+    effect_ja: str
 
 
 class ProductShelf(BaseModel):
@@ -113,6 +115,7 @@ class OfficialSpec(BaseModel):
     """One official set, or every set when none is named."""
 
     official_set: str | None = Field(default=None, alias="set")
+    device: str = "bb2"
 
 
 class OfficialSetView(BaseModel):
@@ -270,6 +273,8 @@ class DeviceView(BaseModel):
     df_max: int
     steps: list[int]
     stat_keys: list[str]
+    sheet_fields: list[str]
+    ranges: list[list[int]]
 
 
 class FactView(BaseModel):

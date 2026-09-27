@@ -29,8 +29,8 @@
       <option value="bb2">Barcode Battler II</option>
     </select>
     <p class="hint" id="device-hint" data-i18n="device.hint">
-      One card, the cheat code and Read a barcode make cards for this choice.
-      A sheet of cards and the supermarket make Barcode Battler II cards.
+      Every tab, and the cheat code, makes cards for this choice and reads
+      barcodes its way. The same barcode is a different card on each one.
     </p>
   </div>
 </header>
@@ -248,7 +248,7 @@
         <input id="df-max" type="number" min="0" max="19900" step="100" value="3000"
                aria-label="Highest defence" data-i18n-aria-label="many.dfMax">
       </p>
-      <p class="field">
+      <p class="field" data-sheet-field="race">
         <label for="many-race" data-i18n="one.race">Kind of fighter</label>
         <select id="many-race" name="race"></select>
       </p>
@@ -275,20 +275,24 @@
   <form id="official" class="panel">
     <div class="note" id="official-note">
       <div class="note-body">
-        <p data-i18n="official.note">
+        <p data-i18n="official.note.epoch" data-official-source="epoch">
           Epoch never published a list of its cards, so these barcodes were typed
           in by collectors on a Japanese fan wiki about the Barcode Battler.
+        </p>
+        <p data-i18n="official.note.dbz" data-official-source="dbz" hidden>
+          The cards Bandai packed with Datach Dragon Ball Z come from the card list
+          in the source code of puNES, a Famicom emulator.
         </p>
         <p class="note-heading" id="official-sources" data-i18n="official.sources">
           Where the barcodes come from
         </p>
         <ul class="note-sources" aria-labelledby="official-sources">
-          <li>
+          <li data-official-source="epoch">
             <span data-i18n="official.source.epoch">Epoch cards:</span>
             <a href="https://wikiwiki.jp/barcode/" target="_blank" rel="noopener noreferrer"
                lang="ja">wikiwiki.jp/barcode</a>
           </li>
-          <li>
+          <li data-official-source="dbz" hidden>
             <span data-i18n="official.source.dbz">Dragon Ball Z cards:</span>
             <a href="https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
                target="_blank" rel="noopener noreferrer">puNES, dlgDetachBarcode.cpp</a>
@@ -297,12 +301,13 @@
       </div>
     </div>
     <fieldset>
-      <legend data-i18n="official.legend">Cards Epoch really sold</legend>
-      <p class="field">
+      <legend data-i18n="official.legend">Cards that were really sold</legend>
+      <p class="field" id="official-set-field">
         <label for="official-set" data-i18n="official.set">Which set</label>
         <select id="official-set" name="set"></select>
         <span class="hint" id="official-hint"></span>
       </p>
+      <p class="official-single" id="official-single" hidden></p>
     </fieldset>
 
 
@@ -339,6 +344,11 @@
       Every one of these is a real product sold in Japan. The numbers on the card
       are not made up and are not theirs: this program reads them off the barcode,
       exactly as the machine does. Tomato sauce against noodles is a fair fight.
+    </p>
+    <p class="note" data-device-note="dbz" data-i18n="dbz.refusalNote" hidden>
+      Datach Dragon Ball Z, running in the MAME emulator, refused 4 of 236 valid
+      barcodes for a reason not yet known, so a few product codes may not read in
+      the game.
     </p>
     <fieldset>
       <legend data-i18n="shop.legend">Real Japanese groceries</legend>
@@ -379,6 +389,11 @@
       Any product barcode works, which is how the machine was played in 1992:
       a bottle of tomato sauce is a fighter, a packet of crisps is a weapon.
       Type what is printed on the shopping and see what comes out.
+    </p>
+    <p class="note" data-device-note="dbz" data-i18n="dbz.refusalNote" hidden>
+      Datach Dragon Ball Z, running in the MAME emulator, refused 4 of 236 valid
+      barcodes for a reason not yet known, so a few product codes may not read in
+      the game.
     </p>
     <fieldset>
       <legend data-i18n="read.legend">Any barcode at all</legend>

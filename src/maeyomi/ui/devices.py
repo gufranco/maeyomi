@@ -12,33 +12,17 @@ paper cannot say different things about one barcode.
 from dataclasses import dataclass
 from typing import Final
 
-from maeyomi.bb1.cheat import strongest_first_card
-from maeyomi.bb1.decode import decode_first
 from maeyomi.bb1.solve import MAX_HP as FIRST_MAX_HP
 from maeyomi.bb1.solve import MAX_STAT as FIRST_MAX_STAT
-from maeyomi.bb1.solve import solve_first
-from maeyomi.cli.double_device import NO_BACK_READ
-from maeyomi.datach.dbz import BONUS, UNIT, decode_dbz
-from maeyomi.datach.dbz_cheat import strongest_dbz_card
-from maeyomi.datach.dbz_names import FIGHTERS, ITEMS, character_id
+from maeyomi.datach.dbz import BONUS, UNIT
+from maeyomi.datach.dbz_names import FIGHTERS, ITEMS
 from maeyomi.datach.dbz_solve import (
     MAX_HALVED,
     MAX_HP,
-    request_from,
-    solve_dbz,
-    solve_dbz_nearest,
-    unread_fields,
 )
-from maeyomi.decoder.decode import decode
-from maeyomi.double.cheat import strongest_double_card
-from maeyomi.double.decode import decode_double
 from maeyomi.double.solve import MAX_VALUE as DOUBLE_MAX
-from maeyomi.double.solve import solve_double
-from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
-from maeyomi.models.card_request import CardRequest
 from maeyomi.models.device import Device
-from maeyomi.models.generated_card import AnyCard, CardResult, GeneratedCard
-from maeyomi.models.read_type import ReadType
+from maeyomi.models.generated_card import CardResult
 from maeyomi.rendering.face import face_of
 from maeyomi.rendering.labels import SPECIAL_POWER, STAT_LABELS, Bilingual
 from maeyomi.ui.schemas import DbzChoiceView, DeviceView, FactView
@@ -51,7 +35,13 @@ SECOND_MAX_STAT: Final = 19900
 CLASSIC_STATS: Final = ["stat.hp", "stat.st", "stat.df"]
 KIND: Final = Bilingual("Kind", "しゅるい")
 DETAIL: Final = Bilingual("Type", "タイプ")
-NOT_READ: Final = "Datach Dragon Ball Z does not read {fields}"
+
+
+type Range = tuple[int, int]
+
+CLASSIC_RANGES: Final[tuple[Range, Range, Range]] = ((1000, 10000), (100, 3000), (100, 3000))
+DBZ_RANGES: Final[tuple[Range, Range, Range]] = ((10000, 60000), (5000, 30000), (5000, 30000))
+"""Where most Dragon Ball Z fighters sit: 80 percent of random codes fall inside these."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -64,25 +54,8 @@ class DeviceForm:
     df_max: int
     steps: tuple[int, int, int] = (HUNDREDS, HUNDREDS, HUNDREDS)
     stat_keys: tuple[str, ...] = tuple(CLASSIC_STATS)
-
-
-@dataclass(frozen=True, slots=True)
-class DeviceChoice:
-    """The options beside the shared request: a back read, a nearest match, a game's pick."""
-
-    back_read: bool = False
-    nearest: bool = False
-    character: str | None = None
-    level: int | None = None
-
-
-@dataclass(frozen=True, slots=True)
-class DeviceOutcome:
-    """A built card, or every reason none could be built."""
-
-    card: CardResult | None = None
-    blockers: tuple[str, ...] = ()
-    exact: bool = True
+    sheet_fields: tuple[str, ...] = ()
+    ranges: tuple[Range, Range, Range] = CLASSIC_RANGES
 
 
 FORMS: Final[dict[Device, DeviceForm]] = {
@@ -91,9 +64,14 @@ FORMS: Final[dict[Device, DeviceForm]] = {
         SECOND_MAX_HP,
         SECOND_MAX_STAT,
         SECOND_MAX_STAT,
+        sheet_fields=("race",),
     ),
     Device.BB1: DeviceForm(
-        ("race", "job", "backRead"), FIRST_MAX_HP, FIRST_MAX_STAT, FIRST_MAX_STAT
+        ("race", "job", "backRead"),
+        FIRST_MAX_HP,
+        FIRST_MAX_STAT,
+        FIRST_MAX_STAT,
+        sheet_fields=("race",),
     ),
     Device.DOUBLE: DeviceForm(("job",), DOUBLE_MAX, DOUBLE_MAX, DOUBLE_MAX),
     Device.DATACH_DBZ: DeviceForm(
@@ -103,18 +81,9 @@ FORMS: Final[dict[Device, DeviceForm]] = {
         MAX_HALVED,
         (HP_STEP, HALVED_STEP, HALVED_STEP),
         ("stat.hp", "stat.bp", "stat.dp"),
+        ranges=DBZ_RANGES,
     ),
 }
-
-
-def device_named(key: str) -> Device:
-    """The device a key names, or a ValueError listing the keys there are."""
-    try:
-        return Device(key.strip().lower())
-    except ValueError as error:
-        known = ", ".join(device.value for device in Device)
-        message = f"unknown device {key!r}; known devices: {known}"
-        raise ValueError(message) from error
 
 
 def device_views() -> list[DeviceView]:
@@ -130,6 +99,8 @@ def device_views() -> list[DeviceView]:
             df_max=FORMS[device].df_max,
             steps=list(FORMS[device].steps),
             stat_keys=list(FORMS[device].stat_keys),
+            sheet_fields=list(FORMS[device].sheet_fields),
+            ranges=[list(bounds) for bounds in FORMS[device].ranges],
         )
         for device in Device
     ]
@@ -148,53 +119,6 @@ def dbz_choices() -> list[DbzChoiceView]:
     return fighters + items
 
 
-def read_as(device: Device, barcode: str) -> CardResult:
-    """Decode a barcode the way the device reads it, raising BarcodeError on a refusal."""
-    return printable_as(device, barcode, "").character
-
-
-def printable_as(device: Device, barcode: str, name: str) -> AnyCard:
-    """A card ready to print, its barcode decoded the way the device reads it."""
-    if device is Device.BB1:
-        first = decode_first(barcode)
-        return GeneratedCard(name=name, barcode=first.barcode, character=first)
-    if device is Device.DOUBLE:
-        double = decode_double(barcode)
-        return GeneratedCard(name=name, barcode=double.barcode, character=double)
-    if device is Device.DATACH_DBZ:
-        dbz = decode_dbz(barcode)
-        return GeneratedCard(name=name, barcode=dbz.barcode, character=dbz)
-    second = decode(barcode)
-    return GeneratedCard(name=name, barcode=second.barcode, character=second)
-
-
-def build_as(device: Device, request: CardRequest, choice: DeviceChoice) -> DeviceOutcome:
-    """Build one card for a device other than the Barcode Battler II."""
-    back_read = choice.back_read
-    if device is Device.DATACH_DBZ:
-        return _build_dbz(request, choice)
-    if device is Device.DOUBLE:
-        if back_read:
-            return DeviceOutcome(blockers=(NO_BACK_READ,))
-        outcome = solve_double(request)
-        return DeviceOutcome(outcome.card, outcome.blockers)
-    reading = ReadType.BACK if back_read else ReadType.FRONT
-    first = solve_first(request, read_type=reading)
-    return DeviceOutcome(first.card, first.blockers)
-
-
-def cheat_as(device: Device, name: str | None) -> AnyCard:
-    """The strongest card the device will read, under the typed name or the default one."""
-    chosen = name or DEFAULT_CHEAT_NAME
-    if device is Device.BB1:
-        return strongest_first_card(chosen)
-    if device is Device.DOUBLE:
-        return strongest_double_card(chosen)
-    if device is Device.DATACH_DBZ:
-        return strongest_dbz_card(chosen)
-    return strongest_card(chosen)
-
-
 def facts_of(result: CardResult) -> list[FactView]:
     """What a card is, line by line, taken from the face it prints."""
     face = face_of(result)
@@ -211,21 +135,6 @@ def facts_of(result: CardResult) -> list[FactView]:
         *tiles,
         _fact(heading, face.power_text),
     ]
-
-
-def _build_dbz(request: CardRequest, choice: DeviceChoice) -> DeviceOutcome:
-    """Refuse what the game cannot read, then solve what it can, nearest when asked."""
-    unread = unread_fields(request, back_read=choice.back_read)
-    if unread:
-        return DeviceOutcome(blockers=(NOT_READ.format(fields=", ".join(unread)),))
-    name = choice.character
-    try:
-        character = None if name is None or not name.strip() else character_id(name)
-    except ValueError as error:
-        return DeviceOutcome(blockers=(str(error),))
-    wanted = request_from(request, character=character, level=choice.level)
-    outcome = solve_dbz_nearest(wanted) if choice.nearest else solve_dbz(wanted)
-    return DeviceOutcome(outcome.card, outcome.blockers, exact=outcome.exact)
 
 
 def _fact(label: Bilingual, value: Bilingual) -> FactView:

@@ -161,6 +161,16 @@ def _card(entry: OfficialCard) -> AnyCard:
     return GeneratedCard(name=name, barcode=barcode, character=decode(barcode))
 
 
+def sets_for(device: Device) -> tuple[OfficialSet, ...]:
+    """The sets written for one device, in catalogue order."""
+    return tuple(official_set for official_set in OfficialSet if official_set.device is device)
+
+
+def device_cards(device: Device) -> tuple[AnyCard, ...]:
+    """Every printable card of every set written for one device."""
+    return tuple(card for official_set in sets_for(device) for card in official_cards(official_set))
+
+
 def rejected_transcriptions() -> tuple[OfficialCard, ...]:
     """Every transcription the decoder refuses, so a reader can see what was left out."""
     return tuple(entry for entry in official_catalogue() if not _decodes(entry))

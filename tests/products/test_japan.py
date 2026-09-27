@@ -3,6 +3,7 @@
 import pytest
 
 from maeyomi.decoder.decode import decode
+from maeyomi.models.device import Device
 from maeyomi.models.race import Race
 from maeyomi.products.japan import (
     MINIMUM_PRODUCTS,
@@ -12,6 +13,7 @@ from maeyomi.products.japan import (
     random_products,
     search_products,
 )
+from maeyomi.registry import read_as
 
 JAPANESE_PREFIXES = ("45", "49")
 
@@ -100,3 +102,12 @@ def test_a_random_handful_is_repeatable(count: int) -> None:
         p.barcode for p in random_products(count, seed=7)
     ]
     assert len(random_products(count, seed=7)) == count
+
+
+@pytest.mark.parametrize("device", list(Device))
+def test_every_product_is_a_card_on_every_device(device: Device) -> None:
+    cards = product_cards(japanese_products()[:20], device=device)
+
+    assert [card.character for card in cards] == [
+        read_as(device, product.barcode) for product in japanese_products()[:20]
+    ]

@@ -11,6 +11,7 @@ so adding a device adds a case here and leaves the drawing code alone.
 from collections.abc import Callable
 from dataclasses import dataclass
 from functools import partial
+from typing import Final
 
 from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.datach.dbz import DbzCard, DbzKind
@@ -54,6 +55,7 @@ from maeyomi.rendering.labels import (
 from maeyomi.rendering.stat_tiles import StatTile, stat_tiles, tiles_for, tiles_from
 
 BandIcon = Callable[..., None]
+UNKNOWN_KIND_KEY: Final = "unknown"
 
 
 @dataclass(frozen=True, slots=True)
@@ -192,3 +194,28 @@ def _first_battler_fields(race: Race | None) -> tuple[Carried, ...]:
     if race.is_armour:
         return (Carried.DF,)
     return (Carried.HP,)
+
+
+@dataclass(frozen=True, slots=True)
+class CardSummary:
+    """A card in a line: what it is, the numbers it carries, and its power."""
+
+    kind: str
+    label: Bilingual
+    stats: Bilingual
+    effect: Bilingual
+
+
+def summary_of(result: CardResult) -> CardSummary:
+    """The card's numbers, or its effect when it carries none."""
+    face = face_of(result)
+    numbers = " / ".join(f"{tile.key} {tile.value}" for tile in face.tiles)
+    stats = Bilingual(numbers, numbers) if numbers else face.power_text
+    return CardSummary(kind=_kind_key(result), label=face.kind, stats=stats, effect=face.power_text)
+
+
+def _kind_key(result: CardResult) -> str:
+    """A short key for what the card is, for a page to group or filter by."""
+    if isinstance(result, DbzCard):
+        return result.kind.value
+    return UNKNOWN_KIND_KEY if result.race is None else result.race.name.lower()

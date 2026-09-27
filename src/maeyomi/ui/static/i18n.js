@@ -27,7 +27,6 @@ const MESSAGES = {
     'shop.empty': 'Nothing on the shelf matches that.',
     'shop.found': '{count} of {total} products.',
     'shop.credit': 'Product names and barcodes from {source}, under the {licence}.',
-    'shop.stats': 'HP {hp} / ST {st} / DF {df}',
     'read.legend': 'Any barcode at all',
     'read.barcode': 'Barcode number',
     'read.placeholder': '4901085061169',
@@ -111,8 +110,8 @@ const MESSAGES = {
     'many.placeholder': 'Press Make the sheet to see the pages.',
     'device.label': 'Machine or game',
     'device.hint':
-      'One card, the cheat code and Read a barcode make cards for this choice. ' +
-      'A sheet of cards and the supermarket make Barcode Battler II cards.',
+      'Every tab, and the cheat code, makes cards for this choice and reads barcodes its way. ' +
+      'The same barcode is a different card on each one.',
     'stat.bp': 'Battle power',
     'stat.dp': 'Defence power',
     'dbz.character': 'Fighter or item',
@@ -124,19 +123,26 @@ const MESSAGES = {
     'dbz.items': 'Items',
     'dbz.level': 'Special move level',
     'dbz.level.any': 'Any',
+    'dbz.refusalNote':
+      'Datach Dragon Ball Z, running in the MAME emulator, refused 4 of 236 valid barcodes ' +
+      'for a reason not yet known, so a few product codes may not read in the game.',
     'status.deviceCard': 'This card reads exactly as asked on the {device}.',
     'status.deviceCheat': '{name}: the strongest card the {device} will read.',
     'status.searching': 'Looking for a barcode the {device} reads this way.',
     'status.deviceClosest': 'Those exact numbers cannot be printed, so this is the closest card that can.',
-    'official.legend': 'Cards Epoch and Bandai really sold',
+    'official.legend': 'Cards that were really sold',
+    'official.single': '{title}: {count} cards',
     'official.set': 'Which set',
-    'official.note':
+    'official.note.epoch':
       'Epoch never published a list of its cards, so these barcodes were typed in by ' +
       'collectors on a Japanese fan wiki about the Barcode Battler, hosted on wikiwiki.jp. ' +
+      'The numbers on every card are read from its barcode by this program, never copied ' +
+      'from the wiki.',
+    'official.note.dbz':
       'The 36 cards Bandai packed with Datach Dragon Ball Z come from the card list in the ' +
       'source code of puNES, a Famicom emulator, and each one was read by the game itself ' +
       'running in the MAME emulator. The numbers on every card are read from its barcode by ' +
-      'this program, never copied from those lists.',
+      'this program, never copied from that list.',
     'official.sources': 'Where the barcodes come from',
     'official.source.epoch': 'Epoch cards:',
     'official.source.dbz': 'Dragon Ball Z cards:',
@@ -221,7 +227,6 @@ const MESSAGES = {
     'shop.empty': 'それに あう しょうひんは ありません。',
     'shop.found': '{total}こ のうち {count}こ。',
     'shop.credit': 'しょうひんめいと バーコードは {source}（{licence}）より。',
-    'shop.stats': 'HP {hp} / ST {st} / DF {df}',
     'read.legend': 'どんな バーコードでも',
     'read.barcode': 'バーコード ばんごう',
     'read.placeholder': '4901085061169',
@@ -306,8 +311,8 @@ const MESSAGES = {
     'many.placeholder': '「まとめて つくる」を おすと ページが みられます。',
     'device.label': 'つかう マシン・ゲーム',
     'device.hint':
-      '「1まい つくる」「かくしコマンド」「バーコードを よむ」は ここで えらんだ ものの カードを つくります。' +
-      '「まとめて つくる」と「スーパーマーケット」は バーコードバトラーII の カードです。',
+      'どの タブも かくしコマンドも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +
+      'おなじ バーコードでも マシンや ゲームごとに ちがう カードに なります。',
     'stat.bp': 'せんとうりょく',
     'stat.dp': 'ぼうぎょりょく',
     'dbz.character': 'キャラクター・アイテム',
@@ -319,15 +324,23 @@ const MESSAGES = {
     'dbz.items': 'アイテム',
     'dbz.level': 'ひっさつわざ レベル',
     'dbz.level.any': 'どれでも',
+    'dbz.refusalNote':
+      'エミュレーター MAME で うごく データック ドラゴンボールZ は、ただしい バーコード 236こ の うち ' +
+      '4こ を まだ わからない りゆうで よみませんでした。なので しょうひんの バーコードの なかには ' +
+      'ゲームで よめない ものが すこし あるかも しれません。',
     'status.deviceCard': '{device} で ちゅうもん どおりに よめる カードです。',
     'status.deviceCheat': '{name}: {device} が よめる いちばん つよい カード。',
     'status.searching': '{device} が こう よむ バーコードを さがしています。',
     'status.deviceClosest': 'その すうじ ぴったりの カードは つくれないので、いちばん ちかい カードに しました。',
-    'official.legend': 'エポック社と バンダイが ほんとうに うった カード',
+    'official.legend': 'ほんとうに うられた カード',
+    'official.single': '{title}: {count}まい',
     'official.set': 'どの シリーズ',
-    'official.note':
+    'official.note.epoch':
       'エポック社は カードの いちらんを こうかいしていません。そこで バーコードは、wikiwiki.jp に ある ' +
       'バーコードバトラーの ファン wiki に コレクターが かきうつした ものを つかっています。' +
+      'カードの すうじは この プログラムが バーコードから よみとった もので、wiki から ' +
+      'うつした ものでは ありません。',
+    'official.note.dbz':
       'バンダイの データック ドラゴンボールZ に ついていた 36まいは、ファミコンの エミュレーター ' +
       'puNES の ソースコードに ある いちらんから とり、1まいずつ エミュレーター MAME で ' +
       'ゲームに よませて たしかめました。カードの すうじは この プログラムが バーコードから ' +

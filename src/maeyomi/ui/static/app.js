@@ -262,7 +262,8 @@ function sheetPayload() {
     st: range('st'),
     df: range('df'),
     ...($('seed').value !== '' ? { seed: Number($('seed').value) } : {}),
-    ...($('many-race').value ? { race: $('many-race').value } : {}),
+    ...($('many-race').value && readsOnSheet('race') ? { race: $('many-race').value } : {}),
+    device: currentDevice(),
   };
 }
 
@@ -324,12 +325,23 @@ async function downloadBarcodes(cards, filename, statusId) {
 }
 
 function officialPayload() {
-  const chosen = $('official-set').value;
-  return chosen ? { set: chosen } : {};
+  const chosen = catalogue?.sets.length > 1 ? $('official-set').value : '';
+  return { device: currentDevice(), ...(chosen ? { set: chosen } : {}) };
 }
 
 function renderOfficial() {
   if (!catalogue) return;
+  renderOfficialSources();
+  const single = catalogue.sets.length === 1 ? catalogue.sets[0] : null;
+  $('official-set-field').toggleAttribute('hidden', Boolean(single));
+  $('official-single').toggleAttribute('hidden', !single);
+  if (single) {
+    $('official-single').textContent = t('official.single', {
+      title: isJapanese() ? single.japanese : single.english,
+      count: single.count,
+    });
+    return;
+  }
   const sets = catalogue.sets.map((entry) => ({
     value: entry.key,
     label: t('official.option', {
@@ -355,16 +367,38 @@ function showOfficialHint() {
   $('official-hint').textContent = t('official.inJapanese', { title: other });
 }
 
-async function setUpOfficial() {
-  catalogue = await getJson('/api/official');
-  renderOfficial();
-  $('official-set').addEventListener('change', showOfficialHint);
+function renderOfficialSources() {
+  const source = currentDevice() === 'dbz' ? 'dbz' : 'epoch';
+  document.querySelectorAll('[data-official-source]').forEach((node) => {
+    node.toggleAttribute('hidden', node.dataset.officialSource !== source);
+  });
+  $('official-skipped').toggleAttribute('hidden', catalogue.rejected.length === 0);
+  $('official-rejected').replaceChildren();
   $('official-rejected').insertAdjacentHTML(
     'afterbegin',
     catalogue.rejected
       .map((entry) => `<li><code>${escapeHtml(entry.barcode)}</code> ${escapeHtml(entry.name)}</li>`)
       .join(''),
   );
+}
+
+async function loadOfficial() {
+  const device = currentDevice();
+  const loaded = await getJson(`/api/official?device=${device}`);
+  if (device !== currentDevice()) return;
+  catalogue = loaded;
+  renderOfficial();
+  $('official-frame').replaceChildren();
+  $('official-frame').insertAdjacentHTML(
+    'afterbegin',
+    `<p class="placeholder">${escapeHtml(t('official.placeholder'))}</p>`,
+  );
+  $('official-status').replaceChildren();
+}
+
+async function setUpOfficial() {
+  $('official-set').addEventListener('change', showOfficialHint);
+  await loadOfficial();
 }
 
 async function showOfficial(event) {
@@ -537,13 +571,20 @@ async function showReadPreview(barcode, name) {
 
 let shelf = [];
 
+function resetShelf() {
+  shelf = [];
+  $('shop-list').replaceChildren();
+  $('shop-placeholder').toggleAttribute('hidden', false);
+  $('shop-status').replaceChildren();
+}
+
 function shelfRow(product) {
   const name = isJapanese() ? product.label_ja : product.label;
   return [
     '<li class="shelf-row">',
     `<span class="shelf-name">${escapeHtml(product.name)}</span>`,
     `<span class="shelf-kind">${escapeHtml(name)}</span>`,
-    `<span class="shelf-stats">${escapeHtml(t('shop.stats', product))}</span>`,
+    `<span class="shelf-stats">${escapeHtml(isJapanese() ? product.stats_ja : product.stats)}</span>`,
     `<code class="shelf-code">${escapeHtml(product.barcode)}</code>`,
     '</li>',
   ].join('');
@@ -565,11 +606,11 @@ function showShelf(body) {
 async function searchShelf(event) {
   event?.preventDefault();
   const query = encodeURIComponent($('shop-query').value.trim());
-  showShelf(await getJson(`/api/products?q=${query}`));
+  showShelf(await getJson(`/api/products?q=${query}&device=${currentDevice()}`));
 }
 
 async function surpriseShelf() {
-  const body = await getJson('/api/products?q=');
+  const body = await getJson(`/api/products?q=&device=${currentDevice()}`);
   const pool = [...body.products];
   const picked = [];
   while (picked.length < CARDS_PER_PAGE && pool.length) {
@@ -584,7 +625,8 @@ async function downloadShelf() {
     setStatus('shop-status', 'bad', 'tag.impossible', t('shop.empty'));
     return;
   }
-  const cards = shelf.map(({ barcode, name }) => ({ barcode, name }));
+  const device = currentDevice();
+  const cards = shelf.map(({ barcode, name }) => ({ barcode, name, device }));
   await downloadBarcodes(cards, 'supermarket.pdf', 'shop-status');
 }
 

@@ -107,9 +107,14 @@ the numbers you asked for, and shows the barcode it worked out.
 
 **Machine or game**, under the title, picks what the cards are for: the
 Barcode Battler II, the first Barcode Battler, the Double or Datach Dragon Ball
-Z. The card maker shows only the fields that device reads, the sliders stop at
-its limits, and the cheat code and **Read a barcode** follow the same choice.
-The sheet of random cards and the supermarket make Barcode Battler II cards.
+Z. Every tab follows it: the card maker shows only the fields that device reads
+and stops its sliders at the device's limits, the random sheet and the
+supermarket read each barcode the way that device does, **The real cards**
+lists only that device's sets and hides the set picker when there is one, and
+the cheat code is that device's strongest card. The same barcode is a
+different card on each device. On the command line, `--device` does the same
+for `generate`, `decode`, `cheat`, `random`, `products`, `kinds`, `abilities`
+and `official`.
 
 **Any barcode you already own is also a card.** Type the digits from the
 shopping into **Read a barcode** and the page shows what the device makes of

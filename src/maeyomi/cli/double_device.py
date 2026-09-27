@@ -19,15 +19,13 @@ from maeyomi.double.solve import solve_double
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.registry import NO_DOUBLE_BACK_READ
 from maeyomi.rendering.export import ImageFormat
 from maeyomi.rendering.face import face_of
 from maeyomi.rendering.labels import double_class_label
 
 UNKNOWN = "unknown"
-NO_BACK_READ = (
-    "the Double reads II back-read codes the II's way; build them with --device bb2, "
-    "and use --device double for its own 7-read"
-)
+NO_BACK_READ = NO_DOUBLE_BACK_READ
 
 
 def show_double(

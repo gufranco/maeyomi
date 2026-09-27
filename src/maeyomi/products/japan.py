@@ -20,9 +20,10 @@ from functools import cache
 from importlib import resources
 from typing import Final
 
-from maeyomi.decoder.decode import decode
-from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.models.device import Device
+from maeyomi.models.generated_card import AnyCard
 from maeyomi.models.race import Race
+from maeyomi.registry import printable_as
 
 DATA_FILE: Final = "japan.json"
 MINIMUM_PRODUCTS: Final = 500
@@ -78,9 +79,8 @@ def random_products(count: int, *, seed: int | None = None) -> tuple[JapanesePro
     return tuple(random.Random(seed).sample(shelf, min(count, len(shelf))))  # noqa: S311
 
 
-def product_cards(products: Sequence[JapaneseProduct]) -> tuple[GeneratedCard, ...]:
-    """Turn products into cards, reading every number off the barcode."""
-    return tuple(
-        GeneratedCard(name=product.name, barcode=product.barcode, character=decode(product.barcode))
-        for product in products
-    )
+def product_cards(
+    products: Sequence[JapaneseProduct], *, device: Device = Device.BB2
+) -> tuple[AnyCard, ...]:
+    """Turn products into cards, reading every number off the barcode the device's way."""
+    return tuple(printable_as(device, product.barcode, product.name) for product in products)

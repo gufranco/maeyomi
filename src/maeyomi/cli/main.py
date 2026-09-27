@@ -22,6 +22,7 @@ from maeyomi.cli.datach_device import (
     refuse_dbz_options,
     show_dbz,
 )
+from maeyomi.cli.device_tables import ability_lines, kind_lines, official_lines, product_lines
 from maeyomi.cli.doctor import State, machine, package, worst
 from maeyomi.cli.double_device import cheat_double, generate_double, show_double
 from maeyomi.cli.first_device import cheat_first, generate_first, show_first
@@ -30,24 +31,22 @@ from maeyomi.decoder.decode import decode as decode_barcode
 from maeyomi.decoder.errors import BarcodeError
 from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
 from maeyomi.generator.cheat_items import strongest_items
+from maeyomi.generator.device_random import random_for
 from maeyomi.generator.nearest import solve_nearest
-from maeyomi.generator.random_cards import generate_random
 from maeyomi.generator.solve import solve
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.character import BarcodeBattlerCharacter
 from maeyomi.models.device import Device
-from maeyomi.models.generated_card import GeneratedCard
-from maeyomi.models.race import Race
+from maeyomi.models.generated_card import AnyCard, GeneratedCard
 from maeyomi.models.read_type import ReadType
-from maeyomi.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
+from maeyomi.models.special_ability import MAX_CODE, MIN_CODE
 from maeyomi.official.catalogue import (
     OfficialSet,
+    device_cards,
     official_cards,
-    rejected_transcriptions,
 )
 from maeyomi.products.japan import product_cards, random_products, search_products
 from maeyomi.rendering.export import ImageFormat
-from maeyomi.rendering.labels import RACE_DESCRIPTIONS, race_label
 from maeyomi.rendering.stat_tiles import stat_tiles
 
 app = typer.Typer(
@@ -139,10 +138,11 @@ def random(
     speed: SpeedOption = None,
     ability: AbilityOption = None,
     seed: Annotated[int | None, typer.Option("--seed", help="Repeat an earlier run.")] = None,
+    device: DeviceOption = Device.BB2,
     images: ImagesOption = None,
     print_shop: PrintShopOption = False,
 ) -> None:
-    """Fill a sheet with random cards drawn through the real algorithm."""
+    """Fill a sheet with random cards drawn through the device's own reading."""
     template = build_request(
         "",
         hp,
@@ -156,7 +156,7 @@ def random(
         speed=speed,
         ability=ability,
     )
-    batch = generate_random(count, template=template, seed=seed)
+    batch = random_for(device, count, template=template, seed=seed)
     if batch.shortfall:
         for line in shortfall_lines(len(batch.cards), batch.requested, batch.reason):
             typer.echo(line, err=True)
@@ -311,34 +311,28 @@ def products(
         int | None, typer.Option("--count", "-n", min=1, help="Take this many at random.")
     ] = None,
     seed: Annotated[int | None, typer.Option("--seed", help="Repeat an earlier handful.")] = None,
+    device: DeviceOption = Device.BB2,
     images: ImagesOption = None,
     print_shop: PrintShopOption = False,
 ) -> None:
-    """Browse or print real Japanese supermarket products as cards."""
+    """Browse or print real Japanese supermarket products as cards for the device."""
     found = random_products(count, seed=seed) if count else search_products(search)
     if not found:
         typer.echo(f"nothing on the shelf matches {search!r}", err=True)
         raise typer.Exit(code=1)
     if output is None:
-        for product in found:
-            character = decode_barcode(product.barcode)
-            typer.echo(
-                f"{product.barcode}  {product.name}  "
-                f"{race_label(product.kind).english}  "
-                f"HP {character.hp} ST {character.st} DF {character.df}"
-            )
-        typer.echo(f"{len(found)} product(s)")
+        for line in product_lines(found, device):
+            typer.echo(line)
         return
-    write_cards(product_cards(found), output, images, sheet_layout(print_shop=print_shop))
+    cards = product_cards(found, device=device)
+    write_cards(cards, output, images, sheet_layout(print_shop=print_shop))
 
 
 @app.command()
-def kinds() -> None:
+def kinds(device: DeviceOption = Device.BB2) -> None:
     """Print every kind of card the device knows, and what each one does."""
-    for race in Race:
-        label = race_label(race)
-        typer.echo(f"{race.value}  {race.name.lower():18s} {label.english} / {label.japanese}")
-        typer.echo(f"   {RACE_DESCRIPTIONS[race]}")
+    for line in kind_lines(device):
+        typer.echo(line)
 
 
 @app.command()
@@ -388,31 +382,29 @@ def official(
         typer.Option("--set", help="One set, by the key --list prints."),
     ] = None,
     listing: Annotated[bool, typer.Option("--list", help="List the sets and stop.")] = False,
+    device: Annotated[
+        Device | None, typer.Option("--device", help="Only the sets written for this device.")
+    ] = None,
     images: ImagesOption = None,
     print_shop: PrintShopOption = False,
 ) -> None:
-    """Print the cards Epoch released, as the community transcribed them."""
+    """Print the cards Epoch and Bandai released, as the community transcribed them."""
     if listing:
-        _list_official()
+        for line in official_lines(device):
+            typer.echo(line)
         return
     if output is None:
         typer.echo("--output is required unless --list is given", err=True)
         raise typer.Exit(code=2)
-    chosen = _official_set(set_name) if set_name is not None else None
-    write_cards(official_cards(chosen), output, images, sheet_layout(print_shop=print_shop))
+    cards = _official_cards(set_name, device)
+    write_cards(cards, output, images, sheet_layout(print_shop=print_shop))
 
 
-def _list_official() -> None:
-    """Print each set, its printable count, and the transcriptions left out."""
-    for official_set in OfficialSet:
-        count = len(official_cards(official_set))
-        typer.echo(
-            f"{count:4d}  {official_set.name.lower():24s}  {official_set.english}, "
-            f"read by the {official_set.device.english}"
-        )
-    typer.echo(f"{len(official_cards()):4d}  total printable")
-    for entry in rejected_transcriptions():
-        typer.echo(f"skipped {entry.barcode} {entry.name}: its check digit is wrong")
+def _official_cards(set_name: str | None, device: Device | None) -> tuple[AnyCard, ...]:
+    """The named set, every card of the named device, or every card there is."""
+    if set_name is not None:
+        return official_cards(_official_set(set_name))
+    return official_cards() if device is None else device_cards(device)
 
 
 def _official_set(value: str) -> OfficialSet:
@@ -427,11 +419,10 @@ def _official_set(value: str) -> OfficialSet:
 
 
 @app.command()
-def abilities() -> None:
-    """Print the published special ability table."""
-    for code in range(MIN_CODE, MAX_CODE + 1):
-        ability = SpecialAbility.from_code(code)
-        typer.echo(f"{ability.code:02d}  {ability.description}")
+def abilities(device: DeviceOption = Device.BB2) -> None:
+    """Print the device's table for its two-digit code, or the game's item effects."""
+    for line in ability_lines(device):
+        typer.echo(line)
 
 
 @app.command()
