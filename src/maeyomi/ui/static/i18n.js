@@ -109,6 +109,8 @@ const MESSAGES = {
     'many.preview': 'Your sheet',
     'many.placeholder': 'Press Make the sheet to see the pages.',
     'device.label': 'Machine or game',
+    'device.machines': 'Machines',
+    'device.games': 'Games',
     'device.hint':
       'Every tab, and the cheat code, makes cards for this choice and reads barcodes its way. ' +
       'The same barcode is a different card on each one.',
@@ -310,6 +312,8 @@ const MESSAGES = {
     'many.preview': 'あなたの シート',
     'many.placeholder': '「まとめて つくる」を おすと ページが みられます。',
     'device.label': 'つかう マシン・ゲーム',
+    'device.machines': 'マシン',
+    'device.games': 'ゲーム',
     'device.hint':
       'どの タブも かくしコマンドも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +
       'おなじ バーコードでも マシンや ゲームごとに ちがう カードに なります。',

@@ -93,6 +93,7 @@ def device_views() -> list[DeviceView]:
             key=device.value,
             english=device.english,
             japanese=device.japanese,
+            group="game" if device.is_game else "machine",
             fields=list(FORMS[device].fields),
             hp_max=FORMS[device].hp_max,
             st_max=FORMS[device].st_max,

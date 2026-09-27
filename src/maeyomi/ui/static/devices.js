@@ -62,15 +62,29 @@ function renderDbzChoices() {
   );
 }
 
-function renderDevices() {
-  fillSelect(
-    'device',
-    deviceList.map((device) => ({
-      value: device.key,
-      label: isJapanese() ? device.japanese : device.english,
-    })),
-    chosenDevice,
+const DEVICE_GROUPS = [['machine', 'device.machines'], ['game', 'device.games']];
+
+function deviceOptionsHtml(group) {
+  const label = (device) => (isJapanese() ? device.japanese : device.english);
+  return deviceList
+    .filter((device) => device.group === group)
+    .map((device) => ({ value: device.key, label: label(device) }))
+    .toSorted((first, second) => first.label.localeCompare(second.label, currentLanguage))
+    .map((option) => optionHtml(option.value, option.label, chosenDevice))
+    .join('');
+}
+
+function renderDeviceOptions() {
+  $('device').replaceChildren();
+  $('device').insertAdjacentHTML(
+    'afterbegin',
+    DEVICE_GROUPS.map(([group, key]) =>
+      `<optgroup label="${escapeHtml(t(key))}">${deviceOptionsHtml(group)}</optgroup>`).join(''),
   );
+}
+
+function renderDevices() {
+  renderDeviceOptions();
   renderDbzChoices();
   applyStatLabels();
 }
@@ -133,14 +147,7 @@ function applyDeviceForm() {
 
 function chooseDevice(key) {
   chosenDevice = deviceList.some((device) => device.key === key) ? key : SECOND_DEVICE;
-  fillSelect(
-    'device',
-    deviceList.map((device) => ({
-      value: device.key,
-      label: isJapanese() ? device.japanese : device.english,
-    })),
-    chosenDevice,
-  );
+  renderDeviceOptions();
   rememberDevice();
   applyDeviceForm();
   resetShelf();

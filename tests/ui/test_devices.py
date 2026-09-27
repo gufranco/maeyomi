@@ -29,6 +29,8 @@ def test_every_device_is_offered_with_its_form(client: TestClient) -> None:
     assert (dbz["hp_max"], dbz["steps"]) == (99500, [500, 250, 250])
     assert dbz["stat_keys"] == ["stat.hp", "stat.bp", "stat.dp"]
     assert dbz["sheet_fields"] == []
+    assert dbz["group"] == "game"
+    assert {entry["group"] for entry in body if entry["key"] != "dbz"} == {"machine"}
     assert dbz["ranges"] == [[10000, 60000], [5000, 30000], [5000, 30000]]
 
 

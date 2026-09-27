@@ -15,7 +15,7 @@ def test_decode_reads_a_seven_read_code() -> None:
     result = runner.invoke(app, ["decode", "7821818898978", "--device", "double"])
 
     assert result.exit_code == 0
-    assert "Device    Barcode Battler II Double" in result.output
+    assert "Device    Barcode Battler 2 Double" in result.output
     assert "Read      7" in result.output
     assert "ST        18800" in result.output
     assert "Race      unknown" in result.output

@@ -267,6 +267,7 @@ class DeviceView(BaseModel):
     key: str
     english: str
     japanese: str
+    group: str
     fields: list[str]
     hp_max: int
     st_max: int

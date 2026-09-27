@@ -127,4 +127,4 @@ def test_official_list_names_the_device_each_list_is_read_by() -> None:
     assert result.exit_code == 0
     line = next(line for line in result.output.splitlines() if " original " in f" {line} ")
     assert line.rstrip().endswith("read by the Barcode Battler")
-    assert "read by the Barcode Battler II" in result.output
+    assert "read by the Barcode Battler 2" in result.output

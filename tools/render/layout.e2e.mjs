@@ -24,6 +24,17 @@ function checkWidths() {
   });
 }
 
+function checkDeviceMenu() {
+  const menu = evaluate(`JSON.stringify([...document.querySelectorAll('#device optgroup')]
+    .map((group) => [group.label, [...group.querySelectorAll('option')].map((o) => o.text)]))`);
+  expect(menu.length === 2 && menu[0][0] === 'Machines' && menu[1][0] === 'Games',
+    `the device menu is grouped as ${JSON.stringify(menu)}`);
+  const machines = menu[0]?.[1] ?? [];
+  const sorted = machines.toSorted((first, second) => first.localeCompare(second, 'en'));
+  expect(JSON.stringify(machines) === JSON.stringify(sorted), `machines are ordered ${machines}`);
+  expect(!machines.some((name) => /\bII\b|²/.test(name)), `a machine name is ${machines}`);
+}
+
 function checkDeviceSwitch() {
   browser('click', '#tab-one');
   browser('select', '#device', 'dbz');
@@ -96,6 +107,7 @@ function checkSheetAndShop() {
 
 browser('open', URL);
 browser('wait', '1500');
+checkDeviceMenu();
 checkWidths();
 checkDeviceSwitch();
 checkRealCards();
