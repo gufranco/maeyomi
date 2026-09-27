@@ -189,6 +189,8 @@ class CharacterView(BaseModel):
     hp: int
     st: int
     df: int
+    battle_st: int | None
+    battle_df: int | None
     race: str
     job: int
     character_class: str | None
@@ -208,6 +210,8 @@ class CharacterView(BaseModel):
             hp=character.hp,
             st=character.st,
             df=character.df,
+            battle_st=character.battle_st,
+            battle_df=character.battle_df,
             race=character.race.name.lower(),
             job=character.job,
             character_class=character_class.value if character_class else None,

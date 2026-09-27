@@ -22,11 +22,11 @@ def test_a_value_off_the_hundred_grid_names_the_field() -> None:
 def test_a_value_above_the_ceiling_names_the_ceiling() -> None:
     reasons = blockers(CardRequest(st=Constraint.exactly(30000)))
 
-    assert any("24500" in reason for reason in reasons)
+    assert any("19900" in reason for reason in reasons)
 
 
-def test_a_strength_the_dual_bonus_reaches_is_not_blocked() -> None:
-    reasons = blockers(CardRequest(st=Constraint.exactly(24500)))
+def test_the_published_ceiling_itself_is_not_blocked() -> None:
+    reasons = blockers(CardRequest(st=Constraint.exactly(19900)))
 
     assert not [reason for reason in reasons if reason.startswith("st")]
 

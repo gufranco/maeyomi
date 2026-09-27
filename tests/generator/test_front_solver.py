@@ -5,7 +5,7 @@ import itertools
 import pytest
 
 from maeyomi.decoder.decode import decode
-from maeyomi.decoder.front_read import DUAL_BONUS_VALUES, adjusted_stats
+from maeyomi.decoder.front_read import PARTNER_BONUS_VALUES, adjusted_stats
 from maeyomi.generator.front_solver import (
     assemble,
     iter_front_candidates,
@@ -187,11 +187,11 @@ def test_stat_digit_options_for_the_aquatic_race_subtract_the_bonus() -> None:
     assert stat_digit_options(Race.AQUATIC, hp_units=209, st_units=110, df_units=110) == [(10, 10)]
 
 
-def test_stat_digit_options_offer_the_dual_bonus_route_when_it_applies() -> None:
-    options = stat_digit_options(Race.MECHANICAL, hp_units=209, st_units=213, df_units=110)
+def test_stat_digit_options_take_the_partner_bonus_back_off() -> None:
+    options = stat_digit_options(Race.MECHANICAL, hp_units=209, st_units=145, df_units=110)
 
-    assert options == [(13, 10)]
-    assert options[0][0] in DUAL_BONUS_VALUES
+    assert options == [(45, 10)]
+    assert options[0][0] in PARTNER_BONUS_VALUES
 
 
 def test_stat_digit_options_are_empty_when_the_value_is_unreachable() -> None:
@@ -203,16 +203,14 @@ def test_the_inverse_agrees_with_the_forward_adjustment(race: Race) -> None:
     disagreements: list[tuple[int, int, int]] = []
     for hp_units in (40, 209, 299):
         for st_digits, df_digits in itertools.product(range(0, 100, 7), repeat=2):
-            st_units, df_units = adjusted_stats(
+            stats = adjusted_stats(
                 race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits
             )
             options = stat_digit_options(
-                race, hp_units=hp_units, st_units=st_units, df_units=df_units
+                race, hp_units=hp_units, st_units=stats.st, df_units=stats.df
             )
             forward_is_reachable = any(
-                adjusted_stats(race, hp_units=hp_units, st_digits=a, df_digits=b)
-                == (st_units, df_units)
-                for a, b in options
+                _shown(race, hp_units, a, b) == (stats.st, stats.df) for a, b in options
             )
             if options and not forward_is_reachable:
                 disagreements.append((hp_units, st_digits, df_digits))
@@ -225,8 +223,9 @@ def test_the_inverse_only_declines_values_that_need_a_quarantined_branch() -> No
     hp_units = 209
     produced: dict[tuple[int, int], list[tuple[int, int]]] = {}
     for st_digits, df_digits in itertools.product(range(100), repeat=2):
-        stats = adjusted_stats(race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits)
-        produced.setdefault(stats, []).append((st_digits, df_digits))
+        produced.setdefault(_shown(race, hp_units, st_digits, df_digits), []).append(
+            (st_digits, df_digits)
+        )
 
     declined = {
         stats: digits
@@ -250,3 +249,8 @@ def test_the_inverse_only_declines_values_that_need_a_quarantined_branch() -> No
             )
             for st_digits, df_digits in digits
         )
+
+
+def _shown(race: Race, hp_units: int, st_digits: int, df_digits: int) -> tuple[int, int]:
+    stats = adjusted_stats(race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits)
+    return stats.st, stats.df

@@ -2,6 +2,7 @@
 
 import pytest
 
+from maeyomi.decoder.decode import decode
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.race import Race
 from maeyomi.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
@@ -15,6 +16,7 @@ from maeyomi.rendering.labels import (
     Bilingual,
     ability_text,
     class_label,
+    panel_text,
     race_label,
 )
 
@@ -78,3 +80,18 @@ def test_a_documented_ability_keeps_its_published_wording() -> None:
 
     assert text.english == "own attack doubled"
     assert text.japanese == "自分の破壊力１００％アップ 2倍剣"
+
+
+def test_a_card_whose_fight_matches_its_display_carries_only_the_ability() -> None:
+    character = decode("2091000045007")
+
+    assert panel_text(character) == ability_text(character.special)
+
+
+def test_a_hidden_battle_defence_leads_the_panel_in_both_languages() -> None:
+    character = decode("2095046145004")
+
+    text = panel_text(character)
+
+    assert text.english.startswith("Fights with DF 24600; ")
+    assert text.japanese.startswith("たたかうと ぼうぎょ 24600。")

@@ -2,15 +2,16 @@
 
 Nothing here is invented. The card is found by walking every front-read
 fighter at full hit points through the decoder's own stat arithmetic, keeping
-the one with the most strength and defence together, and refusing any
-combination that passes through one of the two unresolved overflow branches.
-The winner is then assembled, decoded, and compared field by field, exactly as
-every other generated card is.
+the one that fights with the most strength and defence together, and refusing
+any combination that passes through an unresolved branch. The winner is then
+assembled, decoded, and compared field by field, exactly as every other
+generated card is.
 
-What comes out is a mechanical fighter: 99900 HP, 24500 ST and 19900 DF. The
-strength is above the 19900 barcodebattler.net publishes, because a
-mechanical fighter whose strength digits sit in the dual bonus set collects both
-bonuses. See `MAX_STAT_DISPLAY` in `front_solver.py`.
+What comes out is a mechanical fighter with 99900 HP that displays 14600 ST and
+19900 DF and fights with 24600 ST. The hidden strength is the device's own, per
+barcodebattler.net/page21.htm: strength digits of 46 add a second bonus that a
+fight uses and the display never shows. See `MAX_BATTLE_STAT` in
+`front_solver.py`.
 """
 
 from typing import Final
@@ -64,7 +65,8 @@ def _candidates(hp_units: int) -> list[tuple[Race, int, int]]:
     ]
 
 
-def _strength(hp_units: int, race: Race, st_digits: int, df_digits: int) -> tuple[int, int]:
-    """Rank by strength and defence together, then by the weaker of the two."""
-    st, df = adjusted_stats(race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits)
-    return (st + df, min(st, df))
+def _strength(hp_units: int, race: Race, st_digits: int, df_digits: int) -> tuple[int, int, int]:
+    """Rank by fighting strength and defence together, then the weaker, then the display."""
+    stats = adjusted_stats(race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits)
+    fighting = stats.battle_st + stats.battle_df
+    return (fighting, min(stats.battle_st, stats.battle_df), stats.st + stats.df)

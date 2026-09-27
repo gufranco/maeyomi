@@ -15,6 +15,7 @@ learns first rather than in kanji.
 from dataclasses import dataclass
 from typing import Final
 
+from maeyomi.models.character import BarcodeBattlerCharacter
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.race import Race
 from maeyomi.models.special_ability import UNDOCUMENTED, SpecialAbility
@@ -114,3 +115,38 @@ def ability_text(special: SpecialAbility) -> Bilingual:
     if special.description == UNDOCUMENTED:
         return UNKNOWN_POWER
     return Bilingual(special.description, special.japanese)
+
+
+def panel_text(character: BarcodeBattlerCharacter) -> Bilingual:
+    """The ability panel's words, led by any strength the display hides.
+
+    The hidden value goes first so a narrow panel trims the ability text rather
+    than the one number the printed stat tiles cannot show.
+    """
+    text = ability_text(character.special)
+    notes = _battle_notes(character)
+    if not notes:
+        return text
+    english = "; ".join(note.english for note in [*notes, text])
+    japanese = " ".join(note.japanese for note in [*notes, text])
+    return Bilingual(english, japanese)
+
+
+def _battle_notes(character: BarcodeBattlerCharacter) -> list[Bilingual]:
+    """One sentence per stat a fight uses at a value the display does not show."""
+    notes: list[Bilingual] = []
+    if character.battle_st is not None:
+        notes.append(
+            Bilingual(
+                f"Fights with ST {character.battle_st}",
+                f"たたかうと こうげき {character.battle_st}。",
+            )
+        )
+    if character.battle_df is not None:
+        notes.append(
+            Bilingual(
+                f"Fights with DF {character.battle_df}",
+                f"たたかうと ぼうぎょ {character.battle_df}。",
+            )
+        )
+    return notes

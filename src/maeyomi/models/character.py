@@ -4,6 +4,11 @@ The device stores HP, ST and DF internally in units of 100 and displays them
 multiplied by 100, per barcodebattler.net/page01.htm and the caps applied in
 `src/CreateFightingData.as` of finalfighter/BarcodeBattler2-Simulator (MIT).
 This model carries the displayed values and exposes the internal units.
+
+Above the high hit point threshold some codes make the device fight with a
+strength or defence it never displays, per barcodebattler.net/page21.htm. Those
+are `battle_st` and `battle_df`, left as None whenever the fight uses the
+displayed value.
 """
 
 from dataclasses import dataclass
@@ -30,6 +35,8 @@ class BarcodeBattlerCharacter:
     st: int
     df: int
     special: SpecialAbility
+    battle_st: int | None = None
+    battle_df: int | None = None
     speed: int | None = None
     pp: int = 0
     mp: int = 0
@@ -37,9 +44,9 @@ class BarcodeBattlerCharacter:
 
     def __post_init__(self) -> None:
         """Reject stat values the device cannot represent."""
-        for name in ("hp", "st", "df"):
-            value: int = getattr(self, name)
-            if value % DISPLAY_SCALE:
+        for name in ("hp", "st", "df", "battle_st", "battle_df"):
+            value: int | None = getattr(self, name)
+            if value is not None and value % DISPLAY_SCALE:
                 message = f"{name} of {value} is not a multiple of {DISPLAY_SCALE}"
                 raise ValueError(message)
 
@@ -56,6 +63,16 @@ class BarcodeBattlerCharacter:
         if self.job <= HIGHEST_WARRIOR_JOB:
             return CharacterClass.WARRIOR
         return CharacterClass.MAGICIAN
+
+    @property
+    def fighting_st(self) -> int:
+        """The strength a fight uses, which can exceed the displayed one."""
+        return self.st if self.battle_st is None else self.battle_st
+
+    @property
+    def fighting_df(self) -> int:
+        """The defence a fight uses, which can exceed the displayed one."""
+        return self.df if self.battle_df is None else self.battle_df
 
     @property
     def hp_units(self) -> int:

@@ -441,6 +441,13 @@ function factRow(key, value) {
   return `<dt>${escapeHtml(t(key))}</dt><dd>${escapeHtml(String(value))}</dd>`;
 }
 
+function battleRows(character) {
+  return [
+    ['fact.battle_st', character.battle_st],
+    ['fact.battle_df', character.battle_df],
+  ].filter(([, value]) => value !== null).map(([key, value]) => factRow(key, value));
+}
+
 function showFacts(character) {
   const race = raceList.find((entry) => entry.name === character.race);
   const rows = [
@@ -448,6 +455,7 @@ function showFacts(character) {
     factRow('fact.hp', character.hp),
     factRow('fact.st', character.st),
     factRow('fact.df', character.df),
+    ...battleRows(character),
     factRow('fact.power', `${String(character.special.code).padStart(2, '0')} ` +
       `${isJapanese() ? character.special.description_ja : character.special.description}`),
     factRow('fact.reading', t(`reading.${character.read_type}`)),

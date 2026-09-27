@@ -1,17 +1,29 @@
 """The front reading, where fixed digit slices map directly onto attributes.
 
 Source: `pre_reading` in `src/BarcodeRead.as` of
-finalfighter/BarcodeBattler2-Simulator (MIT), with two deliberate divergences:
-speed is read from index 9 rather than index 11, and the race 1 overflow
-correction subtracts from defence rather than from strength, because the
-simulator's line produces a negative defence no device can hold. See the
-`front_read_speed_digit` and `race_one_overflow_target` entries in
-`uncertainties.py`.
+finalfighter/BarcodeBattler2-Simulator (MIT), with three deliberate divergences,
+each recorded in `uncertainties.py`:
+
+- speed is read from index 9 rather than index 11;
+- the high hit point bonus follows the two sources that tested printed codes on
+  a device, barcodebattler.net/page21.htm and the note.com analysis by
+  sakigomyway, rather than the simulator's single bonus set;
+- job 6 is a warrior and starts without magic points, as page01 and two of the
+  simulator's three job tests have it.
+
+Above the bonus threshold a device fights with a strength or defence it never
+displays. Both values are kept: the displayed one is what the card prints, and
+the battle one is what a fight uses.
 """
 
+from dataclasses import dataclass
 from typing import Final
 
-from maeyomi.models.character import DISPLAY_SCALE, BarcodeBattlerCharacter
+from maeyomi.models.character import (
+    DISPLAY_SCALE,
+    HIGHEST_WARRIOR_JOB,
+    BarcodeBattlerCharacter,
+)
 from maeyomi.models.race import Race
 from maeyomi.models.read_type import ReadType
 from maeyomi.models.special_ability import SpecialAbility
@@ -26,14 +38,12 @@ SPECIAL_SLICE: Final = slice(10, 12)
 
 HIGH_HP_THRESHOLD_UNITS: Final = 200
 HIGH_HP_BONUS_UNITS: Final = 100
-DUAL_BONUS_VALUES: Final = frozenset({13, 29, 45, 61, 77, 93})
-ST_OVERFLOW_THRESHOLD: Final = 256
-DF_OVERFLOW_THRESHOLD: Final = 256
-OVERFLOW_SUBTRAHEND: Final = 255
+PARTNER_BONUS_VALUES: Final = frozenset({13, 29, 45, 61, 77, 93})
+BATTLE_BONUS_VALUES: Final = frozenset({14, 30, 46, 62, 78, 94})
+BATTLE_STAT_WRAP_UNITS: Final = 256
 
 STARTING_POWER_POINTS: Final = 5
 STARTING_MAGIC_POINTS: Final = 10
-LOWEST_MAGIC_JOB: Final = 6
 
 SUPPORT_HIGHEST_HP_SUB_TYPE: Final = 4
 SUPPORT_INFORMATION_SUB_TYPES: Final = (5, 6)
@@ -56,7 +66,7 @@ def read_front(code: str) -> BarcodeBattlerCharacter:
 def _read_fighter(code: str, race: Race, special: SpecialAbility) -> BarcodeBattlerCharacter:
     """Decode a character, applying the high-HP adjustment its race calls for."""
     hp = int(code[HP_SLICE])
-    st, df = adjusted_stats(
+    stats = adjusted_stats(
         race, hp_units=hp, st_digits=int(code[ST_SLICE]), df_digits=int(code[DF_SLICE])
     )
     job = int(code[JOB_INDEX])
@@ -65,40 +75,60 @@ def _read_fighter(code: str, race: Race, special: SpecialAbility) -> BarcodeBatt
         race=race,
         job=job,
         hp=hp,
-        st=st,
-        df=df,
+        st=stats.st,
+        df=stats.df,
+        battle_st=stats.battle_st,
+        battle_df=stats.battle_df,
         special=special,
         speed=int(code[SPEED_INDEX]),
         pp=STARTING_POWER_POINTS,
-        mp=STARTING_MAGIC_POINTS if job >= LOWEST_MAGIC_JOB else 0,
+        mp=STARTING_MAGIC_POINTS if job > HIGHEST_WARRIOR_JOB else 0,
     )
 
 
-def adjusted_stats(race: Race, *, hp_units: int, st_digits: int, df_digits: int) -> tuple[int, int]:
+@dataclass(frozen=True, slots=True)
+class AdjustedStats:
+    """Strength and defence in device units, as displayed and as fought with."""
+
+    st: int
+    df: int
+    battle_st: int
+    battle_df: int
+
+
+def adjusted_stats(race: Race, *, hp_units: int, st_digits: int, df_digits: int) -> AdjustedStats:
     """Return ST and DF in device units after the bonus a high HP triggers.
 
     This is the forward direction of `stat_digit_options` in the generator. The
     two are asserted to agree in the generator's tests.
     """
-    st = st_digits
-    df = df_digits
     if hp_units < HIGH_HP_THRESHOLD_UNITS or race not in _HIGH_HP_RACES:
-        return st, df
+        return AdjustedStats(st_digits, df_digits, st_digits, df_digits)
     if race is Race.AQUATIC:
-        return st + HIGH_HP_BONUS_UNITS, df + HIGH_HP_BONUS_UNITS
-    partner = st_digits if race is Race.MECHANICAL else df_digits
-    if partner in DUAL_BONUS_VALUES:
-        st += HIGH_HP_BONUS_UNITS
-        df += HIGH_HP_BONUS_UNITS
+        st = st_digits + HIGH_HP_BONUS_UNITS
+        df = df_digits + HIGH_HP_BONUS_UNITS
+        return AdjustedStats(st, df, st, df)
     if race is Race.MECHANICAL:
-        st += HIGH_HP_BONUS_UNITS
-        if st > ST_OVERFLOW_THRESHOLD:
-            st -= OVERFLOW_SUBTRAHEND
-        return st, df
-    df += HIGH_HP_BONUS_UNITS
-    if df > DF_OVERFLOW_THRESHOLD:
-        df -= OVERFLOW_SUBTRAHEND
-    return st, df
+        lead, partner, battle = _lead_bonus(st_digits, df_digits, partner_set_applies=True)
+        return AdjustedStats(lead, partner, battle, partner)
+    lead, partner, battle = _lead_bonus(df_digits, st_digits, partner_set_applies=False)
+    return AdjustedStats(partner, lead, partner, battle)
+
+
+def _lead_bonus(lead: int, partner: int, *, partner_set_applies: bool) -> tuple[int, int, int]:
+    """The lead stat, its partner, and the lead stat a fight uses.
+
+    The lead stat always gains the bonus. Its digits decide whether the partner
+    gains one too, and whether the fight uses a further hidden bonus that wraps
+    at one byte.
+    """
+    shown = lead + HIGH_HP_BONUS_UNITS
+    partner_gains = lead in BATTLE_BONUS_VALUES or (
+        partner_set_applies and lead in PARTNER_BONUS_VALUES
+    )
+    shown_partner = partner + (HIGH_HP_BONUS_UNITS if partner_gains else 0)
+    battle = shown + (HIGH_HP_BONUS_UNITS if lead in BATTLE_BONUS_VALUES else 0)
+    return shown, shown_partner, battle % BATTLE_STAT_WRAP_UNITS
 
 
 _HIGH_HP_RACES: Final = (Race.MECHANICAL, Race.ANIMAL, Race.AQUATIC)
@@ -153,6 +183,8 @@ def _build(
     hp: int = 0,
     st: int = 0,
     df: int = 0,
+    battle_st: int | None = None,
+    battle_df: int | None = None,
     speed: int | None = None,
     pp: int = 0,
     mp: int = 0,
@@ -167,9 +199,18 @@ def _build(
         hp=hp * DISPLAY_SCALE,
         st=st * DISPLAY_SCALE,
         df=df * DISPLAY_SCALE,
+        battle_st=_hidden(battle_st, st),
+        battle_df=_hidden(battle_df, df),
         special=special,
         speed=speed,
         pp=pp,
         mp=mp,
         sign_is_volatile=sign_is_volatile,
     )
+
+
+def _hidden(battle: int | None, shown: int) -> int | None:
+    """The battle value in display units, or None when it equals the shown one."""
+    if battle is None or battle == shown:
+        return None
+    return battle * DISPLAY_SCALE

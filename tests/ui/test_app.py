@@ -272,9 +272,10 @@ def test_the_cheat_returns_the_strongest_card(client: TestClient) -> None:
     assert body["name"] == "Grandma"
     assert (body["character"]["hp"], body["character"]["st"], body["character"]["df"]) == (
         99900,
-        24500,
+        14600,
         19900,
     )
+    assert (body["character"]["battle_st"], body["character"]["battle_df"]) == (24600, None)
 
 
 def test_the_cheat_has_a_silly_default_name(client: TestClient) -> None:

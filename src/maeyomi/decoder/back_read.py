@@ -11,7 +11,11 @@ from dataclasses import dataclass
 from typing import Final
 
 from maeyomi.decoder.check_digit import EAN_8_LENGTH
-from maeyomi.models.character import DISPLAY_SCALE, BarcodeBattlerCharacter
+from maeyomi.models.character import (
+    DISPLAY_SCALE,
+    HIGHEST_WARRIOR_JOB,
+    BarcodeBattlerCharacter,
+)
 from maeyomi.models.race import Race
 from maeyomi.models.read_type import ReadType
 from maeyomi.models.special_ability import SpecialAbility
@@ -25,7 +29,6 @@ DF_OFFSET: Final = 7
 
 STARTING_POWER_POINTS: Final = 5
 STARTING_MAGIC_POINTS: Final = 10
-LOWEST_MAGIC_JOB: Final = 6
 EIGHT_DIGIT_JOB: Final = 4
 
 SPECIAL_LOW_SELECTOR_MAX: Final = 3
@@ -131,7 +134,7 @@ def _read_fighter(
         special=special,
         speed=digits[layout.speed],
         pp=STARTING_POWER_POINTS,
-        mp=STARTING_MAGIC_POINTS if job >= LOWEST_MAGIC_JOB else 0,
+        mp=STARTING_MAGIC_POINTS if job > HIGHEST_WARRIOR_JOB else 0,
     )
 
 

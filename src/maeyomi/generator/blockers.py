@@ -14,13 +14,12 @@ from maeyomi.generator.front_solver import (
     MAX_STAT_DISPLAY,
 )
 from maeyomi.models.card_request import CardRequest
-from maeyomi.models.character import DISPLAY_SCALE
+from maeyomi.models.character import DISPLAY_SCALE, HIGHEST_WARRIOR_JOB
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.constraint import Constraint
 
 HIGH_HP_DISPLAY = HIGH_HP * DISPLAY_SCALE
 MARKER_HP_REMAINDER = 900
-HIGHEST_WARRIOR_JOB = 6
 
 
 def blockers(request: CardRequest) -> tuple[str, ...]:

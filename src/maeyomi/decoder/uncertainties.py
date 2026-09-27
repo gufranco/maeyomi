@@ -30,66 +30,88 @@ UNCERTAINTIES: Final[Mapping[str, Uncertainty]] = MappingProxyType(
             question="Which digit of a front-read code carries speed?",
             decision="Digit index 9.",
             evidence=(
-                "pre_reading in src/BarcodeRead.as reads index 11, which is the units "
-                "digit of the two-digit special ability at indices 10 and 11, leaving "
-                "index 9 unread. The DX column of every card list on wikiwiki.jp "
-                "matches index 9 and never index 11. The simulator never displays "
-                "speed, so the value is weakly exercised there."
+                "Two sources give index 9 and two give index 11. For 9: the DX column "
+                "of every card list on wikiwiki.jp, and the note.com analysis by "
+                "sakigomyway, `DX=⑩`, whose author printed test codes and entered them "
+                "on a device. For 11: pre_reading in src/BarcodeRead.as, where index 11 "
+                "is also the units digit of the special ability, and "
+                "barcodebattler.net/page08.htm, `前読みは「⑫」`. Index 9 is kept because "
+                "it is the only reading any source claims to have checked on hardware."
             ),
-            revisit=(
-                "When the table image on barcodebattler.net/page08.htm is read, or on "
-                "a test against physical hardware that compares initiative."
-            ),
+            revisit="On a test against physical hardware that compares initiative.",
         ),
-        "race_one_overflow_target": Uncertainty(
+        "high_hp_bonus_sets": Uncertainty(
             question=(
-                "In the race 1 high-HP branch, does the overflow correction write to "
-                "DF from ST, or to DF from DF?"
+                "Above 20000 HP, which strength digits make a mechanical fighter's "
+                "defence, and its hidden battle strength, gain a bonus?"
             ),
             decision=(
-                "DF = DF - 255, diverging from the simulator; the generator still never "
-                "emits the branch."
+                "13, 29, 45, 61, 77 and 93 raise the displayed defence. 14, 30, 46, 62, "
+                "78 and 94 raise it too, and add 10000 to the strength a fight uses. An "
+                "animal mirrors the second set on its defence digits."
             ),
             evidence=(
-                "src/BarcodeRead.as reads `barcode_data.df = barcode_data.st - 255`. The "
-                "branch is only reached with DF digits 61, 77 or 93, where ST is at most "
-                "199, so the simulator's line always yields a negative DF, from -15500 to "
-                "-5600. A device stores DF unsigned and cannot display a negative value, "
-                "so the verbatim line is wrong whatever the hardware does. The race 0 "
-                "branch corrects the field it is correcting, and VITIMan/maeyomi-"
-                "engine copies the line with the comment `sounds strange, should be DF?`. "
-                "No transcribed card among 577 reaches the branch, so the corrected value "
-                "is the most plausible reading rather than a confirmed one."
+                "barcodebattler.net/page21.htm reports a device showing 4994699095453 as "
+                "14600 ST and 19900 DF while fighting with 24600 ST. The note.com "
+                "analysis by sakigomyway, tested on a device, gives both sets and a "
+                "table of battle values. src/BarcodeRead.as instead has one set, 13 plus "
+                "multiples of 16, adding 10000 to both displayed stats, which reads that "
+                "same card as 14600 ST and 9900 DF against what the device showed."
             ),
-            revisit=(
-                "On a test against physical hardware with a barcode whose DF "
-                "digits are 61, 77 or 93, race digit 1 and hit points of 20000 or more."
+            revisit="On a hardware test of a card from each set.",
+        ),
+        "battle_stat_wrap": Uncertainty(
+            question=("When a hidden battle stat passes one byte, is 256 or 255 subtracted?"),
+            decision="256, per the note.com table; the generator never emits the branch.",
+            evidence=(
+                "The note.com analysis tabulates 62 as a battle strength of 600, which "
+                "is 256 subtracted. barcodebattler.net/page21.htm says to subtract "
+                "25500 above 25600, which gives 700. Only digits 62, 78 and 94 reach it."
             ),
+            revisit="On a hardware test with strength digits 62, race 0 and HP above 20000.",
             blocks_generation=True,
         ),
-        "st_overflow_threshold": Uncertainty(
+        "animal_partner_set": Uncertainty(
             question=(
-                "When a mechanical fighter's ST overflows, is 255 subtracted, as the "
-                "simulator does, or 256, as a one-byte register wrapping would?"
+                "Above 20000 HP, do an animal's defence digits 13, 29, 45, 61, 77 or 93 "
+                "raise its strength?"
             ),
-            decision="255, as the simulator does; the generator never emits the branch.",
+            decision="No, per the note.com analysis; the generator never emits them.",
             evidence=(
-                "src/BarcodeRead.as tests `st > 256` and subtracts 255. The branch is "
-                "reachable: ST digits 61, 77 and 93 are in the dual bonus set, collect "
-                "two bonuses of 100, and reach 261, 277 and 293. No reachable value equals "
-                "256, so the threshold's exact form does not matter; only the subtrahend "
-                "does, and it moves the printed ST by 100. barcodebattler.net/page10.htm "
-                "shows the device comparing against a random byte from 0 to 255, which "
-                "fits a one-byte register and therefore 256, but does not settle it. The "
-                "handheld ran on an NEC uPD75 microcontroller whose firmware has never "
-                "been dumped, so no emulator can answer it. No transcribed card among 577 "
-                "reaches the branch."
+                "The note.com analysis lists the partner bonus for an animal only under "
+                "the second set. src/BarcodeRead.as raises both stats for the first set, "
+                "and page21 does not say."
             ),
-            revisit=(
-                "On a test against physical hardware with a barcode whose ST "
-                "digits are 61, 77 or 93, race digit 0 and hit points of 20000 or more."
-            ),
+            revisit="On a hardware test with defence digits 45, race 1 and HP above 20000.",
             blocks_generation=True,
+        ),
+        "low_leading_item_read_type": Uncertainty(
+            question=(
+                "A code starting with 0 or 1 whose eighth digit is 5 to 9: when is it "
+                "read from the front?"
+            ),
+            decision=(
+                "As the simulator decides, when HP, ST and DF digits are all in bounds; "
+                "the generator never emits a code the two rules classify differently."
+            ),
+            evidence=(
+                "prepost_check in src/BarcodeRead.as and barcodebattler.net/page02.htm "
+                "test all three stats. The note.com flowchart, tested on a device, "
+                "reads 9 as always front, 5 and 6 as front when ST is 19 or less, and 7 "
+                "and 8 as front when DF is 19 or less."
+            ),
+            revisit="On a hardware test of an HP item whose HP digits exceed 050.",
+            blocks_generation=True,
+        ),
+        "job_six_magic_points": Uncertainty(
+            question="Is job 6 a warrior or a magician when magic points are assigned?",
+            decision="A warrior, starting with no magic points.",
+            evidence=(
+                "barcodebattler.net/page01.htm and the note.com analysis both give jobs "
+                "0 to 6 as warriors. src/BarcodeRead.as tests `job > 6` in two places "
+                "and `job >= 6` in one, so the simulator disagrees with itself."
+            ),
+            revisit="On a hardware test that casts a spell with a job 6 fighter.",
         ),
         "upc_a_twelve_digits": Uncertainty(
             question="Does the hardware left-pad a 12-digit UPC-A code to 13 digits?",

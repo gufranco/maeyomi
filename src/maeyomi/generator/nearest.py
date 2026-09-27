@@ -150,12 +150,10 @@ def _score(
 ) -> tuple[int, int, int, int] | None:
     """Score one reachable card, or None when it passes through a quarantined branch."""
     race = request.race if request.race is not None else Race.HUMAN
-    st_units, df_units = adjusted_stats(
-        race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits
-    )
+    stats = adjusted_stats(race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits)
     if quarantines_digits(race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits):
         return None
-    distance = _distance(request, hp_units, st_units, df_units)
+    distance = _distance(request, hp_units, stats.st, stats.df)
     return distance, hp_units, st_digits, df_digits
 
 

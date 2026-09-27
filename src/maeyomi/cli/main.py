@@ -291,6 +291,7 @@ def cheat(
     card = strongest_card(name)
     character = card.character
     typer.echo(f"{card.name}: HP {character.hp}, ST {character.st}, DF {character.df}")
+    typer.echo(f"Fights with ST {character.fighting_st}, DF {character.fighting_df}")
     typer.echo(f"Ability {character.special.code:02d} {character.special.description}")
     _write((card,), output, images, _layout(print_shop=print_shop))
 

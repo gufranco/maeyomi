@@ -39,14 +39,18 @@ SOFTWARE.
 
 Attribute ranges, the read-type rule and the special ability table were taken
 from <https://barcodebattler.net/>, which mirrors
-<http://www.yuko2ch.net/barcode/>. Card attribute fixtures in
-`tests/fixtures/wiki_cards.json` were taken from the card lists on
-<https://wikiwiki.jp/barcode/>, with the source page and URL recorded on every
-entry.
+<http://www.yuko2ch.net/barcode/>. The high health bonus sets, the hidden battle
+values and the job 6 ruling follow <https://barcodebattler.net/page21.htm> and
+the analysis at <https://note.com/sakigomyway_5634/n/n61808a7245e5>, whose
+author tested printed codes on a device. Only facts are taken from either.
+
+Card attribute fixtures in `tests/fixtures/wiki_cards.json` were taken from the
+card lists on <https://wikiwiki.jp/barcode/>, with the source page and URL
+recorded on every entry.
 
 ## Not used
 
-`VITIMan/maeyomi-engine` is GPL-3 licensed. No code, structure or naming
+`VITIMan/barcode-battler-engine` is GPL-3 licensed. No code, structure or naming
 from that project appears here. It is named only because its published card
 values pointed at the wikiwiki.jp lists that this project fetches directly.
 

@@ -376,7 +376,8 @@ def test_cheat_writes_the_strongest_card_there_is(tmp_path: Path) -> None:
 
     assert result.exit_code == 0
     character = decode(decode_pdf(output)[0])
-    assert (character.hp, character.st, character.df) == (99900, 24500, 19900)
+    assert (character.hp, character.st, character.df) == (99900, 14600, 19900)
+    assert "Fights with ST 24600, DF 19900" in result.output
 
 
 def test_cheat_takes_a_name(tmp_path: Path) -> None:

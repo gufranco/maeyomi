@@ -2,7 +2,7 @@
 
 from maeyomi.decoder.decode import decode
 from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
-from maeyomi.generator.front_solver import MAX_HP_DISPLAY, MAX_STAT_DISPLAY
+from maeyomi.generator.front_solver import MAX_BATTLE_STAT, MAX_HP_DISPLAY, MAX_STAT_DISPLAY
 from maeyomi.generator.quarantine import takes_quarantined_branch
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.read_type import ReadType
@@ -18,13 +18,20 @@ def test_the_strongest_card_reaches_every_ceiling_it_can() -> None:
     character = strongest_card().character
 
     assert character.hp == MAX_HP_DISPLAY
-    assert max(character.st, character.df) == MAX_STAT_DISPLAY
+    assert character.df == MAX_STAT_DISPLAY
+    assert character.fighting_st == MAX_BATTLE_STAT
 
 
-def test_no_other_front_read_fighter_has_more_strength_and_defence_together() -> None:
+def test_no_other_front_read_fighter_fights_with_more_strength_and_defence_together() -> None:
     character = strongest_card().character
 
-    assert character.st + character.df == 44400
+    assert character.fighting_st + character.fighting_df == 44500
+
+
+def test_the_cheat_displays_less_strength_than_it_fights_with() -> None:
+    character = strongest_card().character
+
+    assert (character.st, character.battle_st) == (14600, 24600)
 
 
 def test_the_strongest_card_never_rests_on_an_unresolved_branch() -> None:

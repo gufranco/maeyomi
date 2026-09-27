@@ -25,39 +25,44 @@ from collections.abc import Iterator, Sequence
 from typing import Final
 
 from maeyomi.decoder.check_digit import expected_check_digit
-from maeyomi.decoder.front_read import DUAL_BONUS_VALUES, HIGH_HP_BONUS_UNITS
+from maeyomi.decoder.front_read import (
+    BATTLE_BONUS_VALUES,
+    HIGH_HP_BONUS_UNITS,
+    PARTNER_BONUS_VALUES,
+)
 from maeyomi.decoder.front_read import HIGH_HP_THRESHOLD_UNITS as HIGH_HP
 from maeyomi.decoder.read_type import (
     FALLBACK_MAX_DF_UNITS,
     FALLBACK_MAX_HP_UNITS,
     FALLBACK_MAX_ST_UNITS,
 )
+from maeyomi.generator.quarantine import quarantines_digits
 from maeyomi.models.card_request import CardRequest
-from maeyomi.models.character import DISPLAY_SCALE
+from maeyomi.models.character import DISPLAY_SCALE, HIGHEST_WARRIOR_JOB
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.race import Race
 
 MAX_HP_DISPLAY: Final = 99900
-PUBLISHED_MAX_STAT_DISPLAY: Final = 19900
-"""The strength and defence ceiling barcodebattler.net publishes."""
+MAX_STAT_DISPLAY: Final = 19900
+"""The displayed strength and defence ceiling, as barcodebattler.net publishes it.
 
-MAX_STAT_DISPLAY: Final = 24500
-"""The ceiling the arithmetic actually reaches, which is above the published one.
+A request constrains what the device displays. A fight can use more, up to
+`MAX_BATTLE_STAT`, but no display shows it and no request asks for it.
+"""
+MAX_BATTLE_STAT: Final = 24600
+"""The highest strength or defence a fight uses without wrapping one byte.
 
 A mechanical fighter above the high hit point threshold whose strength digits
-fall in the dual bonus set takes both the dual bonus and its own, so 45 becomes
-45 plus 100 plus 100, which is 245 internal units. An animal reaches the same
-figure on defence. Both are verified against the decoder in
-`tests/generator/test_solve.py`. The published 19900 is the ceiling without the
-dual bonus and is kept as the range random cards are drawn from.
+are 46 displays 14600 and fights with 24600, per barcodebattler.net/page21.htm.
+An animal reaches the same figure on defence. The decoder is asserted to reach
+exactly this and nothing above it outside the quarantined wrap.
 """
 MAX_DIGIT_PAIR: Final = 99
 MARKER_HP_UNITS_ENDING: Final = 9
 MARKER_SPEED_DIGIT: Final = 5
 MARKER_CARRIER_HP_UNITS: Final = 209
 PLAIN_CARRIER_HP_UNITS: Final = 0
-HIGHEST_WARRIOR_JOB: Final = 6
 SUPPORT_HP_SUB_TYPES: Final = range(5)
 SUPPORT_POWER_POINT_SUB_TYPE: Final = 7
 ALL_DIGITS: Final = tuple(range(10))
@@ -78,38 +83,46 @@ def stat_digit_options(
 ) -> list[tuple[int, int]]:
     """Return the digit pairs that decode to the requested strength and defence.
 
-    Empty when no pair reaches the values. The overflow branches recorded in
-    `uncertainties.py` are never proposed, so a value only those branches can
-    produce is reported as unreachable.
+    Empty when no pair reaches the values. The branches `uncertainties.py`
+    flags as blocking generation are never proposed, so a value only those
+    branches can produce is reported as unreachable.
     """
+    return [
+        (st_digits, df_digits)
+        for st_digits, df_digits in _raw_digit_options(race, hp_units, st_units, df_units)
+        if not quarantines_digits(race, hp_units=hp_units, st_digits=st_digits, df_digits=df_digits)
+    ]
+
+
+def _raw_digit_options(
+    race: Race, hp_units: int, st_units: int, df_units: int
+) -> list[tuple[int, int]]:
+    """The digit pairs that decode to the values, before any quarantine."""
     if hp_units < HIGH_HP or race not in _ADJUSTED_RACES:
         return _pair(st_units, df_units)
     if race is Race.AQUATIC:
         return _pair(st_units - HIGH_HP_BONUS_UNITS, df_units - HIGH_HP_BONUS_UNITS)
     if race is Race.MECHANICAL:
-        return _dual_options(bonused=st_units, plain=df_units, swap=False)
-    return _dual_options(bonused=df_units, plain=st_units, swap=True)
+        lead, partner = _lead_options(st_units, df_units, partner_set_applies=True)
+        return _pair(lead, partner)
+    lead, partner = _lead_options(df_units, st_units, partner_set_applies=False)
+    return _pair(partner, lead)
 
 
 _ADJUSTED_RACES: Final = (Race.MECHANICAL, Race.ANIMAL, Race.AQUATIC)
 
 
-def _dual_options(*, bonused: int, plain: int, swap: bool) -> list[tuple[int, int]]:
-    """Options for a race whose partner slice can add a second bonus to both stats."""
-    options: list[tuple[int, int]] = []
-    with_dual = bonused - 2 * HIGH_HP_BONUS_UNITS
-    partner_with_dual = plain - HIGH_HP_BONUS_UNITS
-    if _is_digit_pair(with_dual) and with_dual in DUAL_BONUS_VALUES:
-        options += _pair(*_order(with_dual, partner_with_dual, swap=swap))
-    without_dual = bonused - HIGH_HP_BONUS_UNITS
-    if _is_digit_pair(without_dual) and without_dual not in DUAL_BONUS_VALUES:
-        options += _pair(*_order(without_dual, plain, swap=swap))
-    return options
+def _lead_options(lead: int, partner: int, *, partner_set_applies: bool) -> tuple[int, int]:
+    """The lead and partner digits that display as the requested values.
 
-
-def _order(bonused: int, plain: int, *, swap: bool) -> tuple[int, int]:
-    """Put the two digit pairs back into strength then defence order."""
-    return (plain, bonused) if swap else (bonused, plain)
+    The lead digits are fixed by the lead value alone, and they in turn decide
+    whether the partner value carries a bonus that has to be taken back off.
+    """
+    lead_digits = lead - HIGH_HP_BONUS_UNITS
+    partner_gains = lead_digits in BATTLE_BONUS_VALUES or (
+        partner_set_applies and lead_digits in PARTNER_BONUS_VALUES
+    )
+    return lead_digits, partner - (HIGH_HP_BONUS_UNITS if partner_gains else 0)
 
 
 def _pair(st_digits: int, df_digits: int) -> list[tuple[int, int]]:

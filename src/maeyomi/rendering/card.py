@@ -40,8 +40,8 @@ from maeyomi.rendering.labels import (
     STAT_LABELS,
     SWIPE,
     Bilingual,
-    ability_text,
     class_label,
+    panel_text,
     race_label,
 )
 from maeyomi.rendering.text import fit_size, font_for, text_width_mm, wrap
@@ -389,7 +389,7 @@ def _draw_ability(
         available=available,
         bold=True,
     )
-    lines = _ability_lines(ability_text(special), available, height, style)
+    lines = _ability_lines(panel_text(card.character), available, height, style)
     canvas.setFillColorRGB(*INK)
     baseline = top - 2.6 - style.ability_line_mm
     for line, font in lines:

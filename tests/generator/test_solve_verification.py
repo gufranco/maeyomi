@@ -30,7 +30,7 @@ def test_a_candidate_that_cannot_be_decoded_is_rejected() -> None:
 def test_a_candidate_resting_on_an_unresolved_branch_is_rejected() -> None:
     request = CardRequest(hp=Constraint.exactly(20900))
 
-    assert verify(request, "2099300045000") is None
+    assert verify(request, "2096200045000") is None
 
 
 def test_a_stat_mismatch_names_the_field_and_both_values() -> None:

@@ -244,13 +244,13 @@ def test_a_long_japanese_name_breaks_between_characters(tmp_path: Path) -> None:
 
 def test_the_largest_numbers_the_device_holds_are_printed_whole(tmp_path: Path) -> None:
     path = tmp_path / "huge.pdf"
-    barcode = "9994599095183"
+    barcode = "9994699095182"
     card = GeneratedCard(name="Maximus", barcode=barcode, character=decode(barcode))
 
     render(path, card)
 
     text = pdf_text(path)
-    for value in ("99900", "24500", "19900"):
+    for value in ("99900", "14600", "19900", "Fights with ST 24600;", "たたかうと こうげき 24600"):
         assert value in text
 
 

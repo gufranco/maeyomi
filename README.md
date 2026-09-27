@@ -325,14 +325,18 @@ the barcode by this project's decoder, not copied from the wiki.
 
 `maeyomi cheat -o cheat.pdf`, or press the row of arrows at the foot of
 the web page, or type up, up, down, down, left, right, left, right, B, A
-anywhere on it. The card is a mechanical magician with 99900 health, 24500
-attack, 19900 defence and its attack doubled.
+anywhere on it. The card is a mechanical magician with 99900 health and its
+attack doubled. The device displays 14600 attack and 19900 defence, and fights
+with 24600 attack.
 
 Nothing about it is hardcoded. The generator walks every front-read fighter at
-full health through the decoder's own arithmetic and keeps the strongest one
-that avoids both unresolved overflow branches. The 24500 is above the 19900 that
-barcodebattler.net publishes, because a mechanical fighter whose attack digits
-fall in the dual bonus set collects two bonuses.
+full health through the decoder's own arithmetic and keeps the one that fights
+with the most attack and defence together, avoiding every unresolved branch.
+The hidden 24600 is the device's own: a mechanical fighter above 20000 health
+whose attack digits are 46 gains a bonus the display never shows. A device was
+seen doing exactly that with the code 4994699095453, per
+[barcodebattler.net](https://barcodebattler.net/page21.htm). The card prints the
+hidden value beside its special power.
 
 ## Two languages and pictures
 
@@ -424,10 +428,14 @@ card lists on [wikiwiki.jp](https://wikiwiki.jp/barcode/), with the source page
 and fetch date recorded on every entry. Full attribution and the licence
 boundary: [`NOTICE.md`](NOTICE.md).
 
-Three behaviours are unresolved and recorded in
-`src/maeyomi/decoder/uncertainties.py`. The decoder reproduces all three
-faithfully; the generator refuses to emit the two that would put an unverified
-value on a printed card.
+Where the sources disagree, the question is recorded in
+`src/maeyomi/decoder/uncertainties.py` with what each source says and what was
+chosen. The decoder follows the simulator except where sources that tested
+printed codes on a device say otherwise: the high health bonus follows
+[barcodebattler.net](https://barcodebattler.net/page21.htm) and a
+[note.com analysis](https://note.com/sakigomyway_5634/n/n61808a7245e5), and job 6
+is a warrior. Three of the recorded questions would put an unverified value on
+a printed card, and the generator refuses to emit any code that reaches them.
 
 ## Development
 
