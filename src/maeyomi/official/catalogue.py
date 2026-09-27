@@ -10,6 +10,11 @@ the game itself running in MAME before it was added. The Zelda, Shogaku
 Ninensei and Street Fighter II cards come from the card lists in
 barcodebattler.co.uk's deeta.js, a collector site that publishes them in
 English; one Zelda item, the red potion, is also a card of the board game list.
+The Dragon Slayer, Doraemon, Obocchama-kun and Meiji cards were read off the card
+scans barcodebattler.co.uk publishes, one barcode per card cell, and each is tied
+to its name by the numbers printed on the card's front. Only two of the Meiji
+cards, numbered 1 and 5, have been scanned. The Obocchama-kun cards say they work
+with the Barcode Battler, not the II, so they print with the first device.
 
 Two limits follow from the source and are kept visible rather than smoothed
 over:
@@ -81,6 +86,10 @@ class OfficialSet(Enum):
     ZELDA = "ゼルダの伝説 カードリスト"
     SECOND_GRADE = "小学二年生 特製カードリスト"
     STREET_FIGHTER = "ストリートファイターII カードリスト"
+    DRAGON_SLAYER = "ドラゴンスレイヤー英雄伝説 カードリスト"
+    DORAEMON_DINOSAUR = "ドラえもん のび太の恐竜 カードリスト"
+    OBOCCHAMAKUN = "おぼっちゃまくん ドラゴンバトラー カードリスト"
+    MEIJI_FREEZELAND = "明治 フリーズランドの戦士達 カードリスト"
     DATACH_DBZ = "データック ドラゴンボールZ 激闘天下一武道会 カードリスト"
 
     @property
@@ -101,6 +110,7 @@ _FIRST_DEVICE_SETS: Final = frozenset(
         OfficialSet.GOD_VERSUS_MOTHER,
         OfficialSet.CANDY,
         OfficialSet.GOD_MARS,
+        OfficialSet.OBOCCHAMAKUN,
     }
 )
 
@@ -134,6 +144,10 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.ZELDA: "The Legend of Zelda",
     OfficialSet.SECOND_GRADE: "Shogaku Ninensei special cards",
     OfficialSet.STREET_FIGHTER: "Street Fighter II",
+    OfficialSet.DRAGON_SLAYER: "Dragon Slayer: The Legend of Heroes",
+    OfficialSet.DORAEMON_DINOSAUR: "Doraemon: Nobita's Dinosaur",
+    OfficialSet.OBOCCHAMAKUN: "Obocchama-kun Dragon Battler",
+    OfficialSet.MEIJI_FREEZELAND: "Meiji: The Warriors of Freezeland",
     OfficialSet.DATACH_DBZ: "Datach Dragon Ball Z: Gekitou Tenkaichi Budoukai",
 }
 

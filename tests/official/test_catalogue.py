@@ -22,10 +22,12 @@ from maeyomi.official.catalogue import (
 
 DBZ_CARDS = 36
 ADDED_CARDS = 346
-TRANSCRIBED = 577 + DBZ_CARDS + ADDED_CARDS
+SCANNED_CARDS = 71
+TRANSCRIBED = 577 + DBZ_CARDS + ADDED_CARDS + SCANNED_CARDS
 SHARED_BETWEEN_SETS = {"0000500970445"}
 WIKI = "https://wikiwiki.jp/barcode/"
 UK_LIST = "https://www.barcodebattler.co.uk/deeta.js"
+UK_SCANS = "https://www.barcodebattler.co.uk/scans/Japan/"
 KNOWN_BAD_CHECK_DIGITS = {
     "1162864348006",
     "1273634357000",
@@ -54,6 +56,10 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.ZELDA: UK_LIST,
         OfficialSet.SECOND_GRADE: UK_LIST,
         OfficialSet.STREET_FIGHTER: UK_LIST,
+        OfficialSet.DRAGON_SLAYER: UK_SCANS,
+        OfficialSet.DORAEMON_DINOSAUR: UK_SCANS,
+        OfficialSet.OBOCCHAMAKUN: UK_SCANS,
+        OfficialSet.MEIJI_FREEZELAND: UK_SCANS,
     }
     for card in official_catalogue():
         assert card.source_url.startswith(sources.get(card.official_set, WIKI))
@@ -112,6 +118,7 @@ def test_exactly_the_five_first_device_lists_use_that_device() -> None:
         OfficialSet.GOD_VERSUS_MOTHER,
         OfficialSet.CANDY,
         OfficialSet.GOD_MARS,
+        OfficialSet.OBOCCHAMAKUN,
     }
 
 
@@ -167,6 +174,10 @@ def test_a_device_owns_exactly_the_sets_written_for_it() -> None:
         (OfficialSet.ZELDA, Device.BB2, 30),
         (OfficialSet.SECOND_GRADE, Device.BB2, 24),
         (OfficialSet.STREET_FIGHTER, Device.BB2, 100),
+        (OfficialSet.DRAGON_SLAYER, Device.BB2, 30),
+        (OfficialSet.DORAEMON_DINOSAUR, Device.BB2, 33),
+        (OfficialSet.OBOCCHAMAKUN, Device.BB1, 6),
+        (OfficialSet.MEIJI_FREEZELAND, Device.BB2, 2),
     ],
 )
 def test_every_added_set_is_read_by_its_device(

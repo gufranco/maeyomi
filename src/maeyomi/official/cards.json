@@ -5755,6 +5755,432 @@
    "name": "Oil Drum (3)",
    "set": "ストリートファイターII カードリスト",
    "source_url": "https://www.barcodebattler.co.uk/deeta.js"
+  },
+  {
+   "barcode": "0401209245504",
+   "name": "セリオス",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0381110246503",
+   "name": "ゲイル",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0391012275501",
+   "name": "リュナン",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0350909477503",
+   "name": "ソニア",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0000400640042",
+   "name": "オプナの指輪",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0000000903141",
+   "name": "光の剣",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0000000906258",
+   "name": "聖なる杖",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0000005840120",
+   "name": "チュトの指輪",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0000010840320",
+   "name": "幸運&不幸のタロット",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0130000903053",
+   "name": "いやしのローブ",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0000500970384",
+   "name": "レスの葉",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0000005980154",
+   "name": "ビスの実",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0501314355706",
+   "name": "ハサミムシ",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0421211003756",
+   "name": "キャリオンクローラー",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0680111374254",
+   "name": "眼力魔",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0621517145802",
+   "name": "エラビ",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0721920275766",
+   "name": "ボイルガード",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0701720454653",
+   "name": "デスクラブ",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0852121445655",
+   "name": "カミナリグイ",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0742010016700",
+   "name": "ツノコブラ",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "1352418245719",
+   "name": "ジャイアントエイプ",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0992222475813",
+   "name": "ギュリゲス",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "1053234056663",
+   "name": "ガリュバス",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "1172729215771",
+   "name": "サラマンダー",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0772228077125",
+   "name": "シルフィ",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0994444275820",
+   "name": "アクダム",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "1705050159775",
+   "name": "ガーバイン",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "1814050044667",
+   "name": "鉄巨人",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "2596167495837",
+   "name": "アグニージャ",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "1995253171722",
+   "name": "バジール",
+   "set": "ドラゴンスレイヤー英雄伝説 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "0503150268516",
+   "name": "ドラえもん",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0303351268007",
+   "name": "のび太",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0455142013409",
+   "name": "ジャイアン",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0253037269005",
+   "name": "スネ夫",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0302245169413",
+   "name": "しずかちゃん",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0984243027492",
+   "name": "のび太のおかあさん",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "3198283325006",
+   "name": "恐竜ハンター",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "2096873455007",
+   "name": "アーケロン",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "5092094055009",
+   "name": "ティラノサウルス",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "1255239357008",
+   "name": "トリコノドン",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "1506360257003",
+   "name": "オーニソミマス",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "1002427157007",
+   "name": "ブロントサウルス",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "2596370355003",
+   "name": "プテラノドン",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "3498680335579",
+   "name": "謎の宇宙船",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "4599685325004",
+   "name": "大富豪ドルマンスタン",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0602937297005",
+   "name": "タイムふろしき",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0893844277239",
+   "name": "スモールライト",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "3097389495135",
+   "name": "タイムマシン",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "1293757177005",
+   "name": "深海クリーム",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "1896170077008",
+   "name": "タケコプター",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "1105661277057",
+   "name": "桃太郎印のきびだんご",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "1766066177009",
+   "name": "ラジコンねん土",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "2396566495021",
+   "name": "ひらりマント",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0873549368005",
+   "name": "ペア",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0964941368004",
+   "name": "ペア",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0001200660018",
+   "name": "チェンジ",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0001600660137",
+   "name": "チェンジ",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0000011860259",
+   "name": "エクスチェンジ",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0000010860281",
+   "name": "エクスチェンジ",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0744239409226",
+   "name": "コピー",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0803768479220",
+   "name": "コピー",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "5291420215159",
+   "name": "パーフェクト",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "5491811215151",
+   "name": "パーフェクト",
+   "set": "ドラえもん のび太の恐竜 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Doraemon/"
+  },
+  {
+   "barcode": "0000008852052",
+   "name": "茶魔コップ",
+   "set": "おぼっちゃまくん ドラゴンバトラー カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DB/"
+  },
+  {
+   "barcode": "0541916275002",
+   "name": "袋小路金満",
+   "set": "おぼっちゃまくん ドラゴンバトラー カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DB/"
+  },
+  {
+   "barcode": "0582113265007",
+   "name": "怒玉勝悪",
+   "set": "おぼっちゃまくん ドラゴンバトラー カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DB/"
+  },
+  {
+   "barcode": "0783738261157",
+   "name": "影茶魔",
+   "set": "おぼっちゃまくん ドラゴンバトラー カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DB/"
+  },
+  {
+   "barcode": "0281316250062",
+   "name": "用事伝達",
+   "set": "おぼっちゃまくん ドラゴンバトラー カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DB/"
+  },
+  {
+   "barcode": "0632415278066",
+   "name": "ドクター・モオ",
+   "set": "おぼっちゃまくん ドラゴンバトラー カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DB/"
+  },
+  {
+   "barcode": "1995760405174",
+   "name": "バニラ・ナイト",
+   "set": "明治 フリーズランドの戦士達 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Meji/"
+  },
+  {
+   "barcode": "1705128022406",
+   "name": "クール・シャーベッツ",
+   "set": "明治 フリーズランドの戦士達 カードリスト",
+   "source_url": "https://www.barcodebattler.co.uk/scans/Japan/Meji/"
   }
  ]
 }

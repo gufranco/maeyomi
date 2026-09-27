@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**954** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**1025** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -135,7 +135,7 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other two tabs print a sheet of random cards and the 954 cards Epoch and
+The other two tabs print a sheet of random cards and the 1025 cards Epoch and
 Bandai actually released. The page is in English and Japanese, and switches with the
 buttons at the top.
 
@@ -364,9 +364,9 @@ convenience: the lookup failing changes nothing about the card.
 
 ## The real cards
 
-`maeyomi official --list` names the 23 card lists Epoch and Bandai released,
+`maeyomi official --list` names the 27 card lists Epoch and Bandai released,
 how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
-candy.pdf` prints one, and leaving out `--set` prints all 954. The web page has
+candy.pdf` prints one, and leaving out `--set` prints all 1025. The web page has
 the same thing under **The real cards**.
 
 Epoch never published a machine-readable list, so the barcodes come from the
@@ -377,9 +377,10 @@ a digit; the wrong one cannot be identified, so they are listed and left out
 rather than repaired by guessing. The numbers printed on each card are read from
 the barcode by this project's decoder, not copied from the wiki.
 
-Five lists were written for the first Barcode Battler: the original set, The
+Six lists were written for the first Barcode Battler: the original set, The
 Demon Army God Mars Appears, Chuhai Khan Strikes Back, The Final Battle: God
-versus Mother, and the candy cards. Four describe the flags with the first
+versus Mother, the candy cards, and CoroCoro Comic's Obocchama-kun cards, which
+say they work with the Barcode Battler rather than the II. Four describe the flags with the first
 device's table; the God Mars list prints no numbers, and it has no magician and
 no herb or magic item, which only the II reads. The 正伝3 and 正伝4 lists need
 the Barcode Battler II Double's 7-read, which half of 正伝4's cards use. The
@@ -389,6 +390,14 @@ The Zelda, Shogaku Ninensei magazine and Street Fighter II cards come from the
 card lists in [barcodebattler.co.uk](https://www.barcodebattler.co.uk/)'s
 `deeta.js`, which publishes them in English, so those cards carry English
 names. One Zelda item, the red potion, is also a card of the II board game.
+
+The Dragon Slayer, Doraemon: Nobita's Dinosaur, Obocchama-kun and Meiji cards
+had no transcription anywhere, so their barcodes were read off the card scans
+[barcodebattler.co.uk publishes](https://www.barcodebattler.co.uk/scans/Japan/),
+one card at a time, and each was tied to its name by the numbers printed on
+its front. Only the Meiji cards numbered 1 and 5 have been scanned. The Super
+Mario World cards are known only from their fronts, which carry no barcode, so
+they cannot be printed yet.
 
 Datach Dragon Ball Z came with 40 cards. Its
 [manual](https://setsumei.cloudfree.jp/famicom/datachdragonballz/datachdragonballz.html)
