@@ -13,12 +13,13 @@ from dataclasses import dataclass
 from functools import partial
 
 from maeyomi.bb1.card import FirstBattlerCard
-from maeyomi.generator.carried import Carried
+from maeyomi.double.card import DoubleCard
+from maeyomi.generator.carried import Carried, carried
 from maeyomi.models.character import BarcodeBattlerCharacter
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.generated_card import CardResult
 from maeyomi.models.race import Race
-from maeyomi.rendering.ability_icons import AbilityIcon, ability_icon, flag_icon
+from maeyomi.rendering.ability_icons import AbilityIcon, ability_icon, double_icon, flag_icon
 from maeyomi.rendering.icons import (
     RACE_COLOURS,
     UNKNOWN_KIND_COLOUR,
@@ -28,9 +29,11 @@ from maeyomi.rendering.icons import (
 )
 from maeyomi.rendering.labels import (
     ITEM_CARD,
+    UNKNOWN_FIGHTER,
     UNKNOWN_KIND,
     Bilingual,
     class_label,
+    double_class_label,
     panel_text,
     race_label,
 )
@@ -57,6 +60,8 @@ def face_of(result: CardResult) -> CardFace:
     """The face of a card, whichever device reads it."""
     if isinstance(result, FirstBattlerCard):
         return _first_battler_face(result)
+    if isinstance(result, DoubleCard):
+        return _double_face(result)
     return _second_battler_face(result)
 
 
@@ -89,6 +94,28 @@ def _first_battler_face(card: FirstBattlerCard) -> CardFace:
         power_code=flag.code,
         power_text=Bilingual(flag.description, flag.japanese),
         power_icon=flag_icon(flag),
+    )
+
+
+def _double_face(card: DoubleCard) -> CardFace:
+    """The face of a Double card, with the Double's classes and power table."""
+    special = card.special
+    fields = (
+        (Carried.HP, Carried.ST, Carried.DF) if card.race is None else carried(card.race, card.job)
+    )
+    return CardFace(
+        band_colour=UNKNOWN_KIND_COLOUR if card.race is None else RACE_COLOURS[card.race],
+        band_icon=draw_unknown_kind
+        if card.race is None
+        else partial(draw_race_icon, race=card.race),
+        kind=UNKNOWN_FIGHTER if card.race is None else race_label(card.race),
+        detail=ITEM_CARD
+        if card.race is not None and not card.race.is_fighter
+        else double_class_label(card.job),
+        tiles=tiles_for(fields, card),
+        power_code=special.code,
+        power_text=Bilingual(special.description, special.japanese),
+        power_icon=double_icon(special),
     )
 
 

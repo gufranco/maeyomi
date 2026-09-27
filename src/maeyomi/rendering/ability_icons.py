@@ -18,6 +18,7 @@ from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
 from maeyomi.bb1.flags import Flag
+from maeyomi.double.abilities import DoubleAbility
 from maeyomi.models.special_ability import UNDOCUMENTED, SpecialAbility
 from maeyomi.rendering.icons import (
     INK,
@@ -125,6 +126,30 @@ _FLAG_ICONS: Final[dict[int, AbilityIcon]] = {
     **_span(26, 38, AbilityIcon(Glyph.KEY)),
     39: AbilityIcon(Glyph.SHIELD, Badge.DOWN),
 }
+
+
+_DOUBLE_ICONS: Final[dict[int, AbilityIcon]] = {
+    0: AbilityIcon(Glyph.NONE),
+    **_span(18, 18, AbilityIcon(Glyph.CROWN)),
+    **{code: _ICONS[code] for code in range(23, 33)},
+    **_span(35, 35, AbilityIcon(Glyph.TARGET, Badge.DOWN)),
+    **_span(37, 38, AbilityIcon(Glyph.TARGET, Badge.UP)),
+    **_span(40, 40, AbilityIcon(Glyph.TARGET, Badge.DOWN)),
+    **_span(41, 41, AbilityIcon(Glyph.TARGET, Badge.DOWN)),
+    **_span(44, 44, AbilityIcon(Glyph.SWORD, Badge.UP)),
+    **_span(45, 45, AbilityIcon(Glyph.SHIELD, Badge.UP)),
+    **_span(50, 50, AbilityIcon(Glyph.CROWN)),
+    **_span(51, 52, AbilityIcon(Glyph.TARGET, Badge.DOWN)),
+    **_span(56, 56, AbilityIcon(Glyph.CANCEL)),
+    **_span(57, 57, AbilityIcon(Glyph.UNKNOWN)),
+    **_span(78, 78, AbilityIcon(Glyph.TARGET, Badge.DOWN)),
+    **_span(80, 99, AbilityIcon(Glyph.KEY)),
+}
+
+
+def double_icon(ability: DoubleAbility) -> AbilityIcon:
+    """The icon for a Double power, and a question mark for one the source does not list."""
+    return _DOUBLE_ICONS.get(ability.code, AbilityIcon(Glyph.UNKNOWN))
 
 
 def flag_icon(flag: Flag) -> AbilityIcon:

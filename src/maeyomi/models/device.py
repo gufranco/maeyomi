@@ -9,6 +9,7 @@ class Device(StrEnum):
 
     BB2 = "bb2"
     BB1 = "bb1"
+    DOUBLE = "double"
 
     @property
     def english(self) -> str:
@@ -24,4 +25,5 @@ class Device(StrEnum):
 _NAMES: Final[dict[Device, tuple[str, str]]] = {
     Device.BB2: ("Barcode Battler II", "バーコードバトラーII"),
     Device.BB1: ("Barcode Battler", "バーコードバトラー"),
+    Device.DOUBLE: ("Barcode Battler II Double", "バーコードバトラーII²"),
 }

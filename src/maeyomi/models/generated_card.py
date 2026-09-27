@@ -8,13 +8,16 @@ devices expects; the renderer takes any `CardResult`.
 from dataclasses import dataclass
 
 from maeyomi.bb1.card import FirstBattlerCard
+from maeyomi.double.card import DoubleCard
 from maeyomi.models.character import BarcodeBattlerCharacter
 
-type CardResult = BarcodeBattlerCharacter | FirstBattlerCard
+type CardResult = BarcodeBattlerCharacter | FirstBattlerCard | DoubleCard
 
 
 @dataclass(frozen=True, slots=True)
-class GeneratedCard[T: (BarcodeBattlerCharacter, FirstBattlerCard) = BarcodeBattlerCharacter]:
+class GeneratedCard[
+    T: (BarcodeBattlerCharacter, FirstBattlerCard, DoubleCard) = BarcodeBattlerCharacter
+]:
     """A card ready to render, whose barcode has already been decoded back."""
 
     name: str
@@ -22,4 +25,8 @@ class GeneratedCard[T: (BarcodeBattlerCharacter, FirstBattlerCard) = BarcodeBatt
     character: T
 
 
-type AnyCard = GeneratedCard[BarcodeBattlerCharacter] | GeneratedCard[FirstBattlerCard]
+type AnyCard = (
+    GeneratedCard[BarcodeBattlerCharacter]
+    | GeneratedCard[FirstBattlerCard]
+    | GeneratedCard[DoubleCard]
+)

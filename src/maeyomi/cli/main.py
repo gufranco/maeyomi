@@ -16,6 +16,7 @@ import typer
 
 from maeyomi.cli.common import build_request, sheet_layout, write_cards
 from maeyomi.cli.doctor import State, machine, package, worst
+from maeyomi.cli.double_device import cheat_double, generate_double, show_double
 from maeyomi.cli.first_device import cheat_first, generate_first, show_first
 from maeyomi.cli.report import DISCLAIMER, comparison_lines, fit_line, shortfall_lines
 from maeyomi.decoder.decode import decode as decode_barcode
@@ -94,7 +95,11 @@ NearestOption = Annotated[
 DeviceOption = Annotated[
     Device,
     typer.Option(
-        "--device", help="bb2 for the Barcode Battler II, bb1 for the first Barcode Battler."
+        "--device",
+        help=(
+            "bb2 for the Barcode Battler II, bb1 for the first Barcode Battler, "
+            "double for the Barcode Battler II Double."
+        ),
     ),
 ]
 BackReadOption = Annotated[
@@ -176,10 +181,9 @@ def generate(
         speed=speed,
         ability=ability,
     )
-    if device is Device.BB1:
-        generate_first(
-            request, back_read=back_read, output=output, images=images, print_shop=print_shop
-        )
+    if device is not Device.BB2:
+        build = generate_first if device is Device.BB1 else generate_double
+        build(request, back_read=back_read, output=output, images=images, print_shop=print_shop)
         return
     reading = ReadType.BACK if back_read else ReadType.FRONT
     outcome = solve(request, read_type=reading)
@@ -245,8 +249,9 @@ def decode(
     Any product barcode is a card, which is how the device was played: read
     what is printed on the shopping and print the card it makes.
     """
-    if device is Device.BB1:
-        show_first(barcode, output=output, name=name, images=images, print_shop=print_shop)
+    if device is not Device.BB2:
+        show = show_first if device is Device.BB1 else show_double
+        show(barcode, output=output, name=name, images=images, print_shop=print_shop)
         return
     try:
         character = decode_barcode(barcode)
@@ -329,8 +334,9 @@ def cheat(
     print_shop: PrintShopOption = False,
 ) -> None:
     """Print the strongest card the device will read. Nobody has to know."""
-    if device is Device.BB1:
-        cheat_first(name, items=items, output=output, images=images, print_shop=print_shop)
+    if device is not Device.BB2:
+        cheat = cheat_first if device is Device.BB1 else cheat_double
+        cheat(name, items=items, output=output, images=images, print_shop=print_shop)
         return
     card = strongest_card(name)
     character = card.character

@@ -4,17 +4,20 @@ from maeyomi.bb1.cheat import strongest_first_card
 from maeyomi.cli.report import (
     DISCLAIMER,
     DISCLAIMER_JA,
+    DOUBLE_DISCLAIMER,
     FIRST_DEVICE_DISCLAIMER,
     comparison_lines,
     disclaimers,
     shortfall_lines,
 )
 from maeyomi.decoder.decode import decode
+from maeyomi.double.cheat import strongest_double_card
 from maeyomi.generator.cheat import strongest_card
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.race import Race
+from maeyomi.official.catalogue import official_cards
 
 CHARACTER = decode("0401207237501")
 
@@ -105,3 +108,18 @@ def test_a_first_device_sheet_never_claims_a_physical_read() -> None:
 
 def test_a_second_device_sheet_keeps_its_hardware_line() -> None:
     assert disclaimers((strongest_card(),)) == [DISCLAIMER]
+
+
+def test_a_double_sheet_never_claims_a_physical_read() -> None:
+    lines = disclaimers((strongest_double_card(),))
+
+    assert lines == [DOUBLE_DISCLAIMER]
+    assert "never read on a physical Double" in lines[0]
+
+
+def test_the_official_sheet_names_every_device_once_in_order() -> None:
+    assert disclaimers(official_cards()) == [
+        DISCLAIMER,
+        FIRST_DEVICE_DISCLAIMER,
+        DOUBLE_DISCLAIMER,
+    ]

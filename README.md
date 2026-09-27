@@ -44,6 +44,16 @@ make cards for it. Its decoder reproduces 113 published cards from the four
 lists written for it, and no card for it has been read on a physical first
 Barcode Battler yet, which every sheet for it says.
 
+The Barcode Battler II Double, the II² of 1993, has no reader and takes codes
+from a II. It reads them the II's way, except a code that starts with 7 and has
+8 as its tenth digit, which it reads its own way: attack and defence reach
+99900, and the special power is two of the health's digits.
+`--device double` makes cards for it, using "BBIIダブルC0" on
+[barcodebattler.net](https://barcodebattler.net/bb2c0.html) as its source. That
+reading explains the eleven cards of the 正伝3 list that no II reading could.
+The Double also names two classes the II does not, the priest for job 4 and the
+holy warrior for job 6, and has its own table of special powers.
+
 ## Install
 
 ```bash
@@ -347,7 +357,8 @@ the barcode by this project's decoder, not copied from the wiki.
 Four lists were written for the first Barcode Battler: the original set,
 Chuhai Khan Strikes Back, The Final Battle: God versus Mother, and the candy
 cards. Their pages describe the flags with the first device's table, so they
-print with it; the other ten print with the II's.
+print with it. The 正伝3 破壊神伝 list came with the Barcode Battler II Double
+and prints with its reading, and the other nine print with the II's.
 
 ## The cheat code
 
@@ -385,6 +396,14 @@ Barcode Battler: a warrior with every number at its ceiling, 19900 health, 9900
 attack and 9900 defence, and its attack doubled, plus a weapon, armour and a
 potion at their ceilings. The warrior is job 9, which that device lets equip
 every weapon and gives weapons of types 0 to 4 half as much attack again.
+
+`maeyomi cheat --device double --items -o cheat.pdf` is the strongest of the
+three: a Double card with 99900 attack and 99900 defence, the ceiling that
+source states, and the power that halves the opponent's health. That power is
+two of the health's digits, so it leaves 92900 health. The items are the II's,
+each carrying a power from the Double's own table. No equipment table for the
+Double has been published, so the command does not say which job can use
+which item.
 
 ## Two languages and pictures
 

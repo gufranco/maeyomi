@@ -49,6 +49,12 @@ _CLASSES: Final[dict[CharacterClass, Bilingual]] = {
 
 ITEM_CARD: Final = Bilingual("Item card", "アイテム カード")
 UNKNOWN_KIND: Final = Bilingual("Enemy, kind unknown", "てき・しゅるい ふめい")
+UNKNOWN_FIGHTER: Final = Bilingual("Fighter, kind unknown", "キャラクター・しゅるい ふめい")
+PRIEST: Final = Bilingual("Priest", "そうりょ")
+HOLY_WARRIOR: Final = Bilingual("Holy warrior", "せいせんし")
+DOUBLE_PRIEST_JOB: Final = 4
+DOUBLE_HOLY_WARRIOR_JOB: Final = 6
+DOUBLE_LOWEST_MAGICIAN_JOB: Final = 7
 
 STAT_LABELS: Final[dict[str, Bilingual]] = {
     "HP": Bilingual("HP", "たいりょく"),
@@ -105,6 +111,17 @@ def class_label(character_class: CharacterClass | None) -> Bilingual:
     if character_class is None:
         return ITEM_CARD
     return _CLASSES[character_class]
+
+
+def double_class_label(job: int) -> Bilingual:
+    """How a Double fighter fights: the Double adds a priest and a holy warrior."""
+    if job == DOUBLE_PRIEST_JOB:
+        return PRIEST
+    if job == DOUBLE_HOLY_WARRIOR_JOB:
+        return HOLY_WARRIOR
+    if job >= DOUBLE_LOWEST_MAGICIAN_JOB:
+        return _CLASSES[CharacterClass.MAGICIAN]
+    return _CLASSES[CharacterClass.WARRIOR]
 
 
 def ability_text(special: SpecialAbility) -> Bilingual:

@@ -5,11 +5,11 @@ list on wikiwiki.jp. `simulator_corpus.json` carries barcodes only, taken from
 the MIT simulator's own card XML, and exercises decoding without asserting
 values.
 
-One page is excluded by name. The `正伝3 破壊神伝` list documents cards whose
-printed values do not reproduce under any reading this decoder implements, and
-whose HP exceeds the published front-read arrangement for their leading digit.
-Excluding it is recorded here rather than silently filtered, and the test below
-asserts that the exclusion is still needed rather than assuming it.
+One page is excluded by name. The `正伝3 破壊神伝` list was bundled with the
+Barcode Battler II Double, and eleven of its cards use the Double's 7-read, which
+the II does not have. `tests/double/test_decode.py` holds every card on it to its
+published values. The test below asserts that the II still cannot read the list,
+so the exclusion stays earned rather than assumed.
 """
 
 import json
@@ -25,7 +25,7 @@ from maeyomi.models.race import Race
 from maeyomi.models.read_type import ReadType
 
 FIXTURES = pathlib.Path(__file__).parent.parent / "fixtures"
-UNSUPPORTED_PAGE = "正伝3 破壊神伝 カードリスト"
+DOUBLE_PAGE = "正伝3 破壊神伝 カードリスト"
 
 KNOWN_BAD_CHECK_DIGITS = frozenset(
     {
@@ -50,7 +50,7 @@ def supported_cards() -> list[dict[str, Any]]:
     return [
         card
         for card in wiki_cards()
-        if card["source_page"] != UNSUPPORTED_PAGE and card["barcode"] not in KNOWN_BAD_CHECK_DIGITS
+        if card["source_page"] != DOUBLE_PAGE and card["barcode"] not in KNOWN_BAD_CHECK_DIGITS
     ]
 
 
@@ -99,7 +99,7 @@ def test_speed_matches_the_published_dx_column_for_every_fighter() -> None:
 
 
 def test_the_excluded_page_still_fails_so_the_exclusion_is_still_earned() -> None:
-    excluded = [card for card in wiki_cards() if card["source_page"] == UNSUPPORTED_PAGE]
+    excluded = [card for card in wiki_cards() if card["source_page"] == DOUBLE_PAGE]
 
     agreeing = [card for card in excluded if _matches(card)]
 

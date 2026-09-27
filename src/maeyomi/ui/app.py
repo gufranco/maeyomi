@@ -27,6 +27,8 @@ from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_r
 from maeyomi.cli.report import (
     DISCLAIMER,
     DISCLAIMER_JA,
+    DOUBLE_DISCLAIMER,
+    DOUBLE_DISCLAIMER_JA,
     FIRST_DEVICE_DISCLAIMER,
     FIRST_DEVICE_DISCLAIMER_JA,
 )
@@ -100,6 +102,8 @@ def index() -> HTMLResponse:
         .replace("__DISCLAIMER_JA__", DISCLAIMER_JA)
         .replace("__FIRST_DISCLAIMER__", FIRST_DEVICE_DISCLAIMER)
         .replace("__FIRST_DISCLAIMER_JA__", FIRST_DEVICE_DISCLAIMER_JA)
+        .replace("__DOUBLE_DISCLAIMER__", DOUBLE_DISCLAIMER)
+        .replace("__DOUBLE_DISCLAIMER_JA__", DOUBLE_DISCLAIMER_JA)
     )
 
 

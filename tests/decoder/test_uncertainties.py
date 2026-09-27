@@ -32,6 +32,7 @@ def test_the_generator_blocking_entries_are_flagged() -> None:
         "animal_partner_set",
         "low_leading_item_read_type",
         "bb1_back_read_flag",
+        "double_seven_read_race_and_speed",
     }
 
 

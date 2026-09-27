@@ -20,8 +20,9 @@ Each card is decoded by this project's own decoder before it is offered for
 printing, so the numbers on the printed face come from the barcode rather than
 from the transcription. Each list is read by the device its ability wording
 belongs to: four lists use the first Barcode Battler's flag table, where 05
-doubles the attack and 18 is the hero, and the rest use the Barcode Battler
-II's.
+doubles the attack and 18 is the hero; 正伝3 破壊神伝 was bundled with the
+Barcode Battler II Double and needs its 7-read; the rest use the Barcode
+Battler II's.
 """
 
 import json
@@ -34,6 +35,7 @@ from typing import Final
 from maeyomi.bb1.decode import decode_first
 from maeyomi.decoder.decode import decode
 from maeyomi.decoder.errors import BarcodeError
+from maeyomi.double.decode import decode_double
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import AnyCard, GeneratedCard
 
@@ -65,7 +67,9 @@ class OfficialSet(Enum):
     @property
     def device(self) -> Device:
         """The device whose ability table this list's wording follows."""
-        return Device.BB1 if self in _FIRST_DEVICE_SETS else Device.BB2
+        if self in _FIRST_DEVICE_SETS:
+            return Device.BB1
+        return Device.DOUBLE if self is OfficialSet.MAIN_STORY_THREE else Device.BB2
 
     @property
     def english(self) -> str:
@@ -137,9 +141,14 @@ def official_cards(official_set: OfficialSet | None = None) -> tuple[AnyCard, ..
 
 def _card(entry: OfficialCard) -> AnyCard:
     """Decode one card with its own device's reading."""
-    if entry.official_set.device is Device.BB1:
+    device = entry.official_set.device
+    if device is Device.BB1:
         return GeneratedCard(
             name=entry.name, barcode=entry.barcode, character=decode_first(entry.barcode)
+        )
+    if device is Device.DOUBLE:
+        return GeneratedCard(
+            name=entry.name, barcode=entry.barcode, character=decode_double(entry.barcode)
         )
     return GeneratedCard(name=entry.name, barcode=entry.barcode, character=decode(entry.barcode))
 

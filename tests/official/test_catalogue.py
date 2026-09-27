@@ -5,6 +5,7 @@ import pytest
 from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.bb1.decode import decode_first
 from maeyomi.decoder.decode import decode
+from maeyomi.double.decode import decode_double
 from maeyomi.models.device import Device
 from maeyomi.official.catalogue import (
     OfficialSet,
@@ -55,9 +56,9 @@ def test_a_transcription_with_a_wrong_check_digit_is_rejected_rather_than_repair
 
 def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
     for official_set in OfficialSet:
-        reader = decode_first if official_set.device is Device.BB1 else decode
+        readers = {Device.BB1: decode_first, Device.DOUBLE: decode_double, Device.BB2: decode}
         for card in official_cards(official_set):
-            assert reader(card.barcode) == card.character
+            assert readers[official_set.device](card.barcode) == card.character
 
 
 def test_a_first_device_card_prints_the_first_device_flag() -> None:
@@ -67,6 +68,10 @@ def test_a_first_device_card_prints_the_first_device_flag() -> None:
 
     assert isinstance(hero, FirstBattlerCard)
     assert hero.flag.description == "Hero"
+
+
+def test_main_story_three_is_read_by_the_double_it_came_with() -> None:
+    assert OfficialSet.MAIN_STORY_THREE.device is Device.DOUBLE
 
 
 def test_exactly_the_four_lists_with_first_device_wording_use_that_device() -> None:

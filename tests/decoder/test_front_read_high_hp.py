@@ -128,4 +128,5 @@ def test_the_unresolved_branches_are_recorded_as_blocking_generation() -> None:
         "animal_partner_set",
         "low_leading_item_read_type",
         "bb1_back_read_flag",
+        "double_seven_read_race_and_speed",
     }

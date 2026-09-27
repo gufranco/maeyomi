@@ -131,6 +131,19 @@ UNCERTAINTIES: Final[Mapping[str, Uncertainty]] = MappingProxyType(
             revisit="On a hardware test of an enemy code whose check digit is 5.",
             blocks_generation=True,
         ),
+        "double_seven_read_race_and_speed": Uncertainty(
+            question="What race and speed does the Double give a 7-read card?",
+            decision=("Neither is read; the generator refuses a 7-read request that names either."),
+            evidence=(
+                '"BBIIダブルC0" on barcodebattler.net says the 7-read race is '
+                "still under investigation and gives no speed. The 11 cards on the "
+                "wikiwiki.jp 正伝3 list fit race = eighth digit mod 5, but the eighth "
+                "digit is also the hundreds of the attack, and no source states the "
+                "rule, so the fit is not used."
+            ),
+            revisit="On a Double, or a source that describes how it reads a 7-read race.",
+            blocks_generation=True,
+        ),
         "upc_a_twelve_digits": Uncertainty(
             question="Does the hardware left-pad a 12-digit UPC-A code to 13 digits?",
             decision="Rejected, matching the simulator.",

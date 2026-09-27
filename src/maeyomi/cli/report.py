@@ -7,6 +7,7 @@ the three columns are printed whether or not anything differs.
 from collections.abc import Sequence
 
 from maeyomi.bb1.card import FirstBattlerCard
+from maeyomi.double.card import DoubleCard
 from maeyomi.generator.equip import ALL_JOBS, equipping_jobs
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.character import BarcodeBattlerCharacter
@@ -30,14 +31,28 @@ FIRST_DEVICE_DISCLAIMER_JA = (
     "デコーダーは こうかいされた カードリストを さいげんしますが、"
     "初代の 実機では まだ よみとって いません。"
 )
+DOUBLE_DISCLAIMER = (
+    "Cards for the Barcode Battler II Double were verified against this project's "
+    "own decoder, which reproduces the 正伝3 list bundled with it, and were never read "
+    "on a physical Double."
+)
+DOUBLE_DISCLAIMER_JA = (
+    "バーコードバトラーII² 用の カードは このプログラムの デコーダーで けんしょうしました。"
+    "デコーダーは どうこんの 正伝3 の カードリストを さいげんしますが、"
+    "II² の 実機では まだ よみとって いません。"
+)
 UNCONSTRAINED = ("any", "-")
 
 
 def disclaimers(cards: Sequence[AnyCard]) -> list[str]:
-    """What was verified, one line per device the cards were made for."""
-    first = [card for card in cards if isinstance(card.character, FirstBattlerCard)]
-    lines = [DISCLAIMER] if len(first) < len(cards) else []
-    return [*lines, FIRST_DEVICE_DISCLAIMER] if first else lines
+    """What was verified, one line per device the cards were made for, in a fixed order."""
+    kinds = {type(card.character) for card in cards}
+    lines = [
+        (BarcodeBattlerCharacter, DISCLAIMER),
+        (FirstBattlerCard, FIRST_DEVICE_DISCLAIMER),
+        (DoubleCard, DOUBLE_DISCLAIMER),
+    ]
+    return [line for kind, line in lines if kind in kinds]
 
 
 def comparison_lines(request: CardRequest, character: BarcodeBattlerCharacter) -> list[str]:

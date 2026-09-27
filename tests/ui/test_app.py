@@ -354,6 +354,7 @@ def test_the_disclaimer_is_served_in_both_languages(client: TestClient) -> None:
     assert "実機" in text
     assert "never read on a physical first Barcode Battler" in text
     assert "初代の 実機では まだ よみとって いません" in text
+    assert "never read on a physical Double" in text
 
 
 def test_a_product_barcode_reads_as_a_character(client: TestClient) -> None:
