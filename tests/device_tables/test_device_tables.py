@@ -39,4 +39,4 @@ def test_a_product_line_uses_the_devices_reading() -> None:
 
 def test_no_device_means_every_set() -> None:
     assert official_sets(None) == tuple(OfficialSet)
-    assert official_lines(None)[len(OfficialSet)].strip().startswith("608")
+    assert official_lines(None)[len(OfficialSet)].strip().startswith("954")

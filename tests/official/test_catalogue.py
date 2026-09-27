@@ -21,10 +21,11 @@ from maeyomi.official.catalogue import (
 )
 
 DBZ_CARDS = 36
-SOURCES = {
-    False: "https://wikiwiki.jp/barcode/",
-    True: "https://github.com/punesemu/puNES/",
-}
+ADDED_CARDS = 346
+TRANSCRIBED = 577 + DBZ_CARDS + ADDED_CARDS
+SHARED_BETWEEN_SETS = {"0000500970445"}
+WIKI = "https://wikiwiki.jp/barcode/"
+UK_LIST = "https://www.barcodebattler.co.uk/deeta.js"
 KNOWN_BAD_CHECK_DIGITS = {
     "1162864348006",
     "1273634357000",
@@ -34,16 +35,28 @@ KNOWN_BAD_CHECK_DIGITS = {
 }
 
 
-def test_the_catalogue_holds_every_transcribed_barcode_once() -> None:
+def test_the_catalogue_holds_every_transcribed_barcode_once_per_set() -> None:
+    entries = [(card.official_set, card.barcode) for card in official_catalogue()]
+
+    assert len(entries) == TRANSCRIBED
+    assert len(set(entries)) == len(entries)
+
+
+def test_only_the_red_potion_belongs_to_two_sets() -> None:
     barcodes = [card.barcode for card in official_catalogue()]
 
-    assert len(barcodes) == 577 + DBZ_CARDS
-    assert len(set(barcodes)) == len(barcodes)
+    assert {code for code in barcodes if barcodes.count(code) > 1} == SHARED_BETWEEN_SETS
 
 
 def test_every_card_names_the_page_it_came_from() -> None:
+    sources = {
+        OfficialSet.DATACH_DBZ: "https://github.com/punesemu/puNES/",
+        OfficialSet.ZELDA: UK_LIST,
+        OfficialSet.SECOND_GRADE: UK_LIST,
+        OfficialSet.STREET_FIGHTER: UK_LIST,
+    }
     for card in official_catalogue():
-        assert card.source_url.startswith(SOURCES[card.official_set is OfficialSet.DATACH_DBZ])
+        assert card.source_url.startswith(sources.get(card.official_set, WIKI))
         assert card.name
 
 
@@ -90,7 +103,7 @@ def test_main_story_three_is_read_by_the_double_it_came_with() -> None:
     assert OfficialSet.MAIN_STORY_THREE.device is Device.DOUBLE
 
 
-def test_exactly_the_four_lists_with_first_device_wording_use_that_device() -> None:
+def test_exactly_the_five_first_device_lists_use_that_device() -> None:
     first = {official_set for official_set in OfficialSet if official_set.device is Device.BB1}
 
     assert first == {
@@ -98,11 +111,12 @@ def test_exactly_the_four_lists_with_first_device_wording_use_that_device() -> N
         OfficialSet.CHUHAI_KHAN,
         OfficialSet.GOD_VERSUS_MOTHER,
         OfficialSet.CANDY,
+        OfficialSet.GOD_MARS,
     }
 
 
 def test_the_printable_cards_are_every_transcription_that_decodes() -> None:
-    assert len(official_cards()) == 577 + DBZ_CARDS - len(KNOWN_BAD_CHECK_DIGITS)
+    assert len(official_cards()) == TRANSCRIBED - len(KNOWN_BAD_CHECK_DIGITS)
 
 
 @pytest.mark.parametrize("official_set", list(OfficialSet))
@@ -140,3 +154,23 @@ def test_a_device_owns_exactly_the_sets_written_for_it() -> None:
     assert len(device_cards(Device.BB1)) == sum(
         len(official_cards(official_set)) for official_set in sets_for(Device.BB1)
     )
+
+
+@pytest.mark.parametrize(
+    ("official_set", "device", "count"),
+    [
+        (OfficialSet.GOD_MARS, Device.BB1, 39),
+        (OfficialSet.MAIN_STORY_ONE, Device.BB2, 50),
+        (OfficialSet.MAIN_STORY_TWO, Device.BB2, 36),
+        (OfficialSet.MAIN_STORY_FOUR, Device.DOUBLE, 31),
+        (OfficialSet.MACHINE_DRAGONS, Device.BB2, 36),
+        (OfficialSet.ZELDA, Device.BB2, 30),
+        (OfficialSet.SECOND_GRADE, Device.BB2, 24),
+        (OfficialSet.STREET_FIGHTER, Device.BB2, 100),
+    ],
+)
+def test_every_added_set_is_read_by_its_device(
+    official_set: OfficialSet, device: Device, count: int
+) -> None:
+    assert official_set.device is device
+    assert len(official_cards(official_set)) == count

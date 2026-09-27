@@ -199,6 +199,25 @@ UNCERTAINTIES: Final[Mapping[str, Uncertainty]] = MappingProxyType(
                 "On a trace of $B379 for the four codes, or on a read with a physical Datach."
             ),
         ),
+        "double_onsen_tamago": Uncertainty(
+            question=(
+                "Does the Double read 0600000905307, 温泉たまご in the 正伝4 list, as a "
+                "6000 HP item or as armour?"
+            ),
+            decision=(
+                "Read as the II reads it, a back-read single-use armour of 700 DF, because "
+                "the Double reads the II's codes the II's way and no source says otherwise "
+                "for this code."
+            ),
+            evidence=(
+                "The 正伝4 精霊伝説 list on wikiwiki.jp gives 0600000905307 as an HP item "
+                "worth 6000. The first Barcode Battler reads it that way. The II's read-type "
+                "rule sends it to a back read, which gives armour worth 700 DF, and so does "
+                "the Double's. The other 30 cards of the list agree with the Double's "
+                "reading, 8 of them items whose unused numbers the list leaves blank."
+            ),
+            revisit="On a read of the card with a physical Double.",
+        ),
         "shifted_back_read": Uncertainty(
             question="What are the shift semantics for a deliberately misaligned read?",
             decision="Not implemented; only the aligned back read is supported.",

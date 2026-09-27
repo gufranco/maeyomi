@@ -113,4 +113,4 @@ def test_official_prints_every_card_of_the_chosen_device(tmp_path: Path) -> None
     result = runner.invoke(app, ["official", "--device", "double", "-o", str(output)])
 
     assert result.exit_code == 0
-    assert len(decode_pdf(output)) == 25
+    assert len(decode_pdf(output)) == 56

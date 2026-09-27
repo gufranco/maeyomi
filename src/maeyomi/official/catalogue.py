@@ -6,7 +6,10 @@ they own. That is the source here, fetched on the date recorded in `cards.json`
 and kept with the address of the page every entry came from, so any one of
 them can be checked again. The 36 cards Bandai packed with Datach Dragon Ball Z
 come from the list in the puNES emulator's source instead, and each was read by
-the game itself running in MAME before it was added.
+the game itself running in MAME before it was added. The Zelda, Shogaku
+Ninensei and Street Fighter II cards come from the card lists in
+barcodebattler.co.uk's deeta.js, a collector site that publishes them in
+English; one Zelda item, the red potion, is also a card of the board game list.
 
 Two limits follow from the source and are kept visible rather than smoothed
 over:
@@ -20,11 +23,14 @@ over:
 
 Each card is decoded by this project's own decoder before it is offered for
 printing, so the numbers on the printed face come from the barcode rather than
-from the transcription. Each list is read by the device its ability wording
-belongs to: four lists use the first Barcode Battler's flag table, where 05
-doubles the attack and 18 is the hero; 正伝3 破壊神伝 was bundled with the
-Barcode Battler II Double and needs its 7-read; the Dragon Ball Z list is read the
-way that game reads it; the rest use the Barcode Battler II's.
+from the transcription. Each list is read by the device it was written for:
+five lists use the first Barcode Battler's flag table, where 05 doubles the
+attack and 18 is the hero; 正伝3 and 正伝4 need the Barcode Battler II Double's
+7-read, which half of 正伝4's cards use; the Dragon Ball Z list is read the way
+that game reads it; the rest use the Barcode Battler II's. The God Mars list
+publishes no numbers, so its device comes from its cards: it has no magician
+and no herb or magic item, both of which only the II reads, and it sits among
+the first Barcode Battler's lists in the collector site's series.
 """
 
 import json
@@ -46,10 +52,11 @@ DATA_FILE: Final = "cards.json"
 
 
 class OfficialSet(Enum):
-    """One card list, named as the wiki names it, with an English title.
+    """One card list, with its Japanese and English titles.
 
     The English titles are this project's own translation, for readers who do
-    not read Japanese. The Japanese value is what the source says.
+    not read Japanese. The Japanese value is the wiki's page name, and for the
+    three lists published in English it is this project's translation.
     """
 
     ORIGINAL = "バーコードバトラー カードリスト"
@@ -66,6 +73,14 @@ class OfficialSet(Enum):
     SIDE_STORY_THREE = "外伝3 最後の死闘！ＶＳ黒魔術王パノラマンダー カードリスト"
     MAIN_STORY_THREE = "正伝3 破壊神伝 カードリスト"
     CANDY = "バーコードバトラーキャンデー カードリスト"
+    GOD_MARS = "魔強軍団ゴッドマーズ出現！ カードリスト"
+    MAIN_STORY_ONE = "正伝1 超パワー生命体！ダークバーコード星人登場！！ カードリスト"
+    MAIN_STORY_TWO = "正伝2 超合体伝説 カードリスト"
+    MAIN_STORY_FOUR = "正伝4 精霊伝説 カードリスト"
+    MACHINE_DRAGONS = "来襲！機械竜軍団！！ カードリスト"
+    ZELDA = "ゼルダの伝説 カードリスト"
+    SECOND_GRADE = "小学二年生 特製カードリスト"
+    STREET_FIGHTER = "ストリートファイターII カードリスト"
     DATACH_DBZ = "データック ドラゴンボールZ 激闘天下一武道会 カードリスト"
 
     @property
@@ -85,12 +100,14 @@ _FIRST_DEVICE_SETS: Final = frozenset(
         OfficialSet.CHUHAI_KHAN,
         OfficialSet.GOD_VERSUS_MOTHER,
         OfficialSet.CANDY,
+        OfficialSet.GOD_MARS,
     }
 )
 
 _DEVICES: Final[dict[OfficialSet, Device]] = {
     **dict.fromkeys(_FIRST_DEVICE_SETS, Device.BB1),
     OfficialSet.MAIN_STORY_THREE: Device.DOUBLE,
+    OfficialSet.MAIN_STORY_FOUR: Device.DOUBLE,
     OfficialSet.DATACH_DBZ: Device.DATACH_DBZ,
 }
 
@@ -109,6 +126,14 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.SIDE_STORY_THREE: "Side Story 3: The Last Duel with the Black Sorcerer King",
     OfficialSet.MAIN_STORY_THREE: "Main Story 3: Legend of the God of Destruction",
     OfficialSet.CANDY: "Barcode Battler candy",
+    OfficialSet.GOD_MARS: "The Demon Army God Mars Appears",
+    OfficialSet.MAIN_STORY_ONE: "Main Story 1: The Super-Powered Dark Barcode Aliens Arrive",
+    OfficialSet.MAIN_STORY_TWO: "Main Story 2: The Legend of Super Fusion",
+    OfficialSet.MAIN_STORY_FOUR: "Main Story 4: The Legend of the Spirits",
+    OfficialSet.MACHINE_DRAGONS: "The Machine Dragon Army Attacks",
+    OfficialSet.ZELDA: "The Legend of Zelda",
+    OfficialSet.SECOND_GRADE: "Shogaku Ninensei special cards",
+    OfficialSet.STREET_FIGHTER: "Street Fighter II",
     OfficialSet.DATACH_DBZ: "Datach Dragon Ball Z: Gekitou Tenkaichi Budoukai",
 }
 

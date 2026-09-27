@@ -314,13 +314,13 @@ def test_the_official_sets_are_listed_with_their_counts(client: TestClient) -> N
     board = next(entry for entry in body["sets"] if entry["key"] == "board_game")
     assert board["english"] == "Barcode Battler II board game"
     assert board["count"] > 0
-    assert body["total"] == 429
+    assert body["total"] == 705
     assert len(body["rejected"]) == 4
 
 
 @pytest.mark.parametrize(
     ("device", "sets", "total", "rejected"),
-    [("bb2", 9, 429, 4), ("bb1", 4, 118, 1), ("double", 1, 25, 0), ("dbz", 1, 36, 0)],
+    [("bb2", 15, 705, 4), ("bb1", 5, 157, 1), ("double", 2, 56, 0), ("dbz", 1, 36, 0)],
 )
 def test_the_real_cards_are_only_those_of_the_chosen_device(
     client: TestClient, device: str, sets: int, total: int, rejected: int
@@ -343,7 +343,7 @@ def test_every_card_of_a_device_prints_when_no_set_is_named(
 def test_a_device_preview_counts_only_that_device(client: TestClient) -> None:
     body = client.post("/api/official-preview", json={"device": "double"}).json()
 
-    assert body["count"] == 25
+    assert body["count"] == 56
 
 
 def test_an_unknown_device_has_no_real_cards(client: TestClient) -> None:

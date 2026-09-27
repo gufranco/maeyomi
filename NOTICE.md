@@ -48,6 +48,11 @@ Card attribute fixtures in `tests/fixtures/wiki_cards.json` were taken from the
 card lists on <https://wikiwiki.jp/barcode/>, with the source page and URL
 recorded on every entry.
 
+The barcodes and English names of the Zelda, Shogaku Ninensei and Street
+Fighter II cards were taken from the card lists in
+<https://www.barcodebattler.co.uk/deeta.js>. Only those facts are taken; none
+of that script's code appears here.
+
 ## Datach Dragon Ball Z
 
 The rule `src/maeyomi/datach/` reads a barcode by, and the numbers in

@@ -52,3 +52,10 @@ def test_the_codes_datach_dragon_ball_z_refused_under_emulation_are_recorded() -
 
     for barcode in ("20158231", "3623401959035", "5532403373177", "6312422195214"):
         assert barcode in evidence
+
+
+def test_the_double_egg_that_reads_as_armour_is_recorded() -> None:
+    entry = UNCERTAINTIES["double_onsen_tamago"]
+
+    assert "0600000905307" in entry.evidence
+    assert "6000" in entry.evidence
