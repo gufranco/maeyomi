@@ -7,6 +7,7 @@ Japanese rather than an English string left untranslated.
 """
 
 import re
+from itertools import pairwise
 
 import pytest
 
@@ -88,7 +89,7 @@ def test_every_continued_string_belongs_to_a_key() -> None:
     lines = DICTIONARIES.splitlines()
     orphans = [
         number
-        for number, (previous, line) in enumerate(zip(lines, lines[1:], strict=False), start=2)
+        for number, (previous, line) in enumerate(pairwise(lines), start=2)
         if re.match(r"\s+'", line)
         and not re.match(r"\s+'[\w.]+':", line)
         and re.match(r"\s+('[\w.]+'|\w+): .+,$", previous)
