@@ -95,6 +95,7 @@ h1 {
   max-width: 68rem;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   gap: .4rem;
   border-bottom: 2px solid var(--line);
 }
@@ -131,6 +132,22 @@ main { max-width: 68rem; margin: 0 auto; }
   .layout { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); }
   .preview { position: sticky; top: var(--gap); }
 }
+
+.device-bar {
+  display: grid;
+  gap: .35rem;
+  max-width: 34rem;
+  margin: 1rem 0 0;
+}
+
+.device-bar label { font-weight: 700; }
+
+.device-bar select {
+  border: 2px solid var(--accent);
+  font-weight: 600;
+}
+
+.device-bar .hint { margin: 0; }
 
 .panel, .preview {
   background: var(--card);
@@ -228,31 +245,81 @@ input[type="checkbox"] {
   flex: none;
 }
 
-.advanced {
+.note {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .7rem;
+  align-items: start;
+  background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 8px;
-  padding: .5rem .8rem;
+  padding: .8rem .9rem;
   margin: 0 0 1.25rem;
+  font-size: .92rem;
+  line-height: 1.5;
 }
 
-.advanced summary {
-  cursor: pointer;
-  font-weight: 600;
-  padding: .45rem 0;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
+.note::before {
+  content: "i";
+  display: grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: var(--ink-soft);
+  color: var(--card);
+  font-weight: 700;
+  font-style: italic;
+  font-family: Georgia, serif;
+  font-size: .85rem;
 }
 
-.advanced[open] summary { margin-bottom: .6rem; }
+.note-body > * { margin: 0 0 .6rem; }
 
-.note {
-  background: color-mix(in srgb, var(--warn) 12%, transparent);
-  border-left: 3px solid var(--warn);
-  padding: .6rem .75rem;
+.note-body > :last-child { margin-bottom: 0; }
+
+.note-heading { font-weight: 700; }
+
+.note-sources { padding-left: 1.1rem; }
+
+.note-sources li { margin: 0 0 .25rem; }
+
+.note a { color: var(--accent); overflow-wrap: anywhere; }
+
+.side-note {
+  border-top: 1px solid var(--line);
+  margin: 1.25rem 0 0;
+  padding: 1rem 0 0;
+}
+
+.side-note h3 {
+  margin: 0 0 .4rem;
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.side-note .hint { margin: 0 0 .7rem; }
+
+.code-list {
+  list-style: none;
   margin: 0;
-  border-radius: 0 6px 6px 0;
-  font-size: .9rem;
+  padding: 0;
+  display: grid;
+  gap: .35rem;
+}
+
+.code-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .75rem;
+  align-items: baseline;
+}
+
+.code-list code {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
 }
 
 .actions { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0; }

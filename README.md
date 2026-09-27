@@ -61,7 +61,8 @@ item, a special move level, HP, BP and DP from it. That rule was read out of
 the game's own program, and the decoder agrees with the game running in MAME on
 every one of the 232 codes the game accepted there. Pick the fighter or item
 with `--character`, by the name the game shows or by its id, the level with
-`--level`, and the numbers with `--hp`, `--bp` and `--dp`; a fighter whose
+`--level`, and the numbers with `--hp`, `--bp` and `--dp`, adding `--nearest`
+to take the closest printable card when those exact numbers cannot print; a fighter whose
 numbers are high enough turns into its stronger form, as the game does. No card
 for it has been read by a physical Datach yet, which every sheet for it says.
 
@@ -103,6 +104,12 @@ says what it is for in a line:
 Design a fighter with the sliders, watch the card redraw as you move them, and
 print it. The panel underneath says whether the machine will read back exactly
 the numbers you asked for, and shows the barcode it worked out.
+
+**Machine or game**, under the title, picks what the cards are for: the
+Barcode Battler II, the first Barcode Battler, the Double or Datach Dragon Ball
+Z. The card maker shows only the fields that device reads, the sliders stop at
+its limits, and the cheat code and **Read a barcode** follow the same choice.
+The sheet of random cards and the supermarket make Barcode Battler II cards.
 
 **Any barcode you already own is also a card.** Type the digits from the
 shopping into **Read a barcode** and the page shows what the device makes of
@@ -540,3 +547,8 @@ Fixtures are rebuilt with `uv run python tools/fetch_fixtures.py`. The Datach
 Dragon Ball Z record comes from `uv run python tools/oracle/record_dbz.py`, which
 needs MAME and a dump of your own cartridge whose SHA-256 matches
 [`artifacts.manifest.json`](artifacts.manifest.json); MAME runs without a window.
+
+With `maeyomi serve` running, `node tools/render/layout.e2e.mjs` drives the
+page in a real browser through `agent-browser`: no tab may scroll sideways at
+320 or 1280 pixels, the device switch must show each device's fields, and the
+notes must be visible and link their sources.

@@ -107,10 +107,10 @@ function setUpStats() {
   ['hp', 'st', 'df'].forEach((key) => {
     const sync = () => {
       const raw = Number($(key).value);
-      const snapped = key === 'hp' ? snapHitPoints(raw) : raw;
+      const snapped = key === 'hp' && isSecond() ? snapHitPoints(raw) : raw;
       if (snapped !== raw) $(key).value = String(snapped);
       $(`${key}-out`).textContent = snapped.toLocaleString('en-US');
-      if (key === 'hp') $('hp-note').toggleAttribute('hidden', snapped < HIGH_HP);
+      if (key === 'hp') $('hp-note').toggleAttribute('hidden', !isSecond() || snapped < HIGH_HP);
     };
     $(key).addEventListener('input', sync);
     sync();
@@ -200,6 +200,7 @@ async function showPreview(barcode, name) {
   const { ok, response } = await postJson('/api/preview', {
     barcode,
     name,
+    device: currentDevice(),
   });
   if (!ok) return;
   const previous = $('card-image').getAttribute('src');
@@ -215,6 +216,7 @@ async function makeOneCard(event) {
   const button = $('one').querySelector('button[type="submit"]');
   button.toggleAttribute('disabled', true);
   try {
+    if (!isSecond()) return await makeDeviceCard();
     const { ok, body } = await postJson('/api/generate', oneCardPayload());
     if (!ok) {
       refuse('one-status', body);
@@ -236,6 +238,12 @@ async function downloadOneCard() {
   }
   const result = await makeOneCard();
   if (!result) return;
+  if (!isSecond()) {
+    const name = $('name').value.trim() || 'Card';
+    await downloadBarcodes([{ barcode: result.barcode, name, device: currentDevice() }],
+      'card.pdf', 'one-status');
+    return;
+  }
   const { ok, body, response } = await postJson('/api/sheet', {
     cards: [{ ...oneCardPayload(), hp: String(result.character.hp) }],
   });
@@ -403,9 +411,13 @@ function celebrate() {
 async function activateCheat() {
   const typed = $('name').value.trim();
   const custom = typed && typed !== $('name').defaultValue;
+  if (!isSecond()) {
+    await activateDeviceCheat(custom ? typed : '');
+    return;
+  }
   const { ok, body } = await postJson('/api/cheat', custom ? { name: typed } : {});
   if (!ok) return;
-  cheatCard = { barcode: body.barcode, name: body.name };
+  cheatCard = { barcode: body.barcode, name: body.name, device: currentDevice() };
   $('name').value = body.name;
   $('race').value = body.character.race;
   showRaceHint();
@@ -480,7 +492,8 @@ async function readBarcode(event) {
     setStatus('read-status', 'bad', 'tag.impossible', t('read.empty'));
     return null;
   }
-  const response = await fetch(`/api/decode/${barcode}`);
+  const url = isSecond() ? `/api/decode/${barcode}` : `/api/read/${currentDevice()}/${barcode}`;
+  const response = await fetch(url);
   const body = await response.json();
   if (!response.ok) {
     setStatus('read-status', 'bad', 'tag.impossible', t('read.refused'), reasons(body));
@@ -488,7 +501,11 @@ async function readBarcode(event) {
     return null;
   }
   setStatus('read-status', 'good', 'tag.ready', t('read.ok'));
-  showFacts(body);
+  if (isSecond()) {
+    showFacts(body);
+  } else {
+    showDeviceFacts(body.facts);
+  }
   await nameItFromShopping(barcode);
   await showReadPreview(barcode, typedName());
   return barcode;
@@ -505,7 +522,11 @@ async function nameItFromShopping(barcode) {
 }
 
 async function showReadPreview(barcode, name) {
-  const { ok, response } = await postJson('/api/preview', { barcode, name });
+  const { ok, response } = await postJson('/api/preview', {
+    barcode,
+    name,
+    device: currentDevice(),
+  });
   if (!ok) return;
   const previous = $('read-image').getAttribute('src');
   $('read-image').setAttribute('src', URL.createObjectURL(await response.blob()));
@@ -570,7 +591,8 @@ async function downloadShelf() {
 async function downloadRead() {
   const barcode = await readBarcode();
   if (!barcode) return;
-  await downloadBarcodes([{ barcode, name: typedName() }], 'card.pdf', 'read-status');
+  await downloadBarcodes([{ barcode, name: typedName(), device: currentDevice() }],
+    'card.pdf', 'read-status');
 }
 
 function copyCode() {
@@ -588,6 +610,7 @@ function setUpLanguage() {
   document.addEventListener('languagechange', () => {
     renderChoices();
     renderOfficial();
+    renderDevices();
   });
   applyLanguage(currentLanguage);
 }
@@ -609,4 +632,5 @@ $('shop-pdf').addEventListener('click', downloadShelf);
 $('official-pdf').addEventListener('click', downloadOfficial);
 setUpChoices();
 setUpOfficial();
+setUpDevices();
 setUpCheat();

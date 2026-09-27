@@ -27,8 +27,5 @@ _NAMES: Final[dict[Device, tuple[str, str]]] = {
     Device.BB2: ("Barcode Battler II", "バーコードバトラーII"),
     Device.BB1: ("Barcode Battler", "バーコードバトラー"),
     Device.DOUBLE: ("Barcode Battler II Double", "バーコードバトラーII²"),
-    Device.DATACH_DBZ: (
-        "Datach Dragon Ball Z: Gekitou Tenkaichi Budoukai",
-        "データック ドラゴンボールZ 激闘天下一武道会",
-    ),
+    Device.DATACH_DBZ: ("Datach Dragon Ball Z", "データック ドラゴンボールZ"),
 }

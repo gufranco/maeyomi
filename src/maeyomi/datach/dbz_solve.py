@@ -12,8 +12,8 @@ request before it is returned.
 
 import itertools
 from collections.abc import Iterator
-from dataclasses import dataclass, field
-from functools import cache
+from dataclasses import dataclass, field, replace
+from functools import cache, partial
 from typing import Final
 
 from maeyomi.datach.dbz import (
@@ -26,6 +26,7 @@ from maeyomi.datach.dbz import (
     DbzKind,
     decode_dbz,
 )
+from maeyomi.datach.dbz_names import ITEMS
 from maeyomi.datach.dbz_tables import (
     ADDENDS,
     BASES,
@@ -37,9 +38,11 @@ from maeyomi.datach.dbz_tables import (
     PERMUTATION,
 )
 from maeyomi.decoder.check_digit import expected_check_digit
+from maeyomi.models.card_request import CardRequest
 from maeyomi.models.constraint import Constraint
 
 SEARCH_LIMIT: Final = 20_000
+STREAM_LIMIT: Final = 400_000
 ITEM_TAILS: Final = 4096
 FIGHTER_KINDS: Final = (0, 1, 2)
 ITEM_KIND: Final = 3
@@ -48,6 +51,7 @@ MAX_HP: Final = (max(BASES) + max(ADDENDS) + BONUS) * UNIT
 MAX_HALVED: Final = MAX_HP // 2
 NO_LEVEL: Final = 255
 NO_MATCH: Final = "no barcode satisfies every constraint at once"
+NEAR_WIDTHS: Final = (250, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 100000)
 
 type StatChoice = tuple[int, int, int]
 
@@ -73,6 +77,7 @@ class DbzSolveOutcome:
     request: DbzRequest
     card: DbzCard | None = None
     blockers: tuple[str, ...] = ()
+    exact: bool = True
 
 
 def solve_dbz(request: DbzRequest) -> DbzSolveOutcome:
@@ -80,17 +85,91 @@ def solve_dbz(request: DbzRequest) -> DbzSolveOutcome:
     reasons = _blockers(request)
     if reasons:
         return DbzSolveOutcome(request, blockers=reasons)
-    codes = (_barcode(digits) for digits in map(digits_for, _streams(request)) if digits)
-    decoded = map(decode_dbz, itertools.islice(codes, SEARCH_LIMIT))
-    card = next((card for card in decoded if _matches(request, card)), None)
+    card = next(_found(request), None)
     if card is None:
         return DbzSolveOutcome(request, blockers=(NO_MATCH,))
     return DbzSolveOutcome(request, card=card)
 
 
+def solve_dbz_nearest(request: DbzRequest) -> DbzSolveOutcome:
+    """The exact card, or the one whose numbers sit closest to each exact value asked for.
+
+    Every exact number is widened to a band around it, narrowest band first, and
+    the first band holding any card gives the one closest to what was asked.
+    """
+    exact = solve_dbz(request)
+    if exact.card is not None:
+        return exact
+    for width in NEAR_WIDTHS:
+        widened = replace(
+            request,
+            hp=_around(request.hp, width),
+            bp=_around(request.bp, width),
+            dp=_around(request.dp, width),
+        )
+        near = min(_found(widened), key=partial(_distance, request), default=None)
+        if near is not None:
+            return DbzSolveOutcome(request, card=near, exact=False)
+    return exact
+
+
+def _distance(request: DbzRequest, card: DbzCard) -> int:
+    """How far a card's numbers sit from the exact values asked for, summed."""
+    pairs = ((request.hp, card.hp), (request.bp, card.bp), (request.dp, card.dp))
+    return sum(
+        abs(value - wanted.exact_value) for wanted, value in pairs if wanted.exact_value is not None
+    )
+
+
+def _around(constraint: Constraint, width: int) -> Constraint:
+    """A band of the given half-width around an exact value, or the constraint unchanged."""
+    if constraint.exact_value is None:
+        return constraint
+    return Constraint.between(
+        max(0, constraint.exact_value - width), constraint.exact_value + width
+    )
+
+
+def request_from(shared: CardRequest, *, character: int | None, level: int | None) -> DbzRequest:
+    """The game's request from the shared one: attack is BP and defence is DP."""
+    return DbzRequest(
+        character=character,
+        kind=DbzKind.ITEM if character in ITEMS else DbzKind.FIGHTER,
+        level=level,
+        hp=shared.hp,
+        bp=shared.st,
+        dp=shared.df,
+        name=shared.name,
+    )
+
+
+def unread_fields(shared: CardRequest, *, back_read: bool) -> tuple[str, ...]:
+    """Every field of the shared request the game has no place for, in a fixed order."""
+    anything = Constraint.anything()
+    present = {
+        "race": shared.race is not None,
+        "class": shared.character_class is not None,
+        "job": shared.job is not None,
+        "speed": shared.speed is not None,
+        "ability": shared.special is not None,
+        "herbs": shared.pp != anything,
+        "magic": shared.mp != anything,
+        "back-read": back_read,
+    }
+    return tuple(name for name, given in present.items() if given)
+
+
+def _found(request: DbzRequest) -> Iterator[DbzCard]:
+    """Every card the search reaches that the game reads as the request, in search order."""
+    streams = itertools.islice(_streams(request), STREAM_LIMIT)
+    codes = (_barcode(digits) for digits in map(digits_for, streams) if digits)
+    decoded = map(decode_dbz, itertools.islice(codes, SEARCH_LIMIT))
+    return (card for card in decoded if _matches(request, card))
+
+
 def digits_for(stream: int) -> tuple[int, ...] | None:
     """The ten digits that scatter into this stream, or None if one would pass 9."""
-    spread = _spread(stream)
+    spread = _spread_of(stream)
     if not _decimal(spread):
         return None
     return tuple(spread >> (4 * index) & 0x0F for index in range(10))
@@ -105,10 +184,13 @@ _DIGIT_BIT: Final = {_stream_bit(entry): index for index, entry in enumerate(PER
 _HIGH_BITS: Final = sum(1 << (4 * index + 3) for index in range(10))
 
 
-@cache
-def _spread(stream: int) -> int:
+def _spread_of(stream: int) -> int:
     """The stream's bits laid back out as ten four-bit digits, digit 0 lowest."""
     return sum(1 << _DIGIT_BIT[bit] for bit in range(STREAM_BITS) if stream >> bit & 1)
+
+
+_spread: Final = cache(_spread_of)
+"""`_spread_of` remembered, for the strongest-card search that asks for the same parts often."""
 
 
 def _decimal(spread: int) -> bool:
@@ -193,10 +275,15 @@ def _fighter_streams(request: DbzRequest) -> Iterator[int]:
     heads = itertools.product(
         FIGHTER_KINDS, _fighter_field_values(request.character), _level_indices(request)
     )
+    choices = (
+        _choices(request.hp, halved=False),
+        _choices(request.bp, halved=True),
+        _choices(request.dp, halved=True),
+    )
     return (
         _assemble(kind, value, level, stats)
         for kind, value, level in heads
-        for stats in _stat_triples(request)
+        for stats in itertools.product(*choices)
     )
 
 
@@ -244,18 +331,13 @@ def _level_indices(request: DbzRequest) -> list[int]:
     ]
 
 
-def _stat_triples(request: DbzRequest) -> Iterator[tuple[StatChoice, ...]]:
-    """Base, addend and bonus choices for HP, BP and DP, strongest first."""
-    return itertools.product(
-        _choices(request.hp, halved=False),
-        _choices(request.bp, halved=True),
-        _choices(request.dp, halved=True),
-    )
-
-
 def _choices(constraint: Constraint, *, halved: bool) -> list[StatChoice]:
-    """Every choice whose displayed value the constraint admits, strongest first."""
-    return [choice for _, choice in _ranked(constraint, halved=halved)]
+    """Every choice the constraint admits: nearest the middle of a band, else strongest first."""
+    ranked = _ranked(constraint, halved=halved)
+    if constraint.minimum is None or constraint.maximum is None:
+        return [choice for _, choice in ranked]
+    middle = (constraint.minimum + constraint.maximum) // 2
+    return [choice for _, choice in sorted(ranked, key=lambda pair: abs(pair[0] - middle))]
 
 
 def _ranked(constraint: Constraint, *, halved: bool) -> list[tuple[int, StatChoice]]:

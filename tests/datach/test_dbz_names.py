@@ -2,7 +2,7 @@
 
 import pytest
 
-from maeyomi.datach.dbz_names import FIGHTERS, ITEMS, fighter_name, item_entry
+from maeyomi.datach.dbz_names import FIGHTERS, ITEMS, character_id, fighter_name, item_entry
 from maeyomi.datach.dbz_tables import FIGHTER_SLOTS, FORMS, ITEM_SLOTS
 
 
@@ -42,3 +42,17 @@ def test_an_item_carries_its_effect_in_both_languages() -> None:
 def test_an_id_the_game_never_produces_has_no_name() -> None:
     assert fighter_name(14) is None
     assert item_entry(60) is None
+
+
+@pytest.mark.parametrize(
+    ("value", "expected"),
+    [("vegeta", 7), ("ベジータ", 7), (" 33 ", 33), ("Frieza", 16), ("Senzu bean", 33)],
+    ids=["english", "japanese", "number", "first-form", "item"],
+)
+def test_a_character_is_found_by_name_or_number(value: str, expected: int) -> None:
+    assert character_id(value) == expected
+
+
+def test_an_unknown_character_name_is_refused() -> None:
+    with pytest.raises(ValueError, match=r"unknown character 'Mr\. Satan'"):
+        character_id("Mr. Satan")

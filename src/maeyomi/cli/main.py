@@ -201,7 +201,7 @@ def generate(
         ability=ability,
     )
     if device is Device.DATACH_DBZ:
-        pick = DbzPick(character=dbz_character, level=level, back_read=back_read)
+        pick = DbzPick(character=dbz_character, level=level, back_read=back_read, nearest=nearest)
         generate_dbz(request, pick, output=output, images=images, print_shop=print_shop)
         return
     refuse_dbz_options(dbz_character, level)

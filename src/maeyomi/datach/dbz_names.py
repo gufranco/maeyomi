@@ -186,3 +186,28 @@ def fighter_name(identifier: int) -> tuple[str, str] | None:
 def item_entry(identifier: int) -> DbzItem | None:
     """An item's names and effect, or None for an id the game never produces."""
     return ITEMS.get(identifier)
+
+
+def character_id(value: str) -> int:
+    """A fighter or item id from its number or its English or Japanese name.
+
+    Frieza and Cell have several forms under one name; the name picks the first,
+    and the game turns it into a later form when its numbers reach one.
+    """
+    wanted = value.strip().casefold()
+    if wanted.isdigit():
+        return int(wanted)
+    found = [identifier for identifier, names in _all_names() if wanted in names]
+    if not found:
+        message = f"unknown character {value!r}; give a name the game shows or an id"
+        raise ValueError(message)
+    return min(found)
+
+
+def _all_names() -> list[tuple[int, set[str]]]:
+    """Every id with the names it answers to, folded for comparison."""
+    fighters = [(key, {name.casefold() for name in names}) for key, names in FIGHTERS.items()]
+    items = [
+        (key, {item.english.casefold(), item.japanese.casefold()}) for key, item in ITEMS.items()
+    ]
+    return fighters + items

@@ -41,7 +41,8 @@ from maeyomi.generator.nearest import solve_nearest
 from maeyomi.generator.random_cards import generate_random
 from maeyomi.generator.solve import solve
 from maeyomi.models.card_request import CardRequest
-from maeyomi.models.generated_card import AnyCard, GeneratedCard
+from maeyomi.models.device import Device
+from maeyomi.models.generated_card import AnyCard, CardResult, GeneratedCard
 from maeyomi.models.race import Race
 from maeyomi.models.read_type import ReadType
 from maeyomi.models.special_ability import MAX_CODE, MIN_CODE, SpecialAbility
@@ -61,6 +62,17 @@ from maeyomi.products.lookup import ProductLookupError, look_up_name
 from maeyomi.rendering.labels import race_label
 from maeyomi.rendering.preview import card_png, sheet_png_pages
 from maeyomi.rendering.sheet import write_sheet
+from maeyomi.ui.devices import (
+    DeviceChoice,
+    build_as,
+    cheat_as,
+    dbz_choices,
+    device_named,
+    device_views,
+    facts_of,
+    printable_as,
+    read_as,
+)
 from maeyomi.ui.schemas import (
     AbilityView,
     BarcodeSheetSpec,
@@ -68,6 +80,11 @@ from maeyomi.ui.schemas import (
     CharacterView,
     CheatResult,
     CheatSpec,
+    DbzChoiceView,
+    DeviceCardSpec,
+    DeviceCheatSpec,
+    DeviceReading,
+    DeviceView,
     GenerateResult,
     LookupResult,
     OfficialCatalogue,
@@ -275,6 +292,47 @@ def _product_view(product: JapaneseProduct) -> ProductView:
     )
 
 
+def devices() -> list[DeviceView]:
+    """Every device and game the page can make cards for."""
+    return device_views()
+
+
+def dbz_characters() -> list[DbzChoiceView]:
+    """Every fighter and item Datach Dragon Ball Z can produce."""
+    return dbz_choices()
+
+
+def read_on(device: str, barcode: str) -> DeviceReading:
+    """Read a barcode the way the chosen device reads it."""
+    card = _read(_device(device), barcode)
+    return DeviceReading(barcode=card.barcode, facts=facts_of(card))
+
+
+def device_card(spec: DeviceCardSpec) -> DeviceReading:
+    """Build one card for the chosen device, or name every reason it cannot exist."""
+    choice = DeviceChoice(
+        back_read=spec.back_read,
+        nearest=spec.nearest,
+        character=spec.character,
+        level=spec.level,
+    )
+    outcome = build_as(_device(spec.device), _request(spec), choice)
+    if outcome.card is None:
+        raise HTTPException(status_code=UNPROCESSABLE, detail=list(outcome.blockers))
+    return DeviceReading(
+        name=spec.name,
+        barcode=outcome.card.barcode,
+        facts=facts_of(outcome.card),
+        is_exact=outcome.exact,
+    )
+
+
+def device_cheat(spec: DeviceCheatSpec) -> DeviceReading:
+    """The strongest card the chosen device will read."""
+    card = cheat_as(_device(spec.device), spec.name)
+    return DeviceReading(name=card.name, barcode=card.barcode, facts=facts_of(card.character))
+
+
 def create_app() -> FastAPI:
     """Build the application with every route attached."""
     app = FastAPI(title="maeyomi", docs_url="/docs")
@@ -294,6 +352,11 @@ def create_app() -> FastAPI:
     app.add_api_route("/api/official-preview", official_preview, methods=["POST"])
     app.add_api_route("/api/products", products, methods=["GET"])
     app.add_api_route("/api/lookup/{barcode}", lookup, methods=["GET"])
+    app.add_api_route("/api/devices", devices, methods=["GET"])
+    app.add_api_route("/api/dbz-characters", dbz_characters, methods=["GET"])
+    app.add_api_route("/api/read/{device}/{barcode}", read_on, methods=["GET"])
+    app.add_api_route("/api/device-card", device_card, methods=["POST"])
+    app.add_api_route("/api/device-cheat", device_cheat, methods=["POST"])
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
     return app
 
@@ -337,13 +400,28 @@ def _solve_card(spec: CardSpec) -> GeneratedCard:
     return GeneratedCard(name=spec.name, barcode=outcome.barcode, character=outcome.character)
 
 
-def _decoded_card(spec: PreviewSpec) -> GeneratedCard:
-    """Decode a card that already has a barcode, reporting one the device refuses."""
+def _decoded_card(spec: PreviewSpec) -> AnyCard:
+    """Decode a card that already has a barcode the way its device reads it."""
     try:
-        character = decode(spec.barcode)
+        return printable_as(_device(spec.device), spec.barcode, spec.name)
     except BarcodeError as error:
         raise HTTPException(status_code=BAD_REQUEST, detail=str(error)) from error
-    return GeneratedCard(name=spec.name, barcode=character.barcode, character=character)
+
+
+def _read(device: Device, barcode: str) -> CardResult:
+    """Decode with one device, reporting a code it refuses as a bad request."""
+    try:
+        return read_as(device, barcode)
+    except BarcodeError as error:
+        raise HTTPException(status_code=BAD_REQUEST, detail=str(error)) from error
+
+
+def _device(key: str) -> Device:
+    """The device a key names, reporting an unknown one."""
+    try:
+        return device_named(key)
+    except ValueError as error:
+        raise HTTPException(status_code=UNPROCESSABLE, detail=str(error)) from error
 
 
 def _official_set(spec: OfficialSpec) -> OfficialSet | None:

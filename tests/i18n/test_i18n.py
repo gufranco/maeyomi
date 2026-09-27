@@ -13,7 +13,9 @@ import pytest
 from maeyomi.ui.app import STATIC_DIR
 
 MARKUP = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
-SCRIPT = (STATIC_DIR / "app.js").read_text(encoding="utf-8")
+SCRIPT = "".join(
+    (STATIC_DIR / name).read_text(encoding="utf-8") for name in ("app.js", "devices.js")
+)
 DICTIONARIES = (STATIC_DIR / "i18n.js").read_text(encoding="utf-8")
 THE_SAME_IN_BOTH_LANGUAGES = {"title", "read.placeholder", "shop.stats"}
 
@@ -83,4 +85,5 @@ def test_the_disclaimer_is_in_both_languages_without_a_script() -> None:
 
 
 def test_the_dictionaries_load_before_the_page_script() -> None:
-    assert MARKUP.index("/static/i18n.js") < MARKUP.index("/static/app.js")
+    assert MARKUP.index("/static/i18n.js") < MARKUP.index("/static/devices.js")
+    assert MARKUP.index("/static/devices.js") < MARKUP.index("/static/app.js")

@@ -23,6 +23,16 @@
     machine. Every card is printed in English and Japanese, with pictures for
     anyone who cannot read yet.
   </p>
+  <div class="device-bar">
+    <label for="device" data-i18n="device.label">Machine or game</label>
+    <select id="device" aria-describedby="device-hint">
+      <option value="bb2">Barcode Battler II</option>
+    </select>
+    <p class="hint" id="device-hint" data-i18n="device.hint">
+      One card, the cheat code and Read a barcode make cards for this choice.
+      A sheet of cards and the supermarket make Barcode Battler II cards.
+    </p>
+  </div>
 </header>
 
 <main>
@@ -61,13 +71,33 @@
         </span>
       </p>
 
-      <p class="field">
+      <p class="field" data-device-field="dbz" hidden>
+        <label for="dbz-character" data-i18n="dbz.character">Fighter or item</label>
+        <select id="dbz-character"></select>
+        <span class="hint" data-i18n="dbz.character.hint">
+          A fighter whose numbers are high enough turns into its stronger form, as
+          the game does. An item carries no numbers.
+        </span>
+      </p>
+
+      <p class="field" data-device-field="dbz" hidden>
+        <label for="dbz-level" data-i18n="dbz.level">Special move level</label>
+        <select id="dbz-level">
+          <option value="" data-i18n="dbz.level.any">Any</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </p>
+
+      <p class="field" data-device-field="race">
         <label for="race" data-i18n="one.race">Kind of fighter</label>
         <select id="race" name="race"></select>
         <span class="hint" id="race-hint"></span>
       </p>
 
-      <p class="field">
+      <p class="field" data-device-field="class">
         <label for="class" data-i18n="one.class">Fights with</label>
         <select id="class" name="class">
           <option value="" data-i18n="class.either">Either</option>
@@ -105,7 +135,7 @@
       </p>
     </fieldset>
 
-    <fieldset>
+    <fieldset data-device-field="ability">
       <legend data-i18n="one.abilityLegend">Special ability</legend>
       <p class="field">
         <label for="ability" data-i18n="one.ability">Ability</label>
@@ -117,15 +147,15 @@
       </p>
     </fieldset>
 
-    <details class="advanced">
-      <summary data-i18n="one.detail">Fine detail</summary>
-      <p class="field">
+    <fieldset id="one-detail">
+      <legend data-i18n="one.detail">Fine detail</legend>
+      <p class="field" data-device-field="speed">
         <label for="speed" data-i18n="one.speed">Speed, 0 to 9</label>
         <input id="speed" name="speed" type="number" min="0" max="9" placeholder="any"
                data-i18n-placeholder="any">
         <span class="hint" data-i18n="one.speed.hint">Decides who strikes first.</span>
       </p>
-      <p class="field">
+      <p class="field" data-device-field="job">
         <label for="job" data-i18n="one.job">Type number, 0 to 9</label>
         <input id="job" name="job" type="number" min="0" max="9" placeholder="any"
                data-i18n-placeholder="any">
@@ -133,7 +163,7 @@
           0 to 6 is a warrior, 7 to 9 a magician. Some abilities target it.
         </span>
       </p>
-      <p class="field check">
+      <p class="field check" data-device-field="backRead">
         <label for="backRead">
           <input id="backRead" name="backRead" type="checkbox">
           <span data-i18n="one.back">Make a card the machine reads backwards</span>
@@ -142,9 +172,9 @@
           Lower limits, and far fewer combinations exist.
         </span>
       </p>
-    </details>
+    </fieldset>
 
-    <p class="field check">
+    <p class="field check" data-device-field="nearest">
       <label for="nearest">
         <input id="nearest" name="nearest" type="checkbox" checked>
         <span data-i18n="one.nearest">
@@ -243,6 +273,29 @@
 
 <section id="panel-official" role="tabpanel" aria-labelledby="tab-official" class="layout" hidden>
   <form id="official" class="panel">
+    <div class="note" id="official-note">
+      <div class="note-body">
+        <p data-i18n="official.note">
+          Epoch never published a list of its cards, so these barcodes were typed
+          in by collectors on a Japanese fan wiki about the Barcode Battler.
+        </p>
+        <p class="note-heading" id="official-sources" data-i18n="official.sources">
+          Where the barcodes come from
+        </p>
+        <ul class="note-sources" aria-labelledby="official-sources">
+          <li>
+            <span data-i18n="official.source.epoch">Epoch cards:</span>
+            <a href="https://wikiwiki.jp/barcode/" target="_blank" rel="noopener noreferrer"
+               lang="ja">wikiwiki.jp/barcode</a>
+          </li>
+          <li>
+            <span data-i18n="official.source.dbz">Dragon Ball Z cards:</span>
+            <a href="https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
+               target="_blank" rel="noopener noreferrer">puNES, dlgDetachBarcode.cpp</a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <fieldset>
       <legend data-i18n="official.legend">Cards Epoch really sold</legend>
       <p class="field">
@@ -252,26 +305,21 @@
       </p>
     </fieldset>
 
-    <p class="note" data-i18n="official.note">
-      These are the barcodes printed on the cards Epoch released in Japan, typed
-      in by collectors on the Barcode Battler wiki. The numbers on each card are
-      read from the barcode by this program, not copied from the wiki.
-    </p>
-
-    <details class="advanced" id="official-skipped">
-      <summary data-i18n="official.skipped">Cards left out</summary>
-      <p class="hint" data-i18n="official.skipped.hint">
-        The wiki has a typo in these: the last digit does not match the others,
-        so the machine would refuse them. Guessing the right digit would mean
-        printing a card nobody ever sold, so they are left out instead.
-      </p>
-      <ul id="official-rejected"></ul>
-    </details>
 
     <p class="actions">
       <button type="submit" class="primary" data-i18n="official.show">Show the cards</button>
       <button type="button" id="official-pdf" data-i18n="download">Download to print</button>
     </p>
+
+    <div class="side-note" id="official-skipped" role="region" aria-labelledby="official-skipped-title">
+      <h3 id="official-skipped-title" data-i18n="official.skipped">Cards left out</h3>
+      <p class="hint" data-i18n="official.skipped.hint">
+        The wiki has a typo in these: the last digit does not match the others,
+        so the machine would refuse them. Guessing the right digit would mean
+        printing a card nobody ever sold, so they are left out instead.
+      </p>
+      <ul id="official-rejected" class="code-list"></ul>
+    </div>
   </form>
 
   <aside class="preview" aria-live="polite">
@@ -287,6 +335,11 @@
 
 <section id="panel-shop" role="tabpanel" aria-labelledby="tab-shop" class="layout" hidden>
   <form id="shop" class="panel">
+    <p class="note" data-i18n="shop.note">
+      Every one of these is a real product sold in Japan. The numbers on the card
+      are not made up and are not theirs: this program reads them off the barcode,
+      exactly as the machine does. Tomato sauce against noodles is a fair fight.
+    </p>
     <fieldset>
       <legend data-i18n="shop.legend">Real Japanese groceries</legend>
 
@@ -300,11 +353,6 @@
       </p>
     </fieldset>
 
-    <p class="note" data-i18n="shop.note">
-      Every one of these is a real product sold in Japan. The numbers on the card
-      are not made up and are not theirs: this program reads them off the barcode,
-      exactly as the machine does. Tomato sauce against noodles is a fair fight.
-    </p>
 
     <p class="actions">
       <button type="submit" class="primary" data-i18n="shop.go">Search the shelf</button>
@@ -327,6 +375,11 @@
 
 <section id="panel-read" role="tabpanel" aria-labelledby="tab-read" class="layout" hidden>
   <form id="read" class="panel">
+    <p class="note" data-i18n="read.note">
+      Any product barcode works, which is how the machine was played in 1992:
+      a bottle of tomato sauce is a fighter, a packet of crisps is a weapon.
+      Type what is printed on the shopping and see what comes out.
+    </p>
     <fieldset>
       <legend data-i18n="read.legend">Any barcode at all</legend>
 
@@ -350,11 +403,6 @@
       </p>
     </fieldset>
 
-    <p class="note" data-i18n="read.note">
-      Any product barcode works, which is how the machine was played in 1992:
-      a bottle of tomato sauce is a fighter, a packet of crisps is a weapon.
-      Type what is printed on the shopping and see what comes out.
-    </p>
 
     <p class="actions">
       <button type="submit" class="primary" data-i18n="read.go">Read it</button>
@@ -394,6 +442,7 @@
 </footer>
 
 <script src="/static/i18n.js"></script>
+<script src="/static/devices.js"></script>
 <script src="/static/app.js"></script>
 </body>
 </html>

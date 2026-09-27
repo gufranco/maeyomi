@@ -52,10 +52,11 @@ class SheetSpec(BaseModel):
 
 
 class PreviewSpec(BaseModel):
-    """A barcode to draw a single card for."""
+    """A barcode to draw a single card for, read the way the chosen device reads it."""
 
     barcode: str
     name: str = "Card"
+    device: str = "bb2"
 
 
 class BarcodeSheetSpec(BaseModel):
@@ -240,3 +241,59 @@ class SheetPreview(BaseModel):
 
     count: int
     pages: list[str]
+
+
+class DeviceCardSpec(CardSpec):
+    """One card asked for over HTTP for any device, with the fields only a game reads."""
+
+    device: str = "bb2"
+    character: str | None = None
+    level: int | None = Field(default=None, ge=0, le=3)
+
+
+class DeviceCheatSpec(BaseModel):
+    """The device whose strongest card is wanted, and the name to print on it."""
+
+    device: str = "bb2"
+    name: str | None = None
+
+
+class DeviceView(BaseModel):
+    """One device or game, and which parts of the card maker apply to it."""
+
+    key: str
+    english: str
+    japanese: str
+    fields: list[str]
+    hp_max: int
+    st_max: int
+    df_max: int
+    steps: list[int]
+    stat_keys: list[str]
+
+
+class FactView(BaseModel):
+    """One line of what a card is, in both languages."""
+
+    label: str
+    label_ja: str
+    value: str
+    value_ja: str
+
+
+class DeviceReading(BaseModel):
+    """A barcode as one device reads it, and whether it is exactly what was asked for."""
+
+    name: str = ""
+    barcode: str
+    facts: list[FactView]
+    is_exact: bool = True
+
+
+class DbzChoiceView(BaseModel):
+    """One fighter or item Datach Dragon Ball Z can produce."""
+
+    id: int
+    kind: str
+    english: str
+    japanese: str

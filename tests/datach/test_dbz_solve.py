@@ -3,9 +3,21 @@
 import pytest
 
 from maeyomi.datach.dbz import DbzKind, decode_dbz
-from maeyomi.datach.dbz_solve import DbzRequest, digits_for, solve_dbz, strongest_dbz
+from maeyomi.datach.dbz_solve import (
+    NEAR_WIDTHS,
+    DbzRequest,
+    digits_for,
+    request_from,
+    solve_dbz,
+    solve_dbz_nearest,
+    strongest_dbz,
+    unread_fields,
+)
 from maeyomi.datach.dbz_tables import SECRET_STREAM
+from maeyomi.models.card_request import CardRequest
+from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.constraint import Constraint
+from maeyomi.models.race import Race
 
 
 def test_a_fully_specified_fighter_decodes_to_exactly_the_request() -> None:
@@ -121,3 +133,111 @@ def test_the_strongest_search_finds_nothing_when_the_numbers_transform_the_fight
     )
 
     assert strongest_dbz(request) is None
+
+
+def test_a_shared_request_maps_attack_to_bp_and_defence_to_dp() -> None:
+    shared = CardRequest(
+        name="Rival",
+        hp=Constraint.exactly(40000),
+        st=Constraint.exactly(20000),
+        df=Constraint.at_least(1000),
+    )
+
+    request = request_from(shared, character=7, level=2)
+
+    assert request == DbzRequest(
+        character=7,
+        level=2,
+        hp=Constraint.exactly(40000),
+        bp=Constraint.exactly(20000),
+        dp=Constraint.at_least(1000),
+        name="Rival",
+    )
+
+
+def test_a_shared_request_naming_an_item_asks_for_an_item() -> None:
+    assert request_from(CardRequest(), character=33, level=None).kind is DbzKind.ITEM
+
+
+def test_every_field_the_game_has_no_place_for_is_named() -> None:
+    shared = CardRequest(
+        race=Race.HUMAN,
+        character_class=CharacterClass.WARRIOR,
+        job=3,
+        speed=2,
+        special=4,
+        pp=Constraint.exactly(5),
+        mp=Constraint.exactly(5),
+    )
+
+    unread = unread_fields(shared, back_read=True)
+
+    assert unread == ("race", "class", "job", "speed", "ability", "herbs", "magic", "back-read")
+
+
+def test_a_request_the_game_can_read_has_no_unread_fields() -> None:
+    assert unread_fields(CardRequest(hp=Constraint.exactly(100)), back_read=False) == ()
+
+
+def test_the_nearest_card_is_found_when_the_exact_numbers_cannot_print() -> None:
+    request = DbzRequest(
+        character=7,
+        level=2,
+        hp=Constraint.exactly(40000),
+        bp=Constraint.exactly(20000),
+        dp=Constraint.exactly(15000),
+    )
+
+    outcome = solve_dbz_nearest(request)
+
+    assert solve_dbz(request).card is None
+    assert outcome.card is not None
+    assert outcome.exact is False
+    assert (outcome.card.character, outcome.card.level) == (7, 2)
+    assert abs(outcome.card.hp - 40000) <= NEAR_WIDTHS[-1]
+
+
+def test_the_nearest_search_returns_an_exact_card_when_there_is_one() -> None:
+    request = DbzRequest(character=0, level=1, hp=Constraint.exactly(49500))
+
+    outcome = solve_dbz_nearest(request)
+
+    assert outcome.exact is True
+    assert outcome.card is not None
+    assert outcome.card.hp == 49500
+
+
+def test_the_nearest_search_keeps_the_reasons_when_nothing_is_near() -> None:
+    outcome = solve_dbz_nearest(DbzRequest(character=14, hp=Constraint.exactly(1000)))
+
+    assert outcome.card is None
+    assert "character 14 is not one the game can produce" in outcome.blockers
+
+
+def test_the_nearest_card_sits_close_to_every_number_asked_for() -> None:
+    request = DbzRequest(
+        character=7,
+        level=2,
+        hp=Constraint.exactly(5000),
+        bp=Constraint.exactly(1750),
+        dp=Constraint.exactly(1250),
+    )
+
+    outcome = solve_dbz_nearest(request)
+
+    assert outcome.card is not None
+    distance = (
+        abs(outcome.card.hp - 5000) + abs(outcome.card.bp - 1750) + abs(outcome.card.dp - 1250)
+    )
+    assert distance == 5000
+
+
+def test_a_request_for_any_fighter_finishes_within_its_stream_budget() -> None:
+    request = DbzRequest(
+        hp=Constraint.exactly(5000), bp=Constraint.exactly(1750), dp=Constraint.exactly(1250)
+    )
+
+    outcome = solve_dbz_nearest(request)
+
+    assert outcome.card is not None
+    assert outcome.card.kind is DbzKind.FIGHTER

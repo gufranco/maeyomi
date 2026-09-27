@@ -24,12 +24,12 @@ def client_fixture() -> TestClient:
 
 
 def test_every_static_file_is_present() -> None:
-    for name in ("index.html", "app.css", "app.js"):
+    for name in ("index.html", "app.css", "app.js", "devices.js"):
         assert (STATIC_DIR / name).is_file()
 
 
 def test_the_static_files_are_served(client: TestClient) -> None:
-    for name in ("app.css", "app.js"):
+    for name in ("app.css", "app.js", "devices.js"):
         assert client.get(f"/static/{name}").status_code == 200
 
 
@@ -242,3 +242,18 @@ def test_the_cheat_hint_is_not_dimmed_below_the_contrast_floor() -> None:
 
 def test_the_tablist_moves_focus_with_one_tab_stop() -> None:
     assert "tab.tabIndex = on ? 0 : -1;" in SCRIPT
+
+
+def test_the_page_offers_a_device_switch_before_the_tabs() -> None:
+    assert MARKUP.index('id="device"') < MARKUP.index('role="tablist"')
+    assert 'aria-describedby="device-hint"' in MARKUP
+
+
+def test_every_field_only_some_devices_read_is_marked() -> None:
+    marked = set(re.findall(r'data-device-field="(\w+)"', MARKUP))
+
+    assert marked == {"dbz", "race", "class", "ability", "speed", "job", "backRead", "nearest"}
+
+
+def test_no_explanation_hides_behind_a_click() -> None:
+    assert "<details" not in MARKUP

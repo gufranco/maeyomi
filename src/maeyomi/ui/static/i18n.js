@@ -109,17 +109,43 @@ const MESSAGES = {
     'many.make': 'Make the sheet',
     'many.preview': 'Your sheet',
     'many.placeholder': 'Press Make the sheet to see the pages.',
-    'official.legend': 'Cards Epoch really sold',
+    'device.label': 'Machine or game',
+    'device.hint':
+      'One card, the cheat code and Read a barcode make cards for this choice. ' +
+      'A sheet of cards and the supermarket make Barcode Battler II cards.',
+    'stat.bp': 'Battle power',
+    'stat.dp': 'Defence power',
+    'dbz.character': 'Fighter or item',
+    'dbz.character.hint':
+      'A fighter whose numbers are high enough turns into its stronger form, as the game ' +
+      'does. An item carries no numbers.',
+    'dbz.anyone': 'Any fighter',
+    'dbz.fighters': 'Fighters',
+    'dbz.items': 'Items',
+    'dbz.level': 'Special move level',
+    'dbz.level.any': 'Any',
+    'status.deviceCard': 'This card reads exactly as asked on the {device}.',
+    'status.deviceCheat': '{name}: the strongest card the {device} will read.',
+    'status.searching': 'Looking for a barcode the {device} reads this way.',
+    'status.deviceClosest': 'Those exact numbers cannot be printed, so this is the closest card that can.',
+    'official.legend': 'Cards Epoch and Bandai really sold',
     'official.set': 'Which set',
     'official.note':
-      'These are the barcodes printed on the cards Epoch released in Japan, typed in by ' +
-      'collectors on the Barcode Battler wiki. The numbers on each card are read from the ' +
-      'barcode by this program, not copied from the wiki.',
+      'Epoch never published a list of its cards, so these barcodes were typed in by ' +
+      'collectors on a Japanese fan wiki about the Barcode Battler, hosted on wikiwiki.jp. ' +
+      'The 36 cards Bandai packed with Datach Dragon Ball Z come from the card list in the ' +
+      'source code of puNES, a Famicom emulator, and each one was read by the game itself ' +
+      'running in the MAME emulator. The numbers on every card are read from its barcode by ' +
+      'this program, never copied from those lists.',
+    'official.sources': 'Where the barcodes come from',
+    'official.source.epoch': 'Epoch cards:',
+    'official.source.dbz': 'Dragon Ball Z cards:',
     'official.skipped': 'Cards left out',
     'official.skipped.hint':
-      'The wiki has a typo in these: the last digit does not match the others, so the ' +
-      'machine would refuse them. Guessing the right digit would mean printing a card ' +
-      'nobody ever sold, so they are left out instead.',
+      'The wikiwiki.jp page has a typo in these five. The last digit of a barcode is a ' +
+      'check digit worked out from the other twelve, and here it does not match, so the ' +
+      'machine would refuse them. Guessing which digit is wrong would mean printing a card ' +
+      'nobody ever sold, so they are left out.',
     'official.show': 'Show the cards',
     'official.preview': 'The set',
     'official.placeholder': 'Pick a set and press Show the cards.',
@@ -278,16 +304,43 @@ const MESSAGES = {
     'many.make': 'まとめて つくる',
     'many.preview': 'あなたの シート',
     'many.placeholder': '「まとめて つくる」を おすと ページが みられます。',
-    'official.legend': 'エポック社が ほんとうに うった カード',
+    'device.label': 'つかう マシン・ゲーム',
+    'device.hint':
+      '「1まい つくる」「かくしコマンド」「バーコードを よむ」は ここで えらんだ ものの カードを つくります。' +
+      '「まとめて つくる」と「スーパーマーケット」は バーコードバトラーII の カードです。',
+    'stat.bp': 'せんとうりょく',
+    'stat.dp': 'ぼうぎょりょく',
+    'dbz.character': 'キャラクター・アイテム',
+    'dbz.character.hint':
+      'すうじが じゅうぶん たかい キャラクターは、ゲームと おなじように つよい すがたに へんしんします。' +
+      'アイテムには すうじが ありません。',
+    'dbz.anyone': 'だれでも',
+    'dbz.fighters': 'キャラクター',
+    'dbz.items': 'アイテム',
+    'dbz.level': 'ひっさつわざ レベル',
+    'dbz.level.any': 'どれでも',
+    'status.deviceCard': '{device} で ちゅうもん どおりに よめる カードです。',
+    'status.deviceCheat': '{name}: {device} が よめる いちばん つよい カード。',
+    'status.searching': '{device} が こう よむ バーコードを さがしています。',
+    'status.deviceClosest': 'その すうじ ぴったりの カードは つくれないので、いちばん ちかい カードに しました。',
+    'official.legend': 'エポック社と バンダイが ほんとうに うった カード',
     'official.set': 'どの シリーズ',
     'official.note':
-      'エポック社が にほんで はつばいした カードの バーコードを、バーコードバトラー wiki で ' +
-      'コレクターが にゅうりょくした ものです。カードの すうじは wiki から うつした ものでは なく、' +
-      'この プログラムが バーコードから よみとって います。',
+      'エポック社は カードの いちらんを こうかいしていません。そこで バーコードは、wikiwiki.jp に ある ' +
+      'バーコードバトラーの ファン wiki に コレクターが かきうつした ものを つかっています。' +
+      'バンダイの データック ドラゴンボールZ に ついていた 36まいは、ファミコンの エミュレーター ' +
+      'puNES の ソースコードに ある いちらんから とり、1まいずつ エミュレーター MAME で ' +
+      'ゲームに よませて たしかめました。カードの すうじは この プログラムが バーコードから ' +
+      'よみとった もので、いちらんから うつした ものでは ありません。',
+    'official.sources': 'バーコードの でどころ',
+    'official.source.epoch': 'エポック社の カード:',
+    'official.source.dbz': 'ドラゴンボールZ の カード:',
     'official.skipped': 'のぞいた カード',
     'official.skipped.hint':
-      'これらは wiki の うちまちがいで、さいごの けたが ほかと あいません。マシンは よみとれません。' +
-      'ただしい けたを あてずっぽうで きめると、うられた ことの ない カードに なるので のぞきました。',
+      'wikiwiki.jp の ページで この 5まいは うちまちがいが あります。バーコードの さいごの けたは ' +
+      'ほかの 12けたから けいさんする チェック用の すうじですが、それが あわないので マシンは ' +
+      'よみとれません。どの けたが まちがいかを あてずっぽうで きめると、うられた ことの ない ' +
+      'カードに なるので のぞきました。',
     'official.show': 'カードを みる',
     'official.preview': 'シリーズ',
     'official.placeholder': 'シリーズを えらんで「カードを みる」を おしてね。',

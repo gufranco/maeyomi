@@ -169,3 +169,17 @@ def test_an_id_the_game_never_produces_is_described_as_unknown() -> None:
     assert "Name      unknown 14" in fighter
     assert "Level     none" in fighter
     assert "Effect    unknown" in item
+
+
+def test_generate_offers_the_nearest_dbz_card_when_asked(tmp_path: Path) -> None:
+    output = tmp_path / "near.pdf"
+    request = ["--hp", "40000", "--bp", "20000", "--dp", "15000", "--character", "vegeta"]
+
+    result = runner.invoke(
+        app,
+        ["generate", "--device", "dbz", *request, "--level", "2", "--nearest", "-o", str(output)],
+    )
+
+    assert result.exit_code == 0
+    assert "offering the closest one that prints" in result.output
+    assert decode_dbz(decode_pdf(output)[0]).character == 7

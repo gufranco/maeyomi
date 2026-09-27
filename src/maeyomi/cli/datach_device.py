@@ -17,11 +17,16 @@ from maeyomi.cli.common import sheet_layout, write_cards
 from maeyomi.cli.report import comparison_table
 from maeyomi.datach.dbz import DbzCard, DbzKind, decode_dbz
 from maeyomi.datach.dbz_cheat import strongest_dbz_card, strongest_dbz_items
-from maeyomi.datach.dbz_names import FIGHTERS, ITEMS, fighter_name, item_entry
-from maeyomi.datach.dbz_solve import DbzRequest, solve_dbz
+from maeyomi.datach.dbz_names import ITEMS, character_id, fighter_name, item_entry
+from maeyomi.datach.dbz_solve import (
+    DbzRequest,
+    request_from,
+    solve_dbz,
+    solve_dbz_nearest,
+    unread_fields,
+)
 from maeyomi.decoder.errors import BarcodeError
 from maeyomi.models.card_request import CardRequest
-from maeyomi.models.constraint import Constraint
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import GeneratedCard
 from maeyomi.rendering.export import ImageFormat
@@ -32,6 +37,7 @@ NOT_READ: Final = (
     "Datach Dragon Ball Z does not read {option}; it reads a name, a level, HP, BP, DP"
 )
 ONLY_DBZ: Final = "only --device dbz reads --character and --level"
+NEAREST_NOTE: Final = "no card has exactly those numbers; offering the closest one that prints"
 
 
 def show_dbz(
@@ -84,6 +90,7 @@ class DbzPick:
     character: str | None = None
     level: int | None = None
     back_read: bool = False
+    nearest: bool = False
 
 
 def generate_dbz(
@@ -96,12 +103,14 @@ def generate_dbz(
 ) -> None:
     """Build one card to order, or say which field blocks it."""
     _refuse_unread(request, back_read=pick.back_read)
-    wanted = _dbz_request(request, _character_id(pick.character), pick.level)
-    outcome = solve_dbz(wanted)
+    wanted = request_from(request, character=_character_id(pick.character), level=pick.level)
+    outcome = solve_dbz_nearest(wanted) if pick.nearest else solve_dbz(wanted)
     if outcome.card is None:
         for reason in outcome.blockers:
             typer.echo(reason, err=True)
         raise typer.Exit(code=1)
+    if not outcome.exact:
+        typer.echo(NEAREST_NOTE, err=True)
     for line in _comparison(wanted, outcome.card):
         typer.echo(line)
     typer.echo("")
@@ -130,52 +139,22 @@ def cheat_dbz(
 
 def _refuse_unread(request: CardRequest, *, back_read: bool) -> None:
     """Stop on any option the game has no field for."""
-    unread = {
-        "--race": request.race is not None,
-        "--class": request.character_class is not None,
-        "--job": request.job is not None,
-        "--speed": request.speed is not None,
-        "--ability": request.special is not None,
-        "--herbs": request.pp != Constraint.anything(),
-        "--magic": request.mp != Constraint.anything(),
-        "--back-read": back_read,
-    }
-    given = [option for option, present in unread.items() if present]
+    given = unread_fields(request, back_read=back_read)
     if given:
-        typer.echo(NOT_READ.format(option=", ".join(given)), err=True)
+        options = ", ".join(f"--{name}" for name in given)
+        typer.echo(NOT_READ.format(option=options), err=True)
         raise typer.Exit(code=2)
-
-
-def _dbz_request(request: CardRequest, character: int | None, level: int | None) -> DbzRequest:
-    """The game's request: HP as asked, the attack option as BP and defence as DP."""
-    kind = DbzKind.ITEM if character in ITEMS else DbzKind.FIGHTER
-    return DbzRequest(
-        character=character,
-        kind=kind,
-        level=level,
-        hp=request.hp,
-        bp=request.st,
-        dp=request.df,
-        name=request.name,
-    )
 
 
 def _character_id(value: str | None) -> int | None:
-    """A character or item id from its number or its English or Japanese name."""
+    """The id the option names, or a usage error naming what was not found."""
     if value is None:
         return None
-    wanted = value.strip().casefold()
-    if wanted.isdigit():
-        return int(wanted)
-    names = [
-        (identifier, english, japanese) for identifier, (english, japanese) in FIGHTERS.items()
-    ]
-    names += [(identifier, item.english, item.japanese) for identifier, item in ITEMS.items()]
-    found = [identifier for identifier, *known in names if wanted in {n.casefold() for n in known}]
-    if not found:
-        typer.echo(f"unknown character {value!r}; give a name the game shows or an id", err=True)
-        raise typer.Exit(code=2)
-    return min(found)
+    try:
+        return character_id(value)
+    except ValueError as error:
+        typer.echo(str(error), err=True)
+        raise typer.Exit(code=2) from error
 
 
 def _comparison(request: DbzRequest, card: DbzCard) -> list[str]:
