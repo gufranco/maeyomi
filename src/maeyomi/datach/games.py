@@ -44,7 +44,13 @@ from maeyomi.games.barcode_world import (
     strongest_barcode_world,
 )
 from maeyomi.games.barcode_world import picks_for as barcode_world_picks
-from maeyomi.games.senki import SenkiOrder, build_senki, decode_senki, strongest_senki
+from maeyomi.games.senki import (
+    SenkiOrder,
+    black_store_stats,
+    build_senki,
+    decode_senki,
+    strongest_senki,
+)
 from maeyomi.games.served import (
     BATTLE_RUSH_GAME,
     EFFECT_GAMES,
@@ -271,10 +277,20 @@ def _class_named(typed: str, device: Device) -> int:
 
 
 def _senki_text(card: DatachCard) -> CardText:
-    """The Interface box's sound test, or a card as Barcode World describes it."""
+    """The sound test, or a card as Barcode World describes it plus what the Black Store reads."""
     if card.kind is GameKind.HIDDEN:
         return CardText(SOUND_TEST, OPENS_SOUND_TEST, CARD_HEADING, NO_CARD)
-    return _barcode_world_text(card)
+    text = _barcode_world_text(card)
+    shop = black_store_stats(card.barcode)
+    if shop is None:
+        return text
+    hp, st, df = shop
+    english, japanese = text.power
+    power = (
+        f"{english}; Black Store HP {hp}, ST {st}, DF {df}",
+        f"{japanese}・ブラックストア HP {hp} ST {st} DF {df}",
+    )
+    return CardText(text.name, text.detail, text.heading, power)
 
 
 def _barcode_world_text(card: DatachCard) -> CardText:

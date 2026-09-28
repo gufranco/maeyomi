@@ -14,6 +14,7 @@ from maeyomi.games.excite94 import (
     build_excite94_item,
     build_excite94_player,
     decode_excite94,
+    pk_item,
     player_ident,
     strongest_excite94,
 )
@@ -81,3 +82,34 @@ def test_a_malformed_code_is_refused() -> None:
 
 def test_a_value_no_item_carries_builds_no_card() -> None:
     assert build_excite94_item(OVERALL, TOP + 1) is None
+
+
+PK_FIXTURE = Path(__file__).parent.parent / "fixtures" / "oracle" / "excite94_pk.json"
+
+
+def pk_recorded() -> list[dict[str, int | str | None]]:
+    return json.loads(PK_FIXTURE.read_text("utf-8"))["cards"]
+
+
+PK_ITEMS = [entry for entry in pk_recorded() if entry["player"] is None]
+PK_PLAYERS = [entry for entry in pk_recorded() if entry["player"] is not None]
+
+
+@pytest.mark.parametrize("entry", PK_ITEMS, ids=lambda entry: str(entry["barcode"]))
+def test_pk_mode_reads_every_item_code_as_the_game_did_in_mame(
+    entry: dict[str, int | str | None],
+) -> None:
+    item = pk_item(str(entry["barcode"]))
+
+    assert item == (entry["pk_item"], entry["level"])
+
+
+@pytest.mark.parametrize("entry", PK_PLAYERS, ids=lambda entry: str(entry["barcode"]))
+def test_pk_mode_reads_every_player_code_as_the_roster_screen_does(
+    entry: dict[str, int | str | None],
+) -> None:
+    code = str(entry["barcode"])
+
+    item = pk_item(code)
+
+    assert (item, decode_excite94(code).ident) == (None, entry["player"])

@@ -18,7 +18,7 @@ def test_decode_reads_a_seven_read_code() -> None:
     assert "Device    Barcode Battler 2 Double" in result.output
     assert "Read      7" in result.output
     assert "ST        18800" in result.output
-    assert "Race      unknown" in result.output
+    assert "Race      Bird" in result.output
     assert "Class     Magician" in result.output
     assert "Power     27 opponent DF down 80%" in result.output
 
@@ -54,15 +54,26 @@ def test_generate_builds_a_seven_read_card(tmp_path: Path) -> None:
     assert "ST       99900           99900" in result.output
 
 
-def test_generate_refuses_a_race_on_a_seven_read_card(tmp_path: Path) -> None:
+def test_generate_builds_a_seven_read_card_of_the_race_asked_for(tmp_path: Path) -> None:
     output = tmp_path / "x.pdf"
 
     result = runner.invoke(
         app, ["generate", "--device", "double", "--race", "human", "-o", str(output)]
     )
 
+    assert result.exit_code == 0
+    assert output.exists()
+
+
+def test_generate_refuses_an_item_race_on_a_seven_read_card(tmp_path: Path) -> None:
+    output = tmp_path / "x.pdf"
+
+    result = runner.invoke(
+        app, ["generate", "--device", "double", "--race", "weapon", "-o", str(output)]
+    )
+
     assert result.exit_code == 1
-    assert "a 7-read card has no race any source records" in result.output
+    assert "a 7-read card is always a fighter" in result.output
     assert not output.exists()
 
 

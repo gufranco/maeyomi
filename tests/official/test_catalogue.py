@@ -35,6 +35,8 @@ YUYU_CARDS = 37
 JLEAGUE_CARDS = 160
 BARCODE_WORLD_CARDS = 24
 EXCITE_CLUB_CARDS = 12
+WESTERN_PACK_CARDS = 26
+MARIO_CARDS = 30
 ADDED_CARDS = 346
 SCANNED_CARDS = 71
 TRANSCRIBED = (
@@ -48,6 +50,8 @@ TRANSCRIBED = (
     + JLEAGUE_CARDS
     + BARCODE_WORLD_CARDS
     + EXCITE_CLUB_CARDS * 2
+    + WESTERN_PACK_CARDS * 2
+    + MARIO_CARDS
 )
 EXCITE_CLUB_BARCODES = {
     "0000000034111",
@@ -63,7 +67,19 @@ EXCITE_CLUB_BARCODES = {
     "0000000391443",
     "0000000632171",
 }
-SHARED_BETWEEN_SETS = {"0000500970445", *EXCITE_CLUB_BARCODES}
+IRWIN_RECODED = {
+    "0030000902349",
+    "2090000955002",
+    "2090000965001",
+    "2090005995058",
+    "2090007805140",
+    "2090018705385",
+    "2090400605231",
+    "2090500605155",
+    "2090500975081",
+    "2091200505370",
+}
+UK_PAGES = "https://www.barcodebattler.co.uk/?p="
 WIKI = "https://wikiwiki.jp/barcode/"
 UK_LIST = "https://www.barcodebattler.co.uk/deeta.js"
 UK_SCANS = "https://www.barcodebattler.co.uk/scans/Japan/"
@@ -84,10 +100,37 @@ def test_the_catalogue_holds_every_transcribed_barcode_once_per_set() -> None:
     assert len(set(entries)) == len(entries)
 
 
-def test_only_the_red_potion_belongs_to_two_sets() -> None:
-    barcodes = [card.barcode for card in official_catalogue()]
+def test_only_the_red_potion_the_club_cards_and_the_western_packs_share_barcodes() -> None:
+    western = {OfficialSet.IRWIN, OfficialSet.TOMY}
+    barcodes = [card.barcode for card in official_catalogue() if card.official_set not in western]
 
-    assert {code for code in barcodes if barcodes.count(code) > 1} == SHARED_BETWEEN_SETS
+    shared = {code for code in barcodes if barcodes.count(code) > 1}
+
+    assert shared == {"0000500970445", *EXCITE_CLUB_BARCODES}
+
+
+def test_every_tomy_card_is_an_epoch_card_and_irwin_recoded_ten() -> None:
+    epoch = {
+        card.barcode for card in official_catalogue() if card.official_set is OfficialSet.SECOND
+    }
+    tomy = {card.barcode for card in official_catalogue() if card.official_set is OfficialSet.TOMY}
+    irwin = {
+        card.barcode for card in official_catalogue() if card.official_set is OfficialSet.IRWIN
+    }
+
+    assert (tomy - epoch, irwin - epoch) == (set(), IRWIN_RECODED)
+
+
+def test_irwin_life_crystals_heal_less_than_the_epoch_card_they_replace() -> None:
+    irwin = {
+        card.name: card.barcode
+        for card in official_catalogue()
+        if card.official_set is OfficialSet.IRWIN
+    }
+
+    healed = (decode(irwin["Life Crystals"]).hp, decode("0160000902138").hp)
+
+    assert healed == (300, 1600)
 
 
 def test_every_card_names_the_page_it_came_from() -> None:
@@ -107,6 +150,9 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.BARCODE_WORLD: UK_SCANS,
         OfficialSet.EXCITE_CLUBS: UK_SCANS,
         OfficialSet.EXCITE94_CLUBS: UK_SCANS,
+        OfficialSet.IRWIN: UK_PAGES,
+        OfficialSet.TOMY: UK_PAGES,
+        OfficialSet.SUPER_MARIO_WORLD: UK_PAGES,
     }
     for card in official_catalogue():
         assert card.source_url.startswith(sources.get(card.official_set, WIKI))
@@ -232,6 +278,9 @@ def test_a_device_owns_exactly_the_sets_written_for_it() -> None:
         (OfficialSet.DORAEMON_DINOSAUR, Device.BB2, 33),
         (OfficialSet.OBOCCHAMAKUN, Device.BB1, 6),
         (OfficialSet.MEIJI_FREEZELAND, Device.BB2, 2),
+        (OfficialSet.IRWIN, Device.BB2, WESTERN_PACK_CARDS),
+        (OfficialSet.TOMY, Device.BB2, WESTERN_PACK_CARDS),
+        (OfficialSet.SUPER_MARIO_WORLD, Device.BB2, MARIO_CARDS),
     ],
 )
 def test_every_added_set_is_read_by_its_device(
@@ -284,3 +333,15 @@ def test_the_excite_stage_club_cards_are_item_cards_for_excite_stage_95() -> Non
     flugels = next(card for card in cards if card.name == "横浜フリューゲルス")
     assert isinstance(flugels.character, DatachCard)
     assert (flugels.character.ident, flugels.character.traits) == (KICK_SPEED, (104,))
+
+
+def test_bowser_is_the_strongest_super_mario_world_card() -> None:
+    mario = {
+        card.name: card.barcode
+        for card in official_catalogue()
+        if card.official_set is OfficialSet.SUPER_MARIO_WORLD
+    }
+
+    health = (decode(mario["クッパ"]).hp, decode(mario["マリオ"]).hp)
+
+    assert health == (20900, 3500)

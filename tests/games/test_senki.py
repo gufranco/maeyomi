@@ -12,6 +12,7 @@ from maeyomi.games.barcode_world import JOB_KEY, WARRIOR, decode_barcode_world
 from maeyomi.games.senki import (
     SOUND_TEST,
     SenkiOrder,
+    black_store_stats,
     build_senki,
     decode_senki,
     strongest_senki,
@@ -20,6 +21,7 @@ from maeyomi.models.constraint import Constraint
 from maeyomi.models.device import Device
 
 FIXTURE = Path(__file__).parent.parent / "fixtures" / "oracle" / "barcode_battler_senki.json"
+BLACK_STORE = Path(__file__).parent.parent / "fixtures" / "oracle" / "senki_black_store.json"
 ANY: Constraint = Constraint.anything()
 FIGHTER_KEYS = ("hp", "st", "df", "kind", "job", "speed", "ability", "mp", "pp")
 ITEM_KEYS = ("st", "df", "kind", "job", "speed", "ability")
@@ -120,3 +122,19 @@ def test_the_strongest_card_is_a_magician_at_every_ceiling() -> None:
         10,
     )
     assert card.traits[0] == MAGICIAN_JOB
+
+
+def black_store_recorded() -> list[dict[str, object]]:
+    return json.loads(BLACK_STORE.read_text("utf-8"))["cards"]
+
+
+@pytest.mark.parametrize("entry", black_store_recorded(), ids=lambda entry: str(entry["barcode"]))
+def test_the_black_store_reads_every_code_as_the_game_did_in_mame(entry: dict[str, object]) -> None:
+    stats = black_store_stats(str(entry["barcode"]))
+
+    expected = (entry["hp"], entry["st"], entry["df"]) if entry["black_store"] else None
+    assert stats == expected
+
+
+def test_a_code_read_in_place_reads_the_same_in_the_black_store() -> None:
+    assert black_store_stats("0120401154185") is None

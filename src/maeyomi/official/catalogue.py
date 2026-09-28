@@ -70,7 +70,7 @@ class OfficialSet(Enum):
 
     The English titles are this project's own translation, for readers who do
     not read Japanese. The Japanese value is the wiki's page name, and for the
-    three lists published in English it is this project's translation.
+    lists published only in English it is this project's translation.
     """
 
     ORIGINAL = "バーコードバトラー カードリスト"
@@ -107,6 +107,9 @@ class OfficialSet(Enum):
     BARCODE_WORLD = "バーコードワールド カードリスト"
     EXCITE_CLUBS = "Jリーグ 登録選手リスト カード、エキサイトステージ'95 で よむ"
     EXCITE94_CLUBS = "Jリーグ 登録選手リスト カード、エキサイトステージ'94 で よむ"
+    IRWIN = "アーウィン版 バーコードバトラー カードリスト"
+    TOMY = "トミー版 バーコードバトラー カードリスト"
+    SUPER_MARIO_WORLD = "スーパーマリオワールド カードリスト"
 
     @property
     def device(self) -> Device:
@@ -179,6 +182,9 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.BARCODE_WORLD: "Barcode World",
     OfficialSet.EXCITE_CLUBS: "J.League Excite Stage club roster cards, as '95 reads them",
     OfficialSet.EXCITE94_CLUBS: "J.League Excite Stage club roster cards, as '94 reads them",
+    OfficialSet.IRWIN: "Irwin Barcode Battler, United States and Canada",
+    OfficialSet.TOMY: "Tomy Barcode Battler, United Kingdom and Europe",
+    OfficialSet.SUPER_MARIO_WORLD: "Super Mario World",
 }
 
 

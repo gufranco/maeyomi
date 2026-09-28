@@ -182,6 +182,22 @@ def test_a_senki_fighter_is_described_as_barcode_world_describes_one() -> None:
     assert text.detail == ("Job 2, speed 2", "しょくぎょう 2・すばやさ 2")
 
 
+def test_a_senki_card_read_from_the_end_names_what_the_black_store_reads() -> None:
+    game = GAMES[Device.SENKI]
+
+    text = game.describe(game.decode("74881628"))
+
+    assert text.power[0].endswith("; Black Store HP 61, ST 34, DF 13")
+
+
+def test_a_senki_card_read_in_place_names_no_black_store_numbers() -> None:
+    game = GAMES[Device.SENKI]
+
+    text = game.describe(game.decode("0120401154185"))
+
+    assert "Black Store" not in text.power[0]
+
+
 def test_the_interface_box_code_is_described_as_the_sound_test() -> None:
     game = GAMES[Device.SENKI]
 

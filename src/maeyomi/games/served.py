@@ -35,6 +35,7 @@ from maeyomi.games.excite94 import (
     build_excite94_item,
     build_excite94_player,
     decode_excite94,
+    pk_reading,
     strongest_excite94,
 )
 from maeyomi.games.excite94_players import PLAYERS
@@ -224,7 +225,12 @@ def _excite94_text(card: DatachCard) -> CardText:
     if card.kind is GameKind.ITEM:
         (value,) = card.traits
         name = EXCITE94_ITEMS[card.ident - EXCITE94_FIRST_ITEM]
-        return CardText(name, ITEM_CARD, EFFECT, (f"Raises it by {value}", f"{value} あがる"))
+        pk_type, level = pk_reading(card.barcode)
+        power = (
+            f"Raises it by {value}; in PK mode type {pk_type}, level {level}",
+            f"{value} あがる・PKモードでは タイプ{pk_type} レベル{level}",
+        )
+        return CardText(name, ITEM_CARD, EFFECT, power)
     name, grades = PLAYERS[card.ident]
     (keeper,) = card.traits
     letters = [GRADE_LETTERS[int(nibble, 16)] for nibble in grades]

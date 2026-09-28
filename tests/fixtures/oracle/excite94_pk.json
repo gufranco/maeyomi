@@ -1,0 +1,1021 @@
+{
+  "game": "J.League Excite Stage '94",
+  "software": "jlexct94",
+  "rom": {
+    "sha1": "0422ed14df97df5917dd67efead191ee54d596ab",
+    "size": 1048576
+  },
+  "emulator": "MAME 0.289, snes with barcode_battler on ctrl2, fed by tools/oracle/drive.lua bbscan",
+  "screen": "PK mode, 1P's card panel; B27 reads 3; an item's type at D93 and level at C76, a player's team and slot at D8D and D8E",
+  "recorded_utc": "2026-09-28",
+  "cards": [
+    {
+      "barcode": "0000759219531",
+      "pk_item": 11,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "0015400837958",
+      "pk_item": null,
+      "level": null,
+      "player": 400
+    },
+    {
+      "barcode": "0029076958640",
+      "pk_item": 10,
+      "level": 5,
+      "player": null
+    },
+    {
+      "barcode": "0033573155778",
+      "pk_item": null,
+      "level": null,
+      "player": 428
+    },
+    {
+      "barcode": "0166802193859",
+      "pk_item": null,
+      "level": null,
+      "player": 469
+    },
+    {
+      "barcode": "0188668029622",
+      "pk_item": 10,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "0277826783251",
+      "pk_item": 11,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "0346262061671",
+      "pk_item": 8,
+      "level": 6,
+      "player": null
+    },
+    {
+      "barcode": "0366231883912",
+      "pk_item": 12,
+      "level": 5,
+      "player": null
+    },
+    {
+      "barcode": "0486824241742",
+      "pk_item": 8,
+      "level": 5,
+      "player": null
+    },
+    {
+      "barcode": "0520010240321",
+      "pk_item": 8,
+      "level": 2,
+      "player": null
+    },
+    {
+      "barcode": "0549859536204",
+      "pk_item": null,
+      "level": null,
+      "player": 393
+    },
+    {
+      "barcode": "0624230009680",
+      "pk_item": 8,
+      "level": 7,
+      "player": null
+    },
+    {
+      "barcode": "0626521009492",
+      "pk_item": 8,
+      "level": 6,
+      "player": null
+    },
+    {
+      "barcode": "0689589138603",
+      "pk_item": 12,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "0714041022500",
+      "pk_item": 10,
+      "level": 2,
+      "player": null
+    },
+    {
+      "barcode": "0851652640447",
+      "pk_item": null,
+      "level": null,
+      "player": 340
+    },
+    {
+      "barcode": "0929844600033",
+      "pk_item": 8,
+      "level": 1,
+      "player": null
+    },
+    {
+      "barcode": "0984358367483",
+      "pk_item": 11,
+      "level": 6,
+      "player": null
+    },
+    {
+      "barcode": "1020175110877",
+      "pk_item": null,
+      "level": null,
+      "player": 379
+    },
+    {
+      "barcode": "1030091427782",
+      "pk_item": 8,
+      "level": 7,
+      "player": null
+    },
+    {
+      "barcode": "1075720083816",
+      "pk_item": null,
+      "level": null,
+      "player": 343
+    },
+    {
+      "barcode": "1087586890903",
+      "pk_item": 13,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "1167596159341",
+      "pk_item": 8,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "1241028216083",
+      "pk_item": 11,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "1475518390230",
+      "pk_item": 8,
+      "level": 2,
+      "player": null
+    },
+    {
+      "barcode": "1513804110848",
+      "pk_item": null,
+      "level": null,
+      "player": 376
+    },
+    {
+      "barcode": "1566099462864",
+      "pk_item": null,
+      "level": null,
+      "player": 325
+    },
+    {
+      "barcode": "1639308634991",
+      "pk_item": 11,
+      "level": 9,
+      "player": null
+    },
+    {
+      "barcode": "1806941652921",
+      "pk_item": 13,
+      "level": 5,
+      "player": null
+    },
+    {
+      "barcode": "1865990742151",
+      "pk_item": 13,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "1941592714021",
+      "pk_item": 10,
+      "level": 1,
+      "player": null
+    },
+    {
+      "barcode": "2050108008642",
+      "pk_item": 8,
+      "level": 5,
+      "player": null
+    },
+    {
+      "barcode": "2055753229329",
+      "pk_item": null,
+      "level": null,
+      "player": 278
+    },
+    {
+      "barcode": "2058433402517",
+      "pk_item": null,
+      "level": null,
+      "player": 249
+    },
+    {
+      "barcode": "2114799133219",
+      "pk_item": null,
+      "level": null,
+      "player": 391
+    },
+    {
+      "barcode": "2154973435982",
+      "pk_item": 9,
+      "level": 8,
+      "player": null
+    },
+    {
+      "barcode": "2276375992150",
+      "pk_item": 8,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "2337565590331",
+      "pk_item": 10,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "2342477815557",
+      "pk_item": null,
+      "level": null,
+      "player": 355
+    },
+    {
+      "barcode": "2346278004370",
+      "pk_item": 8,
+      "level": 5,
+      "player": null
+    },
+    {
+      "barcode": "2433640348092",
+      "pk_item": 9,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "2475543406851",
+      "pk_item": 12,
+      "level": 6,
+      "player": null
+    },
+    {
+      "barcode": "2493388498824",
+      "pk_item": null,
+      "level": null,
+      "player": 361
+    },
+    {
+      "barcode": "2502494996732",
+      "pk_item": 8,
+      "level": 5,
+      "player": null
+    },
+    {
+      "barcode": "2568675442801",
+      "pk_item": 10,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "2593114921722",
+      "pk_item": 13,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "2607331497561",
+      "pk_item": 9,
+      "level": 5,
+      "player": null
+    },
+    {
+      "barcode": "2729961010443",
+      "pk_item": 9,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "2827219386200",
+      "pk_item": 13,
+      "level": 1,
+      "player": null
+    },
+    {
+      "barcode": "2883396958685",
+      "pk_item": null,
+      "level": null,
+      "player": 400
+    },
+    {
+      "barcode": "2984265823186",
+      "pk_item": null,
+      "level": null,
+      "player": 355
+    },
+    {
+      "barcode": "3047498627446",
+      "pk_item": null,
+      "level": null,
+      "player": 340
+    },
+    {
+      "barcode": "3145303793420",
+      "pk_item": 12,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "3196761547407",
+      "pk_item": null,
+      "level": null,
+      "player": 408
+    },
+    {
+      "barcode": "3215293042546",
+      "pk_item": null,
+      "level": null,
+      "player": 297
+    },
+    {
+      "barcode": "3353544502682",
+      "pk_item": 13,
+      "level": 7,
+      "player": null
+    },
+    {
+      "barcode": "3380922982811",
+      "pk_item": 13,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "3429337971765",
+      "pk_item": null,
+      "level": null,
+      "player": 415
+    },
+    {
+      "barcode": "3666662844542",
+      "pk_item": 8,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "3719976573520",
+      "pk_item": 8,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "3779848362430",
+      "pk_item": 11,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "3887372077109",
+      "pk_item": null,
+      "level": null,
+      "player": 327
+    },
+    {
+      "barcode": "3917622395902",
+      "pk_item": 8,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "3918319031530",
+      "pk_item": 11,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "3978565882690",
+      "pk_item": 12,
+      "level": 7,
+      "player": null
+    },
+    {
+      "barcode": "4080359411852",
+      "pk_item": 13,
+      "level": 6,
+      "player": null
+    },
+    {
+      "barcode": "4153089853473",
+      "pk_item": 9,
+      "level": 5,
+      "player": null
+    },
+    {
+      "barcode": "4184932171420",
+      "pk_item": 10,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "4250297232110",
+      "pk_item": 13,
+      "level": 1,
+      "player": null
+    },
+    {
+      "barcode": "4323235512503",
+      "pk_item": 8,
+      "level": 2,
+      "player": null
+    },
+    {
+      "barcode": "4327386862814",
+      "pk_item": null,
+      "level": null,
+      "player": 360
+    },
+    {
+      "barcode": "4353817797752",
+      "pk_item": 12,
+      "level": 6,
+      "player": null
+    },
+    {
+      "barcode": "4399194303872",
+      "pk_item": 11,
+      "level": 7,
+      "player": null
+    },
+    {
+      "barcode": "4417942579802",
+      "pk_item": 8,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "4429169081792",
+      "pk_item": 10,
+      "level": 8,
+      "player": null
+    },
+    {
+      "barcode": "4451658524800",
+      "pk_item": 9,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "4482630659968",
+      "pk_item": null,
+      "level": null,
+      "player": 420
+    },
+    {
+      "barcode": "4576148348404",
+      "pk_item": null,
+      "level": null,
+      "player": 409
+    },
+    {
+      "barcode": "4601163374081",
+      "pk_item": 12,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "4765365998299",
+      "pk_item": null,
+      "level": null,
+      "player": 395
+    },
+    {
+      "barcode": "4771446138423",
+      "pk_item": 12,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "4900000011005",
+      "pk_item": null,
+      "level": null,
+      "player": 252
+    },
+    {
+      "barcode": "4900000700008",
+      "pk_item": null,
+      "level": null,
+      "player": 255
+    },
+    {
+      "barcode": "4903661118410",
+      "pk_item": 10,
+      "level": 2,
+      "player": null
+    },
+    {
+      "barcode": "4913032581835",
+      "pk_item": null,
+      "level": null,
+      "player": 453
+    },
+    {
+      "barcode": "5027210479001",
+      "pk_item": 13,
+      "level": 0,
+      "player": null
+    },
+    {
+      "barcode": "5283881712520",
+      "pk_item": 10,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "5412411510132",
+      "pk_item": 8,
+      "level": 2,
+      "player": null
+    },
+    {
+      "barcode": "5417577181288",
+      "pk_item": null,
+      "level": null,
+      "player": 444
+    },
+    {
+      "barcode": "5422250734859",
+      "pk_item": null,
+      "level": null,
+      "player": 380
+    },
+    {
+      "barcode": "5527286808328",
+      "pk_item": null,
+      "level": null,
+      "player": 295
+    },
+    {
+      "barcode": "5582949336259",
+      "pk_item": null,
+      "level": null,
+      "player": 399
+    },
+    {
+      "barcode": "5583752401950",
+      "pk_item": 12,
+      "level": 7,
+      "player": null
+    },
+    {
+      "barcode": "5723322994080",
+      "pk_item": 8,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "5744132822530",
+      "pk_item": 12,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "5843020781345",
+      "pk_item": null,
+      "level": null,
+      "player": 360
+    },
+    {
+      "barcode": "5970845715603",
+      "pk_item": 10,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "6048376322214",
+      "pk_item": null,
+      "level": null,
+      "player": 379
+    },
+    {
+      "barcode": "6186925902958",
+      "pk_item": null,
+      "level": null,
+      "player": 380
+    },
+    {
+      "barcode": "6270256089997",
+      "pk_item": null,
+      "level": null,
+      "player": 350
+    },
+    {
+      "barcode": "6271772338552",
+      "pk_item": 8,
+      "level": 5,
+      "player": null
+    },
+    {
+      "barcode": "6315193355313",
+      "pk_item": 10,
+      "level": 2,
+      "player": null
+    },
+    {
+      "barcode": "6330868999623",
+      "pk_item": 8,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "6574527511973",
+      "pk_item": 8,
+      "level": 8,
+      "player": null
+    },
+    {
+      "barcode": "6644378783062",
+      "pk_item": 11,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "6646563201443",
+      "pk_item": 10,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "6675394438582",
+      "pk_item": 9,
+      "level": 6,
+      "player": null
+    },
+    {
+      "barcode": "6745015824572",
+      "pk_item": 12,
+      "level": 6,
+      "player": null
+    },
+    {
+      "barcode": "6754574863861",
+      "pk_item": 10,
+      "level": 7,
+      "player": null
+    },
+    {
+      "barcode": "6777835747434",
+      "pk_item": null,
+      "level": null,
+      "player": 340
+    },
+    {
+      "barcode": "6838722708300",
+      "pk_item": 9,
+      "level": 1,
+      "player": null
+    },
+    {
+      "barcode": "6968791036247",
+      "pk_item": null,
+      "level": null,
+      "player": 287
+    },
+    {
+      "barcode": "7030432143931",
+      "pk_item": 13,
+      "level": 6,
+      "player": null
+    },
+    {
+      "barcode": "7272890635744",
+      "pk_item": null,
+      "level": null,
+      "player": 375
+    },
+    {
+      "barcode": "7294474687000",
+      "pk_item": 10,
+      "level": 0,
+      "player": null
+    },
+    {
+      "barcode": "7402321099979",
+      "pk_item": null,
+      "level": null,
+      "player": 368
+    },
+    {
+      "barcode": "7435893323500",
+      "pk_item": 13,
+      "level": 2,
+      "player": null
+    },
+    {
+      "barcode": "7439228631162",
+      "pk_item": 11,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "7591518691307",
+      "pk_item": null,
+      "level": null,
+      "player": 320
+    },
+    {
+      "barcode": "7707224150773",
+      "pk_item": 8,
+      "level": 7,
+      "player": null
+    },
+    {
+      "barcode": "7752459012082",
+      "pk_item": 9,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "7760956527718",
+      "pk_item": null,
+      "level": null,
+      "player": 390
+    },
+    {
+      "barcode": "7796351980063",
+      "pk_item": 13,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "7820910821693",
+      "pk_item": 12,
+      "level": 7,
+      "player": null
+    },
+    {
+      "barcode": "7850387212496",
+      "pk_item": null,
+      "level": null,
+      "player": 259
+    },
+    {
+      "barcode": "7886794740659",
+      "pk_item": null,
+      "level": null,
+      "player": 375
+    },
+    {
+      "barcode": "7891334018211",
+      "pk_item": 9,
+      "level": 1,
+      "player": null
+    },
+    {
+      "barcode": "7908305783082",
+      "pk_item": 11,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "8058131792204",
+      "pk_item": null,
+      "level": null,
+      "player": 300
+    },
+    {
+      "barcode": "8096865976033",
+      "pk_item": 12,
+      "level": 1,
+      "player": null
+    },
+    {
+      "barcode": "8104949663110",
+      "pk_item": 8,
+      "level": 1,
+      "player": null
+    },
+    {
+      "barcode": "8123644849612",
+      "pk_item": 8,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "8138430532364",
+      "pk_item": null,
+      "level": null,
+      "player": 397
+    },
+    {
+      "barcode": "8251399860580",
+      "pk_item": 10,
+      "level": 6,
+      "player": null
+    },
+    {
+      "barcode": "8306497426784",
+      "pk_item": null,
+      "level": null,
+      "player": 277
+    },
+    {
+      "barcode": "8384144157557",
+      "pk_item": null,
+      "level": null,
+      "player": 426
+    },
+    {
+      "barcode": "8399240199974",
+      "pk_item": null,
+      "level": null,
+      "player": 479
+    },
+    {
+      "barcode": "8439383102292",
+      "pk_item": 9,
+      "level": 5,
+      "player": null
+    },
+    {
+      "barcode": "8454218765602",
+      "pk_item": 9,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "8559139292296",
+      "pk_item": null,
+      "level": null,
+      "player": 346
+    },
+    {
+      "barcode": "8602110331368",
+      "pk_item": null,
+      "level": null,
+      "player": 396
+    },
+    {
+      "barcode": "8609371780010",
+      "pk_item": 11,
+      "level": 0,
+      "player": null
+    },
+    {
+      "barcode": "8667226897740",
+      "pk_item": 13,
+      "level": 5,
+      "player": null
+    },
+    {
+      "barcode": "8697351917013",
+      "pk_item": 12,
+      "level": 0,
+      "player": null
+    },
+    {
+      "barcode": "8814482495603",
+      "pk_item": 9,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "8983206127523",
+      "pk_item": 11,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "8997282943861",
+      "pk_item": 9,
+      "level": 7,
+      "player": null
+    },
+    {
+      "barcode": "8998554947280",
+      "pk_item": 9,
+      "level": 5,
+      "player": null
+    },
+    {
+      "barcode": "9041771446308",
+      "pk_item": null,
+      "level": null,
+      "player": 294
+    },
+    {
+      "barcode": "9082743358311",
+      "pk_item": 10,
+      "level": 2,
+      "player": null
+    },
+    {
+      "barcode": "9172510713037",
+      "pk_item": null,
+      "level": null,
+      "player": 280
+    },
+    {
+      "barcode": "9174942159452",
+      "pk_item": 8,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "9181724434102",
+      "pk_item": 9,
+      "level": 0,
+      "player": null
+    },
+    {
+      "barcode": "9194291261415",
+      "pk_item": null,
+      "level": null,
+      "player": 313
+    },
+    {
+      "barcode": "9252399888047",
+      "pk_item": null,
+      "level": null,
+      "player": 320
+    },
+    {
+      "barcode": "9316425312927",
+      "pk_item": null,
+      "level": null,
+      "player": 377
+    },
+    {
+      "barcode": "9345430700009",
+      "pk_item": null,
+      "level": null,
+      "player": 255
+    },
+    {
+      "barcode": "9395256535996",
+      "pk_item": null,
+      "level": null,
+      "player": 402
+    },
+    {
+      "barcode": "9396629893712",
+      "pk_item": 13,
+      "level": 4,
+      "player": null
+    },
+    {
+      "barcode": "9455014523402",
+      "pk_item": 9,
+      "level": 2,
+      "player": null
+    },
+    {
+      "barcode": "9574462920004",
+      "pk_item": null,
+      "level": null,
+      "player": 255
+    },
+    {
+      "barcode": "9613864716096",
+      "pk_item": null,
+      "level": null,
+      "player": 335
+    },
+    {
+      "barcode": "9639947272228",
+      "pk_item": null,
+      "level": null,
+      "player": 325
+    },
+    {
+      "barcode": "9654102473593",
+      "pk_item": 13,
+      "level": 7,
+      "player": null
+    },
+    {
+      "barcode": "9672142893232",
+      "pk_item": 13,
+      "level": 2,
+      "player": null
+    },
+    {
+      "barcode": "9906091480343",
+      "pk_item": 8,
+      "level": 3,
+      "player": null
+    },
+    {
+      "barcode": "9922309277550",
+      "pk_item": 11,
+      "level": 5,
+      "player": null
+    }
+  ]
+}

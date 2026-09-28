@@ -169,7 +169,10 @@ def test_an_excite_94_item_is_described_by_its_ability_and_how_far_it_raises_it(
     text = EXCITE94_GAME.describe(EXCITE94_GAME.decode("0000000034111"))
 
     assert text.name == ("Kick speed", "キックスピード")
-    assert text.power == ("Raises it by 104", "104 あがる")
+    assert text.power == (
+        "Raises it by 104; in PK mode type 11, level 1",
+        "104 あがる・PKモードでは タイプ11 レベル1",
+    )
 
 
 def test_an_unknown_excite_94_card_is_refused() -> None:

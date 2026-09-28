@@ -8,8 +8,10 @@ the eighth to twelfth, and the sum picks the team and the slot ($A7:F30C).
 A lower check digit is an item card that raises one ability by N x 65 / 256,
 where N is the tenth to twelfth digits: a keeper's saving when the second and
 eighth digits add up odd, else the ability the eighth and ninth choose. PK
-mode reads codes another way and is not modelled. Confirmed against the game
-in MAME.
+mode reads a player the same way; an item there takes one of six PK types
+from the eighth and ninth digits' sum modulo 6 ($A5:9951) and a level from
+half the eleventh and twelfth digits' sum ($A7:F2E3). What each PK type does
+in play is not traced. Confirmed against the game in MAME on both screens.
 """
 
 import itertools
@@ -41,6 +43,8 @@ SHIFT: Final = 8
 TOP_VALUE: Final = 253
 TOP_N: Final = 999
 BEST: Final = FIRST_TEAM * SLOTS + 12
+FIRST_PK_ITEM: Final = 8
+PK_ITEMS: Final = 6
 ITEMS: Final = {
     OVERALL: ("Overall power", "そうりょく"),
     DRIBBLE: ("Dribble", "ドリブル"),
@@ -65,6 +69,17 @@ def decode_excite94(code: str) -> DatachCard:
     kind = SAVING if (digits[1] + digits[7]) % 2 else (digits[7] + digits[8]) % SELECTORS
     value = ((100 * digits[9] + 10 * digits[10] + digits[11]) * SCALE) >> SHIFT
     return DatachCard(normalised, Device.EXCITE94, GameKind.ITEM, FIRST_ITEM + kind, (), (value,))
+
+
+def pk_item(code: str) -> tuple[int, int] | None:
+    """The PK item type and level a code makes in PK mode, or None when it is a player."""
+    return None if decode_excite94(code).kind is GameKind.PLAYER else pk_reading(code)
+
+
+def pk_reading(code: str) -> tuple[int, int]:
+    """The PK item type and level an item code's digits make, per $A7:F2E3."""
+    digits = [int(character) for character in validate_barcode(code).rjust(13, "0")]
+    return FIRST_PK_ITEM + (digits[7] + digits[8]) % PK_ITEMS, (digits[10] + digits[11]) >> 1
 
 
 def _player(digits: list[int]) -> tuple[int, int]:

@@ -105,7 +105,7 @@ def test_every_first_battler_flag_has_an_icon() -> None:
 
 
 def test_a_seven_read_card_has_an_unknown_kind_and_the_double_class() -> None:
-    face = face_of(decode_double("7821818898978"))
+    face = face_of(decode_double("7821818398973"))
 
     assert face.kind == UNKNOWN_FIGHTER
     assert face.detail == double_class_label(9)
@@ -113,7 +113,7 @@ def test_a_seven_read_card_has_an_unknown_kind_and_the_double_class() -> None:
     assert face.power_icon == AbilityIcon(Glyph.SHIELD, Badge.DOWN)
     assert [(tile.key, tile.value) for tile in face.tiles] == [
         ("HP", 82700),
-        ("ST", 18800),
+        ("ST", 18300),
         ("DF", 18900),
     ]
 
@@ -211,4 +211,4 @@ def test_a_summary_of_an_item_with_no_numbers_is_its_effect() -> None:
 
 
 def test_a_summary_of_a_card_with_no_race_says_so() -> None:
-    assert summary_of(decode_double("7821818898978")).kind == "unknown"
+    assert summary_of(decode_double("7821818398973")).kind == "unknown"

@@ -26,7 +26,7 @@ def test_the_god_of_destruction_reads_with_the_seven_read() -> None:
     assert card.reading is DoubleReading.SEVEN
     assert (card.hp, card.st, card.df) == (82700, 18800, 18900)
     assert (card.job, card.special.code) == (9, 27)
-    assert (card.race, card.speed) == (None, None)
+    assert (card.race, card.speed) == (Race.BIRD, None)
 
 
 @pytest.mark.parametrize("entry", main_story_three(), ids=lambda entry: str(entry["barcode"]))
@@ -42,6 +42,7 @@ def test_every_main_story_three_card_reads_as_the_wiki_lists_it(
         entry["job"],
     )
     assert card.special.code == entry["special"]
+    assert card.race == entry["race"]
 
 
 def test_the_list_holds_eleven_seven_read_cards_and_four_front_reads() -> None:
@@ -83,3 +84,9 @@ def test_the_seven_read_needs_a_seven_first_and_an_eight_tenth(code: str, expect
 
 def test_an_eight_digit_code_is_never_a_seven_read() -> None:
     assert not is_seven_read("75017484")
+
+
+def test_a_seven_read_whose_eighth_digit_is_below_five_has_no_known_race() -> None:
+    card = decode_double("7821818398973")
+
+    assert card.race is None

@@ -1,0 +1,1637 @@
+{
+  "game": "Conveni Wars Barcode Battler Senki: Super Senshi Shutsugeki seyo!",
+  "software": "conveni",
+  "rom": {
+    "sha1": "72ca858f50d67121b06868633b8588a79316c3e2",
+    "size": 524288
+  },
+  "emulator": "MAME 0.289, snes with barcode_battler on ctrl2, fed by tools/oracle/drive.lua bbscan",
+  "screen": "BB2 Battle with /opt/homebrew/bin/zshA31 set to 0 and /opt/homebrew/bin/zshD5F bit 4 set, the scenario flags under which :1FDB and :2142 call the Black Store readings at :2CE6 and :2DD4; black_store says a breakpoint on either was hit; HP, ST and DF from E093A",
+  "recorded_utc": "2026-09-28",
+  "cards": [
+    {
+      "barcode": "0120401154185",
+      "black_store": false,
+      "hp": 12,
+      "st": 4,
+      "df": 1
+    },
+    {
+      "barcode": "0120201044181",
+      "black_store": false,
+      "hp": 12,
+      "st": 2,
+      "df": 1
+    },
+    {
+      "barcode": "0120102308184",
+      "black_store": false,
+      "hp": 12,
+      "st": 1,
+      "df": 2
+    },
+    {
+      "barcode": "0150604154187",
+      "black_store": false,
+      "hp": 15,
+      "st": 6,
+      "df": 4
+    },
+    {
+      "barcode": "0180506308180",
+      "black_store": false,
+      "hp": 18,
+      "st": 5,
+      "df": 6
+    },
+    {
+      "barcode": "4905040352507",
+      "black_store": false,
+      "hp": 52,
+      "st": 15,
+      "df": 1
+    },
+    {
+      "barcode": "4905040352521",
+      "black_store": false,
+      "hp": 52,
+      "st": 15,
+      "df": 1
+    },
+    {
+      "barcode": "4905040354006",
+      "black_store": true,
+      "hp": 4,
+      "st": 17,
+      "df": 20
+    },
+    {
+      "barcode": "3191109605627",
+      "black_store": false,
+      "hp": 319,
+      "st": 11,
+      "df": 9
+    },
+    {
+      "barcode": "4191010605630",
+      "black_store": false,
+      "hp": 419,
+      "st": 10,
+      "df": 10
+    },
+    {
+      "barcode": "9090911605549",
+      "black_store": false,
+      "hp": 909,
+      "st": 9,
+      "df": 11
+    },
+    {
+      "barcode": "2191213505487",
+      "black_store": false,
+      "hp": 219,
+      "st": 12,
+      "df": 13
+    },
+    {
+      "barcode": "79470124",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 79
+    },
+    {
+      "barcode": "55269568",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 55
+    },
+    {
+      "barcode": "44470388",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 44
+    },
+    {
+      "barcode": "31210539",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 31
+    },
+    {
+      "barcode": "74881628",
+      "black_store": true,
+      "hp": 61,
+      "st": 34,
+      "df": 13
+    },
+    {
+      "barcode": "77605511",
+      "black_store": true,
+      "hp": 55,
+      "st": 108,
+      "df": 5
+    },
+    {
+      "barcode": "06537043",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 6
+    },
+    {
+      "barcode": "88547930",
+      "black_store": true,
+      "hp": 197,
+      "st": 40,
+      "df": 29
+    },
+    {
+      "barcode": "18609783",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 18
+    },
+    {
+      "barcode": "60572998",
+      "black_store": true,
+      "hp": 192,
+      "st": 15,
+      "df": 12
+    },
+    {
+      "barcode": "29525676",
+      "black_store": true,
+      "hp": 65,
+      "st": 38,
+      "df": 7
+    },
+    {
+      "barcode": "52268397",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 52
+    },
+    {
+      "barcode": "45840579",
+      "black_store": true,
+      "hp": 50,
+      "st": 33,
+      "df": 19
+    },
+    {
+      "barcode": "71546117",
+      "black_store": true,
+      "hp": 16,
+      "st": 29,
+      "df": 9
+    },
+    {
+      "barcode": "93840088",
+      "black_store": true,
+      "hp": 100,
+      "st": 13,
+      "df": 19
+    },
+    {
+      "barcode": "68514877",
+      "black_store": true,
+      "hp": 84,
+      "st": 17,
+      "df": 26
+    },
+    {
+      "barcode": "95678863",
+      "black_store": true,
+      "hp": 388,
+      "st": 31,
+      "df": 32
+    },
+    {
+      "barcode": "77623980",
+      "black_store": true,
+      "hp": 493,
+      "st": 46,
+      "df": 87
+    },
+    {
+      "barcode": "66860051",
+      "black_store": true,
+      "hp": 200,
+      "st": 53,
+      "df": 51
+    },
+    {
+      "barcode": "25945300",
+      "black_store": true,
+      "hp": 35,
+      "st": 88,
+      "df": 9
+    },
+    {
+      "barcode": "29787746",
+      "black_store": true,
+      "hp": 77,
+      "st": 10,
+      "df": 3
+    },
+    {
+      "barcode": "26327877",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 26
+    },
+    {
+      "barcode": "62285827",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 62
+    },
+    {
+      "barcode": "36853519",
+      "black_store": true,
+      "hp": 53,
+      "st": 36,
+      "df": 20
+    },
+    {
+      "barcode": "92772694",
+      "black_store": true,
+      "hp": 462,
+      "st": 115,
+      "df": 72
+    },
+    {
+      "barcode": "79727501",
+      "black_store": true,
+      "hp": 57,
+      "st": 100,
+      "df": 27
+    },
+    {
+      "barcode": "61052598",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 61
+    },
+    {
+      "barcode": "85506275",
+      "black_store": true,
+      "hp": 26,
+      "st": 29,
+      "df": 5
+    },
+    {
+      "barcode": "33312743",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 33
+    },
+    {
+      "barcode": "75976446",
+      "black_store": true,
+      "hp": 46,
+      "st": 29,
+      "df": 2
+    },
+    {
+      "barcode": "03226179",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 3
+    },
+    {
+      "barcode": "64563701",
+      "black_store": true,
+      "hp": 73,
+      "st": 26,
+      "df": 81
+    },
+    {
+      "barcode": "42707318",
+      "black_store": true,
+      "hp": 37,
+      "st": 20,
+      "df": 5
+    },
+    {
+      "barcode": "88370842",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 88
+    },
+    {
+      "barcode": "50419517",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 50
+    },
+    {
+      "barcode": "82471521",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 82
+    },
+    {
+      "barcode": "64317434",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 64
+    },
+    {
+      "barcode": "91926890",
+      "black_store": true,
+      "hp": 486,
+      "st": 39,
+      "df": 17
+    },
+    {
+      "barcode": "81249978",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 81
+    },
+    {
+      "barcode": "34035191",
+      "black_store": false,
+      "hp": 0,
+      "st": 0,
+      "df": 34
+    },
+    {
+      "barcode": "0635788853441",
+      "black_store": true,
+      "hp": 243,
+      "st": 96,
+      "df": 80
+    },
+    {
+      "barcode": "2706646585182",
+      "black_store": true,
+      "hp": 415,
+      "st": 68,
+      "df": 3
+    },
+    {
+      "barcode": "5592195036834",
+      "black_store": true,
+      "hp": 186,
+      "st": 39,
+      "df": 18
+    },
+    {
+      "barcode": "1962760869350",
+      "black_store": true,
+      "hp": 239,
+      "st": 82,
+      "df": 41
+    },
+    {
+      "barcode": "3344809909490",
+      "black_store": true,
+      "hp": 449,
+      "st": 92,
+      "df": 45
+    },
+    {
+      "barcode": "3663880035233",
+      "black_store": true,
+      "hp": 125,
+      "st": 78,
+      "df": 8
+    },
+    {
+      "barcode": "4843655045530",
+      "black_store": true,
+      "hp": 155,
+      "st": 108,
+      "df": 9
+    },
+    {
+      "barcode": "0427765438716",
+      "black_store": false,
+      "hp": 42,
+      "st": 77,
+      "df": 65
+    },
+    {
+      "barcode": "4222830024063",
+      "black_store": true,
+      "hp": 304,
+      "st": 57,
+      "df": 97
+    },
+    {
+      "barcode": "8024177912890",
+      "black_store": true,
+      "hp": 482,
+      "st": 35,
+      "df": 76
+    },
+    {
+      "barcode": "6308884243082",
+      "black_store": true,
+      "hp": 403,
+      "st": 56,
+      "df": 89
+    },
+    {
+      "barcode": "5633269036432",
+      "black_store": true,
+      "hp": 146,
+      "st": 99,
+      "df": 18
+    },
+    {
+      "barcode": "1536334647684",
+      "black_store": true,
+      "hp": 467,
+      "st": 110,
+      "df": 29
+    },
+    {
+      "barcode": "5468928865050",
+      "black_store": true,
+      "hp": 205,
+      "st": 58,
+      "df": 1
+    },
+    {
+      "barcode": "0579396985753",
+      "black_store": true,
+      "hp": 275,
+      "st": 28,
+      "df": 3
+    },
+    {
+      "barcode": "1628197000123",
+      "black_store": false,
+      "hp": 162,
+      "st": 81,
+      "df": 97
+    },
+    {
+      "barcode": "1283787243603",
+      "black_store": false,
+      "hp": 128,
+      "st": 37,
+      "df": 87
+    },
+    {
+      "barcode": "3811061934015",
+      "black_store": true,
+      "hp": 4,
+      "st": 17,
+      "df": 28
+    },
+    {
+      "barcode": "1206030177739",
+      "black_store": false,
+      "hp": 120,
+      "st": 60,
+      "df": 30
+    },
+    {
+      "barcode": "7288149137440",
+      "black_store": true,
+      "hp": 247,
+      "st": 90,
+      "df": 28
+    },
+    {
+      "barcode": "4720872910769",
+      "black_store": true,
+      "hp": 70,
+      "st": 13,
+      "df": 16
+    },
+    {
+      "barcode": "0580714786686",
+      "black_store": false,
+      "hp": 58,
+      "st": 7,
+      "df": 14
+    },
+    {
+      "barcode": "3592198827981",
+      "black_store": true,
+      "hp": 497,
+      "st": 40,
+      "df": 27
+    },
+    {
+      "barcode": "1889172891925",
+      "black_store": true,
+      "hp": 91,
+      "st": 14,
+      "df": 14
+    },
+    {
+      "barcode": "2725642505727",
+      "black_store": true,
+      "hp": 75,
+      "st": 18,
+      "df": 5
+    },
+    {
+      "barcode": "4927694359176",
+      "black_store": true,
+      "hp": 19,
+      "st": 22,
+      "df": 10
+    },
+    {
+      "barcode": "8189722805765",
+      "black_store": true,
+      "hp": 75,
+      "st": 18,
+      "df": 5
+    },
+    {
+      "barcode": "8083460655517",
+      "black_store": true,
+      "hp": 55,
+      "st": 38,
+      "df": 0
+    },
+    {
+      "barcode": "0339095684087",
+      "black_store": true,
+      "hp": 104,
+      "st": 17,
+      "df": 23
+    },
+    {
+      "barcode": "9378034330303",
+      "black_store": true,
+      "hp": 30,
+      "st": 83,
+      "df": 58
+    },
+    {
+      "barcode": "1007797722756",
+      "black_store": true,
+      "hp": 72,
+      "st": 15,
+      "df": 17
+    },
+    {
+      "barcode": "8814211177756",
+      "black_store": true,
+      "hp": 77,
+      "st": 10,
+      "df": 2
+    },
+    {
+      "barcode": "0081430142454",
+      "black_store": false,
+      "hp": 8,
+      "st": 14,
+      "df": 30
+    },
+    {
+      "barcode": "4214290824314",
+      "black_store": true,
+      "hp": 34,
+      "st": 87,
+      "df": 97
+    },
+    {
+      "barcode": "7433225937456",
+      "black_store": true,
+      "hp": 47,
+      "st": 20,
+      "df": 8
+    },
+    {
+      "barcode": "0583686726711",
+      "black_store": true,
+      "hp": 76,
+      "st": 29,
+      "df": 17
+    },
+    {
+      "barcode": "7509003144931",
+      "black_store": true,
+      "hp": 194,
+      "st": 47,
+      "df": 99
+    },
+    {
+      "barcode": "0724469978938",
+      "black_store": true,
+      "hp": 98,
+      "st": 11,
+      "df": 2
+    },
+    {
+      "barcode": "9335452397233",
+      "black_store": true,
+      "hp": 127,
+      "st": 70,
+      "df": 24
+    },
+    {
+      "barcode": "4020399424856",
+      "black_store": true,
+      "hp": 84,
+      "st": 17,
+      "df": 27
+    },
+    {
+      "barcode": "7758087216205",
+      "black_store": true,
+      "hp": 26,
+      "st": 29,
+      "df": 6
+    },
+    {
+      "barcode": "8794719824638",
+      "black_store": true,
+      "hp": 64,
+      "st": 37,
+      "df": 27
+    },
+    {
+      "barcode": "0246602624156",
+      "black_store": true,
+      "hp": 14,
+      "st": 27,
+      "df": 27
+    },
+    {
+      "barcode": "6427088820537",
+      "black_store": true,
+      "hp": 50,
+      "st": 33,
+      "df": 17
+    },
+    {
+      "barcode": "1306767491709",
+      "black_store": false,
+      "hp": 130,
+      "st": 67,
+      "df": 67
+    },
+    {
+      "barcode": "2615677471688",
+      "black_store": true,
+      "hp": 161,
+      "st": 34,
+      "df": 12
+    },
+    {
+      "barcode": "9338545022555",
+      "black_store": true,
+      "hp": 52,
+      "st": 35,
+      "df": 17
+    },
+    {
+      "barcode": "3991422300915",
+      "black_store": true,
+      "hp": 90,
+      "st": 13,
+      "df": 15
+    },
+    {
+      "barcode": "5573569503152",
+      "black_store": true,
+      "hp": 213,
+      "st": 66,
+      "df": 85
+    },
+    {
+      "barcode": "0624540612808",
+      "black_store": true,
+      "hp": 82,
+      "st": 15,
+      "df": 16
+    },
+    {
+      "barcode": "6033480333324",
+      "black_store": true,
+      "hp": 133,
+      "st": 86,
+      "df": 88
+    },
+    {
+      "barcode": "2850175878502",
+      "black_store": true,
+      "hp": 58,
+      "st": 101,
+      "df": 32
+    },
+    {
+      "barcode": "8721589525808",
+      "black_store": true,
+      "hp": 85,
+      "st": 18,
+      "df": 7
+    },
+    {
+      "barcode": "6856861170161",
+      "black_store": true,
+      "hp": 310,
+      "st": 63,
+      "df": 52
+    },
+    {
+      "barcode": "5785662690404",
+      "black_store": true,
+      "hp": 40,
+      "st": 93,
+      "df": 54
+    },
+    {
+      "barcode": "8647079795707",
+      "black_store": true,
+      "hp": 75,
+      "st": 18,
+      "df": 4
+    },
+    {
+      "barcode": "0970960361476",
+      "black_store": false,
+      "hp": 97,
+      "st": 9,
+      "df": 60
+    },
+    {
+      "barcode": "3940718606224",
+      "black_store": true,
+      "hp": 126,
+      "st": 79,
+      "df": 15
+    },
+    {
+      "barcode": "6366122581242",
+      "black_store": true,
+      "hp": 221,
+      "st": 74,
+      "df": 63
+    },
+    {
+      "barcode": "0278686526279",
+      "black_store": true,
+      "hp": 26,
+      "st": 29,
+      "df": 7
+    },
+    {
+      "barcode": "2209288685055",
+      "black_store": true,
+      "hp": 5,
+      "st": 18,
+      "df": 3
+    },
+    {
+      "barcode": "6880682234382",
+      "black_store": true,
+      "hp": 434,
+      "st": 87,
+      "df": 98
+    },
+    {
+      "barcode": "1772081050500",
+      "black_store": false,
+      "hp": 177,
+      "st": 20,
+      "df": 81
+    },
+    {
+      "barcode": "0349626136091",
+      "black_store": false,
+      "hp": 34,
+      "st": 96,
+      "df": 26
+    },
+    {
+      "barcode": "4738591653096",
+      "black_store": true,
+      "hp": 103,
+      "st": 16,
+      "df": 20
+    },
+    {
+      "barcode": "5668889880226",
+      "black_store": true,
+      "hp": 20,
+      "st": 23,
+      "df": 13
+    },
+    {
+      "barcode": "2429748809306",
+      "black_store": true,
+      "hp": 39,
+      "st": 22,
+      "df": 15
+    },
+    {
+      "barcode": "8597731294195",
+      "black_store": true,
+      "hp": 114,
+      "st": 27,
+      "df": 24
+    },
+    {
+      "barcode": "6919623682095",
+      "black_store": true,
+      "hp": 102,
+      "st": 15,
+      "df": 13
+    },
+    {
+      "barcode": "6572697420736",
+      "black_store": true,
+      "hp": 70,
+      "st": 13,
+      "df": 17
+    },
+    {
+      "barcode": "0200274539088",
+      "black_store": true,
+      "hp": 109,
+      "st": 12,
+      "df": 18
+    },
+    {
+      "barcode": "7122722192290",
+      "black_store": true,
+      "hp": 422,
+      "st": 75,
+      "df": 74
+    },
+    {
+      "barcode": "8999593077983",
+      "black_store": true,
+      "hp": 497,
+      "st": 40,
+      "df": 22
+    },
+    {
+      "barcode": "7171103518341",
+      "black_store": true,
+      "hp": 238,
+      "st": 81,
+      "df": 36
+    },
+    {
+      "barcode": "5881036658435",
+      "black_store": true,
+      "hp": 48,
+      "st": 21,
+      "df": 0
+    },
+    {
+      "barcode": "1699470625067",
+      "black_store": true,
+      "hp": 5,
+      "st": 18,
+      "df": 7
+    },
+    {
+      "barcode": "2082233374927",
+      "black_store": true,
+      "hp": 94,
+      "st": 17,
+      "df": 22
+    },
+    {
+      "barcode": "0050500802864",
+      "black_store": false,
+      "hp": 5,
+      "st": 5,
+      "df": 0
+    },
+    {
+      "barcode": "6473197885608",
+      "black_store": true,
+      "hp": 65,
+      "st": 38,
+      "df": 3
+    },
+    {
+      "barcode": "1841143173553",
+      "black_store": false,
+      "hp": 184,
+      "st": 11,
+      "df": 43
+    },
+    {
+      "barcode": "1183681093000",
+      "black_store": false,
+      "hp": 118,
+      "st": 36,
+      "df": 81
+    },
+    {
+      "barcode": "8518183856885",
+      "black_store": true,
+      "hp": 186,
+      "st": 19,
+      "df": 0
+    },
+    {
+      "barcode": "1824982078722",
+      "black_store": false,
+      "hp": 182,
+      "st": 49,
+      "df": 82
+    },
+    {
+      "barcode": "2650860352962",
+      "black_store": true,
+      "hp": 392,
+      "st": 45,
+      "df": 70
+    },
+    {
+      "barcode": "0803686037465",
+      "black_store": false,
+      "hp": 80,
+      "st": 36,
+      "df": 86
+    },
+    {
+      "barcode": "6953795073602",
+      "black_store": true,
+      "hp": 63,
+      "st": 116,
+      "df": 82
+    },
+    {
+      "barcode": "8123168689022",
+      "black_store": true,
+      "hp": 109,
+      "st": 52,
+      "df": 43
+    },
+    {
+      "barcode": "3876684341206",
+      "black_store": true,
+      "hp": 21,
+      "st": 24,
+      "df": 19
+    },
+    {
+      "barcode": "9831210972358",
+      "black_store": true,
+      "hp": 32,
+      "st": 25,
+      "df": 12
+    },
+    {
+      "barcode": "0446463564374",
+      "black_store": true,
+      "hp": 334,
+      "st": 87,
+      "df": 91
+    },
+    {
+      "barcode": "3618870882977",
+      "black_store": true,
+      "hp": 92,
+      "st": 15,
+      "df": 13
+    },
+    {
+      "barcode": "0309298321683",
+      "black_store": false,
+      "hp": 30,
+      "st": 92,
+      "df": 98
+    },
+    {
+      "barcode": "1085211171144",
+      "black_store": false,
+      "hp": 108,
+      "st": 52,
+      "df": 11
+    },
+    {
+      "barcode": "1448783669264",
+      "black_store": true,
+      "hp": 329,
+      "st": 72,
+      "df": 41
+    },
+    {
+      "barcode": "0908851141531",
+      "black_store": false,
+      "hp": 90,
+      "st": 88,
+      "df": 51
+    },
+    {
+      "barcode": "7738871018284",
+      "black_store": true,
+      "hp": 428,
+      "st": 71,
+      "df": 36
+    },
+    {
+      "barcode": "2794887623855",
+      "black_store": true,
+      "hp": 83,
+      "st": 16,
+      "df": 27
+    },
+    {
+      "barcode": "0179975351414",
+      "black_store": false,
+      "hp": 17,
+      "st": 99,
+      "df": 75
+    },
+    {
+      "barcode": "0867204092718",
+      "black_store": false,
+      "hp": 86,
+      "st": 72,
+      "df": 4
+    },
+    {
+      "barcode": "8983019541240",
+      "black_store": true,
+      "hp": 221,
+      "st": 74,
+      "df": 69
+    },
+    {
+      "barcode": "6006879172729",
+      "black_store": true,
+      "hp": 72,
+      "st": 15,
+      "df": 12
+    },
+    {
+      "barcode": "6055741466282",
+      "black_store": true,
+      "hp": 426,
+      "st": 79,
+      "df": 11
+    },
+    {
+      "barcode": "5475510733550",
+      "black_store": true,
+      "hp": 253,
+      "st": 106,
+      "df": 88
+    },
+    {
+      "barcode": "9305866164806",
+      "black_store": true,
+      "hp": 84,
+      "st": 17,
+      "df": 21
+    },
+    {
+      "barcode": "0592391016062",
+      "black_store": false,
+      "hp": 59,
+      "st": 23,
+      "df": 91
+    },
+    {
+      "barcode": "0378097704539",
+      "black_store": true,
+      "hp": 54,
+      "st": 37,
+      "df": 25
+    },
+    {
+      "barcode": "3357837306407",
+      "black_store": true,
+      "hp": 46,
+      "st": 29,
+      "df": 5
+    },
+    {
+      "barcode": "7203501110008",
+      "black_store": true,
+      "hp": 0,
+      "st": 13,
+      "df": 16
+    },
+    {
+      "barcode": "8975131128911",
+      "black_store": true,
+      "hp": 98,
+      "st": 41,
+      "df": 37
+    },
+    {
+      "barcode": "8742844337325",
+      "black_store": true,
+      "hp": 37,
+      "st": 20,
+      "df": 8
+    },
+    {
+      "barcode": "0481180334336",
+      "black_store": false,
+      "hp": 48,
+      "st": 11,
+      "df": 80
+    },
+    {
+      "barcode": "8650173314316",
+      "black_store": true,
+      "hp": 34,
+      "st": 27,
+      "df": 26
+    },
+    {
+      "barcode": "0650034105969",
+      "black_store": false,
+      "hp": 65,
+      "st": 0,
+      "df": 34
+    },
+    {
+      "barcode": "1800335515427",
+      "black_store": true,
+      "hp": 45,
+      "st": 28,
+      "df": 6
+    },
+    {
+      "barcode": "6025745977336",
+      "black_store": true,
+      "hp": 37,
+      "st": 20,
+      "df": 2
+    },
+    {
+      "barcode": "8206271332037",
+      "black_store": true,
+      "hp": 2,
+      "st": 15,
+      "df": 18
+    },
+    {
+      "barcode": "7864054565396",
+      "black_store": true,
+      "hp": 135,
+      "st": 28,
+      "df": 1
+    },
+    {
+      "barcode": "3986686159478",
+      "black_store": true,
+      "hp": 49,
+      "st": 22,
+      "df": 10
+    },
+    {
+      "barcode": "6050984879011",
+      "black_store": true,
+      "hp": 9,
+      "st": 52,
+      "df": 42
+    },
+    {
+      "barcode": "0372275642279",
+      "black_store": true,
+      "hp": 22,
+      "st": 25,
+      "df": 19
+    },
+    {
+      "barcode": "9168097094676",
+      "black_store": true,
+      "hp": 64,
+      "st": 37,
+      "df": 24
+    },
+    {
+      "barcode": "5254115609695",
+      "black_store": true,
+      "hp": 169,
+      "st": 32,
+      "df": 15
+    },
+    {
+      "barcode": "2177875274428",
+      "black_store": true,
+      "hp": 44,
+      "st": 27,
+      "df": 22
+    },
+    {
+      "barcode": "6903291343303",
+      "black_store": true,
+      "hp": 33,
+      "st": 86,
+      "df": 89
+    },
+    {
+      "barcode": "0821646846674",
+      "black_store": true,
+      "hp": 366,
+      "st": 119,
+      "df": 19
+    },
+    {
+      "barcode": "0071873743578",
+      "black_store": true,
+      "hp": 53,
+      "st": 36,
+      "df": 29
+    },
+    {
+      "barcode": "0562808913277",
+      "black_store": true,
+      "hp": 23,
+      "st": 26,
+      "df": 26
+    },
+    {
+      "barcode": "4518511332764",
+      "black_store": true,
+      "hp": 372,
+      "st": 25,
+      "df": 78
+    },
+    {
+      "barcode": "1929577039383",
+      "black_store": false,
+      "hp": 192,
+      "st": 95,
+      "df": 77
+    },
+    {
+      "barcode": "8467477452596",
+      "black_store": true,
+      "hp": 152,
+      "st": 35,
+      "df": 10
+    },
+    {
+      "barcode": "3429693639439",
+      "black_store": true,
+      "hp": 49,
+      "st": 22,
+      "df": 18
+    },
+    {
+      "barcode": "8658140480583",
+      "black_store": true,
+      "hp": 450,
+      "st": 103,
+      "df": 53
+    },
+    {
+      "barcode": "2364312506017",
+      "black_store": true,
+      "hp": 6,
+      "st": 19,
+      "df": 5
+    },
+    {
+      "barcode": "0957604600399",
+      "black_store": true,
+      "hp": 130,
+      "st": 23,
+      "df": 15
+    },
+    {
+      "barcode": "3612851500898",
+      "black_store": true,
+      "hp": 180,
+      "st": 13,
+      "df": 15
+    },
+    {
+      "barcode": "2943579410864",
+      "black_store": true,
+      "hp": 380,
+      "st": 33,
+      "df": 56
+    },
+    {
+      "barcode": "1724763036845",
+      "black_store": false,
+      "hp": 172,
+      "st": 47,
+      "df": 63
+    },
+    {
+      "barcode": "2832542144670",
+      "black_store": true,
+      "hp": 364,
+      "st": 117,
+      "df": 99
+    },
+    {
+      "barcode": "2241966109972",
+      "black_store": true,
+      "hp": 399,
+      "st": 42,
+      "df": 45
+    },
+    {
+      "barcode": "7080357822343",
+      "black_store": true,
+      "hp": 232,
+      "st": 85,
+      "df": 77
+    },
+    {
+      "barcode": "0763975644821",
+      "black_store": true,
+      "hp": 184,
+      "st": 37,
+      "df": 99
+    },
+    {
+      "barcode": "9707502503503",
+      "black_store": true,
+      "hp": 53,
+      "st": 106,
+      "df": 85
+    },
+    {
+      "barcode": "0440860880877",
+      "black_store": true,
+      "hp": 80,
+      "st": 13,
+      "df": 13
+    },
+    {
+      "barcode": "5296335361335",
+      "black_store": true,
+      "hp": 31,
+      "st": 24,
+      "df": 11
+    },
+    {
+      "barcode": "4775895985843",
+      "black_store": true,
+      "hp": 285,
+      "st": 38,
+      "df": 3
+    },
+    {
+      "barcode": "4171893677221",
+      "black_store": true,
+      "hp": 127,
+      "st": 70,
+      "df": 22
+    },
+    {
+      "barcode": "2085461177438",
+      "black_store": true,
+      "hp": 47,
+      "st": 20,
+      "df": 2
+    },
+    {
+      "barcode": "0192917119095",
+      "black_store": false,
+      "hp": 19,
+      "st": 29,
+      "df": 17
+    },
+    {
+      "barcode": "8212891432781",
+      "black_store": true,
+      "hp": 472,
+      "st": 25,
+      "df": 78
+    },
+    {
+      "barcode": "7015820861413",
+      "black_store": true,
+      "hp": 41,
+      "st": 94,
+      "df": 61
+    },
+    {
+      "barcode": "9413794856509",
+      "black_store": true,
+      "hp": 56,
+      "st": 39,
+      "df": 0
+    },
+    {
+      "barcode": "2206672019342",
+      "black_store": true,
+      "hp": 239,
+      "st": 82,
+      "df": 46
+    },
+    {
+      "barcode": "5087064700713",
+      "black_store": true,
+      "hp": 70,
+      "st": 23,
+      "df": 55
+    },
+    {
+      "barcode": "6776532800534",
+      "black_store": true,
+      "hp": 150,
+      "st": 103,
+      "df": 55
+    },
+    {
+      "barcode": "0735314078208",
+      "black_store": false,
+      "hp": 73,
+      "st": 53,
+      "df": 14
+    },
+    {
+      "barcode": "3923184747103",
+      "black_store": true,
+      "hp": 17,
+      "st": 60,
+      "df": 29
+    },
+    {
+      "barcode": "2443608273885",
+      "black_store": true,
+      "hp": 183,
+      "st": 16,
+      "df": 22
+    },
+    {
+      "barcode": "0455232328666",
+      "black_store": false,
+      "hp": 45,
+      "st": 52,
+      "df": 32
+    },
+    {
+      "barcode": "5601713927308",
+      "black_store": true,
+      "hp": 37,
+      "st": 20,
+      "df": 7
+    },
+    {
+      "barcode": "6191560975847",
+      "black_store": false,
+      "hp": 619,
+      "st": 15,
+      "df": 60
+    },
+    {
+      "barcode": "6207588500784",
+      "black_store": true,
+      "hp": 470,
+      "st": 23,
+      "df": 55
+    },
+    {
+      "barcode": "0560869151386",
+      "black_store": false,
+      "hp": 56,
+      "st": 8,
+      "df": 69
+    },
+    {
+      "barcode": "1582614724569",
+      "black_store": true,
+      "hp": 54,
+      "st": 37,
+      "df": 27
+    },
+    {
+      "barcode": "5480053245408",
+      "black_store": true,
+      "hp": 45,
+      "st": 28,
+      "df": 9
+    },
+    {
+      "barcode": "9278785647449",
+      "black_store": true,
+      "hp": 47,
+      "st": 20,
+      "df": 9
+    },
+    {
+      "barcode": "6469475600728",
+      "black_store": true,
+      "hp": 70,
+      "st": 13,
+      "df": 15
+    },
+    {
+      "barcode": "7597592169817",
+      "black_store": true,
+      "hp": 89,
+      "st": 12,
+      "df": 11
+    },
+    {
+      "barcode": "7450065868450",
+      "black_store": true,
+      "hp": 248,
+      "st": 91,
+      "df": 31
+    },
+    {
+      "barcode": "0947637322481",
+      "black_store": false,
+      "hp": 94,
+      "st": 76,
+      "df": 37
+    },
+    {
+      "barcode": "9588088483829",
+      "black_store": true,
+      "hp": 83,
+      "st": 16,
+      "df": 23
+    },
+    {
+      "barcode": "9384219372990",
+      "black_store": true,
+      "hp": 492,
+      "st": 45,
+      "df": 72
+    },
+    {
+      "barcode": "2498333346571",
+      "black_store": true,
+      "hp": 356,
+      "st": 109,
+      "df": 19
+    },
+    {
+      "barcode": "3810927894272",
+      "black_store": true,
+      "hp": 324,
+      "st": 77,
+      "df": 94
+    },
+    {
+      "barcode": "6325488711953",
+      "black_store": true,
+      "hp": 291,
+      "st": 44,
+      "df": 66
+    },
+    {
+      "barcode": "2370249300024",
+      "black_store": true,
+      "hp": 100,
+      "st": 53,
+      "df": 55
+    },
+    {
+      "barcode": "5843032831755",
+      "black_store": true,
+      "hp": 71,
+      "st": 14,
+      "df": 18
+    },
+    {
+      "barcode": "5375123865986",
+      "black_store": true,
+      "hp": 195,
+      "st": 18,
+      "df": 1
+    },
+    {
+      "barcode": "8223638176097",
+      "black_store": true,
+      "hp": 106,
+      "st": 19,
+      "df": 2
+    },
+    {
+      "barcode": "7309261144618",
+      "black_store": true,
+      "hp": 64,
+      "st": 37,
+      "df": 29
+    },
+    {
+      "barcode": "9674685033489",
+      "black_store": true,
+      "hp": 143,
+      "st": 26,
+      "df": 28
+    }
+  ]
+}

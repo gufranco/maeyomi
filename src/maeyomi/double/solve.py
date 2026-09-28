@@ -6,6 +6,9 @@ health. Asking for a power therefore fixes two digits of the health, and the
 solver walks only the health values that keep them. Every candidate is decoded
 by `decode_double` and compared with the request before it is returned.
 
+The race is the attack's hundreds digit less 5, so asking for a race fixes
+that digit.
+
 The Double names its jobs its own way: 0 to 3 and 5 are warriors, 4 a priest,
 6 a holy warrior and 7 to 9 magicians. A class in the request picks from those.
 """
@@ -17,7 +20,7 @@ from typing import Final
 
 from maeyomi.decoder.check_digit import expected_check_digit
 from maeyomi.double.card import DoubleCard
-from maeyomi.double.decode import decode_double
+from maeyomi.double.decode import RACE_OFFSET, decode_double
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.character import DISPLAY_SCALE
 from maeyomi.models.character_class import CharacterClass
@@ -57,14 +60,17 @@ def _matches(request: CardRequest, card: DoubleCard) -> bool:
     """Whether a decoded card satisfies every field the request constrains."""
     stats = all(getattr(request, name).admits(getattr(card, name)) for name in ("hp", "st", "df"))
     job = request.job is None or request.job == card.job
-    return stats and job and (request.special is None or request.special == card.special.code)
+    race = request.race is None or request.race is card.race
+    return (
+        stats and job and race and (request.special is None or request.special == card.special.code)
+    )
 
 
 def _blockers(request: CardRequest) -> tuple[str, ...]:
     """Every reason the request cannot be met, decided without searching."""
     reasons: list[str] = []
-    if request.race is not None:
-        reasons.append("a 7-read card has no race any source records")
+    if request.race is not None and not request.race.is_fighter:
+        reasons.append("a 7-read card is always a fighter")
     if request.speed is not None:
         reasons.append("a 7-read card has no speed any source records")
     if _constrained(request.pp) or _constrained(request.mp):
@@ -122,8 +128,13 @@ def _candidates(request: CardRequest) -> Iterator[str]:
         for units in _units(request.hp)
         if request.special is None or _power_of(units) == request.special
     ]
+    strengths = [
+        units
+        for units in _units(request.st)
+        if request.race is None or units % 10 == request.race + RACE_OFFSET
+    ]
     for job in _jobs(request):
-        for hp, st, df in itertools.product(healths, _units(request.st), _units(request.df)):
+        for hp, st, df in itertools.product(healths, strengths, _units(request.df)):
             yield _assemble(hp, st, df, job)
 
 

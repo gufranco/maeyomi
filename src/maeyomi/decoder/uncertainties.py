@@ -133,15 +133,20 @@ UNCERTAINTIES: Final[Mapping[str, Uncertainty]] = MappingProxyType(
         ),
         "double_seven_read_race_and_speed": Uncertainty(
             question="What race and speed does the Double give a 7-read card?",
-            decision=("Neither is read; the generator refuses a 7-read request that names either."),
+            decision=(
+                "The race is the eighth digit less 5 when that digit is 5 or more, and "
+                "unknown below; the speed is not read, and the generator refuses a 7-read "
+                "request that names one."
+            ),
             evidence=(
                 '"BBIIダブルC0" on barcodebattler.net says the 7-read race is '
-                "still under investigation and gives no speed. The 11 cards on the "
-                "wikiwiki.jp 正伝3 list fit race = eighth digit mod 5, but the eighth "
-                "digit is also the hundreds of the attack, and no source states the "
-                "rule, so the fit is not used."
+                "still under investigation and gives no speed. Post 484 of the 5ch "
+                "thread mevius.5ch.net/test/read.cgi/toy/1226667612 reports the race as "
+                "the eighth digit less 5, checked on the 正伝3 and 正伝4 enemy cards, and "
+                "all 11 7-read cards on the wikiwiki.jp 正伝3 list fit it; every one has "
+                "an eighth digit of 5 or more. No source gives a speed."
             ),
-            revisit="On a Double, or a source that describes how it reads a 7-read race.",
+            revisit=("On a Double, or a source that covers an eighth digit below 5 or the speed."),
             blocks_generation=True,
         ),
         "epoch_software_boxes": Uncertainty(
@@ -197,14 +202,67 @@ UNCERTAINTIES: Final[Mapping[str, Uncertainty]] = MappingProxyType(
             revisit="On a read of the card with a physical Double.",
         ),
         "shifted_back_read": Uncertainty(
-            question="What are the shift semantics for a deliberately misaligned read?",
+            question="Does the device offer a shifted back read, and when?",
             decision="Not implemented; only the aligned back read is supported.",
             evidence=(
-                "post_reading in src/BarcodeRead.as takes a shift parameter used by the "
-                "C1 and C2 game modes. Card generation never needs it, and no fixture "
-                "exercises it."
+                "post_reading in src/BarcodeRead.as takes a shift, but every C1 and C2 "
+                "call in src/barcode2.as passes 0. The shift comes only from the "
+                "L-BATTLE, L-POWER, R-BATTLE and R-POWER buttons on the C0 card-entry "
+                "screen, value_shift in src/barcode2.as, and moves only a fighter's HP, "
+                "ST and DF digits. barcodebattler.co.uk f1018 does not mention it. It is "
+                "a button press, not a property of the card, so no card can carry it."
             ),
-            revisit="If a card list is found whose values only reproduce under a shift.",
+            revisit="On a hardware test of those buttons while a card is read in C0.",
+        ),
+        "back_read_flag_rule": Uncertainty(
+            question="How does a back-read card's flag come from its digits?",
+            decision=(
+                "The simulator's bands on the ninth digit P: 0 to 3 give R, 4 to 7 give "
+                "10 plus R, 8 and 9 give 20 plus R, R being the eleventh digit."
+            ),
+            evidence=(
+                "barcodebattler.co.uk f1018 gives Flag = 10 * P + R and ignores values "
+                "above 29, so the two agree only when P is 0: 9613953286318 is flag 23 "
+                "by the bands and 83, ignored, by f1018. f1018 also carries a misplaced "
+                "parenthesis in its ST formula and two conflicting Method 1 rejection "
+                "rules. No card list read on a device has a back-read card that decides "
+                "it: every back-read card on wikiwiki.jp is on the Double's page or has "
+                "a wrong check digit."
+            ),
+            revisit="On a hardware read of a back-read code whose ninth digit is 1 to 9.",
+        ),
+        "c1_back_read_items": Uncertainty(
+            question="Do C1 and C2 read weapon, protector and health cards differently?",
+            decision="No; items read the same in every mode.",
+            evidence=(
+                "barcodebattler.co.uk f1018 drops the thousands: in C1 and C2 a weapon's "
+                "ST is 100 * ((Q + 5) mod 10), a protector's DF 100 * ((P + 7) mod 10) "
+                "and a health card's HP 1000 * floor(S / 4) + 100 * R, so "
+                "2756244522799 is 17200 HP in C0 and 2700 in C1. The simulator rescales "
+                "only the first card when it is a hero and leaves items as C0 reads them."
+            ),
+            revisit="On a hardware read of an item card in C1 or C2.",
+        ),
+        "c1_hero_flag": Uncertainty(
+            question="Does a hero read in C1 or C2 keep its flag?",
+            decision="Yes; the rescale changes HP, ST and DF only.",
+            evidence=(
+                "barcodebattler.co.uk f1018 sets Flag = 50 for a C1 or C2 hero; "
+                "calc_c1_reading in src/BarcodeRead.as leaves the flag it read, so "
+                "3951286607674 keeps flag 6."
+            ),
+            revisit="On a hardware read of a hero card in C1 or C2.",
+        ),
+        "short_back_read_job": Uncertainty(
+            question="Can an eight-digit back-read card be a wizard?",
+            decision="No; every eight-digit back-read fighter is a soldier, job 4.",
+            evidence=(
+                "barcodebattler.co.uk f1018 says a fighter is a wizard when its digit M "
+                "is 7 or more, which on an EAN-8 is the first digit, so 90000003 would "
+                "be a wizard. post_reading in src/BarcodeRead.as fixes the job at 4 for "
+                "every eight-digit code."
+            ),
+            revisit="On a hardware read of an EAN-8 back-read fighter whose first digit is 7 to 9.",
         ),
     }
 )

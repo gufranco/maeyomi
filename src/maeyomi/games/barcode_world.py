@@ -114,12 +114,17 @@ def decode_barcode_world(code: str) -> DatachCard:
 def decode_c0(code: str, reading: C0Reading) -> DatachCard:
     """Read a barcode as the game the reading names does."""
     normalised = validate_barcode(code)
-    text = _rewritten(normalised.rjust(13, reading.padding).encode("ascii"))
-    fields = _positional(text) if _in_place(text) else _from_end(text, reading)
+    text = received_text(normalised, reading)
+    fields = _positional(text) if reads_in_place(text) else _from_end(text, reading)
     for pattern, ability in SPECIALS:
         if text[:12] == pattern.encode("ascii"):
             fields = {**fields, "job": SPECIAL_JOB, "ability": ability}
     return _card(normalised, fields, reading.device)
+
+
+def received_text(code: str, reading: C0Reading) -> bytes:
+    """The thirteen characters the game works on: padded as it pads them, special codes swapped."""
+    return _rewritten(validate_barcode(code).rjust(13, reading.padding).encode("ascii"))
 
 
 def _rewritten(text: bytes) -> bytes:
@@ -130,7 +135,7 @@ def _rewritten(text: bytes) -> bytes:
     return text
 
 
-def _in_place(text: bytes) -> bool:
+def reads_in_place(text: bytes) -> bool:
     """Whether the game reads the digits in place, per its test at $914F."""
     if text[0] == ord(" "):
         return False

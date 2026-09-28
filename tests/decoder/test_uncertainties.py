@@ -52,3 +52,16 @@ def test_the_double_egg_that_reads_as_armour_is_recorded() -> None:
 
     assert "0600000905307" in entry.evidence
     assert "6000" in entry.evidence
+
+
+def test_every_source_disagreement_cites_a_code_that_shows_it() -> None:
+    cited = {
+        "back_read_flag_rule": "9613953286318",
+        "c1_back_read_items": "2756244522799",
+        "c1_hero_flag": "3951286607674",
+        "short_back_read_job": "90000003",
+    }
+
+    missing = [key for key, code in cited.items() if code not in UNCERTAINTIES[key].evidence]
+
+    assert missing == []

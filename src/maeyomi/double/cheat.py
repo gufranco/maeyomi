@@ -73,12 +73,12 @@ def _item_request(card: GeneratedCard) -> CardRequest:
 
 
 def build_double_card(request: CardRequest) -> DoubleGeneratedCard:
-    """A 7-read card for a request without a race, otherwise a II front read, read as the Double.
+    """A 7-read card for a fighter or no race, otherwise a II front read, read as the Double.
 
     Raises when the request cannot be built, which the tests assert never
     happens for the cheat cards.
     """
-    if request.race is None:
+    if request.race is None or request.race.is_fighter:
         outcome = solve_double(request)
         barcode = None if outcome.card is None else outcome.card.barcode
         reasons = outcome.blockers

@@ -13,7 +13,12 @@ Double's own:
 - ST is the 4th, 5th and 8th, and DF the 6th, 7th and 11th, each up to 99900;
 - the job is the 9th digit, and the special power the 3rd and 12th.
 
-The source says its race is still under investigation and gives no speed.
+The source says its race is still under investigation and gives no speed. A
+later report, post 484 of the 5ch thread
+https://mevius.5ch.net/test/read.cgi/toy/1226667612/, gives the race as the
+8th digit less 5, checked on the 正伝3 and 正伝4 enemy cards; all 11 7-read
+cards of the 正伝3 list fit it. Every one of them has an 8th digit of 5 or
+more, so below 5 the race stays unknown.
 """
 
 from typing import Final
@@ -24,6 +29,7 @@ from maeyomi.decoder.validation import validate_barcode
 from maeyomi.double.abilities import DoubleAbility
 from maeyomi.double.card import DoubleCard, DoubleReading
 from maeyomi.models.character import DISPLAY_SCALE
+from maeyomi.models.race import Race
 from maeyomi.models.read_type import ReadType
 
 SEVEN_LEAD: Final = "7"
@@ -34,6 +40,8 @@ ST_DIGITS: Final = (3, 4, 7)
 DF_DIGITS: Final = (5, 6, 10)
 SPECIAL_DIGITS: Final = (2, 11)
 JOB_INDEX: Final = 8
+RACE_INDEX: Final = 7
+RACE_OFFSET: Final = 5
 
 
 def is_seven_read(code: str) -> bool:
@@ -58,7 +66,7 @@ def _seven(code: str) -> DoubleCard:
     return DoubleCard(
         barcode=code,
         reading=DoubleReading.SEVEN,
-        race=None,
+        race=_seven_race(code),
         job=int(code[JOB_INDEX]),
         hp=_hundreds(code, HP_DIGITS),
         st=_hundreds(code, ST_DIGITS),
@@ -66,6 +74,12 @@ def _seven(code: str) -> DoubleCard:
         special=DoubleAbility.from_code(int("".join(code[i] for i in SPECIAL_DIGITS))),
         speed=None,
     )
+
+
+def _seven_race(code: str) -> Race | None:
+    """The race the 8th digit gives, when it is 5 or more."""
+    digit = int(code[RACE_INDEX])
+    return Race(digit - RACE_OFFSET) if digit >= RACE_OFFSET else None
 
 
 def _hundreds(code: str, indices: tuple[int, int, int]) -> int:

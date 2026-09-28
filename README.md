@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**1025** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**1466** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -51,6 +51,10 @@ from a II. It reads them the II's way, except a code that starts with 7 and has
 `--device double` makes cards for it, using "BBIIダブルC0" on
 [barcodebattler.net](https://barcodebattler.net/bb2c0.html) as its source. That
 reading explains the eleven cards of the 正伝3 list that no II reading could.
+Its race is the attack's hundreds digit less 5, as a
+[collector's report](https://mevius.5ch.net/test/read.cgi/toy/1226667612/)
+found on the 正伝3 and 正伝4 enemy cards; all eleven fit, and with a hundreds
+digit below 5 the race is unknown. Its speed is still unknown.
 The Double also names two classes the II does not, the priest for job 4 and the
 holy warrior for job 6, and has its own table of special powers.
 
@@ -144,8 +148,10 @@ An item read from the end keeps the units of its strength below ten. And the
 code printed on the Interface's own box opens the sound test in either battle
 mode instead of making a card. The rule agrees with the game in MAME on 253
 codes, every card built here that was tried among them. The Black Store, one
-hidden shop of the scenario mode, reads cards with other offsets and is not
-modelled. MAME 0.289 sends each digit to the Super Famicom one bit out of
+hidden shop of the scenario mode, reads a card read from the end with smaller
+offsets, so such a card also shows the HP, ST and DF the shop gives it; that
+reading agrees with the game in MAME on 232 codes, reached by setting the flag
+the shop's map event sets rather than by walking to it. MAME 0.289 sends each digit to the Super Famicom one bit out of
 place, so the checks feed the game through an interface written for them.
 
 Four more Epoch games for the Super Famicom read a code on their password
@@ -179,7 +185,10 @@ for a keeper, defending; a lower check digit is an item card like those of
 Excite Stage '95. Pick a player or an item with `--character` and an item's
 amount with `--pick value=253`. The names and grades come straight from the
 game's own tables, and every player but one, whom no code's digits can reach,
-can be printed. The rule agrees with the game in MAME on every code tried.
+can be printed. PK mode reads a player the same way and an item card its own
+way, as one of six PK item types and a level from 0 to 9, which the card also
+shows; what each PK type does in a match has not been traced. Both rules agree
+with the game in MAME on every code tried, 168 of them in PK mode.
 
 J.League Excite Stage '95 for the Super Famicom reads a code on its Barcode
 Battler II input screen before an open match, a league, a tournament or a
@@ -284,7 +293,7 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other two tabs print a sheet of random cards and the 1025 cards Epoch and
+The other two tabs print a sheet of random cards and the 1466 cards Epoch and
 Bandai actually released. The page is in English and Japanese, and switches with the
 buttons at the top.
 
@@ -513,9 +522,9 @@ convenience: the lookup failing changes nothing about the card.
 
 ## The real cards
 
-`maeyomi official --list` names the 27 card lists Epoch and Bandai released,
+`maeyomi official --list` names the 37 card lists Epoch and Bandai released,
 how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
-candy.pdf` prints one, and leaving out `--set` prints all 1025. The web page has
+candy.pdf` prints one, and leaving out `--set` prints all 1466. The web page has
 the same thing under **The real cards**.
 
 Epoch never published a machine-readable list, so the barcodes come from the
@@ -533,7 +542,7 @@ say they work with the Barcode Battler rather than the II. Four describe the fla
 device's table; the God Mars list prints no numbers, and it has no magician and
 no herb or magic item, which only the II reads. The 正伝3 and 正伝4 lists need
 the Barcode Battler II Double's 7-read, which half of 正伝4's cards use. The
-other 15 print with the II's.
+other 21 print with the II's.
 
 The Zelda, Shogaku Ninensei magazine and Street Fighter II cards come from the
 card lists in [barcodebattler.co.uk](https://www.barcodebattler.co.uk/)'s
@@ -544,9 +553,16 @@ The Dragon Slayer, Doraemon: Nobita's Dinosaur, Obocchama-kun and Meiji cards
 had no transcription anywhere, so their barcodes were read off the card scans
 [barcodebattler.co.uk publishes](https://www.barcodebattler.co.uk/scans/Japan/),
 one card at a time, and each was tied to its name by the numbers printed on
-its front. Only the Meiji cards numbered 1 and 5 have been scanned. The Super
-Mario World cards are known only from their fronts, which carry no barcode, so
-they cannot be printed yet.
+its front. Only the Meiji cards numbered 1 and 5 have been scanned.
+
+The Super Mario World set and the packs Irwin sold in the United States and
+Canada and Tomy in the United Kingdom and Europe come from the card pages of
+[barcodebattler.co.uk](https://www.barcodebattler.co.uk/), which type out every
+barcode. Tomy's cards are Epoch's with English names. Irwin changed the codes of
+all ten item and news cards: nine read as the same item, and its Life Crystals
+heal 300 where Epoch's heal 1600. One Super Mario World card, Hanachan, prints HP
+7600 on its front while its barcode reads 8800; the barcode is printed as typed,
+and the card shows what the barcode reads.
 
 Datach Dragon Ball Z came with 40 cards. Its
 [manual](https://setsumei.cloudfree.jp/famicom/datachdragonballz/datachdragonballz.html)

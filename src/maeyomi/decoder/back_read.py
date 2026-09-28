@@ -3,8 +3,9 @@
 Source: `post_reading` in `src/BarcodeRead.as` of
 finalfighter/BarcodeBattler2-Simulator (MIT). The 8-digit layout is the 13-digit
 layout with every stat index moved down by five. Only the aligned read is
-implemented; the shifted variant used by the C1 and C2 game modes is recorded in
-`uncertainties.py` as out of scope.
+implemented; the simulator's shifted read, a C0 button trick rather than a card
+property, and the places barcodebattler.co.uk f1018 disagrees with the
+simulator are recorded in `uncertainties.py`.
 """
 
 import itertools

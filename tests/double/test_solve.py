@@ -56,7 +56,7 @@ def test_a_class_picks_a_job_that_belongs_to_it() -> None:
 @pytest.mark.parametrize(
     ("request_", "reason"),
     [
-        (CardRequest(race=Race.HUMAN), "a 7-read card has no race any source records"),
+        (CardRequest(race=Race.WEAPON), "a 7-read card is always a fighter"),
         (CardRequest(speed=3), "a 7-read card has no speed any source records"),
         (CardRequest(pp=Constraint.exactly(3)), "a 7-read card carries no herbs or magic points"),
         (CardRequest(hp=Constraint.exactly(150)), "hp of 150 is not a multiple of 100"),
@@ -113,3 +113,13 @@ def test_a_card_that_cannot_be_built_is_refused_by_name(impossible: CardRequest)
 def test_a_power_outside_two_digits_is_refused(code: int) -> None:
     with pytest.raises(ValueError, match="outside 00-99"):
         DoubleAbility.from_code(code)
+
+
+@pytest.mark.parametrize(
+    "race", [Race.MECHANICAL, Race.ANIMAL, Race.AQUATIC, Race.BIRD, Race.HUMAN]
+)
+def test_a_seven_read_card_is_built_with_the_race_asked_for(race: Race) -> None:
+    outcome = solve_double(CardRequest(race=race, st=Constraint.at_least(50000)))
+
+    assert outcome.card is not None
+    assert (outcome.card.race, outcome.card.st >= 50000) == (race, True)
