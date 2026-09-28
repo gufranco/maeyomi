@@ -23,7 +23,7 @@ The two known divergences from the simulator are recorded at the top of
 
 | Obligation | What it means here |
 |---|---|
-| Two languages, always | Every card carries English and Japanese together, whatever language the page is in. Not a toggle, not a variant: both on the same card |
+| One language, the reader's | A card prints in one language: the page's own, or the one `--language` names. English, Japanese, Simplified Chinese and Hong Kong Chinese. With no `--language`, the command line prints English and Japanese together. A word a card can print with no Chinese translation fails `tests/rendering/test_vocabulary.py`. Proper names stay as the English prints them |
 | A child who cannot read must still understand | Every kind, every stat and every special power has a pictogram beside the words |
 | Portrait, at the original size | 63.5 by 88.9 mm. No landscape variant. The size is not up for revisiting |
 | The barcode is a measurement, not a picture | Vectors at the specified module width and full bar height. A shortened bar removes the reader's whole alignment tolerance |
@@ -52,12 +52,14 @@ let a release note say something the README does not.
 push. Adding a new public surface means adding it to one of those two, or it
 will drift the moment the wording changes.
 
-The README comes as a pair: `README.md` in English and `README.ja.md` in
-Japanese. The device was sold in Japan, so the Japanese one is the whole
-document rather than a summary, and it uses the terms the device uses, 前読み
-and 後読み for the two read types. A section added to one is added to the
-other. The same tests check that they carry the same sections, the same
-screenshots, and a link to each other.
+The README comes in four editions: `README.md` in English, `README.ja.md` in
+Japanese, `README.zh-Hans.md` in Simplified Chinese and `README.zh-Hant-HK.md`
+in Hong Kong Chinese. Each is the whole document rather than a summary. The
+Japanese one uses the terms the device uses, 前読み and 後読み for the two read
+types, and the Chinese ones name the page's buttons with the page's own
+labels. A section added to one is added to all four. The same tests check that
+they carry the same sections, the same screenshots, and a link to every other
+edition.
 
 `docs/` and `specs/` are working notes and are ignored. They stay on disk and
 never reach GitHub, so nothing published may link into them.

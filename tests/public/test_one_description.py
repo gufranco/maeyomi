@@ -14,6 +14,8 @@ import tomllib
 from pathlib import Path
 from typing import Final
 
+import pytest
+
 ROOT: Final = Path(__file__).parent.parent.parent
 README: Final = ROOT / "README.md"
 FORMULA: Final = ROOT / "Formula" / "maeyomi.rb"
@@ -107,22 +109,39 @@ def test_the_project_is_readable_in_japanese() -> None:
     assert kana_and_kanji / len(japanese) > JAPANESE_SHARE
 
 
-def test_the_two_readmes_cover_the_same_ground() -> None:
+EDITIONS: Final = {
+    "English": README,
+    "日本語": JAPANESE_README,
+    "简体中文": ROOT / "README.zh-Hans.md",
+    "香港繁體中文": ROOT / "README.zh-Hant-HK.md",
+}
+
+
+def test_every_readme_covers_the_same_ground() -> None:
     sections = {
-        path: len(re.findall(r"^## ", path.read_text(encoding="utf-8"), re.MULTILINE))
-        for path in (README, JAPANESE_README)
+        path.name: len(re.findall(r"^## ", path.read_text(encoding="utf-8"), re.MULTILINE))
+        for path in EDITIONS.values()
     }
 
     assert len(set(sections.values())) == 1, sections
 
 
-def test_both_readmes_show_the_same_screenshots() -> None:
+@pytest.mark.parametrize("edition", list(EDITIONS.values()), ids=lambda path: path.name)
+def test_every_readme_shows_the_same_screenshots(edition: Path) -> None:
     def shots(path: Path) -> set[str]:
         return set(re.findall(r'(?:src|srcset)="(assets/[^"]+)"', path.read_text(encoding="utf-8")))
 
-    assert shots(README) == shots(JAPANESE_README)
+    assert shots(edition) == shots(README)
 
 
-def test_each_readme_offers_the_other_language() -> None:
-    assert "[日本語](README.ja.md)" in README.read_text(encoding="utf-8")
-    assert "[English](README.md)" in JAPANESE_README.read_text(encoding="utf-8")
+@pytest.mark.parametrize("edition", list(EDITIONS.values()), ids=lambda path: path.name)
+def test_every_readme_offers_every_other_language(edition: Path) -> None:
+    text = edition.read_text(encoding="utf-8")
+
+    missing = [
+        name
+        for name, path in EDITIONS.items()
+        if path != edition and f"[{name}]({path.name})" not in text
+    ]
+
+    assert missing == []
