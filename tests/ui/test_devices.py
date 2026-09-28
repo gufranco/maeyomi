@@ -36,6 +36,19 @@ def test_every_device_is_offered_with_its_form(client: TestClient) -> None:
     assert dbz["ranges"] == [[10000, 60000], [5000, 30000], [5000, 30000]]
 
 
+def test_every_game_is_filed_under_the_platform_it_runs_on(client: TestClient) -> None:
+    body = client.get("/api/devices").json()
+
+    platforms = {entry["key"]: entry["platform"] for entry in body}
+
+    assert {platforms[key] for key in ("bb2", "bb1", "double")} == {"machine"}
+    assert {platforms[key] for key in ("dbz", "battlerush", "jleague")} == {"datach"}
+    assert platforms["barcodeworld"] == "famicom"
+    assert {platforms[key] for key in ("senki", "lupin", "excite94", "hatayama")} == {
+        "super_famicom"
+    }
+
+
 def test_every_device_has_a_form() -> None:
     assert set(FORMS) == set(Device)
 

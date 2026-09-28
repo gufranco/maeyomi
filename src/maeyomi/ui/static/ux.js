@@ -1,4 +1,5 @@
 const SEARCH_DELAY_MS = 250;
+const PREVIEW_DELAY_MS = 350;
 const TAB_PREFIX = 'tab-';
 
 function setBusy(button, busy) {
@@ -75,4 +76,34 @@ function setUpSearchAsYouType(input, search) {
       search().catch(() => setStatus('shop-status', 'bad', 'tag.impossible', t('status.wrong')));
     }, SEARCH_DELAY_MS);
   });
+}
+
+let previewTimer = null;
+let previewRunning = false;
+let previewAgain = false;
+
+function refreshPreviewSoon() {
+  clearTimeout(previewTimer);
+  previewTimer = setTimeout(refreshPreview, PREVIEW_DELAY_MS);
+}
+
+async function refreshPreview() {
+  if (previewRunning) {
+    previewAgain = true;
+    return;
+  }
+  previewRunning = true;
+  previewAgain = false;
+  try {
+    await makeOneCard();
+  } catch {
+    setStatus('one-status', 'bad', 'tag.impossible', t('status.wrong'));
+  } finally {
+    previewRunning = false;
+  }
+  if (previewAgain) await refreshPreview();
+}
+
+function setUpLivePreview() {
+  ['input', 'change'].forEach((kind) => $('one').addEventListener(kind, refreshPreviewSoon));
 }

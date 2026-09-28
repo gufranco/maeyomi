@@ -1,4 +1,5 @@
 const DEVICE_KEY = 'maeyomi-device';
+const DEVICE_PARAM = 'device';
 const SECOND_DEVICE = 'bb2';
 const DBZ_DEVICE = 'dbz';
 const STAT_KEYS = ['hp', 'st', 'df'];
@@ -26,12 +27,24 @@ const readsOnSheet = (field) => deviceForm()?.sheet_fields.includes(field) ?? fa
 
 const SHEET_KEYS = ['hp', 'st', 'df'];
 
+function deviceFromAddress() {
+  return new URLSearchParams(window.location.search).get(DEVICE_PARAM);
+}
+
 function savedDevice() {
+  const linked = deviceFromAddress();
+  if (linked) return linked;
   try {
     return window.localStorage.getItem(DEVICE_KEY) ?? SECOND_DEVICE;
   } catch {
     return SECOND_DEVICE;
   }
+}
+
+function addressDevice(key) {
+  if (deviceFromAddress() === key) return;
+  const query = `?${DEVICE_PARAM}=${encodeURIComponent(key)}`;
+  window.history.pushState(null, '', `${window.location.pathname}${query}${window.location.hash}`);
 }
 
 function rememberDevice() {
@@ -112,7 +125,12 @@ function chosenPicks() {
   return Object.fromEntries(chosen);
 }
 
-const DEVICE_GROUPS = [['machine', 'device.machines'], ['game', 'device.games']];
+const DEVICE_GROUPS = [
+  ['machine', 'device.machines'],
+  ['super_famicom', 'device.super_famicom'],
+  ['datach', 'device.datach'],
+  ['famicom', 'device.famicom'],
+];
 
 function deviceButtonHtml(device) {
   const name = isJapanese() ? device.japanese : device.english;
@@ -127,7 +145,7 @@ function deviceButtonHtml(device) {
 function deviceGroupHtml(group, key) {
   const label = (device) => (isJapanese() ? device.japanese : device.english);
   const items = deviceList
-    .filter((device) => device.group === group)
+    .filter((device) => device.platform === group)
     .toSorted((first, second) => label(first).localeCompare(label(second), currentLanguage))
     .map(deviceButtonHtml)
     .join('');
@@ -193,11 +211,51 @@ function startFresh() {
   window.scrollTo(0, 0);
 }
 
+function switchDevice(key) {
+  startFresh();
+  chooseDevice(key);
+  refreshPreviewSoon();
+}
+
+function firstShownDevice() {
+  return [...document.querySelectorAll('#device [data-device]')]
+    .find((button) => !button.closest('li').hidden)?.dataset.device;
+}
+
+function focusDeviceFilter(event) {
+  const typing = event.target.closest('input, select, textarea, [contenteditable]');
+  if (event.key !== '/' || typing || event.metaKey || event.ctrlKey || event.altKey) return;
+  event.preventDefault();
+  setDeviceMenuOpen(true);
+  $('device-filter').focus();
+}
+
+function pickFirstShown(event) {
+  const key = firstShownDevice();
+  if (event.key !== 'Enter' || !key) return;
+  event.preventDefault();
+  switchDevice(key);
+  addressDevice(key);
+  setDeviceMenuOpen(false);
+  $('device-filter').value = '';
+  filterDevices();
+}
+
+function setUpDeviceShortcuts() {
+  document.addEventListener('keydown', focusDeviceFilter);
+  $('device-filter').addEventListener('keydown', pickFirstShown);
+  window.addEventListener('popstate', () => {
+    const key = deviceFromAddress() ?? SECOND_DEVICE;
+    if (key !== chosenDevice) switchDevice(key);
+  });
+}
+
 function setUpDeviceMenu() {
   $('device-toggle').addEventListener('click', () => {
     setDeviceMenuOpen(!$('sidebar').hasAttribute('data-open'));
   });
   $('device-filter').addEventListener('input', filterDevices);
+  setUpDeviceShortcuts();
   $('sidebar').addEventListener('keydown', (event) => {
     if (event.key !== 'Escape' || !$('sidebar').hasAttribute('data-open')) return;
     setDeviceMenuOpen(false);
@@ -282,6 +340,8 @@ function hideEmptySections() {
     const shown = fields.some((field) => !field.hidden);
     section.toggleAttribute('hidden', !shown);
   });
+  const folded = [...$('one-more').querySelectorAll('fieldset')];
+  $('one-more').toggleAttribute('hidden', folded.every((section) => section.hidden));
 }
 
 function applyDeviceForm() {
@@ -322,8 +382,8 @@ async function setUpDevices() {
   $('device').addEventListener('click', (event) => {
     const button = event.target.closest('[data-device]');
     if (!button) return;
-    startFresh();
-    chooseDevice(button.dataset.device);
+    switchDevice(button.dataset.device);
+    addressDevice(button.dataset.device);
     setDeviceMenuOpen(false);
   });
   $('backRead').addEventListener('change', () => applySliders(deviceForm()));

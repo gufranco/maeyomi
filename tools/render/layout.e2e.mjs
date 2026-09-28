@@ -52,8 +52,13 @@ function checkDeviceMenu() {
   const menu = evaluate(`JSON.stringify([...document.querySelectorAll('#device .list-heading')]
     .map((heading) => [heading.textContent, [...heading.nextElementSibling.querySelectorAll('.item-name')]
       .map((name) => name.textContent)]))`);
-  expect(menu.length === 2 && menu[0][0] === 'Machines' && menu[1][0] === 'Games',
-    `the device list is grouped as ${JSON.stringify(menu)}`);
+  const headings = menu.map(([heading]) => heading);
+  expect(JSON.stringify(headings) === JSON.stringify([
+    'Machines',
+    'Super Famicom, through the Barcode Battler II',
+    'Famicom Datach',
+    'Famicom, through the Barcode Battler II',
+  ]), `the device list is grouped as ${JSON.stringify(headings)}`);
   const machines = menu[0]?.[1] ?? [];
   const sorted = machines.toSorted((first, second) => first.localeCompare(second, 'en'));
   expect(JSON.stringify(machines) === JSON.stringify(sorted), `machines are ordered ${machines}`);
@@ -193,7 +198,7 @@ function realCards(device) {
   browser('click', '#tab-official');
   browser('wait', '800');
   return evaluate(`JSON.stringify({
-    details: document.querySelectorAll('details').length,
+    details: document.querySelectorAll('#panel-official details').length,
     links: [...document.querySelectorAll('#official-note a')]
       .filter((link) => link.offsetParent !== null).map((link) => link.href),
     picker: document.getElementById('official-set-field').offsetParent !== null,
@@ -310,6 +315,76 @@ function checkFreshStartOnDeviceChange() {
   pickDevice('bb2');
 }
 
+function checkLivePreview() {
+  browser('click', '#tab-one');
+  browser('wait', '1500');
+  const before = evaluate(`JSON.stringify(document.getElementById('one-code-value').textContent)`);
+  browser('eval', `(() => {
+    const box = document.getElementById('hp-box');
+    box.value = '7000';
+    box.dispatchEvent(new Event('change', { bubbles: true }));
+    return 'ok';
+  })()`);
+  browser('wait', '2000');
+  const after = evaluate(`JSON.stringify([
+    document.getElementById('one-code-value').textContent,
+    document.getElementById('card-image').hasAttribute('src'),
+  ])`);
+  expect(before !== '' && after[1] && after[0] !== before,
+    `the card does not redraw as the numbers change: ${before} then ${after}`);
+}
+
+function checkFoldedOptions() {
+  const folded = evaluate(`JSON.stringify([
+    document.getElementById('one-more').open,
+    !document.getElementById('ability').checkVisibility({ contentVisibilityAuto: true }),
+  ])`);
+  expect(!folded[0] && folded[1], `the extra options are not folded away: ${folded}`);
+}
+
+function checkAddressAndKeys() {
+  pickDevice('dbz');
+  const address = evaluate('JSON.stringify(window.location.search)');
+  expect(address === '?device=dbz', `the address does not name the device: ${address}`);
+  browser('press', 'Escape');
+  browser('eval', "document.activeElement.blur(); 'ok'");
+  browser('press', '/');
+  const focused = evaluate('JSON.stringify(document.activeElement.id)');
+  expect(focused === 'device-filter', `the slash key focuses ${focused}`);
+  browser('fill', '#device-filter', 'ultraman');
+  browser('press', 'Enter');
+  browser('wait', '600');
+  const chosen = evaluate(`JSON.stringify(document.querySelector('[aria-current="true"]')?.dataset.device)`);
+  expect(chosen === 'ultraman', `Enter in the filter chose ${chosen}`);
+  browser('eval', "history.back(); 'ok'");
+  browser('wait', '800');
+  const back = evaluate(`JSON.stringify(document.querySelector('[aria-current="true"]')?.dataset.device)`);
+  expect(back === 'dbz', `going back returns to ${back}`);
+  pickDevice('bb2');
+}
+
+function checkEmptyRealCards() {
+  pickDevice('dslayer2');
+  browser('click', '#tab-official');
+  browser('wait', '800');
+  const empty = evaluate(`JSON.stringify([
+    document.getElementById('official-sets').offsetParent === null,
+    document.getElementById('official-preview').offsetParent === null,
+    document.getElementById('official-note').offsetParent !== null,
+  ])`);
+  expect(empty.every(Boolean), `a game with no cards still shows empty parts: ${empty}`);
+  pickDevice('bb2');
+}
+
+function checkPhoneTabsFit() {
+  browser('set', 'viewport', '390', '844');
+  const hidden = evaluate(`JSON.stringify([...document.querySelectorAll('[role="tab"]')]
+    .filter((tab) => { const box = tab.getBoundingClientRect(); return box.right > innerWidth || box.left < 0; })
+    .map((tab) => tab.id))`);
+  expect(hidden.length === 0, `tabs off screen on a phone: ${hidden}`);
+  browser('set', 'viewport', '1280', '900');
+}
+
 function checkPhoneDeviceMenu() {
   browser('set', 'viewport', '390', '844');
   const closed = evaluate(`JSON.stringify([
@@ -359,7 +434,12 @@ pickDevice('bb2');
 checkDeviceMenu();
 checkDeviceFilter();
 checkDeviceListNeverScrolls();
+checkLivePreview();
+checkFoldedOptions();
 checkFreshStartOnDeviceChange();
+checkAddressAndKeys();
+checkEmptyRealCards();
+checkPhoneTabsFit();
 checkPhoneDeviceMenu();
 checkInlineCheckboxes();
 checkJobMenu();

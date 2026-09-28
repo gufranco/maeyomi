@@ -10,6 +10,7 @@ paper cannot say different things about one barcode.
 """
 
 from dataclasses import dataclass
+from enum import StrEnum
 from typing import Final
 
 from maeyomi.bb1.solve import ENEMY_DF, ENEMY_HP, ENEMY_ST
@@ -196,6 +197,28 @@ FORMS: Final[dict[Device, DeviceForm]] = {
 }
 
 
+class Platform(StrEnum):
+    """What a device is, or which console a game with a reader runs on."""
+
+    MACHINE = "machine"
+    DATACH = "datach"
+    FAMICOM = "famicom"
+    SUPER_FAMICOM = "super_famicom"
+
+
+DATACH_PREFIX: Final = "DATACH_"
+FAMICOM_GAMES: Final = frozenset({Device.BARCODE_WORLD})
+
+
+def platform_of(device: Device) -> Platform:
+    """The platform a device is listed under on the page."""
+    if not device.is_game:
+        return Platform.MACHINE
+    if device.name.startswith(DATACH_PREFIX):
+        return Platform.DATACH
+    return Platform.FAMICOM if device in FAMICOM_GAMES else Platform.SUPER_FAMICOM
+
+
 def device_views() -> list[DeviceView]:
     """Every device, in the order the enum lists them, with its form."""
     return [
@@ -204,6 +227,7 @@ def device_views() -> list[DeviceView]:
             english=device.english,
             japanese=device.japanese,
             group="game" if device.is_game else "machine",
+            platform=platform_of(device).value,
             fields=list(FORMS[device].fields),
             hp_max=FORMS[device].hp_max,
             st_max=FORMS[device].st_max,

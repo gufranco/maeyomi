@@ -97,7 +97,11 @@ const MESSAGES = {
     'one.make': 'Make this card',
     download: 'Download to print',
     'one.preview': 'Your card',
-    'one.placeholder': 'Choose your numbers, then press Make this card.',
+    'one.placeholder': 'Your card appears here as you choose.',
+    'one.more': 'More options',
+    'device.super_famicom': 'Super Famicom, through the Barcode Battler II',
+    'device.datach': 'Famicom Datach',
+    'device.famicom': 'Famicom, through the Barcode Battler II',
     'one.code': 'Barcode number',
     copy: 'Copy',
     copied: 'Copied',
@@ -143,7 +147,6 @@ const MESSAGES = {
     'device.summary.hatayama': 'Epoch, 1993. Battlers with stamina, attack, defense and magic.',
     'device.summary.excite94': 'Epoch, 1994. 240 hidden players and item cards for a match.',
     'device.summary.battlerush': 'Bandai, 1993. A robot built from two cards read in order.',
-    'device.games': 'Games',
     'device.hint':
       'Every tab, and the cheat code, makes cards for this choice and reads barcodes its way. ' +
       'The same barcode is a different card on each one.',
@@ -403,7 +406,11 @@ const MESSAGES = {
     'one.make': 'カードを つくる',
     download: 'いんさつようを ダウンロード',
     'one.preview': 'あなたの カード',
-    'one.placeholder': 'すうじを えらんで「カードを つくる」を おしてね。',
+    'one.placeholder': 'えらぶと ここに カードが でるよ。',
+    'one.more': 'ほかの せってい',
+    'device.super_famicom': 'スーパーファミコン、バーコードバトラーII で よむ',
+    'device.datach': 'ファミコン データック',
+    'device.famicom': 'ファミコン、バーコードバトラーII で よむ',
     'one.code': 'バーコード ばんごう',
     copy: 'コピー',
     copied: 'コピー しました',
@@ -449,7 +456,6 @@ const MESSAGES = {
     'device.summary.hatayama': 'エポックしゃ、1993ねん。たいりょく、こうげき、ぼうぎょ、まほうの バトラー。',
     'device.summary.excite94': 'エポックしゃ、1994ねん。240にんの かくし せんしゅと しあいの アイテム カード。',
     'device.summary.battlerush': 'バンダイ、1993ねん。じゅんに よませる 2まいの カードで つくる ロボット。',
-    'device.games': 'ゲーム',
     'device.hint':
       'どの タブも かくしコマンドも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +
       'おなじ バーコードでも マシンや ゲームごとに ちがう カードに なります。',

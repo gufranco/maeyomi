@@ -272,8 +272,12 @@ def test_every_field_only_some_devices_read_is_marked() -> None:
     }
 
 
-def test_no_explanation_hides_behind_a_click() -> None:
-    assert "<details" not in MARKUP
+def test_only_the_extra_card_fields_fold_and_no_note_hides_behind_a_click() -> None:
+    folded = MARKUP[MARKUP.index("<details") : MARKUP.index("</details>")]
+
+    assert MARKUP.count("<details") == 1
+    assert 'id="one-more"' in folded
+    assert 'class="note"' not in folded
 
 
 def test_the_sheet_marks_the_fields_only_some_devices_read() -> None:

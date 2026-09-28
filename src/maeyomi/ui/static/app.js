@@ -352,6 +352,9 @@ function renderOfficial() {
   renderOfficialSources();
   const none = catalogue.sets.length === 0;
   $('official-actions').toggleAttribute('hidden', none);
+  $('official-sets').toggleAttribute('hidden', none);
+  $('official-preview').toggleAttribute('hidden', none);
+  $('panel-official').toggleAttribute('data-empty', none);
   const single = catalogue.sets.length === 1 ? catalogue.sets[0] : null;
   $('official-set-field').toggleAttribute('hidden', Boolean(single) || none);
   if (none) {
@@ -708,7 +711,9 @@ setUpSearchAsYouType($('shop-query'), searchShelf);
 $('shop-surprise').addEventListener('click', surpriseShelf);
 $('shop-pdf').addEventListener('click', downloadShelf);
 $('official-pdf').addEventListener('click', downloadOfficial);
-setUpChoices();
+setUpLivePreview();
 setUpOfficial();
-setUpDevices();
+Promise.all([setUpChoices(), setUpDevices()])
+  .then(refreshPreviewSoon)
+  .catch(() => setStatus('one-status', 'bad', 'tag.impossible', t('status.wrong')));
 setUpCheat();

@@ -174,37 +174,40 @@
       </p>
     </fieldset>
 
-    <fieldset>
-      <legend data-i18n="one.abilityLegend">Special ability</legend>
-      <p class="field" data-device-field="ability">
-        <label for="ability" data-i18n="one.ability">Ability</label>
-        <select id="ability" name="ability"></select>
-        <span class="hint" data-i18n="one.ability.hint">
-          The machine stores abilities as numbers. Only 00 to 49 work in an
-          ordinary battle.
-        </span>
-      </p>
-      <p class="field" data-device-field="dbz" hidden>
-        <label for="dbz-level" data-i18n="dbz.level">Special move level</label>
-        <select id="dbz-level">
-          <option value="" data-i18n="dbz.level.any">Any</option>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
-      </p>
-    </fieldset>
+    <details class="more-options" id="one-more">
+      <summary data-i18n="one.more">More options</summary>
+      <fieldset>
+        <legend data-i18n="one.abilityLegend">Special ability</legend>
+        <p class="field" data-device-field="ability">
+          <label for="ability" data-i18n="one.ability">Ability</label>
+          <select id="ability" name="ability"></select>
+          <span class="hint" data-i18n="one.ability.hint">
+            The machine stores abilities as numbers. Only 00 to 49 work in an
+            ordinary battle.
+          </span>
+        </p>
+        <p class="field" data-device-field="dbz" hidden>
+          <label for="dbz-level" data-i18n="dbz.level">Special move level</label>
+          <select id="dbz-level">
+            <option value="" data-i18n="dbz.level.any">Any</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </p>
+      </fieldset>
 
-    <fieldset id="one-detail">
-      <legend data-i18n="one.detail">Fine detail</legend>
-      <p class="field" data-device-field="speed">
-        <label for="speed" data-i18n="one.speed">Speed, 0 to 9</label>
-        <input id="speed" name="speed" type="number" min="0" max="9" placeholder="any"
-               data-i18n-placeholder="any">
-        <span class="hint" data-i18n="one.speed.hint">Decides who strikes first.</span>
-      </p>
-    </fieldset>
+      <fieldset id="one-detail">
+        <legend data-i18n="one.detail">Fine detail</legend>
+        <p class="field" data-device-field="speed">
+          <label for="speed" data-i18n="one.speed">Speed, 0 to 9</label>
+          <input id="speed" name="speed" type="number" min="0" max="9" placeholder="any"
+                 data-i18n-placeholder="any">
+          <span class="hint" data-i18n="one.speed.hint">Decides who strikes first.</span>
+        </p>
+      </fieldset>
+    </details>
 
     <p class="field check" data-device-field="nearest">
       <label for="nearest">
@@ -226,15 +229,15 @@
     <div class="card-frame">
       <img id="card-image" alt="" width="381" height="533">
       <p class="placeholder" id="card-placeholder" data-i18n="one.placeholder">
-        Choose your numbers, then press Make this card.
+        Your card appears here as you choose.
       </p>
     </div>
-    <div id="one-status" class="status"></div>
     <p class="code" id="one-code" hidden>
       <span class="code-label" data-i18n="one.code">Barcode number</span>
       <code id="one-code-value"></code>
       <button type="button" id="one-copy" class="link" data-i18n="copy">Copy</button>
     </p>
+    <div id="one-status" class="status"></div>
   </aside>
 </section>
 
@@ -426,7 +429,7 @@
         </ul>
       </div>
     </div>
-    <fieldset>
+    <fieldset id="official-sets">
       <legend data-i18n="official.legend">Cards that were really sold</legend>
       <p class="field" id="official-set-field">
         <label for="official-set" data-i18n="official.set">Which set</label>
@@ -453,7 +456,7 @@
     </div>
   </form>
 
-  <aside class="preview" aria-live="polite">
+  <aside class="preview" id="official-preview" aria-live="polite">
     <h2 data-i18n="official.preview">The set</h2>
     <div class="sheet-frame" id="official-frame">
       <p class="placeholder" data-i18n="official.placeholder">
