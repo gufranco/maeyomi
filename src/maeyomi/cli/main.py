@@ -15,7 +15,7 @@ from typing import Annotated, Final
 
 import typer
 
-from maeyomi.cli.common import build_request, sheet_layout, write_cards
+from maeyomi.cli.common import CARD_LANGUAGE, build_request, sheet_layout, write_cards
 from maeyomi.cli.datach_device import (
     DbzPick,
     cheat_dbz,
@@ -57,6 +57,7 @@ from maeyomi.official.catalogue import (
 from maeyomi.products.japan import product_cards, random_products, search_products
 from maeyomi.registry import DeviceChoice
 from maeyomi.rendering.export import ImageFormat
+from maeyomi.rendering.language import CardLanguage
 from maeyomi.rendering.stat_tiles import stat_tiles
 
 app = typer.Typer(
@@ -64,6 +65,22 @@ app = typer.Typer(
     help="Generate printable cards for the Barcode Battler II.",
     no_args_is_help=True,
 )
+
+
+@app.callback()
+def choose_language(
+    language: Annotated[
+        CardLanguage,
+        typer.Option(
+            "--language",
+            help="Print every card in one language: en, ja, zh-Hans or zh-Hant-HK. "
+            "Leave it out for English and Japanese together.",
+        ),
+    ] = CardLanguage.BOTH,
+) -> None:
+    """Keep the card language for whichever command follows."""
+    CARD_LANGUAGE.set(language)
+
 
 MARKS = {State.OK: "ok  ", State.WARN: "warn", State.FAIL: "FAIL"}
 VERDICTS = {

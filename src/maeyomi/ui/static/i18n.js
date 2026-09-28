@@ -1,4 +1,5 @@
-const LANGUAGES = ['en', 'ja'];
+const LANGUAGES = ['en', 'ja', 'zh-Hans', 'zh-Hant-HK'];
+const TRADITIONAL_REGIONS = ['hk', 'mo', 'tw', 'hant'];
 const LANGUAGE_KEY = 'maeyomi-language';
 
 const MESSAGES = {
@@ -6,7 +7,7 @@ const MESSAGES = {
     title: 'Maeyomi',
     lede:
       'Playable cards for Barcode Battler machines and barcode games, ' +
-      'printed in English and Japanese.',
+      'printed in the language you choose.',
     'tabs.label': 'What would you like to make',
     'tab.one': 'One card',
     'tab.many': 'A sheet of cards',
@@ -310,7 +311,7 @@ const MESSAGES = {
     title: 'Maeyomi',
     lede:
       'バーコードバトラーや バーコードで あそぶ ゲームの カードを、' +
-      'えいごと にほんごで いんさつしよう。',
+      'えらんだ ことばで いんさつしよう。',
     'tabs.label': 'なにを つくる？',
     'tab.one': 'カード 1まい',
     'tab.many': 'カードを まとめて',
@@ -609,10 +610,20 @@ const MESSAGES = {
       'それじゃ ない。マシンが あくびを している。',
     ],
   },
+  'zh-Hans': MESSAGES_ZH_HANS,
+  'zh-Hant-HK': MESSAGES_ZH_HANT_HK,
 };
 
+function browserLanguage() {
+  const tag = navigator.language?.toLowerCase() ?? '';
+  if (tag.startsWith('ja')) return 'ja';
+  if (!tag.startsWith('zh')) return 'en';
+  const traditional = TRADITIONAL_REGIONS.some((part) => tag.split('-').includes(part));
+  return traditional ? 'zh-Hant-HK' : 'zh-Hans';
+}
+
 function detectLanguage() {
-  const browser = navigator.language?.toLowerCase().startsWith('ja') ? 'ja' : 'en';
+  const browser = browserLanguage();
   try {
     const saved = window.localStorage.getItem(LANGUAGE_KEY);
     return LANGUAGES.includes(saved) ? saved : browser;
@@ -622,6 +633,33 @@ function detectLanguage() {
 }
 
 let currentLanguage = detectLanguage();
+
+let cardWords = {};
+
+async function loadCardWords(language) {
+  if (!language.startsWith('zh')) {
+    cardWords = {};
+    return;
+  }
+  const response = await fetch(`/api/card-text/${encodeURIComponent(language)}`);
+  cardWords = response.ok ? await response.json() : {};
+}
+
+function translateCardText(english) {
+  const parts = english.split(/(\d+)/);
+  const numbers = parts.filter((_, index) => index % 2 === 1);
+  const key = parts.map((part, index) => (index % 2 ? `{${(index - 1) / 2}}` : part)).join('');
+  const found = cardWords[key];
+  if (found) return found.replace(/\{(\d+)\}/g, (_, index) => numbers[Number(index)] ?? '');
+  if (!english.includes('; ')) return english;
+  return english.split('; ').map(translateCardText).join('\uff1b');
+}
+
+function inLanguage(english, japanese) {
+  if (currentLanguage === 'ja') return japanese || english;
+  if (!currentLanguage.startsWith('zh') || english === japanese) return english;
+  return translateCardText(english);
+}
 
 function t(key, values = {}) {
   const message = MESSAGES[currentLanguage][key] ?? MESSAGES.en[key] ?? key;

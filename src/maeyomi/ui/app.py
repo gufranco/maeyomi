@@ -61,10 +61,13 @@ from maeyomi.registry import (
     readable_as,
     speed_note,
 )
+from maeyomi.rendering.card import CardStyle
 from maeyomi.rendering.face import summary_of
 from maeyomi.rendering.labels import UNREADABLE, UNREADABLE_KIND, Bilingual
+from maeyomi.rendering.language import CardLanguage
 from maeyomi.rendering.preview import card_png, sheet_png_pages
 from maeyomi.rendering.sheet import write_sheet
+from maeyomi.rendering.translations import catalogue
 from maeyomi.ui.assets import PAGE_HEADERS, CachedStaticFiles, asset_stamp, stamped
 from maeyomi.ui.devices import dbz_choices, device_views, facts_of, game_choices, game_picks
 from maeyomi.ui.schemas import (
@@ -95,6 +98,7 @@ from maeyomi.ui.schemas import (
 
 BAD_REQUEST: Final = 400
 UNPROCESSABLE: Final = 422
+NOT_FOUND: Final = 404
 STATIC_DIR: Final = Path(str(resources.files("maeyomi.ui") / "static"))
 PREVIEW_PAGE_LIMIT: Final = 4
 CARDS_PER_PAGE: Final = 9
@@ -165,13 +169,15 @@ def generate_one(spec: CardSpec) -> GenerateResult:
 
 def preview(spec: PreviewSpec) -> Response:
     """Draw one card exactly as it would print, and return it as an image."""
-    return Response(content=card_png(_decoded_card(spec)), media_type="image/png")
+    image = card_png(_decoded_card(spec), style=CardStyle(language=spec.language))
+    return Response(content=image, media_type="image/png")
 
 
 def sheet_preview(spec: RandomSpec) -> SheetPreview:
     """Draw the first pages of a random sheet, as images the page can show."""
     cards = _random_cards(spec)
-    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE])
+    style = CardStyle(language=spec.language)
+    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE], style=style)
     return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
 
 
@@ -179,19 +185,19 @@ def sheet(spec: SheetSpec) -> FileResponse:
     """Build a sheet from an explicit list of cards."""
     if not spec.cards:
         raise HTTPException(status_code=UNPROCESSABLE, detail="no cards were requested")
-    return _sheet_response([_solve_card(card) for card in spec.cards], "card.pdf")
+    return _sheet_response([_solve_card(card) for card in spec.cards], "card.pdf", spec.language)
 
 
 def random_sheet(spec: RandomSpec) -> FileResponse:
     """Build a sheet of random cards."""
-    return _sheet_response(_random_cards(spec), "cards.pdf")
+    return _sheet_response(_random_cards(spec), "cards.pdf", spec.language)
 
 
 def barcode_sheet(spec: BarcodeSheetSpec) -> FileResponse:
     """Build a sheet from cards that already carry a barcode."""
     if not spec.cards:
         raise HTTPException(status_code=UNPROCESSABLE, detail="no cards were requested")
-    return _sheet_response([_decoded_card(card) for card in spec.cards], "cards.pdf")
+    return _sheet_response([_decoded_card(card) for card in spec.cards], "cards.pdf", spec.language)
 
 
 def official(device: str = "bb2") -> OfficialCatalogue:
@@ -223,13 +229,14 @@ def official(device: str = "bb2") -> OfficialCatalogue:
 
 def official_sheet(spec: OfficialSpec) -> FileResponse:
     """Download one official set, or all of them."""
-    return _sheet_response(_official_cards(spec), "official-cards.pdf")
+    return _sheet_response(_official_cards(spec), "official-cards.pdf", spec.language)
 
 
 def official_preview(spec: OfficialSpec) -> SheetPreview:
     """Draw the first pages of an official set."""
     cards = _official_cards(spec)
-    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE])
+    style = CardStyle(language=spec.language)
+    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE], style=style)
     return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
 
 
@@ -299,6 +306,14 @@ def _unreadable_view(product: JapaneseProduct) -> ProductView:
 def devices() -> list[DeviceView]:
     """Every device and game the page can make cards for."""
     return device_views()
+
+
+def card_text(language: str) -> dict[str, str]:
+    """The Chinese card words of one language, for the page to show server text in it."""
+    chosen = next((known for known in CardLanguage if known.value == language), None)
+    if chosen is None or not chosen.is_chinese:
+        raise HTTPException(status_code=NOT_FOUND, detail=f"no card words for {language!r}")
+    return catalogue(chosen)
 
 
 def dbz_characters() -> list[DbzChoiceView]:
@@ -377,6 +392,7 @@ def create_app() -> FastAPI:
     app.add_api_route("/api/products", products, methods=["GET"])
     app.add_api_route("/api/lookup/{barcode}", lookup, methods=["GET"])
     app.add_api_route("/api/devices", devices, methods=["GET"])
+    app.add_api_route("/api/card-text/{language}", card_text, methods=["GET"])
     app.add_api_route("/api/dbz-characters", dbz_characters, methods=["GET"])
     app.add_api_route("/api/game-cards/{device}", game_cards, methods=["GET"])
     app.add_api_route("/api/game-picks/{device}/{ident}", game_card_picks, methods=["GET"])
@@ -468,9 +484,11 @@ def _official_set(spec: OfficialSpec) -> OfficialSet | None:
         ) from error
 
 
-def _sheet_response(cards: Sequence[AnyCard], filename: str) -> FileResponse:
-    """Render the cards to a temporary PDF and serve it as a download."""
+def _sheet_response(
+    cards: Sequence[AnyCard], filename: str, language: CardLanguage
+) -> FileResponse:
+    """Render the cards to a temporary PDF in one language and serve it as a download."""
     directory = Path(tempfile.mkdtemp(prefix="maeyomi-"))
     path = directory / filename
-    write_sheet(cards, path)
+    write_sheet(cards, path, style=CardStyle(language=language))
     return FileResponse(path, media_type="application/pdf", filename=filename)

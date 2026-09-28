@@ -1,0 +1,297 @@
+const MESSAGES_ZH_HANS = {
+  title: 'Maeyomi',
+  lede:
+    '为 Barcode Battler 对战机和条形码游戏制作能玩的卡片，' +
+    '用你选择的语言打印出来。',
+  'tabs.label': '想做点什么',
+  'tab.one': '一张卡片',
+  'tab.many': '一整页卡片',
+  'tab.official': '官方原版卡片',
+  'skip': '跳到卡片制作',
+  'tab.read': '读取条形码',
+  'tab.cheat': '作弊卡',
+  'cheat.note': '所选机器或游戏能读取的最强卡片，每项数值都拉到允许的上限。',
+  'cheat.name': '名字',
+  'cheat.name.hint': '留空就用卡片本来的名字。名字不会改变条形码。',
+  'cheat.preview': '作弊卡',
+  'cheat.placeholder': '卡片会显示在这里。',
+  'tab.shop': '超市',
+  'shop.legend': '真实的日本商品',
+  'shop.query': '找点什么',
+  'shop.query.placeholder': '番茄酱',
+  'shop.query.hint': '按名称、品牌或条形码搜索。留空就能看到整个货架。',
+  'shop.note': '这里每一件都是在日本真实销售的商品。卡片上的数值既不是编的，也不属于商品本身：本程序像机器一样直接从条形码里读出来。番茄酱对决方便面，公平一战。',
+  'shop.go': '搜索货架',
+  'shop.surprise': '给我个惊喜',
+  'shop.pdf': '打印列出的商品',
+  'shop.results': '货架上',
+  'shop.placeholder': '搜点什么，或者按一下给我个惊喜。',
+  'shop.empty': '货架上没有符合的商品。',
+  'shop.found': '共 {total} 件商品，找到 {count} 件。',
+  'shop.credit': '商品名称和条形码来自 {source}，依据 {licence} 使用。',
+  'read.legend': '任何条形码都行',
+  'read.barcode': '条形码数字',
+  'read.placeholder': '4901085061169',
+  'read.barcode.hint': '条纹下方印着的 8 位或 13 位数字。有空格也没关系。',
+  'read.name': '给它起个名字',
+  'read.name.placeholder': '番茄酱',
+  'read.name.hint': '会印在卡片上。其余一切都由条形码决定。',
+  'read.note':
+    '任何商品条形码都能用，1992 年大家就是这么玩的：一瓶番茄酱是战士，' +
+    '一包薯片是武器。把购物袋里商品上印的数字输进来，看看会变出什么。',
+  'read.go': '读取',
+  'read.preview': '读出来是什么',
+  'read.placeholder.card': '输入条形码，然后按读取。',
+  'read.empty': '请先输入条纹下方印着的数字。',
+  'read.ok': '刷卡时机器看到的就是这个。',
+  'read.refused': '机器不肯读这一张：',
+  'fact.kind': '种类',
+  'fact.class': '战斗方式',
+  'fact.hp': '体力',
+  'fact.st': '攻击',
+  'fact.df': '防御',
+  'fact.battle_st': '战斗中的攻击',
+  'fact.battle_df': '战斗中的防御',
+  'fact.power': '特殊能力',
+  'fact.speed': '速度',
+  'fact.reading': '读取方向',
+  'reading.front': '正面',
+  'reading.back': '背面',
+  'one.who': '卡片上是谁',
+  'one.name': '名字',
+  'one.name.hint': '会印在卡片上。名字不会改变条形码。',
+  'one.race': '战士种类',
+  'one.class': '战斗方式',
+  'class.either': '都可以',
+  'class.warrior': '用武器，战士',
+  'class.magician': '用魔法，魔法师',
+  'one.strong': '有多强',
+  'stat.hp': '体力',
+  'stat.st': '攻击',
+  'stat.df': '防御',
+  'one.hpNote':
+    '体力超过 20000 时，机器需要条形码里带一个标记，所以体力必须以 900 结尾，' +
+    '速度固定为 5。滑块会自动跳到最接近的可用数值。',
+  'one.abilityLegend': '特殊能力',
+  'one.ability': '能力',
+  'one.ability.hint':
+    '机器用数字来记录能力。普通对战中只有 00 到 49 有效。',
+  'one.detail': '细节设置',
+  'one.speed': '速度，0 到 9',
+  'one.speed.hint': '决定谁先出手。',
+  'one.job': '类型',
+  'one.job.hint': '有些特殊能力只对特定类型有效。',
+  'job.any': '任意',
+  'valid.number': '请输入整数。',
+  'valid.range': '请输入 {min} 到 {max} 之间的数字。',
+  'valid.step': '请输入 {step} 的倍数。',
+  'job.option': '{number}：{name}',
+  'job.warrior': '战士',
+  'job.magician': '魔法师',
+  'job.priest': '僧侣',
+  'job.holy': '圣战士',
+  'one.back': '做一张让机器反着读的卡片',
+  'one.back.hint': '反读卡片的数值不一样：滑块会切换到它的范围。',
+  'one.nearest': '如果做不出完全一样的数值，就用最接近的',
+  'one.make': '做这张卡片',
+  download: '下载并打印',
+  'one.preview': '你的卡片',
+  'one.placeholder': '边选边看，卡片会显示在这里。',
+  'one.more': '更多选项',
+  'device.super_famicom': 'Super Famicom，通过 Barcode Battler II 连接',
+  'device.datach': 'Famicom Datach',
+  'device.famicom': 'Famicom，通过 Barcode Battler II 连接',
+  'one.code': '条形码数字',
+  copy: '复制',
+  copied: '已复制',
+  any: '任意',
+  'many.howMany': '要几张',
+  'many.count': '卡片数',
+  'many.count.hint': '一页能放九张。',
+  'many.seed': '批次编号',
+  'many.seed.placeholder': '留空就生成一组新卡片',
+  'many.seed.hint': '用同一个编号，就能再次得到同样的卡片。',
+  'many.range': '数值范围',
+  to: '到',
+  'many.hpMax': '最高体力',
+  'many.stMax': '最高攻击',
+  'many.dfMax': '最高防御',
+  'many.anyRace': '任意种类',
+  'many.make': '生成整页',
+  'many.preview': '你的卡片页',
+  'many.placeholder': '按生成整页即可查看页面。',
+  'device.label': '机器或游戏',
+  'device.change': '更换',
+  'device.filter': '查找机器或游戏',
+  'device.machines': '机器',
+  'device.summary.bb2': '1992 年。战士、道具，还有反读卡片。',
+  'device.summary.bb1': '1991 年。所有战士都是战士型，体力上限 19900。',
+  'device.summary.double': '1993 年。加入专属的第 7 位读取、僧侣和圣战士。',
+  'device.summary.dbz': 'Bandai，1992 年。带 BP 和 DP 的战士与道具。',
+  'device.summary.ultraman': 'Bandai，1993 年。带 PW、ST 和 SP 的奥特英雄、怪兽与道具。',
+  'device.summary.sdgundam': 'Bandai，1993 年。带武器的机动战士，还有指令卡。',
+  'device.summary.yuyu': 'Bandai，1993 年。带必杀技的战士与道具。',
+  'device.summary.jleague': 'Bandai，1994 年。1993 赛季 J.League 的球员和球队。',
+  'device.summary.barcodeworld': 'Sunsoft，1992 年。通过 Barcode Battler 2 读取战士。',
+  'device.summary.senki': 'Epoch，1993 年。通过 Barcode Battler 2 读取的 Super Famicom 游戏。',
+  'device.summary.lupin': 'Epoch，1994 年。在密码画面输入代码，触发作弊和剧情分支。',
+  'device.summary.donald': 'Epoch，1995 年。在密码画面输入代码，解锁关卡和结局。',
+  'device.summary.spiderman': 'Epoch，1995 年。在密码画面输入代码，触发作弊。',
+  'device.summary.alice': 'Epoch，1995 年。在密码画面输入代码，从剧情后段开始。',
+  'device.summary.doraemon2': 'Epoch，1993 年。代码可触发作弊或获得秘密道具。',
+  'device.summary.doraemon3': 'Epoch，1994 年。代码可触发作弊或获得武器和道具。',
+  'device.summary.yousei': 'Epoch，1993 年。代码可触发作弊或获得小道具。',
+  'device.summary.excite95': 'Epoch，1995 年。在一场比赛中提升球员能力的道具卡。',
+  'device.summary.dslayer2': 'Epoch，1993 年。代码可触发作弊或在野外获得道具。',
+  'device.summary.hatayama': 'Epoch，1993 年。拥有耐力、攻击、防御和魔法的对战者。',
+  'device.summary.excite94': 'Epoch，1994 年。240 名隐藏球员，以及比赛用的道具卡。',
+  'device.summary.battlerush': 'Bandai，1993 年。按顺序读取两张卡片，组装出一台机器人。',
+  'device.hint':
+    '每个标签页都会按这里的选择制作卡片、读取条形码。' +
+    '同一个条形码，在不同机器上就是不同的卡片。',
+  'stat.bp': '战斗力',
+  'stat.dp': '防御力',
+  'dbz.character': '战士或道具',
+  'dbz.character.hint':
+    '数值够高的战士会像游戏里一样变身成更强的形态。' +
+    '道具不带数值。',
+  'dbz.anyone': '任意战士',
+  'dbz.fighters': '战士',
+  'dbz.items': '道具',
+  'dbz.level': '必杀技等级',
+  'dbz.level.any': '任意',
+  'game.character': '卡片',
+  'game.character.hint': '游戏按卡片在自己列表中的编号来读取。',
+  'game.anyone': '任意卡片',
+  'game.kind.fighter': '战士',
+  'game.kind.item': '道具',
+  'stat.pw': 'PW',
+  'stat.ust': 'ST',
+  'stat.usp': 'SP',
+  'stat.ap': 'AP',
+  'stat.gdp': 'DP',
+  'stat.yhp': 'HP',
+  'stat.ysp': 'SP',
+  'game.kind.hidden': '隐藏',
+  'game.kind.team': '球队',
+  'game.kind.player': '球员',
+  'stat.whp': '体力',
+  'stat.wst': '攻击',
+  'stat.wdf': '防御',
+  'game.kind.unit': '机动战士',
+  'game.kind.command': '指令卡',
+  'game.pick.any': '任意',
+  'status.deviceCard': '这张卡片在 {device} 上的读取结果和要求完全一致。',
+  'status.deviceCheat': '{name}：{device} 能读取的最强卡片。',
+  'status.searching': '正在寻找 {device} 会这样读取的条形码。',
+  'status.deviceClosest': '完全一样的数值打印不出来，这是能做出的最接近的卡片。',
+  'official.legend': '真正发售过的卡片',
+  'official.single': '{title}：{count} 张卡片',
+  'official.set': '选择卡组',
+  'official.note.epoch':
+    'Epoch 从未公布过卡片清单，这些条形码是收藏家们在 wikiwiki.jp 上的' +
+    '日本 Barcode Battler 爱好者 wiki 里录入的。每张卡片的数值都由本程序' +
+    '从条形码读出，绝不是从 wiki 抄来的。',
+  'official.note.dbz':
+    'Datach Dragon Ball Z 附带 40 张卡片，说明书里写着其中几张没有条形码，' +
+    '比如超级赛亚人悟空和完全体沙鲁，玩家要自己贴一个上去。这里的 36 张是其中' +
+    '带条形码的 35 张，再加一张特别版超级赛亚人悟空卡，取自 Famicom 模拟器 puNES ' +
+    '源代码中的卡片清单，每一张都在 MAME 模拟器里由游戏本身读取过。' +
+    '每张卡片的数值都来自它的条形码。',
+  'official.sources': '条形码的来源',
+  'official.source.epoch': 'Epoch 卡片：',
+  'official.source.dbz': 'Dragon Ball Z 卡片：',
+  'official.note.ultraman':
+    'Datach Ultraman Club 附带 40 张卡片，其中两张是空白的。带条形码的 38 张' +
+    '由 retrostuff.org 从一整盒卡片上读取，名称沿用 Famicom 模拟器 puNES ' +
+    '源代码中卡片清单的叫法，每一张都在 MAME 模拟器里由游戏本身读取过。' +
+    '每张卡片的数值都来自它的条形码。',
+  'official.source.ultraman': 'Ultraman Club 卡片：',
+  'official.note.sdgundam':
+    'SD Gundam Wars 附带 40 张卡片。其中 37 张各有两个条形码，下边缘是机动战士，' +
+    '上边缘是指令，另有一张特别卡两种各一个。这 76 个条形码由 retrostuff.org ' +
+    '从一整盒卡片上读取，与 Famicom 模拟器 puNES 源代码中的卡片清单一致，' +
+    '每一个都在 MAME 模拟器里由游戏本身读取过。',
+  'official.source.sdgundam': 'SD Gundam Wars 卡片：',
+  'official.note.yuyu':
+    'Yu Yu Hakusho 附带 40 张卡片，其中三张没有条形码。其余 37 张来自 archive.org ' +
+    '在全套卡片扫描件旁保存的表格，每一张都在 MAME 模拟器里由游戏本身读取过。',
+  'official.source.yuyu': 'Yu Yu Hakusho 卡片：',
+  'official.note.jleague':
+    'J.League Super Top Players 附带 40 张卡片，每张有四个条形码：一支球队加三名球员，' +
+    '或者四名球员。这 160 个条形码来自 archive.org 在全套卡片扫描件旁保存的表格，' +
+    '每一个都在 MAME 模拟器里由游戏本身读取过。卡片上写的是真实球员，本身不带数值。',
+  'official.source.jleague': 'J.League 卡片：',
+  'official.note.barcodeworld':
+    'Barcode World 附带 24 张卡片和一张白色空白卡。条形码读取自 barcodebattler.co.uk ' +
+    '公布的卡片扫描件，每一个都在 MAME 模拟器里由游戏本身读取过。武器、护具和道具' +
+    '要在战斗中刷，而不是在角色画面刷。',
+  'official.source.barcodeworld': 'Barcode World 卡片：',
+  'official.note.senki':
+    'Barcode Battler Senki 附带 10 张卡片：5 张角色卡、3 张道具卡和 2 张白色空白卡。' +
+    '没有人公布过它们的条形码，所以没有卡组可打印。在这里做的任何卡片，' +
+    '游戏都会按照在 MAME 模拟器中验证过的方式读取。',
+  'official.source.senki': 'Senki 盒子里的内容：',
+  'official.note.excite95':
+    "Epoch 为 Excite Stage '94 给 1994 年的 12 家 J.League 俱乐部各印了一张阵容卡。" +
+    "Excite Stage '95 把每一张都当作道具卡读取。条形码读取自 barcodebattler.co.uk " +
+    '公布的扫描件，每一个都在 MAME 模拟器里由游戏读取过。',
+  'official.source.excite95': '俱乐部阵容卡：',
+  'official.note.excite94':
+    'Epoch 为这款游戏给 1994 年的 12 家 J.League 俱乐部各印了一张阵容卡。' +
+    '每一张都会被读成道具卡。条形码读取自 barcodebattler.co.uk 公布的扫描件，' +
+    '每一个都在 MAME 模拟器里由游戏读取过。',
+  'official.source.excite94': '俱乐部阵容卡：',
+  'official.note.battlerush':
+    '目前没有已知的 Bandai 为 Battle Rush 印制的卡片清单。在这里做的每台机器人' +
+    '都会打印成两张卡片，在 Robo Factory 按顺序刷卡。',
+  'official.note.hatayama':
+    'Hatayama Hatch 附带 12 支真实球队和 2 支原创球队的卡片，' +
+    '没有人公布过它们的条形码。',
+  'official.note.effects':
+    '这款游戏本身不附带卡片。这里做的每个代码都会注明要在哪个画面刷，' +
+    '并且在 MAME 模拟器里确认过能在那里触发效果。',
+  'official.skipped': '被略去的卡片',
+  'official.skipped.hint':
+    'wikiwiki.jp 页面上这五张有笔误。条形码的最后一位是校验位，由前面十二位算出，' +
+    '这里对不上，所以机器会拒绝读取。去猜哪一位写错了，就等于打印一张从没卖过的卡片，' +
+    '所以把它们略去了。',
+  'official.show': '显示卡片',
+  'official.preview': '卡组',
+  'official.placeholder': '选一个卡组，然后按显示卡片。',
+  'official.every': '全部卡组，共 {count} 张卡片',
+  'official.option': '{title}，{count} 张卡片',
+  'official.inJapanese': '日文名：{title}',
+  'official.everyHint': '所有卡组的所有卡片，一张接一张。',
+  'footer.local': '数据不会离开这台电脑。页面只和你自己启动的服务器通信。',
+  'tag.exact': '完全一致',
+  'tag.closest': '最接近',
+  'tag.impossible': '做不到',
+  'tag.ready': '就绪',
+  'tag.working': '处理中',
+  'tag.done': '完成',
+  'tag.cheat': '作弊',
+  'status.exact': '机器会完全按这些数值读取。',
+  'status.closest':
+    '这台机器做不出完全一样的数值。这是最接近的卡片。',
+  'status.adjust': '试着调整：',
+  'status.again': '再试一次：',
+  'status.wrong': '出了点问题。请换一组数值试试。',
+  'status.sheet': '{count} 张卡片，共 {pages} 页。',
+  'status.sheetOne': '{count} 张卡片，共 1 页。',
+  'status.drawing': '正在绘制卡片……',
+  'status.building': '正在生成文件。卡组较大时需要稍等一下。',
+  'status.saved': '文件已保存到你的下载文件夹。',
+  'status.official': '{count} 张卡片。',
+  'status.officialMore':
+    '{count} 张卡片。这里只显示前 {shown} 张，下载的文件里全都有。',
+  'alt.card': '{name} 的卡片，显示着它的数值和条形码',
+  'alt.page': '{label}，第 {page} 页',
+  'label.sheet': '卡片页',
+  'label.official': '官方卡片',
+  wrong: [
+    '想得美。机器可不买账。',
+    '不对哦。要不问问 1992 年玩过的大人？',
+    '不是这个。机器打了个哈欠。',
+  ],
+};

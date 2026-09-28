@@ -4,7 +4,7 @@
 
 <strong>Print playable cards for Barcode Battler machines and barcode games.</strong>
 
-English &nbsp;|&nbsp; [日本語](README.ja.md)
+English &nbsp;|&nbsp; [日本語](README.ja.md) &nbsp;|&nbsp; [简体中文](README.zh-Hans.md) &nbsp;|&nbsp; [香港繁體中文](README.zh-Hant-HK.md)
 
 [![ci](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml/badge.svg)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**1544** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**1544** official cards transcribed. **2958** Japanese groceries. **100** special powers. Cards in English, Japanese or Chinese. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -280,7 +280,7 @@ That starts a local page and opens your browser at it. Everything the program
 does is in there, so nothing below this point is required reading. The page
 says what it is for in a line:
 
-> Playable cards for Barcode Battler machines and barcode games, printed in English and Japanese.
+> Playable cards for Barcode Battler machines and barcode games, printed in the language you choose.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/one-card-dark.png">
@@ -331,8 +331,9 @@ you get.
 
 The other three tabs print a sheet of random cards, the 1544 cards Epoch and
 Bandai actually released, and the strongest card the chosen machine or game
-will read. The page is in English and Japanese, and switches with the
-buttons at the top.
+will read. The page is in English, Japanese, Simplified Chinese and Hong Kong
+Chinese, switched with the buttons at the top, and its cards print in the same
+language.
 
 `maeyomi web --no-open` starts the server without a browser, and `maeyomi
 serve` is the same thing for a machine that has none.
@@ -760,11 +761,14 @@ game's sum, so the largest parts do not make the strongest robot.
 J.League Excite Stage '94 gets Gamamoto Kunikuni, the hidden player graded A at
 everything.
 
-## Two languages and pictures
+## Languages and pictures
 
-Every card is printed in English and Japanese, whichever language the page is
-in. The kind of creature, how it fights, the three battle numbers, the special
-power and the swipe caption all appear in both. Each fact also has a picture
+A card from the web page prints in the page's language: English, Japanese,
+Simplified Chinese or Hong Kong Chinese. On the command line, `--language` before
+the command does the same with `en`, `ja`, `zh-Hans` or `zh-Hant-HK`, as in
+`maeyomi --language ja cheat -o cheat.pdf`; leaving it out prints English and
+Japanese side by side. The kind of creature, how it fights, the three battle
+numbers, the special power and the swipe caption all follow it. Each fact also has a picture
 for a child who reads neither yet: a coloured band with a pictogram for the kind
 of creature, a heart, a sword and a shield for the numbers, and a pictogram for
 the special power showing what it changes and which way, such as a sword with
@@ -774,14 +778,20 @@ meaning, never its colour.
 The special power text is the published wording in both languages: the Japanese
 is copied from barcodebattler.net/page05.htm and the English is this project's
 reading of the same page. The race, class and stat names are this project's own
-translation, in the hiragana and katakana a young reader learns first. A
-player's chosen name is printed as typed, in either script.
+translation, in the hiragana and katakana a young reader learns first. The
+Chinese of both kinds is this project's translation too; the names of
+characters, units, players and games stay as the English prints them, since
+most of these games never had a Chinese release to take a name from. A test
+renders every official card, every cheat card, every entry each game lists and
+a spread of 2000 barcodes on every device, and fails if any word they print has
+no Chinese. A player's chosen name is printed as typed, in any script.
 
-The web page switches between English and Japanese with the buttons at the top,
-and remembers the choice.
+The web page switches between English, Japanese, Simplified Chinese and Hong
+Kong Chinese with the buttons at the top, remembers the choice, and starts in
+the browser's language.
 
-Japanese is set in a font every PDF reader carries but which is referenced
-rather than embedded. For a print shop, send the page images instead of the PDF,
+Japanese and Chinese are set in fonts every PDF reader carries, which are
+referenced rather than embedded. For a print shop, send the page images instead of the PDF,
 `--images png`, which are 600 dpi with the lettering already drawn in.
 
 ## Getting at it without a mouse or without sight
@@ -804,7 +814,7 @@ The PDFs carry what a PDF can carry without a structure tree. Each one names
 itself, so a reader announces "Barcode Battler II card: Tea" instead of
 `sheet.pdf`, and is told to prefer that title over the filename. The document
 declares its language, its author and what it is. Every word on a card is real
-text: the names, the numbers, the special power, both languages, and the digits
+text: the names, the numbers, the special power, every language, and the digits
 under the bars, all of which come back out of the file in the order a person
 would read them, kind first, then the name, then each number after the label
 that says what it measures, then the power, and the barcode last.

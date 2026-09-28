@@ -120,6 +120,8 @@ RACE_DESCRIPTIONS_JA: Final[dict[Race, str]] = {
 
 
 SPECIAL_POWER: Final = Bilingual("Special power", "とくしゅ のうりょく")
+FACT_KIND: Final = Bilingual("Kind", "しゅるい")
+FACT_DETAIL: Final = Bilingual("Type", "タイプ")
 SWIPE: Final = Bilingual("Swipe this end", "ここを とおしてね")
 NO_POWER: Final = Bilingual("No special power", "のうりょく なし")
 UNKNOWN_POWER: Final = Bilingual("Unknown power", "なぞの のうりょく")

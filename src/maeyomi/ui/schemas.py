@@ -18,6 +18,7 @@ from maeyomi.rendering.labels import (
     RACE_DESCRIPTIONS_JA,
     race_label,
 )
+from maeyomi.rendering.language import CardLanguage
 
 
 class CardSpec(BaseModel):
@@ -44,12 +45,14 @@ class RandomSpec(CardSpec):
     count: int = Field(default=9, ge=1, le=200)
     seed: int | None = None
     device: str = "bb2"
+    language: CardLanguage = CardLanguage.BOTH
 
 
 class SheetSpec(BaseModel):
     """A sheet built from an explicit list of cards."""
 
     cards: list[CardSpec]
+    language: CardLanguage = CardLanguage.BOTH
 
 
 class PreviewSpec(BaseModel):
@@ -58,12 +61,14 @@ class PreviewSpec(BaseModel):
     barcode: str
     name: str = "Card"
     device: str = "bb2"
+    language: CardLanguage = CardLanguage.BOTH
 
 
 class BarcodeSheetSpec(BaseModel):
     """A sheet of cards that already have barcodes, so nothing is solved."""
 
     cards: list[PreviewSpec]
+    language: CardLanguage = CardLanguage.BOTH
 
 
 class ProductView(BaseModel):
@@ -105,6 +110,7 @@ class OfficialSpec(BaseModel):
 
     official_set: str | None = Field(default=None, alias="set")
     device: str = "bb2"
+    language: CardLanguage = CardLanguage.BOTH
 
 
 class OfficialSetView(BaseModel):

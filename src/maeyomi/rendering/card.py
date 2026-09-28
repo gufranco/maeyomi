@@ -26,13 +26,21 @@ from maeyomi.models.generated_card import AnyCard
 from maeyomi.rendering.ability_icons import draw_icon
 from maeyomi.rendering.face import CardFace, face_of
 from maeyomi.rendering.icons import INK, STAT_STYLES, WHITE, Colour
-from maeyomi.rendering.labels import SPECIAL_POWER, STAT_LABELS, SWIPE, Bilingual
-from maeyomi.rendering.text import fit_size, font_for, text_width_mm, wrap
+from maeyomi.rendering.labels import STAT_LABELS, SWIPE
+from maeyomi.rendering.language import CardLanguage
+from maeyomi.rendering.text import fit_size, font_for, wrap
+from maeyomi.rendering.words import (
+    PAIR_GAP_MM,
+    AbilityPanel,
+    Line,
+    ability_lines,
+    draw_pair,
+    power_header,
+)
 
 MUTED_INK: Final[Colour] = (0.35, 0.37, 0.43)
 PANEL_FILL: Final[Colour] = (0.94, 0.95, 0.96)
 MAX_NAME_LINES: Final = 2
-PAIR_GAP_MM: Final = 1.6
 SWIPE_GAP_MM: Final = 2.4
 
 
@@ -60,6 +68,7 @@ class CardStyle:
     swipe_size_pt: float = 5.5
     corner_mm: float = 2.4
     border: bool = True
+    language: CardLanguage = CardLanguage.BOTH
 
 
 @dataclass(frozen=True, slots=True)
@@ -212,95 +221,35 @@ def _draw_band(canvas: Canvas, face: CardFace, frame: _Frame) -> None:
     available = frame.x + frame.width - style.padding_mm - text_left
     middle = band_bottom + style.band_height_mm / 2
     canvas.setFillColorRGB(*WHITE)
-    _draw_pair(
+    draw_pair(
         canvas,
         face.kind,
-        x=text_left,
-        baseline=middle + 0.5,
-        size_pt=style.band_title_size_pt,
-        available=available,
-        bold=True,
+        Line(
+            x=text_left,
+            baseline=middle + 0.5,
+            size_pt=style.band_title_size_pt,
+            available=available,
+            bold=True,
+            language=style.language,
+        ),
     )
-    _draw_pair(
+    draw_pair(
         canvas,
         face.detail,
-        x=text_left,
-        baseline=middle - 3.4,
-        size_pt=style.band_detail_size_pt,
-        available=available,
-    )
-
-
-def _draw_pair(
-    canvas: Canvas,
-    text: Bilingual,
-    *,
-    x: float,
-    baseline: float,
-    size_pt: float,
-    available: float,
-    bold: bool = False,
-    centred: bool = False,
-    gap: float = PAIR_GAP_MM,
-) -> None:
-    """Set the English and then the Japanese on one line, shrinking both to fit.
-
-    With `centred` the pair is centred on `x`; otherwise it starts there. Text
-    that reads the same in both languages is set once.
-    """
-    if text.english == text.japanese:
-        _draw_single(
-            canvas,
-            text.english,
-            x=x,
-            baseline=baseline,
-            size_pt=size_pt,
+        Line(
+            x=text_left,
+            baseline=middle - 3.4,
+            size_pt=style.band_detail_size_pt,
             available=available,
-            bold=bold,
-            centred=centred,
-        )
-        return
-    english_font = font_for(text.english, bold=bold)
-    japanese_font = font_for(text.japanese, bold=bold)
-    natural = (
-        text_width_mm(text.english, english_font, size_pt)
-        + gap
-        + text_width_mm(text.japanese, japanese_font, size_pt)
+            language=style.language,
+        ),
     )
-    scale = min(1.0, available / natural)
-    size = size_pt * scale
-    left = x - natural * scale / 2 if centred else x
-    canvas.setFont(english_font, size)
-    canvas.drawString(left * mm, baseline * mm, text.english)
-    japanese_left = left + text_width_mm(text.english, english_font, size) + gap * scale
-    canvas.setFont(japanese_font, size)
-    canvas.drawString(japanese_left * mm, baseline * mm, text.japanese)
-
-
-def _draw_single(
-    canvas: Canvas,
-    text: str,
-    *,
-    x: float,
-    baseline: float,
-    size_pt: float,
-    available: float,
-    bold: bool,
-    centred: bool,
-) -> None:
-    """Set one piece of text on a line, shrinking it to fit."""
-    font = font_for(text, bold=bold)
-    natural = text_width_mm(text, font, size_pt)
-    size = size_pt * min(1.0, available / natural)
-    width = text_width_mm(text, font, size)
-    canvas.setFont(font, size)
-    canvas.drawString((x - width / 2 if centred else x) * mm, baseline * mm, text)
 
 
 def _draw_name(canvas: Canvas, card: AnyCard, frame: _Frame, top: float) -> float:
     """Draw the name on one centred line, or two when it needs them."""
     style = frame.style
-    font = font_for(card.name, bold=True)
+    font = font_for(card.name, bold=True, language=style.language)
     lines = wrap(
         card.name,
         frame.inner_width,
@@ -347,16 +296,19 @@ def _draw_stats(canvas: Canvas, face: CardFace, frame: _Frame, top: float) -> fl
             size_mm=style.stat_icon_mm,
         )
         canvas.setFillColorRGB(*MUTED_INK)
-        _draw_pair(
+        draw_pair(
             canvas,
             STAT_LABELS[key],
-            x=centre,
-            baseline=bottom + 1.2,
-            size_pt=style.stat_label_size_pt,
-            available=tile_width - 1.2,
-            bold=True,
-            centred=True,
-            gap=PAIR_GAP_MM / 2,
+            Line(
+                x=centre,
+                baseline=bottom + 1.2,
+                size_pt=style.stat_label_size_pt,
+                available=tile_width - 1.2,
+                bold=True,
+                centred=True,
+                gap=PAIR_GAP_MM / 2,
+                language=style.language,
+            ),
         )
         number = str(value)
         number_font = font_for(number, bold=True)
@@ -390,20 +342,22 @@ def _draw_ability(
     icon_size = min(style.ability_icon_mm, height - 2.0)
     text_left = frame.inner_left + 1.2 + icon_size + 1.6
     available = frame.x + frame.width - style.padding_mm - 1.2 - text_left
-    header = face.power_heading or Bilingual(
-        f"{SPECIAL_POWER.english} {face.power_code:02d}", SPECIAL_POWER.japanese
-    )
+    header = face.power_heading or power_header(face.power_code, style.language)
     canvas.setFillColorRGB(*MUTED_INK)
-    _draw_pair(
+    draw_pair(
         canvas,
         header,
-        x=text_left,
-        baseline=top - 2.6,
-        size_pt=style.ability_label_size_pt,
-        available=available,
-        bold=True,
+        Line(
+            x=text_left,
+            baseline=top - 2.6,
+            size_pt=style.ability_label_size_pt,
+            available=available,
+            bold=True,
+            language=style.language,
+        ),
     )
-    lines = _ability_lines(face.power_text, available, height, style)
+    panel = AbilityPanel(style.ability_line_mm, style.ability_size_pt, style.language)
+    lines = ability_lines(face.power_text, available, height, panel)
     canvas.setFillColorRGB(*INK)
     baseline = top - 2.6 - style.ability_line_mm
     for line, font in lines:
@@ -417,34 +371,6 @@ def _draw_ability(
         y_mm=top - 1.0 - icon_size,
         size_mm=icon_size,
     )
-
-
-def _ability_lines(
-    text: Bilingual, available: float, height: float, style: CardStyle
-) -> list[tuple[str, str]]:
-    """Share the panel's lines between the two languages, English first.
-
-    Japanese always keeps at least one line. Whatever English does not use goes
-    to Japanese.
-    """
-    budget = max(2, int((height - 3.4) / style.ability_line_mm))
-    english_font = font_for(text.english)
-    japanese_font = font_for(text.japanese)
-    english = wrap(
-        text.english,
-        available,
-        font=english_font,
-        size_pt=style.ability_size_pt,
-        max_lines=budget - 1,
-    )
-    japanese = wrap(
-        text.japanese,
-        available,
-        font=japanese_font,
-        size_pt=style.ability_size_pt,
-        max_lines=budget - len(english),
-    )
-    return [(line, english_font) for line in english] + [(line, japanese_font) for line in japanese]
 
 
 def _barcode_block_top(frame: _Frame, symbol_height: float) -> float:
@@ -484,13 +410,16 @@ def _draw_barcode(
     )
     caption_baseline = _caption_baseline(frame, symbol_height)
     canvas.setFillColorRGB(*MUTED_INK)
-    _draw_pair(
+    draw_pair(
         canvas,
         SWIPE,
-        x=frame.centre,
-        baseline=caption_baseline,
-        size_pt=style.swipe_size_pt,
-        available=frame.inner_width,
-        centred=True,
-        gap=SWIPE_GAP_MM,
+        Line(
+            x=frame.centre,
+            baseline=caption_baseline,
+            size_pt=style.swipe_size_pt,
+            available=frame.inner_width,
+            centred=True,
+            gap=SWIPE_GAP_MM,
+            language=style.language,
+        ),
     )
