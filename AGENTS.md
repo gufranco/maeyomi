@@ -146,7 +146,7 @@ forget:
 ## Data that is not ours
 
 `products/japan.json` is a subset of Open Food Facts under ODbL, and the
-official card barcodes come from collector wikis. Both are credited in
-`NOTICE.md`. Every number on a card is read from the barcode by this project's
+official card barcodes come from collector sites. Every source is credited in
+the README under Where this came from. Every number on a card is read from the barcode by this project's
 decoder and is never copied from either source, so a wrong name spoils a joke
 and nothing else.

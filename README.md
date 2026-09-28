@@ -329,8 +329,9 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other two tabs print a sheet of random cards and the 1544 cards Epoch and
-Bandai actually released. The page is in English and Japanese, and switches with the
+The other three tabs print a sheet of random cards, the 1544 cards Epoch and
+Bandai actually released, and the strongest card the chosen machine or game
+will read. The page is in English and Japanese, and switches with the
 buttons at the top.
 
 `maeyomi web --no-open` starts the server without a browser, and `maeyomi
@@ -547,8 +548,8 @@ prints them. The web page has the same thing under **The supermarket**, with a
 The shelf is a curated subset of [Open Food Facts](https://world.openfoodfacts.org/),
 kept to barcodes issued to Japanese companies, the 45 and 49 prefixes, with a
 name written in Japanese that the decoder accepts. Their data is published under
-the Open Database License and this subset carries the same terms; see
-[NOTICE.md](NOTICE.md). Nothing on a card comes from them: every number is read
+the Open Database License and this subset carries the same terms, credited
+under **Where this came from**. Nothing on a card comes from them: every number is read
 off the barcode by this project's decoder, so a wrong name spoils a joke and
 nothing else.
 
@@ -846,8 +847,45 @@ The decoder is a port of `src/BarcodeRead.as` from the MIT-licensed
 Attribute ranges, the read-type rule and the ability table come from
 [barcodebattler.net](https://barcodebattler.net/). Card fixtures come from the
 card lists on [wikiwiki.jp](https://wikiwiki.jp/barcode/), with the source page
-and fetch date recorded on every entry. Full attribution and the licence
-boundary: [`NOTICE.md`](NOTICE.md).
+and fetch date recorded on every entry. Every source, what was taken from it and
+under which licence:
+
+- **[Barcode Battler II Simulator](https://github.com/finalfighter/BarcodeBattler2-Simulator)**
+  by finalfighter, MIT. The decoder in `src/maeyomi/decoder/` ports its
+  `src/BarcodeRead.as`, and the test corpus `tests/fixtures/simulator_corpus.json`
+  comes from its card lists.
+- **[barcodebattler.net](https://barcodebattler.net/)**, a mirror of yuko2ch.net,
+  and the [note.com analysis](https://note.com/sakigomyway_5634/n/n61808a7245e5)
+  whose author tested printed codes on a device: attribute ranges, the read-type
+  rule, the ability tables, the high health bonus, the job 6 ruling and the
+  Double's 7-read. Facts only.
+- **[wikiwiki.jp](https://wikiwiki.jp/barcode/)**: the Japanese card lists, with
+  the page and address kept on every entry.
+- **[barcodebattler.co.uk](https://www.barcodebattler.co.uk/)**: the Zelda,
+  Shogaku Ninensei and Street Fighter II lists from its `deeta.js`; the Super
+  Mario World, Irwin and Tomy lists from its card pages; the Barcode Battler II
+  technical notes; and the card scans the Dragon Slayer, Doraemon, Obocchama-kun,
+  Meiji, Barcode World and J.League club barcodes were read from. Facts only;
+  none of its code appears here.
+- **[puNES](https://github.com/punesemu/puNES)**, GPL-2: the barcodes and names
+  of the 36 Datach Dragon Ball Z cards, each checked by the game itself. No code
+  from puNES appears here.
+- **[retrostuff.org](https://retrostuff.org/)** and
+  **[archive.org](https://archive.org/)**: the Ultraman Club, SD Gundam Wars, Yu
+  Yu Hakusho and J.League Super Top Players barcodes.
+- **[A 5ch thread](https://mevius.5ch.net/test/read.cgi/toy/1226667612/)**,
+  post 484: the Double's 7-read race.
+- **[MAME](https://www.mamedev.org/)** 0.289 runs every game in the checks. The
+  game rules come from each game's own program; no ROM byte is shipped, and each
+  ROM is named in `artifacts.manifest.json` by its checksum.
+- **[Open Food Facts](https://world.openfoodfacts.org/)**, Open Database License
+  1.0: the barcodes, product names and brands in
+  `src/maeyomi/products/japan.json`, a subset that stays under the
+  [same licence](https://opendatacommons.org/licenses/odbl/1-0/). The online
+  lookup names this project in its user agent, as their terms ask.
+- **VITIMan/barcode-battler-engine**, GPL-3, is not used: no code, structure or
+  naming comes from it. It only pointed at the wikiwiki.jp lists fetched
+  directly here.
 
 Where the sources disagree, the question is recorded in
 `src/maeyomi/decoder/uncertainties.py` with what each source says and what was

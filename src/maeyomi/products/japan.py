@@ -7,7 +7,7 @@ of real products so a game can be played without a shopping trip.
 The list comes from Open Food Facts, filtered to barcodes issued to Japanese
 companies, the 45 and 49 prefixes, with a name written in Japanese that this
 project's decoder accepts. Names, brands and barcodes are their data, published
-under the Open Database License; see NOTICE.md. The numbers on each card are
+under the Open Database License, credited in the README. The numbers on each card are
 never taken from that data. They are read from the barcode by this project's own
 decoder, so a wrong name spoils a joke and nothing else.
 """

@@ -139,7 +139,7 @@ maeyomi web
   <img alt="スーパーマーケットのタブ。実在の日本の食品と、そのバーコードから読み取った数値が並んでいる" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-残り2つのタブでは、ランダムなカードを1枚のシートにまとめて印刷したり、エポック社とバンダイが実際に発売した1544枚を印刷したりできます。画面は英語と日本語で、上のボタンで切り替わります。
+残り3つのタブでは、ランダムなカードを1枚のシートにまとめて印刷したり、エポック社とバンダイが実際に発売した1544枚を印刷したり、選んだマシンやゲームが読めるいちばん強いカードを印刷したりできます。画面は英語と日本語で、上のボタンで切り替わります。
 
 `maeyomi web --no-open` はブラウザを開かずにサーバーだけ起動します。ブラウザのない環境には `maeyomi serve` があります。
 
@@ -284,7 +284,7 @@ closest card differs by 100 across the requested stats
 
 `maeyomi products --search 茶` は該当する日本の食品を一覧表示し、`--count 9 --seed 3` はランダムに選び、`-o shopping.pdf` で印刷します。ウェブ画面の **スーパーマーケット** も同じで、**おまかせ** ボタンが付いています。トマトソース対ラーメンも立派な勝負です。
 
-この棚は [Open Food Facts](https://world.openfoodfacts.org/) から選んだ部分集合です。日本の企業に割り当てられたバーコード、つまり45と49で始まるものに限り、日本語表記の名前を持ち、デコーダが受け付けるものだけを残しました。元のデータは Open Database License で公開されており、この部分集合も同じ条件を引き継ぎます。[NOTICE.md](NOTICE.md) を参照してください。カード上の数値は一切そちらから来ていません。すべてこのプロジェクトのデコーダがバーコードから読み取ったものです。名前が間違っていても、冗談が一つ滑るだけで済みます。
+この棚は [Open Food Facts](https://world.openfoodfacts.org/) から選んだ部分集合です。日本の企業に割り当てられたバーコード、つまり45と49で始まるものに限り、日本語表記の名前を持ち、デコーダが受け付けるものだけを残しました。元のデータは Open Database License で公開されており、この部分集合も同じ条件を引き継ぎます。帰属は **出典** に記しています。カード上の数値は一切そちらから来ていません。すべてこのプロジェクトのデコーダがバーコードから読み取ったものです。名前が間違っていても、冗談が一つ滑るだけで済みます。
 
 ウェブ画面の `maeyomi decode <barcode>` は Open Food Facts に商品名も問い合わせ、分かれば名前欄に入れます。これは便宜上の機能で、問い合わせが失敗してもカードの内容は変わりません。
 
@@ -384,7 +384,18 @@ PDF には、構造ツリーなしで持てるものを入れてあります。�
 
 ## 出典
 
-デコーダは MIT ライセンスの [Barcode Battler II Simulator](https://github.com/finalfighter/BarcodeBattler2-Simulator) の `src/BarcodeRead.as` を移植したものです。能力値の範囲、読み取り方式の判定規則、特殊能力の表は [barcodebattler.net](https://barcodebattler.net/) に拠ります。カードのテストデータは [wikiwiki.jp](https://wikiwiki.jp/barcode/) のカードリストから取得し、各項目に出典ページと取得日を記録しています。全体の帰属とライセンスの境界は [`NOTICE.md`](NOTICE.md) にあります。
+デコーダは MIT ライセンスの [Barcode Battler II Simulator](https://github.com/finalfighter/BarcodeBattler2-Simulator) の `src/BarcodeRead.as` を移植したものです。能力値の範囲、読み取り方式の判定規則、特殊能力の表は [barcodebattler.net](https://barcodebattler.net/) に拠ります。カードのテストデータは [wikiwiki.jp](https://wikiwiki.jp/barcode/) のカードリストから取得し、各項目に出典ページと取得日を記録しています。資料ごとに、何を取り、どのライセンスかを挙げます。
+
+- **[Barcode Battler II Simulator](https://github.com/finalfighter/BarcodeBattler2-Simulator)**、finalfighter 作、MIT。`src/maeyomi/decoder/` のデコーダはその `src/BarcodeRead.as` の移植で、テスト用の `tests/fixtures/simulator_corpus.json` はそのカードリストから取っています。
+- **[barcodebattler.net](https://barcodebattler.net/)**、yuko2ch.net のミラーと、印刷したバーコードを実機で確かめた [note.com の解析](https://note.com/sakigomyway_5634/n/n61808a7245e5)。能力値の範囲、読み取り方式の規則、特殊能力の表、体力が高いときのボーナス、職業6の扱い、ダブルの7読み。事実だけを取っています。
+- **[wikiwiki.jp](https://wikiwiki.jp/barcode/)**。日本のカードリスト。各項目にページとアドレスを残しています。
+- **[barcodebattler.co.uk](https://www.barcodebattler.co.uk/)**。`deeta.js` のゼルダ、小学二年生、ストリートファイターII のリスト、カードのページにあるスーパーマリオワールド、アーウィン、トミーのリスト、バーコードバトラーII の技術情報、そしてドラゴンスレイヤー、ドラえもん、おぼっちゃまくん、明治、バーコードワールド、Jリーグのクラブのバーコードを読み取ったカードのスキャン。事実だけを取り、コードは使っていません。
+- **[puNES](https://github.com/punesemu/puNES)**、GPL-2。データック ドラゴンボールZ の36枚のバーコードと名前。1枚ずつゲーム自身で確かめています。puNES のコードは使っていません。
+- **[retrostuff.org](https://retrostuff.org/)** と **[archive.org](https://archive.org/)**。ウルトラマン倶楽部、SDガンダム ガンダムウォーズ、幽遊白書、Jリーグ スーパートッププレイヤーズのバーコード。
+- **[5ch のスレッド](https://mevius.5ch.net/test/read.cgi/toy/1226667612/)** の484番。ダブルの7読みの種族。
+- **[MAME](https://www.mamedev.org/)** 0.289。確認のためにすべてのゲームを動かしています。ゲームの規則はそれぞれのゲームのプログラムから読み取り、ROM のデータは一切含めていません。各 ROM は `artifacts.manifest.json` にチェックサムで記しています。
+- **[Open Food Facts](https://world.openfoodfacts.org/)**、Open Database License 1.0。`src/maeyomi/products/japan.json` のバーコード、商品名、ブランド名。この部分集合も[同じライセンス](https://opendatacommons.org/licenses/odbl/1-0/)のままです。オンラインの問い合わせは、利用規約のとおりユーザーエージェントでこのプロジェクト名を名乗ります。
+- **VITIMan/barcode-battler-engine**、GPL-3 は使っていません。コード、構造、名前のどれも取っていません。直接取得している wikiwiki.jp のリストを指していただけです。
 
 資料どうしが食い違う点は、それぞれの資料の記述と採用した判断を `src/maeyomi/decoder/uncertainties.py` に記録しています。デコーダはシミュレータに従いますが、印刷したバーコードを実機で確かめた資料が異なる結果を示している点ではそちらに従います。体力が高いときのボーナスは [barcodebattler.net](https://barcodebattler.net/page21.htm) と [note.com の解析](https://note.com/sakigomyway_5634/n/n61808a7245e5) に、職業6は戦士として扱います。記録した疑問のうち5つは確認できていない値を印刷したカードに載せてしまうため、ジェネレータはそこに達するバーコードを出力しません。
 
