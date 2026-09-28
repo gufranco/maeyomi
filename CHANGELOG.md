@@ -2,6 +2,35 @@
 
 <!-- version list -->
 
+## v1.2.1 (2026-09-28)
+
+### Bug Fixes
+
+- Declare the language a PDF's cards are printed in
+  ([`708ec88`](https://github.com/gufranco/maeyomi/commit/708ec881d05dcc143a1f3d843fc64f652dc3162e))
+
+- Make the card word catalogue read-only
+  ([`b2f061b`](https://github.com/gufranco/maeyomi/commit/b2f061b984adcad004b9fd50df151d1e26d05154))
+
+- **ui**: Delete each served sheet after its download
+  ([`ad9cef6`](https://github.com/gufranco/maeyomi/commit/ad9cef64c6837b6a9ed4932a83bb6b3e73ffaccd))
+
+### Build System
+
+- **deps**: Update to the latest releases
+  ([`74a88e4`](https://github.com/gufranco/maeyomi/commit/74a88e4d6ad56ca0b0dbbca1bbb967b0da31ae83))
+
+### Chores
+
+- **formula**: Point at v1.2.0 [skip ci]
+  ([`6714f0c`](https://github.com/gufranco/maeyomi/commit/6714f0c2d150cfe4a4e24f1266d885405c947bdf))
+
+### Documentation
+
+- Describe one-language cards and four READMEs
+  ([`068f461`](https://github.com/gufranco/maeyomi/commit/068f461c4f72f85cb2cb65f368307c29364935bd))
+
+
 ## v1.2.0 (2026-09-28)
 
 ### Chores
