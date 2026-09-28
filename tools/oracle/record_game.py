@@ -63,7 +63,18 @@ GAMES = {
         peeks=(("0460", 11), ("061c", 1)),
         accepted=(("0460", 1), ("061c", 0)),
     ),
+    "yuyu": Game(
+        software="dtc_yuyu",
+        artifact="datach_yuyu_prg",
+        menu=("1001 press Start", "1300 press Start", "1701 press Down", "1760 press A"),
+        scan_frame=3100,
+        read_delay=200,
+        peeks=(("0322", 2),),
+        accepted=(("0322", 0), ("0322", 1)),
+    ),
 }
+"""An unread code leaves 0 in both bytes, which is also Yusuke with no technique: the
+analyzer cannot tell those two apart, so no such code should be recorded."""
 
 
 def main() -> None:

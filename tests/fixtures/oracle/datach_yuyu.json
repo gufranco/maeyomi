@@ -1,0 +1,1332 @@
+{
+ "game": "Datach Yu Yu Hakusho: Bakutou Ankoku Bujutsukai",
+ "software": "dtc_yuyu",
+ "rom": {
+  "sha1": "74218aae93e4febfb2284bcf15811453418a2029",
+  "size": 262144
+ },
+ "screen": "コエンマの判決 analyzer, character at $0322 and technique mask at $0323, read before the analyzer lists the techniques",
+ "recorded_utc": "2026-09-28",
+ "cards": [
+  {
+   "barcode": "0815574050616",
+   "generated": false,
+   "character": 3,
+   "mask": 3
+  },
+  {
+   "barcode": "0816434271646",
+   "generated": false,
+   "character": 15,
+   "mask": 3
+  },
+  {
+   "barcode": "0824316465267",
+   "generated": false,
+   "character": 11,
+   "mask": 3
+  },
+  {
+   "barcode": "0825031567021",
+   "generated": false,
+   "character": 0,
+   "mask": 13
+  },
+  {
+   "barcode": "0825116035148",
+   "generated": false,
+   "character": 5,
+   "mask": 3
+  },
+  {
+   "barcode": "0825316475362",
+   "generated": false,
+   "character": 13,
+   "mask": 3
+  },
+  {
+   "barcode": "0825424673070",
+   "generated": false,
+   "character": 1,
+   "mask": 2
+  },
+  {
+   "barcode": "0826530765062",
+   "generated": false,
+   "character": 19,
+   "mask": 5
+  },
+  {
+   "barcode": "0827434672401",
+   "generated": false,
+   "character": 14,
+   "mask": 3
+  },
+  {
+   "barcode": "0834234271369",
+   "generated": false,
+   "character": 9,
+   "mask": 3
+  },
+  {
+   "barcode": "0835174074324",
+   "generated": false,
+   "character": 4,
+   "mask": 3
+  },
+  {
+   "barcode": "0835272722462",
+   "generated": false,
+   "character": 7,
+   "mask": 5
+  },
+  {
+   "barcode": "0835434032149",
+   "generated": false,
+   "character": 2,
+   "mask": 3
+  },
+  {
+   "barcode": "0836434262567",
+   "generated": false,
+   "character": 17,
+   "mask": 3
+  },
+  {
+   "barcode": "0837134243368",
+   "generated": false,
+   "character": 22,
+   "mask": 3
+  },
+  {
+   "barcode": "0845016255408",
+   "generated": false,
+   "character": 0,
+   "mask": 3
+  },
+  {
+   "barcode": "0845152731231",
+   "generated": false,
+   "character": 3,
+   "mask": 5
+  },
+  {
+   "barcode": "0854052413673",
+   "generated": false,
+   "character": 1,
+   "mask": 1
+  },
+  {
+   "barcode": "0857516246206",
+   "generated": false,
+   "character": 18,
+   "mask": 3
+  },
+  {
+   "barcode": "0861430307363",
+   "generated": false,
+   "character": 2,
+   "mask": 5
+  },
+  {
+   "barcode": "0862132512307",
+   "generated": false,
+   "character": 21,
+   "mask": 5
+  },
+  {
+   "barcode": "0864616261121",
+   "generated": false,
+   "character": 8,
+   "mask": 3
+  },
+  {
+   "barcode": "0865124154639",
+   "generated": false,
+   "character": 3,
+   "mask": 6
+  },
+  {
+   "barcode": "0865316253522",
+   "generated": false,
+   "character": 12,
+   "mask": 3
+  },
+  {
+   "barcode": "0865446715747",
+   "generated": false,
+   "character": 2,
+   "mask": 6
+  },
+  {
+   "barcode": "0871024742401",
+   "generated": false,
+   "character": 0,
+   "mask": 6
+  },
+  {
+   "barcode": "0871256471407",
+   "generated": false,
+   "character": 6,
+   "mask": 3
+  },
+  {
+   "barcode": "0871370336026",
+   "generated": false,
+   "character": 10,
+   "mask": 5
+  },
+  {
+   "barcode": "0874502505505",
+   "generated": false,
+   "character": 4,
+   "mask": 4
+  },
+  {
+   "barcode": "0936752463261",
+   "generated": false,
+   "character": 37,
+   "mask": 1
+  },
+  {
+   "barcode": "0946730251315",
+   "generated": false,
+   "character": 39,
+   "mask": 1
+  },
+  {
+   "barcode": "0947652241743",
+   "generated": false,
+   "character": 35,
+   "mask": 1
+  },
+  {
+   "barcode": "0956212613524",
+   "generated": false,
+   "character": 34,
+   "mask": 1
+  },
+  {
+   "barcode": "0967352615309",
+   "generated": false,
+   "character": 38,
+   "mask": 1
+  },
+  {
+   "barcode": "0967352631200",
+   "generated": false,
+   "character": 36,
+   "mask": 1
+  },
+  {
+   "barcode": "0967652615603",
+   "generated": false,
+   "character": 32,
+   "mask": 1
+  },
+  {
+   "barcode": "0976252603644",
+   "generated": false,
+   "character": 33,
+   "mask": 1
+  },
+  {
+   "barcode": "0102726046741",
+   "generated": true,
+   "character": 40,
+   "mask": 2
+  },
+  {
+   "barcode": "0103322044667",
+   "generated": true,
+   "character": 37,
+   "mask": 0
+  },
+  {
+   "barcode": "0104243067452",
+   "generated": true,
+   "character": 7,
+   "mask": 8
+  },
+  {
+   "barcode": "0105756207052",
+   "generated": true,
+   "character": 11,
+   "mask": 3
+  },
+  {
+   "barcode": "0106021454461",
+   "generated": true,
+   "character": 15,
+   "mask": 8
+  },
+  {
+   "barcode": "0111130033148",
+   "generated": true,
+   "character": 5,
+   "mask": 1
+  },
+  {
+   "barcode": "0112657574671",
+   "generated": true,
+   "character": 33,
+   "mask": 15
+  },
+  {
+   "barcode": "0113016010465",
+   "generated": true,
+   "character": 15,
+   "mask": 3
+  },
+  {
+   "barcode": "0114075720562",
+   "generated": true,
+   "character": 2,
+   "mask": 15
+  },
+  {
+   "barcode": "0114132405104",
+   "generated": true,
+   "character": 4,
+   "mask": 1
+  },
+  {
+   "barcode": "0115012462231",
+   "generated": true,
+   "character": 0,
+   "mask": 1
+  },
+  {
+   "barcode": "0115621676142",
+   "generated": true,
+   "character": 9,
+   "mask": 8
+  },
+  {
+   "barcode": "0117304413778",
+   "generated": true,
+   "character": 41,
+   "mask": 2
+  },
+  {
+   "barcode": "0117332044579",
+   "generated": true,
+   "character": 41,
+   "mask": 1
+  },
+  {
+   "barcode": "0120224602634",
+   "generated": true,
+   "character": 6,
+   "mask": 2
+  },
+  {
+   "barcode": "0125264266068",
+   "generated": true,
+   "character": 7,
+   "mask": 2
+  },
+  {
+   "barcode": "0126730455306",
+   "generated": true,
+   "character": 38,
+   "mask": 1
+  },
+  {
+   "barcode": "0126757721132",
+   "generated": true,
+   "character": 39,
+   "mask": 15
+  },
+  {
+   "barcode": "0130242153414",
+   "generated": true,
+   "character": 6,
+   "mask": 4
+  },
+  {
+   "barcode": "0130340512434",
+   "generated": true,
+   "character": 10,
+   "mask": 4
+  },
+  {
+   "barcode": "0131741006515",
+   "generated": true,
+   "character": 12,
+   "mask": 8
+  },
+  {
+   "barcode": "0131744625713",
+   "generated": true,
+   "character": 12,
+   "mask": 2
+  },
+  {
+   "barcode": "0132257304010",
+   "generated": true,
+   "character": 32,
+   "mask": 15
+  },
+  {
+   "barcode": "0134262513128",
+   "generated": true,
+   "character": 8,
+   "mask": 4
+  },
+  {
+   "barcode": "0136421611225",
+   "generated": true,
+   "character": 14,
+   "mask": 8
+  },
+  {
+   "barcode": "0136524222472",
+   "generated": true,
+   "character": 19,
+   "mask": 2
+  },
+  {
+   "barcode": "0140250465164",
+   "generated": true,
+   "character": 9,
+   "mask": 1
+  },
+  {
+   "barcode": "0141415343068",
+   "generated": true,
+   "character": 0,
+   "mask": 15
+  },
+  {
+   "barcode": "0142610446677",
+   "generated": true,
+   "character": 33,
+   "mask": 1
+  },
+  {
+   "barcode": "0145302742156",
+   "generated": true,
+   "character": 13,
+   "mask": 4
+  },
+  {
+   "barcode": "0146250012377",
+   "generated": true,
+   "character": 35,
+   "mask": 1
+  },
+  {
+   "barcode": "0146357752206",
+   "generated": true,
+   "character": 36,
+   "mask": 15
+  },
+  {
+   "barcode": "0146406614264",
+   "generated": true,
+   "character": 15,
+   "mask": 2
+  },
+  {
+   "barcode": "0147121022044",
+   "generated": true,
+   "character": 19,
+   "mask": 8
+  },
+  {
+   "barcode": "0151135102715",
+   "generated": true,
+   "character": 4,
+   "mask": 15
+  },
+  {
+   "barcode": "0153062524653",
+   "generated": true,
+   "character": 15,
+   "mask": 4
+  },
+  {
+   "barcode": "0156132656131",
+   "generated": true,
+   "character": 21,
+   "mask": 1
+  },
+  {
+   "barcode": "0157204033102",
+   "generated": true,
+   "character": 34,
+   "mask": 2
+  },
+  {
+   "barcode": "0162000702633",
+   "generated": true,
+   "character": 14,
+   "mask": 4
+  },
+  {
+   "barcode": "0164101013779",
+   "generated": true,
+   "character": 5,
+   "mask": 8
+  },
+  {
+   "barcode": "0165656663440",
+   "generated": true,
+   "character": 7,
+   "mask": 3
+  },
+  {
+   "barcode": "0166757575502",
+   "generated": true,
+   "character": 38,
+   "mask": 15
+  },
+  {
+   "barcode": "0167014016332",
+   "generated": true,
+   "character": 16,
+   "mask": 3
+  },
+  {
+   "barcode": "0167055746250",
+   "generated": true,
+   "character": 15,
+   "mask": 15
+  },
+  {
+   "barcode": "0167416671030",
+   "generated": true,
+   "character": 14,
+   "mask": 3
+  },
+  {
+   "barcode": "0170046274243",
+   "generated": true,
+   "character": 0,
+   "mask": 2
+  },
+  {
+   "barcode": "0170115113275",
+   "generated": true,
+   "character": 3,
+   "mask": 15
+  },
+  {
+   "barcode": "0172235545134",
+   "generated": true,
+   "character": 34,
+   "mask": 15
+  },
+  {
+   "barcode": "0174276265408",
+   "generated": true,
+   "character": 6,
+   "mask": 3
+  },
+  {
+   "barcode": "0175323456602",
+   "generated": true,
+   "character": 10,
+   "mask": 8
+  },
+  {
+   "barcode": "0176021051168",
+   "generated": true,
+   "character": 17,
+   "mask": 8
+  },
+  {
+   "barcode": "0176106651344",
+   "generated": true,
+   "character": 22,
+   "mask": 2
+  },
+  {
+   "barcode": "0177130237634",
+   "generated": true,
+   "character": 18,
+   "mask": 1
+  },
+  {
+   "barcode": "0800601640335",
+   "generated": true,
+   "character": 8,
+   "mask": 8
+  },
+  {
+   "barcode": "0802240244660",
+   "generated": true,
+   "character": 33,
+   "mask": 0
+  },
+  {
+   "barcode": "0802742401509",
+   "generated": true,
+   "character": 38,
+   "mask": 0
+  },
+  {
+   "barcode": "0804750271433",
+   "generated": true,
+   "character": 10,
+   "mask": 1
+  },
+  {
+   "barcode": "0810041235602",
+   "generated": true,
+   "character": 0,
+   "mask": 8
+  },
+  {
+   "barcode": "0810262326370",
+   "generated": true,
+   "character": 9,
+   "mask": 4
+  },
+  {
+   "barcode": "0810777305549",
+   "generated": true,
+   "character": 13,
+   "mask": 15
+  },
+  {
+   "barcode": "0811600576273",
+   "generated": true,
+   "character": 7,
+   "mask": 4
+  },
+  {
+   "barcode": "0812452240039",
+   "generated": true,
+   "character": 14,
+   "mask": 1
+  },
+  {
+   "barcode": "0815010664728",
+   "generated": true,
+   "character": 1,
+   "mask": 1
+  },
+  {
+   "barcode": "0816675127177",
+   "generated": true,
+   "character": 35,
+   "mask": 15
+  },
+  {
+   "barcode": "0816744661731",
+   "generated": true,
+   "character": 39,
+   "mask": 2
+  },
+  {
+   "barcode": "0817475120344",
+   "generated": true,
+   "character": 17,
+   "mask": 15
+  },
+  {
+   "barcode": "0823422577703",
+   "generated": true,
+   "character": 16,
+   "mask": 4
+  },
+  {
+   "barcode": "0823563232035",
+   "generated": true,
+   "character": 18,
+   "mask": 8
+  },
+  {
+   "barcode": "0824741431073",
+   "generated": true,
+   "character": 11,
+   "mask": 8
+  },
+  {
+   "barcode": "0826130433569",
+   "generated": true,
+   "character": 22,
+   "mask": 1
+  },
+  {
+   "barcode": "0830040127548",
+   "generated": true,
+   "character": 2,
+   "mask": 4
+  },
+  {
+   "barcode": "0831277764605",
+   "generated": true,
+   "character": 6,
+   "mask": 15
+  },
+  {
+   "barcode": "0831414062250",
+   "generated": true,
+   "character": 1,
+   "mask": 3
+  },
+  {
+   "barcode": "0832224447411",
+   "generated": true,
+   "character": 32,
+   "mask": 2
+  },
+  {
+   "barcode": "0832715777768",
+   "generated": true,
+   "character": 40,
+   "mask": 15
+  },
+  {
+   "barcode": "0833175156674",
+   "generated": true,
+   "character": 19,
+   "mask": 15
+  },
+  {
+   "barcode": "0836455516014",
+   "generated": true,
+   "character": 14,
+   "mask": 15
+  },
+  {
+   "barcode": "0836501442762",
+   "generated": true,
+   "character": 22,
+   "mask": 8
+  },
+  {
+   "barcode": "0840255723718",
+   "generated": true,
+   "character": 8,
+   "mask": 15
+  },
+  {
+   "barcode": "0842504077511",
+   "generated": true,
+   "character": 21,
+   "mask": 2
+  },
+  {
+   "barcode": "0842750246242",
+   "generated": true,
+   "character": 37,
+   "mask": 1
+  },
+  {
+   "barcode": "0843102112642",
+   "generated": true,
+   "character": 19,
+   "mask": 4
+  },
+  {
+   "barcode": "0843714222555",
+   "generated": true,
+   "character": 41,
+   "mask": 3
+  },
+  {
+   "barcode": "0844652476246",
+   "generated": true,
+   "character": 7,
+   "mask": 1
+  },
+  {
+   "barcode": "0845466430516",
+   "generated": true,
+   "character": 1,
+   "mask": 2
+  },
+  {
+   "barcode": "0847200404722",
+   "generated": true,
+   "character": 34,
+   "mask": 0
+  },
+  {
+   "barcode": "0847702657718",
+   "generated": true,
+   "character": 39,
+   "mask": 0
+  },
+  {
+   "barcode": "0852076273570",
+   "generated": true,
+   "character": 17,
+   "mask": 3
+  },
+  {
+   "barcode": "0852364275507",
+   "generated": true,
+   "character": 38,
+   "mask": 2
+  },
+  {
+   "barcode": "0853306650260",
+   "generated": true,
+   "character": 37,
+   "mask": 2
+  },
+  {
+   "barcode": "0854075527524",
+   "generated": true,
+   "character": 1,
+   "mask": 15
+  },
+  {
+   "barcode": "0854610215121",
+   "generated": true,
+   "character": 8,
+   "mask": 1
+  },
+  {
+   "barcode": "0855461427145",
+   "generated": true,
+   "character": 2,
+   "mask": 8
+  },
+  {
+   "barcode": "0855610247624",
+   "generated": true,
+   "character": 6,
+   "mask": 1
+  },
+  {
+   "barcode": "0857770460738",
+   "generated": true,
+   "character": 39,
+   "mask": 1
+  },
+  {
+   "barcode": "0860034007778",
+   "generated": true,
+   "character": 2,
+   "mask": 3
+  },
+  {
+   "barcode": "0860410215377",
+   "generated": true,
+   "character": 2,
+   "mask": 1
+  },
+  {
+   "barcode": "0860570210472",
+   "generated": true,
+   "character": 3,
+   "mask": 1
+  },
+  {
+   "barcode": "0861536232545",
+   "generated": true,
+   "character": 5,
+   "mask": 3
+  },
+  {
+   "barcode": "0862410634127",
+   "generated": true,
+   "character": 16,
+   "mask": 1
+  },
+  {
+   "barcode": "0864501631046",
+   "generated": true,
+   "character": 3,
+   "mask": 8
+  },
+  {
+   "barcode": "0865304663036",
+   "generated": true,
+   "character": 10,
+   "mask": 2
+  },
+  {
+   "barcode": "0870026617342",
+   "generated": true,
+   "character": 2,
+   "mask": 2
+  },
+  {
+   "barcode": "0872430611251",
+   "generated": true,
+   "character": 15,
+   "mask": 1
+  },
+  {
+   "barcode": "0873532461263",
+   "generated": true,
+   "character": 19,
+   "mask": 1
+  },
+  {
+   "barcode": "0874224415120",
+   "generated": true,
+   "character": 8,
+   "mask": 2
+  },
+  {
+   "barcode": "0876376474130",
+   "generated": true,
+   "character": 39,
+   "mask": 3
+  },
+  {
+   "barcode": "0876674202572",
+   "generated": true,
+   "character": 35,
+   "mask": 3
+  },
+  {
+   "barcode": "0882425300466",
+   "generated": true,
+   "character": 20,
+   "mask": 15
+  },
+  {
+   "barcode": "0900337776053",
+   "generated": true,
+   "character": 11,
+   "mask": 15
+  },
+  {
+   "barcode": "0900735344731",
+   "generated": true,
+   "character": 12,
+   "mask": 15
+  },
+  {
+   "barcode": "0901542140646",
+   "generated": true,
+   "character": 3,
+   "mask": 4
+  },
+  {
+   "barcode": "0904557565343",
+   "generated": true,
+   "character": 5,
+   "mask": 15
+  },
+  {
+   "barcode": "0905134632700",
+   "generated": true,
+   "character": 4,
+   "mask": 3
+  },
+  {
+   "barcode": "0905715775222",
+   "generated": true,
+   "character": 10,
+   "mask": 15
+  },
+  {
+   "barcode": "0907136247722",
+   "generated": true,
+   "character": 21,
+   "mask": 3
+  },
+  {
+   "barcode": "0907315147157",
+   "generated": true,
+   "character": 41,
+   "mask": 15
+  },
+  {
+   "barcode": "0910302150061",
+   "generated": true,
+   "character": 11,
+   "mask": 4
+  },
+  {
+   "barcode": "0910657371753",
+   "generated": true,
+   "character": 9,
+   "mask": 15
+  },
+  {
+   "barcode": "0910750445351",
+   "generated": true,
+   "character": 13,
+   "mask": 1
+  },
+  {
+   "barcode": "0911060322202",
+   "generated": true,
+   "character": 0,
+   "mask": 4
+  },
+  {
+   "barcode": "0912322034154",
+   "generated": true,
+   "character": 41,
+   "mask": 0
+  },
+  {
+   "barcode": "0913252601133",
+   "generated": true,
+   "character": 34,
+   "mask": 1
+  },
+  {
+   "barcode": "0913310616017",
+   "generated": true,
+   "character": 36,
+   "mask": 1
+  },
+  {
+   "barcode": "0913760001234",
+   "generated": true,
+   "character": 36,
+   "mask": 0
+  },
+  {
+   "barcode": "0914675542478",
+   "generated": true,
+   "character": 7,
+   "mask": 15
+  },
+  {
+   "barcode": "0917162754736",
+   "generated": true,
+   "character": 21,
+   "mask": 4
+  },
+  {
+   "barcode": "0917264404256",
+   "generated": true,
+   "character": 33,
+   "mask": 2
+  },
+  {
+   "barcode": "0917334412631",
+   "generated": true,
+   "character": 36,
+   "mask": 3
+  },
+  {
+   "barcode": "0917377577069",
+   "generated": true,
+   "character": 37,
+   "mask": 15
+  },
+  {
+   "barcode": "0920536241466",
+   "generated": true,
+   "character": 3,
+   "mask": 3
+  },
+  {
+   "barcode": "0921721447571",
+   "generated": true,
+   "character": 13,
+   "mask": 8
+  },
+  {
+   "barcode": "0922712021367",
+   "generated": true,
+   "character": 40,
+   "mask": 1
+  },
+  {
+   "barcode": "0923614426434",
+   "generated": true,
+   "character": 32,
+   "mask": 3
+  },
+  {
+   "barcode": "0924443470100",
+   "generated": true,
+   "character": 1,
+   "mask": 8
+  },
+  {
+   "barcode": "0927026647746",
+   "generated": true,
+   "character": 17,
+   "mask": 2
+  },
+  {
+   "barcode": "0927216225501",
+   "generated": true,
+   "character": 34,
+   "mask": 3
+  },
+  {
+   "barcode": "0930542545342",
+   "generated": true,
+   "character": 5,
+   "mask": 4
+  },
+  {
+   "barcode": "0930643062632",
+   "generated": true,
+   "character": 6,
+   "mask": 8
+  },
+  {
+   "barcode": "0931122106533",
+   "generated": true,
+   "character": 4,
+   "mask": 4
+  },
+  {
+   "barcode": "0931236023115",
+   "generated": true,
+   "character": 8,
+   "mask": 3
+  },
+  {
+   "barcode": "0932077513704",
+   "generated": true,
+   "character": 16,
+   "mask": 15
+  },
+  {
+   "barcode": "0932360471360",
+   "generated": true,
+   "character": 40,
+   "mask": 0
+  },
+  {
+   "barcode": "0932536405229",
+   "generated": true,
+   "character": 18,
+   "mask": 3
+  },
+  {
+   "barcode": "0932776251303",
+   "generated": true,
+   "character": 38,
+   "mask": 3
+  },
+  {
+   "barcode": "0935244642764",
+   "generated": true,
+   "character": 9,
+   "mask": 2
+  },
+  {
+   "barcode": "0936644036542",
+   "generated": true,
+   "character": 35,
+   "mask": 2
+  },
+  {
+   "barcode": "0937020522376",
+   "generated": true,
+   "character": 17,
+   "mask": 4
+  },
+  {
+   "barcode": "0940524274450",
+   "generated": true,
+   "character": 3,
+   "mask": 2
+  },
+  {
+   "barcode": "0940526245137",
+   "generated": true,
+   "character": 4,
+   "mask": 2
+  },
+  {
+   "barcode": "0942272675206",
+   "generated": true,
+   "character": 32,
+   "mask": 1
+  },
+  {
+   "barcode": "0942501006115",
+   "generated": true,
+   "character": 21,
+   "mask": 8
+  },
+  {
+   "barcode": "0942535505417",
+   "generated": true,
+   "character": 18,
+   "mask": 15
+  },
+  {
+   "barcode": "0943114220370",
+   "generated": true,
+   "character": 22,
+   "mask": 3
+  },
+  {
+   "barcode": "0943156613055",
+   "generated": true,
+   "character": 19,
+   "mask": 3
+  },
+  {
+   "barcode": "0944366440066",
+   "generated": true,
+   "character": 11,
+   "mask": 2
+  },
+  {
+   "barcode": "0944730417656",
+   "generated": true,
+   "character": 11,
+   "mask": 1
+  },
+  {
+   "barcode": "0946175532505",
+   "generated": true,
+   "character": 21,
+   "mask": 15
+  },
+  {
+   "barcode": "0946660430415",
+   "generated": true,
+   "character": 32,
+   "mask": 0
+  },
+  {
+   "barcode": "0947774413349",
+   "generated": true,
+   "character": 40,
+   "mask": 3
+  },
+  {
+   "barcode": "0950376614175",
+   "generated": true,
+   "character": 13,
+   "mask": 3
+  },
+  {
+   "barcode": "0951214251361",
+   "generated": true,
+   "character": 9,
+   "mask": 3
+  },
+  {
+   "barcode": "0954710266709",
+   "generated": true,
+   "character": 12,
+   "mask": 1
+  },
+  {
+   "barcode": "0954776217530",
+   "generated": true,
+   "character": 12,
+   "mask": 3
+  },
+  {
+   "barcode": "0955306670177",
+   "generated": true,
+   "character": 13,
+   "mask": 2
+  },
+  {
+   "barcode": "0955362142335",
+   "generated": true,
+   "character": 12,
+   "mask": 4
+  },
+  {
+   "barcode": "0957164016616",
+   "generated": true,
+   "character": 18,
+   "mask": 2
+  },
+  {
+   "barcode": "0957222426371",
+   "generated": true,
+   "character": 35,
+   "mask": 0
+  },
+  {
+   "barcode": "0957557756556",
+   "generated": true,
+   "character": 22,
+   "mask": 15
+  },
+  {
+   "barcode": "0963100536025",
+   "generated": true,
+   "character": 18,
+   "mask": 4
+  },
+  {
+   "barcode": "0964076605203",
+   "generated": true,
+   "character": 0,
+   "mask": 3
+  },
+  {
+   "barcode": "0965060375317",
+   "generated": true,
+   "character": 1,
+   "mask": 4
+  },
+  {
+   "barcode": "0966026074428",
+   "generated": true,
+   "character": 14,
+   "mask": 2
+  },
+  {
+   "barcode": "0966162531359",
+   "generated": true,
+   "character": 22,
+   "mask": 4
+  },
+  {
+   "barcode": "0966304474421",
+   "generated": true,
+   "character": 36,
+   "mask": 2
+  },
+  {
+   "barcode": "0966401472306",
+   "generated": true,
+   "character": 16,
+   "mask": 8
+  },
+  {
+   "barcode": "0966464404320",
+   "generated": true,
+   "character": 16,
+   "mask": 2
+  },
+  {
+   "barcode": "0966676076063",
+   "generated": true,
+   "character": 33,
+   "mask": 3
+  },
+  {
+   "barcode": "0970121071114",
+   "generated": true,
+   "character": 4,
+   "mask": 8
+  },
+  {
+   "barcode": "0970124407156",
+   "generated": true,
+   "character": 5,
+   "mask": 2
+  },
+  {
+   "barcode": "0971376016615",
+   "generated": true,
+   "character": 10,
+   "mask": 3
+  },
+  {
+   "barcode": "0973472075367",
+   "generated": true,
+   "character": 17,
+   "mask": 1
+  },
+  {
+   "barcode": "0976736611455",
+   "generated": true,
+   "character": 37,
+   "mask": 3
+  }
+ ]
+}

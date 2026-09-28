@@ -10,6 +10,7 @@ from maeyomi.bb1.decode import decode_first
 from maeyomi.datach.dbz import decode_dbz
 from maeyomi.datach.sdgundam import decode_sdgundam
 from maeyomi.datach.ultraman import decode_ultraman
+from maeyomi.datach.yuyu import decode_yuyu
 from maeyomi.decoder.decode import decode
 from maeyomi.double.decode import decode_double
 from maeyomi.models.device import Device
@@ -25,9 +26,12 @@ from maeyomi.official.catalogue import (
 DBZ_CARDS = 36
 ULTRAMAN_CARDS = 38
 SD_GUNDAM_CARDS = 76
+YUYU_CARDS = 37
 ADDED_CARDS = 346
 SCANNED_CARDS = 71
-TRANSCRIBED = 577 + DBZ_CARDS + ADDED_CARDS + SCANNED_CARDS + ULTRAMAN_CARDS + SD_GUNDAM_CARDS
+TRANSCRIBED = (
+    577 + DBZ_CARDS + ADDED_CARDS + SCANNED_CARDS + ULTRAMAN_CARDS + SD_GUNDAM_CARDS + YUYU_CARDS
+)
 SHARED_BETWEEN_SETS = {"0000500970445"}
 WIKI = "https://wikiwiki.jp/barcode/"
 UK_LIST = "https://www.barcodebattler.co.uk/deeta.js"
@@ -67,6 +71,7 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.MEIJI_FREEZELAND: UK_SCANS,
         OfficialSet.DATACH_ULTRAMAN: RETROSTUFF,
         OfficialSet.DATACH_SD_GUNDAM: RETROSTUFF,
+        OfficialSet.DATACH_YUYU: "https://archive.org/details/",
     }
     for card in official_catalogue():
         assert card.source_url.startswith(sources.get(card.official_set, WIKI))
@@ -100,6 +105,7 @@ def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
             Device.DATACH_DBZ: decode_dbz,
             Device.DATACH_ULTRAMAN: decode_ultraman,
             Device.DATACH_SD_GUNDAM: decode_sdgundam,
+            Device.DATACH_YUYU: decode_yuyu,
         }
         for card in official_cards(official_set):
             assert readers[official_set.device](card.barcode) == card.character
@@ -209,3 +215,10 @@ def test_the_sd_gundam_set_is_both_barcodes_of_every_card_bandai_printed_with_th
 
     assert len(cards) == SD_GUNDAM_CARDS
     assert sets_for(Device.DATACH_SD_GUNDAM) == (OfficialSet.DATACH_SD_GUNDAM,)
+
+
+def test_the_yu_yu_hakusho_set_is_every_card_bandai_printed_with_a_barcode() -> None:
+    cards = official_cards(OfficialSet.DATACH_YUYU)
+
+    assert len(cards) == YUYU_CARDS
+    assert sets_for(Device.DATACH_YUYU) == (OfficialSet.DATACH_YUYU,)

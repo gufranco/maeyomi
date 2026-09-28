@@ -29,6 +29,16 @@
       "sha1": "edd7a45a7f27e396b6d686f1861642d509863132",
       "crc32": "0be0a328",
       "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "datach_yuyu_prg",
+      "what": "Program ROM of Datach Yu Yu Hakusho: Bakutou Ankoku Bujutsukai, Bandai 1993, as MAME's nes_datach software list names it",
+      "path": "nes_datach/dtc_yuyu/datach - yuu yuu hakusho - bakutou ankoku bujutsu kai (japan).prg",
+      "size": 262144,
+      "sha256": "acc54496853ce6306589790857b0d56145d8382bd00f5d0f40ecdfa2906ad349",
+      "sha1": "74218aae93e4febfb2284bcf15811453418a2029",
+      "crc32": "f51a7f46",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
     }
   ]
 }

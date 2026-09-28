@@ -26,6 +26,8 @@ THE_SAME_IN_BOTH_LANGUAGES = {
     "stat.usp",
     "stat.ap",
     "stat.gdp",
+    "stat.yhp",
+    "stat.ysp",
 }
 
 

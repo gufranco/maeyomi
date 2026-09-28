@@ -42,10 +42,12 @@ FIELD_OF_TILE: Final = {
     **{
         key: field
         for game in GAMES.values()
-        for key, field in zip(game.stat_keys, REQUEST_FIELDS, strict=True)
+        for key, field in zip(game.stat_keys, REQUEST_FIELDS, strict=False)
     },
 }
-FIGHTING_KINDS: Final = frozenset({GameKind.FIGHTER, GameKind.UNIT, GameKind.PLAYER})
+FIGHTING_KINDS: Final = frozenset(
+    {GameKind.FIGHTER, GameKind.UNIT, GameKind.PLAYER, GameKind.HIDDEN}
+)
 
 
 @dataclass(frozen=True, slots=True)

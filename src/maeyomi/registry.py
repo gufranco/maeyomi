@@ -184,7 +184,7 @@ def _build_game(
         return DeviceOutcome(blockers=(NO_GAME_CARD.format(game=device.english),))
     exact = all(
         constraint.admits(card.value(key))
-        for key, constraint in zip(game.stat_keys, stats, strict=True)
+        for key, constraint in zip(game.stat_keys, stats, strict=False)
         if any(stat.key == key for stat in card.stats)
     )
     return DeviceOutcome(card, exact=exact)

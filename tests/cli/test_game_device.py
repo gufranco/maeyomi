@@ -8,6 +8,7 @@ from maeyomi.barcode.verify import decode_pdf
 from maeyomi.cli.main import app
 from maeyomi.datach.sdgundam import decode_sdgundam
 from maeyomi.datach.ultraman import decode_ultraman
+from maeyomi.datach.yuyu import decode_yuyu
 
 runner = CliRunner()
 
@@ -212,3 +213,41 @@ def test_a_pick_is_refused_on_a_machine(tmp_path: Path) -> None:
 
     assert result.exit_code == 2
     assert "only a Datach game after Dragon Ball Z reads --pick" in result.output
+
+
+def test_decode_reads_a_yu_yu_hakusho_fighter_with_its_techniques() -> None:
+    result = runner.invoke(app, ["decode", "0871024742401", "--device", "yuyu"])
+
+    assert result.exit_code == 0
+    assert "Name      Yusuke / ゆうすけ" in result.output
+    assert "HP        3000" in result.output
+    assert "Spirit Shotgun, Super Spirit Gun" in result.output
+
+
+def test_generate_builds_a_yu_yu_hakusho_item_at_its_top_level(tmp_path: Path) -> None:
+    output = tmp_path / "botan.pdf"
+
+    result = runner.invoke(
+        app,
+        [
+            "generate",
+            "--device",
+            "yuyu",
+            "--character",
+            "Botan",
+            "--pick",
+            "level=3",
+            "-o",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert decode_yuyu(decode_pdf(output)[0]).value("YHP") == 1000
+
+
+def test_cheat_prints_the_hidden_toguro(tmp_path: Path) -> None:
+    result = runner.invoke(app, ["cheat", "--device", "yuyu", "-o", str(tmp_path / "x.pdf")])
+
+    assert result.exit_code == 0
+    assert "SP Toguro, HP 9999, SP 9999" in result.output

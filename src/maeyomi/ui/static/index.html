@@ -133,21 +133,21 @@
     <fieldset>
       <legend data-i18n="one.strong">How strong</legend>
 
-      <p class="field stat">
+      <p class="field stat" data-device-field="stats">
         <label for="hp" id="hp-label" data-i18n="stat.hp">Health</label>
         <input id="hp" name="hp" type="range" min="0" max="99900" step="100" value="5000">
         <input id="hp-box" class="stat-box" type="number" inputmode="numeric" min="0" step="100" value="5000"
                aria-labelledby="hp-label">
       </p>
 
-      <p class="field stat">
+      <p class="field stat" data-device-field="stats">
         <label for="st" id="st-label" data-i18n="stat.st">Attack</label>
         <input id="st" name="st" type="range" min="0" max="19900" step="100" value="1800">
         <input id="st-box" class="stat-box" type="number" inputmode="numeric" min="0" step="100" value="1800"
                aria-labelledby="st-label">
       </p>
 
-      <p class="field stat">
+      <p class="field stat" data-device-field="stats">
         <label for="df" id="df-label" data-i18n="stat.df">Defence</label>
         <input id="df" name="df" type="range" min="0" max="19900" step="100" value="1200">
         <input id="df-box" class="stat-box" type="number" inputmode="numeric" min="0" step="100" value="1200"
@@ -260,7 +260,7 @@
         <input id="st-max" type="number" min="0" max="19900" step="100" value="3000"
                aria-label="Highest attack" data-i18n-aria-label="many.stMax">
       </p>
-      <p class="field pair">
+      <p class="field pair" data-sheet-field="third">
         <label for="df-min" data-i18n="stat.df">Defence</label>
         <input id="df-min" type="number" min="0" max="19900" step="100" value="100">
         <span aria-hidden="true" data-i18n="to">to</span>
@@ -309,6 +309,9 @@
         <p data-i18n="official.note.sdgundam" data-official-source="sdgundam" hidden>
           Each SD Gundam Wars card carries two barcodes, a unit and a command.
         </p>
+        <p data-i18n="official.note.yuyu" data-official-source="yuyu" hidden>
+          Yu Yu Hakusho came with 40 cards, three of them without a barcode.
+        </p>
         <p class="note-heading" id="official-sources" data-i18n="official.sources">
           Where the barcodes come from
         </p>
@@ -327,6 +330,11 @@
             <span data-i18n="official.source.sdgundam">SD Gundam Wars cards:</span>
             <a href="https://retrostuff.org/2019/05/12/bandai-datach-sd-gundam-gundam-wars-barcodes-for-mame/"
                target="_blank" rel="noopener noreferrer">retrostuff.org</a>
+          </li>
+          <li data-official-source="yuyu" hidden>
+            <span data-i18n="official.source.yuyu">Yu Yu Hakusho cards:</span>
+            <a href="https://archive.org/details/yu-yu-hakusho-bakuto-ankoku-bujutsue-box-front"
+               target="_blank" rel="noopener noreferrer">archive.org</a>
           </li>
           <li data-official-source="ultraman" hidden>
             <span data-i18n="official.source.ultraman">Ultraman Club cards:</span>

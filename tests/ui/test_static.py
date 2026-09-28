@@ -265,6 +265,7 @@ def test_every_field_only_some_devices_read_is_marked() -> None:
         "speed",
         "job",
         "backRead",
+        "stats",
         "nearest",
     }
 
@@ -274,7 +275,7 @@ def test_no_explanation_hides_behind_a_click() -> None:
 
 
 def test_the_sheet_marks_the_fields_only_some_devices_read() -> None:
-    assert set(re.findall(r'data-sheet-field="(\w+)"', MARKUP)) == {"race"}
+    assert set(re.findall(r'data-sheet-field="(\w+)"', MARKUP)) == {"race", "third"}
 
 
 def test_no_blanket_warning_about_unreadable_codes_remains() -> None:

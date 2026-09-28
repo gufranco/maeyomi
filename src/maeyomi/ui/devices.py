@@ -54,6 +54,7 @@ ULTRAMAN_RANGES: Final[tuple[Range, Range, Range]] = (
     (0, ULTRAMAN_MAX),
 )
 GUNDAM_STEP: Final = 10
+YUYU_MAX: Final = 9999
 
 
 def _gundam_range(index: int, bonus: tuple[int, ...]) -> Range:
@@ -78,31 +79,31 @@ class DeviceForm:
     df_max: int
     steps: tuple[int, int, int] = (HUNDREDS, HUNDREDS, HUNDREDS)
     stat_keys: tuple[str, ...] = tuple(CLASSIC_STATS)
-    sheet_fields: tuple[str, ...] = ()
+    sheet_fields: tuple[str, ...] = ("third",)
     ranges: tuple[Range, Range, Range] = CLASSIC_RANGES
     back_ranges: tuple[Range, Range, Range] | None = None
 
 
 FORMS: Final[dict[Device, DeviceForm]] = {
     Device.BB2: DeviceForm(
-        ("race", "class", "ability", "speed", "job", "backRead", "nearest"),
+        ("race", "class", "ability", "speed", "job", "backRead", "stats", "nearest"),
         SECOND_MAX_HP,
         SECOND_MAX_STAT,
         SECOND_MAX_STAT,
-        sheet_fields=("race",),
+        sheet_fields=("race", "third"),
         back_ranges=fighter_limits(),
     ),
     Device.BB1: DeviceForm(
-        ("race", "job", "backRead"),
+        ("race", "job", "backRead", "stats"),
         FIRST_MAX_HP,
         FIRST_MAX_STAT,
         FIRST_MAX_STAT,
-        sheet_fields=("race",),
+        sheet_fields=("race", "third"),
         back_ranges=(ENEMY_HP, ENEMY_ST, ENEMY_DF),
     ),
-    Device.DOUBLE: DeviceForm(("job",), DOUBLE_MAX, DOUBLE_MAX, DOUBLE_MAX),
+    Device.DOUBLE: DeviceForm(("job", "stats"), DOUBLE_MAX, DOUBLE_MAX, DOUBLE_MAX),
     Device.DATACH_DBZ: DeviceForm(
-        ("dbz", "nearest"),
+        ("dbz", "stats", "nearest"),
         MAX_HP,
         MAX_HALVED,
         MAX_HALVED,
@@ -111,15 +112,24 @@ FORMS: Final[dict[Device, DeviceForm]] = {
         ranges=DBZ_RANGES,
     ),
     Device.DATACH_ULTRAMAN: DeviceForm(
-        ("game",),
+        ("game", "stats"),
         ULTRAMAN_MAX,
         ULTRAMAN_MAX,
         ULTRAMAN_MAX,
         stat_keys=("stat.pw", "stat.ust", "stat.usp"),
         ranges=ULTRAMAN_RANGES,
     ),
-    Device.DATACH_SD_GUNDAM: DeviceForm(
+    Device.DATACH_YUYU: DeviceForm(
         ("game", "picks"),
+        YUYU_MAX,
+        YUYU_MAX,
+        YUYU_MAX,
+        stat_keys=("stat.yhp", "stat.ysp", "stat.ysp"),
+        sheet_fields=(),
+        ranges=((0, YUYU_MAX), (0, YUYU_MAX), (0, YUYU_MAX)),
+    ),
+    Device.DATACH_SD_GUNDAM: DeviceForm(
+        ("game", "picks", "stats"),
         GUNDAM_RANGES[0][1],
         GUNDAM_RANGES[1][1],
         GUNDAM_RANGES[2][1],

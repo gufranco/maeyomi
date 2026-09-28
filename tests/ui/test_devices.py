@@ -25,10 +25,10 @@ def test_every_device_is_offered_with_its_form(client: TestClient) -> None:
 
     assert [entry["key"] for entry in body] == [device.value for device in Device]
     dbz = next(entry for entry in body if entry["key"] == "dbz")
-    assert dbz["fields"] == ["dbz", "nearest"]
+    assert dbz["fields"] == ["dbz", "stats", "nearest"]
     assert (dbz["hp_max"], dbz["steps"]) == (99500, [500, 250, 250])
     assert dbz["stat_keys"] == ["stat.hp", "stat.bp", "stat.dp"]
-    assert dbz["sheet_fields"] == []
+    assert dbz["sheet_fields"] == ["third"]
     assert dbz["group"] == "game"
     machines = {"bb2", "bb1", "double"}
     assert {entry["group"] for entry in body if entry["key"] in machines} == {"machine"}
@@ -260,7 +260,7 @@ def test_ultraman_club_offers_its_type_picker_and_numbers_up_to_9900(client: Tes
 
     ultraman = next(entry for entry in body if entry["key"] == "ultraman")
 
-    assert ultraman["fields"] == ["game"]
+    assert ultraman["fields"] == ["game", "stats"]
     assert (ultraman["hp_max"], ultraman["steps"]) == (9900, [100, 100, 100])
     assert ultraman["stat_keys"] == ["stat.pw", "stat.ust", "stat.usp"]
 
@@ -347,3 +347,23 @@ def test_a_number_between_two_the_game_holds_is_marked_as_the_closest(client: Te
 
 def test_a_machine_offers_no_game_picks(client: TestClient) -> None:
     assert client.get("/api/game-picks/bb2/0").json() == []
+
+
+def test_yu_yu_hakusho_offers_its_card_and_choices_but_no_sliders(client: TestClient) -> None:
+    body = client.get("/api/devices").json()
+
+    yuyu = next(entry for entry in body if entry["key"] == "yuyu")
+
+    assert yuyu["fields"] == ["game", "picks"]
+    assert yuyu["sheet_fields"] == []
+
+
+def test_a_yu_yu_hakusho_fighter_is_built_with_the_techniques_picked(client: TestClient) -> None:
+    payload = {"device": "yuyu", "character": "Yusuke", "picks": {"moves": 9}}
+
+    body = client.post("/api/device-card", json=payload).json()
+
+    facts = {fact["label"]: fact["value"] for fact in body["facts"]}
+    assert facts["Techniques"] == "Spirit Gun, Headbutt"
+    assert (facts["HP"], facts["SP"]) == ("3000", "2000")
+    assert body["is_exact"] is True

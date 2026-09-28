@@ -25,6 +25,13 @@ from maeyomi.datach.ultraman import strongest_ultraman as _strongest_ultraman
 from maeyomi.datach.ultraman_names import NAMES as ULTRAMAN_NAMES
 from maeyomi.datach.ultraman_names import type_named
 from maeyomi.datach.ultraman_tables import FIRST_ITEM
+from maeyomi.datach.yuyu import YuYuOrder, build_yuyu, decode_yuyu, strongest_yuyu
+from maeyomi.datach.yuyu import picks_for as yuyu_picks
+from maeyomi.datach.yuyu_names import CHARACTERS as YUYU_CHARACTERS
+from maeyomi.datach.yuyu_names import ITEMS as YUYU_ITEMS
+from maeyomi.datach.yuyu_names import TECHNIQUE_NAMES, bonus_text
+from maeyomi.datach.yuyu_names import card_named as yuyu_named
+from maeyomi.datach.yuyu_tables import SECRET_CHARACTER
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.device import Device
 
@@ -36,6 +43,9 @@ TYPE: Final[Pair] = ("Type", "タイプ")
 WEAPONS_HEADING: Final[Pair] = ("Weapons", "ぶき")
 EFFECT: Final[Pair] = ("Effect", "こうか")
 COMMAND_CARD: Final[Pair] = ("Command card", "コマンド カード")
+TECHNIQUES_HEADING: Final[Pair] = ("Techniques", "わざ")
+HIDDEN: Final[Pair] = ("Hidden fighter", "かくし キャラクター")
+NO_TECHNIQUE: Final[Pair] = ("No technique", "わざ なし")
 
 
 @dataclass(frozen=True, slots=True)
@@ -150,6 +160,46 @@ def _sdgundam_text(card: DatachCard) -> CardText:
     )
 
 
+def _yuyu_order(order: GameOrder) -> DatachCard | None:
+    """Build a Yu Yu Hakusho card: its numbers are fixed, so only its choices count."""
+    return build_yuyu(YuYuOrder(order.ident, order.picks))
+
+
+def _yuyu_entries() -> tuple[GameEntry, ...]:
+    """Every character, the hidden one last, then every item Yu Yu Hakusho reads."""
+    fighters = tuple(
+        GameEntry(ident, GameKind.FIGHTER, *names)
+        for ident, names in YUYU_CHARACTERS.items()
+        if ident != SECRET_CHARACTER
+    )
+    hidden = GameEntry(SECRET_CHARACTER, GameKind.HIDDEN, *YUYU_CHARACTERS[SECRET_CHARACTER])
+    items = tuple(
+        GameEntry(ident, GameKind.ITEM, item.english, item.japanese)
+        for ident, item in YUYU_ITEMS.items()
+    )
+    return (*fighters, hidden, *items)
+
+
+def _yuyu_text(card: DatachCard) -> CardText:
+    """A character's techniques, or what an item does."""
+    if card.kind is GameKind.ITEM:
+        item = YUYU_ITEMS[card.ident]
+        effect = (
+            bonus_text(card.value("YHP"), card.value("YSP"))
+            if card.stats
+            else (item.effect, item.effect_japanese)
+        )
+        return CardText((item.english, item.japanese), ITEM, EFFECT, effect)
+    names = [TECHNIQUE_NAMES[technique] for technique in card.traits[1:]]
+    power = (
+        (", ".join(name for name, _ in names), "・".join(name for _, name in names))
+        if names
+        else NO_TECHNIQUE
+    )
+    detail = HIDDEN if card.kind is GameKind.HIDDEN else FIGHTER
+    return CardText(YUYU_CHARACTERS[card.ident], detail, TECHNIQUES_HEADING, power)
+
+
 GAMES: Final[dict[Device, DatachGame]] = {
     Device.DATACH_ULTRAMAN: DatachGame(
         decode=decode_ultraman,
@@ -169,6 +219,16 @@ GAMES: Final[dict[Device, DatachGame]] = {
         named=card_named,
         stat_keys=("GHP", "AP", "GDP"),
         picks=picks_for,
+    ),
+    Device.DATACH_YUYU: DatachGame(
+        decode=decode_yuyu,
+        build=_yuyu_order,
+        strongest=strongest_yuyu,
+        entries=_yuyu_entries,
+        describe=_yuyu_text,
+        named=yuyu_named,
+        stat_keys=("YHP", "YSP"),
+        picks=yuyu_picks,
     ),
 }
 

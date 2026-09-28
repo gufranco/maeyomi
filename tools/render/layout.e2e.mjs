@@ -133,6 +133,19 @@ function checkDeviceSwitch() {
   expect(unit.shown, 'the SD Gundam unit choices are hidden');
   expect(unit.picks.join() === 'pick-sr,pick-lr,pick-cp',
     `the SD Gundam unit offers ${unit.picks}`);
+  pickDevice('yuyu');
+  browser('wait', '600');
+  evaluate(`(() => { const select = document.getElementById('game-character');
+    select.value = '0'; select.dispatchEvent(new Event('change')); return JSON.stringify(true); })()`);
+  browser('wait', '600');
+  const fighter = evaluate(`JSON.stringify({
+    sliders: document.getElementById('hp').offsetParent !== null,
+    picks: [...document.querySelectorAll('#game-picks select')].map((select) => select.id),
+    options: document.querySelectorAll('#pick-moves option').length,
+  })`);
+  expect(!fighter.sliders, 'Yu Yu Hakusho shows number sliders no barcode changes');
+  expect(fighter.picks.join() === 'pick-moves', `the Yu Yu Hakusho fighter offers ${fighter.picks}`);
+  expect(fighter.options > 2, `Yusuke offers ${fighter.options} technique choices`);
   pickDevice('bb2');
 }
 
@@ -171,6 +184,10 @@ function checkRealCards() {
   expect(gundam.single.includes('76'), `SD Gundam Wars names its set as ${gundam.single}`);
   expect(gundam.links.length === 1 && gundam.links[0].includes('sd-gundam'),
     `SD Gundam Wars's real cards link ${gundam.links}`);
+  const yuyu = realCards('yuyu');
+  expect(yuyu.single.includes('37'), `Yu Yu Hakusho names its set as ${yuyu.single}`);
+  expect(yuyu.links.length === 1 && yuyu.links[0].includes('archive.org'),
+    `Yu Yu Hakusho's real cards link ${yuyu.links}`);
   pickDevice('bb2');
 }
 

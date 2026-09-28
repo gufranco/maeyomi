@@ -88,6 +88,17 @@ can hold becomes the closest one, and the command says so. The rule agrees
 with the game in MAME on its 76 released barcodes and on 122 codes built one
 per slot. No card for it has been read by a physical Datach yet.
 
+Datach Yu Yu Hakusho: Bakutou Ankoku Bujutsukai, also of 1993, reads a barcode
+as one of 22 fighters or 10 items, and one more fighter the game hides. A
+fighter's HP and SP are its own and no barcode changes them; what the barcode
+chooses is which of its four techniques it can use. An item adds HP or SP by
+one of four levels, or changes a rule of versus mode. `--device yuyu` makes
+cards for it: pick the card with `--character`, its techniques with `--pick
+moves=15`, one bit per technique, and an item's level with `--pick level=3`.
+The rule agrees with the game in MAME on its 37 released cards and on 183
+codes built across every character, mask and item. No card for it has been
+read by a physical Datach yet.
+
 ## Install
 
 ```bash
@@ -129,7 +140,7 @@ the numbers you asked for, and shows the barcode it worked out.
 
 **Machine or game**, under the title, picks what the cards are for: the
 Barcode Battler II, the first Barcode Battler, the Double, Datach Dragon Ball
-Z, Datach Ultraman Club or Datach SD Gundam Wars. Every tab follows it: the card maker shows only the fields that device reads
+Z, Datach Ultraman Club, Datach SD Gundam Wars or Datach Yu Yu Hakusho. Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -451,6 +462,11 @@ on the bottom edge and a command on the top, and a special card carries one of
 each: 76 barcodes, which [retrostuff.org](https://retrostuff.org/2019/05/12/bandai-datach-sd-gundam-gundam-wars-barcodes-for-mame/)
 read off a boxed set, matching the puNES list, and each read by the game in MAME.
 
+Yu Yu Hakusho came with 40 cards, three of them without a barcode. The other 37
+come from the spreadsheet [archive.org](https://archive.org/details/yu-yu-hakusho-bakuto-ankoku-bujutsue-box-front)
+keeps beside its scans of a complete set, named as that spreadsheet names them,
+and each was read by the game in MAME.
+
 ## The cheat code
 
 `maeyomi cheat -o cheat.pdf`, or press the row of arrows at the foot of
@@ -510,6 +526,10 @@ all at 9900, the most the game's two tables can add up to.
 `maeyomi cheat --device sdgundam -o cheat.pdf` is the Quin Mantha, the mobile
 suit with the most HP, AP and DP together, with every bonus at its top: HP
 7700, AP 7000, DP 9000 and CP 6.
+
+`maeyomi cheat --device yuyu -o cheat.pdf` is the fighter the game hides, SP
+Toguro, with 9999 HP, 9999 SP and all four of his techniques. The game gives it
+for one exact stream of bits, which no card Bandai printed carries.
 
 ## Two languages and pictures
 

@@ -93,3 +93,33 @@ def test_an_sd_gundam_command_is_described_by_its_effect_and_cost() -> None:
 
 def test_a_game_without_choices_offers_none() -> None:
     assert GAMES[Device.DATACH_ULTRAMAN].picks(3) == ()
+
+
+def test_a_yu_yu_hakusho_item_that_adds_numbers_says_how_much() -> None:
+    game = GAMES[Device.DATACH_YUYU]
+
+    text = game.describe(game.decode("0967652615603"))
+
+    assert text.power == ("Adds 500 HP.", "このカードは、HPが 500 アップするぞ。")
+
+
+def test_a_yu_yu_hakusho_rule_item_says_what_it_changes() -> None:
+    game = GAMES[Device.DATACH_YUYU]
+
+    text = game.describe(game.decode("0946730251315"))
+
+    assert text.power[0] == "Halves the time limit of versus mode."
+
+
+def test_a_yu_yu_hakusho_fighter_without_techniques_says_so() -> None:
+    game = GAMES[Device.DATACH_YUYU]
+    card = game.build(GameOrder(1, (ANY, ANY, ANY), (("moves", 4),)))
+
+    assert card is not None
+    assert game.describe(card).power == ("No technique", "わざ なし")
+
+
+def test_the_hidden_toguro_is_described_as_hidden() -> None:
+    game = GAMES[Device.DATACH_YUYU]
+
+    assert game.describe(game.strongest()).detail == ("Hidden fighter", "かくし キャラクター")

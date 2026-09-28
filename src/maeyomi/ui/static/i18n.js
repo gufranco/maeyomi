@@ -125,6 +125,7 @@ const MESSAGES = {
     'device.summary.dbz': 'Bandai, 1992. Fighters and items with BP and DP.',
     'device.summary.ultraman': 'Bandai, 1993. Ultra heroes, monsters and items with PW, ST and SP.',
     'device.summary.sdgundam': 'Bandai, 1993. Mobile suits with weapons, and command cards.',
+    'device.summary.yuyu': 'Bandai, 1993. Fighters with their techniques, and items.',
     'device.games': 'Games',
     'device.hint':
       'Every tab, and the cheat code, makes cards for this choice and reads barcodes its way. ' +
@@ -150,6 +151,9 @@ const MESSAGES = {
     'stat.usp': 'SP',
     'stat.ap': 'AP',
     'stat.gdp': 'DP',
+    'stat.yhp': 'HP',
+    'stat.ysp': 'SP',
+    'game.kind.hidden': 'Hidden',
     'game.kind.unit': 'Mobile suits',
     'game.kind.command': 'Command cards',
     'game.pick.any': 'Any',
@@ -187,6 +191,11 @@ const MESSAGES = {
       'source code of puNES, a Famicom emulator, and were each read by the game itself in ' +
       'the MAME emulator.',
     'official.source.sdgundam': 'SD Gundam Wars cards:',
+    'official.note.yuyu':
+      'Yu Yu Hakusho came with 40 cards, three of them without a barcode. The other 37 come ' +
+      'from the spreadsheet archive.org keeps beside its scans of a complete set, and were ' +
+      'each read by the game itself in the MAME emulator.',
+    'official.source.yuyu': 'Yu Yu Hakusho cards:',
     'official.skipped': 'Cards left out',
     'official.skipped.hint':
       'The wikiwiki.jp page has a typo in these five. The last digit of a barcode is a ' +
@@ -364,6 +373,7 @@ const MESSAGES = {
     'device.summary.dbz': 'バンダイ、1992ねん。BP と DP の キャラクターと アイテム。',
     'device.summary.ultraman': 'バンダイ、1993ねん。PW、ST、SP の ウルトラヒーロー、かいじゅう、アイテム。',
     'device.summary.sdgundam': 'バンダイ、1993ねん。ぶきを もつ モビルスーツと コマンドカード。',
+    'device.summary.yuyu': 'バンダイ、1993ねん。わざを もつ キャラクターと アイテム。',
     'device.games': 'ゲーム',
     'device.hint':
       'どの タブも かくしコマンドも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +
@@ -389,6 +399,9 @@ const MESSAGES = {
     'stat.usp': 'SP',
     'stat.ap': 'AP',
     'stat.gdp': 'DP',
+    'stat.yhp': 'HP',
+    'stat.ysp': 'SP',
+    'game.kind.hidden': 'かくし',
     'game.kind.unit': 'モビルスーツ',
     'game.kind.command': 'コマンドカード',
     'game.pick.any': 'どれでも',
@@ -425,6 +438,11 @@ const MESSAGES = {
       '76この バーコードは retrostuff.org が はこいりの セットから よみとった もので、' +
       'エミュレーター puNES の いちらんと おなじで、1こずつ MAME で ゲームに よませて たしかめました。',
     'official.source.sdgundam': 'SDガンダム の カード:',
+    'official.note.yuyu':
+      '幽遊白書 には 40まいの カードが ついていて、3まいには バーコードが ありません。' +
+      'のこりの 37まいは archive.org に ある ぜんセットの スキャンに そえられた ひょうから とり、' +
+      '1まいずつ MAME で ゲームに よませて たしかめました。',
+    'official.source.yuyu': '幽遊白書 の カード:',
     'official.skipped': 'のぞいた カード',
     'official.skipped.hint':
       'wikiwiki.jp の ページで この 5まいは うちまちがいが あります。バーコードの さいごの けたは ' +
