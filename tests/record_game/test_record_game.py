@@ -210,3 +210,41 @@ def test_the_senki_fixture_was_recorded_with_the_rom_the_manifest_names() -> Non
     )
 
     assert entry["sha1"] == fixture["rom"]["sha1"]
+
+
+@pytest.mark.parametrize(
+    ("game", "software"),
+    [("lupin", "lupin3"), ("donald", "donaldd"), ("spiderman", "spidfoes"), ("alice", "alicepnt")],
+)
+def test_each_password_screen_game_runs_as_its_software_list_set(game: str, software: str) -> None:
+    tool = load()
+
+    command = tool.mame_command(ROOT, tool.GAMES[game])
+
+    assert command[1:6] == ["snes", "-ctrl2", "barcode_battler", "-cart", software]
+
+
+def test_a_caught_write_is_planned_before_the_code_arrives() -> None:
+    tool = load()
+
+    lines = tool.plan_lines(tool.GAMES["lupin"], ["4914177063576"])
+
+    assert lines.index("1140 catch 05b3") < lines.index("1150 bbscan 4914177063576")
+
+
+def test_a_caught_byte_is_recorded_beside_the_peeks() -> None:
+    tool = load()
+    output = "CATCH 05b3 0a\nCATCH 05b3 00\nPEEK 05b9 08 04 01 09 03 08 09 09 01 06 09 09 04\n"
+
+    entry = tool.record(tool.GAMES["lupin"], ["4999619839148"], output)
+
+    assert (entry["catch 05b3"], entry["accepted"]) == ("0a", True)
+
+
+def test_a_code_the_matcher_never_wrote_for_is_recorded_as_unmatched() -> None:
+    tool = load()
+    output = "PEEK 05b9 04 00 09 08 07 06 05 04 03 02 01 09 04\n"
+
+    entry = tool.record(tool.GAMES["lupin"], ["4912345678904"], output)
+
+    assert entry["catch 05b3"] is None

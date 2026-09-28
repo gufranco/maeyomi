@@ -393,6 +393,9 @@ function renderOfficialSources() {
   document.querySelectorAll('[data-official-source]').forEach((node) => {
     node.toggleAttribute('hidden', node.dataset.officialSource !== source);
   });
+  const linked = document.querySelector(`.note-sources [data-official-source="${source}"]`);
+  $('official-sources').toggleAttribute('hidden', !linked);
+  $('official-sources').nextElementSibling.toggleAttribute('hidden', !linked);
   $('official-skipped').toggleAttribute('hidden', catalogue.rejected.length === 0);
   $('official-rejected').replaceChildren();
   $('official-rejected').insertAdjacentHTML(

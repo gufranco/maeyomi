@@ -79,6 +79,46 @@
       "sha1": "97e352553e94242ae823547cd853eecda55c20f0",
       "crc32": "44bb3a40",
       "used_by": "tools/oracle/record_game.py, for every Super Famicom game it runs; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "lupin_rom",
+      "what": "Cartridge ROM of Lupin Sansei: Densetsu no Hihou o Oe!, Epoch 1994, as MAME's snes software list names it",
+      "path": "snes/lupin3/lupin sansei - densetsu no hihou o oe (japan).sfc",
+      "size": 1572864,
+      "sha256": "d8dc6c6fbe0263b383b6f25cf024d4b4401c4cc47698a051456f3bb584346a20",
+      "sha1": "99ae1fcd0b778d221d04f8980458824b809392e7",
+      "crc32": "74adc6e2",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "donald_rom",
+      "what": "Cartridge ROM of Donald Duck no Mahou no Boushi, Epoch 1995, as MAME's snes software list names it",
+      "path": "snes/donaldd/donald duck no mahou no boushi (japan).sfc",
+      "size": 1572864,
+      "sha256": "90dbc1130af7555d3086afcd657f3cb510c52686a0f242d073c6caeb720affad",
+      "sha1": "e5a2e94af71509dee1e8ed86a80c7fec9c40d51f",
+      "crc32": "1ed5d2fa",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "spiderman_rom",
+      "what": "Cartridge ROM of The Amazing Spider-Man: Lethal Foes, Epoch 1995, as MAME's snes software list names it",
+      "path": "snes/spidfoes/amazing spider-man, the - lethal foes (japan).sfc",
+      "size": 1572864,
+      "sha256": "5c4e283efc338958b8dd45ebd6daf133a9eb280420a98e2e1df358ae0242c366",
+      "sha1": "94763d6fc3216082e33cafbecb1e737ef3c5bda9",
+      "crc32": "82f7f710",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "alice_rom",
+      "what": "Cartridge ROM of Alice no Paint Adventure, Epoch 1995, as MAME's snes software list names it",
+      "path": "snes/alicepnt/alice no paint adventure (japan).sfc",
+      "size": 1048576,
+      "sha256": "bef02017488bb76fa7ada9bb7719fdf4336fec8e847d6005c8cf244146f90fbd",
+      "sha1": "18b6fadbcee0741001537ad3f62c8477a2b664cf",
+      "crc32": "05798da8",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
     }
   ]
 }

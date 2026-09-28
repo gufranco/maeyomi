@@ -46,7 +46,7 @@ FIELD_OF_TILE: Final = {
     },
 }
 FIGHTING_KINDS: Final = frozenset(
-    {GameKind.FIGHTER, GameKind.UNIT, GameKind.PLAYER, GameKind.HIDDEN}
+    {GameKind.FIGHTER, GameKind.UNIT, GameKind.PLAYER, GameKind.HIDDEN, GameKind.EFFECT}
 )
 
 

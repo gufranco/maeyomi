@@ -25,15 +25,12 @@ def test_no_device_name_uses_a_roman_numeral() -> None:
         assert not re.search(r"\bII\b|Ⅱ|²", device.english + device.japanese)
 
 
-def test_every_datach_cartridge_is_a_game_and_every_battler_a_machine() -> None:
+def test_every_device_but_the_three_battlers_is_a_game() -> None:
     games = [device for device in Device if device.is_game]
 
-    named = [
-        device
-        for device in Device
-        if device.english.startswith(("Datach", "Barcode World", "Barcode Battler Senki"))
+    assert games == [
+        device for device in Device if device not in {Device.BB2, Device.BB1, Device.DOUBLE}
     ]
-    assert games == named
     assert Device.DATACH_ULTRAMAN in games
     assert Device.BB2 not in games
 

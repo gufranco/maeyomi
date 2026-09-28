@@ -163,6 +163,10 @@ FORMS: Final[dict[Device, DeviceForm]] = {
         ("stat.hp", "stat.ap", "stat.gdp"),
         ranges=GUNDAM_RANGES,
     ),
+    **{
+        device: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=())
+        for device in (Device.LUPIN, Device.DONALD, Device.SPIDERMAN, Device.ALICE)
+    },
 }
 
 

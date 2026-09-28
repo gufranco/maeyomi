@@ -23,6 +23,8 @@ class GameKind(StrEnum):
     PLAYER = "player"
     TEAM = "team"
     HIDDEN = "hidden"
+    EFFECT = "effect"
+    NO_EFFECT = "no effect"
 
 
 @dataclass(frozen=True, slots=True)

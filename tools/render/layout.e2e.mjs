@@ -7,7 +7,10 @@ const failures = [];
 
 const browser = (...args) => execFileSync('agent-browser', args, { encoding: 'utf8' }).trim();
 
-const pickDevice = (key) => browser('click', `[data-device="${key}"]`);
+const pickDevice = (key) => {
+  browser('eval', `document.querySelector('[data-device="${key}"]').scrollIntoView({ block: 'center' }); 'ok'`);
+  browser('click', `[data-device="${key}"]`);
+};
 
 const evaluate = (script) => JSON.parse(JSON.parse(browser('eval', script)));
 
@@ -169,6 +172,14 @@ function checkDeviceSwitch() {
   browser('wait', '600');
   const senki = evaluate(`JSON.stringify({ hpMax: document.getElementById('hp').max })`);
   expect(senki.hpMax === '49900', `the Senki health slider stops at ${senki.hpMax}`);
+  pickDevice('lupin');
+  browser('wait', '600');
+  const lupin = evaluate(`JSON.stringify({
+    sliders: document.getElementById('hp').offsetParent !== null,
+    effects: document.querySelectorAll('#game-character option[value]:not([value=""])').length,
+  })`);
+  expect(!lupin.sliders, 'Lupin III shows number sliders its codes do not carry');
+  expect(lupin.effects === 11, `the Lupin III picker lists ${lupin.effects} effects`);
   pickDevice('bb2');
 }
 
@@ -228,6 +239,14 @@ function checkRealCards() {
   expect(senkiForm.note, 'Senki does not say why it has no real cards');
   expect(senki.links.length === 1 && senki.links[0].includes('wikipedia'),
     `Senki's real cards link ${senki.links}`);
+  const alice = realCards('alice');
+  const aliceForm = evaluate(`JSON.stringify({
+    actions: document.getElementById('official-actions').offsetParent !== null,
+    sources: document.getElementById('official-sources').offsetParent !== null,
+  })`);
+  expect(!alice.picker && !aliceForm.actions, 'Alice offers to print a set it does not have');
+  expect(!aliceForm.sources && alice.links.length === 0,
+    `Alice lists sources for cards it never had: ${alice.links}`);
   pickDevice('bb2');
 }
 

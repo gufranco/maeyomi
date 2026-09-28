@@ -36,6 +36,13 @@ HEADLESS = {"SDL_VIDEODRIVER": "dummy", "SDL_AUDIODRIVER": "dummy"}
 SESSION_SECONDS = "90"
 TIMEOUT_SECONDS = 150
 PEEK = re.compile(r"PEEK (\w+) ((?:[0-9a-f]{2} ?)+)")
+CATCH = re.compile(r"CATCH (\w+) ([0-9a-f]{2})")
+CATCH_LEAD = 10
+UNMATCHED = "ff"
+SNES = "snes"
+SNES_PORT = ("-ctrl2", "barcode_battler", "-cart")
+SNES_READER = ":ctrl2:barcode_battler:battler"
+SNES_EXTRAS = ("snes_spc700_ipl",)
 
 
 @dataclass(frozen=True)
@@ -52,6 +59,7 @@ class Game:
     reader: str = ":nes_slot:datach:datach"
     feed: str = "scan"
     extras: tuple[str, ...] = ()
+    catches: tuple[str, ...] = ()
 
 
 GAMES = {
@@ -127,11 +135,68 @@ GAMES = {
         read_delay=190,
         peeks=(("0890", 26), ("07b7", 13)),
         accepted=(("07b7", 0),),
-        system="snes",
-        media=("-ctrl2", "barcode_battler", "-cart", "conveni"),
-        reader=":ctrl2:barcode_battler:battler",
+        system=SNES,
+        media=(*SNES_PORT, "conveni"),
+        reader=SNES_READER,
         feed="bbscan",
-        extras=("snes_spc700_ipl",),
+        extras=SNES_EXTRAS,
+    ),
+    "lupin": Game(
+        software="lupin3",
+        artifact="lupin_rom",
+        menu=("500 press Start", "760 press Start", "860 press Down", "900 press Start"),
+        scan_frame=1150,
+        read_delay=110,
+        peeks=(("05b9", 13),),
+        accepted=(),
+        system=SNES,
+        media=(*SNES_PORT, "lupin3"),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=SNES_EXTRAS,
+        catches=("05b3",),
+    ),
+    "donald": Game(
+        software="donaldd",
+        artifact="donald_rom",
+        menu=("700 press Start", "1000 press Start", "1200 press Down", "1260 press Start"),
+        scan_frame=1500,
+        read_delay=60,
+        peeks=(("05c3", 3), ("05c9", 13), ("006c", 5)),
+        accepted=(("05c3", 1),),
+        system=SNES,
+        media=(*SNES_PORT, "donaldd"),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=SNES_EXTRAS,
+    ),
+    "spiderman": Game(
+        software="spidfoes",
+        artifact="spiderman_rom",
+        menu=("650 press Start", "720 press Down", "760 press Start"),
+        scan_frame=950,
+        read_delay=50,
+        peeks=(("0e86", 1), ("7e2019", 3), ("03a0", 10)),
+        accepted=(("0e86", 0),),
+        system=SNES,
+        media=(*SNES_PORT, "spidfoes"),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=SNES_EXTRAS,
+    ),
+    "alice": Game(
+        software="alicepnt",
+        artifact="alice_rom",
+        menu=("1700 press Start", "2000 press A", "2250 press A", "2450 press A"),
+        scan_frame=2800,
+        read_delay=100,
+        peeks=(("1805", 4), ("06f0", 13)),
+        accepted=(("1805", 0),),
+        system=SNES,
+        media=(*SNES_PORT, "alicepnt"),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=SNES_EXTRAS,
     ),
 }
 """An unread code leaves 0 in both bytes, which is also Yusuke with no technique: the
@@ -188,7 +253,8 @@ def plan_lines(game: Game, words: list[str]) -> list[str]:
     feed = f"swipe {code} {words[1]}" if len(words) > 1 else f"{game.feed} {code}"
     frame = game.scan_frame + game.read_delay
     peeks = [f"{frame} peek {address} {length}" for address, length in game.peeks]
-    return [*game.menu, f"{game.scan_frame} {feed}", *peeks, f"{frame + 5} exit"]
+    catches = [f"{game.scan_frame - CATCH_LEAD} catch {address}" for address in game.catches]
+    return [*game.menu, *catches, f"{game.scan_frame} {feed}", *peeks, f"{frame + 5} exit"]
 
 
 def run_session(rompath: Path, game: Game, words: list[str]) -> str:
@@ -243,11 +309,22 @@ def record(game: Game, words: list[str], output: str) -> dict[str, object]:
             "read its output for the reason"
         )
         raise RuntimeError(message)
-    accepted = any(peeked[address][offset] != 0 for address, offset in game.accepted)
-    entry: dict[str, object] = {"barcode": words[0], "accepted": accepted}
+    caught = first_catches(game, output)
+    accepted = any(peeked[address][offset] != 0 for address, offset in game.accepted) or any(
+        value not in {None, UNMATCHED} for value in caught.values()
+    )
+    entry: dict[str, object] = {"barcode": words[0], "accepted": accepted, **caught}
     if len(words) > 1:
         entry["swipe_us"] = int(words[1])
     return {**entry, **{name: values.hex(" ") for name, values in peeked.items()}}
+
+
+def first_catches(game: Game, output: str) -> dict[str, str | None]:
+    """The first byte the game wrote to each caught address after the scan, if it wrote one."""
+    written: dict[str, str] = {}
+    for address, value in CATCH.findall(output):
+        written.setdefault(address, value)
+    return {f"catch {address}": written.get(address) for address in game.catches}
 
 
 if __name__ == "__main__":

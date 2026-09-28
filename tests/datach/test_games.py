@@ -193,3 +193,39 @@ def test_only_the_datach_games_use_the_datach_reader() -> None:
     assert not GAMES[Device.BARCODE_WORLD].datach_reader
     assert not GAMES[Device.SENKI].datach_reader
     assert GAMES[Device.DATACH_ULTRAMAN].datach_reader
+
+
+def test_an_effect_card_is_described_by_its_effect_and_where_to_scan_it() -> None:
+    game = GAMES[Device.LUPIN]
+
+    text = game.describe(game.decode("4914177063576"))
+
+    assert text.name == ("No damage", "ノーダメージ")
+    assert text.detail == ("Lupin loses no life to any hit", "ルパンが ダメージを うけない")
+    assert text.power[0] == "Scan it on the title menu's password screen"
+
+
+def test_a_code_that_sets_off_nothing_says_so() -> None:
+    game = GAMES[Device.SPIDERMAN]
+
+    text = game.describe(game.decode("4912345678904"))
+
+    assert text.name == ("No effect", "なにも おきない")
+
+
+@pytest.mark.parametrize(
+    ("typed", "expected"), [("No damage", 0), ("アイテム マックス", 10), ("9", 9)]
+)
+def test_an_effect_is_found_by_its_name_or_number(typed: str, expected: int) -> None:
+    assert GAMES[Device.LUPIN].named(typed) == expected
+
+
+def test_an_unknown_effect_is_refused_under_the_games_name() -> None:
+    with pytest.raises(ValueError, match="unknown Alice no Paint Adventure effect"):
+        GAMES[Device.ALICE].named("Chapter 9")
+
+
+def test_an_effect_game_carries_no_numbers_and_needs_no_datach() -> None:
+    game = GAMES[Device.DONALD]
+
+    assert (game.stat_keys, game.datach_reader) == ((), False)

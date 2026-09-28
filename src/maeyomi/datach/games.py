@@ -36,6 +36,7 @@ from maeyomi.datach.yuyu_names import ITEMS as YUYU_ITEMS
 from maeyomi.datach.yuyu_names import TECHNIQUE_NAMES, bonus_text
 from maeyomi.datach.yuyu_names import card_named as yuyu_named
 from maeyomi.datach.yuyu_tables import SECRET_CHARACTER
+from maeyomi.games.alice import ALICE
 from maeyomi.games.barcode_world import (
     MAGICIAN,
     WARRIOR,
@@ -45,7 +46,17 @@ from maeyomi.games.barcode_world import (
     strongest_barcode_world,
 )
 from maeyomi.games.barcode_world import picks_for as barcode_world_picks
+from maeyomi.games.donald import DONALD
+from maeyomi.games.effects import (
+    EffectGame,
+    build_effect,
+    decode_effect,
+    effect_of,
+    strongest_effect,
+)
+from maeyomi.games.lupin import LUPIN
 from maeyomi.games.senki import SenkiOrder, build_senki, decode_senki, strongest_senki
+from maeyomi.games.spiderman import SPIDERMAN
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.device import Device
 
@@ -63,6 +74,11 @@ NO_TECHNIQUE: Final[Pair] = ("No technique", "わざ なし")
 TEAM_CARD: Final[Pair] = ("Team card", "チーム カード")
 PLAYER_HEADING: Final[Pair] = ("Player", "せんしゅ")
 TEAM_HEADING: Final[Pair] = ("Team", "チーム")
+NO_EFFECT: Final[Pair] = ("No effect", "なにも おきない")
+NOTHING_HAPPENS: Final[Pair] = (
+    "The game reads it and nothing happens",
+    "よみこむが なにも おきない",
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -335,6 +351,41 @@ def _barcode_world_text(card: DatachCard) -> CardText:
     )
 
 
+def _effect_game(game: EffectGame) -> DatachGame:
+    """A game whose barcodes each set off one effect, served like every other game."""
+    return DatachGame(
+        decode=lambda code: decode_effect(code, game),
+        build=lambda order: None if order.ident is None else build_effect(order.ident, game),
+        strongest=lambda: strongest_effect(game),
+        entries=lambda: tuple(
+            GameEntry(effect.ident, GameKind.EFFECT, *effect.name) for effect in game.effects
+        ),
+        describe=lambda card: _effect_text(card, game),
+        named=lambda typed: _effect_named(typed, game),
+        stat_keys=(),
+        datach_reader=False,
+    )
+
+
+def _effect_text(card: DatachCard, game: EffectGame) -> CardText:
+    """What the effect is and does, and where the game reads the code."""
+    effect = effect_of(card.ident, game)
+    if effect is None:
+        return CardText(NO_EFFECT, NOTHING_HAPPENS, EFFECT, game.screen)
+    return CardText(effect.name, effect.detail, EFFECT, game.screen)
+
+
+def _effect_named(typed: str, game: EffectGame) -> int:
+    """An effect typed by name or number, or a ValueError naming the game."""
+    wanted = typed.strip().casefold()
+    for effect in game.effects:
+        english, japanese = effect.name
+        if wanted in {english.casefold(), japanese, str(effect.ident)}:
+            return effect.ident
+    message = f"unknown {game.device.english} effect {typed!r}; kinds lists them"
+    raise ValueError(message)
+
+
 GAMES: Final[dict[Device, DatachGame]] = {
     Device.DATACH_ULTRAMAN: DatachGame(
         decode=decode_ultraman,
@@ -396,6 +447,7 @@ GAMES: Final[dict[Device, DatachGame]] = {
         picks=barcode_world_picks,
         datach_reader=False,
     ),
+    **{game.device: _effect_game(game) for game in (LUPIN, DONALD, SPIDERMAN, ALICE)},
 }
 
 

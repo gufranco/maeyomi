@@ -103,6 +103,17 @@ local function bbscan(code)
   bbii.armed = true
   print("BBSCANNED", code)
 end
+local caught = {}
+local function catch(address)
+  local mem = manager.machine.devices[":maincpu"].spaces["program"]
+  local low = tonumber(address, 16)
+  local function report(offset, data, mask)
+    print(string.format("CATCH %s %02x", address, data & 0xff))
+    return data
+  end
+  caught[#caught + 1] = mem:install_write_tap(low, low, "catch_low_" .. address, report)
+  caught[#caught + 1] = mem:install_write_tap(0x7e0000 | low, 0x7e0000 | low, "catch_wram_" .. address, report)
+end
 local n = 0
 emu.register_frame_done(function()
   n = n + 1
@@ -113,6 +124,7 @@ emu.register_frame_done(function()
       if a == "scan" then scan(x) end
       if a == "swipe" then swipe(x) end
       if a == "bbscan" then bbscan(x) end
+      if a == "catch" then catch(x) end
       if a == "snap" then manager.machine.video:snapshot(); print("SNAP", n, x) end
       if a == "dumpram" then
         local mem = manager.machine.devices[":maincpu"].spaces["program"]

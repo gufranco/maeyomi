@@ -142,3 +142,16 @@ def test_a_barcode_world_sheet_draws_any_code_the_barcode_battler_reads() -> Non
     for card in batch.cards:
         assert isinstance(card.character, DatachCard)
         assert card.character.kind is GameKind.FIGHTER
+
+
+def test_an_effect_game_sheet_draws_only_codes_that_set_something_off() -> None:
+    template = CardRequest(
+        hp=Constraint.anything(), st=Constraint.anything(), df=Constraint.anything()
+    )
+
+    batch = random_for(Device.LUPIN, 4, template=template, seed=5)
+
+    assert len(batch.cards) == 4
+    for card in batch.cards:
+        assert isinstance(card.character, DatachCard)
+        assert card.character.kind is GameKind.EFFECT

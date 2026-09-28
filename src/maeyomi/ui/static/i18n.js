@@ -129,6 +129,10 @@ const MESSAGES = {
     'device.summary.jleague': 'Bandai, 1994. The players and teams of the 1993 J.League.',
     'device.summary.barcodeworld': 'Sunsoft, 1992. Fighters read through a Barcode Battler 2.',
     'device.summary.senki': 'Epoch, 1993. A Super Famicom game read through a Barcode Battler 2.',
+    'device.summary.lupin': 'Epoch, 1994. Codes on the password screen set off cheats and story routes.',
+    'device.summary.donald': 'Epoch, 1995. Codes on the password screen open stages and endings.',
+    'device.summary.spiderman': 'Epoch, 1995. Codes on the password screen set off cheats.',
+    'device.summary.alice': 'Epoch, 1995. Codes on the password screen start the story later on.',
     'device.games': 'Games',
     'device.hint':
       'Every tab, and the cheat code, makes cards for this choice and reads barcodes its way. ' +
@@ -221,6 +225,9 @@ const MESSAGES = {
       'ones. Nobody has published their barcodes, so there is no set to print. Any card made ' +
       'here is read by the game the way it was checked in the MAME emulator.',
     'official.source.senki': 'What came in the Senki box:',
+    'official.note.effects':
+      'This game came with no cards. Every barcode is scanned on its password screen, and ' +
+      'each code made here was seen setting off its effect in the MAME emulator.',
     'official.skipped': 'Cards left out',
     'official.skipped.hint':
       'The wikiwiki.jp page has a typo in these five. The last digit of a barcode is a ' +
@@ -402,6 +409,10 @@ const MESSAGES = {
     'device.summary.jleague': 'バンダイ、1994ねん。1993ねんの Jリーグの せんしゅと チーム。',
     'device.summary.barcodeworld': 'サンソフト、1992ねん。バーコードバトラー2 で よむ キャラクター。',
     'device.summary.senki': 'エポックしゃ、1993ねん。バーコードバトラー2 で よむ スーパーファミコンの ゲーム。',
+    'device.summary.lupin': 'エポックしゃ、1994ねん。パスワード がめんの コードで うらわざと ルート。',
+    'device.summary.donald': 'エポックしゃ、1995ねん。パスワード がめんの コードで ステージと エンディング。',
+    'device.summary.spiderman': 'エポックしゃ、1995ねん。パスワード がめんの コードで うらわざ。',
+    'device.summary.alice': 'エポックしゃ、1995ねん。パスワード がめんの コードで おはなしの とちゅうから。',
     'device.games': 'ゲーム',
     'device.hint':
       'どの タブも かくしコマンドも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +
@@ -493,6 +504,9 @@ const MESSAGES = {
       'まっしろな カード 2まいです。その バーコードは だれも こうかいしていないので、いんさつできる ' +
       'シリーズは ありません。ここで つくる カードは、MAME で たしかめた とおりに ゲームが よみます。',
     'official.source.senki': 'バーコードバトラー戦記 の はこの なかみ:',
+    'official.note.effects':
+      'この ゲームには カードが ついていません。バーコードは パスワード がめんで よませます。' +
+      'ここで つくる コードは、MAME で こうかが でることを たしかめました。',
     'official.skipped': 'のぞいた カード',
     'official.skipped.hint':
       'wikiwiki.jp の ページで この 5まいは うちまちがいが あります。バーコードの さいごの けたは ' +

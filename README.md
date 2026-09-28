@@ -137,6 +137,19 @@ hidden shop of the scenario mode, reads cards with other offsets and is not
 modelled. MAME 0.289 sends each digit to the Super Famicom one bit out of
 place, so the checks feed the game through an interface written for them.
 
+Four more Epoch games for the Super Famicom read a code on their password
+screen through the same interface, and each code sets off one effect from a
+fixed list rather than making a fighter: Lupin III: Densetsu no Hihou o Oe!
+with `--device lupin`, Donald Duck no Mahou no Boushi with `--device donald`,
+Spider-Man: Lethal Foes with `--device spiderman` and Alice no Paint Adventure
+with `--device alice`. The effects are cheats such as no damage, endless lives
+or full items, jumps to a stage, a chapter or an ending, and sound tests.
+`maeyomi kinds --device lupin` lists a game's effects, and `--character` picks
+one by name or number. Each rule was read from the game's program and agrees
+with the game in MAME on every code tried: 250 for Lupin III, 247 for Donald
+Duck, 221 for Spider-Man and 253 for Alice. A code that matches no rule is read
+and does nothing.
+
 ## Install
 
 ```bash
@@ -179,7 +192,8 @@ the numbers you asked for, and shows the barcode it worked out.
 **Machine or game**, under the title, picks what the cards are for: the
 Barcode Battler II, the first Barcode Battler, the Double, Datach Dragon Ball
 Z, Datach Ultraman Club, Datach SD Gundam Wars, Datach Yu Yu Hakusho,
-Datach J.League, Barcode World or Barcode Battler Senki. Every tab follows it: the card maker shows only the fields that device reads
+Datach J.League, Barcode World, Barcode Battler Senki, Lupin III, Donald Duck,
+Spider-Man or Alice no Paint Adventure. Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -523,7 +537,8 @@ Barcode Battler Senki came with 10 cards: 5 characters, 3 items and 2 blank
 white ones, per
 [its Japanese Wikipedia article](https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E3%83%90%E3%83%88%E3%83%A9%E3%83%BC%E6%88%A6%E8%A8%98_%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E6%88%A6%E5%A3%AB%E5%87%BA%E6%92%83%E3%81%9B%E3%82%88!).
 Nobody has published their barcodes, so `maeyomi official --device senki` says
-so rather than printing an empty sheet.
+so rather than printing an empty sheet. Lupin III, Donald Duck, Spider-Man and
+Alice no Paint Adventure came with no cards at all.
 
 ## The cheat code
 
@@ -593,6 +608,13 @@ for one exact stream of bits, which no card Bandai printed carries.
 HP 49900, ST 19900, DF 19900, 10 magic and 5 herbs, every number at the most
 the game reads. `maeyomi cheat --device senki -o cheat.pdf` is the same
 magician for Barcode Battler Senki.
+
+The four password-screen games get their most useful effect: no damage in
+Lupin III, the sky stage with every power and 12 hearts in Donald Duck, endless
+lives in Spider-Man, and the last scene of the story with every late flag set
+in Alice no Paint Adventure. Spider-Man keeps three of its effects in separate
+places, so endless lives, double health and half boss health can be scanned
+one after another and all three stay.
 
 ## Two languages and pictures
 
