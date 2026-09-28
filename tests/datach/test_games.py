@@ -137,3 +137,36 @@ def test_a_j_league_team_card_is_described_by_its_club() -> None:
 
 def test_a_j_league_game_has_no_strongest_card() -> None:
     assert GAMES[Device.DATACH_JLEAGUE].strongest is None
+
+
+def test_a_barcode_world_item_is_described_by_its_kind_and_number() -> None:
+    game = GAMES[Device.BARCODE_WORLD]
+
+    text = game.describe(game.decode("0021909500408"))
+
+    assert text.name == ("Weapon, one use", "ぶき (1かい)")
+    assert text.power[0] == "No. 2 in the game's list"
+
+
+def test_a_barcode_world_fighter_is_described_by_class_job_and_ability() -> None:
+    game = GAMES[Device.BARCODE_WORLD]
+
+    text = game.describe(game.decode("0315424322677"))
+
+    assert text.name == ("Warrior", "せんし")
+    assert text.detail == ("Job 2, speed 2", "しょくぎょう 2・すばやさ 2")
+
+
+@pytest.mark.parametrize(("typed", "expected"), [("Magician", 1), ("せんし", 0), ("1", 1)])
+def test_a_barcode_world_class_is_found_by_name_or_number(typed: str, expected: int) -> None:
+    assert GAMES[Device.BARCODE_WORLD].named(typed) == expected
+
+
+def test_an_unknown_barcode_world_class_is_refused() -> None:
+    with pytest.raises(ValueError, match="unknown Barcode World fighter"):
+        GAMES[Device.BARCODE_WORLD].named("Ninja")
+
+
+def test_only_the_datach_games_use_the_datach_reader() -> None:
+    assert not GAMES[Device.BARCODE_WORLD].datach_reader
+    assert GAMES[Device.DATACH_ULTRAMAN].datach_reader

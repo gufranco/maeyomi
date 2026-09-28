@@ -145,3 +145,21 @@ def test_the_j_league_fixture_was_recorded_with_the_rom_the_manifest_names() -> 
     )
 
     assert entry["sha1"] == fixture["rom"]["sha1"]
+
+
+def test_barcode_world_runs_as_a_famicom_with_the_barcode_battler_attached() -> None:
+    tool = load()
+
+    command = tool.mame_command(ROOT, tool.GAMES["barcodeworld"])
+
+    assert command[1:6] == ["famicom", "-exp", "barcode_battler", "-cart", "barcodew"]
+
+
+def test_the_barcode_world_fixture_was_recorded_with_the_rom_the_manifest_names() -> None:
+    manifest = json.loads((ROOT / "artifacts.manifest.json").read_text())
+    entry = next(item for item in manifest["artifacts"] if item["id"] == "barcode_world_prg")
+    fixture = json.loads(
+        (ROOT / "tests" / "fixtures" / "oracle" / "barcode_world.json").read_text()
+    )
+
+    assert entry["sha1"] == fixture["rom"]["sha1"]

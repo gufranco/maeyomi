@@ -28,7 +28,8 @@ def test_no_device_name_uses_a_roman_numeral() -> None:
 def test_every_datach_cartridge_is_a_game_and_every_battler_a_machine() -> None:
     games = [device for device in Device if device.is_game]
 
-    assert games == [device for device in Device if device.english.startswith("Datach")]
+    named = [device for device in Device if device.english.startswith(("Datach", "Barcode World"))]
+    assert games == named
     assert Device.DATACH_ULTRAMAN in games
     assert Device.BB2 not in games
 

@@ -113,6 +113,18 @@ barcode reading in its program at all, and Battle Rush: Build Up Robot
 Tournament needs a save chip MAME does not fully emulate and has no known card
 list, so it is not supported yet.
 
+Sunsoft's Barcode World, a Famicom game of 1992, takes its cards through a
+Barcode Battler II connected to the Famicom, so it reads every barcode.
+`--device barcodeworld` makes cards for it. The game reads the digits much as
+the Barcode Battler II does, in hundreds: HP up to 49900, ST and DF up to 19900,
+where anything above 19900 health needs a 9 in the hundreds and speed 5, and
+magic and herbs come from the job. Pick a warrior or a magician with
+`--character`, the numbers with `--hp`, `--st` and `--df`, and the job, speed
+and ability with `--pick job=3`, `--pick speed=8` and `--pick ability=45`. The
+rule agrees with the game in MAME on 211 codes, its 24 released cards among
+them, and on every card built here that was tried. Barcode Battler Senki, the
+Super Famicom game, is not supported: its program has not been read yet.
+
 ## Install
 
 ```bash
@@ -154,8 +166,8 @@ the numbers you asked for, and shows the barcode it worked out.
 
 **Machine or game**, under the title, picks what the cards are for: the
 Barcode Battler II, the first Barcode Battler, the Double, Datach Dragon Ball
-Z, Datach Ultraman Club, Datach SD Gundam Wars, Datach Yu Yu Hakusho or
-Datach J.League. Every tab follows it: the card maker shows only the fields that device reads
+Z, Datach Ultraman Club, Datach SD Gundam Wars, Datach Yu Yu Hakusho,
+Datach J.League or Barcode World. Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -488,6 +500,13 @@ spreadsheet [archive.org](https://archive.org/details/j-league-super-top-players
 keeps beside its scans of a complete set, are named as the game's own player
 directory names them, and each was read by the game in MAME.
 
+Barcode World came with 24 cards and a blank white one. Their barcodes were
+read off the card scans
+[barcodebattler.co.uk publishes](https://www.barcodebattler.co.uk/scans/Japan/BarcodeWorld/),
+named as the cards print them, and each was read by the game in MAME. Its
+weapons, protectors and items are scanned during a battle rather than at the
+character screen, so they print as what they are without numbers.
+
 ## The cheat code
 
 `maeyomi cheat -o cheat.pdf`, or press the row of arrows at the foot of
@@ -551,6 +570,10 @@ suit with the most HP, AP and DP together, with every bonus at its top: HP
 `maeyomi cheat --device yuyu -o cheat.pdf` is the fighter the game hides, SP
 Toguro, with 9999 HP, 9999 SP and all four of his techniques. The game gives it
 for one exact stream of bits, which no card Bandai printed carries.
+
+`maeyomi cheat --device barcodeworld -o cheat.pdf` is a magician of job 9 with
+HP 49900, ST 19900, DF 19900, 10 magic and 5 herbs, every number at the most
+the game reads.
 
 ## Two languages and pictures
 

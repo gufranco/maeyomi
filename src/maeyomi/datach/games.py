@@ -36,6 +36,15 @@ from maeyomi.datach.yuyu_names import ITEMS as YUYU_ITEMS
 from maeyomi.datach.yuyu_names import TECHNIQUE_NAMES, bonus_text
 from maeyomi.datach.yuyu_names import card_named as yuyu_named
 from maeyomi.datach.yuyu_tables import SECRET_CHARACTER
+from maeyomi.games.barcode_world import (
+    MAGICIAN,
+    WARRIOR,
+    BarcodeWorldOrder,
+    build_barcode_world,
+    decode_barcode_world,
+    strongest_barcode_world,
+)
+from maeyomi.games.barcode_world import picks_for as barcode_world_picks
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.device import Device
 
@@ -96,6 +105,7 @@ class DatachGame:
     named: Callable[[str], int]
     stat_keys: tuple[str, ...]
     picks: Callable[[int], tuple[GamePick, ...]] = lambda _: ()
+    datach_reader: bool = True
 
 
 def _ultraman_order(order: GameOrder) -> DatachCard | None:
@@ -241,6 +251,61 @@ def _jleague_text(card: DatachCard) -> CardText:
     )
 
 
+CLASSES: Final[dict[int, Pair]] = {
+    WARRIOR: ("Warrior", "せんし"),
+    MAGICIAN: ("Magician", "まほうつかい"),
+}
+ITEM_KINDS: Final[dict[int, Pair]] = {
+    5: ("Weapon, one use", "ぶき (1かい)"),
+    6: ("Weapon", "ぶき"),
+    7: ("Protector, one use", "ぼうぐ (1かい)"),
+    8: ("Protector", "ぼうぐ"),
+    9: ("Helper item", "おたすけ アイテム"),
+}
+ABILITY_HEADING: Final[Pair] = ("Ability", "とくしゅ のうりょく")
+CARD_HEADING: Final[Pair] = ("Card", "カード")
+FIRST_MAGICIAN: Final = 7
+
+
+def _barcode_world_order(order: GameOrder) -> DatachCard | None:
+    """Build a Barcode World fighter: its numbers are HP, ST and DF."""
+    return build_barcode_world(BarcodeWorldOrder(order.ident, order.stats, order.picks))
+
+
+def _barcode_world_entries() -> tuple[GameEntry, ...]:
+    """The two kinds of fighter a Barcode World card can be built as."""
+    return tuple(GameEntry(ident, GameKind.FIGHTER, *names) for ident, names in CLASSES.items())
+
+
+def _barcode_world_named(typed: str) -> int:
+    """A class typed by name or number, or a ValueError naming the two there are."""
+    wanted = typed.strip().casefold()
+    for ident, (english, japanese) in CLASSES.items():
+        if wanted in {english.casefold(), japanese, str(ident)}:
+            return ident
+    message = f"unknown Barcode World fighter {typed!r}; choose warrior or magician"
+    raise ValueError(message)
+
+
+def _barcode_world_text(card: DatachCard) -> CardText:
+    """A fighter's class, job, speed and ability number, or an item's kind and number."""
+    job, speed, ability, number = card.traits
+    if card.kind is GameKind.ITEM:
+        return CardText(
+            ITEM_KINDS[card.ident],
+            ITEM,
+            CARD_HEADING,
+            (f"No. {number} in the game's list", f"ゲームの いちらんの {number}ばん"),
+        )
+    kind = CLASSES[MAGICIAN if job >= FIRST_MAGICIAN else WARRIOR]
+    return CardText(
+        kind,
+        (f"Job {job}, speed {speed}", f"しょくぎょう {job}・すばやさ {speed}"),
+        ABILITY_HEADING,
+        (f"No. {ability}", f"{ability}ばん"),
+    )
+
+
 GAMES: Final[dict[Device, DatachGame]] = {
     Device.DATACH_ULTRAMAN: DatachGame(
         decode=decode_ultraman,
@@ -279,6 +344,17 @@ GAMES: Final[dict[Device, DatachGame]] = {
         describe=_jleague_text,
         named=jleague_named,
         stat_keys=(),
+    ),
+    Device.BARCODE_WORLD: DatachGame(
+        decode=decode_barcode_world,
+        build=_barcode_world_order,
+        strongest=strongest_barcode_world,
+        entries=_barcode_world_entries,
+        describe=_barcode_world_text,
+        named=_barcode_world_named,
+        stat_keys=("WHP", "WST", "WDF"),
+        picks=barcode_world_picks,
+        datach_reader=False,
     ),
 }
 

@@ -26,6 +26,7 @@ from maeyomi.datach.sdgundam_tables import AP_BONUS, BASES, DP_BONUS, HP_BONUS
 from maeyomi.datach.ultraman import HUNDRED, STRONGEST_HUNDREDS
 from maeyomi.decoder.back_read import fighter_limits
 from maeyomi.double.solve import MAX_VALUE as DOUBLE_MAX
+from maeyomi.games.barcode_world import TOP_HP, TOP_STAT
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import CardResult
 from maeyomi.rendering.face import face_of
@@ -55,6 +56,8 @@ ULTRAMAN_RANGES: Final[tuple[Range, Range, Range]] = (
 )
 GUNDAM_STEP: Final = 10
 YUYU_MAX: Final = 9999
+WORLD_MAX_HP: Final = TOP_HP * HUNDRED
+WORLD_MAX_STAT: Final = TOP_STAT * HUNDRED
 
 
 def _gundam_range(index: int, bonus: tuple[int, ...]) -> Range:
@@ -127,6 +130,14 @@ FORMS: Final[dict[Device, DeviceForm]] = {
         stat_keys=("stat.yhp", "stat.ysp", "stat.ysp"),
         sheet_fields=(),
         ranges=((0, YUYU_MAX), (0, YUYU_MAX), (0, YUYU_MAX)),
+    ),
+    Device.BARCODE_WORLD: DeviceForm(
+        ("game", "picks", "stats"),
+        WORLD_MAX_HP,
+        WORLD_MAX_STAT,
+        WORLD_MAX_STAT,
+        stat_keys=("stat.whp", "stat.wst", "stat.wdf"),
+        ranges=((1000, 19900), (100, 9900), (100, 9900)),
     ),
     Device.DATACH_JLEAGUE: DeviceForm(
         ("game",),

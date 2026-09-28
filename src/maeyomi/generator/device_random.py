@@ -115,8 +115,9 @@ def _random_code(rng: random.Random) -> str:
 
 def _reads_everywhere(device: Device, code: str) -> bool:
     """Whether the device reads the code at any swipe speed."""
-    if game_for(device) is not None:
-        return printable(code)
+    game = game_for(device)
+    if game is not None:
+        return printable(code) or not game.datach_reader
     return device is not Device.DATACH_DBZ or readability(code) is Readability.READS
 
 
@@ -127,6 +128,7 @@ def _admits(template: CardRequest, card: CardResult) -> bool:
     return all(
         getattr(template, FIELD_OF_TILE[tile.key]).admits(tile.value)
         for tile in face_of(card).tiles
+        if tile.key in FIELD_OF_TILE
     )
 
 

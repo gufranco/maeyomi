@@ -127,6 +127,7 @@ const MESSAGES = {
     'device.summary.sdgundam': 'Bandai, 1993. Mobile suits with weapons, and command cards.',
     'device.summary.yuyu': 'Bandai, 1993. Fighters with their techniques, and items.',
     'device.summary.jleague': 'Bandai, 1994. The players and teams of the 1993 J.League.',
+    'device.summary.barcodeworld': 'Sunsoft, 1992. Fighters read through a Barcode Battler 2.',
     'device.games': 'Games',
     'device.hint':
       'Every tab, and the cheat code, makes cards for this choice and reads barcodes its way. ' +
@@ -157,6 +158,9 @@ const MESSAGES = {
     'game.kind.hidden': 'Hidden',
     'game.kind.team': 'Teams',
     'game.kind.player': 'Players',
+    'stat.whp': 'Health',
+    'stat.wst': 'Attack',
+    'stat.wdf': 'Defence',
     'game.kind.unit': 'Mobile suits',
     'game.kind.command': 'Command cards',
     'game.pick.any': 'Any',
@@ -205,6 +209,12 @@ const MESSAGES = {
       'keeps beside its scans of a complete set, and each was read by the game itself in the ' +
       'MAME emulator. A card names a real player and carries no numbers of its own.',
     'official.source.jleague': 'J.League cards:',
+    'official.note.barcodeworld':
+      'Barcode World came with 24 cards and a blank white one. Their barcodes were read off ' +
+      'the card scans barcodebattler.co.uk publishes, and each was read by the game itself in ' +
+      'the MAME emulator. Weapons, protectors and items are scanned during a battle, not at ' +
+      'the character screen.',
+    'official.source.barcodeworld': 'Barcode World cards:',
     'official.skipped': 'Cards left out',
     'official.skipped.hint':
       'The wikiwiki.jp page has a typo in these five. The last digit of a barcode is a ' +
@@ -384,6 +394,7 @@ const MESSAGES = {
     'device.summary.sdgundam': 'バンダイ、1993ねん。ぶきを もつ モビルスーツと コマンドカード。',
     'device.summary.yuyu': 'バンダイ、1993ねん。わざを もつ キャラクターと アイテム。',
     'device.summary.jleague': 'バンダイ、1994ねん。1993ねんの Jリーグの せんしゅと チーム。',
+    'device.summary.barcodeworld': 'サンソフト、1992ねん。バーコードバトラー2 で よむ キャラクター。',
     'device.games': 'ゲーム',
     'device.hint':
       'どの タブも かくしコマンドも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +
@@ -414,6 +425,9 @@ const MESSAGES = {
     'game.kind.hidden': 'かくし',
     'game.kind.team': 'チーム',
     'game.kind.player': 'せんしゅ',
+    'stat.whp': 'たいりょく',
+    'stat.wst': 'こうげきりょく',
+    'stat.wdf': 'しゅびりょく',
     'game.kind.unit': 'モビルスーツ',
     'game.kind.command': 'コマンドカード',
     'game.pick.any': 'どれでも',
@@ -461,6 +475,12 @@ const MESSAGES = {
       'そえられた ひょうから とり、1こずつ MAME で ゲームに よませて たしかめました。' +
       'カードは ほんものの せんしゅを えらぶだけで、じぶんの すうじは もちません。',
     'official.source.jleague': 'Jリーグ の カード:',
+    'official.note.barcodeworld':
+      'バーコードワールド には 24まいの カードと まっしろな カードが 1まい ついていました。' +
+      'バーコードは barcodebattler.co.uk が こうかいしている カードの スキャンから よみとり、' +
+      '1まいずつ MAME で ゲームに よませて たしかめました。ぶき・ぼうぐ・アイテムは ' +
+      'キャラクターの がめんでは なく、たたかいの とちゅうで とおします。',
+    'official.source.barcodeworld': 'バーコードワールド の カード:',
     'official.skipped': 'のぞいた カード',
     'official.skipped.hint':
       'wikiwiki.jp の ページで この 5まいは うちまちがいが あります。バーコードの さいごの けたは ' +

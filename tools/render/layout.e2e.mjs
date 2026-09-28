@@ -154,6 +154,17 @@ function checkDeviceSwitch() {
   })`);
   expect(!league.sliders, 'J.League shows number sliders its cards do not carry');
   expect(league.cards === 160, `the J.League picker lists ${league.cards} cards`);
+  pickDevice('barcodeworld');
+  browser('wait', '600');
+  evaluate(`(() => { const select = document.getElementById('game-character');
+    select.value = '1'; select.dispatchEvent(new Event('change')); return JSON.stringify(true); })()`);
+  browser('wait', '600');
+  const world = evaluate(`JSON.stringify({
+    hpMax: document.getElementById('hp').max,
+    jobs: [...document.querySelectorAll('#pick-job option')].map((option) => option.value).join(),
+  })`);
+  expect(world.hpMax === '49900', `the Barcode World health slider stops at ${world.hpMax}`);
+  expect(world.jobs === ',7,8,9', `a Barcode World magician offers jobs ${world.jobs}`);
   pickDevice('bb2');
 }
 
@@ -200,6 +211,10 @@ function checkRealCards() {
   expect(league.single.includes('160'), `J.League names its set as ${league.single}`);
   expect(league.links.length === 1 && league.links[0].includes('j-league'),
     `J.League's real cards link ${league.links}`);
+  const world = realCards('barcodeworld');
+  expect(world.single.includes('24'), `Barcode World names its set as ${world.single}`);
+  expect(world.links.length === 1 && world.links[0].includes('BarcodeWorld'),
+    `Barcode World's real cards link ${world.links}`);
   pickDevice('bb2');
 }
 

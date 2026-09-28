@@ -384,3 +384,19 @@ def test_the_j_league_cheat_is_refused_with_its_reason(client: TestClient) -> No
 
     assert response.status_code == 422
     assert "carry no numbers" in response.json()["detail"]
+
+
+def test_a_barcode_world_magician_offers_only_magician_jobs(client: TestClient) -> None:
+    body = client.get("/api/game-picks/barcodeworld/1").json()
+
+    assert [option["value"] for option in body[0]["options"]] == [7, 8, 9]
+    assert [pick["key"] for pick in body] == ["job", "speed", "ability"]
+
+
+def test_a_barcode_world_card_is_built_with_its_numbers(client: TestClient) -> None:
+    payload = {"device": "barcodeworld", "character": "0", "hp": "5000", "st": "1200", "df": "3400"}
+
+    body = client.post("/api/device-card", json=payload).json()
+
+    facts = {fact["label"]: fact["value"] for fact in body["facts"]}
+    assert (facts["HP"], facts["ST"], facts["DF"], facts["PP"]) == ("5000", "1200", "3400", "5")

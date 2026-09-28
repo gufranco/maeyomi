@@ -11,7 +11,7 @@ local LE = {{1,0,1,1,0,0,0},{1,0,0,1,1,0,0},{1,1,0,0,1,0,0},{1,0,1,1,1,1,0},{1,1
 local RE = {{0,0,0,1,1,0,1},{0,0,1,1,0,0,1},{0,0,1,0,0,1,1},{0,1,1,1,1,0,1},{0,1,0,0,0,1,1},{0,1,1,0,0,0,1},{0,1,0,1,1,1,1},{0,1,1,1,0,1,1},{0,1,1,0,1,1,1},{0,0,0,1,0,1,1}}
 local PAR = {{1,1,1,1,1,1},{1,1,0,1,0,0},{1,1,0,0,1,0},{1,1,0,0,0,1},{1,0,1,1,0,0},{1,0,0,1,1,0},{1,0,0,0,1,1},{1,0,1,0,1,0},{1,0,1,0,0,1},{1,0,0,1,0,1}}
 local function reader_items()
-  local dev = manager.machine.devices[":nes_slot:datach:datach"]
+  local dev = manager.machine.devices[os.getenv("READER") or ":nes_slot:datach:datach"]
   local items = dev.items
   return function(name) return emu.item(items[name]) end
 end

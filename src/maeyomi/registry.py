@@ -90,7 +90,9 @@ def speed_note(device: Device, barcode: str) -> Bilingual | None:
     """A caution when the device reads the code only at some swipe speeds."""
     if device is Device.DATACH_DBZ and readability(barcode) is Readability.SPEED_DEPENDENT:
         return SPEED_DEPENDENT
-    if game_for(device) is not None and game_readability(barcode) is Readability.SPEED_DEPENDENT:
+    game = game_for(device)
+    datach = game is not None and game.datach_reader
+    if datach and game_readability(barcode) is Readability.SPEED_DEPENDENT:
         return SPEED_DEPENDENT
     return None
 

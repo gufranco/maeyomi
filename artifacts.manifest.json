@@ -49,6 +49,16 @@
       "sha1": "b2089533e05fe95814d0d77f2729944cbeb95988",
       "crc32": "be06853f",
       "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "barcode_world_prg",
+      "what": "Program ROM of Barcode World, Sunsoft 1992, as MAME's nes software list names it",
+      "path": "nes/barcodew/bbw prg",
+      "size": 131072,
+      "sha256": "9111e7878a2e625b661096ce6e18066d01fcac85c7efc867e06a2a9e1e87ca30",
+      "sha1": "92f055653d33b8e31ec91b458357e75ad2336c33",
+      "crc32": "67898319",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
     }
   ]
 }

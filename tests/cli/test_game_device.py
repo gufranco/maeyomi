@@ -10,6 +10,7 @@ from maeyomi.datach.jleague import decode_jleague
 from maeyomi.datach.sdgundam import decode_sdgundam
 from maeyomi.datach.ultraman import decode_ultraman
 from maeyomi.datach.yuyu import decode_yuyu
+from maeyomi.games.barcode_world import decode_barcode_world
 
 runner = CliRunner()
 
@@ -287,3 +288,39 @@ def test_cheat_says_a_j_league_card_has_nothing_to_raise(tmp_path: Path) -> None
 
     assert result.exit_code == 1
     assert "carry no numbers" in result.output
+
+
+def test_decode_reads_a_barcode_world_magician_with_its_numbers() -> None:
+    result = runner.invoke(app, ["decode", "4994699095453", "--device", "barcodeworld"])
+
+    assert result.exit_code == 0
+    assert "Name      Magician / まほうつかい" in result.output
+    assert "HP        49900" in result.output
+    assert "DF        9900" in result.output
+    assert "MP        10" in result.output
+    assert "Reads only" not in result.output
+
+
+def test_generate_builds_a_barcode_world_warrior_with_the_job_picked(tmp_path: Path) -> None:
+    output = tmp_path / "warrior.pdf"
+
+    result = runner.invoke(
+        app,
+        [
+            "generate",
+            "--device",
+            "barcodeworld",
+            "--character",
+            "warrior",
+            "--hp",
+            "12300",
+            "--pick",
+            "job=3",
+            "-o",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 0
+    card = decode_barcode_world(decode_pdf(output)[0])
+    assert (card.value("WHP"), card.traits[0]) == (12300, 3)

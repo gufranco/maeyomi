@@ -42,6 +42,9 @@ class Game:
     read_delay: int
     peeks: tuple[tuple[str, int], ...]
     accepted: tuple[tuple[str, int], ...]
+    system: str = "nes"
+    media: tuple[str, ...] = ()
+    reader: str = ":nes_slot:datach:datach"
 
 
 GAMES = {
@@ -88,6 +91,18 @@ GAMES = {
         read_delay=500,
         peeks=(("02c2", 3),),
         accepted=(("02c2", 0), ("02c2", 1)),
+    ),
+    "barcodeworld": Game(
+        software="barcodew",
+        artifact="barcode_world_prg",
+        menu=("700 press Start", "1101 press A"),
+        scan_frame=1400,
+        read_delay=600,
+        peeks=(("6525", 11), ("650b", 13)),
+        accepted=(("650b", 0),),
+        system="famicom",
+        media=("-exp", "barcode_battler", "-cart", "barcodew"),
+        reader=":exp:barcode_battler:battler",
     ),
 }
 """An unread code leaves 0 in both bytes, which is also Yusuke with no technique: the
@@ -147,7 +162,7 @@ def run_session(rompath: Path, game: Game, words: list[str]) -> str:
         completed = subprocess.run(
             mame_command(rompath, game),
             cwd=scratch,
-            env={**os.environ, **HEADLESS, "ORACLE_PLAN": str(plan)},
+            env={**os.environ, **HEADLESS, "ORACLE_PLAN": str(plan), "READER": game.reader},
             capture_output=True,
             text=True,
             timeout=TIMEOUT_SECONDS,
@@ -157,13 +172,11 @@ def run_session(rompath: Path, game: Game, words: list[str]) -> str:
 
 
 def mame_command(rompath: Path, game: Game) -> list[str]:
+    media = game.media or ("-cart", "datach", "-cart2", game.software)
     return [
         "mame",
-        "nes",
-        "-cart",
-        "datach",
-        "-cart2",
-        game.software,
+        game.system,
+        *media,
         "-hashpath",
         HASH_PATH,
         "-rompath",

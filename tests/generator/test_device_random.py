@@ -129,3 +129,16 @@ def test_an_ultraman_club_sheet_refuses_a_race() -> None:
 
     assert batch.reason == "Datach Ultraman Club does not read race"
     assert batch.cards == ()
+
+
+def test_a_barcode_world_sheet_draws_any_code_the_barcode_battler_reads() -> None:
+    template = CardRequest(
+        hp=Constraint.anything(), st=Constraint.anything(), df=Constraint.anything()
+    )
+
+    batch = random_for(Device.BARCODE_WORLD, 5, template=template, seed=4)
+
+    assert len(batch.cards) == 5
+    for card in batch.cards:
+        assert isinstance(card.character, DatachCard)
+        assert card.character.kind is GameKind.FIGHTER

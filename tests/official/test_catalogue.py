@@ -14,6 +14,7 @@ from maeyomi.datach.ultraman import decode_ultraman
 from maeyomi.datach.yuyu import decode_yuyu
 from maeyomi.decoder.decode import decode
 from maeyomi.double.decode import decode_double
+from maeyomi.games.barcode_world import decode_barcode_world
 from maeyomi.models.device import Device
 from maeyomi.official.catalogue import (
     OfficialSet,
@@ -29,6 +30,7 @@ ULTRAMAN_CARDS = 38
 SD_GUNDAM_CARDS = 76
 YUYU_CARDS = 37
 JLEAGUE_CARDS = 160
+BARCODE_WORLD_CARDS = 24
 ADDED_CARDS = 346
 SCANNED_CARDS = 71
 TRANSCRIBED = (
@@ -40,6 +42,7 @@ TRANSCRIBED = (
     + SD_GUNDAM_CARDS
     + YUYU_CARDS
     + JLEAGUE_CARDS
+    + BARCODE_WORLD_CARDS
 )
 SHARED_BETWEEN_SETS = {"0000500970445"}
 WIKI = "https://wikiwiki.jp/barcode/"
@@ -82,6 +85,7 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.DATACH_SD_GUNDAM: RETROSTUFF,
         OfficialSet.DATACH_YUYU: "https://archive.org/details/",
         OfficialSet.DATACH_JLEAGUE: "https://archive.org/details/",
+        OfficialSet.BARCODE_WORLD: UK_SCANS,
     }
     for card in official_catalogue():
         assert card.source_url.startswith(sources.get(card.official_set, WIKI))
@@ -117,6 +121,7 @@ def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
             Device.DATACH_SD_GUNDAM: decode_sdgundam,
             Device.DATACH_YUYU: decode_yuyu,
             Device.DATACH_JLEAGUE: decode_jleague,
+            Device.BARCODE_WORLD: decode_barcode_world,
         }
         for card in official_cards(official_set):
             assert readers[official_set.device](card.barcode) == card.character
@@ -240,3 +245,10 @@ def test_the_j_league_set_is_all_four_barcodes_of_every_card() -> None:
 
     assert len(cards) == JLEAGUE_CARDS
     assert {card.name for card in cards} >= {"ジーコ", "鹿島アントラーズ"}
+
+
+def test_the_barcode_world_set_is_every_card_with_a_barcode() -> None:
+    cards = official_cards(OfficialSet.BARCODE_WORLD)
+
+    assert len(cards) == BARCODE_WORLD_CARDS
+    assert {card.name for card in cards} >= {"キャリー", "ニトロガン"}
