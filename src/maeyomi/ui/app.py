@@ -13,6 +13,7 @@ stays independently readable and testable.
 """
 
 import base64
+import shutil
 import tempfile
 from collections.abc import Sequence
 from functools import cache
@@ -20,7 +21,7 @@ from importlib import resources
 from pathlib import Path
 from typing import Final
 
-from fastapi import FastAPI, HTTPException
+from fastapi import BackgroundTasks, FastAPI, HTTPException
 from fastapi.responses import FileResponse, HTMLResponse, Response
 
 from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_race
@@ -487,8 +488,10 @@ def _official_set(spec: OfficialSpec) -> OfficialSet | None:
 def _sheet_response(
     cards: Sequence[AnyCard], filename: str, language: CardLanguage
 ) -> FileResponse:
-    """Render the cards to a temporary PDF in one language and serve it as a download."""
+    """Render the cards to a temporary PDF in one language, serve it, then delete it."""
     directory = Path(tempfile.mkdtemp(prefix="maeyomi-"))
     path = directory / filename
     write_sheet(cards, path, style=CardStyle(language=language))
-    return FileResponse(path, media_type="application/pdf", filename=filename)
+    removal = BackgroundTasks()
+    removal.add_task(shutil.rmtree, directory)
+    return FileResponse(path, media_type="application/pdf", filename=filename, background=removal)

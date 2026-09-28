@@ -1,6 +1,8 @@
 """Tests for the local web interface."""
 
 import io
+import tempfile
+from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
@@ -88,6 +90,17 @@ def test_a_random_sheet_can_be_downloaded(client: TestClient, tmp_path: object) 
 
     assert response.status_code == 200
     assert len(sheet_codes(response.content, tmp_path)) == 4
+
+
+def test_a_downloaded_sheet_leaves_no_file_behind(
+    client: TestClient, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(tempfile, "tempdir", str(tmp_path))
+
+    response = client.post("/api/random", json={"count": 2, "seed": 5})
+
+    assert response.status_code == 200
+    assert list(tmp_path.iterdir()) == []
 
 
 def test_a_random_sheet_that_cannot_be_filled_reports_the_shortfall(client: TestClient) -> None:
