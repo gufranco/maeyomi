@@ -400,3 +400,18 @@ def test_a_barcode_world_card_is_built_with_its_numbers(client: TestClient) -> N
 
     facts = {fact["label"]: fact["value"] for fact in body["facts"]}
     assert (facts["HP"], facts["ST"], facts["DF"], facts["PP"]) == ("5000", "1200", "3400", "5")
+
+
+def test_a_senki_card_is_built_with_its_numbers_and_read_as_senki(client: TestClient) -> None:
+    payload = {"device": "senki", "character": "1", "hp": "35900", "st": "15000", "df": "9900"}
+
+    body = client.post("/api/device-card", json=payload).json()
+
+    facts = {fact["label"]: fact["value"] for fact in body["facts"]}
+    assert (facts["HP"], facts["ST"], facts["DF"], facts["MP"]) == ("35900", "15000", "9900", "10")
+
+
+def test_senki_has_no_set_of_real_cards_to_offer(client: TestClient) -> None:
+    body = client.get("/api/official?device=senki").json()
+
+    assert (body["sets"], body["total"]) == ([], 0)

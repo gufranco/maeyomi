@@ -167,6 +167,29 @@ def test_an_unknown_barcode_world_class_is_refused() -> None:
         GAMES[Device.BARCODE_WORLD].named("Ninja")
 
 
+def test_an_unknown_senki_class_is_refused_under_its_own_name() -> None:
+    with pytest.raises(ValueError, match="unknown Barcode Battler Senki fighter"):
+        GAMES[Device.SENKI].named("Ninja")
+
+
+def test_a_senki_fighter_is_described_as_barcode_world_describes_one() -> None:
+    game = GAMES[Device.SENKI]
+
+    text = game.describe(game.decode("0315424322677"))
+
+    assert text.name == ("Warrior", "せんし")
+    assert text.detail == ("Job 2, speed 2", "しょくぎょう 2・すばやさ 2")
+
+
+def test_the_interface_box_code_is_described_as_the_sound_test() -> None:
+    game = GAMES[Device.SENKI]
+
+    text = game.describe(game.decode("4905040354006"))
+
+    assert text.name == ("Sound test", "サウンドテスト")
+
+
 def test_only_the_datach_games_use_the_datach_reader() -> None:
     assert not GAMES[Device.BARCODE_WORLD].datach_reader
+    assert not GAMES[Device.SENKI].datach_reader
     assert GAMES[Device.DATACH_ULTRAMAN].datach_reader

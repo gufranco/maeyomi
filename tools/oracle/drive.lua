@@ -70,6 +70,39 @@ local function scan(code)
   item("0/DATACH/m_new_code"):write(0, 1)
   print("SCANNED", code, #px)
 end
+local BBII_PRESENT = 24
+local BBII_FIRST = 16
+local BBII_LAST = 80
+local bbii = {armed = false, k = 0, stream = {}, taps = {}}
+local function bbii_stream(code)
+  local s = {}
+  for idx = BBII_FIRST, 27 do s[#s + 1] = idx == BBII_PRESENT and 1 or 0 end
+  for i = #code, 1, -1 do
+    local d = tonumber(code:sub(i, i))
+    for b = 3, 0, -1 do s[#s + 1] = (d >> b) & 1 end
+  end
+  return s
+end
+local function bbscan(code)
+  local mem = manager.machine.devices[":maincpu"].spaces["program"]
+  if #bbii.taps == 0 then
+    bbii.taps[1] = mem:install_read_tap(0x421b, 0x421b, "bbii_frame", function(offset, data, mask)
+      bbii.k = 0
+      return data
+    end)
+    bbii.taps[2] = mem:install_read_tap(0x4017, 0x4017, "bbii_port", function(offset, data, mask)
+      if not bbii.armed then return data end
+      local bit = bbii.stream[bbii.k + 1] or 0
+      bbii.k = bbii.k + 1
+      if bbii.k >= BBII_LAST - BBII_FIRST then bbii.armed = false end
+      return (data & 0xfe) | bit
+    end)
+  end
+  bbii.stream = bbii_stream(code)
+  bbii.k = 0
+  bbii.armed = true
+  print("BBSCANNED", code)
+end
 local n = 0
 emu.register_frame_done(function()
   n = n + 1
@@ -79,6 +112,7 @@ emu.register_frame_done(function()
       if a == "press" then local f = pad.fields["P1 " .. x]; if not f then print("NOFIELD", x); manager.machine:exit() else f:set_value(1); held["P1 " .. x] = n + 6 end end
       if a == "scan" then scan(x) end
       if a == "swipe" then swipe(x) end
+      if a == "bbscan" then bbscan(x) end
       if a == "snap" then manager.machine.video:snapshot(); print("SNAP", n, x) end
       if a == "dumpram" then
         local mem = manager.machine.devices[":maincpu"].spaces["program"]

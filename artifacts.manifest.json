@@ -59,6 +59,26 @@
       "sha1": "92f055653d33b8e31ec91b458357e75ad2336c33",
       "crc32": "67898319",
       "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "senki_rom",
+      "what": "Cartridge ROM of Conveni Wars Barcode Battler Senki: Super Senshi Shutsugeki seyo!, Epoch 1993, as MAME's snes software list names it",
+      "path": "snes/conveni/conveni wars barcode battler senki - super senshi shutsugeki seyo (japan).sfc",
+      "size": 524288,
+      "sha256": "c195641a1b472590cb3d0be0c48d682b9fee94d7b700dd7bd3297bb995b49307",
+      "sha1": "72ca858f50d67121b06868633b8588a79316c3e2",
+      "crc32": "115233db",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "snes_spc700_ipl",
+      "what": "The Super Famicom sound processor's 64-byte boot ROM, which MAME's snes driver needs to start any game",
+      "path": "snes/spc700.rom",
+      "size": 64,
+      "sha256": "c95f88b299030d5afa55b1031e2b5ef2dff650c4b4e6bb6f8b1359436521278f",
+      "sha1": "97e352553e94242ae823547cd853eecda55c20f0",
+      "crc32": "44bb3a40",
+      "used_by": "tools/oracle/record_game.py, for every Super Famicom game it runs; nothing in the package or its tests reads it"
     }
   ]
 }

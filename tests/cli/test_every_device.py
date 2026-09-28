@@ -114,3 +114,13 @@ def test_official_prints_every_card_of_the_chosen_device(tmp_path: Path) -> None
 
     assert result.exit_code == 0
     assert len(decode_pdf(output)) == 56
+
+
+def test_official_refuses_a_device_nobody_published_a_card_list_for(tmp_path: Path) -> None:
+    output = tmp_path / "senki.pdf"
+
+    result = runner.invoke(app, ["official", "--device", "senki", "-o", str(output)])
+
+    assert result.exit_code == 2
+    assert "no published card list for Barcode Battler Senki" in result.output
+    assert not output.exists()

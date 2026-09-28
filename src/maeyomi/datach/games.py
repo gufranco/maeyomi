@@ -45,6 +45,7 @@ from maeyomi.games.barcode_world import (
     strongest_barcode_world,
 )
 from maeyomi.games.barcode_world import picks_for as barcode_world_picks
+from maeyomi.games.senki import SenkiOrder, build_senki, decode_senki, strongest_senki
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.device import Device
 
@@ -264,6 +265,12 @@ ITEM_KINDS: Final[dict[int, Pair]] = {
 }
 ABILITY_HEADING: Final[Pair] = ("Ability", "とくしゅ のうりょく")
 CARD_HEADING: Final[Pair] = ("Card", "カード")
+SOUND_TEST: Final[Pair] = ("Sound test", "サウンドテスト")
+OPENS_SOUND_TEST: Final[Pair] = (
+    "Opens the sound test in either battle mode",
+    "たいせん モード で サウンドテストを ひらく",
+)
+NO_CARD: Final[Pair] = ("None; the game makes no card of it", "なし。カードに ならない")
 FIRST_MAGICIAN: Final = 7
 
 
@@ -277,19 +284,41 @@ def _barcode_world_entries() -> tuple[GameEntry, ...]:
     return tuple(GameEntry(ident, GameKind.FIGHTER, *names) for ident, names in CLASSES.items())
 
 
+def _senki_order(order: GameOrder) -> DatachCard | None:
+    """Build a Barcode Battler Senki fighter: its numbers are HP, ST and DF."""
+    return build_senki(SenkiOrder(order.ident, order.stats, order.picks))
+
+
 def _barcode_world_named(typed: str) -> int:
+    """A Barcode World class typed by name or number."""
+    return _class_named(typed, Device.BARCODE_WORLD)
+
+
+def _senki_named(typed: str) -> int:
+    """A Barcode Battler Senki class typed by name or number."""
+    return _class_named(typed, Device.SENKI)
+
+
+def _class_named(typed: str, device: Device) -> int:
     """A class typed by name or number, or a ValueError naming the two there are."""
     wanted = typed.strip().casefold()
     for ident, (english, japanese) in CLASSES.items():
         if wanted in {english.casefold(), japanese, str(ident)}:
             return ident
-    message = f"unknown Barcode World fighter {typed!r}; choose warrior or magician"
+    message = f"unknown {device.english} fighter {typed!r}; choose warrior or magician"
     raise ValueError(message)
+
+
+def _senki_text(card: DatachCard) -> CardText:
+    """The Interface box's sound test, or a card as Barcode World describes it."""
+    if card.kind is GameKind.HIDDEN:
+        return CardText(SOUND_TEST, OPENS_SOUND_TEST, CARD_HEADING, NO_CARD)
+    return _barcode_world_text(card)
 
 
 def _barcode_world_text(card: DatachCard) -> CardText:
     """A fighter's class, job, speed and ability number, or an item's kind and number."""
-    job, speed, ability, number = card.traits
+    job, speed, ability, number, *_ = card.traits
     if card.kind is GameKind.ITEM:
         return CardText(
             ITEM_KINDS[card.ident],
@@ -352,6 +381,17 @@ GAMES: Final[dict[Device, DatachGame]] = {
         entries=_barcode_world_entries,
         describe=_barcode_world_text,
         named=_barcode_world_named,
+        stat_keys=("WHP", "WST", "WDF"),
+        picks=barcode_world_picks,
+        datach_reader=False,
+    ),
+    Device.SENKI: DatachGame(
+        decode=decode_senki,
+        build=_senki_order,
+        strongest=strongest_senki,
+        entries=_barcode_world_entries,
+        describe=_senki_text,
+        named=_senki_named,
         stat_keys=("WHP", "WST", "WDF"),
         picks=barcode_world_picks,
         datach_reader=False,

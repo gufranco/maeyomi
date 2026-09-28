@@ -122,8 +122,20 @@ magic and herbs come from the job. Pick a warrior or a magician with
 `--character`, the numbers with `--hp`, `--st` and `--df`, and the job, speed
 and ability with `--pick job=3`, `--pick speed=8` and `--pick ability=45`. The
 rule agrees with the game in MAME on 211 codes, its 24 released cards among
-them, and on every card built here that was tried. Barcode Battler Senki, the
-Super Famicom game, is not supported: its program has not been read yet.
+them, and on every card built here that was tried.
+
+Epoch's Barcode Battler Senki, a Super Famicom game of 1993, takes its cards
+through a Barcode Battler II on the Barcode Battler II Interface, and
+`--device senki` makes cards for it. It reads the digits the way Barcode World
+does, with three differences. An 8-digit code arrives with five zeros in
+front, because the interface turns the Barcode Battler II's spaces into zeros.
+An item read from the end keeps the units of its strength below ten. And the
+code printed on the Interface's own box opens the sound test in either battle
+mode instead of making a card. The rule agrees with the game in MAME on 253
+codes, every card built here that was tried among them. The Black Store, one
+hidden shop of the scenario mode, reads cards with other offsets and is not
+modelled. MAME 0.289 sends each digit to the Super Famicom one bit out of
+place, so the checks feed the game through an interface written for them.
 
 ## Install
 
@@ -167,7 +179,7 @@ the numbers you asked for, and shows the barcode it worked out.
 **Machine or game**, under the title, picks what the cards are for: the
 Barcode Battler II, the first Barcode Battler, the Double, Datach Dragon Ball
 Z, Datach Ultraman Club, Datach SD Gundam Wars, Datach Yu Yu Hakusho,
-Datach J.League or Barcode World. Every tab follows it: the card maker shows only the fields that device reads
+Datach J.League, Barcode World or Barcode Battler Senki. Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -507,6 +519,12 @@ named as the cards print them, and each was read by the game in MAME. Its
 weapons, protectors and items are scanned during a battle rather than at the
 character screen, so they print as what they are without numbers.
 
+Barcode Battler Senki came with 10 cards: 5 characters, 3 items and 2 blank
+white ones, per
+[its Japanese Wikipedia article](https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E3%83%90%E3%83%88%E3%83%A9%E3%83%BC%E6%88%A6%E8%A8%98_%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E6%88%A6%E5%A3%AB%E5%87%BA%E6%92%83%E3%81%9B%E3%82%88!).
+Nobody has published their barcodes, so `maeyomi official --device senki` says
+so rather than printing an empty sheet.
+
 ## The cheat code
 
 `maeyomi cheat -o cheat.pdf`, or press the row of arrows at the foot of
@@ -573,7 +591,8 @@ for one exact stream of bits, which no card Bandai printed carries.
 
 `maeyomi cheat --device barcodeworld -o cheat.pdf` is a magician of job 9 with
 HP 49900, ST 19900, DF 19900, 10 magic and 5 herbs, every number at the most
-the game reads.
+the game reads. `maeyomi cheat --device senki -o cheat.pdf` is the same
+magician for Barcode Battler Senki.
 
 ## Two languages and pictures
 

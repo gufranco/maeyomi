@@ -163,3 +163,50 @@ def test_the_barcode_world_fixture_was_recorded_with_the_rom_the_manifest_names(
     )
 
     assert entry["sha1"] == fixture["rom"]["sha1"]
+
+
+def test_senki_runs_as_a_super_famicom_with_the_barcode_battler_on_the_second_port() -> None:
+    tool = load()
+
+    command = tool.mame_command(ROOT, tool.GAMES["senki"])
+
+    assert command[1:6] == ["snes", "-ctrl2", "barcode_battler", "-cart", "conveni"]
+
+
+def test_senki_is_sent_its_code_through_the_interface_the_drive_script_emulates() -> None:
+    tool = load()
+
+    lines = tool.plan_lines(tool.GAMES["senki"], ["4994699095453"])
+
+    assert "2100 bbscan 4994699095453" in lines
+
+
+def test_every_rom_a_game_needs_beside_its_own_is_in_the_manifest() -> None:
+    tool = load()
+    manifest = json.loads((ROOT / "artifacts.manifest.json").read_text())
+    ids = {entry["id"] for entry in manifest["artifacts"]}
+
+    assert {extra for game in tool.GAMES.values() for extra in game.extras} <= ids
+    assert tool.GAMES["senki"].extras == ("snes_spc700_ipl",)
+
+
+def test_a_missing_boot_rom_is_named_before_mame_runs(tmp_path: Path) -> None:
+    tool = load()
+    manifest = json.loads((ROOT / "artifacts.manifest.json").read_text())
+    entry = next(item for item in manifest["artifacts"] if item["id"] == "senki_rom")
+    rom = tmp_path / str(entry["path"])
+    rom.parent.mkdir(parents=True)
+    rom.write_bytes(b"x")
+
+    with pytest.raises(SystemExit, match="no ROM at"):
+        tool.verify_extras(tmp_path, tool.GAMES["senki"])
+
+
+def test_the_senki_fixture_was_recorded_with_the_rom_the_manifest_names() -> None:
+    manifest = json.loads((ROOT / "artifacts.manifest.json").read_text())
+    entry = next(item for item in manifest["artifacts"] if item["id"] == "senki_rom")
+    fixture = json.loads(
+        (ROOT / "tests" / "fixtures" / "oracle" / "barcode_battler_senki.json").read_text()
+    )
+
+    assert entry["sha1"] == fixture["rom"]["sha1"]

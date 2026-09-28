@@ -345,8 +345,14 @@ function officialPayload() {
 function renderOfficial() {
   if (!catalogue) return;
   renderOfficialSources();
+  const none = catalogue.sets.length === 0;
+  $('official-actions').toggleAttribute('hidden', none);
   const single = catalogue.sets.length === 1 ? catalogue.sets[0] : null;
-  $('official-set-field').toggleAttribute('hidden', Boolean(single));
+  $('official-set-field').toggleAttribute('hidden', Boolean(single) || none);
+  if (none) {
+    $('official-single').toggleAttribute('hidden', true);
+    return;
+  }
   $('official-single').toggleAttribute('hidden', !single);
   if (single) {
     $('official-single').textContent = t('official.single', {

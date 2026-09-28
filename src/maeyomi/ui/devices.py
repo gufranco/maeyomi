@@ -139,6 +139,14 @@ FORMS: Final[dict[Device, DeviceForm]] = {
         stat_keys=("stat.whp", "stat.wst", "stat.wdf"),
         ranges=((1000, 19900), (100, 9900), (100, 9900)),
     ),
+    Device.SENKI: DeviceForm(
+        ("game", "picks", "stats"),
+        WORLD_MAX_HP,
+        WORLD_MAX_STAT,
+        WORLD_MAX_STAT,
+        stat_keys=("stat.whp", "stat.wst", "stat.wdf"),
+        ranges=((1000, 19900), (100, 9900), (100, 9900)),
+    ),
     Device.DATACH_JLEAGUE: DeviceForm(
         ("game",),
         YUYU_MAX,

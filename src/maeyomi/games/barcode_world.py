@@ -18,6 +18,10 @@ codes, its 24 released cards among them:
    protector or item, which the character screen refuses.
 
 Numbers are in hundreds on the screen, as on the Barcode Battler II.
+
+Epoch's Barcode Battler Senki reads the same way but for the few differences
+`maeyomi.games.senki` lists, so both games run through one reading here, told
+apart by a `C0Reading`.
 """
 
 import itertools
@@ -76,6 +80,24 @@ BOOSTS: Final = {0: (True, False), 1: (False, True), 2: (True, True)}
 
 
 @dataclass(frozen=True, slots=True)
+class C0Reading:
+    """What sets one game on the Barcode Battler II's link apart from the other.
+
+    `padding` is what fills an EAN-8 up to thirteen places: Barcode World
+    receives the Barcode Battler II's spaces, the Super Famicom interface turns
+    them into zeros. `wraps_item_units` is whether an item read from the end
+    keeps its strength's units digit below ten.
+    """
+
+    device: Device
+    padding: str
+    wraps_item_units: bool
+
+
+BARCODE_WORLD_READING: Final = C0Reading(Device.BARCODE_WORLD, " ", wraps_item_units=False)
+
+
+@dataclass(frozen=True, slots=True)
 class BarcodeWorldOrder:
     """A warrior or a magician, what HP, ST and DF must be, and its job, speed and ability."""
 
@@ -86,13 +108,18 @@ class BarcodeWorldOrder:
 
 def decode_barcode_world(code: str) -> DatachCard:
     """Read a barcode, raising a typed error when it is not a valid EAN."""
+    return decode_c0(code, BARCODE_WORLD_READING)
+
+
+def decode_c0(code: str, reading: C0Reading) -> DatachCard:
+    """Read a barcode as the game the reading names does."""
     normalised = validate_barcode(code)
-    text = _rewritten(normalised.rjust(13).encode("ascii"))
-    fields = _positional(text) if _in_place(text) else _from_end(text)
+    text = _rewritten(normalised.rjust(13, reading.padding).encode("ascii"))
+    fields = _positional(text) if _in_place(text) else _from_end(text, reading)
     for pattern, ability in SPECIALS:
         if text[:12] == pattern.encode("ascii"):
             fields = {**fields, "job": SPECIAL_JOB, "ability": ability}
-    return _card(normalised, fields)
+    return _card(normalised, fields, reading.device)
 
 
 def _rewritten(text: bytes) -> bytes:
@@ -152,13 +179,13 @@ def _wrapped(character: int, offset: int) -> int:
     return (value - DECIMAL) & BYTE if value >= DECIMAL else value
 
 
-def _from_end(text: bytes) -> dict[str, int]:
+def _from_end(text: bytes, reading: C0Reading) -> dict[str, int]:
     """The first way, picked by the check digit: 0 to 4 a fighter, 5 to 9 anything else."""
     kind = _digit(text[12])
     fighter = kind < FIRST_ITEM_KIND
     return {
         "hp": _end_hp(text, 1 if fighter else 3),
-        "st": _end_st(text, fighter=fighter),
+        "st": _end_st(text, fighter=fighter, wraps=reading.wraps_item_units),
         "df": _end_df(text, fighter=fighter),
         "kind": kind,
         "job": _digit(text[5]) if fighter else 0,
@@ -173,14 +200,15 @@ def _end_hp(text: bytes, shift: int) -> int:
     return (hundreds >> shift) * HUNDRED + tens * DECIMAL + units
 
 
-def _end_st(text: bytes, *, fighter: bool) -> int:
+def _end_st(text: bytes, *, fighter: bool, wraps: bool) -> int:
     """ST from digits 11 and 10 ($92F6 for a fighter, $9329 otherwise)."""
     if fighter:
         tens = (2 + text[10] - 0x2B) & BYTE
         tens = (tens - DECIMAL) & BYTE if tens >= STRENGTH_WRAP else tens
         return (tens * 10 + _wrapped(text[9], 0x2B)) & BYTE
     tens = ((_wrapped(text[10], 0x2B) >> 2) + 1) * 10
-    return (tens + text[9] - 0x2B) & BYTE
+    units = _wrapped(text[9], 0x2B) if wraps else text[9] - 0x2B
+    return (tens + units) & BYTE
 
 
 def _end_df(text: bytes, *, fighter: bool) -> int:
@@ -195,17 +223,23 @@ def _end_ability(text: bytes) -> int:
     return (_digit(text[8]) >> 2) * DECIMAL + _digit(text[10])
 
 
-def _card(code: str, fields: dict[str, int]) -> DatachCard:
-    """The card the fields make: a fighter with its numbers, or anything else by kind."""
+def _card(code: str, fields: dict[str, int], device: Device) -> DatachCard:
+    """The card the fields make: a fighter with its numbers, or anything else by kind.
+
+    The traits are the job, speed, ability, HP, ST and DF as read, which is all
+    an item carries: its HP is its number in the game's list.
+    """
     kind = fields.get("kind", 0)
     traits = (
         fields.get("job", 0),
         fields.get("speed", 0),
         fields.get("ability", 0),
         fields.get("hp", 0),
+        fields.get("st", 0),
+        fields.get("df", 0),
     )
     if kind >= FIRST_ITEM_KIND:
-        return DatachCard(code, Device.BARCODE_WORLD, GameKind.ITEM, kind, (), traits)
+        return DatachCard(code, device, GameKind.ITEM, kind, (), traits)
     magic = MAGIC if fields.get("job", 0) >= FIRST_MAGICIAN_JOB else 0
     stats = (
         GameStat("WHP", fields.get("hp", 0) * HUNDRED),
@@ -214,14 +248,19 @@ def _card(code: str, fields: dict[str, int]) -> DatachCard:
         GameStat("WMP", magic),
         GameStat("WPP", HERBS),
     )
-    return DatachCard(code, Device.BARCODE_WORLD, GameKind.FIGHTER, kind, stats, traits)
+    return DatachCard(code, device, GameKind.FIGHTER, kind, stats, traits)
 
 
 def build_barcode_world(order: BarcodeWorldOrder) -> DatachCard | None:
     """The first code the game reads in place as the fighter ordered, or None."""
+    return build_c0(order, BARCODE_WORLD_READING)
+
+
+def build_c0(order: BarcodeWorldOrder, reading: C0Reading) -> DatachCard | None:
+    """The first code the reading's game reads in place as the fighter ordered, or None."""
     wanted = dict(order.picks)
     bodies = ("".join(str(digit) for digit in digits) for digits in _candidates(order, wanted))
-    cards = (decode_barcode_world(body + str(expected_check_digit(body))) for body in bodies)
+    cards = (decode_c0(body + str(expected_check_digit(body)), reading) for body in bodies)
     return next((card for card in cards if _meets(card, order, wanted)), None)
 
 
@@ -291,7 +330,7 @@ def _meets(card: DatachCard, order: BarcodeWorldOrder, wanted: dict[str, int]) -
     admitted = all(
         constraint.admits(value) for constraint, value in zip(order.stats, numbers, strict=True)
     )
-    job, speed, ability, _ = card.traits
+    job, speed, ability, *_ = card.traits
     chosen = {JOB_KEY: job, SPEED_KEY: speed, ABILITY_KEY: ability}
     picked = all(chosen[key] == value for key, value in wanted.items() if key in chosen)
     return card.kind is GameKind.FIGHTER and admitted and picked
@@ -314,10 +353,15 @@ def _numbered(values: range) -> tuple[GameOption, ...]:
 
 def strongest_barcode_world() -> DatachCard:
     """A magician with HP, ST and DF at the most the game can read."""
+    return strongest_c0(BARCODE_WORLD_READING)
+
+
+def strongest_c0(reading: C0Reading) -> DatachCard:
+    """A magician with HP, ST and DF at the most the reading's game can read."""
     top = (
         Constraint.exactly(TOP_HP * HUNDRED),
         Constraint.exactly(TOP_STAT * HUNDRED),
         Constraint.exactly(TOP_STAT * HUNDRED),
     )
-    card = build_barcode_world(BarcodeWorldOrder(MAGICIAN, top, ((JOB_KEY, 9),)))
-    return required(card, "the strongest Barcode World card cannot be printed")
+    card = build_c0(BarcodeWorldOrder(MAGICIAN, top, ((JOB_KEY, 9),)), reading)
+    return required(card, f"the strongest {reading.device.english} card cannot be printed")

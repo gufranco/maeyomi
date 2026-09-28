@@ -29,11 +29,12 @@ def recorded() -> list[dict[str, object]]:
 
 def fields(barcode: str) -> dict[str, int]:
     card = decode_barcode_world(barcode)
-    job, speed, ability, number = card.traits
+    job, speed, ability, number, strength, defence = card.traits
+    fighter = card.kind is GameKind.FIGHTER
     return {
-        "hp": card.value("WHP") // 100 if card.kind is GameKind.FIGHTER else number,
-        "st": card.value("WST") // 100,
-        "df": card.value("WDF") // 100,
+        "hp": card.value("WHP") // 100 if fighter else number,
+        "st": card.value("WST") // 100 if fighter else strength,
+        "df": card.value("WDF") // 100 if fighter else defence,
         "kind": card.ident,
         "job": job,
         "speed": speed,
@@ -50,7 +51,8 @@ def test_every_code_reads_as_the_game_itself_read_it_in_mame(entry: dict[str, ob
     if read["kind"] < 5:
         assert read == {key: entry[key] for key in read}
     else:
-        assert (read["kind"], read["hp"]) == (entry["kind"], entry["hp"])
+        keys = ("kind", "hp", "st", "df", "job", "speed", "ability")
+        assert {key: read[key] for key in keys} == {key: entry[key] for key in keys}
 
 
 def test_the_strongest_barcode_battler_code_is_a_full_magician_with_capped_defence() -> None:

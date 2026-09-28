@@ -434,6 +434,13 @@ def official(
         typer.echo("--output is required unless --list is given", err=True)
         raise typer.Exit(code=2)
     cards = _official_cards(set_name, device)
+    if not cards and device is not None:
+        typer.echo(
+            f"there is no published card list for {device.english}; "
+            "generate, random and cheat make cards it reads",
+            err=True,
+        )
+        raise typer.Exit(code=2)
     write_cards(cards, output, images, sheet_layout(print_shop=print_shop))
 
 

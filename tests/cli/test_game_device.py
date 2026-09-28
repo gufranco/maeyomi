@@ -11,6 +11,8 @@ from maeyomi.datach.sdgundam import decode_sdgundam
 from maeyomi.datach.ultraman import decode_ultraman
 from maeyomi.datach.yuyu import decode_yuyu
 from maeyomi.games.barcode_world import decode_barcode_world
+from maeyomi.games.senki import decode_senki
+from maeyomi.models.device import Device
 
 runner = CliRunner()
 
@@ -324,3 +326,33 @@ def test_generate_builds_a_barcode_world_warrior_with_the_job_picked(tmp_path: P
     assert result.exit_code == 0
     card = decode_barcode_world(decode_pdf(output)[0])
     assert (card.value("WHP"), card.traits[0]) == (12300, 3)
+
+
+def test_generate_prints_a_senki_magician_the_game_reads_back(tmp_path: Path) -> None:
+    output = tmp_path / "magician.pdf"
+
+    result = runner.invoke(
+        app,
+        [
+            "generate",
+            "--device",
+            "senki",
+            "--character",
+            "magician",
+            "--hp",
+            "35900",
+            "--st",
+            "15000",
+            "-o",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 0
+    card = decode_senki(decode_pdf(output)[0])
+    assert (card.game, card.value("WHP"), card.value("WST"), card.value("WMP")) == (
+        Device.SENKI,
+        35900,
+        15000,
+        10,
+    )

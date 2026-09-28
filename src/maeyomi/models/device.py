@@ -16,6 +16,7 @@ class Device(StrEnum):
     DATACH_YUYU = "yuyu"
     DATACH_JLEAGUE = "jleague"
     BARCODE_WORLD = "barcodeworld"
+    SENKI = "senki"
 
     @property
     def is_game(self) -> bool:
@@ -45,4 +46,5 @@ _NAMES: Final[dict[Device, tuple[str, str]]] = {
     Device.DATACH_YUYU: ("Datach Yu Yu Hakusho", "データック 幽遊白書"),
     Device.DATACH_JLEAGUE: ("Datach J.League", "データック Jリーグ スーパートッププレイヤーズ"),
     Device.BARCODE_WORLD: ("Barcode World", "バーコードワールド"),
+    Device.SENKI: ("Barcode Battler Senki", "バーコードバトラー戦記"),
 }

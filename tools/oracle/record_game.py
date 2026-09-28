@@ -1,14 +1,19 @@
-"""Feed barcodes to a Datach game running in MAME and record what it read.
+"""Feed barcodes to a barcode game running in MAME and record what it read.
 
 Usage: uv run python tools/oracle/record_game.py --game ultraman --rompath DIR --codes FILE --out FILE
 
-DIR holds MAME's nes_datach sets; FILE lists one barcode per line, optionally
-followed by a swipe period in microseconds per module. Without a period the
+DIR holds MAME's software list sets, laid out as MAME's rompath expects; FILE
+lists one barcode per line, optionally followed by a swipe period in
+microseconds per module. Without a period the
 code goes through MAME's barcode reader at its fixed rate; with one it is
 swiped past the reader at that speed, which is how a code whose bars are 1, 2
 and 4 modules wide gets read. The ROM is checked against
 artifacts.manifest.json before anything runs, and each code gets its own
 headless MAME session so no read inherits the one before it.
+
+A Super Famicom game gets its code through the drive script's own Barcode
+Battler II interface, because MAME 0.289's sends every digit one bit out of
+place.
 """
 
 import argparse
@@ -45,6 +50,8 @@ class Game:
     system: str = "nes"
     media: tuple[str, ...] = ()
     reader: str = ":nes_slot:datach:datach"
+    feed: str = "scan"
+    extras: tuple[str, ...] = ()
 
 
 GAMES = {
@@ -104,6 +111,28 @@ GAMES = {
         media=("-exp", "barcode_battler", "-cart", "barcodew"),
         reader=":exp:barcode_battler:battler",
     ),
+    "senki": Game(
+        software="conveni",
+        artifact="senki_rom",
+        menu=(
+            "700 press Start",
+            "1000 press Start",
+            "1300 press Down",
+            "1340 press A",
+            "1500 press A",
+            "1700 press A",
+            "1950 press A",
+        ),
+        scan_frame=2100,
+        read_delay=190,
+        peeks=(("0890", 26), ("07b7", 13)),
+        accepted=(("07b7", 0),),
+        system="snes",
+        media=("-ctrl2", "barcode_battler", "-cart", "conveni"),
+        reader=":ctrl2:barcode_battler:battler",
+        feed="bbscan",
+        extras=("snes_spc700_ipl",),
+    ),
 }
 """An unread code leaves 0 in both bytes, which is also Yusuke with no technique: the
 analyzer cannot tell those two apart, so no such code should be recorded."""
@@ -113,6 +142,7 @@ def main() -> None:
     args = parse()
     game = GAMES[args.game]
     verify_rom(args.rompath, game)
+    verify_extras(args.rompath, game)
     lines = [line.split() for line in args.codes.read_text().splitlines() if line.strip()]
     records = [record(game, words, run_session(args.rompath, game, words)) for words in lines]
     args.out.write_text(json.dumps(records, indent=1, ensure_ascii=False) + "\n")
@@ -129,26 +159,33 @@ def parse() -> argparse.Namespace:
 
 
 def verify_rom(rompath: Path, game: Game) -> None:
+    hint = f"place the {game.software} set dumped from your cartridge there"
+    verify_artifact(rompath, game.artifact, hint)
+
+
+def verify_extras(rompath: Path, game: Game) -> None:
+    for extra in game.extras:
+        verify_artifact(rompath, extra, "place the copy dumped from your console there")
+
+
+def verify_artifact(rompath: Path, artifact: str, hint: str) -> None:
     artifacts = json.loads(MANIFEST.read_text())["artifacts"]
-    entry = next(item for item in artifacts if item["id"] == game.artifact)
+    entry = next(item for item in artifacts if item["id"] == artifact)
     rom = rompath / str(entry["path"])
     if not rom.is_file():
-        sys.exit(
-            f"no ROM at {rom}; place the nes_datach/{game.software} set dumped from your "
-            "cartridge there"
-        )
+        sys.exit(f"no ROM at {rom}; {hint}")
     digest = hashlib.sha256(rom.read_bytes()).hexdigest()
     if digest != entry["sha256"]:
         sys.exit(
             f"{rom} has SHA-256 {digest}, but the fixture was recorded with {entry['sha256']}, "
-            f"the {entry['size']}-byte dump MAME's nes_datach list names; "
+            f"the {entry['size']}-byte dump MAME's software list names; "
             "dump the cartridge again or use a copy that matches that list"
         )
 
 
 def plan_lines(game: Game, words: list[str]) -> list[str]:
     code = words[0]
-    feed = f"swipe {code} {words[1]}" if len(words) > 1 else f"scan {code}"
+    feed = f"swipe {code} {words[1]}" if len(words) > 1 else f"{game.feed} {code}"
     frame = game.scan_frame + game.read_delay
     peeks = [f"{frame} peek {address} {length}" for address, length in game.peeks]
     return [*game.menu, f"{game.scan_frame} {feed}", *peeks, f"{frame + 5} exit"]

@@ -165,6 +165,10 @@ function checkDeviceSwitch() {
   })`);
   expect(world.hpMax === '49900', `the Barcode World health slider stops at ${world.hpMax}`);
   expect(world.jobs === ',7,8,9', `a Barcode World magician offers jobs ${world.jobs}`);
+  pickDevice('senki');
+  browser('wait', '600');
+  const senki = evaluate(`JSON.stringify({ hpMax: document.getElementById('hp').max })`);
+  expect(senki.hpMax === '49900', `the Senki health slider stops at ${senki.hpMax}`);
   pickDevice('bb2');
 }
 
@@ -215,6 +219,15 @@ function checkRealCards() {
   expect(world.single.includes('24'), `Barcode World names its set as ${world.single}`);
   expect(world.links.length === 1 && world.links[0].includes('BarcodeWorld'),
     `Barcode World's real cards link ${world.links}`);
+  const senki = realCards('senki');
+  const senkiForm = evaluate(`JSON.stringify({
+    actions: document.getElementById('official-actions').offsetParent !== null,
+    note: document.querySelector('[data-official-source="senki"]').offsetParent !== null,
+  })`);
+  expect(!senki.picker && !senkiForm.actions, 'Senki offers to print a set it does not have');
+  expect(senkiForm.note, 'Senki does not say why it has no real cards');
+  expect(senki.links.length === 1 && senki.links[0].includes('wikipedia'),
+    `Senki's real cards link ${senki.links}`);
   pickDevice('bb2');
 }
 

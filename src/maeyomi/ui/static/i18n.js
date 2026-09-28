@@ -128,6 +128,7 @@ const MESSAGES = {
     'device.summary.yuyu': 'Bandai, 1993. Fighters with their techniques, and items.',
     'device.summary.jleague': 'Bandai, 1994. The players and teams of the 1993 J.League.',
     'device.summary.barcodeworld': 'Sunsoft, 1992. Fighters read through a Barcode Battler 2.',
+    'device.summary.senki': 'Epoch, 1993. A Super Famicom game read through a Barcode Battler 2.',
     'device.games': 'Games',
     'device.hint':
       'Every tab, and the cheat code, makes cards for this choice and reads barcodes its way. ' +
@@ -215,6 +216,11 @@ const MESSAGES = {
       'the MAME emulator. Weapons, protectors and items are scanned during a battle, not at ' +
       'the character screen.',
     'official.source.barcodeworld': 'Barcode World cards:',
+    'official.note.senki':
+      'Barcode Battler Senki came with 10 cards: 5 characters, 3 items and 2 blank white ' +
+      'ones. Nobody has published their barcodes, so there is no set to print. Any card made ' +
+      'here is read by the game the way it was checked in the MAME emulator.',
+    'official.source.senki': 'What came in the Senki box:',
     'official.skipped': 'Cards left out',
     'official.skipped.hint':
       'The wikiwiki.jp page has a typo in these five. The last digit of a barcode is a ' +
@@ -395,6 +401,7 @@ const MESSAGES = {
     'device.summary.yuyu': 'バンダイ、1993ねん。わざを もつ キャラクターと アイテム。',
     'device.summary.jleague': 'バンダイ、1994ねん。1993ねんの Jリーグの せんしゅと チーム。',
     'device.summary.barcodeworld': 'サンソフト、1992ねん。バーコードバトラー2 で よむ キャラクター。',
+    'device.summary.senki': 'エポックしゃ、1993ねん。バーコードバトラー2 で よむ スーパーファミコンの ゲーム。',
     'device.games': 'ゲーム',
     'device.hint':
       'どの タブも かくしコマンドも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +
@@ -481,6 +488,11 @@ const MESSAGES = {
       '1まいずつ MAME で ゲームに よませて たしかめました。ぶき・ぼうぐ・アイテムは ' +
       'キャラクターの がめんでは なく、たたかいの とちゅうで とおします。',
     'official.source.barcodeworld': 'バーコードワールド の カード:',
+    'official.note.senki':
+      'バーコードバトラー戦記 には 10まいの カードが ついていました。キャラクター 5まい、アイテム 3まい、' +
+      'まっしろな カード 2まいです。その バーコードは だれも こうかいしていないので、いんさつできる ' +
+      'シリーズは ありません。ここで つくる カードは、MAME で たしかめた とおりに ゲームが よみます。',
+    'official.source.senki': 'バーコードバトラー戦記 の はこの なかみ:',
     'official.skipped': 'のぞいた カード',
     'official.skipped.hint':
       'wikiwiki.jp の ページで この 5まいは うちまちがいが あります。バーコードの さいごの けたは ' +
