@@ -7,6 +7,8 @@ const failures = [];
 
 const browser = (...args) => execFileSync('agent-browser', args, { encoding: 'utf8' }).trim();
 
+const pickDevice = (key) => browser('click', `[data-device="${key}"]`);
+
 const evaluate = (script) => JSON.parse(JSON.parse(browser('eval', script)));
 
 function expect(condition, message) {
@@ -24,29 +26,48 @@ function checkWidths() {
   });
 }
 
+function checkInlineCheckboxes() {
+  browser('set', 'viewport', '390', '844');
+  browser('click', '#tab-one');
+  const rows = evaluate(`JSON.stringify([...document.querySelectorAll('.field.check label')]
+    .filter((label) => label.offsetParent !== null)
+    .map((label) => {
+      const box = label.querySelector('input').getBoundingClientRect();
+      const text = label.querySelector('span').getBoundingClientRect();
+      return Math.abs((box.top + box.bottom) / 2 - (text.top + text.bottom) / 2) < text.height;
+    }))`);
+  expect(rows.length > 0 && rows.every(Boolean), `a checkbox sits apart from its text: ${rows}`);
+  browser('set', 'viewport', '1280', '900');
+}
+
 function checkDeviceMenu() {
-  const menu = evaluate(`JSON.stringify([...document.querySelectorAll('#device optgroup')]
-    .map((group) => [group.label, [...group.querySelectorAll('option')].map((o) => o.text)]))`);
+  const menu = evaluate(`JSON.stringify([...document.querySelectorAll('#device .list-heading')]
+    .map((heading) => [heading.textContent, [...heading.nextElementSibling.querySelectorAll('.item-name')]
+      .map((name) => name.textContent)]))`);
   expect(menu.length === 2 && menu[0][0] === 'Machines' && menu[1][0] === 'Games',
-    `the device menu is grouped as ${JSON.stringify(menu)}`);
+    `the device list is grouped as ${JSON.stringify(menu)}`);
   const machines = menu[0]?.[1] ?? [];
   const sorted = machines.toSorted((first, second) => first.localeCompare(second, 'en'));
   expect(JSON.stringify(machines) === JSON.stringify(sorted), `machines are ordered ${machines}`);
   expect(!machines.some((name) => /\bII\b|²/.test(name)), `a machine name is ${machines}`);
+  pickDevice('dbz');
+  const current = evaluate(`JSON.stringify(document.querySelector('[aria-current="true"]')?.dataset.device)`);
+  expect(current === 'dbz', `the chosen device is not marked current: ${current}`);
+  pickDevice('bb2');
 }
 
 function checkJobMenu() {
-  browser('select', '#device', 'double');
+  pickDevice('double');
   const double = evaluate(`JSON.stringify([...document.querySelectorAll('#job option')].map((o) => o.text))`);
   expect(double.length === 11 && double[5] === '4: Priest' && double[7] === '6: Holy warrior',
     `the Double's types are ${double}`);
-  browser('select', '#device', 'bb2');
+  pickDevice('bb2');
   const second = evaluate(`JSON.stringify([...document.querySelectorAll('#job option')].map((o) => o.text))`);
   expect(second[8] === '7: Magician', `the II's types are ${second}`);
 }
 
 function checkBackRead() {
-  browser('select', '#device', 'bb2');
+  pickDevice('bb2');
   browser('click', '#tab-one');
   browser('check', '#backRead');
   const back = evaluate(`JSON.stringify(['hp', 'st', 'df'].map((key) =>
@@ -75,7 +96,7 @@ function checkBackRead() {
 
 function checkDeviceSwitch() {
   browser('click', '#tab-one');
-  browser('select', '#device', 'dbz');
+  pickDevice('dbz');
   const form = evaluate(`JSON.stringify({
     race: getComputedStyle(document.querySelector('[data-device-field=race]')).display,
     dbz: getComputedStyle(document.querySelector('[data-device-field=dbz]')).display,
@@ -86,11 +107,11 @@ function checkDeviceSwitch() {
   expect(form.dbz !== 'none', 'the Dragon Ball Z fighter field is hidden');
   expect(form.bp === 'Battle power', `the attack slider is labelled ${form.bp}`);
   expect(form.hpStep === '500', `the health slider steps by ${form.hpStep}`);
-  browser('select', '#device', 'bb2');
+  pickDevice('bb2');
 }
 
 function realCards(device) {
-  browser('select', '#device', device);
+  pickDevice(device);
   browser('click', '#tab-official');
   browser('wait', '800');
   return evaluate(`JSON.stringify({
@@ -116,11 +137,11 @@ function checkRealCards() {
   expect(dbz.links.length === 1 && dbz.links[0].includes('puNES'),
     `Dragon Ball Z's real cards link ${dbz.links}`);
   expect(!dbz.skipped, 'Dragon Ball Z shows an empty list of cards left out');
-  browser('select', '#device', 'bb2');
+  pickDevice('bb2');
 }
 
 function checkSheetAndShop() {
-  browser('select', '#device', 'dbz');
+  pickDevice('dbz');
   browser('click', '#tab-many');
   const sheet = evaluate(`JSON.stringify({
     race: document.querySelector('[data-sheet-field=race]').offsetParent !== null,
@@ -138,7 +159,7 @@ function checkSheetAndShop() {
   })`);
   expect(shop.rows.length === 9, `the surprise shelf has ${shop.rows.length} products`);
   expect(!shop.rows.some((row) => row.includes('ST ')), 'the shelf shows II numbers for DBZ');
-  browser('select', '#device', 'bb2');
+  pickDevice('bb2');
 }
 
 function checkBehaviour() {
@@ -148,7 +169,7 @@ function checkBehaviour() {
   expect(problem === 'Use a number from 1 to 200.', `an out-of-range count says ${problem}`);
   browser('fill', '#count', '9');
   const hash = evaluate('JSON.stringify(window.location.hash)');
-  expect(hash === '#many', `the address does not name the open tab: ${hash}`);
+  expect(hash === '#tab-many', `the address does not name the open tab: ${hash}`);
   browser('open', URL.replace(/#.*$/, '') + '#official');
   browser('wait', '1500');
   const open = evaluate(`JSON.stringify(document.getElementById('tab-official').getAttribute('aria-selected'))`);
@@ -158,6 +179,7 @@ function checkBehaviour() {
 browser('open', URL);
 browser('wait', '1500');
 checkDeviceMenu();
+checkInlineCheckboxes();
 checkJobMenu();
 checkBackRead();
 checkWidths();

@@ -8,13 +8,14 @@ function setBusy(button, busy) {
 
 function tabFromHash() {
   const name = decodeURIComponent(window.location.hash.slice(1));
-  return name ? document.getElementById(TAB_PREFIX + name) : null;
+  const id = name.startsWith(TAB_PREFIX) ? name : TAB_PREFIX + name;
+  const tab = name ? document.getElementById(id) : null;
+  return tab?.getAttribute('role') === 'tab' ? tab : null;
 }
 
 function rememberTab(tab) {
-  const name = tab.id.slice(TAB_PREFIX.length);
-  if (window.location.hash.slice(1) !== name) {
-    window.history.replaceState(null, '', `#${name}`);
+  if (window.location.hash.slice(1) !== tab.id) {
+    window.history.replaceState(null, '', `#${tab.id}`);
   }
 }
 

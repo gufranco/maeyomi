@@ -119,6 +119,10 @@ const MESSAGES = {
     'many.placeholder': 'Press Make the sheet to see the pages.',
     'device.label': 'Machine or game',
     'device.machines': 'Machines',
+    'device.summary.bb2': '1992. Fighters, items and cards read backwards.',
+    'device.summary.bb1': '1991. Every fighter is a warrior; health stops at 19900.',
+    'device.summary.double': '1993. Adds its own 7-read, priests and holy warriors.',
+    'device.summary.dbz': 'Bandai, 1992. Fighters and items with BP and DP.',
     'device.games': 'Games',
     'device.hint':
       'Every tab, and the cheat code, makes cards for this choice and reads barcodes its way. ' +
@@ -326,6 +330,10 @@ const MESSAGES = {
     'many.placeholder': '「まとめて つくる」を おすと ページが みられます。',
     'device.label': 'つかう マシン・ゲーム',
     'device.machines': 'マシン',
+    'device.summary.bb2': '1992ねん。キャラクター、アイテム、うしろから よむ カード。',
+    'device.summary.bb1': '1991ねん。ぜんいん せんし。たいりょくは 19900 まで。',
+    'device.summary.double': '1993ねん。7よみ、そうりょ、せいせんし が ふえた。',
+    'device.summary.dbz': 'バンダイ、1992ねん。BP と DP の キャラクターと アイテム。',
     'device.games': 'ゲーム',
     'device.hint':
       'どの タブも かくしコマンドも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +

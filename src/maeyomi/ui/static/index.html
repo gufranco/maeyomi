@@ -10,27 +10,19 @@
 
 <a class="skip-link" href="#panel-one" data-i18n="skip">Skip to the card maker</a>
 
+<div class="shell">
+
 <header class="masthead">
-  <div class="masthead-top">
+  <div>
     <h1 data-i18n="title">Maeyomi</h1>
-    <div class="language" role="group" aria-label="Language / 言語">
-      <button type="button" data-language="en" aria-pressed="true" lang="en">English</button>
-      <button type="button" data-language="ja" aria-pressed="false" lang="ja">日本語</button>
-    </div>
-  </div>
-  <p class="lede" data-i18n="lede">
-    Playable cards for Barcode Battler machines and barcode games, printed in
-    English and Japanese.
-  </p>
-  <div class="device-bar">
-    <label for="device" data-i18n="device.label">Machine or game</label>
-    <select id="device" aria-describedby="device-hint">
-      <option value="bb2">Barcode Battler 2</option>
-    </select>
-    <p class="hint" id="device-hint" data-i18n="device.hint">
-      Every tab, and the cheat code, makes cards for this choice and reads
-      barcodes its way. The same barcode is a different card on each one.
+    <p class="lede" data-i18n="lede">
+      Playable cards for Barcode Battler machines and barcode games, printed in
+      English and Japanese.
     </p>
+  </div>
+  <div class="language" role="group" aria-label="Language / 言語">
+    <button type="button" data-language="en" aria-pressed="true" lang="en">English</button>
+    <button type="button" data-language="ja" aria-pressed="false" lang="ja">日本語</button>
   </div>
 </header>
 
@@ -55,9 +47,22 @@
   <p class="cheat-quip" id="cheat-quip"></p>
 </div>
 
+<div class="layout">
+  <aside class="sidebar" aria-labelledby="device-label">
+    <p class="group-label" id="device-label" data-i18n="device.label">Machine or game</p>
+    <div id="device" class="device-list" role="group" aria-labelledby="device-label"
+         aria-describedby="device-hint"></div>
+    <p class="hint" id="device-hint" data-i18n="device.hint">
+      Every tab, and the cheat code, makes cards for this choice and reads
+      barcodes its way. The same barcode is a different card on each one.
+    </p>
+  </aside>
 
-<section id="panel-one" role="tabpanel" aria-labelledby="tab-one" class="layout">
-  <form id="one" class="panel">
+  <div class="panel" id="main-panel">
+
+
+<section id="panel-one" role="tabpanel" aria-labelledby="tab-one" class="columns">
+  <form id="one" class="fields">
 
     <fieldset>
       <legend data-i18n="one.who">Who is on the card</legend>
@@ -210,8 +215,8 @@
   </aside>
 </section>
 
-<section id="panel-many" role="tabpanel" aria-labelledby="tab-many" class="layout" hidden>
-  <form id="many" class="panel">
+<section id="panel-many" role="tabpanel" aria-labelledby="tab-many" class="columns" hidden>
+  <form id="many" class="fields">
     <fieldset>
       <legend data-i18n="many.howMany">How many</legend>
       <p class="field">
@@ -275,8 +280,8 @@
   </aside>
 </section>
 
-<section id="panel-official" role="tabpanel" aria-labelledby="tab-official" class="layout" hidden>
-  <form id="official" class="panel">
+<section id="panel-official" role="tabpanel" aria-labelledby="tab-official" class="columns" hidden>
+  <form id="official" class="fields">
     <div class="note" id="official-note">
       <div class="note-body">
         <p data-i18n="official.note.epoch" data-official-source="epoch">
@@ -342,8 +347,8 @@
   </aside>
 </section>
 
-<section id="panel-shop" role="tabpanel" aria-labelledby="tab-shop" class="layout" hidden>
-  <form id="shop" class="panel">
+<section id="panel-shop" role="tabpanel" aria-labelledby="tab-shop" class="columns" hidden>
+  <form id="shop" class="fields">
     <p class="note" data-i18n="shop.note">
       Every one of these is a real product sold in Japan. The numbers on the card
       are not made up and are not theirs: this program reads them off the barcode,
@@ -382,8 +387,8 @@
   </aside>
 </section>
 
-<section id="panel-read" role="tabpanel" aria-labelledby="tab-read" class="layout" hidden>
-  <form id="read" class="panel">
+<section id="panel-read" role="tabpanel" aria-labelledby="tab-read" class="columns" hidden>
+  <form id="read" class="fields">
     <p class="note" data-i18n="read.note">
       Any product barcode works, which is how the machine was played in 1992:
       a bottle of tomato sauce is a fighter, a packet of crisps is a weapon.
@@ -432,6 +437,9 @@
   </aside>
 </section>
 
+  </div>
+</div>
+
 </main>
 
 <footer>
@@ -445,6 +453,8 @@
     Nothing leaves this machine. The page talks to a server you started.
   </p>
 </footer>
+
+</div>
 
 <script src="/static/i18n.js"></script>
 <script src="/static/devices.js"></script>

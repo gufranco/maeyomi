@@ -244,9 +244,12 @@ def test_the_tablist_moves_focus_with_one_tab_stop() -> None:
     assert "tab.tabIndex = on ? 0 : -1;" in SCRIPT
 
 
-def test_the_page_offers_a_device_switch_before_the_tabs() -> None:
-    assert MARKUP.index('id="device"') < MARKUP.index('role="tablist"')
-    assert 'aria-describedby="device-hint"' in MARKUP
+def test_the_devices_are_listed_in_a_sidebar_beside_the_card() -> None:
+    sidebar = MARKUP[MARKUP.index('<aside class="sidebar"') : MARKUP.index('<div class="panel"')]
+
+    assert 'id="device"' in sidebar
+    assert 'aria-describedby="device-hint"' in sidebar
+    assert MARKUP.index('role="tablist"') < MARKUP.index('<aside class="sidebar"')
 
 
 def test_every_field_only_some_devices_read_is_marked() -> None:

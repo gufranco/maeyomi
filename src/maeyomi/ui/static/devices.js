@@ -64,22 +64,31 @@ function renderDbzChoices() {
 
 const DEVICE_GROUPS = [['machine', 'device.machines'], ['game', 'device.games']];
 
-function deviceOptionsHtml(group) {
+function deviceButtonHtml(device) {
+  const name = isJapanese() ? device.japanese : device.english;
+  const current = device.key === chosenDevice;
+  return `<li><button type="button" data-device="${escapeHtml(device.key)}"` +
+    ` aria-pressed="${current}"${current ? ' aria-current="true"' : ''}>` +
+    `<span class="item-name">${escapeHtml(name)}</span>` +
+    `<span class="item-summary">${escapeHtml(t(`device.summary.${device.key}`))}</span>` +
+    '</button></li>';
+}
+
+function deviceGroupHtml(group, key) {
   const label = (device) => (isJapanese() ? device.japanese : device.english);
-  return deviceList
+  const items = deviceList
     .filter((device) => device.group === group)
-    .map((device) => ({ value: device.key, label: label(device) }))
-    .toSorted((first, second) => first.label.localeCompare(second.label, currentLanguage))
-    .map((option) => optionHtml(option.value, option.label, chosenDevice))
+    .toSorted((first, second) => label(first).localeCompare(label(second), currentLanguage))
+    .map(deviceButtonHtml)
     .join('');
+  return `<p class="list-heading">${escapeHtml(t(key))}</p><ul class="item-list">${items}</ul>`;
 }
 
 function renderDeviceOptions() {
   $('device').replaceChildren();
   $('device').insertAdjacentHTML(
     'afterbegin',
-    DEVICE_GROUPS.map(([group, key]) =>
-      `<optgroup label="${escapeHtml(t(key))}">${deviceOptionsHtml(group)}</optgroup>`).join(''),
+    DEVICE_GROUPS.map(([group, key]) => deviceGroupHtml(group, key)).join(''),
   );
 }
 
@@ -194,7 +203,10 @@ async function setUpDevices() {
   dbzList = dbz;
   renderDevices();
   chooseDevice(savedDevice());
-  $('device').addEventListener('change', () => chooseDevice($('device').value));
+  $('device').addEventListener('click', (event) => {
+    const button = event.target.closest('[data-device]');
+    if (button) chooseDevice(button.dataset.device);
+  });
   $('backRead').addEventListener('change', () => applySliders(deviceForm()));
 }
 
