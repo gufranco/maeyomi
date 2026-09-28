@@ -2,6 +2,27 @@
 
 <!-- version list -->
 
+## v1.2.0 (2026-09-28)
+
+### Chores
+
+- **formula**: Point at v1.1.1 [skip ci]
+  ([`9856a81`](https://github.com/gufranco/maeyomi/commit/9856a811a5a74161ab9b498a797b42211cd734d6))
+
+### Documentation
+
+- Keep development notes out of the README
+  ([`509607e`](https://github.com/gufranco/maeyomi/commit/509607e2a49c90e20812ff7a59f4c92d1a630a7b))
+
+- Make the README the whole account of sources
+  ([`6fdab9c`](https://github.com/gufranco/maeyomi/commit/6fdab9caf0a36a431a9c67fc822f45bf39f54973))
+
+### Features
+
+- Print cards in one chosen language
+  ([`d4f9a1d`](https://github.com/gufranco/maeyomi/commit/d4f9a1d9248e7fb72e0013cec7186229f43850bd))
+
+
 ## v1.1.1 (2026-09-28)
 
 ### Bug Fixes
