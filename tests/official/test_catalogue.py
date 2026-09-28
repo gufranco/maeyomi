@@ -50,7 +50,7 @@ TRANSCRIBED = (
     + JLEAGUE_CARDS
     + BARCODE_WORLD_CARDS
     + EXCITE_CLUB_CARDS * 2
-    + WESTERN_PACK_CARDS * 2
+    + WESTERN_PACK_CARDS * 5
     + MARIO_CARDS
 )
 EXCITE_CLUB_BARCODES = {
@@ -101,7 +101,13 @@ def test_the_catalogue_holds_every_transcribed_barcode_once_per_set() -> None:
 
 
 def test_only_the_red_potion_the_club_cards_and_the_western_packs_share_barcodes() -> None:
-    western = {OfficialSet.IRWIN, OfficialSet.TOMY}
+    western = {
+        OfficialSet.IRWIN,
+        OfficialSet.TOMY,
+        OfficialSet.TOMY_GERMANY,
+        OfficialSet.TOMY_SPAIN,
+        OfficialSet.TOMY_FRANCE,
+    }
     barcodes = [card.barcode for card in official_catalogue() if card.official_set not in western]
 
     shared = {code for code in barcodes if barcodes.count(code) > 1}
@@ -152,6 +158,9 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.EXCITE94_CLUBS: UK_SCANS,
         OfficialSet.IRWIN: UK_PAGES,
         OfficialSet.TOMY: UK_PAGES,
+        OfficialSet.TOMY_GERMANY: UK_PAGES,
+        OfficialSet.TOMY_SPAIN: UK_PAGES,
+        OfficialSet.TOMY_FRANCE: UK_PAGES,
         OfficialSet.SUPER_MARIO_WORLD: UK_PAGES,
     }
     for card in official_catalogue():
@@ -280,6 +289,9 @@ def test_a_device_owns_exactly_the_sets_written_for_it() -> None:
         (OfficialSet.MEIJI_FREEZELAND, Device.BB2, 2),
         (OfficialSet.IRWIN, Device.BB2, WESTERN_PACK_CARDS),
         (OfficialSet.TOMY, Device.BB2, WESTERN_PACK_CARDS),
+        (OfficialSet.TOMY_GERMANY, Device.BB2, WESTERN_PACK_CARDS),
+        (OfficialSet.TOMY_SPAIN, Device.BB2, WESTERN_PACK_CARDS),
+        (OfficialSet.TOMY_FRANCE, Device.BB2, WESTERN_PACK_CARDS),
         (OfficialSet.SUPER_MARIO_WORLD, Device.BB2, MARIO_CARDS),
     ],
 )
@@ -345,3 +357,24 @@ def test_bowser_is_the_strongest_super_mario_world_card() -> None:
     health = (decode(mario["クッパ"]).hp, decode(mario["マリオ"]).hp)
 
     assert health == (20900, 3500)
+
+
+@pytest.mark.parametrize(
+    ("official_set", "renamed"),
+    [
+        (OfficialSet.TOMY_GERMANY, "Heilkristall"),
+        (OfficialSet.TOMY_SPAIN, "Cristales de la Vida"),
+        (OfficialSet.TOMY_FRANCE, "Revitaliseurs"),
+    ],
+)
+def test_each_tomy_edition_keeps_epochs_codes_under_its_own_names(
+    official_set: OfficialSet, renamed: str
+) -> None:
+    uk = {card.barcode for card in official_catalogue() if card.official_set is OfficialSet.TOMY}
+    edition = {
+        card.barcode: card.name
+        for card in official_catalogue()
+        if card.official_set is official_set
+    }
+
+    assert (set(edition), edition["0160000902138"]) == (uk, renamed)

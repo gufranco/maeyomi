@@ -109,6 +109,9 @@ class OfficialSet(Enum):
     EXCITE94_CLUBS = "Jリーグ 登録選手リスト カード、エキサイトステージ'94 で よむ"
     IRWIN = "アーウィン版 バーコードバトラー カードリスト"
     TOMY = "トミー版 バーコードバトラー カードリスト"
+    TOMY_GERMANY = "トミー版 ドイツ バーコードバトラー カードリスト"
+    TOMY_SPAIN = "トミー版 スペイン バーコードバトラー カードリスト"
+    TOMY_FRANCE = "トミー版 フランス バーコードバトラー カードリスト"
     SUPER_MARIO_WORLD = "スーパーマリオワールド カードリスト"
 
     @property
@@ -183,7 +186,10 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.EXCITE_CLUBS: "J.League Excite Stage club roster cards, as '95 reads them",
     OfficialSet.EXCITE94_CLUBS: "J.League Excite Stage club roster cards, as '94 reads them",
     OfficialSet.IRWIN: "Irwin Barcode Battler, United States and Canada",
-    OfficialSet.TOMY: "Tomy Barcode Battler, United Kingdom and Europe",
+    OfficialSet.TOMY: "Tomy Barcode Battler, United Kingdom, Ireland and Italy",
+    OfficialSet.TOMY_GERMANY: "Tomy Barcode Battler, Germany",
+    OfficialSet.TOMY_SPAIN: "Tomy Barcode Battler, Spain",
+    OfficialSet.TOMY_FRANCE: "Tomy Barcode Battler, France",
     OfficialSet.SUPER_MARIO_WORLD: "Super Mario World",
 }
 
