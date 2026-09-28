@@ -255,7 +255,17 @@ def test_the_devices_are_listed_in_a_sidebar_beside_the_card() -> None:
 def test_every_field_only_some_devices_read_is_marked() -> None:
     marked = set(re.findall(r'data-device-field="(\w+)"', MARKUP))
 
-    assert marked == {"dbz", "race", "class", "ability", "speed", "job", "backRead", "nearest"}
+    assert marked == {
+        "dbz",
+        "game",
+        "race",
+        "class",
+        "ability",
+        "speed",
+        "job",
+        "backRead",
+        "nearest",
+    }
 
 
 def test_no_explanation_hides_behind_a_click() -> None:

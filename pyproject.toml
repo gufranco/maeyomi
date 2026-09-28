@@ -69,6 +69,7 @@ ignore = [
 "src/maeyomi/rendering/preview.py" = ["PLR0913"]
 "src/maeyomi/cli/main.py" = ["PLR0913", "PLR0917", "FBT002"]
 "src/maeyomi/cli/common.py" = ["PLR0913"]
+"src/maeyomi/cli/game_device.py" = ["PLR0913"]
 "src/maeyomi/official/catalogue.py" = ["RUF001"]
 "src/maeyomi/models/special_ability_ja.py" = ["RUF001"]
 "src/maeyomi/bb1/flags.py" = ["RUF001"]

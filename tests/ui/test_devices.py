@@ -30,7 +30,9 @@ def test_every_device_is_offered_with_its_form(client: TestClient) -> None:
     assert dbz["stat_keys"] == ["stat.hp", "stat.bp", "stat.dp"]
     assert dbz["sheet_fields"] == []
     assert dbz["group"] == "game"
-    assert {entry["group"] for entry in body if entry["key"] != "dbz"} == {"machine"}
+    machines = {"bb2", "bb1", "double"}
+    assert {entry["group"] for entry in body if entry["key"] in machines} == {"machine"}
+    assert {entry["group"] for entry in body if entry["key"] not in machines} == {"game"}
     assert dbz["ranges"] == [[10000, 60000], [5000, 30000], [5000, 30000]]
 
 
@@ -251,3 +253,69 @@ def test_the_back_read_ranges_are_offered_where_a_device_reads_backwards(
     assert body["bb1"]["back_ranges"] == [[100, 10000], [1000, 1900], [100, 900]]
     assert body["double"]["back_ranges"] is None
     assert body["dbz"]["back_ranges"] is None
+
+
+def test_ultraman_club_offers_its_type_picker_and_numbers_up_to_9900(client: TestClient) -> None:
+    body = client.get("/api/devices").json()
+
+    ultraman = next(entry for entry in body if entry["key"] == "ultraman")
+
+    assert ultraman["fields"] == ["game"]
+    assert (ultraman["hp_max"], ultraman["steps"]) == (9900, [100, 100, 100])
+    assert ultraman["stat_keys"] == ["stat.pw", "stat.ust", "stat.usp"]
+
+
+def test_a_game_lists_every_card_it_reads_for_its_picker(client: TestClient) -> None:
+    body = client.get("/api/game-cards/ultraman").json()
+
+    assert len(body) == 51
+    assert body[3] == {"id": 3, "kind": "fighter", "english": "Zoffy", "japanese": "ゾフィー"}
+
+
+def test_a_machine_lists_no_game_cards(client: TestClient) -> None:
+    assert client.get("/api/game-cards/bb2").json() == []
+
+
+def test_an_ultraman_club_card_is_built_with_the_numbers_asked_for(client: TestClient) -> None:
+    payload = {"device": "ultraman", "character": "Zoffy", "hp": "7200", "st": "6900", "df": "4800"}
+
+    body = client.post("/api/device-card", json=payload).json()
+
+    facts = {fact["label"]: fact["value"] for fact in body["facts"]}
+    assert facts["PW"] == "7200"
+    assert facts["ST"] == "6900"
+    assert facts["SP"] == "4800"
+    assert facts["Kind"] == "Zoffy"
+
+
+def test_ultraman_club_refuses_a_number_it_cannot_hold(client: TestClient) -> None:
+    payload = {"device": "ultraman", "hp": "7250", "st": "100", "df": "100"}
+
+    response = client.post("/api/device-card", json=payload)
+
+    assert response.status_code == 422
+    assert response.json()["detail"] == ["Datach Ultraman Club reads no card with those numbers"]
+
+
+def test_ultraman_club_refuses_a_type_it_does_not_have(client: TestClient) -> None:
+    payload = {"device": "ultraman", "character": "Godzilla", "hp": "100", "st": "100", "df": "100"}
+
+    response = client.post("/api/device-card", json=payload)
+
+    assert response.status_code == 422
+    assert "unknown Ultraman Club type" in response.json()["detail"][0]
+
+
+def test_ultraman_club_refuses_a_field_it_does_not_read(client: TestClient) -> None:
+    payload = {"device": "ultraman", "race": "mechanical", "hp": "100", "st": "100", "df": "100"}
+
+    response = client.post("/api/device-card", json=payload)
+
+    assert response.json()["detail"] == ["Datach Ultraman Club does not read race"]
+
+
+def test_ultraman_club_has_a_cheat_card_at_the_top_of_all_three(client: TestClient) -> None:
+    body = client.post("/api/device-cheat", json={"device": "ultraman"}).json()
+
+    facts = {fact["label"]: fact["value"] for fact in body["facts"]}
+    assert (facts["PW"], facts["ST"], facts["SP"]) == ("9900", "9900", "9900")

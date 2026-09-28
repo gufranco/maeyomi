@@ -1,0 +1,132 @@
+"""Tests for the commands run against the Datach games after Dragon Ball Z."""
+
+from pathlib import Path
+
+from typer.testing import CliRunner
+
+from maeyomi.barcode.verify import decode_pdf
+from maeyomi.cli.main import app
+from maeyomi.datach.ultraman import decode_ultraman
+
+runner = CliRunner()
+
+
+def test_decode_reads_an_ultraman_club_fighter_with_its_three_numbers() -> None:
+    result = runner.invoke(app, ["decode", "0315424322677", "--device", "ultraman"])
+
+    assert result.exit_code == 0
+    assert "Device    Datach Ultraman Club" in result.output
+    assert "Kind      Fighter" in result.output
+    assert "Name      Zoffy / ゾフィー" in result.output
+    assert "PW        7200" in result.output
+    assert "ST        6900" in result.output
+    assert "SP        4800" in result.output
+
+
+def test_decode_notes_a_code_that_reads_only_at_some_swipe_speeds() -> None:
+    result = runner.invoke(app, ["decode", "0315424322677", "--device", "ultraman"])
+
+    assert "Reads only at some swipe speeds" in result.output
+
+
+def test_decode_refuses_a_bad_check_digit_on_a_game() -> None:
+    result = runner.invoke(app, ["decode", "0315424322670", "--device", "ultraman"])
+
+    assert result.exit_code == 1
+
+
+def test_decode_prints_the_card_when_asked(tmp_path: Path) -> None:
+    output = tmp_path / "zoffy.pdf"
+
+    result = runner.invoke(
+        app, ["decode", "0344046250372", "--device", "ultraman", "--output", str(output)]
+    )
+
+    assert result.exit_code == 0
+    assert decode_pdf(output) == ["0344046250372"]
+
+
+def test_generate_builds_an_ultraman_club_card_with_the_numbers_asked_for(tmp_path: Path) -> None:
+    output = tmp_path / "card.pdf"
+
+    result = runner.invoke(
+        app,
+        [
+            "generate",
+            "--device",
+            "ultraman",
+            "--character",
+            "Zoffy",
+            "--hp",
+            "9900",
+            "--st",
+            "100",
+            "--df",
+            "5000",
+            "--output",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 0
+    barcode = decode_pdf(output)[0]
+    card = decode_ultraman(barcode)
+    assert (card.ident, card.value("PW"), card.value("UST"), card.value("USP")) == (
+        3,
+        9900,
+        100,
+        5000,
+    )
+
+
+def test_generate_refuses_numbers_the_game_cannot_hold(tmp_path: Path) -> None:
+    result = runner.invoke(
+        app,
+        ["generate", "--device", "ultraman", "--hp", "7250", "--output", str(tmp_path / "x.pdf")],
+    )
+
+    assert result.exit_code == 1
+    assert "Datach Ultraman Club reads no card with those numbers" in result.output
+
+
+def test_generate_refuses_the_dragon_ball_z_level_on_another_game(tmp_path: Path) -> None:
+    result = runner.invoke(
+        app,
+        ["generate", "--device", "ultraman", "--level", "2", "--output", str(tmp_path / "x.pdf")],
+    )
+
+    assert result.exit_code == 2
+    assert "only --device dbz reads --level" in result.output
+
+
+def test_cheat_prints_a_card_at_the_top_of_all_three(tmp_path: Path) -> None:
+    output = tmp_path / "cheat.pdf"
+
+    result = runner.invoke(app, ["cheat", "--device", "ultraman", "--output", str(output)])
+
+    assert result.exit_code == 0
+    assert "PW 9900, ST 9900, SP 9900" in result.output
+    card = decode_ultraman(decode_pdf(output)[0])
+    assert (card.value("PW"), card.value("UST"), card.value("USP")) == (9900, 9900, 9900)
+
+
+def test_generate_refuses_a_field_the_game_does_not_read(tmp_path: Path) -> None:
+    result = runner.invoke(
+        app,
+        ["generate", "--device", "ultraman", "--race", "human", "-o", str(tmp_path / "x.pdf")],
+    )
+
+    assert result.exit_code == 2
+    assert "Datach Ultraman Club does not read race" in result.output
+
+
+def test_cheat_with_items_says_the_game_has_none_and_prints_the_card(tmp_path: Path) -> None:
+    output = tmp_path / "cheat.pdf"
+
+    result = runner.invoke(
+        app, ["cheat", "--device", "ultraman", "--items", "--output", str(output)]
+    )
+
+    assert result.exit_code == 0
+    assert "has no strongest items" in result.output
+    assert len(decode_pdf(output)) == 1

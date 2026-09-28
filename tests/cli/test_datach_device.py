@@ -128,12 +128,20 @@ def test_generate_refuses_a_field_dbz_does_not_read(tmp_path: Path, options: lis
     assert "Datach Dragon Ball Z does not read" in result.output
 
 
-@pytest.mark.parametrize("options", [["--character", "goku"], ["--level", "1"]])
-def test_generate_refuses_dbz_options_on_another_device(tmp_path: Path, options: list[str]) -> None:
+@pytest.mark.parametrize(
+    ("options", "refusal"),
+    [
+        (["--character", "goku"], "only a Datach game reads --character"),
+        (["--level", "1"], "only --device dbz reads --level"),
+    ],
+)
+def test_generate_refuses_game_options_on_a_machine(
+    tmp_path: Path, options: list[str], refusal: str
+) -> None:
     result = runner.invoke(app, ["generate", *options, "-o", str(tmp_path / "x.pdf")])
 
     assert result.exit_code == 2
-    assert "only --device dbz reads" in result.output
+    assert refusal in result.output
 
 
 def test_cheat_prints_the_strongest_dbz_fighter_and_items(tmp_path: Path) -> None:

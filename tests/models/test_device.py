@@ -25,8 +25,12 @@ def test_no_device_name_uses_a_roman_numeral() -> None:
         assert not re.search(r"\bII\b|Ⅱ|²", device.english + device.japanese)
 
 
-def test_only_datach_dragon_ball_z_is_a_game() -> None:
-    assert [device for device in Device if device.is_game] == [Device.DATACH_DBZ]
+def test_every_datach_cartridge_is_a_game_and_every_battler_a_machine() -> None:
+    games = [device for device in Device if device.is_game]
+
+    assert games == [device for device in Device if device.english.startswith("Datach")]
+    assert Device.DATACH_ULTRAMAN in games
+    assert Device.BB2 not in games
 
 
 def test_the_machines_are_named_with_arabic_numerals() -> None:

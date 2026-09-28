@@ -245,8 +245,21 @@ def _draw_pair(
 ) -> None:
     """Set the English and then the Japanese on one line, shrinking both to fit.
 
-    With `centred` the pair is centred on `x`; otherwise it starts there.
+    With `centred` the pair is centred on `x`; otherwise it starts there. Text
+    that reads the same in both languages is set once.
     """
+    if text.english == text.japanese:
+        _draw_single(
+            canvas,
+            text.english,
+            x=x,
+            baseline=baseline,
+            size_pt=size_pt,
+            available=available,
+            bold=bold,
+            centred=centred,
+        )
+        return
     english_font = font_for(text.english, bold=bold)
     japanese_font = font_for(text.japanese, bold=bold)
     natural = (
@@ -262,6 +275,26 @@ def _draw_pair(
     japanese_left = left + text_width_mm(text.english, english_font, size) + gap * scale
     canvas.setFont(japanese_font, size)
     canvas.drawString(japanese_left * mm, baseline * mm, text.japanese)
+
+
+def _draw_single(
+    canvas: Canvas,
+    text: str,
+    *,
+    x: float,
+    baseline: float,
+    size_pt: float,
+    available: float,
+    bold: bool,
+    centred: bool,
+) -> None:
+    """Set one piece of text on a line, shrinking it to fit."""
+    font = font_for(text, bold=bold)
+    natural = text_width_mm(text, font, size_pt)
+    size = size_pt * min(1.0, available / natural)
+    width = text_width_mm(text, font, size)
+    canvas.setFont(font, size)
+    canvas.drawString((x - width / 2 if centred else x) * mm, baseline * mm, text)
 
 
 def _draw_name(canvas: Canvas, card: AnyCard, frame: _Frame, top: float) -> float:

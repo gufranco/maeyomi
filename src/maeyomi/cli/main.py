@@ -9,6 +9,7 @@ device has numeric ability codes rather than named elements.
 
 import webbrowser
 from collections.abc import Callable
+from functools import partial
 from pathlib import Path
 from typing import Annotated, Final
 
@@ -26,7 +27,9 @@ from maeyomi.cli.device_tables import ability_lines, kind_lines, official_lines,
 from maeyomi.cli.doctor import State, machine, package, worst
 from maeyomi.cli.double_device import cheat_double, generate_double, show_double
 from maeyomi.cli.first_device import cheat_first, generate_first, show_first
+from maeyomi.cli.game_device import cheat_game, generate_game, show_game
 from maeyomi.cli.report import DISCLAIMER, comparison_lines, fit_line, shortfall_lines
+from maeyomi.datach.games import GAMES
 from maeyomi.decoder.decode import decode as decode_barcode
 from maeyomi.decoder.errors import BarcodeError
 from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
@@ -46,6 +49,7 @@ from maeyomi.official.catalogue import (
     official_cards,
 )
 from maeyomi.products.japan import product_cards, random_products, search_products
+from maeyomi.registry import DeviceChoice
 from maeyomi.rendering.export import ImageFormat
 from maeyomi.rendering.stat_tiles import stat_tiles
 
@@ -104,20 +108,31 @@ DeviceOption = Annotated[
         "--device",
         help=(
             "bb2 for the Barcode Battler II, bb1 for the first Barcode Battler, "
-            "double for the Barcode Battler II Double, dbz for Datach Dragon Ball Z."
+            "double for the Barcode Battler II Double, dbz for Datach Dragon Ball Z, "
+            "ultraman for Datach Ultraman Club."
         ),
     ),
 ]
 CharacterOption = Annotated[
     str | None,
-    typer.Option("--character", help="Datach Dragon Ball Z fighter or item, by name or id."),
+    typer.Option("--character", help="The Datach game's fighter, item or card, by name or id."),
 ]
 LevelOption = Annotated[
     int | None,
     typer.Option("--level", min=0, max=3, help="Datach Dragon Ball Z special move level."),
 ]
-_SHOW: Final = {Device.BB1: show_first, Device.DOUBLE: show_double, Device.DATACH_DBZ: show_dbz}
-_CHEAT: Final = {Device.BB1: cheat_first, Device.DOUBLE: cheat_double, Device.DATACH_DBZ: cheat_dbz}
+_SHOW: Final[dict[Device, Callable[..., None]]] = {
+    Device.BB1: show_first,
+    Device.DOUBLE: show_double,
+    Device.DATACH_DBZ: show_dbz,
+    **{device: partial(show_game, device) for device in GAMES},
+}
+_CHEAT: Final[dict[Device, Callable[..., None]]] = {
+    Device.BB1: cheat_first,
+    Device.DOUBLE: cheat_double,
+    Device.DATACH_DBZ: cheat_dbz,
+    **{device: partial(cheat_game, device) for device in GAMES},
+}
 BackReadOption = Annotated[
     bool, typer.Option("--back-read", help="Build a card the device reads from the back.")
 ]
@@ -203,6 +218,11 @@ def generate(
     if device is Device.DATACH_DBZ:
         pick = DbzPick(character=dbz_character, level=level, back_read=back_read, nearest=nearest)
         generate_dbz(request, pick, output=output, images=images, print_shop=print_shop)
+        return
+    if device in GAMES:
+        refuse_dbz_options(None, level)
+        choice = DeviceChoice(back_read=back_read, character=dbz_character)
+        generate_game(device, request, choice, output=output, images=images, print_shop=print_shop)
         return
     refuse_dbz_options(dbz_character, level)
     if device is not Device.BB2:

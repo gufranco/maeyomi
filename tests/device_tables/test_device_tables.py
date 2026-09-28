@@ -39,7 +39,7 @@ def test_a_product_line_uses_the_devices_reading() -> None:
 
 def test_no_device_means_every_set() -> None:
     assert official_sets(None) == tuple(OfficialSet)
-    assert official_lines(None)[len(OfficialSet)].strip().startswith("1025")
+    assert official_lines(None)[len(OfficialSet)].strip().startswith("1063")
 
 
 def test_a_product_the_game_cannot_read_says_so_in_its_line() -> None:
@@ -48,3 +48,17 @@ def test_a_product_the_game_cannot_read_says_so_in_its_line() -> None:
     lines = product_lines(shelf, Device.DATACH_DBZ)
 
     assert lines[0].endswith("The game's reader cannot read this barcode")
+
+
+def test_a_datach_game_lists_every_card_it_reads_by_number_and_kind() -> None:
+    lines = kind_lines(Device.DATACH_ULTRAMAN)
+
+    assert len(lines) == 51
+    assert "  3  fighter  Zoffy / ゾフィー" in lines
+    assert " 33  item     Father of Ultra / ウルトラのちち" in lines
+
+
+def test_a_datach_game_says_it_has_no_code_table() -> None:
+    assert ability_lines(Device.DATACH_ULTRAMAN) == [
+        "Datach Ultraman Club has no two-digit code; its cards carry no special ability"
+    ]

@@ -13,6 +13,7 @@ from maeyomi.bb1.flags import MAX_CODE as FLAG_MAX
 from maeyomi.bb1.flags import MIN_CODE as FLAG_MIN
 from maeyomi.bb1.flags import Flag
 from maeyomi.datach.dbz_names import FIGHTERS, ITEMS
+from maeyomi.datach.games import game_for
 from maeyomi.double.abilities import DoubleAbility
 from maeyomi.models.device import Device
 from maeyomi.models.race import Race
@@ -28,6 +29,7 @@ from maeyomi.registry import readable_as, speed_note
 from maeyomi.rendering.face import summary_of
 from maeyomi.rendering.labels import RACE_DESCRIPTIONS, UNREADABLE, race_label
 
+NO_CODE_TABLE: Final = "{game} has no two-digit code; its cards carry no special ability"
 SEVEN_READ_NOTE: Final = (
     "   A 7-read card has no race any source records; it prints as kind unknown."
 )
@@ -39,6 +41,12 @@ def kind_lines(device: Device) -> list[str]:
         fighters = [f"{key:3d}  {en} / {ja}" for key, (en, ja) in FIGHTERS.items()]
         items = [f"{key:3d}  {item.english} / {item.japanese}" for key, item in ITEMS.items()]
         return ["Fighters", *fighters, "Items", *items]
+    game = game_for(device)
+    if game is not None:
+        return [
+            f"{entry.ident:3d}  {entry.kind.value:8s} {entry.english} / {entry.japanese}"
+            for entry in game.entries()
+        ]
     lines: list[str] = []
     for race in Race:
         label = race_label(race)
@@ -52,6 +60,8 @@ def ability_lines(device: Device) -> list[str]:
     """The device's own table for the two-digit code, or the game's item effects."""
     if device is Device.DATACH_DBZ:
         return [f"{key:02d}  {item.english}: {item.effect}" for key, item in ITEMS.items()]
+    if game_for(device) is not None:
+        return [NO_CODE_TABLE.format(game=device.english)]
     if device is Device.BB1:
         flags = (Flag.from_code(code) for code in range(FLAG_MIN, FLAG_MAX + 1))
         return [f"{flag.code:02d}  {flag.description}" for flag in flags]

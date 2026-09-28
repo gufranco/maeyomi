@@ -9,15 +9,22 @@ from dataclasses import dataclass
 
 from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.datach.dbz import DbzCard
+from maeyomi.datach.game_card import DatachCard
 from maeyomi.double.card import DoubleCard
 from maeyomi.models.character import BarcodeBattlerCharacter
 
-type CardResult = BarcodeBattlerCharacter | FirstBattlerCard | DoubleCard | DbzCard
+type CardResult = BarcodeBattlerCharacter | FirstBattlerCard | DoubleCard | DbzCard | DatachCard
 
 
 @dataclass(frozen=True, slots=True)
 class GeneratedCard[
-    T: (BarcodeBattlerCharacter, FirstBattlerCard, DoubleCard, DbzCard) = BarcodeBattlerCharacter
+    T: (
+        BarcodeBattlerCharacter,
+        FirstBattlerCard,
+        DoubleCard,
+        DbzCard,
+        DatachCard,
+    ) = BarcodeBattlerCharacter
 ]:
     """A card ready to render, whose barcode has already been decoded back."""
 
@@ -31,4 +38,5 @@ type AnyCard = (
     | GeneratedCard[FirstBattlerCard]
     | GeneratedCard[DoubleCard]
     | GeneratedCard[DbzCard]
+    | GeneratedCard[DatachCard]
 )

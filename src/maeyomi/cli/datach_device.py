@@ -36,7 +36,8 @@ NONE: Final = "none"
 NOT_READ: Final = (
     "Datach Dragon Ball Z does not read {option}; it reads a name, a level, HP, BP, DP"
 )
-ONLY_DBZ: Final = "only --device dbz reads --character and --level"
+ONLY_DBZ: Final = "only --device dbz reads --level"
+ONLY_GAMES: Final = "only a Datach game reads --character"
 NEAREST_NOTE: Final = "no card has exactly those numbers; offering the closest one that prints"
 
 
@@ -77,9 +78,14 @@ def describe_dbz(card: DbzCard) -> list[str]:
 
 
 def refuse_dbz_options(character: str | None, level: int | None) -> None:
-    """Stop when an option only this game reads was given for another device."""
-    if character is not None or level is not None:
-        typer.echo(ONLY_DBZ, err=True)
+    """Stop when an option only a game reads was given for a device that does not read it."""
+    refusals = [
+        refusal
+        for refusal, given in ((ONLY_GAMES, character is not None), (ONLY_DBZ, level is not None))
+        if given
+    ]
+    if refusals:
+        typer.echo("; ".join(refusals), err=True)
         raise typer.Exit(code=2)
 
 

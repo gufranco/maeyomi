@@ -5,6 +5,8 @@ import pytest
 from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.datach.dbz import DbzCard, DbzKind
 from maeyomi.datach.dbz_reader import Readability, readability
+from maeyomi.datach.game_card import DatachCard, GameKind
+from maeyomi.datach.game_reader import printable
 from maeyomi.double.card import DoubleCard
 from maeyomi.generator.device_random import random_for
 from maeyomi.models.card_request import CardRequest
@@ -103,3 +105,27 @@ def test_a_dragon_ball_sheet_holds_only_codes_the_game_reads_at_any_speed() -> N
     batch = random_for(Device.DATACH_DBZ, 30, template=DBZ_RANGES, seed=9)
 
     assert all(readability(card.barcode) is Readability.READS for card in batch.cards)
+
+
+def test_an_ultraman_club_sheet_holds_fighters_every_datach_reader_accepts() -> None:
+    template = CardRequest(
+        hp=Constraint.at_least(5000), st=Constraint.anything(), df=Constraint.anything()
+    )
+
+    batch = random_for(Device.DATACH_ULTRAMAN, 6, template=template, seed=3)
+
+    assert len(batch.cards) == 6
+    for card in batch.cards:
+        assert isinstance(card.character, DatachCard)
+        assert card.character.kind is GameKind.FIGHTER
+        assert card.character.value("PW") >= 5000
+        assert printable(card.barcode)
+
+
+def test_an_ultraman_club_sheet_refuses_a_race() -> None:
+    template = CardRequest(race=Race.HUMAN)
+
+    batch = random_for(Device.DATACH_ULTRAMAN, 3, template=template, seed=3)
+
+    assert batch.reason == "Datach Ultraman Club does not read race"
+    assert batch.cards == ()

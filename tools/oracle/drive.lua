@@ -102,6 +102,13 @@ emu.register_frame_done(function()
         local function w(addr) return mem:read_u8(addr) | (mem:read_u8(addr + 1) << 8) end
         print(string.format("REPORT %s type=%d char=%d level=%d hp=%d bp=%d dp=%d", x, mem:read_u8(0x03d0), mem:read_u8(0x0407), mem:read_u8(0x0416), w(0x0417) * 10, w(0x0419) * 10, w(0x041b) * 10))
       end
+      if a == "peek" then
+        local mem = manager.machine.devices[":maincpu"].spaces["program"]
+        local lo, len = x:match("(%x+)%s+(%d+)")
+        local bytes = {}
+        for i = 0, tonumber(len) - 1 do bytes[#bytes + 1] = string.format("%02x", mem:read_u8(tonumber(lo, 16) + i)) end
+        print("PEEK " .. lo .. " " .. table.concat(bytes, " "))
+      end
       if a == "exit" then manager.machine:exit() end
     end
   end

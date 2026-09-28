@@ -74,6 +74,9 @@ STAT_LABELS: Final[dict[str, Bilingual]] = {
     "MP": Bilingual("Magic", "まほう"),
     "BP": Bilingual("BP", "せんとうりょく"),
     "DP": Bilingual("DP", "ぼうぎょりょく"),
+    "PW": Bilingual("PW", "PW"),
+    "UST": Bilingual("ST", "ST"),
+    "USP": Bilingual("SP", "SP"),
 }
 
 RACE_DESCRIPTIONS: Final[dict[Race, str]] = {

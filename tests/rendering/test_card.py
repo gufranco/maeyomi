@@ -10,8 +10,9 @@ from reportlab.pdfgen.canvas import Canvas
 from maeyomi.barcode.geometry import BarcodeGeometry
 from maeyomi.barcode.rasterise import render_pdf_pages
 from maeyomi.barcode.verify import decode_image, decode_pdf
+from maeyomi.datach.ultraman import decode_ultraman
 from maeyomi.decoder.decode import decode
-from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.models.generated_card import AnyCard, GeneratedCard
 from maeyomi.rendering.card import CardStyle, draw_card
 from maeyomi.rendering.layout import (
     CARD_WIDTH_MM,
@@ -28,7 +29,7 @@ def sample(name: str = "Fire Knight") -> GeneratedCard:
 
 def render(
     path: Path,
-    card: GeneratedCard,
+    card: AnyCard,
     *,
     width: float = POKER_CARD_WIDTH_MM,
     height: float = POKER_CARD_HEIGHT_MM,
@@ -392,3 +393,16 @@ def test_a_portrait_card_too_short_for_its_text_is_rejected(tmp_path: Path) -> N
             height_mm=60,
             geometry=BarcodeGeometry(),
         )
+
+
+def test_a_label_the_same_in_both_languages_prints_once(tmp_path: Path) -> None:
+    path = tmp_path / "zoffy.pdf"
+    barcode = "0344046250372"
+    card = GeneratedCard(name="Jack", barcode=barcode, character=decode_ultraman(barcode))
+
+    render(path, card)
+
+    text = pdf_text(path)
+    assert "PW" in text
+    assert "PW PW" not in text
+    assert "No. 1 in the game's list" in text

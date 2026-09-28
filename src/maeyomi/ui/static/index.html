@@ -84,6 +84,14 @@
         </span>
       </p>
 
+      <p class="field" data-device-field="game" hidden>
+        <label for="game-character" data-i18n="game.character">Card</label>
+        <select id="game-character"></select>
+        <span class="hint" data-i18n="game.character.hint">
+          The game reads the card by its number in the game's own list.
+        </span>
+      </p>
+
       <p class="field" data-device-field="race">
         <label for="race" data-i18n="one.race">Kind of fighter</label>
         <select id="race" name="race"></select>
@@ -292,6 +300,10 @@
           The cards Bandai packed with Datach Dragon Ball Z come from the card list
           in the source code of puNES, a Famicom emulator.
         </p>
+        <p data-i18n="official.note.ultraman" data-official-source="ultraman" hidden>
+          The Ultraman Club barcodes were read off a boxed set by retrostuff.org, and
+          the names come from the puNES card list.
+        </p>
         <p class="note-heading" id="official-sources" data-i18n="official.sources">
           Where the barcodes come from
         </p>
@@ -305,6 +317,11 @@
             <span data-i18n="official.source.dbz">Dragon Ball Z cards:</span>
             <a href="https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
                target="_blank" rel="noopener noreferrer">puNES, dlgDetachBarcode.cpp</a>
+          </li>
+          <li data-official-source="ultraman" hidden>
+            <span data-i18n="official.source.ultraman">Ultraman Club cards:</span>
+            <a href="https://retrostuff.org/2019/03/23/bandai-datach-ultraman-club-spokon-fight-barcodes-for-mame/"
+               target="_blank" rel="noopener noreferrer">retrostuff.org</a>
           </li>
         </ul>
       </div>

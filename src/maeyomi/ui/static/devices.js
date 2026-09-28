@@ -5,6 +5,7 @@ const STAT_KEYS = ['hp', 'st', 'df'];
 
 let deviceList = [];
 let dbzList = [];
+let gameList = [];
 let chosenDevice = SECOND_DEVICE;
 
 const currentDevice = () => chosenDevice;
@@ -62,6 +63,25 @@ function renderDbzChoices() {
   );
 }
 
+function renderGameChoices() {
+  const chosen = $('game-character').value;
+  const kinds = [...new Set(gameList.map((entry) => entry.kind))];
+  const group = (kind) =>
+    `<optgroup label="${escapeHtml(t(`game.kind.${kind}`))}">` +
+    gameList.filter((entry) => entry.kind === kind).map((entry) => dbzOptionHtml(entry, chosen))
+      .join('') + '</optgroup>';
+  $('game-character').replaceChildren();
+  $('game-character').insertAdjacentHTML(
+    'afterbegin',
+    `<option value="">${escapeHtml(t('game.anyone'))}</option>` + kinds.map(group).join(''),
+  );
+}
+
+async function loadGameCards() {
+  gameList = reads('game') ? await getJson(`/api/game-cards/${chosenDevice}`) : [];
+  renderGameChoices();
+}
+
 const DEVICE_GROUPS = [['machine', 'device.machines'], ['game', 'device.games']];
 
 function deviceButtonHtml(device) {
@@ -112,6 +132,7 @@ function renderJobOptions() {
 function renderDevices() {
   renderDeviceOptions();
   renderDbzChoices();
+  renderGameChoices();
   renderJobOptions();
   applyStatLabels();
 }
@@ -192,6 +213,7 @@ function chooseDevice(key) {
   applyDeviceForm();
   resetShelf();
   loadOfficial().catch(() => setStatus('official-status', 'bad', 'tag.impossible', t('status.wrong')));
+  loadGameCards().catch(() => setStatus('one-status', 'bad', 'tag.impossible', t('status.wrong')));
 }
 
 async function setUpDevices() {
@@ -212,7 +234,8 @@ async function setUpDevices() {
 
 function deviceCardPayload() {
   const job = reads('job') && $('job').value !== '';
-  const character = reads(DBZ_DEVICE) && $('dbz-character').value;
+  const character = (reads(DBZ_DEVICE) && $('dbz-character').value) ||
+    (reads('game') && $('game-character').value);
   const level = reads(DBZ_DEVICE) && $('dbz-level').value !== '';
   return {
     device: chosenDevice,
@@ -224,7 +247,7 @@ function deviceCardPayload() {
     ...(job ? { job: Number($('job').value) } : {}),
     ...(reads('backRead') ? { backRead: $('backRead').checked } : {}),
     ...(reads('nearest') ? { nearest: $('nearest').checked } : {}),
-    ...(character ? { character: $('dbz-character').value } : {}),
+    ...(character ? { character } : {}),
     ...(level ? { level: Number($('dbz-level').value) } : {}),
   };
 }

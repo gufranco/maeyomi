@@ -11,11 +11,12 @@ class Device(StrEnum):
     BB1 = "bb1"
     DOUBLE = "double"
     DATACH_DBZ = "dbz"
+    DATACH_ULTRAMAN = "ultraman"
 
     @property
     def is_game(self) -> bool:
         """Whether this is a game with a barcode reader rather than a standalone machine."""
-        return self is Device.DATACH_DBZ
+        return self not in _MACHINES
 
     @property
     def english(self) -> str:
@@ -28,9 +29,12 @@ class Device(StrEnum):
         return _NAMES[self][1]
 
 
+_MACHINES: Final = frozenset({Device.BB2, Device.BB1, Device.DOUBLE})
+
 _NAMES: Final[dict[Device, tuple[str, str]]] = {
     Device.BB2: ("Barcode Battler 2", "バーコードバトラー2"),
     Device.BB1: ("Barcode Battler", "バーコードバトラー"),
     Device.DOUBLE: ("Barcode Battler 2 Double", "バーコードバトラー2 ダブル"),
     Device.DATACH_DBZ: ("Datach Dragon Ball Z", "データック ドラゴンボールZ"),
+    Device.DATACH_ULTRAMAN: ("Datach Ultraman Club", "データック ウルトラマン倶楽部"),
 }

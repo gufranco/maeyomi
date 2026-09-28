@@ -381,7 +381,9 @@ function showOfficialHint() {
 }
 
 function renderOfficialSources() {
-  const source = currentDevice() === 'dbz' ? 'dbz' : 'epoch';
+  const sources = [...document.querySelectorAll('[data-official-source]')]
+    .map((node) => node.dataset.officialSource);
+  const source = sources.includes(currentDevice()) ? currentDevice() : 'epoch';
   document.querySelectorAll('[data-official-source]').forEach((node) => {
     node.toggleAttribute('hidden', node.dataset.officialSource !== source);
   });

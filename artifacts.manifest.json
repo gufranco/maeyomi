@@ -9,6 +9,16 @@
       "sha1": "87478b635fefb25fa13c4876e20f505a97426c1b",
       "crc32": "19e81461",
       "used_by": "tools/oracle/record_dbz.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "datach_ultraman_prg",
+      "what": "Program ROM of Datach Ultraman Club: Supokon Fight!, Bandai 1993, as MAME's nes_datach software list names it",
+      "path": "nes_datach/dtc_ultr/datach - ultraman club - supokon fight (japan).prg",
+      "size": 262144,
+      "sha256": "85f0ab77ae56df26e18bf55caafb795ec24712c168912f0963756fe4daa2ef65",
+      "sha1": "533170d5eb685231ccd27b9c136ffa4fad68a7b8",
+      "crc32": "5b457641",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
     }
   ]
 }

@@ -20,6 +20,8 @@ from maeyomi.datach.dbz_cheat import strongest_dbz_card
 from maeyomi.datach.dbz_names import character_id
 from maeyomi.datach.dbz_reader import Readability, ReaderRefusalError, readability
 from maeyomi.datach.dbz_solve import request_from, solve_dbz, solve_dbz_nearest, unread_fields
+from maeyomi.datach.game_reader import game_readability
+from maeyomi.datach.games import DatachGame, GameOrder, game_for
 from maeyomi.decoder.decode import decode
 from maeyomi.double.cheat import strongest_double_card
 from maeyomi.double.decode import decode_double
@@ -33,6 +35,8 @@ from maeyomi.models.read_type import ReadType
 from maeyomi.rendering.labels import SPEED_DEPENDENT, Bilingual
 
 NOT_READ: Final = "Datach Dragon Ball Z does not read {fields}"
+GAME_NOT_READ: Final = "{game} does not read {fields}"
+NO_GAME_CARD: Final = "{game} reads no card with those numbers"
 NO_DOUBLE_BACK_READ: Final = (
     "the Double reads II back-read codes the II's way; build them with --device bb2, "
     "and use --device double for its own 7-read"
@@ -47,6 +51,7 @@ class DeviceChoice:
     nearest: bool = False
     character: str | None = None
     level: int | None = None
+    picks: tuple[tuple[str, int], ...] = ()
 
 
 @dataclass(frozen=True, slots=True)
@@ -85,6 +90,8 @@ def speed_note(device: Device, barcode: str) -> Bilingual | None:
     """A caution when the device reads the code only at some swipe speeds."""
     if device is Device.DATACH_DBZ and readability(barcode) is Readability.SPEED_DEPENDENT:
         return SPEED_DEPENDENT
+    if game_for(device) is not None and game_readability(barcode) is Readability.SPEED_DEPENDENT:
+        return SPEED_DEPENDENT
     return None
 
 
@@ -99,6 +106,10 @@ def printable_as(device: Device, barcode: str, name: str) -> AnyCard:
     if device is Device.DATACH_DBZ:
         dbz = decode_dbz(barcode)
         return GeneratedCard(name=name, barcode=dbz.barcode, character=dbz)
+    game = game_for(device)
+    if game is not None:
+        read = game.decode(barcode)
+        return GeneratedCard(name=name, barcode=read.barcode, character=read)
     second = decode(barcode)
     return GeneratedCard(name=name, barcode=second.barcode, character=second)
 
@@ -108,6 +119,9 @@ def build_as(device: Device, request: CardRequest, choice: DeviceChoice) -> Devi
     reading = ReadType.BACK if choice.back_read else ReadType.FRONT
     if device is Device.DATACH_DBZ:
         return _build_dbz(request, choice)
+    game = game_for(device)
+    if game is not None:
+        return _build_game(device, game, request, choice)
     if device is Device.DOUBLE:
         if choice.back_read:
             return DeviceOutcome(blockers=(NO_DOUBLE_BACK_READ,))
@@ -129,6 +143,9 @@ def cheat_as(device: Device, name: str | None) -> AnyCard:
         return strongest_double_card(chosen)
     if device is Device.DATACH_DBZ:
         return strongest_dbz_card(chosen)
+    game = game_for(device)
+    if game is not None:
+        return _strongest_game(game, chosen)
     return strongest_card(chosen)
 
 
@@ -145,3 +162,29 @@ def _build_dbz(request: CardRequest, choice: DeviceChoice) -> DeviceOutcome:
     wanted = request_from(request, character=character, level=choice.level)
     outcome = solve_dbz_nearest(wanted) if choice.nearest else solve_dbz(wanted)
     return DeviceOutcome(outcome.card, outcome.blockers, exact=outcome.exact)
+
+
+def _build_game(
+    device: Device, game: DatachGame, request: CardRequest, choice: DeviceChoice
+) -> DeviceOutcome:
+    """Refuse what the game cannot read, then build the card from its own tables."""
+    unread = unread_fields(request, back_read=choice.back_read)
+    if unread:
+        return DeviceOutcome(
+            blockers=(GAME_NOT_READ.format(game=device.english, fields=", ".join(unread)),)
+        )
+    name = choice.character
+    try:
+        ident = None if name is None or not name.strip() else game.named(name)
+    except ValueError as error:
+        return DeviceOutcome(blockers=(str(error),))
+    card = game.build(GameOrder(ident, (request.hp, request.st, request.df), choice.picks))
+    if card is None:
+        return DeviceOutcome(blockers=(NO_GAME_CARD.format(game=device.english),))
+    return DeviceOutcome(card)
+
+
+def _strongest_game(game: DatachGame, name: str) -> AnyCard:
+    """The game's strongest card under the name."""
+    card = game.strongest()
+    return GeneratedCard(name=name, barcode=card.barcode, character=card)

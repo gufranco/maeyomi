@@ -21,6 +21,8 @@ from maeyomi.datach.dbz_solve import (
     MAX_HALVED,
     MAX_HP,
 )
+from maeyomi.datach.games import game_for
+from maeyomi.datach.ultraman import HUNDRED, STRONGEST_HUNDREDS
 from maeyomi.decoder.back_read import fighter_limits
 from maeyomi.double.solve import MAX_VALUE as DOUBLE_MAX
 from maeyomi.models.device import Device
@@ -44,6 +46,12 @@ type Range = tuple[int, int]
 CLASSIC_RANGES: Final[tuple[Range, Range, Range]] = ((1000, 10000), (100, 3000), (100, 3000))
 DBZ_RANGES: Final[tuple[Range, Range, Range]] = ((10000, 60000), (5000, 30000), (5000, 30000))
 """Where most Dragon Ball Z fighters sit: 80 percent of random codes fall inside these."""
+ULTRAMAN_MAX: Final = STRONGEST_HUNDREDS * HUNDRED
+ULTRAMAN_RANGES: Final[tuple[Range, Range, Range]] = (
+    (0, ULTRAMAN_MAX),
+    (0, ULTRAMAN_MAX),
+    (0, ULTRAMAN_MAX),
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -88,6 +96,14 @@ FORMS: Final[dict[Device, DeviceForm]] = {
         ("stat.hp", "stat.bp", "stat.dp"),
         ranges=DBZ_RANGES,
     ),
+    Device.DATACH_ULTRAMAN: DeviceForm(
+        ("game",),
+        ULTRAMAN_MAX,
+        ULTRAMAN_MAX,
+        ULTRAMAN_MAX,
+        stat_keys=("stat.pw", "stat.ust", "stat.usp"),
+        ranges=ULTRAMAN_RANGES,
+    ),
 }
 
 
@@ -129,6 +145,19 @@ def dbz_choices() -> list[DbzChoiceView]:
         for key, item in ITEMS.items()
     ]
     return fighters + items
+
+
+def game_choices(device: Device) -> list[DbzChoiceView]:
+    """Every card a Datach game after Dragon Ball Z can read, or none for any other device."""
+    game = game_for(device)
+    if game is None:
+        return []
+    return [
+        DbzChoiceView(
+            id=entry.ident, kind=entry.kind.value, english=entry.english, japanese=entry.japanese
+        )
+        for entry in game.entries()
+    ]
 
 
 def facts_of(result: CardResult) -> list[FactView]:

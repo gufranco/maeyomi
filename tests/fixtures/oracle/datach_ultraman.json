@@ -1,0 +1,730 @@
+{
+ "game": "Datach Ultraman Club: Supokon Fight!",
+ "software": "dtc_ultr",
+ "rom": {
+  "sha1": "533170d5eb685231ccd27b9c136ffa4fad68a7b8",
+  "size": 262144
+ },
+ "screen": "科学特捜隊 analyzer, type at $02CD, PW/ST/SP words at $02CE/$02D0/$02D2",
+ "recorded_utc": "2026-09-28",
+ "cards": [
+  {
+   "barcode": "0300137370060",
+   "generated": false,
+   "type": 20,
+   "pw": 6900,
+   "st": 7100,
+   "sp": 8000
+  },
+  {
+   "barcode": "0301546152452",
+   "generated": false,
+   "type": 7,
+   "pw": 7800,
+   "st": 4400,
+   "sp": 5100
+  },
+  {
+   "barcode": "0302406330614",
+   "generated": false,
+   "type": 27,
+   "pw": 7300,
+   "st": 7100,
+   "sp": 4300
+  },
+  {
+   "barcode": "0304340013455",
+   "generated": false,
+   "type": 5,
+   "pw": 1800,
+   "st": 5600,
+   "sp": 8900
+  },
+  {
+   "barcode": "0310026276212",
+   "generated": false,
+   "type": 0,
+   "pw": 7500,
+   "st": 7100,
+   "sp": 6400,
+   "swipe_us": 450
+  },
+  {
+   "barcode": "0311027362416",
+   "generated": false,
+   "type": 12,
+   "pw": 7200,
+   "st": 6100,
+   "sp": 8100
+  },
+  {
+   "barcode": "0313420753129",
+   "generated": false,
+   "type": 26,
+   "pw": 5500,
+   "st": 3300,
+   "sp": 5200
+  },
+  {
+   "barcode": "0313612255073",
+   "generated": false,
+   "type": 25,
+   "pw": 3100,
+   "st": 9100,
+   "sp": 2200
+  },
+  {
+   "barcode": "0315005265225",
+   "generated": false,
+   "type": 8,
+   "pw": 7400,
+   "st": 6900,
+   "sp": 6200
+  },
+  {
+   "barcode": "0315424322677",
+   "generated": false,
+   "type": 3,
+   "pw": 7200,
+   "st": 6900,
+   "sp": 4800
+  },
+  {
+   "barcode": "0340503173222",
+   "generated": false,
+   "type": 18,
+   "pw": 8800,
+   "st": 7000,
+   "sp": 4200,
+   "swipe_us": 300
+  },
+  {
+   "barcode": "0340506071631",
+   "generated": false,
+   "type": 4,
+   "pw": 7300,
+   "st": 7000,
+   "sp": 4500
+  },
+  {
+   "barcode": "0341125655455",
+   "generated": false,
+   "type": 17,
+   "pw": 7900,
+   "st": 3800,
+   "sp": 7700
+  },
+  {
+   "barcode": "0344046250372",
+   "generated": false,
+   "type": 1,
+   "pw": 2300,
+   "st": 5500,
+   "sp": 9000
+  },
+  {
+   "barcode": "0344543150519",
+   "generated": false,
+   "type": 19,
+   "pw": 5300,
+   "st": 5200,
+   "sp": 5100
+  },
+  {
+   "barcode": "0351065350365",
+   "generated": false,
+   "type": 13,
+   "pw": 2700,
+   "st": 4800,
+   "sp": 9000
+  },
+  {
+   "barcode": "0351423042543",
+   "generated": false,
+   "type": 10,
+   "pw": 5200,
+   "st": 9000,
+   "sp": 5100
+  },
+  {
+   "barcode": "0352030276123",
+   "generated": false,
+   "type": 22,
+   "pw": 4500,
+   "st": 7800,
+   "sp": 7000,
+   "swipe_us": 450
+  },
+  {
+   "barcode": "0353404234466",
+   "generated": false,
+   "type": 24,
+   "pw": 7100,
+   "st": 6800,
+   "sp": 2800
+  },
+  {
+   "barcode": "0354147246266",
+   "generated": false,
+   "type": 16,
+   "pw": 7000,
+   "st": 5500,
+   "sp": 6000
+  },
+  {
+   "barcode": "0354402330518",
+   "generated": false,
+   "type": 2,
+   "pw": 5100,
+   "st": 7500,
+   "sp": 5300
+  },
+  {
+   "barcode": "0354562352030",
+   "generated": false,
+   "type": 6,
+   "pw": 8500,
+   "st": 5500,
+   "sp": 5000
+  },
+  {
+   "barcode": "0360003131751",
+   "generated": false,
+   "type": 14,
+   "pw": 5300,
+   "st": 7000,
+   "sp": 3900
+  },
+  {
+   "barcode": "0360115332657",
+   "generated": false,
+   "type": 21,
+   "pw": 6800,
+   "st": 7800,
+   "sp": 3300
+  },
+  {
+   "barcode": "0362010212737",
+   "generated": false,
+   "type": 23,
+   "pw": 4800,
+   "st": 8800,
+   "sp": 3800,
+   "swipe_us": 400
+  },
+  {
+   "barcode": "0370211242217",
+   "generated": false,
+   "type": 9,
+   "pw": 3000,
+   "st": 8800,
+   "sp": 3400
+  },
+  {
+   "barcode": "0403075341410",
+   "generated": false,
+   "type": 47,
+   "pw": 6600,
+   "st": 4300,
+   "sp": 8700
+  },
+  {
+   "barcode": "0406143256272",
+   "generated": false,
+   "type": 51,
+   "pw": 8800,
+   "st": 5700,
+   "sp": 6000
+  },
+  {
+   "barcode": "0406525340223",
+   "generated": false,
+   "type": 52,
+   "pw": 7600,
+   "st": 8900,
+   "sp": 4000
+  },
+  {
+   "barcode": "0407477371723",
+   "generated": false,
+   "type": 46,
+   "pw": 900,
+   "st": 700,
+   "sp": 4500
+  },
+  {
+   "barcode": "0416434374356",
+   "generated": false,
+   "type": 33,
+   "pw": 700,
+   "st": 7900,
+   "sp": 400
+  },
+  {
+   "barcode": "0436134251061",
+   "generated": false,
+   "type": 36,
+   "pw": 6700,
+   "st": 8900,
+   "sp": 1200
+  },
+  {
+   "barcode": "0443104216678",
+   "generated": false,
+   "type": 37,
+   "pw": 7800,
+   "st": 9800,
+   "sp": 6800,
+   "swipe_us": 300
+  },
+  {
+   "barcode": "0452114250619",
+   "generated": false,
+   "type": 35,
+   "pw": 6100,
+   "st": 8800,
+   "sp": 9100
+  },
+  {
+   "barcode": "0452177111759",
+   "generated": false,
+   "type": 54,
+   "pw": 700,
+   "st": 5000,
+   "sp": 9900
+  },
+  {
+   "barcode": "0452435231007",
+   "generated": false,
+   "type": 42,
+   "pw": 6700,
+   "st": 7800,
+   "sp": 5600
+  },
+  {
+   "barcode": "0453534350279",
+   "generated": false,
+   "type": 41,
+   "pw": 6700,
+   "st": 9800,
+   "sp": 4000
+  },
+  {
+   "barcode": "0456173047067",
+   "generated": false,
+   "type": 50,
+   "pw": 9200,
+   "st": 5200,
+   "sp": 7200
+  },
+  {
+   "barcode": "0300761364572",
+   "generated": true,
+   "type": 21,
+   "pw": 6600,
+   "st": 2300,
+   "sp": 2500
+  },
+  {
+   "barcode": "0302071574429",
+   "generated": true,
+   "type": 46,
+   "pw": 9900,
+   "st": 9500,
+   "sp": 7500
+  },
+  {
+   "barcode": "0302354103414",
+   "generated": true,
+   "type": 39,
+   "pw": 5700,
+   "st": 5500,
+   "sp": 8900
+  },
+  {
+   "barcode": "0303020434535",
+   "generated": true,
+   "type": 23,
+   "pw": 5900,
+   "st": 5500,
+   "sp": 7800
+  },
+  {
+   "barcode": "0304244407404",
+   "generated": true,
+   "type": 0,
+   "pw": 4700,
+   "st": 6600,
+   "sp": 7900
+  },
+  {
+   "barcode": "0304274065063",
+   "generated": true,
+   "type": 1,
+   "pw": 5600,
+   "st": 2600,
+   "sp": 7200
+  },
+  {
+   "barcode": "0304337502122",
+   "generated": true,
+   "type": 18,
+   "pw": 7300,
+   "st": 1500,
+   "sp": 8700
+  },
+  {
+   "barcode": "0305471575140",
+   "generated": true,
+   "type": 13,
+   "pw": 4900,
+   "st": 7600,
+   "sp": 2500
+  },
+  {
+   "barcode": "0306030434304",
+   "generated": true,
+   "type": 22,
+   "pw": 4900,
+   "st": 4600,
+   "sp": 6500
+  },
+  {
+   "barcode": "0307051662745",
+   "generated": true,
+   "type": 44,
+   "pw": 4700,
+   "st": 7900,
+   "sp": 9100
+  },
+  {
+   "barcode": "0307505653442",
+   "generated": true,
+   "type": 50,
+   "pw": 7800,
+   "st": 3900,
+   "sp": 5700
+  },
+  {
+   "barcode": "0310553453124",
+   "generated": true,
+   "type": 15,
+   "pw": 4500,
+   "st": 6400,
+   "sp": 5200
+  },
+  {
+   "barcode": "0312576277565",
+   "generated": true,
+   "type": 36,
+   "pw": 500,
+   "st": 2100,
+   "sp": 2500
+  },
+  {
+   "barcode": "0312701677321",
+   "generated": true,
+   "type": 49,
+   "pw": 6500,
+   "st": 4300,
+   "sp": 200
+  },
+  {
+   "barcode": "0312740613373",
+   "generated": true,
+   "type": 37,
+   "pw": 6500,
+   "st": 6300,
+   "sp": 4300
+  },
+  {
+   "barcode": "0313542465405",
+   "generated": true,
+   "type": 34,
+   "pw": 8400,
+   "st": 7400,
+   "sp": 2700
+  },
+  {
+   "barcode": "0313724635718",
+   "generated": true,
+   "type": 35,
+   "pw": 9700,
+   "st": 5300,
+   "sp": 900
+  },
+  {
+   "barcode": "0315061456513",
+   "generated": true,
+   "type": 9,
+   "pw": 5500,
+   "st": 7600,
+   "sp": 7100
+  },
+  {
+   "barcode": "0315706537324",
+   "generated": true,
+   "type": 6,
+   "pw": 9500,
+   "st": 5500,
+   "sp": 300
+  },
+  {
+   "barcode": "0321650331307",
+   "generated": true,
+   "type": 2,
+   "pw": 7300,
+   "st": 300,
+   "sp": 7600
+  },
+  {
+   "barcode": "0326202647769",
+   "generated": true,
+   "type": 24,
+   "pw": 6700,
+   "st": 1700,
+   "sp": 5500
+  },
+  {
+   "barcode": "0326250354008",
+   "generated": true,
+   "type": 26,
+   "pw": 3300,
+   "st": 5900,
+   "sp": 4400
+  },
+  {
+   "barcode": "0331611567416",
+   "generated": true,
+   "type": 12,
+   "pw": 3000,
+   "st": 5500,
+   "sp": 9700
+  },
+  {
+   "barcode": "0332022125264",
+   "generated": true,
+   "type": 32,
+   "pw": 8500,
+   "st": 7400,
+   "sp": 5300
+  },
+  {
+   "barcode": "0332527354473",
+   "generated": true,
+   "type": 54,
+   "pw": 7700,
+   "st": 8100,
+   "sp": 9500
+  },
+  {
+   "barcode": "0333166361174",
+   "generated": true,
+   "type": 41,
+   "pw": 2500,
+   "st": 100,
+   "sp": 1200
+  },
+  {
+   "barcode": "0334221072677",
+   "generated": true,
+   "type": 11,
+   "pw": 1500,
+   "st": 7600,
+   "sp": 3500
+  },
+  {
+   "barcode": "0342542341525",
+   "generated": true,
+   "type": 38,
+   "pw": 5500,
+   "st": 5500,
+   "sp": 5500
+  },
+  {
+   "barcode": "0344565206256",
+   "generated": true,
+   "type": 17,
+   "pw": 7300,
+   "st": 5100,
+   "sp": 500
+  },
+  {
+   "barcode": "0345412503443",
+   "generated": true,
+   "type": 3,
+   "pw": 9700,
+   "st": 3200,
+   "sp": 5900
+  },
+  {
+   "barcode": "0345613070607",
+   "generated": true,
+   "type": 8,
+   "pw": 3300,
+   "st": 6200,
+   "sp": 4100
+  },
+  {
+   "barcode": "0346041420132",
+   "generated": true,
+   "type": 43,
+   "pw": 5500,
+   "st": 9300,
+   "sp": 8700
+  },
+  {
+   "barcode": "0346634737470",
+   "generated": true,
+   "type": 33,
+   "pw": 5100,
+   "st": 4100,
+   "sp": 2100
+  },
+  {
+   "barcode": "0347635254157",
+   "generated": true,
+   "type": 45,
+   "pw": 7900,
+   "st": 9100,
+   "sp": 2400
+  },
+  {
+   "barcode": "0350331570735",
+   "generated": true,
+   "type": 19,
+   "pw": 7700,
+   "st": 4700,
+   "sp": 9500
+  },
+  {
+   "barcode": "0350343547763",
+   "generated": true,
+   "type": 20,
+   "pw": 6000,
+   "st": 6000,
+   "sp": 6500
+  },
+  {
+   "barcode": "0351267634447",
+   "generated": true,
+   "type": 10,
+   "pw": 4700,
+   "st": 7500,
+   "sp": 7300
+  },
+  {
+   "barcode": "0351723426265",
+   "generated": true,
+   "type": 16,
+   "pw": 1200,
+   "st": 5000,
+   "sp": 700
+  },
+  {
+   "barcode": "0352160362147",
+   "generated": true,
+   "type": 40,
+   "pw": 5200,
+   "st": 2800,
+   "sp": 8400
+  },
+  {
+   "barcode": "0352543205757",
+   "generated": true,
+   "type": 51,
+   "pw": 5400,
+   "st": 5500,
+   "sp": 900
+  },
+  {
+   "barcode": "0357761353327",
+   "generated": true,
+   "type": 52,
+   "pw": 6500,
+   "st": 4100,
+   "sp": 4200
+  },
+  {
+   "barcode": "0360463516754",
+   "generated": true,
+   "type": 14,
+   "pw": 5100,
+   "st": 6000,
+   "sp": 7300
+  },
+  {
+   "barcode": "0361330227605",
+   "generated": true,
+   "type": 4,
+   "pw": 3300,
+   "st": 6800,
+   "sp": 5900
+  },
+  {
+   "barcode": "0362234306335",
+   "generated": true,
+   "type": 27,
+   "pw": 7300,
+   "st": 8800,
+   "sp": 5700
+  },
+  {
+   "barcode": "0362607717638",
+   "generated": true,
+   "type": 47,
+   "pw": 4800,
+   "st": 1500,
+   "sp": 7100
+  },
+  {
+   "barcode": "0362641533645",
+   "generated": true,
+   "type": 48,
+   "pw": 1800,
+   "st": 9700,
+   "sp": 7900
+  },
+  {
+   "barcode": "0363423620324",
+   "generated": true,
+   "type": 42,
+   "pw": 5600,
+   "st": 5500,
+   "sp": 7700
+  },
+  {
+   "barcode": "0363476675678",
+   "generated": true,
+   "type": 25,
+   "pw": 6900,
+   "st": 7500,
+   "sp": 7500
+  },
+  {
+   "barcode": "0364566260644",
+   "generated": true,
+   "type": 5,
+   "pw": 7600,
+   "st": 2500,
+   "sp": 7100
+  },
+  {
+   "barcode": "0365116754569",
+   "generated": true,
+   "type": 7,
+   "pw": 300,
+   "st": 3500,
+   "sp": 4500
+  },
+  {
+   "barcode": "0373341754711",
+   "generated": true,
+   "type": 53,
+   "pw": 6100,
+   "st": 7800,
+   "sp": 5100
+  }
+ ],
+ "note": "Read with MAME's barcode reader at its fixed rate; the five codes with swipe_us did not read at that rate and were read by swiping one module per that many microseconds."
+}

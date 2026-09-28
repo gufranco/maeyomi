@@ -8,6 +8,7 @@ import pytest
 from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.bb1.decode import decode_first
 from maeyomi.datach.dbz import decode_dbz
+from maeyomi.datach.ultraman import decode_ultraman
 from maeyomi.decoder.decode import decode
 from maeyomi.double.decode import decode_double
 from maeyomi.models.device import Device
@@ -21,13 +22,15 @@ from maeyomi.official.catalogue import (
 )
 
 DBZ_CARDS = 36
+ULTRAMAN_CARDS = 38
 ADDED_CARDS = 346
 SCANNED_CARDS = 71
-TRANSCRIBED = 577 + DBZ_CARDS + ADDED_CARDS + SCANNED_CARDS
+TRANSCRIBED = 577 + DBZ_CARDS + ADDED_CARDS + SCANNED_CARDS + ULTRAMAN_CARDS
 SHARED_BETWEEN_SETS = {"0000500970445"}
 WIKI = "https://wikiwiki.jp/barcode/"
 UK_LIST = "https://www.barcodebattler.co.uk/deeta.js"
 UK_SCANS = "https://www.barcodebattler.co.uk/scans/Japan/"
+RETROSTUFF = "https://retrostuff.org/"
 KNOWN_BAD_CHECK_DIGITS = {
     "1162864348006",
     "1273634357000",
@@ -60,6 +63,7 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.DORAEMON_DINOSAUR: UK_SCANS,
         OfficialSet.OBOCCHAMAKUN: UK_SCANS,
         OfficialSet.MEIJI_FREEZELAND: UK_SCANS,
+        OfficialSet.DATACH_ULTRAMAN: RETROSTUFF,
     }
     for card in official_catalogue():
         assert card.source_url.startswith(sources.get(card.official_set, WIKI))
@@ -91,6 +95,7 @@ def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
             Device.DOUBLE: decode_double,
             Device.BB2: decode,
             Device.DATACH_DBZ: decode_dbz,
+            Device.DATACH_ULTRAMAN: decode_ultraman,
         }
         for card in official_cards(official_set):
             assert readers[official_set.device](card.barcode) == card.character
@@ -185,3 +190,11 @@ def test_every_added_set_is_read_by_its_device(
 ) -> None:
     assert official_set.device is device
     assert len(official_cards(official_set)) == count
+
+
+def test_the_ultraman_club_set_is_every_card_bandai_printed_with_a_barcode() -> None:
+    cards = official_cards(OfficialSet.DATACH_ULTRAMAN)
+
+    assert len(cards) == ULTRAMAN_CARDS
+    assert sets_for(Device.DATACH_ULTRAMAN) == (OfficialSet.DATACH_ULTRAMAN,)
+    assert {card.name for card in cards} >= {"ゾフィー", "ウルトラの父"}

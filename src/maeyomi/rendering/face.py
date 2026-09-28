@@ -16,6 +16,8 @@ from typing import Final
 from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.datach.dbz import DbzCard, DbzKind
 from maeyomi.datach.dbz_names import fighter_name, item_entry
+from maeyomi.datach.game_card import DatachCard, GameKind
+from maeyomi.datach.games import GAMES
 from maeyomi.double.card import DoubleCard
 from maeyomi.generator.carried import Carried, carried
 from maeyomi.models.character import BarcodeBattlerCharacter
@@ -42,6 +44,7 @@ from maeyomi.rendering.labels import (
     DBZ_FIGHTER,
     DBZ_MOVES,
     ITEM_CARD,
+    STAT_LABELS,
     UNKNOWN_FIGHTER,
     UNKNOWN_KIND,
     UNKNOWN_POWER,
@@ -56,6 +59,13 @@ from maeyomi.rendering.stat_tiles import StatTile, stat_tiles, tiles_for, tiles_
 
 BandIcon = Callable[..., None]
 UNKNOWN_KIND_KEY: Final = "unknown"
+GAME_STAT_LOOKS: Final[dict[str, Carried]] = {
+    "PW": Carried.ST,
+    "UST": Carried.HP,
+    "USP": Carried.MP,
+}
+"""Each Datach game number drawn in the colours of the Barcode Battler number closest to it."""
+GAME_ITEM_KINDS: Final = frozenset({GameKind.ITEM, GameKind.COMMAND})
 
 
 @dataclass(frozen=True, slots=True)
@@ -81,6 +91,8 @@ def face_of(result: CardResult) -> CardFace:
         return _double_face(result)
     if isinstance(result, DbzCard):
         return _dbz_item_face(result) if result.kind is DbzKind.ITEM else _dbz_fighter_face(result)
+    if isinstance(result, DatachCard):
+        return _game_face(result)
     return _second_battler_face(result)
 
 
@@ -178,6 +190,25 @@ def _dbz_item_face(card: DbzCard) -> CardFace:
     )
 
 
+def _game_face(card: DatachCard) -> CardFace:
+    """The face of a card read by a Datach game after Dragon Ball Z, as that game describes it."""
+    text = GAMES[card.game].describe(card)
+    race = Race.SUPPORT_ITEM if card.kind in GAME_ITEM_KINDS else Race.HUMAN
+    return CardFace(
+        band_colour=RACE_COLOURS[race],
+        band_icon=partial(draw_race_icon, race=race),
+        kind=Bilingual(*text.name),
+        detail=Bilingual(*text.detail),
+        tiles=tiles_from(
+            [(stat.key, GAME_STAT_LOOKS[stat.key], stat.value) for stat in card.stats]
+        ),
+        power_code=0,
+        power_text=Bilingual(*text.power),
+        power_icon=AbilityIcon(Glyph.NONE),
+        power_heading=Bilingual(*text.heading),
+    )
+
+
 def _first_battler_detail(race: Race | None) -> Bilingual:
     """Warrior for a fighter or an enemy, item card for an item."""
     if race is None or race.is_fighter:
@@ -209,13 +240,13 @@ class CardSummary:
 def summary_of(result: CardResult) -> CardSummary:
     """The card's numbers, or its effect when it carries none."""
     face = face_of(result)
-    numbers = " / ".join(f"{tile.key} {tile.value}" for tile in face.tiles)
+    numbers = " / ".join(f"{STAT_LABELS[tile.key].english} {tile.value}" for tile in face.tiles)
     stats = Bilingual(numbers, numbers) if numbers else face.power_text
     return CardSummary(kind=_kind_key(result), label=face.kind, stats=stats, effect=face.power_text)
 
 
 def _kind_key(result: CardResult) -> str:
     """A short key for what the card is, for a page to group or filter by."""
-    if isinstance(result, DbzCard):
+    if isinstance(result, DbzCard | DatachCard):
         return result.kind.value
     return UNKNOWN_KIND_KEY if result.race is None else result.race.name.lower()

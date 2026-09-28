@@ -66,6 +66,16 @@ to take the closest printable card when those exact numbers cannot print; a figh
 numbers are high enough turns into its stronger form, as the game does. No card
 for it has been read by a physical Datach yet, which every sheet for it says.
 
+Datach Ultraman Club: Supokon Fight!, Bandai's second Datach game, of 1993,
+reads a barcode into one of 51 types, Ultra heroes and monsters from 0 to 27
+and items from 32 up, and three numbers it calls PW, ST and SP, each 0 to 9900
+in steps of 100. `--device ultraman` makes cards for it: pick the type with
+`--character`, by the name the game shows or by its number, and the three
+numbers with `--hp`, `--st` and `--df` in that order. Every value in that range
+prints. The rule was read out of the game's program and agrees with the game
+itself, running in MAME, on its 38 released cards and on 51 codes built one per
+type. No card for it has been read by a physical Datach yet.
+
 ## Install
 
 ```bash
@@ -106,8 +116,8 @@ print it. The panel underneath says whether the machine will read back exactly
 the numbers you asked for, and shows the barcode it worked out.
 
 **Machine or game**, under the title, picks what the cards are for: the
-Barcode Battler II, the first Barcode Battler, the Double or Datach Dragon Ball
-Z. Every tab follows it: the card maker shows only the fields that device reads
+Barcode Battler II, the first Barcode Battler, the Double, Datach Dragon Ball
+Z or Datach Ultraman Club. Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -415,6 +425,15 @@ program at $B085 and refuses a scan with fewer. A code whose three widths are
 the game reads at any speed, `maeyomi decode --device dbz` names a code the
 game refuses, and the supermarket marks the products it cannot read.
 
+Datach Ultraman Club came with 40 cards, two of them blank. The other 38 are
+the codes [retrostuff.org](https://retrostuff.org/2019/03/23/bandai-datach-ultraman-club-spokon-fight-barcodes-for-mame/)
+read off a boxed set, named as the puNES list names them, and each read by the
+game in MAME. The later Datach games do not refuse a code the way Dragon Ball
+Z does: they read codes whose bars come in only two widths. What they share is
+trouble with a code whose bars or spaces are exactly 1, 2 and 4 modules wide,
+which reads only at some swipe speeds; five of the released Ultraman Club cards
+are such codes. Every card this program builds for a Datach game avoids them.
+
 ## The cheat code
 
 `maeyomi cheat -o cheat.pdf`, or press the row of arrows at the foot of
@@ -467,6 +486,9 @@ comes out as ten decimal digits, found by a search over every printable card.
 That is more than ten times the card the game hides in its own program. The
 items are one of each strongest effect: the senzu bean, Shenron, Kami, Guru,
 ultra divine water and Porunga at level 4.
+
+`maeyomi cheat --device ultraman -o cheat.pdf` is Ultraman with PW, ST and SP
+all at 9900, the most the game's two tables can add up to.
 
 ## Two languages and pictures
 
@@ -580,6 +602,8 @@ Fixtures are rebuilt with `uv run python tools/fetch_fixtures.py`. The Datach
 Dragon Ball Z record comes from `uv run python tools/oracle/record_dbz.py`, which
 needs MAME and a dump of your own cartridge whose SHA-256 matches
 [`artifacts.manifest.json`](artifacts.manifest.json); MAME runs without a window.
+The later games' records come from `uv run python tools/oracle/record_game.py`
+with `--game`, under the same conditions.
 
 With `maeyomi serve` running, `node tools/render/layout.e2e.mjs` drives the
 page in a real browser through `agent-browser`: no tab may scroll sideways at

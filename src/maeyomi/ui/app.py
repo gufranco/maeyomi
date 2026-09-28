@@ -66,7 +66,7 @@ from maeyomi.rendering.labels import UNREADABLE, UNREADABLE_KIND, Bilingual
 from maeyomi.rendering.preview import card_png, sheet_png_pages
 from maeyomi.rendering.sheet import write_sheet
 from maeyomi.ui.assets import PAGE_HEADERS, CachedStaticFiles, asset_stamp, stamped
-from maeyomi.ui.devices import dbz_choices, device_views, facts_of
+from maeyomi.ui.devices import dbz_choices, device_views, facts_of, game_choices
 from maeyomi.ui.schemas import (
     AbilityView,
     BarcodeSheetSpec,
@@ -315,6 +315,11 @@ def dbz_characters() -> list[DbzChoiceView]:
     return dbz_choices()
 
 
+def game_cards(device: str) -> list[DbzChoiceView]:
+    """Every card the chosen Datach game can read, for its picker."""
+    return game_choices(_device(device))
+
+
 def read_on(device: str, barcode: str) -> DeviceReading:
     """Read a barcode the way the chosen device reads it."""
     card = _read(_device(device), barcode)
@@ -367,6 +372,7 @@ def create_app() -> FastAPI:
     app.add_api_route("/api/lookup/{barcode}", lookup, methods=["GET"])
     app.add_api_route("/api/devices", devices, methods=["GET"])
     app.add_api_route("/api/dbz-characters", dbz_characters, methods=["GET"])
+    app.add_api_route("/api/game-cards/{device}", game_cards, methods=["GET"])
     app.add_api_route("/api/read/{device}/{barcode}", read_on, methods=["GET"])
     app.add_api_route("/api/device-card", device_card, methods=["POST"])
     app.add_api_route("/api/device-cheat", device_cheat, methods=["POST"])

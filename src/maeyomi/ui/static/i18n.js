@@ -123,6 +123,7 @@ const MESSAGES = {
     'device.summary.bb1': '1991. Every fighter is a warrior; health stops at 19900.',
     'device.summary.double': '1993. Adds its own 7-read, priests and holy warriors.',
     'device.summary.dbz': 'Bandai, 1992. Fighters and items with BP and DP.',
+    'device.summary.ultraman': 'Bandai, 1993. Ultra heroes, monsters and items with PW, ST and SP.',
     'device.games': 'Games',
     'device.hint':
       'Every tab, and the cheat code, makes cards for this choice and reads barcodes its way. ' +
@@ -138,6 +139,14 @@ const MESSAGES = {
     'dbz.items': 'Items',
     'dbz.level': 'Special move level',
     'dbz.level.any': 'Any',
+    'game.character': 'Card',
+    'game.character.hint': "The game reads the card by its number in the game's own list.",
+    'game.anyone': 'Any card',
+    'game.kind.fighter': 'Fighters',
+    'game.kind.item': 'Items',
+    'stat.pw': 'PW',
+    'stat.ust': 'ST',
+    'stat.usp': 'SP',
     'status.deviceCard': 'This card reads exactly as asked on the {device}.',
     'status.deviceCheat': '{name}: the strongest card the {device} will read.',
     'status.searching': 'Looking for a barcode the {device} reads this way.',
@@ -159,6 +168,12 @@ const MESSAGES = {
     'official.sources': 'Where the barcodes come from',
     'official.source.epoch': 'Epoch cards:',
     'official.source.dbz': 'Dragon Ball Z cards:',
+    'official.note.ultraman':
+      'Datach Ultraman Club came with 40 cards, two of them blank. The 38 with a barcode ' +
+      'were read off a boxed set by retrostuff.org, are named as the card list in the source ' +
+      'code of puNES, a Famicom emulator, names them, and were each read by the game itself in ' +
+      'the MAME emulator. The numbers on every card come from its barcode.',
+    'official.source.ultraman': 'Ultraman Club cards:',
     'official.skipped': 'Cards left out',
     'official.skipped.hint':
       'The wikiwiki.jp page has a typo in these five. The last digit of a barcode is a ' +
@@ -334,6 +349,7 @@ const MESSAGES = {
     'device.summary.bb1': '1991ねん。ぜんいん せんし。たいりょくは 19900 まで。',
     'device.summary.double': '1993ねん。7よみ、そうりょ、せいせんし が ふえた。',
     'device.summary.dbz': 'バンダイ、1992ねん。BP と DP の キャラクターと アイテム。',
+    'device.summary.ultraman': 'バンダイ、1993ねん。PW、ST、SP の ウルトラヒーロー、かいじゅう、アイテム。',
     'device.games': 'ゲーム',
     'device.hint':
       'どの タブも かくしコマンドも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +
@@ -349,6 +365,14 @@ const MESSAGES = {
     'dbz.items': 'アイテム',
     'dbz.level': 'ひっさつわざ レベル',
     'dbz.level.any': 'どれでも',
+    'game.character': 'カード',
+    'game.character.hint': 'ゲームは カードを ゲームの なかの いちらんの ばんごうで よみます。',
+    'game.anyone': 'どれでも',
+    'game.kind.fighter': 'キャラクター',
+    'game.kind.item': 'アイテム',
+    'stat.pw': 'PW',
+    'stat.ust': 'ST',
+    'stat.usp': 'SP',
     'status.deviceCard': '{device} で ちゅうもん どおりに よめる カードです。',
     'status.deviceCheat': '{name}: {device} が よめる いちばん つよい カード。',
     'status.searching': '{device} が こう よむ バーコードを さがしています。',
@@ -370,6 +394,12 @@ const MESSAGES = {
     'official.sources': 'バーコードの でどころ',
     'official.source.epoch': 'エポック社の カード:',
     'official.source.dbz': 'ドラゴンボールZ の カード:',
+    'official.note.ultraman':
+      'データック ウルトラマン倶楽部 には 40まいの カードが ついていて、2まいは まっしろです。' +
+      'バーコードの ある 38まいは retrostuff.org が はこいりの セットから よみとった もので、' +
+      'なまえは エミュレーター puNES の ソースコードの いちらんから とり、1まいずつ MAME で ' +
+      'ゲームに よませて たしかめました。',
+    'official.source.ultraman': 'ウルトラマン倶楽部 の カード:',
     'official.skipped': 'のぞいた カード',
     'official.skipped.hint':
       'wikiwiki.jp の ページで この 5まいは うちまちがいが あります。バーコードの さいごの けたは ' +

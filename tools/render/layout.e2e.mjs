@@ -107,6 +107,20 @@ function checkDeviceSwitch() {
   expect(form.dbz !== 'none', 'the Dragon Ball Z fighter field is hidden');
   expect(form.bp === 'Battle power', `the attack slider is labelled ${form.bp}`);
   expect(form.hpStep === '500', `the health slider steps by ${form.hpStep}`);
+  pickDevice('ultraman');
+  browser('wait', '600');
+  const game = evaluate(`JSON.stringify({
+    picker: getComputedStyle(document.querySelector('[data-device-field=game]')).display,
+    cards: document.querySelectorAll('#game-character option[value]:not([value=""])').length,
+    dbz: getComputedStyle(document.querySelector('[data-device-field=dbz]')).display,
+    power: document.querySelector('label[for=hp]').textContent,
+    hpMax: document.getElementById('hp').max,
+  })`);
+  expect(game.picker !== 'none', 'the Ultraman Club card picker is hidden');
+  expect(game.cards === 51, `the Ultraman Club picker lists ${game.cards} cards`);
+  expect(game.dbz === 'none', 'the Dragon Ball Z field shows for Ultraman Club');
+  expect(game.power === 'PW', `the first Ultraman Club slider is labelled ${game.power}`);
+  expect(game.hpMax === '9900', `the PW slider stops at ${game.hpMax}`);
   pickDevice('bb2');
 }
 
@@ -137,6 +151,10 @@ function checkRealCards() {
   expect(dbz.links.length === 1 && dbz.links[0].includes('puNES'),
     `Dragon Ball Z's real cards link ${dbz.links}`);
   expect(!dbz.skipped, 'Dragon Ball Z shows an empty list of cards left out');
+  const ultraman = realCards('ultraman');
+  expect(ultraman.single.includes('38'), `Ultraman Club names its set as ${ultraman.single}`);
+  expect(ultraman.links.length === 1 && ultraman.links[0].includes('retrostuff.org'),
+    `Ultraman Club's real cards link ${ultraman.links}`);
   pickDevice('bb2');
 }
 
