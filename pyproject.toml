@@ -19,16 +19,16 @@ dependencies = [
 maeyomi = "maeyomi.cli.main:app"
 
 [project.optional-dependencies]
-ui = ["fastapi==0.141.1", "uvicorn==0.53.0"]
+ui = ["fastapi==0.141.1", "uvicorn==0.54.0"]
 
 [dependency-groups]
 dev = [
     "pytest==9.1.1",
     "pytest-cov==7.1.0",
-    "hypothesis==6.168.0",
-    "ruff==0.16.8",
+    "hypothesis==6.168.3",
+    "ruff==0.16.9",
     "pyright==1.1.414",
-    "httpx2==2.13.0",
+    "httpx2==2.13.1",
 ]
 
 [build-system]
@@ -91,10 +91,7 @@ reportMissingTypeStubs = false
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q --strict-markers"
-filterwarnings = [
-    "error",
-    "ignore:The anyio.abc.BlockingPortal alias is deprecated:DeprecationWarning:starlette.testclient",
-]
+filterwarnings = ["error"]
 
 [tool.coverage.run]
 source = ["src/maeyomi"]
