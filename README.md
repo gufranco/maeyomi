@@ -220,6 +220,38 @@ last digit also picks a strategy and a graphic on the game's other two
 barcode screens, and each card prints which. The game came with cards for 14
 teams, and nobody has published their barcodes.
 
+## What it supports
+
+Every machine and game below is a `--device` on the command line and an
+entry under **Machine or game** on the web page. Photos of the machines, the
+games and their card packs are on
+[barcodebattler.co.uk](https://www.barcodebattler.co.uk/scans/Japan/).
+
+| Machine or game | Japanese title | Runs on | `--device` |
+|---|---|---|---|
+| Barcode Battler | バーコードバトラー | Standalone machine | `bb1` |
+| Barcode Battler 2 | バーコードバトラー2 | Standalone machine | `bb2` |
+| Barcode Battler 2 Double | バーコードバトラー2 ダブル | Standalone machine | `double` |
+| Alice no Paint Adventure | アリスのペイントアドベンチャー | Super Famicom, through the Barcode Battler II | `alice` |
+| Barcode Battler Senki | バーコードバトラー戦記 | Super Famicom, through the Barcode Battler II | `senki` |
+| Donald Duck no Mahou no Boushi | ドナルドダックの魔法のぼうし | Super Famicom, through the Barcode Battler II | `donald` |
+| Doraemon 2 | ドラえもん2 のび太のトイズランド大冒険 | Super Famicom, through the Barcode Battler II | `doraemon2` |
+| Doraemon 3 | ドラえもん3 のび太と時の宝玉 | Super Famicom, through the Barcode Battler II | `doraemon3` |
+| Doraemon: Yousei no Kuni | ドラえもん のび太と妖精の国 | Super Famicom, through the Barcode Battler II | `yousei` |
+| Dragon Slayer II | ドラゴンスレイヤー英雄伝説II | Super Famicom, through the Barcode Battler II | `dslayer2` |
+| Hatayama Hatch | はた山ハッチのパロ野球ニュース!実名版 | Super Famicom, through the Barcode Battler II | `hatayama` |
+| J.League Excite Stage '94 | J.リーグエキサイトステージ'94 | Super Famicom, through the Barcode Battler II | `excite94` |
+| J.League Excite Stage '95 | J.リーグエキサイトステージ'95 | Super Famicom, through the Barcode Battler II | `excite95` |
+| Lupin III | ルパン三世 伝説の秘宝を追え! | Super Famicom, through the Barcode Battler II | `lupin` |
+| Spider-Man: Lethal Foes | スパイダーマン リーサルフォーズ | Super Famicom, through the Barcode Battler II | `spiderman` |
+| Datach Battle Rush | データック バトルラッシュ | Famicom Datach | `battlerush` |
+| Datach Dragon Ball Z | データック ドラゴンボールZ | Famicom Datach | `dbz` |
+| Datach J.League | データック Jリーグ スーパートッププレイヤーズ | Famicom Datach | `jleague` |
+| Datach SD Gundam Wars | データック SDガンダム ガンダムウォーズ | Famicom Datach | `sdgundam` |
+| Datach Ultraman Club | データック ウルトラマン倶楽部 | Famicom Datach | `ultraman` |
+| Datach Yu Yu Hakusho | データック 幽遊白書 | Famicom Datach | `yuyu` |
+| Barcode World | バーコードワールド | Famicom, through the Barcode Battler II | `barcodeworld` |
+
 ## Install
 
 ```bash

@@ -64,6 +64,35 @@
 
 エポック社の1993年の野球ゲーム「はた山ハッチのパロ野球ニュース!実名版」は、バトル野球盤でコードをバトラーとして読み、`--device hatayama` を付けるとこのゲーム用のカードを作れます。エポック社のカードと同じ並びのコードはそのまま読まれ、体力は99900まで、攻撃と防御は百の位で19900まで、魔法使いの魔法は99までです。それ以外のコードは最後のけたから計算されます。`--character` で戦士か魔法使いを、`--hp`・`--st`・`--df` で数値を、`--pick mp=99` で魔法を選びます。同じコードの最後のけたは、ゲームのほかの2つのバーコード画面で作戦と絵も選び、カードにはそれも印刷されます。ゲームには14チームのカードが付属していましたが、そのバーコードはだれも公開していません。
 
+## 対応している本体とゲーム
+
+下の本体とゲームは、どれもコマンドラインの `--device` とウェブ画面の **つかう マシン・ゲーム** で選べます。本体やゲーム、付属カードの写真は [barcodebattler.co.uk](https://www.barcodebattler.co.uk/scans/Japan/) にあります。
+
+| 名前 | 英語の名前 | 動くもの | `--device` |
+|---|---|---|---|
+| バーコードバトラー | Barcode Battler | 単体の機械 | `bb1` |
+| バーコードバトラー2 | Barcode Battler 2 | 単体の機械 | `bb2` |
+| バーコードバトラー2 ダブル | Barcode Battler 2 Double | 単体の機械 | `double` |
+| アリスのペイントアドベンチャー | Alice no Paint Adventure | スーパーファミコン、バーコードバトラーII で読む | `alice` |
+| バーコードバトラー戦記 | Barcode Battler Senki | スーパーファミコン、バーコードバトラーII で読む | `senki` |
+| ドナルドダックの魔法のぼうし | Donald Duck no Mahou no Boushi | スーパーファミコン、バーコードバトラーII で読む | `donald` |
+| ドラえもん2 のび太のトイズランド大冒険 | Doraemon 2 | スーパーファミコン、バーコードバトラーII で読む | `doraemon2` |
+| ドラえもん3 のび太と時の宝玉 | Doraemon 3 | スーパーファミコン、バーコードバトラーII で読む | `doraemon3` |
+| ドラえもん のび太と妖精の国 | Doraemon: Yousei no Kuni | スーパーファミコン、バーコードバトラーII で読む | `yousei` |
+| ドラゴンスレイヤー英雄伝説II | Dragon Slayer II | スーパーファミコン、バーコードバトラーII で読む | `dslayer2` |
+| はた山ハッチのパロ野球ニュース!実名版 | Hatayama Hatch | スーパーファミコン、バーコードバトラーII で読む | `hatayama` |
+| J.リーグエキサイトステージ'94 | J.League Excite Stage '94 | スーパーファミコン、バーコードバトラーII で読む | `excite94` |
+| J.リーグエキサイトステージ'95 | J.League Excite Stage '95 | スーパーファミコン、バーコードバトラーII で読む | `excite95` |
+| ルパン三世 伝説の秘宝を追え! | Lupin III | スーパーファミコン、バーコードバトラーII で読む | `lupin` |
+| スパイダーマン リーサルフォーズ | Spider-Man: Lethal Foes | スーパーファミコン、バーコードバトラーII で読む | `spiderman` |
+| データック バトルラッシュ | Datach Battle Rush | ファミコン データック | `battlerush` |
+| データック ドラゴンボールZ | Datach Dragon Ball Z | ファミコン データック | `dbz` |
+| データック Jリーグ スーパートッププレイヤーズ | Datach J.League | ファミコン データック | `jleague` |
+| データック SDガンダム ガンダムウォーズ | Datach SD Gundam Wars | ファミコン データック | `sdgundam` |
+| データック ウルトラマン倶楽部 | Datach Ultraman Club | ファミコン データック | `ultraman` |
+| データック 幽遊白書 | Datach Yu Yu Hakusho | ファミコン データック | `yuyu` |
+| バーコードワールド | Barcode World | ファミコン、バーコードバトラーII で読む | `barcodeworld` |
+
 ## インストール
 
 ```bash
