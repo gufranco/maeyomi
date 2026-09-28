@@ -27,7 +27,13 @@ from maeyomi.cli.device_tables import ability_lines, kind_lines, official_lines,
 from maeyomi.cli.doctor import State, machine, package, worst
 from maeyomi.cli.double_device import cheat_double, generate_double, show_double
 from maeyomi.cli.first_device import cheat_first, generate_first, show_first
-from maeyomi.cli.game_device import cheat_game, generate_game, show_game
+from maeyomi.cli.game_device import (
+    cheat_game,
+    generate_game,
+    parse_picks,
+    refuse_picks,
+    show_game,
+)
 from maeyomi.cli.report import DISCLAIMER, comparison_lines, fit_line, shortfall_lines
 from maeyomi.datach.games import GAMES
 from maeyomi.decoder.decode import decode as decode_barcode
@@ -117,6 +123,13 @@ CharacterOption = Annotated[
     str | None,
     typer.Option("--character", help="The Datach game's fighter, item or card, by name or id."),
 ]
+PickOption = Annotated[
+    list[str] | None,
+    typer.Option(
+        "--pick",
+        help="A choice a Datach game's card offers beside its numbers, as key=value: sr=1.",
+    ),
+]
 LevelOption = Annotated[
     int | None,
     typer.Option("--level", min=0, max=3, help="Datach Dragon Ball Z special move level."),
@@ -199,6 +212,7 @@ def generate(
     device: DeviceOption = Device.BB2,
     dbz_character: CharacterOption = None,
     level: LevelOption = None,
+    picks: PickOption = None,
     print_shop: PrintShopOption = False,
 ) -> None:
     """Build one card whose barcode decodes to exactly the requested attributes."""
@@ -221,10 +235,13 @@ def generate(
         return
     if device in GAMES:
         refuse_dbz_options(None, level)
-        choice = DeviceChoice(back_read=back_read, character=dbz_character)
+        choice = DeviceChoice(
+            back_read=back_read, character=dbz_character, picks=parse_picks(picks or [])
+        )
         generate_game(device, request, choice, output=output, images=images, print_shop=print_shop)
         return
     refuse_dbz_options(dbz_character, level)
+    refuse_picks(picks or [])
     if device is not Device.BB2:
         build = generate_first if device is Device.BB1 else generate_double
         build(request, back_read=back_read, output=output, images=images, print_shop=print_shop)

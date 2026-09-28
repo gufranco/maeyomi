@@ -74,6 +74,7 @@ ignore = [
 "src/maeyomi/models/special_ability_ja.py" = ["RUF001"]
 "src/maeyomi/bb1/flags.py" = ["RUF001"]
 "src/maeyomi/double/abilities.py" = ["RUF001"]
+"src/maeyomi/datach/sdgundam_names.py" = ["RUF001"]
 "tools/*" = ["ALL"]
 
 [tool.ruff.lint.pydocstyle]

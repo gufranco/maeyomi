@@ -22,6 +22,7 @@ from maeyomi.datach.dbz_solve import (
     MAX_HP,
 )
 from maeyomi.datach.games import game_for
+from maeyomi.datach.sdgundam_tables import AP_BONUS, BASES, DP_BONUS, HP_BONUS
 from maeyomi.datach.ultraman import HUNDRED, STRONGEST_HUNDREDS
 from maeyomi.decoder.back_read import fighter_limits
 from maeyomi.double.solve import MAX_VALUE as DOUBLE_MAX
@@ -29,7 +30,7 @@ from maeyomi.models.device import Device
 from maeyomi.models.generated_card import CardResult
 from maeyomi.rendering.face import face_of
 from maeyomi.rendering.labels import SPECIAL_POWER, STAT_LABELS, Bilingual
-from maeyomi.ui.schemas import DbzChoiceView, DeviceView, FactView
+from maeyomi.ui.schemas import DbzChoiceView, DeviceView, FactView, OptionView, PickView
 
 HUNDREDS: Final = 100
 HP_STEP: Final = BONUS * UNIT
@@ -51,6 +52,19 @@ ULTRAMAN_RANGES: Final[tuple[Range, Range, Range]] = (
     (0, ULTRAMAN_MAX),
     (0, ULTRAMAN_MAX),
     (0, ULTRAMAN_MAX),
+)
+GUNDAM_STEP: Final = 10
+
+
+def _gundam_range(index: int, bonus: tuple[int, ...]) -> Range:
+    """The lowest base and the highest base plus the top bonus, of one number."""
+    return min(base[index] for base in BASES), max(base[index] for base in BASES) + max(bonus)
+
+
+GUNDAM_RANGES: Final[tuple[Range, Range, Range]] = (
+    _gundam_range(0, HP_BONUS),
+    _gundam_range(1, AP_BONUS),
+    _gundam_range(2, DP_BONUS),
 )
 
 
@@ -103,6 +117,15 @@ FORMS: Final[dict[Device, DeviceForm]] = {
         ULTRAMAN_MAX,
         stat_keys=("stat.pw", "stat.ust", "stat.usp"),
         ranges=ULTRAMAN_RANGES,
+    ),
+    Device.DATACH_SD_GUNDAM: DeviceForm(
+        ("game", "picks"),
+        GUNDAM_RANGES[0][1],
+        GUNDAM_RANGES[1][1],
+        GUNDAM_RANGES[2][1],
+        (GUNDAM_STEP, GUNDAM_STEP, GUNDAM_STEP),
+        ("stat.hp", "stat.ap", "stat.gdp"),
+        ranges=GUNDAM_RANGES,
     ),
 }
 
@@ -157,6 +180,25 @@ def game_choices(device: Device) -> list[DbzChoiceView]:
             id=entry.ident, kind=entry.kind.value, english=entry.english, japanese=entry.japanese
         )
         for entry in game.entries()
+    ]
+
+
+def game_picks(device: Device, ident: int) -> list[PickView]:
+    """The choices a game's card offers beside its numbers, such as a unit's weapons."""
+    game = game_for(device)
+    if game is None:
+        return []
+    return [
+        PickView(
+            key=pick.key,
+            english=pick.english,
+            japanese=pick.japanese,
+            options=[
+                OptionView(value=option.value, english=option.english, japanese=option.japanese)
+                for option in pick.options
+            ],
+        )
+        for pick in game.picks(ident)
     ]
 
 

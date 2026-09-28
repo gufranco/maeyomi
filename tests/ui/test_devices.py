@@ -319,3 +319,31 @@ def test_ultraman_club_has_a_cheat_card_at_the_top_of_all_three(client: TestClie
 
     facts = {fact["label"]: fact["value"] for fact in body["facts"]}
     assert (facts["PW"], facts["ST"], facts["SP"]) == ("9900", "9900", "9900")
+
+
+def test_an_sd_gundam_unit_offers_its_weapons_and_cp(client: TestClient) -> None:
+    body = client.get("/api/game-picks/sdgundam/0").json()
+
+    assert [pick["key"] for pick in body] == ["sr", "lr", "cp"]
+    assert body[0]["options"][1] == {"value": 1, "english": "Vulcan", "japanese": "バルカン"}
+
+
+def test_an_sd_gundam_card_is_built_with_its_picks(client: TestClient) -> None:
+    payload = {"device": "sdgundam", "character": "0", "picks": {"sr": 1, "lr": 5}}
+
+    body = client.post("/api/device-card", json=payload).json()
+
+    facts = {fact["label"]: fact["value"] for fact in body["facts"]}
+    assert facts["Weapons"] == "SR Vulcan, LR Bazooka"
+
+
+def test_a_number_between_two_the_game_holds_is_marked_as_the_closest(client: TestClient) -> None:
+    payload = {"device": "sdgundam", "character": "0", "hp": "3885"}
+
+    body = client.post("/api/device-card", json=payload).json()
+
+    assert body["is_exact"] is False
+
+
+def test_a_machine_offers_no_game_picks(client: TestClient) -> None:
+    assert client.get("/api/game-picks/bb2/0").json() == []

@@ -70,3 +70,26 @@ def test_a_kind_that_is_not_an_item_is_a_fighter_in_ultraman_club() -> None:
     kinds = {entry.kind for entry in GAMES[Device.DATACH_ULTRAMAN].entries()}
 
     assert kinds == {GameKind.FIGHTER, GameKind.ITEM}
+
+
+def test_an_sd_gundam_unit_is_described_by_its_model_and_weapons() -> None:
+    game = GAMES[Device.DATACH_SD_GUNDAM]
+
+    text = game.describe(game.decode("0403775140252"))
+
+    assert text.name == ("Gundam", "ガンダム")
+    assert text.detail == ("RX-78", "RX-78")
+    assert text.power == ("SR Beam saber, LR Beam rifle", "SR ビームサーベル  LR ビームライフル")
+
+
+def test_an_sd_gundam_command_is_described_by_its_effect_and_cost() -> None:
+    game = GAMES[Device.DATACH_SD_GUNDAM]
+
+    text = game.describe(game.decode("0465464360068"))
+
+    assert text.detail == ("Command card", "コマンド カード")
+    assert text.power[0].endswith("Costs 7 CP.")
+
+
+def test_a_game_without_choices_offers_none() -> None:
+    assert GAMES[Device.DATACH_ULTRAMAN].picks(3) == ()

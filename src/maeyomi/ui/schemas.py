@@ -255,6 +255,7 @@ class DeviceCardSpec(CardSpec):
     device: str = "bb2"
     character: str | None = None
     level: int | None = Field(default=None, ge=0, le=3)
+    picks: dict[str, int] = Field(default_factory=dict)
 
 
 class DeviceCheatSpec(BaseModel):
@@ -307,3 +308,20 @@ class DbzChoiceView(BaseModel):
     kind: str
     english: str
     japanese: str
+
+
+class OptionView(BaseModel):
+    """One value a card's choice can take."""
+
+    value: int
+    english: str
+    japanese: str
+
+
+class PickView(BaseModel):
+    """A choice a game's card offers beside its numbers."""
+
+    key: str
+    english: str
+    japanese: str
+    options: list[OptionView]

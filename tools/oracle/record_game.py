@@ -41,7 +41,7 @@ class Game:
     scan_frame: int
     read_delay: int
     peeks: tuple[tuple[str, int], ...]
-    accepted: tuple[str, int]
+    accepted: tuple[tuple[str, int], ...]
 
 
 GAMES = {
@@ -52,7 +52,16 @@ GAMES = {
         scan_frame=1300,
         read_delay=600,
         peeks=(("02cd", 7), ("0312", 1)),
-        accepted=("0312", 0),
+        accepted=(("0312", 0),),
+    ),
+    "sdgundam": Game(
+        software="dtc_sdgn",
+        artifact="datach_sdgundam_prg",
+        menu=("1001 press Start", "1550 press Down", "1580 press Down", "1620 press A"),
+        scan_frame=2700,
+        read_delay=600,
+        peeks=(("0460", 11), ("061c", 1)),
+        accepted=(("0460", 1), ("061c", 0)),
     ),
 }
 
@@ -156,8 +165,8 @@ def record(game: Game, words: list[str], output: str) -> dict[str, object]:
             "read its output for the reason"
         )
         raise RuntimeError(message)
-    address, offset = game.accepted
-    entry: dict[str, object] = {"barcode": words[0], "accepted": peeked[address][offset] != 0}
+    accepted = any(peeked[address][offset] != 0 for address, offset in game.accepted)
+    entry: dict[str, object] = {"barcode": words[0], "accepted": accepted}
     if len(words) > 1:
         entry["swipe_us"] = int(words[1])
     return {**entry, **{name: values.hex(" ") for name, values in peeked.items()}}

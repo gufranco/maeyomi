@@ -108,3 +108,22 @@ def test_the_ultraman_fixture_was_recorded_with_the_rom_the_manifest_names() -> 
 
     assert entry["sha1"] == fixture["rom"]["sha1"]
     assert entry["size"] == fixture["rom"]["size"]
+
+
+def test_an_sd_gundam_read_counts_a_command_as_accepted() -> None:
+    tool = load()
+    output = "PEEK 0460 00 00 00 00 00 00 00 00 00 00 00\nPEEK 061c 12\n"
+
+    entry = tool.record(tool.GAMES["sdgundam"], ["0465464360068"], output)
+
+    assert entry["accepted"] is True
+
+
+def test_the_sd_gundam_fixture_was_recorded_with_the_rom_the_manifest_names() -> None:
+    manifest = json.loads((ROOT / "artifacts.manifest.json").read_text())
+    entry = next(item for item in manifest["artifacts"] if item["id"] == "datach_sdgundam_prg")
+    fixture = json.loads(
+        (ROOT / "tests" / "fixtures" / "oracle" / "datach_sdgundam.json").read_text()
+    )
+
+    assert entry["sha1"] == fixture["rom"]["sha1"]

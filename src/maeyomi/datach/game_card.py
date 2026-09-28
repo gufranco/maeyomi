@@ -47,3 +47,29 @@ class DatachCard:
     def value(self, key: str) -> int:
         """The number filed under a key, or 0 when the card does not carry it."""
         return next((stat.value for stat in self.stats if stat.key == key), 0)
+
+
+@dataclass(frozen=True, slots=True)
+class GameOption:
+    """One value a choice can take, named in both languages."""
+
+    value: int
+    english: str
+    japanese: str
+
+
+@dataclass(frozen=True, slots=True)
+class GamePick:
+    """A choice a card offers beside its numbers, such as a unit's weapon."""
+
+    key: str
+    english: str
+    japanese: str
+    options: tuple[GameOption, ...]
+
+
+def required(card: DatachCard | None, message: str) -> DatachCard:
+    """The card a search found, or a RuntimeError saying what it could not find."""
+    if card is None:
+        raise RuntimeError(message)
+    return card

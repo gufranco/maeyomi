@@ -258,6 +258,7 @@ def test_every_field_only_some_devices_read_is_marked() -> None:
     assert marked == {
         "dbz",
         "game",
+        "picks",
         "race",
         "class",
         "ability",

@@ -121,6 +121,18 @@ function checkDeviceSwitch() {
   expect(game.dbz === 'none', 'the Dragon Ball Z field shows for Ultraman Club');
   expect(game.power === 'PW', `the first Ultraman Club slider is labelled ${game.power}`);
   expect(game.hpMax === '9900', `the PW slider stops at ${game.hpMax}`);
+  pickDevice('sdgundam');
+  browser('wait', '600');
+  evaluate(`(() => { const select = document.getElementById('game-character');
+    select.value = '0'; select.dispatchEvent(new Event('change')); return JSON.stringify(true); })()`);
+  browser('wait', '600');
+  const unit = evaluate(`JSON.stringify({
+    picks: [...document.querySelectorAll('#game-picks select')].map((select) => select.id),
+    shown: document.getElementById('game-picks').offsetParent !== null,
+  })`);
+  expect(unit.shown, 'the SD Gundam unit choices are hidden');
+  expect(unit.picks.join() === 'pick-sr,pick-lr,pick-cp',
+    `the SD Gundam unit offers ${unit.picks}`);
   pickDevice('bb2');
 }
 
@@ -155,6 +167,10 @@ function checkRealCards() {
   expect(ultraman.single.includes('38'), `Ultraman Club names its set as ${ultraman.single}`);
   expect(ultraman.links.length === 1 && ultraman.links[0].includes('retrostuff.org'),
     `Ultraman Club's real cards link ${ultraman.links}`);
+  const gundam = realCards('sdgundam');
+  expect(gundam.single.includes('76'), `SD Gundam Wars names its set as ${gundam.single}`);
+  expect(gundam.links.length === 1 && gundam.links[0].includes('sd-gundam'),
+    `SD Gundam Wars's real cards link ${gundam.links}`);
   pickDevice('bb2');
 }
 

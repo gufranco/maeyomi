@@ -7,6 +7,7 @@ picked with `--character`, by the game's own name or its number.
 """
 
 from pathlib import Path
+from typing import Final
 
 import typer
 
@@ -28,6 +29,29 @@ from maeyomi.registry import (
 from maeyomi.rendering.export import ImageFormat
 from maeyomi.rendering.face import face_of
 from maeyomi.rendering.labels import STAT_LABELS
+
+BAD_PICK: Final = "--pick takes key=value with a whole number, such as sr=1; got {pick!r}"
+ONLY_GAME_PICKS: Final = "only a Datach game after Dragon Ball Z reads --pick"
+CLOSEST: Final = "no card has exactly those numbers; offering the closest one that prints"
+
+
+def parse_picks(picks: list[str]) -> tuple[tuple[str, int], ...]:
+    """Each key=value choice, or a usage error naming the one that is malformed."""
+    parsed: list[tuple[str, int]] = []
+    for pick in picks:
+        key, _, value = pick.partition("=")
+        if not key.strip() or not value.strip().isdigit():
+            typer.echo(BAD_PICK.format(pick=pick), err=True)
+            raise typer.Exit(code=2)
+        parsed = [*parsed, (key.strip(), int(value))]
+    return tuple(parsed)
+
+
+def refuse_picks(picks: list[str]) -> None:
+    """Stop when --pick was given for a device that has no such choices."""
+    if picks:
+        typer.echo(ONLY_GAME_PICKS, err=True)
+        raise typer.Exit(code=2)
 
 
 def show_game(
@@ -88,6 +112,8 @@ def generate_game(
         for reason in outcome.blockers:
             typer.echo(reason, err=True)
         raise typer.Exit(code=1)
+    if not outcome.exact:
+        typer.echo(CLOSEST, err=True)
     for line in describe_game(device, outcome.card):
         typer.echo(line)
     typer.echo("")

@@ -6,6 +6,7 @@ from typer.testing import CliRunner
 
 from maeyomi.barcode.verify import decode_pdf
 from maeyomi.cli.main import app
+from maeyomi.datach.sdgundam import decode_sdgundam
 from maeyomi.datach.ultraman import decode_ultraman
 
 runner = CliRunner()
@@ -130,3 +131,84 @@ def test_cheat_with_items_says_the_game_has_none_and_prints_the_card(tmp_path: P
     assert result.exit_code == 0
     assert "has no strongest items" in result.output
     assert len(decode_pdf(output)) == 1
+
+
+def test_decode_reads_an_sd_gundam_unit_with_its_weapons() -> None:
+    result = runner.invoke(app, ["decode", "0403775140252", "--device", "sdgundam"])
+
+    assert result.exit_code == 0
+    assert "Name      Gundam / ガンダム" in result.output
+    assert "Kind      RX-78" in result.output
+    assert "HP        3880" in result.output
+    assert "CP        9" in result.output
+    assert "SR Beam saber, LR Beam rifle" in result.output
+
+
+def test_decode_reads_an_sd_gundam_command_with_its_cost() -> None:
+    result = runner.invoke(app, ["decode", "0465464360068", "--device", "sdgundam"])
+
+    assert result.exit_code == 0
+    assert "Name      White Base / ホワイトベース" in result.output
+    assert "Costs 7 CP." in result.output
+
+
+def test_generate_builds_a_unit_with_the_weapons_picked(tmp_path: Path) -> None:
+    output = tmp_path / "gundam.pdf"
+
+    result = runner.invoke(
+        app,
+        [
+            "generate",
+            "--device",
+            "sdgundam",
+            "--character",
+            "RX-78",
+            "--pick",
+            "sr=1",
+            "--pick",
+            "lr=5",
+            "--output",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 0
+    card = decode_sdgundam(decode_pdf(output)[0])
+    assert card.traits[:2] == (1, 5)
+
+
+def test_generate_says_when_it_offers_the_closest_numbers(tmp_path: Path) -> None:
+    result = runner.invoke(
+        app,
+        [
+            "generate",
+            "--device",
+            "sdgundam",
+            "--character",
+            "Gundam",
+            "--hp",
+            "3885",
+            "-o",
+            str(tmp_path / "x.pdf"),
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert "offering the closest one that prints" in result.output
+
+
+def test_a_malformed_pick_is_refused(tmp_path: Path) -> None:
+    result = runner.invoke(
+        app,
+        ["generate", "--device", "sdgundam", "--pick", "sr", "-o", str(tmp_path / "x.pdf")],
+    )
+
+    assert result.exit_code == 2
+    assert "--pick takes key=value" in result.output
+
+
+def test_a_pick_is_refused_on_a_machine(tmp_path: Path) -> None:
+    result = runner.invoke(app, ["generate", "--pick", "sr=1", "-o", str(tmp_path / "x.pdf")])
+
+    assert result.exit_code == 2
+    assert "only a Datach game after Dragon Ball Z reads --pick" in result.output

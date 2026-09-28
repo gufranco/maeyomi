@@ -76,6 +76,18 @@ prints. The rule was read out of the game's program and agrees with the game
 itself, running in MAME, on its 38 released cards and on 51 codes built one per
 type. No card for it has been read by a physical Datach yet.
 
+Datach SD Gundam: Gundam Wars, also of 1993, reads a barcode as one of 63 mobile
+suits or one of 59 command cards. A mobile suit starts from its own HP, AP, DP
+and CP, adds a bonus from a table to each, and carries one of two short-range
+and one of two long-range weapons; a command card carries its effect and the
+CP it costs. `--device sdgundam` makes cards for it: pick the card with
+`--character`, by name, model number or number, the numbers with `--hp`,
+`--st` and `--df`, which are HP, AP and DP, and the weapons and CP with
+`--pick sr=1`, `--pick lr=5` or `--pick cp=11`. A number between two the game
+can hold becomes the closest one, and the command says so. The rule agrees
+with the game in MAME on its 76 released barcodes and on 122 codes built one
+per slot. No card for it has been read by a physical Datach yet.
+
 ## Install
 
 ```bash
@@ -117,7 +129,7 @@ the numbers you asked for, and shows the barcode it worked out.
 
 **Machine or game**, under the title, picks what the cards are for: the
 Barcode Battler II, the first Barcode Battler, the Double, Datach Dragon Ball
-Z or Datach Ultraman Club. Every tab follows it: the card maker shows only the fields that device reads
+Z, Datach Ultraman Club or Datach SD Gundam Wars. Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -434,6 +446,11 @@ trouble with a code whose bars or spaces are exactly 1, 2 and 4 modules wide,
 which reads only at some swipe speeds; five of the released Ultraman Club cards
 are such codes. Every card this program builds for a Datach game avoids them.
 
+SD Gundam Wars came with 40 cards. 37 of them carry two barcodes, a mobile suit
+on the bottom edge and a command on the top, and a special card carries one of
+each: 76 barcodes, which [retrostuff.org](https://retrostuff.org/2019/05/12/bandai-datach-sd-gundam-gundam-wars-barcodes-for-mame/)
+read off a boxed set, matching the puNES list, and each read by the game in MAME.
+
 ## The cheat code
 
 `maeyomi cheat -o cheat.pdf`, or press the row of arrows at the foot of
@@ -489,6 +506,10 @@ ultra divine water and Porunga at level 4.
 
 `maeyomi cheat --device ultraman -o cheat.pdf` is Ultraman with PW, ST and SP
 all at 9900, the most the game's two tables can add up to.
+
+`maeyomi cheat --device sdgundam -o cheat.pdf` is the Quin Mantha, the mobile
+suit with the most HP, AP and DP together, with every bonus at its top: HP
+7700, AP 7000, DP 9000 and CP 6.
 
 ## Two languages and pictures
 

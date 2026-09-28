@@ -18,7 +18,15 @@ SCRIPT = "".join(
     (STATIC_DIR / name).read_text(encoding="utf-8") for name in ("app.js", "devices.js")
 )
 DICTIONARIES = (STATIC_DIR / "i18n.js").read_text(encoding="utf-8")
-THE_SAME_IN_BOTH_LANGUAGES = {"title", "read.placeholder", "stat.pw", "stat.ust", "stat.usp"}
+THE_SAME_IN_BOTH_LANGUAGES = {
+    "title",
+    "read.placeholder",
+    "stat.pw",
+    "stat.ust",
+    "stat.usp",
+    "stat.ap",
+    "stat.gdp",
+}
 
 
 def _block(language: str) -> str:

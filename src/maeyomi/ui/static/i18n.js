@@ -124,6 +124,7 @@ const MESSAGES = {
     'device.summary.double': '1993. Adds its own 7-read, priests and holy warriors.',
     'device.summary.dbz': 'Bandai, 1992. Fighters and items with BP and DP.',
     'device.summary.ultraman': 'Bandai, 1993. Ultra heroes, monsters and items with PW, ST and SP.',
+    'device.summary.sdgundam': 'Bandai, 1993. Mobile suits with weapons, and command cards.',
     'device.games': 'Games',
     'device.hint':
       'Every tab, and the cheat code, makes cards for this choice and reads barcodes its way. ' +
@@ -147,6 +148,11 @@ const MESSAGES = {
     'stat.pw': 'PW',
     'stat.ust': 'ST',
     'stat.usp': 'SP',
+    'stat.ap': 'AP',
+    'stat.gdp': 'DP',
+    'game.kind.unit': 'Mobile suits',
+    'game.kind.command': 'Command cards',
+    'game.pick.any': 'Any',
     'status.deviceCard': 'This card reads exactly as asked on the {device}.',
     'status.deviceCheat': '{name}: the strongest card the {device} will read.',
     'status.searching': 'Looking for a barcode the {device} reads this way.',
@@ -174,6 +180,13 @@ const MESSAGES = {
       'code of puNES, a Famicom emulator, names them, and were each read by the game itself in ' +
       'the MAME emulator. The numbers on every card come from its barcode.',
     'official.source.ultraman': 'Ultraman Club cards:',
+    'official.note.sdgundam':
+      'SD Gundam Wars came with 40 cards. 37 of them carry two barcodes, a mobile suit on the ' +
+      'bottom edge and a command on the top, plus a special card with one of each. The 76 ' +
+      'barcodes were read off a boxed set by retrostuff.org, match the card list in the ' +
+      'source code of puNES, a Famicom emulator, and were each read by the game itself in ' +
+      'the MAME emulator.',
+    'official.source.sdgundam': 'SD Gundam Wars cards:',
     'official.skipped': 'Cards left out',
     'official.skipped.hint':
       'The wikiwiki.jp page has a typo in these five. The last digit of a barcode is a ' +
@@ -350,6 +363,7 @@ const MESSAGES = {
     'device.summary.double': '1993ねん。7よみ、そうりょ、せいせんし が ふえた。',
     'device.summary.dbz': 'バンダイ、1992ねん。BP と DP の キャラクターと アイテム。',
     'device.summary.ultraman': 'バンダイ、1993ねん。PW、ST、SP の ウルトラヒーロー、かいじゅう、アイテム。',
+    'device.summary.sdgundam': 'バンダイ、1993ねん。ぶきを もつ モビルスーツと コマンドカード。',
     'device.games': 'ゲーム',
     'device.hint':
       'どの タブも かくしコマンドも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +
@@ -373,6 +387,11 @@ const MESSAGES = {
     'stat.pw': 'PW',
     'stat.ust': 'ST',
     'stat.usp': 'SP',
+    'stat.ap': 'AP',
+    'stat.gdp': 'DP',
+    'game.kind.unit': 'モビルスーツ',
+    'game.kind.command': 'コマンドカード',
+    'game.pick.any': 'どれでも',
     'status.deviceCard': '{device} で ちゅうもん どおりに よめる カードです。',
     'status.deviceCheat': '{name}: {device} が よめる いちばん つよい カード。',
     'status.searching': '{device} が こう よむ バーコードを さがしています。',
@@ -400,6 +419,12 @@ const MESSAGES = {
       'なまえは エミュレーター puNES の ソースコードの いちらんから とり、1まいずつ MAME で ' +
       'ゲームに よませて たしかめました。',
     'official.source.ultraman': 'ウルトラマン倶楽部 の カード:',
+    'official.note.sdgundam':
+      'SDガンダム ガンダムウォーズ の 40まいの カードの うち 37まいには、したに モビルスーツ、' +
+      'うえに コマンドの 2つの バーコードが あり、ほかに とくべつな カードが 1まい あります。' +
+      '76この バーコードは retrostuff.org が はこいりの セットから よみとった もので、' +
+      'エミュレーター puNES の いちらんと おなじで、1こずつ MAME で ゲームに よませて たしかめました。',
+    'official.source.sdgundam': 'SDガンダム の カード:',
     'official.skipped': 'のぞいた カード',
     'official.skipped.hint':
       'wikiwiki.jp の ページで この 5まいは うちまちがいが あります。バーコードの さいごの けたは ' +

@@ -178,10 +178,16 @@ def _build_game(
         ident = None if name is None or not name.strip() else game.named(name)
     except ValueError as error:
         return DeviceOutcome(blockers=(str(error),))
-    card = game.build(GameOrder(ident, (request.hp, request.st, request.df), choice.picks))
+    stats = (request.hp, request.st, request.df)
+    card = game.build(GameOrder(ident, stats, choice.picks))
     if card is None:
         return DeviceOutcome(blockers=(NO_GAME_CARD.format(game=device.english),))
-    return DeviceOutcome(card)
+    exact = all(
+        constraint.admits(card.value(key))
+        for key, constraint in zip(game.stat_keys, stats, strict=True)
+        if any(stat.key == key for stat in card.stats)
+    )
+    return DeviceOutcome(card, exact=exact)
 
 
 def _strongest_game(game: DatachGame, name: str) -> AnyCard:

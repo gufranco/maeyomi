@@ -80,6 +80,36 @@ function renderGameChoices() {
 async function loadGameCards() {
   gameList = reads('game') ? await getJson(`/api/game-cards/${chosenDevice}`) : [];
   renderGameChoices();
+  await loadGamePicks();
+}
+
+function pickFieldHtml(pick) {
+  const label = isJapanese() ? pick.japanese : pick.english;
+  const options = pick.options.map((option) => {
+    const name = isJapanese() ? option.japanese : option.english;
+    return `<option value="${escapeHtml(String(option.value))}">${escapeHtml(name)}</option>`;
+  }).join('');
+  const id = `pick-${pick.key}`;
+  return `<p class="field"><label for="${escapeHtml(id)}">${escapeHtml(label)}</label>` +
+    `<select id="${escapeHtml(id)}" data-pick="${escapeHtml(pick.key)}">` +
+    `<option value="">${escapeHtml(t('game.pick.any'))}</option>${options}</select></p>`;
+}
+
+async function loadGamePicks() {
+  const chosen = $('game-character').value;
+  const picks = reads('picks') && chosen !== ''
+    ? await getJson(`/api/game-picks/${chosenDevice}/${encodeURIComponent(chosen)}`)
+    : [];
+  $('game-picks').replaceChildren();
+  $('game-picks').insertAdjacentHTML('afterbegin', picks.map(pickFieldHtml).join(''));
+  $('game-picks').toggleAttribute('hidden', picks.length === 0);
+}
+
+function chosenPicks() {
+  const chosen = [...document.querySelectorAll('[data-pick]')]
+    .filter((select) => select.value !== '')
+    .map((select) => [select.dataset.pick, Number(select.value)]);
+  return Object.fromEntries(chosen);
 }
 
 const DEVICE_GROUPS = [['machine', 'device.machines'], ['game', 'device.games']];
@@ -230,6 +260,9 @@ async function setUpDevices() {
     if (button) chooseDevice(button.dataset.device);
   });
   $('backRead').addEventListener('change', () => applySliders(deviceForm()));
+  $('game-character').addEventListener('change', () => {
+    loadGamePicks().catch(() => setStatus('one-status', 'bad', 'tag.impossible', t('status.wrong')));
+  });
 }
 
 function deviceCardPayload() {
@@ -248,6 +281,7 @@ function deviceCardPayload() {
     ...(reads('backRead') ? { backRead: $('backRead').checked } : {}),
     ...(reads('nearest') ? { nearest: $('nearest').checked } : {}),
     ...(character ? { character } : {}),
+    ...(reads('picks') ? { picks: chosenPicks() } : {}),
     ...(level ? { level: Number($('dbz-level').value) } : {}),
   };
 }

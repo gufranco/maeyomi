@@ -77,6 +77,10 @@ STAT_LABELS: Final[dict[str, Bilingual]] = {
     "PW": Bilingual("PW", "PW"),
     "UST": Bilingual("ST", "ST"),
     "USP": Bilingual("SP", "SP"),
+    "GHP": Bilingual("HP", "HP"),
+    "AP": Bilingual("AP", "AP"),
+    "GDP": Bilingual("DP", "DP"),
+    "CP": Bilingual("CP", "CP"),
 }
 
 RACE_DESCRIPTIONS: Final[dict[Race, str]] = {

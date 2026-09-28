@@ -20,7 +20,7 @@ from dataclasses import dataclass
 from itertools import accumulate
 from typing import Final
 
-from maeyomi.datach.game_card import DatachCard, GameKind, GameStat
+from maeyomi.datach.game_card import DatachCard, GameKind, GameStat, required
 from maeyomi.datach.game_reader import printable
 from maeyomi.datach.stream import code_for, eight_bit, field, stream_of
 from maeyomi.datach.ultraman_tables import ADDENDS, FIRST_ITEM, PERMUTATION, TENS, TYPE_SLOTS
@@ -75,10 +75,9 @@ def strongest_ultraman(ident: int = STRONGEST_TYPE) -> DatachCard:
     """A card whose PW, ST and SP are all the highest the game can read."""
     top = Constraint.exactly(STRONGEST_HUNDREDS * HUNDRED)
     card = build_ultraman(UltramanOrder(ident, top, top, top))
-    if card is None:
-        message = f"no printable Ultraman Club card is type {ident} at the top of all three"
-        raise RuntimeError(message)
-    return card
+    return required(
+        card, f"no printable Ultraman Club card is type {ident} at the top of all three"
+    )
 
 
 def _type_of(value: int) -> int:

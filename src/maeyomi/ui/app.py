@@ -66,7 +66,7 @@ from maeyomi.rendering.labels import UNREADABLE, UNREADABLE_KIND, Bilingual
 from maeyomi.rendering.preview import card_png, sheet_png_pages
 from maeyomi.rendering.sheet import write_sheet
 from maeyomi.ui.assets import PAGE_HEADERS, CachedStaticFiles, asset_stamp, stamped
-from maeyomi.ui.devices import dbz_choices, device_views, facts_of, game_choices
+from maeyomi.ui.devices import dbz_choices, device_views, facts_of, game_choices, game_picks
 from maeyomi.ui.schemas import (
     AbilityView,
     BarcodeSheetSpec,
@@ -84,6 +84,7 @@ from maeyomi.ui.schemas import (
     OfficialCatalogue,
     OfficialSetView,
     OfficialSpec,
+    PickView,
     PreviewSpec,
     ProductShelf,
     ProductView,
@@ -320,6 +321,11 @@ def game_cards(device: str) -> list[DbzChoiceView]:
     return game_choices(_device(device))
 
 
+def game_card_picks(device: str, ident: int) -> list[PickView]:
+    """The choices one card of the chosen game offers beside its numbers."""
+    return game_picks(_device(device), ident)
+
+
 def read_on(device: str, barcode: str) -> DeviceReading:
     """Read a barcode the way the chosen device reads it."""
     card = _read(_device(device), barcode)
@@ -333,6 +339,7 @@ def device_card(spec: DeviceCardSpec) -> DeviceReading:
         nearest=spec.nearest,
         character=spec.character,
         level=spec.level,
+        picks=tuple(spec.picks.items()),
     )
     outcome = build_as(_device(spec.device), _request(spec), choice)
     if outcome.card is None:
@@ -373,6 +380,7 @@ def create_app() -> FastAPI:
     app.add_api_route("/api/devices", devices, methods=["GET"])
     app.add_api_route("/api/dbz-characters", dbz_characters, methods=["GET"])
     app.add_api_route("/api/game-cards/{device}", game_cards, methods=["GET"])
+    app.add_api_route("/api/game-picks/{device}/{ident}", game_card_picks, methods=["GET"])
     app.add_api_route("/api/read/{device}/{barcode}", read_on, methods=["GET"])
     app.add_api_route("/api/device-card", device_card, methods=["POST"])
     app.add_api_route("/api/device-cheat", device_cheat, methods=["POST"])

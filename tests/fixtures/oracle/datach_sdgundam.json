@@ -1,0 +1,1909 @@
+{
+ "game": "Datach SD Gundam: Gundam Wars",
+ "software": "dtc_sdgn",
+ "rom": {
+  "sha1": "edd7a45a7f27e396b6d686f1861642d509863132",
+  "size": 262144
+ },
+ "screen": "barcode lab, unit record at $0460 (unit, HP, AP, DP words, rank, CP, SR, LR), command number at $061C",
+ "recorded_utc": "2026-09-28",
+ "cards": [
+  {
+   "barcode": "0400144403109",
+   "generated": false,
+   "kind": "unit",
+   "ident": 56,
+   "hp": 5100,
+   "ap": 4530,
+   "dp": 6260,
+   "rank": 5,
+   "cp": 5,
+   "sr": 0,
+   "lr": 22
+  },
+  {
+   "barcode": "0400440140142",
+   "generated": false,
+   "kind": "unit",
+   "ident": 35,
+   "hp": 6600,
+   "ap": 5760,
+   "dp": 7700,
+   "rank": 7,
+   "cp": 3,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0400441406148",
+   "generated": false,
+   "kind": "unit",
+   "ident": 49,
+   "hp": 3700,
+   "ap": 3860,
+   "dp": 5800,
+   "rank": 4,
+   "cp": 9,
+   "sr": 17,
+   "lr": 6
+  },
+  {
+   "barcode": "0400530541019",
+   "generated": false,
+   "kind": "unit",
+   "ident": 25,
+   "hp": 5830,
+   "ap": 4990,
+   "dp": 5270,
+   "rank": 6,
+   "cp": 4,
+   "sr": 0,
+   "lr": 22
+  },
+  {
+   "barcode": "0400741404172",
+   "generated": false,
+   "kind": "unit",
+   "ident": 47,
+   "hp": 2900,
+   "ap": 2160,
+   "dp": 3730,
+   "rank": 4,
+   "cp": 11,
+   "sr": 2,
+   "lr": 8
+  },
+  {
+   "barcode": "0401000506156",
+   "generated": false,
+   "kind": "unit",
+   "ident": 18,
+   "hp": 5400,
+   "ap": 4800,
+   "dp": 6700,
+   "rank": 4,
+   "cp": 5,
+   "sr": 11,
+   "lr": 22
+  },
+  {
+   "barcode": "0401001150105",
+   "generated": false,
+   "kind": "unit",
+   "ident": 15,
+   "hp": 2600,
+   "ap": 1600,
+   "dp": 3600,
+   "rank": 1,
+   "cp": 12,
+   "sr": 2,
+   "lr": 8
+  },
+  {
+   "barcode": "0401001501112",
+   "generated": false,
+   "kind": "unit",
+   "ident": 5,
+   "hp": 3750,
+   "ap": 2630,
+   "dp": 3900,
+   "rank": 2,
+   "cp": 9,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0401030142010",
+   "generated": false,
+   "kind": "unit",
+   "ident": 28,
+   "hp": 6230,
+   "ap": 5000,
+   "dp": 7300,
+   "rank": 6,
+   "cp": 3,
+   "sr": 0,
+   "lr": 6
+  },
+  {
+   "barcode": "0401031441006",
+   "generated": false,
+   "kind": "unit",
+   "ident": 20,
+   "hp": 2730,
+   "ap": 1730,
+   "dp": 3800,
+   "rank": 1,
+   "cp": 11,
+   "sr": 2,
+   "lr": 8
+  },
+  {
+   "barcode": "0401046744055",
+   "generated": false,
+   "kind": "unit",
+   "ident": 7,
+   "hp": 6390,
+   "ap": 4420,
+   "dp": 5190,
+   "rank": 7,
+   "cp": 3,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0401115401056",
+   "generated": false,
+   "kind": "unit",
+   "ident": 39,
+   "hp": 5940,
+   "ap": 5430,
+   "dp": 6960,
+   "rank": 7,
+   "cp": 4,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0401142240062",
+   "generated": false,
+   "kind": "unit",
+   "ident": 59,
+   "hp": 5590,
+   "ap": 4170,
+   "dp": 6580,
+   "rank": 5,
+   "cp": 4,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0401145042557",
+   "generated": false,
+   "kind": "unit",
+   "ident": 52,
+   "hp": 4100,
+   "ap": 3140,
+   "dp": 4560,
+   "rank": 3,
+   "cp": 8,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0401407405045",
+   "generated": false,
+   "kind": "unit",
+   "ident": 32,
+   "hp": 4790,
+   "ap": 4690,
+   "dp": 7890,
+   "rank": 5,
+   "cp": 7,
+   "sr": 3,
+   "lr": 4
+  },
+  {
+   "barcode": "0401514545108",
+   "generated": false,
+   "kind": "unit",
+   "ident": 11,
+   "hp": 6760,
+   "ap": 5690,
+   "dp": 7810,
+   "rank": 8,
+   "cp": 3,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0401540442532",
+   "generated": false,
+   "kind": "unit",
+   "ident": 27,
+   "hp": 5350,
+   "ap": 5160,
+   "dp": 6830,
+   "rank": 4,
+   "cp": 5,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0401544774318",
+   "generated": false,
+   "kind": "command",
+   "ident": 104
+  },
+  {
+   "barcode": "0402101145572",
+   "generated": false,
+   "kind": "unit",
+   "ident": 21,
+   "hp": 2800,
+   "ap": 1830,
+   "dp": 4730,
+   "rank": 2,
+   "cp": 11,
+   "sr": 12,
+   "lr": 23
+  },
+  {
+   "barcode": "0402102142020",
+   "generated": false,
+   "kind": "unit",
+   "ident": 37,
+   "hp": 6890,
+   "ap": 5800,
+   "dp": 8080,
+   "rank": 8,
+   "cp": 3,
+   "sr": 0,
+   "lr": 9
+  },
+  {
+   "barcode": "0402130101068",
+   "generated": false,
+   "kind": "unit",
+   "ident": 17,
+   "hp": 3230,
+   "ap": 2430,
+   "dp": 4130,
+   "rank": 2,
+   "cp": 9,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0402131502024",
+   "generated": false,
+   "kind": "unit",
+   "ident": 6,
+   "hp": 3330,
+   "ap": 3000,
+   "dp": 4930,
+   "rank": 2,
+   "cp": 10,
+   "sr": 0,
+   "lr": 18
+  },
+  {
+   "barcode": "0402434441006",
+   "generated": false,
+   "kind": "unit",
+   "ident": 43,
+   "hp": 5930,
+   "ap": 4290,
+   "dp": 6690,
+   "rank": 5,
+   "cp": 4,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0402440042532",
+   "generated": false,
+   "kind": "unit",
+   "ident": 61,
+   "hp": 5300,
+   "ap": 5260,
+   "dp": 7440,
+   "rank": 4,
+   "cp": 5,
+   "sr": 1,
+   "lr": 22
+  },
+  {
+   "barcode": "0402450400513",
+   "generated": false,
+   "kind": "unit",
+   "ident": 54,
+   "hp": 6210,
+   "ap": 4460,
+   "dp": 8300,
+   "rank": 4,
+   "cp": 3,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0402500402160",
+   "generated": false,
+   "kind": "unit",
+   "ident": 44,
+   "hp": 6900,
+   "ap": 5820,
+   "dp": 8030,
+   "rank": 8,
+   "cp": 3,
+   "sr": 0,
+   "lr": 9
+  },
+  {
+   "barcode": "0402733635151",
+   "generated": false,
+   "kind": "unit",
+   "ident": 40,
+   "hp": 4700,
+   "ap": 3500,
+   "dp": 5550,
+   "rank": 6,
+   "cp": 8,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0402743543040",
+   "generated": false,
+   "kind": "command",
+   "ident": 108
+  },
+  {
+   "barcode": "0403001106151",
+   "generated": false,
+   "kind": "unit",
+   "ident": 16,
+   "hp": 2750,
+   "ap": 2300,
+   "dp": 4600,
+   "rank": 3,
+   "cp": 11,
+   "sr": 0,
+   "lr": 5
+  },
+  {
+   "barcode": "0403001143149",
+   "generated": false,
+   "kind": "unit",
+   "ident": 8,
+   "hp": 4300,
+   "ap": 3530,
+   "dp": 6500,
+   "rank": 4,
+   "cp": 8,
+   "sr": 0,
+   "lr": 5
+  },
+  {
+   "barcode": "0403007706119",
+   "generated": false,
+   "kind": "command",
+   "ident": 106
+  },
+  {
+   "barcode": "0403131400075",
+   "generated": false,
+   "kind": "unit",
+   "ident": 24,
+   "hp": 3430,
+   "ap": 2800,
+   "dp": 5630,
+   "rank": 4,
+   "cp": 10,
+   "sr": 0,
+   "lr": 8
+  },
+  {
+   "barcode": "0403131741079",
+   "generated": false,
+   "kind": "unit",
+   "ident": 2,
+   "hp": 4830,
+   "ap": 3600,
+   "dp": 5530,
+   "rank": 4,
+   "cp": 7,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0403450442138",
+   "generated": false,
+   "kind": "unit",
+   "ident": 38,
+   "hp": 7160,
+   "ap": 5960,
+   "dp": 7840,
+   "rank": 8,
+   "cp": 3,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0403500100568",
+   "generated": false,
+   "kind": "unit",
+   "ident": 34,
+   "hp": 6450,
+   "ap": 5270,
+   "dp": 7430,
+   "rank": 6,
+   "cp": 3,
+   "sr": 0,
+   "lr": 22
+  },
+  {
+   "barcode": "0403503043008",
+   "generated": false,
+   "kind": "unit",
+   "ident": 50,
+   "hp": 3090,
+   "ap": 2290,
+   "dp": 3970,
+   "rank": 2,
+   "cp": 10,
+   "sr": 0,
+   "lr": 7
+  },
+  {
+   "barcode": "0403554500147",
+   "generated": false,
+   "kind": "unit",
+   "ident": 13,
+   "hp": 7460,
+   "ap": 6260,
+   "dp": 8260,
+   "rank": 10,
+   "cp": 3,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0403775140252",
+   "generated": false,
+   "kind": "unit",
+   "ident": 0,
+   "hp": 3880,
+   "ap": 2960,
+   "dp": 4360,
+   "rank": 4,
+   "cp": 9,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0404227163515",
+   "generated": false,
+   "kind": "command",
+   "ident": 134
+  },
+  {
+   "barcode": "0405564736646",
+   "generated": false,
+   "kind": "command",
+   "ident": 105
+  },
+  {
+   "barcode": "0405645155656",
+   "generated": false,
+   "kind": "command",
+   "ident": 115
+  },
+  {
+   "barcode": "0406154264044",
+   "generated": false,
+   "kind": "unit",
+   "ident": 60,
+   "hp": 5720,
+   "ap": 3820,
+   "dp": 7720,
+   "rank": 5,
+   "cp": 4,
+   "sr": 0,
+   "lr": 23
+  },
+  {
+   "barcode": "0407114541014",
+   "generated": false,
+   "kind": "unit",
+   "ident": 10,
+   "hp": 6670,
+   "ap": 6430,
+   "dp": 8460,
+   "rank": 4,
+   "cp": 3,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0420002452667",
+   "generated": false,
+   "kind": "command",
+   "ident": 158
+  },
+  {
+   "barcode": "0420416654671",
+   "generated": false,
+   "kind": "command",
+   "ident": 157
+  },
+  {
+   "barcode": "0420434751369",
+   "generated": false,
+   "kind": "command",
+   "ident": 110
+  },
+  {
+   "barcode": "0420516274656",
+   "generated": false,
+   "kind": "command",
+   "ident": 133
+  },
+  {
+   "barcode": "0425122476371",
+   "generated": false,
+   "kind": "command",
+   "ident": 132
+  },
+  {
+   "barcode": "0426064513261",
+   "generated": false,
+   "kind": "command",
+   "ident": 149
+  },
+  {
+   "barcode": "0426464772275",
+   "generated": false,
+   "kind": "command",
+   "ident": 107
+  },
+  {
+   "barcode": "0427062053452",
+   "generated": false,
+   "kind": "command",
+   "ident": 126
+  },
+  {
+   "barcode": "0427167436709",
+   "generated": false,
+   "kind": "command",
+   "ident": 151
+  },
+  {
+   "barcode": "0427627620136",
+   "generated": false,
+   "kind": "command",
+   "ident": 148
+  },
+  {
+   "barcode": "0440302250565",
+   "generated": false,
+   "kind": "command",
+   "ident": 136
+  },
+  {
+   "barcode": "0440730573106",
+   "generated": false,
+   "kind": "command",
+   "ident": 113
+  },
+  {
+   "barcode": "0441351472243",
+   "generated": false,
+   "kind": "command",
+   "ident": 142
+  },
+  {
+   "barcode": "0443304064666",
+   "generated": false,
+   "kind": "command",
+   "ident": 128
+  },
+  {
+   "barcode": "0443327461770",
+   "generated": false,
+   "kind": "command",
+   "ident": 137
+  },
+  {
+   "barcode": "0443513666064",
+   "generated": false,
+   "kind": "command",
+   "ident": 121
+  },
+  {
+   "barcode": "0444551077331",
+   "generated": false,
+   "kind": "command",
+   "ident": 139
+  },
+  {
+   "barcode": "0445726750448",
+   "generated": false,
+   "kind": "command",
+   "ident": 102
+  },
+  {
+   "barcode": "0447220635665",
+   "generated": false,
+   "kind": "command",
+   "ident": 114
+  },
+  {
+   "barcode": "0447363361032",
+   "generated": false,
+   "kind": "command",
+   "ident": 120
+  },
+  {
+   "barcode": "0460553366228",
+   "generated": false,
+   "kind": "command",
+   "ident": 119,
+   "swipe_us": 400
+  },
+  {
+   "barcode": "0462523640710",
+   "generated": false,
+   "kind": "command",
+   "ident": 159
+  },
+  {
+   "barcode": "0462730572521",
+   "generated": false,
+   "kind": "command",
+   "ident": 112
+  },
+  {
+   "barcode": "0464121725370",
+   "generated": false,
+   "kind": "command",
+   "ident": 122
+  },
+  {
+   "barcode": "0464524756476",
+   "generated": false,
+   "kind": "command",
+   "ident": 109
+  },
+  {
+   "barcode": "0464552366074",
+   "generated": false,
+   "kind": "command",
+   "ident": 124
+  },
+  {
+   "barcode": "0465464360068",
+   "generated": false,
+   "kind": "command",
+   "ident": 118
+  },
+  {
+   "barcode": "0466120475669",
+   "generated": false,
+   "kind": "command",
+   "ident": 155
+  },
+  {
+   "barcode": "0466765740016",
+   "generated": false,
+   "kind": "command",
+   "ident": 111
+  },
+  {
+   "barcode": "0467061567000",
+   "generated": false,
+   "kind": "command",
+   "ident": 103
+  },
+  {
+   "barcode": "0467760762065",
+   "generated": false,
+   "kind": "command",
+   "ident": 101
+  },
+  {
+   "barcode": "9346126717639",
+   "generated": false,
+   "kind": "unit",
+   "ident": 4,
+   "hp": 6000,
+   "ap": 3900,
+   "dp": 6000,
+   "rank": 7,
+   "cp": 7,
+   "sr": 0,
+   "lr": 5
+  },
+  {
+   "barcode": "9366723460578",
+   "generated": false,
+   "kind": "command",
+   "ident": 146
+  },
+  {
+   "barcode": "0100754024434",
+   "generated": true,
+   "kind": "unit",
+   "ident": 26,
+   "hp": 5090,
+   "ap": 4060,
+   "dp": 5180,
+   "rank": 7,
+   "cp": 5,
+   "sr": 0,
+   "lr": 22
+  },
+  {
+   "barcode": "0101022150138",
+   "generated": true,
+   "kind": "unit",
+   "ident": 28,
+   "hp": 6700,
+   "ap": 5000,
+   "dp": 7240,
+   "rank": 6,
+   "cp": 6,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0101411776253",
+   "generated": true,
+   "kind": "unit",
+   "ident": 7,
+   "hp": 6240,
+   "ap": 4210,
+   "dp": 5010,
+   "rank": 9,
+   "cp": 5,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0103163044178",
+   "generated": true,
+   "kind": "command",
+   "ident": 126
+  },
+  {
+   "barcode": "0106737023463",
+   "generated": true,
+   "kind": "command",
+   "ident": 156
+  },
+  {
+   "barcode": "0107513457274",
+   "generated": true,
+   "kind": "command",
+   "ident": 137
+  },
+  {
+   "barcode": "0111526704768",
+   "generated": true,
+   "kind": "command",
+   "ident": 105
+  },
+  {
+   "barcode": "0112036423576",
+   "generated": true,
+   "kind": "unit",
+   "ident": 40,
+   "hp": 4700,
+   "ap": 3380,
+   "dp": 5100,
+   "rank": 4,
+   "cp": 6,
+   "sr": 1,
+   "lr": 5
+  },
+  {
+   "barcode": "0115036302100",
+   "generated": true,
+   "kind": "unit",
+   "ident": 42,
+   "hp": 6410,
+   "ap": 5740,
+   "dp": 7090,
+   "rank": 7,
+   "cp": 3,
+   "sr": 0,
+   "lr": 9
+  },
+  {
+   "barcode": "0121345632340",
+   "generated": true,
+   "kind": "unit",
+   "ident": 32,
+   "hp": 4700,
+   "ap": 4100,
+   "dp": 7920,
+   "rank": 5,
+   "cp": 8,
+   "sr": 3,
+   "lr": 4
+  },
+  {
+   "barcode": "0124513731463",
+   "generated": true,
+   "kind": "command",
+   "ident": 123
+  },
+  {
+   "barcode": "0131304463045",
+   "generated": true,
+   "kind": "command",
+   "ident": 142
+  },
+  {
+   "barcode": "0136730647656",
+   "generated": true,
+   "kind": "command",
+   "ident": 146
+  },
+  {
+   "barcode": "0137720537100",
+   "generated": true,
+   "kind": "unit",
+   "ident": 1,
+   "hp": 4350,
+   "ap": 2320,
+   "dp": 4550,
+   "rank": 5,
+   "cp": 11,
+   "sr": 0,
+   "lr": 5
+  },
+  {
+   "barcode": "0143432202014",
+   "generated": true,
+   "kind": "unit",
+   "ident": 19,
+   "hp": 3350,
+   "ap": 2410,
+   "dp": 4050,
+   "rank": 3,
+   "cp": 8,
+   "sr": 0,
+   "lr": 5
+  },
+  {
+   "barcode": "0144227541004",
+   "generated": true,
+   "kind": "command",
+   "ident": 113
+  },
+  {
+   "barcode": "0146066253742",
+   "generated": true,
+   "kind": "unit",
+   "ident": 60,
+   "hp": 5930,
+   "ap": 3970,
+   "dp": 7960,
+   "rank": 4,
+   "cp": 7,
+   "sr": 0,
+   "lr": 23
+  },
+  {
+   "barcode": "0146227153751",
+   "generated": true,
+   "kind": "unit",
+   "ident": 21,
+   "hp": 3130,
+   "ap": 1830,
+   "dp": 5060,
+   "rank": 2,
+   "cp": 12,
+   "sr": 12,
+   "lr": 23
+  },
+  {
+   "barcode": "0147457013679",
+   "generated": true,
+   "kind": "command",
+   "ident": 153
+  },
+  {
+   "barcode": "0154116145145",
+   "generated": true,
+   "kind": "unit",
+   "ident": 35,
+   "hp": 6390,
+   "ap": 5730,
+   "dp": 7520,
+   "rank": 8,
+   "cp": 3,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0155350541014",
+   "generated": true,
+   "kind": "command",
+   "ident": 104
+  },
+  {
+   "barcode": "0155430577209",
+   "generated": true,
+   "kind": "unit",
+   "ident": 11,
+   "hp": 6280,
+   "ap": 5690,
+   "dp": 8020,
+   "rank": 10,
+   "cp": 6,
+   "sr": 0,
+   "lr": 6
+  },
+  {
+   "barcode": "0156754320656",
+   "generated": true,
+   "kind": "command",
+   "ident": 147
+  },
+  {
+   "barcode": "0160670151515",
+   "generated": true,
+   "kind": "command",
+   "ident": 134
+  },
+  {
+   "barcode": "0162237266274",
+   "generated": true,
+   "kind": "unit",
+   "ident": 62,
+   "hp": 5800,
+   "ap": 5200,
+   "dp": 7500,
+   "rank": 7,
+   "cp": 4,
+   "sr": 0,
+   "lr": 6
+  },
+  {
+   "barcode": "0166075700648",
+   "generated": true,
+   "kind": "command",
+   "ident": 149
+  },
+  {
+   "barcode": "0166626516735",
+   "generated": true,
+   "kind": "unit",
+   "ident": 4,
+   "hp": 6030,
+   "ap": 3420,
+   "dp": 6150,
+   "rank": 6,
+   "cp": 7,
+   "sr": 0,
+   "lr": 5
+  },
+  {
+   "barcode": "0170760215652",
+   "generated": true,
+   "kind": "command",
+   "ident": 154
+  },
+  {
+   "barcode": "0172065466302",
+   "generated": true,
+   "kind": "unit",
+   "ident": 43,
+   "hp": 5720,
+   "ap": 3960,
+   "dp": 7100,
+   "rank": 8,
+   "cp": 5,
+   "sr": 0,
+   "lr": 5
+  },
+  {
+   "barcode": "0176205213276",
+   "generated": true,
+   "kind": "unit",
+   "ident": 51,
+   "hp": 3760,
+   "ap": 2880,
+   "dp": 6550,
+   "rank": 6,
+   "cp": 9,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0302514300769",
+   "generated": true,
+   "kind": "unit",
+   "ident": 17,
+   "hp": 3260,
+   "ap": 2310,
+   "dp": 3980,
+   "rank": 2,
+   "cp": 9,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0302766221218",
+   "generated": true,
+   "kind": "unit",
+   "ident": 55,
+   "hp": 4090,
+   "ap": 3060,
+   "dp": 5320,
+   "rank": 6,
+   "cp": 7,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0307476115222",
+   "generated": true,
+   "kind": "command",
+   "ident": 125
+  },
+  {
+   "barcode": "0312425540222",
+   "generated": true,
+   "kind": "command",
+   "ident": 112
+  },
+  {
+   "barcode": "0317026374405",
+   "generated": true,
+   "kind": "unit",
+   "ident": 46,
+   "hp": 7600,
+   "ap": 6340,
+   "dp": 7770,
+   "rank": 9,
+   "cp": 6,
+   "sr": 1,
+   "lr": 4
+  },
+  {
+   "barcode": "0321135522350",
+   "generated": true,
+   "kind": "unit",
+   "ident": 18,
+   "hp": 5280,
+   "ap": 4650,
+   "dp": 6820,
+   "rank": 3,
+   "cp": 6,
+   "sr": 11,
+   "lr": 22
+  },
+  {
+   "barcode": "0324137404402",
+   "generated": true,
+   "kind": "unit",
+   "ident": 56,
+   "hp": 4650,
+   "ap": 4500,
+   "dp": 6260,
+   "rank": 6,
+   "cp": 6,
+   "sr": 0,
+   "lr": 22
+  },
+  {
+   "barcode": "0325071633637",
+   "generated": true,
+   "kind": "command",
+   "ident": 152
+  },
+  {
+   "barcode": "0330056176603",
+   "generated": true,
+   "kind": "command",
+   "ident": 119
+  },
+  {
+   "barcode": "0330650462751",
+   "generated": true,
+   "kind": "command",
+   "ident": 157
+  },
+  {
+   "barcode": "0331505072125",
+   "generated": true,
+   "kind": "command",
+   "ident": 140
+  },
+  {
+   "barcode": "0334570114653",
+   "generated": true,
+   "kind": "command",
+   "ident": 117
+  },
+  {
+   "barcode": "0337352004609",
+   "generated": true,
+   "kind": "unit",
+   "ident": 57,
+   "hp": 4810,
+   "ap": 3210,
+   "dp": 5970,
+   "rank": 6,
+   "cp": 6,
+   "sr": 16,
+   "lr": 4
+  },
+  {
+   "barcode": "0337647306173",
+   "generated": true,
+   "kind": "unit",
+   "ident": 16,
+   "hp": 2250,
+   "ap": 1910,
+   "dp": 4810,
+   "rank": 4,
+   "cp": 11,
+   "sr": 0,
+   "lr": 5
+  },
+  {
+   "barcode": "0340525257320",
+   "generated": true,
+   "kind": "unit",
+   "ident": 23,
+   "hp": 3070,
+   "ap": 2050,
+   "dp": 3950,
+   "rank": 8,
+   "cp": 11,
+   "sr": 0,
+   "lr": 15
+  },
+  {
+   "barcode": "0344645235527",
+   "generated": true,
+   "kind": "unit",
+   "ident": 14,
+   "hp": 1970,
+   "ap": 1860,
+   "dp": 3700,
+   "rank": 3,
+   "cp": 14,
+   "sr": 2,
+   "lr": 8
+  },
+  {
+   "barcode": "0350256127564",
+   "generated": true,
+   "kind": "command",
+   "ident": 138
+  },
+  {
+   "barcode": "0352664331403",
+   "generated": true,
+   "kind": "unit",
+   "ident": 31,
+   "hp": 4110,
+   "ap": 3610,
+   "dp": 5300,
+   "rank": 5,
+   "cp": 10,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0353476275312",
+   "generated": true,
+   "kind": "unit",
+   "ident": 0,
+   "hp": 4000,
+   "ap": 3260,
+   "dp": 4800,
+   "rank": 6,
+   "cp": 11,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0355064315769",
+   "generated": true,
+   "kind": "command",
+   "ident": 135
+  },
+  {
+   "barcode": "0356657442145",
+   "generated": true,
+   "kind": "command",
+   "ident": 155
+  },
+  {
+   "barcode": "0361264255675",
+   "generated": true,
+   "kind": "unit",
+   "ident": 52,
+   "hp": 4010,
+   "ap": 3600,
+   "dp": 4950,
+   "rank": 5,
+   "cp": 10,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0361365171249",
+   "generated": true,
+   "kind": "command",
+   "ident": 118
+  },
+  {
+   "barcode": "0363172772428",
+   "generated": true,
+   "kind": "command",
+   "ident": 103
+  },
+  {
+   "barcode": "0370162717031",
+   "generated": true,
+   "kind": "unit",
+   "ident": 45,
+   "hp": 7140,
+   "ap": 6700,
+   "dp": 7800,
+   "rank": 9,
+   "cp": 6,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0370473200666",
+   "generated": true,
+   "kind": "command",
+   "ident": 141
+  },
+  {
+   "barcode": "0376056355365",
+   "generated": true,
+   "kind": "command",
+   "ident": 131
+  },
+  {
+   "barcode": "0400717255166",
+   "generated": true,
+   "kind": "command",
+   "ident": 136
+  },
+  {
+   "barcode": "0401150024760",
+   "generated": true,
+   "kind": "unit",
+   "ident": 53,
+   "hp": 4460,
+   "ap": 3040,
+   "dp": 6140,
+   "rank": 7,
+   "cp": 7,
+   "sr": 1,
+   "lr": 4
+  },
+  {
+   "barcode": "0403002473634",
+   "generated": true,
+   "kind": "unit",
+   "ident": 38,
+   "hp": 7190,
+   "ap": 5930,
+   "dp": 7690,
+   "rank": 8,
+   "cp": 6,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0403164165033",
+   "generated": true,
+   "kind": "command",
+   "ident": 120
+  },
+  {
+   "barcode": "0404537623358",
+   "generated": true,
+   "kind": "unit",
+   "ident": 47,
+   "hp": 3260,
+   "ap": 2250,
+   "dp": 3820,
+   "rank": 2,
+   "cp": 11,
+   "sr": 2,
+   "lr": 5
+  },
+  {
+   "barcode": "0405437017278",
+   "generated": true,
+   "kind": "unit",
+   "ident": 41,
+   "hp": 4050,
+   "ap": 3440,
+   "dp": 5610,
+   "rank": 7,
+   "cp": 8,
+   "sr": 0,
+   "lr": 5
+  },
+  {
+   "barcode": "0412611051034",
+   "generated": true,
+   "kind": "unit",
+   "ident": 61,
+   "hp": 5240,
+   "ap": 5290,
+   "dp": 7440,
+   "rank": 4,
+   "cp": 7,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0413567711416",
+   "generated": true,
+   "kind": "command",
+   "ident": 106
+  },
+  {
+   "barcode": "0416033317419",
+   "generated": true,
+   "kind": "command",
+   "ident": 150
+  },
+  {
+   "barcode": "0417275133737",
+   "generated": true,
+   "kind": "command",
+   "ident": 129
+  },
+  {
+   "barcode": "0420401123410",
+   "generated": true,
+   "kind": "unit",
+   "ident": 3,
+   "hp": 4870,
+   "ap": 3570,
+   "dp": 6210,
+   "rank": 2,
+   "cp": 7,
+   "sr": 1,
+   "lr": 4
+  },
+  {
+   "barcode": "0423473417722",
+   "generated": true,
+   "kind": "command",
+   "ident": 151
+  },
+  {
+   "barcode": "0424531553031",
+   "generated": true,
+   "kind": "unit",
+   "ident": 25,
+   "hp": 5380,
+   "ap": 4570,
+   "dp": 5330,
+   "rank": 6,
+   "cp": 6,
+   "sr": 0,
+   "lr": 7
+  },
+  {
+   "barcode": "0431453071062",
+   "generated": true,
+   "kind": "unit",
+   "ident": 59,
+   "hp": 5200,
+   "ap": 4380,
+   "dp": 6340,
+   "rank": 5,
+   "cp": 6,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0432034061403",
+   "generated": true,
+   "kind": "unit",
+   "ident": 9,
+   "hp": 3630,
+   "ap": 2540,
+   "dp": 3820,
+   "rank": 3,
+   "cp": 8,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0436647567017",
+   "generated": true,
+   "kind": "command",
+   "ident": 111
+  },
+  {
+   "barcode": "0440147373054",
+   "generated": true,
+   "kind": "command",
+   "ident": 124
+  },
+  {
+   "barcode": "0440466701477",
+   "generated": true,
+   "kind": "command",
+   "ident": 122
+  },
+  {
+   "barcode": "0440612243554",
+   "generated": true,
+   "kind": "command",
+   "ident": 133
+  },
+  {
+   "barcode": "0441251166655",
+   "generated": true,
+   "kind": "command",
+   "ident": 115
+  },
+  {
+   "barcode": "0441605536103",
+   "generated": true,
+   "kind": "unit",
+   "ident": 33,
+   "hp": 7000,
+   "ap": 5970,
+   "dp": 8650,
+   "rank": 10,
+   "cp": 5,
+   "sr": 0,
+   "lr": 9
+  },
+  {
+   "barcode": "0442337433616",
+   "generated": true,
+   "kind": "unit",
+   "ident": 54,
+   "hp": 6000,
+   "ap": 4430,
+   "dp": 8030,
+   "rank": 5,
+   "cp": 5,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "0442611644516",
+   "generated": true,
+   "kind": "command",
+   "ident": 159
+  },
+  {
+   "barcode": "0446110224026",
+   "generated": true,
+   "kind": "unit",
+   "ident": 30,
+   "hp": 3220,
+   "ap": 2240,
+   "dp": 7530,
+   "rank": 2,
+   "cp": 9,
+   "sr": 12,
+   "lr": 23
+  },
+  {
+   "barcode": "0451306211735",
+   "generated": true,
+   "kind": "unit",
+   "ident": 12,
+   "hp": 6530,
+   "ap": 4400,
+   "dp": 6700,
+   "rank": 7,
+   "cp": 6,
+   "sr": 1,
+   "lr": 4
+  },
+  {
+   "barcode": "0452177523675",
+   "generated": true,
+   "kind": "unit",
+   "ident": 29,
+   "hp": 7050,
+   "ap": 6380,
+   "dp": 8000,
+   "rank": 4,
+   "cp": 4,
+   "sr": 0,
+   "lr": 6
+  },
+  {
+   "barcode": "0452704547556",
+   "generated": true,
+   "kind": "command",
+   "ident": 107
+  },
+  {
+   "barcode": "0457043517543",
+   "generated": true,
+   "kind": "unit",
+   "ident": 13,
+   "hp": 6900,
+   "ap": 6080,
+   "dp": 8050,
+   "rank": 11,
+   "cp": 5,
+   "sr": 1,
+   "lr": 20
+  },
+  {
+   "barcode": "0460574277435",
+   "generated": true,
+   "kind": "command",
+   "ident": 139
+  },
+  {
+   "barcode": "0463706166645",
+   "generated": true,
+   "kind": "unit",
+   "ident": 8,
+   "hp": 4390,
+   "ap": 3320,
+   "dp": 6230,
+   "rank": 6,
+   "cp": 7,
+   "sr": 1,
+   "lr": 5
+  },
+  {
+   "barcode": "0464463463145",
+   "generated": true,
+   "kind": "command",
+   "ident": 158
+  },
+  {
+   "barcode": "0464640517500",
+   "generated": true,
+   "kind": "command",
+   "ident": 127
+  },
+  {
+   "barcode": "0471030473209",
+   "generated": true,
+   "kind": "unit",
+   "ident": 20,
+   "hp": 2730,
+   "ap": 1490,
+   "dp": 4070,
+   "rank": 1,
+   "cp": 13,
+   "sr": 2,
+   "lr": 8
+  },
+  {
+   "barcode": "0473005417713",
+   "generated": true,
+   "kind": "command",
+   "ident": 148
+  },
+  {
+   "barcode": "0473432273005",
+   "generated": true,
+   "kind": "unit",
+   "ident": 50,
+   "hp": 2850,
+   "ap": 2650,
+   "dp": 4270,
+   "rank": 2,
+   "cp": 12,
+   "sr": 0,
+   "lr": 7
+  },
+  {
+   "barcode": "0473452112247",
+   "generated": true,
+   "kind": "unit",
+   "ident": 34,
+   "hp": 6150,
+   "ap": 5510,
+   "dp": 7250,
+   "rank": 6,
+   "cp": 6,
+   "sr": 0,
+   "lr": 6
+  },
+  {
+   "barcode": "0475537644513",
+   "generated": true,
+   "kind": "unit",
+   "ident": 27,
+   "hp": 5710,
+   "ap": 4650,
+   "dp": 6620,
+   "rank": 5,
+   "cp": 6,
+   "sr": 0,
+   "lr": 22
+  },
+  {
+   "barcode": "4905024766368",
+   "generated": true,
+   "kind": "command",
+   "ident": 102
+  },
+  {
+   "barcode": "4906761172436",
+   "generated": true,
+   "kind": "command",
+   "ident": 160
+  },
+  {
+   "barcode": "4910431757779",
+   "generated": true,
+   "kind": "command",
+   "ident": 109
+  },
+  {
+   "barcode": "4913731467645",
+   "generated": true,
+   "kind": "command",
+   "ident": 121
+  },
+  {
+   "barcode": "4915720137232",
+   "generated": true,
+   "kind": "unit",
+   "ident": 48,
+   "hp": 3390,
+   "ap": 2540,
+   "dp": 4990,
+   "rank": 4,
+   "cp": 12,
+   "sr": 12,
+   "lr": 23
+  },
+  {
+   "barcode": "4921072165205",
+   "generated": true,
+   "kind": "unit",
+   "ident": 15,
+   "hp": 2450,
+   "ap": 1240,
+   "dp": 3510,
+   "rank": 4,
+   "cp": 10,
+   "sr": 2,
+   "lr": 8
+  },
+  {
+   "barcode": "4922646722527",
+   "generated": true,
+   "kind": "unit",
+   "ident": 6,
+   "hp": 3480,
+   "ap": 2610,
+   "dp": 4600,
+   "rank": 2,
+   "cp": 9,
+   "sr": 1,
+   "lr": 18
+  },
+  {
+   "barcode": "4923652257461",
+   "generated": true,
+   "kind": "command",
+   "ident": 128
+  },
+  {
+   "barcode": "4923727554136",
+   "generated": true,
+   "kind": "unit",
+   "ident": 10,
+   "hp": 7050,
+   "ap": 6220,
+   "dp": 8280,
+   "rank": 6,
+   "cp": 5,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "4930366605341",
+   "generated": true,
+   "kind": "unit",
+   "ident": 49,
+   "hp": 4200,
+   "ap": 4200,
+   "dp": 5860,
+   "rank": 5,
+   "cp": 8,
+   "sr": 17,
+   "lr": 22
+  },
+  {
+   "barcode": "4930546332104",
+   "generated": true,
+   "kind": "unit",
+   "ident": 36,
+   "hp": 5430,
+   "ap": 4110,
+   "dp": 7320,
+   "rank": 5,
+   "cp": 8,
+   "sr": 0,
+   "lr": 10
+  },
+  {
+   "barcode": "4935230627276",
+   "generated": true,
+   "kind": "unit",
+   "ident": 39,
+   "hp": 5580,
+   "ap": 5130,
+   "dp": 6690,
+   "rank": 9,
+   "cp": 3,
+   "sr": 0,
+   "lr": 9
+  },
+  {
+   "barcode": "4936776433369",
+   "generated": true,
+   "kind": "unit",
+   "ident": 44,
+   "hp": 7260,
+   "ap": 6180,
+   "dp": 8180,
+   "rank": 9,
+   "cp": 6,
+   "sr": 0,
+   "lr": 9
+  },
+  {
+   "barcode": "4941763105075",
+   "generated": true,
+   "kind": "command",
+   "ident": 130
+  },
+  {
+   "barcode": "4943702545751",
+   "generated": true,
+   "kind": "unit",
+   "ident": 2,
+   "hp": 4980,
+   "ap": 3390,
+   "dp": 5260,
+   "rank": 6,
+   "cp": 6,
+   "sr": 1,
+   "lr": 4
+  },
+  {
+   "barcode": "4945474204003",
+   "generated": true,
+   "kind": "unit",
+   "ident": 58,
+   "hp": 5680,
+   "ap": 5250,
+   "dp": 7310,
+   "rank": 8,
+   "cp": 3,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "4951367523212",
+   "generated": true,
+   "kind": "unit",
+   "ident": 5,
+   "hp": 3390,
+   "ap": 2480,
+   "dp": 3630,
+   "rank": 3,
+   "cp": 9,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "4953444571369",
+   "generated": true,
+   "kind": "command",
+   "ident": 101
+  },
+  {
+   "barcode": "4953553211149",
+   "generated": true,
+   "kind": "command",
+   "ident": 143
+  },
+  {
+   "barcode": "4955561623624",
+   "generated": true,
+   "kind": "command",
+   "ident": 145
+  },
+  {
+   "barcode": "4961400671657",
+   "generated": true,
+   "kind": "command",
+   "ident": 132
+  },
+  {
+   "barcode": "4966636145309",
+   "generated": true,
+   "kind": "unit",
+   "ident": 37,
+   "hp": 7160,
+   "ap": 5470,
+   "dp": 8410,
+   "rank": 10,
+   "cp": 3,
+   "sr": 0,
+   "lr": 8
+  },
+  {
+   "barcode": "4967260426055",
+   "generated": true,
+   "kind": "unit",
+   "ident": 24,
+   "hp": 3640,
+   "ap": 2560,
+   "dp": 5870,
+   "rank": 6,
+   "cp": 9,
+   "sr": 0,
+   "lr": 4
+  },
+  {
+   "barcode": "4967441645206",
+   "generated": true,
+   "kind": "command",
+   "ident": 144
+  },
+  {
+   "barcode": "4970221766664",
+   "generated": true,
+   "kind": "command",
+   "ident": 110
+  },
+  {
+   "barcode": "4971164266211",
+   "generated": true,
+   "kind": "unit",
+   "ident": 22,
+   "hp": 4910,
+   "ap": 2900,
+   "dp": 5480,
+   "rank": 7,
+   "cp": 5,
+   "sr": 0,
+   "lr": 10
+  },
+  {
+   "barcode": "4972542551349",
+   "generated": true,
+   "kind": "command",
+   "ident": 108
+  },
+  {
+   "barcode": "4977167633364",
+   "generated": true,
+   "kind": "command",
+   "ident": 114
+  }
+ ],
+ "note": "Read with MAME's barcode reader at its fixed rate; the code with swipe_us did not read at that rate and was read by swiping one module per that many microseconds."
+}

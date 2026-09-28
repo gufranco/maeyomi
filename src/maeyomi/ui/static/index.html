@@ -92,6 +92,8 @@
         </span>
       </p>
 
+      <div data-device-field="picks" id="game-picks" hidden></div>
+
       <p class="field" data-device-field="race">
         <label for="race" data-i18n="one.race">Kind of fighter</label>
         <select id="race" name="race"></select>
@@ -304,6 +306,9 @@
           The Ultraman Club barcodes were read off a boxed set by retrostuff.org, and
           the names come from the puNES card list.
         </p>
+        <p data-i18n="official.note.sdgundam" data-official-source="sdgundam" hidden>
+          Each SD Gundam Wars card carries two barcodes, a unit and a command.
+        </p>
         <p class="note-heading" id="official-sources" data-i18n="official.sources">
           Where the barcodes come from
         </p>
@@ -317,6 +322,11 @@
             <span data-i18n="official.source.dbz">Dragon Ball Z cards:</span>
             <a href="https://github.com/punesemu/puNES/blob/master/src/gui/dlgDetachBarcode.cpp"
                target="_blank" rel="noopener noreferrer">puNES, dlgDetachBarcode.cpp</a>
+          </li>
+          <li data-official-source="sdgundam" hidden>
+            <span data-i18n="official.source.sdgundam">SD Gundam Wars cards:</span>
+            <a href="https://retrostuff.org/2019/05/12/bandai-datach-sd-gundam-gundam-wars-barcodes-for-mame/"
+               target="_blank" rel="noopener noreferrer">retrostuff.org</a>
           </li>
           <li data-official-source="ultraman" hidden>
             <span data-i18n="official.source.ultraman">Ultraman Club cards:</span>

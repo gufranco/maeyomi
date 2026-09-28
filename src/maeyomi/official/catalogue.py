@@ -8,7 +8,9 @@ them can be checked again. The 36 cards Bandai packed with Datach Dragon Ball Z
 come from the list in the puNES emulator's source instead, and each was read by
 the game itself running in MAME before it was added. The 38 Ultraman Club cards
 are the codes retrostuff.org read off the cards in its own set, named as the
-puNES list names them, and each was read by the game in MAME as well. The Zelda, Shogaku
+puNES list names them, and each was read by the game in MAME as well, and so
+were the 76 SD Gundam Wars barcodes, two on each of 37 cards and two on a
+special card, which retrostuff.org read the same way. The Zelda, Shogaku
 Ninensei and Street Fighter II cards come from the card lists in
 barcodebattler.co.uk's deeta.js, a collector site that publishes them in
 English; one Zelda item, the red potion, is also a card of the board game list.
@@ -92,6 +94,7 @@ class OfficialSet(Enum):
     MEIJI_FREEZELAND = "明治 フリーズランドの戦士達 カードリスト"
     DATACH_DBZ = "データック ドラゴンボールZ 激闘天下一武道会 カードリスト"
     DATACH_ULTRAMAN = "データック ウルトラマン倶楽部 スポ根ファイト! カードリスト"
+    DATACH_SD_GUNDAM = "データック SDガンダム ガンダムウォーズ カードリスト"
 
     @property
     def device(self) -> Device:
@@ -121,6 +124,7 @@ _DEVICES: Final[dict[OfficialSet, Device]] = {
     OfficialSet.MAIN_STORY_FOUR: Device.DOUBLE,
     OfficialSet.DATACH_DBZ: Device.DATACH_DBZ,
     OfficialSet.DATACH_ULTRAMAN: Device.DATACH_ULTRAMAN,
+    OfficialSet.DATACH_SD_GUNDAM: Device.DATACH_SD_GUNDAM,
 }
 
 _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
@@ -152,6 +156,7 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.MEIJI_FREEZELAND: "Meiji: The Warriors of Freezeland",
     OfficialSet.DATACH_DBZ: "Datach Dragon Ball Z: Gekitou Tenkaichi Budoukai",
     OfficialSet.DATACH_ULTRAMAN: "Datach Ultraman Club: Supokon Fight!",
+    OfficialSet.DATACH_SD_GUNDAM: "Datach SD Gundam: Gundam Wars",
 }
 
 
