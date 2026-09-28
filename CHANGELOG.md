@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.1.1 (2026-09-28)
+
+### Bug Fixes
+
+- **formula**: Sign native libraries on macOS
+  ([`b96bebe`](https://github.com/gufranco/maeyomi/commit/b96bebed6305f04ba4fd6b3898b86a9592d083aa))
+
+### Chores
+
+- **formula**: Point at v1.1.0 [skip ci]
+  ([`cee560e`](https://github.com/gufranco/maeyomi/commit/cee560eee9b40f22561cd4b3eb5b6772ecdd7c7d))
+
+
 ## v1.1.0 (2026-09-28)
 
 ### Bug Fixes
