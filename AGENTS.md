@@ -108,10 +108,16 @@ drift into a compliance claim.
 ## Shipping
 
 Homebrew installs this, and the formula lives in this repository rather than a
-separate tap, which is why `brew tap` needs the URL spelled out. Publishing a
-release is the whole release process: the workflow rewrites the formula's url
-and checksum, refusing to do it when the tag disagrees with the version inside
-the archive.
+separate tap, which is why `brew tap` needs the URL spelled out. Releasing
+needs no step by hand: once CI passes on `main`, the release workflow runs
+python-semantic-release, which reads the conventional commits since the last
+tag, bumps `version` in `pyproject.toml` and `uv.lock`, writes `CHANGELOG.md`,
+tags and publishes the GitHub release, then calls the formula workflow. That
+workflow rewrites the formula's url and checksum, refusing when the tag
+disagrees with the version inside the archive. A `fix` or `perf` makes a patch release,
+a `feat` a minor one and a `BREAKING CHANGE` footer a major one; `chore`,
+`docs`, `test`, `ci` and `refactor` release nothing. A release published by
+hand still triggers the formula workflow on its own.
 
 Three things about that path cost a debugging cycle each and are cheap to
 forget:

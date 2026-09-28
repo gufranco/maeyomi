@@ -1,0 +1,65 @@
+---
+name: release
+
+on:
+  workflow_run:
+    workflows: [ci]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: version, tag and publish
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-24.04
+    outputs:
+      tag: ${{ steps.version.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Release only the commit CI passed
+        id: fresh
+        env:
+          PASSED: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -eu
+          if [ "$(git rev-parse HEAD)" = "$PASSED" ]; then
+            echo "current=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "main has moved past $PASSED; its own CI run will release it"
+          fi
+
+      - uses: astral-sh/setup-uv@v7
+        if: steps.fresh.outputs.current == 'true'
+
+      - name: Version, changelog, tag and GitHub release
+        id: version
+        if: steps.fresh.outputs.current == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          uvx --from "python-semantic-release==10.7.0" semantic-release version
+          tag=$(git tag --points-at HEAD --list 'v*' | head -1)
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+  formula:
+    needs: release
+    if: needs.release.outputs.tag != ''
+    uses: ./.github/workflows/formula.yml
+    with:
+      tag: ${{ needs.release.outputs.tag }}
+    permissions:
+      contents: write

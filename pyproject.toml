@@ -102,3 +102,22 @@ branch = true
 
 [tool.coverage.report]
 show_missing = true
+
+[tool.semantic_release]
+version_toml = ["pyproject.toml:project.version"]
+tag_format = "v{version}"
+commit_message = "chore(release): {version} [skip ci]"
+build_command = "uv lock"
+assets = ["uv.lock"]
+allow_zero_version = false
+
+[tool.semantic_release.branches.main]
+match = "main"
+prerelease = false
+
+[tool.semantic_release.changelog.default_templates]
+changelog_file = "CHANGELOG.md"
+
+[tool.semantic_release.remote]
+type = "github"
+token = { env = "GH_TOKEN" }
