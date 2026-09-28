@@ -291,6 +291,25 @@ function checkBehaviour() {
   expect(open === 'true', 'a link to #official does not open that tab');
 }
 
+function checkFreshStartOnDeviceChange() {
+  browser('click', '#tab-one');
+  browser('click', '#one button[type=submit]');
+  browser('wait', '1500');
+  const made = evaluate(`JSON.stringify(document.getElementById('card-image').hasAttribute('src'))`);
+  browser('click', '#tab-many');
+  pickDevice('bb1');
+  const after = evaluate(`JSON.stringify([
+    document.getElementById('tab-one').getAttribute('aria-selected'),
+    document.getElementById('card-image').hasAttribute('src'),
+    document.getElementById('card-placeholder').hidden,
+    document.getElementById('one-status').textContent.trim(),
+  ])`);
+  expect(made, 'the one-card tab never showed a card to clear');
+  expect(after[0] === 'true' && !after[1] && !after[2] && after[3] === '',
+    `choosing a device does not return to a clean One card tab: ${after}`);
+  pickDevice('bb2');
+}
+
 function checkPhoneDeviceMenu() {
   browser('set', 'viewport', '390', '844');
   const closed = evaluate(`JSON.stringify([
@@ -309,6 +328,21 @@ function checkPhoneDeviceMenu() {
   browser('set', 'viewport', '1280', '900');
 }
 
+const deviceListScrolls = () => evaluate(`JSON.stringify(['sidebar', 'device-panel', 'device']
+  .map((id) => document.getElementById(id))
+  .filter((node) => node.offsetParent !== null)
+  .some((node) => node.scrollHeight > node.clientHeight + 1
+    || ['auto', 'scroll'].includes(getComputedStyle(node).overflowY)))`);
+
+function checkDeviceListNeverScrolls() {
+  expect(!deviceListScrolls(), 'the machine or game list has a scroll bar on a wide screen');
+  browser('set', 'viewport', '390', '844');
+  browser('click', '#device-toggle');
+  expect(!deviceListScrolls(), 'the machine or game list has a scroll bar on a phone');
+  browser('click', '#device-toggle');
+  browser('set', 'viewport', '1280', '900');
+}
+
 function checkDeviceFilter() {
   browser('fill', '#device-filter', 'datach');
   const shown = evaluate(`JSON.stringify([...document.querySelectorAll('#device [data-device]')]
@@ -324,6 +358,8 @@ browser('set', 'viewport', '1280', '900');
 pickDevice('bb2');
 checkDeviceMenu();
 checkDeviceFilter();
+checkDeviceListNeverScrolls();
+checkFreshStartOnDeviceChange();
 checkPhoneDeviceMenu();
 checkInlineCheckboxes();
 checkJobMenu();

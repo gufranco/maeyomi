@@ -143,15 +143,6 @@ function renderDeviceOptions() {
   const current = deviceList.find((device) => device.key === chosenDevice);
   $('device-current').textContent = current ? (isJapanese() ? current.japanese : current.english) : '';
   filterDevices();
-  revealCurrentDevice();
-}
-
-function revealCurrentDevice() {
-  const list = $('device');
-  const button = list.querySelector('[aria-current="true"]');
-  if (!button || list.scrollHeight <= list.clientHeight) return;
-  const offset = button.getBoundingClientRect().top - list.getBoundingClientRect().top;
-  list.scrollTop += offset - list.clientHeight / 2;
 }
 
 function filterDevices() {
@@ -171,10 +162,40 @@ function setDeviceMenuOpen(open) {
   $('device-toggle').setAttribute('aria-expanded', String(open));
 }
 
+function clearCardImage(imageId, placeholderId) {
+  const previous = $(imageId).getAttribute('src');
+  if (previous) URL.revokeObjectURL(previous);
+  $(imageId).removeAttribute('src');
+  $(imageId).setAttribute('alt', '');
+  $(placeholderId).toggleAttribute('hidden', false);
+}
+
+function clearFrame(frameId, placeholderKey) {
+  $(frameId).replaceChildren();
+  $(frameId).insertAdjacentHTML(
+    'afterbegin',
+    `<p class="placeholder" data-i18n="${placeholderKey}">${escapeHtml(t(placeholderKey))}</p>`,
+  );
+}
+
+function startFresh() {
+  ['one', 'read'].forEach((form) => $(form).reset());
+  clearCardImage('card-image', 'card-placeholder');
+  clearCardImage('read-image', 'read-placeholder');
+  clearFrame('sheet-frame', 'many.placeholder');
+  ['one-status', 'many-status', 'read-status'].forEach((id) => {
+    $(id).setAttribute('class', 'status');
+    $(id).replaceChildren();
+  });
+  $('one-code').toggleAttribute('hidden', true);
+  $('read-facts').toggleAttribute('hidden', true);
+  $('tab-one').click();
+  window.scrollTo(0, 0);
+}
+
 function setUpDeviceMenu() {
   $('device-toggle').addEventListener('click', () => {
     setDeviceMenuOpen(!$('sidebar').hasAttribute('data-open'));
-    revealCurrentDevice();
   });
   $('device-filter').addEventListener('input', filterDevices);
   $('sidebar').addEventListener('keydown', (event) => {
@@ -301,6 +322,7 @@ async function setUpDevices() {
   $('device').addEventListener('click', (event) => {
     const button = event.target.closest('[data-device]');
     if (!button) return;
+    startFresh();
     chooseDevice(button.dataset.device);
     setDeviceMenuOpen(false);
   });

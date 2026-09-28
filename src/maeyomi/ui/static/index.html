@@ -28,25 +28,6 @@
 
 <main>
 
-<div class="tabs" role="tablist" aria-label="What would you like to make"
-     data-i18n-aria-label="tabs.label">
-  <button role="tab" id="tab-one" aria-controls="panel-one" aria-selected="true"
-          data-i18n="tab.one">One card</button>
-  <button role="tab" id="tab-many" aria-controls="panel-many" aria-selected="false"
-          data-i18n="tab.many">A sheet of cards</button>
-  <button role="tab" id="tab-official" aria-controls="panel-official" aria-selected="false"
-          data-i18n="tab.official">The real cards</button>
-  <button role="tab" id="tab-shop" aria-controls="panel-shop" aria-selected="false"
-          data-i18n="tab.shop">The supermarket</button>
-  <button role="tab" id="tab-read" aria-controls="panel-read" aria-selected="false"
-          data-i18n="tab.read">Read a barcode</button>
-</div>
-
-<div id="cheat-banner" class="cheat-banner" role="status" aria-live="polite" hidden>
-  <p class="cheat-title" data-i18n="cheat.title">Cheat activated</p>
-  <p class="cheat-quip" id="cheat-quip"></p>
-</div>
-
 <div class="layout">
   <aside class="sidebar" id="sidebar" aria-labelledby="device-label">
     <p class="group-label" id="device-label" data-i18n="device.label">Machine or game</p>
@@ -68,6 +49,27 @@
       </p>
     </div>
   </aside>
+
+  <div class="workspace">
+
+  <div class="tabs" role="tablist" aria-label="What would you like to make"
+       data-i18n-aria-label="tabs.label">
+    <button role="tab" id="tab-one" aria-controls="panel-one" aria-selected="true"
+            data-i18n="tab.one">One card</button>
+    <button role="tab" id="tab-many" aria-controls="panel-many" aria-selected="false"
+            data-i18n="tab.many">A sheet of cards</button>
+    <button role="tab" id="tab-official" aria-controls="panel-official" aria-selected="false"
+            data-i18n="tab.official">The real cards</button>
+    <button role="tab" id="tab-shop" aria-controls="panel-shop" aria-selected="false"
+            data-i18n="tab.shop">The supermarket</button>
+    <button role="tab" id="tab-read" aria-controls="panel-read" aria-selected="false"
+            data-i18n="tab.read">Read a barcode</button>
+  </div>
+
+  <div id="cheat-banner" class="cheat-banner" role="status" aria-live="polite" hidden>
+    <p class="cheat-title" data-i18n="cheat.title">Cheat activated</p>
+    <p class="cheat-quip" id="cheat-quip"></p>
+  </div>
 
   <div class="panel" id="main-panel">
 
@@ -552,6 +554,7 @@
   </aside>
 </section>
 
+  </div>
   </div>
 </div>
 
