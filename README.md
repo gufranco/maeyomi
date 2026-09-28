@@ -821,6 +821,7 @@ that says what it measures, then the power, and the barcode last.
 
 What is not there: ReportLab emits no tag tree, so these are not PDF/UA files.
 There are no headings, no lists and no alternative text for the pictograms, and
+on a sheet printed in English and Japanese together, which declares English,
 the Japanese runs are not individually marked as Japanese. The pictograms
 repeat what the words next to them already say, so nothing is lost by their
 having no description. A validator will call these untagged.

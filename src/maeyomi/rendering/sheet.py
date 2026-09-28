@@ -47,7 +47,7 @@ def write_sheet(
         str(path),
         pagesize=(resolved_layout.page_width_mm * mm, resolved_layout.page_height_mm * mm),
     )
-    describe(canvas, title or _title(cards))
+    describe(canvas, title or _title(cards), (style or CardStyle()).language)
     pages = 0
     for page in _pages(cards, resolved_layout.cards_per_page):
         _draw_page(
