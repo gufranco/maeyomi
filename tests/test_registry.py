@@ -59,6 +59,11 @@ def test_the_second_barcode_battler_builds_a_back_read_when_asked() -> None:
     assert outcome.card.read_type is ReadType.BACK
 
 
-@pytest.mark.parametrize("device", list(Device))
-def test_every_device_has_a_cheat(device: Device) -> None:
+@pytest.mark.parametrize("device", [device for device in Device if device != Device.DATACH_JLEAGUE])
+def test_every_device_whose_cards_carry_numbers_has_a_cheat(device: Device) -> None:
     assert cheat_as(device, None).name == "Maximus Cheatimus"
+
+
+def test_a_game_whose_cards_carry_no_numbers_says_it_has_no_cheat() -> None:
+    with pytest.raises(ValueError, match="carry no numbers"):
+        cheat_as(Device.DATACH_JLEAGUE, None)

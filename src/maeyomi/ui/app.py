@@ -353,8 +353,11 @@ def device_card(spec: DeviceCardSpec) -> DeviceReading:
 
 
 def device_cheat(spec: DeviceCheatSpec) -> DeviceReading:
-    """The strongest card the chosen device will read."""
-    card = cheat_as(_device(spec.device), spec.name)
+    """The strongest card the chosen device will read, or why a game has none."""
+    try:
+        card = cheat_as(_device(spec.device), spec.name)
+    except ValueError as error:
+        raise HTTPException(status_code=UNPROCESSABLE, detail=str(error)) from error
     return DeviceReading(name=card.name, barcode=card.barcode, facts=facts_of(card.character))
 
 

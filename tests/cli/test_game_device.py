@@ -6,6 +6,7 @@ from typer.testing import CliRunner
 
 from maeyomi.barcode.verify import decode_pdf
 from maeyomi.cli.main import app
+from maeyomi.datach.jleague import decode_jleague
 from maeyomi.datach.sdgundam import decode_sdgundam
 from maeyomi.datach.ultraman import decode_ultraman
 from maeyomi.datach.yuyu import decode_yuyu
@@ -251,3 +252,38 @@ def test_cheat_prints_the_hidden_toguro(tmp_path: Path) -> None:
 
     assert result.exit_code == 0
     assert "SP Toguro, HP 9999, SP 9999" in result.output
+
+
+def test_decode_reads_a_j_league_player_with_his_team() -> None:
+    result = runner.invoke(app, ["decode", "1200520240125", "--device", "jleague"])
+
+    assert result.exit_code == 0
+    assert "Name      Masaaki Furukawa / 古川 昌明" in result.output
+    assert "Kind      Kashima Antlers" in result.output
+
+
+def test_generate_builds_a_j_league_team_card(tmp_path: Path) -> None:
+    output = tmp_path / "team.pdf"
+
+    result = runner.invoke(
+        app,
+        [
+            "generate",
+            "--device",
+            "jleague",
+            "--character",
+            "Nagoya Grampus Eight",
+            "-o",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert decode_jleague(decode_pdf(output)[0]).ident == 7 * 16
+
+
+def test_cheat_says_a_j_league_card_has_nothing_to_raise(tmp_path: Path) -> None:
+    result = runner.invoke(app, ["cheat", "--device", "jleague", "-o", str(tmp_path / "x.pdf")])
+
+    assert result.exit_code == 1
+    assert "carry no numbers" in result.output

@@ -126,6 +126,7 @@ const MESSAGES = {
     'device.summary.ultraman': 'Bandai, 1993. Ultra heroes, monsters and items with PW, ST and SP.',
     'device.summary.sdgundam': 'Bandai, 1993. Mobile suits with weapons, and command cards.',
     'device.summary.yuyu': 'Bandai, 1993. Fighters with their techniques, and items.',
+    'device.summary.jleague': 'Bandai, 1994. The players and teams of the 1993 J.League.',
     'device.games': 'Games',
     'device.hint':
       'Every tab, and the cheat code, makes cards for this choice and reads barcodes its way. ' +
@@ -154,6 +155,8 @@ const MESSAGES = {
     'stat.yhp': 'HP',
     'stat.ysp': 'SP',
     'game.kind.hidden': 'Hidden',
+    'game.kind.team': 'Teams',
+    'game.kind.player': 'Players',
     'game.kind.unit': 'Mobile suits',
     'game.kind.command': 'Command cards',
     'game.pick.any': 'Any',
@@ -196,6 +199,12 @@ const MESSAGES = {
       'from the spreadsheet archive.org keeps beside its scans of a complete set, and were ' +
       'each read by the game itself in the MAME emulator.',
     'official.source.yuyu': 'Yu Yu Hakusho cards:',
+    'official.note.jleague':
+      'J.League Super Top Players came with 40 cards, each with four barcodes: a team and ' +
+      'three players, or four players. The 160 barcodes come from the spreadsheet archive.org ' +
+      'keeps beside its scans of a complete set, and each was read by the game itself in the ' +
+      'MAME emulator. A card names a real player and carries no numbers of its own.',
+    'official.source.jleague': 'J.League cards:',
     'official.skipped': 'Cards left out',
     'official.skipped.hint':
       'The wikiwiki.jp page has a typo in these five. The last digit of a barcode is a ' +
@@ -374,6 +383,7 @@ const MESSAGES = {
     'device.summary.ultraman': 'バンダイ、1993ねん。PW、ST、SP の ウルトラヒーロー、かいじゅう、アイテム。',
     'device.summary.sdgundam': 'バンダイ、1993ねん。ぶきを もつ モビルスーツと コマンドカード。',
     'device.summary.yuyu': 'バンダイ、1993ねん。わざを もつ キャラクターと アイテム。',
+    'device.summary.jleague': 'バンダイ、1994ねん。1993ねんの Jリーグの せんしゅと チーム。',
     'device.games': 'ゲーム',
     'device.hint':
       'どの タブも かくしコマンドも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +
@@ -402,6 +412,8 @@ const MESSAGES = {
     'stat.yhp': 'HP',
     'stat.ysp': 'SP',
     'game.kind.hidden': 'かくし',
+    'game.kind.team': 'チーム',
+    'game.kind.player': 'せんしゅ',
     'game.kind.unit': 'モビルスーツ',
     'game.kind.command': 'コマンドカード',
     'game.pick.any': 'どれでも',
@@ -443,6 +455,12 @@ const MESSAGES = {
       'のこりの 37まいは archive.org に ある ぜんセットの スキャンに そえられた ひょうから とり、' +
       '1まいずつ MAME で ゲームに よませて たしかめました。',
     'official.source.yuyu': '幽遊白書 の カード:',
+    'official.note.jleague':
+      'Jリーグ スーパートッププレイヤーズ には 40まいの カードが ついていて、1まいに 4つの ' +
+      'バーコードが あります。160この バーコードは archive.org に ある ぜんセットの スキャンに ' +
+      'そえられた ひょうから とり、1こずつ MAME で ゲームに よませて たしかめました。' +
+      'カードは ほんものの せんしゅを えらぶだけで、じぶんの すうじは もちません。',
+    'official.source.jleague': 'Jリーグ の カード:',
     'official.skipped': 'のぞいた カード',
     'official.skipped.hint':
       'wikiwiki.jp の ページで この 5まいは うちまちがいが あります。バーコードの さいごの けたは ' +

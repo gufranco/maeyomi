@@ -318,7 +318,11 @@ async function activateDeviceCheat(typed) {
     device: chosenDevice,
     ...(typed ? { name: typed } : {}),
   });
-  if (!ok) return;
+  if (!ok) {
+    $('tab-one').click();
+    refuse('one-status', body);
+    return;
+  }
   cheatCard = { barcode: body.barcode, name: body.name, device: chosenDevice };
   $('name').value = body.name;
   $('tab-one').click();

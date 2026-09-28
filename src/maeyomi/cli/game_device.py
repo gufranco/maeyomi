@@ -133,7 +133,11 @@ def cheat_game(
     """Print the game's strongest card, and its strongest items when the game has them."""
     if items:
         typer.echo(f"{device.english} has no strongest items; printing the card alone", err=True)
-    card = cheat_as(device, name)
+    try:
+        card = cheat_as(device, name)
+    except ValueError as error:
+        typer.echo(str(error), err=True)
+        raise typer.Exit(code=1) from error
     read = card.character
     numbers = ", ".join(
         f"{STAT_LABELS[tile.key].english} {tile.value}" for tile in face_of(read).tiles

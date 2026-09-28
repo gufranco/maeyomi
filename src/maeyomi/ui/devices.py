@@ -128,6 +128,13 @@ FORMS: Final[dict[Device, DeviceForm]] = {
         sheet_fields=(),
         ranges=((0, YUYU_MAX), (0, YUYU_MAX), (0, YUYU_MAX)),
     ),
+    Device.DATACH_JLEAGUE: DeviceForm(
+        ("game",),
+        YUYU_MAX,
+        YUYU_MAX,
+        YUYU_MAX,
+        sheet_fields=(),
+    ),
     Device.DATACH_SD_GUNDAM: DeviceForm(
         ("game", "picks", "stats"),
         GUNDAM_RANGES[0][1],

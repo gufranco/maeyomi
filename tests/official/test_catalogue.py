@@ -8,6 +8,7 @@ import pytest
 from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.bb1.decode import decode_first
 from maeyomi.datach.dbz import decode_dbz
+from maeyomi.datach.jleague import decode_jleague
 from maeyomi.datach.sdgundam import decode_sdgundam
 from maeyomi.datach.ultraman import decode_ultraman
 from maeyomi.datach.yuyu import decode_yuyu
@@ -27,10 +28,18 @@ DBZ_CARDS = 36
 ULTRAMAN_CARDS = 38
 SD_GUNDAM_CARDS = 76
 YUYU_CARDS = 37
+JLEAGUE_CARDS = 160
 ADDED_CARDS = 346
 SCANNED_CARDS = 71
 TRANSCRIBED = (
-    577 + DBZ_CARDS + ADDED_CARDS + SCANNED_CARDS + ULTRAMAN_CARDS + SD_GUNDAM_CARDS + YUYU_CARDS
+    577
+    + DBZ_CARDS
+    + ADDED_CARDS
+    + SCANNED_CARDS
+    + ULTRAMAN_CARDS
+    + SD_GUNDAM_CARDS
+    + YUYU_CARDS
+    + JLEAGUE_CARDS
 )
 SHARED_BETWEEN_SETS = {"0000500970445"}
 WIKI = "https://wikiwiki.jp/barcode/"
@@ -72,6 +81,7 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.DATACH_ULTRAMAN: RETROSTUFF,
         OfficialSet.DATACH_SD_GUNDAM: RETROSTUFF,
         OfficialSet.DATACH_YUYU: "https://archive.org/details/",
+        OfficialSet.DATACH_JLEAGUE: "https://archive.org/details/",
     }
     for card in official_catalogue():
         assert card.source_url.startswith(sources.get(card.official_set, WIKI))
@@ -106,6 +116,7 @@ def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
             Device.DATACH_ULTRAMAN: decode_ultraman,
             Device.DATACH_SD_GUNDAM: decode_sdgundam,
             Device.DATACH_YUYU: decode_yuyu,
+            Device.DATACH_JLEAGUE: decode_jleague,
         }
         for card in official_cards(official_set):
             assert readers[official_set.device](card.barcode) == card.character
@@ -222,3 +233,10 @@ def test_the_yu_yu_hakusho_set_is_every_card_bandai_printed_with_a_barcode() -> 
 
     assert len(cards) == YUYU_CARDS
     assert sets_for(Device.DATACH_YUYU) == (OfficialSet.DATACH_YUYU,)
+
+
+def test_the_j_league_set_is_all_four_barcodes_of_every_card() -> None:
+    cards = official_cards(OfficialSet.DATACH_JLEAGUE)
+
+    assert len(cards) == JLEAGUE_CARDS
+    assert {card.name for card in cards} >= {"ジーコ", "鹿島アントラーズ"}

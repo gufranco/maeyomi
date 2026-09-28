@@ -55,9 +55,9 @@ def test_an_item_is_described_as_an_item() -> None:
 def test_the_strongest_card_is_one_the_game_reads_back() -> None:
     game = GAMES[Device.DATACH_ULTRAMAN]
 
+    assert game.strongest is not None
     card = game.strongest()
 
-    assert card is not None
     assert game.decode(card.barcode) == card
 
 
@@ -122,4 +122,18 @@ def test_a_yu_yu_hakusho_fighter_without_techniques_says_so() -> None:
 def test_the_hidden_toguro_is_described_as_hidden() -> None:
     game = GAMES[Device.DATACH_YUYU]
 
+    assert game.strongest is not None
     assert game.describe(game.strongest()).detail == ("Hidden fighter", "かくし キャラクター")
+
+
+def test_a_j_league_team_card_is_described_by_its_club() -> None:
+    game = GAMES[Device.DATACH_JLEAGUE]
+
+    text = game.describe(game.decode("1300400200000"))
+
+    assert text.detail == ("Team card", "チーム カード")
+    assert text.power == ("Kashima Antlers", "鹿島アントラーズ")
+
+
+def test_a_j_league_game_has_no_strongest_card() -> None:
+    assert GAMES[Device.DATACH_JLEAGUE].strongest is None

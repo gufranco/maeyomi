@@ -145,7 +145,7 @@ def cheat_as(device: Device, name: str | None) -> AnyCard:
         return strongest_dbz_card(chosen)
     game = game_for(device)
     if game is not None:
-        return _strongest_game(game, chosen)
+        return _strongest_game(device, game, chosen)
     return strongest_card(chosen)
 
 
@@ -190,7 +190,12 @@ def _build_game(
     return DeviceOutcome(card, exact=exact)
 
 
-def _strongest_game(game: DatachGame, name: str) -> AnyCard:
-    """The game's strongest card under the name."""
+NO_STRONGEST: Final = "{game} cards carry no numbers, so none is stronger than another"
+
+
+def _strongest_game(device: Device, game: DatachGame, name: str) -> AnyCard:
+    """The game's strongest card under the name, or a ValueError when its cards carry none."""
+    if game.strongest is None:
+        raise ValueError(NO_STRONGEST.format(game=device.english))
     card = game.strongest()
     return GeneratedCard(name=name, barcode=card.barcode, character=card)

@@ -10,6 +10,10 @@ from dataclasses import dataclass
 from typing import Final
 
 from maeyomi.datach.game_card import DatachCard, GameKind, GamePick
+from maeyomi.datach.jleague import build_jleague, decode_jleague
+from maeyomi.datach.jleague_names import PLAYERS as JLEAGUE_PLAYERS
+from maeyomi.datach.jleague_names import TEAM_SLOTS, TEAMS, ident_of, names_of
+from maeyomi.datach.jleague_names import card_named as jleague_named
 from maeyomi.datach.sdgundam import (
     SdGundamOrder,
     build_sdgundam,
@@ -46,6 +50,9 @@ COMMAND_CARD: Final[Pair] = ("Command card", "コマンド カード")
 TECHNIQUES_HEADING: Final[Pair] = ("Techniques", "わざ")
 HIDDEN: Final[Pair] = ("Hidden fighter", "かくし キャラクター")
 NO_TECHNIQUE: Final[Pair] = ("No technique", "わざ なし")
+TEAM_CARD: Final[Pair] = ("Team card", "チーム カード")
+PLAYER_HEADING: Final[Pair] = ("Player", "せんしゅ")
+TEAM_HEADING: Final[Pair] = ("Team", "チーム")
 
 
 @dataclass(frozen=True, slots=True)
@@ -83,7 +90,7 @@ class DatachGame:
 
     decode: Callable[[str], DatachCard]
     build: Callable[[GameOrder], DatachCard | None]
-    strongest: Callable[[], DatachCard]
+    strongest: Callable[[], DatachCard] | None
     entries: Callable[[], tuple[GameEntry, ...]]
     describe: Callable[[DatachCard], CardText]
     named: Callable[[str], int]
@@ -200,6 +207,40 @@ def _yuyu_text(card: DatachCard) -> CardText:
     return CardText(YUYU_CHARACTERS[card.ident], detail, TECHNIQUES_HEADING, power)
 
 
+def _jleague_order(order: GameOrder) -> DatachCard | None:
+    """Build a J.League card: it names a team or a player and carries nothing else."""
+    return build_jleague(order.ident)
+
+
+def _jleague_entries() -> tuple[GameEntry, ...]:
+    """Each team's own card, then its fifteen players, team by team."""
+    return tuple(
+        entry
+        for team, names in TEAMS.items()
+        for entry in (
+            GameEntry(ident_of(team, 0), GameKind.TEAM, *names),
+            *(
+                GameEntry(ident_of(team, number), GameKind.PLAYER, *JLEAGUE_PLAYERS[team, number])
+                for number in range(1, TEAM_SLOTS)
+            ),
+        )
+    )
+
+
+def _jleague_text(card: DatachCard) -> CardText:
+    """A player's team and slot, or a team card's club."""
+    team, number = divmod(card.ident, TEAM_SLOTS)
+    club = TEAMS[team]
+    if card.kind is GameKind.TEAM:
+        return CardText(club, TEAM_CARD, TEAM_HEADING, club)
+    return CardText(
+        names_of(card.ident),
+        club,
+        PLAYER_HEADING,
+        (f"No. {number} of {club[0]}", f"{club[1]} の {number}ばん"),
+    )
+
+
 GAMES: Final[dict[Device, DatachGame]] = {
     Device.DATACH_ULTRAMAN: DatachGame(
         decode=decode_ultraman,
@@ -229,6 +270,15 @@ GAMES: Final[dict[Device, DatachGame]] = {
         named=yuyu_named,
         stat_keys=("YHP", "YSP"),
         picks=yuyu_picks,
+    ),
+    Device.DATACH_JLEAGUE: DatachGame(
+        decode=decode_jleague,
+        build=_jleague_order,
+        strongest=None,
+        entries=_jleague_entries,
+        describe=_jleague_text,
+        named=jleague_named,
+        stat_keys=(),
     ),
 }
 

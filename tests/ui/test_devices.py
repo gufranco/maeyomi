@@ -367,3 +367,20 @@ def test_a_yu_yu_hakusho_fighter_is_built_with_the_techniques_picked(client: Tes
     assert facts["Techniques"] == "Spirit Gun, Headbutt"
     assert (facts["HP"], facts["SP"]) == ("3000", "2000")
     assert body["is_exact"] is True
+
+
+def test_a_j_league_card_is_built_for_the_player_asked_for(client: TestClient) -> None:
+    payload = {"device": "jleague", "character": "Zico"}
+
+    body = client.post("/api/device-card", json=payload).json()
+
+    facts = {fact["label"]: fact["value"] for fact in body["facts"]}
+    assert facts["Kind"] == "Zico"
+    assert facts["Player"] == "No. 10 of Kashima Antlers"
+
+
+def test_the_j_league_cheat_is_refused_with_its_reason(client: TestClient) -> None:
+    response = client.post("/api/device-cheat", json={"device": "jleague"})
+
+    assert response.status_code == 422
+    assert "carry no numbers" in response.json()["detail"]

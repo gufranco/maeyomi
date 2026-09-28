@@ -146,6 +146,14 @@ function checkDeviceSwitch() {
   expect(!fighter.sliders, 'Yu Yu Hakusho shows number sliders no barcode changes');
   expect(fighter.picks.join() === 'pick-moves', `the Yu Yu Hakusho fighter offers ${fighter.picks}`);
   expect(fighter.options > 2, `Yusuke offers ${fighter.options} technique choices`);
+  pickDevice('jleague');
+  browser('wait', '600');
+  const league = evaluate(`JSON.stringify({
+    sliders: document.getElementById('hp').offsetParent !== null,
+    cards: document.querySelectorAll('#game-character option[value]:not([value=""])').length,
+  })`);
+  expect(!league.sliders, 'J.League shows number sliders its cards do not carry');
+  expect(league.cards === 160, `the J.League picker lists ${league.cards} cards`);
   pickDevice('bb2');
 }
 
@@ -188,6 +196,10 @@ function checkRealCards() {
   expect(yuyu.single.includes('37'), `Yu Yu Hakusho names its set as ${yuyu.single}`);
   expect(yuyu.links.length === 1 && yuyu.links[0].includes('archive.org'),
     `Yu Yu Hakusho's real cards link ${yuyu.links}`);
+  const league = realCards('jleague');
+  expect(league.single.includes('160'), `J.League names its set as ${league.single}`);
+  expect(league.links.length === 1 && league.links[0].includes('j-league'),
+    `J.League's real cards link ${league.links}`);
   pickDevice('bb2');
 }
 

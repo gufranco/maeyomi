@@ -135,3 +135,13 @@ def test_the_yu_yu_hakusho_fixture_was_recorded_with_the_rom_the_manifest_names(
     fixture = json.loads((ROOT / "tests" / "fixtures" / "oracle" / "datach_yuyu.json").read_text())
 
     assert entry["sha1"] == fixture["rom"]["sha1"]
+
+
+def test_the_j_league_fixture_was_recorded_with_the_rom_the_manifest_names() -> None:
+    manifest = json.loads((ROOT / "artifacts.manifest.json").read_text())
+    entry = next(item for item in manifest["artifacts"] if item["id"] == "datach_jleague_prg")
+    fixture = json.loads(
+        (ROOT / "tests" / "fixtures" / "oracle" / "datach_jleague.json").read_text()
+    )
+
+    assert entry["sha1"] == fixture["rom"]["sha1"]

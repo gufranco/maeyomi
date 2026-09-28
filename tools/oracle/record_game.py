@@ -72,6 +72,23 @@ GAMES = {
         peeks=(("0322", 2),),
         accepted=(("0322", 0), ("0322", 1)),
     ),
+    "jleague": Game(
+        software="dtc_jltp",
+        artifact="datach_jleague_prg",
+        menu=(
+            "1001 press Start",
+            "1350 press Down",
+            "1380 press Down",
+            "1410 press Down",
+            "1440 press Down",
+            "1470 press Down",
+            "1520 press A",
+        ),
+        scan_frame=2200,
+        read_delay=500,
+        peeks=(("02c2", 3),),
+        accepted=(("02c2", 0), ("02c2", 1)),
+    ),
 }
 """An unread code leaves 0 in both bytes, which is also Yusuke with no technique: the
 analyzer cannot tell those two apart, so no such code should be recorded."""

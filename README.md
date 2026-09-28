@@ -99,6 +99,20 @@ The rule agrees with the game in MAME on its 37 released cards and on 183
 codes built across every character, mask and item. No card for it has been
 read by a physical Datach yet.
 
+Datach J.League Super Top Players, of 1994, reads a barcode as one of the 150
+players of the 1993 J.League's ten clubs, or as one of those clubs. A card
+names a real player and carries no numbers of its own, so the game keeps each
+player's abilities and there is no cheat card for it. `--device jleague` makes
+cards for it: pick the player or club with `--character`, by name or number.
+The rule agrees with the game in MAME on its 160 released barcodes and on 12
+codes built to reach every folded value the game allows. No card for it has
+been read by a physical Datach yet.
+
+Two Datach games cannot take a card. Crayon Shin-chan: Ora to Poi Poi has no
+barcode reading in its program at all, and Battle Rush: Build Up Robot
+Tournament needs a save chip MAME does not fully emulate and has no known card
+list, so it is not supported yet.
+
 ## Install
 
 ```bash
@@ -140,7 +154,8 @@ the numbers you asked for, and shows the barcode it worked out.
 
 **Machine or game**, under the title, picks what the cards are for: the
 Barcode Battler II, the first Barcode Battler, the Double, Datach Dragon Ball
-Z, Datach Ultraman Club, Datach SD Gundam Wars or Datach Yu Yu Hakusho. Every tab follows it: the card maker shows only the fields that device reads
+Z, Datach Ultraman Club, Datach SD Gundam Wars, Datach Yu Yu Hakusho or
+Datach J.League. Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -466,6 +481,12 @@ Yu Yu Hakusho came with 40 cards, three of them without a barcode. The other 37
 come from the spreadsheet [archive.org](https://archive.org/details/yu-yu-hakusho-bakuto-ankoku-bujutsue-box-front)
 keeps beside its scans of a complete set, named as that spreadsheet names them,
 and each was read by the game in MAME.
+
+J.League Super Top Players came with 40 cards, each carrying four barcodes, a
+club and three players or four players. The 160 barcodes come from the
+spreadsheet [archive.org](https://archive.org/details/j-league-super-top-players-manual)
+keeps beside its scans of a complete set, are named as the game's own player
+directory names them, and each was read by the game in MAME.
 
 ## The cheat code
 

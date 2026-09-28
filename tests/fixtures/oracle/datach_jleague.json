@@ -1,0 +1,1226 @@
+{
+ "game": "Datach J.League Super Top Players",
+ "software": "dtc_jltp",
+ "rom": {
+  "sha1": "b2089533e05fe95814d0d77f2729944cbeb95988",
+  "size": 262144
+ },
+ "screen": "せんしゅめいかん player directory, kind, team and player slot at $02C2, $02C3 and $02C4",
+ "recorded_utc": "2026-09-28",
+ "note": "Read with MAME's barcode reader at its fixed rate; codes with swipe_us did not read at that rate and were read by swiping one module per that many microseconds.",
+ "cards": [
+  {
+   "barcode": "1200120240662",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 8
+  },
+  {
+   "barcode": "1200126340007",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 2
+  },
+  {
+   "barcode": "1200320340001",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 2
+  },
+  {
+   "barcode": "1200320340346",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 2
+  },
+  {
+   "barcode": "1200324240420",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 8
+  },
+  {
+   "barcode": "1200324240604",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 8
+  },
+  {
+   "barcode": "1200520240125",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 1
+  },
+  {
+   "barcode": "1200724240761",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 9
+  },
+  {
+   "barcode": "1201320240544",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 8
+  },
+  {
+   "barcode": "1201320340343",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 2
+  },
+  {
+   "barcode": "1201324340127",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 2
+  },
+  {
+   "barcode": "1201520240061",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 1
+  },
+  {
+   "barcode": "1201524340101",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 3
+  },
+  {
+   "barcode": "1201526240126",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 1
+  },
+  {
+   "barcode": "1201724240027",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 1
+  },
+  {
+   "barcode": "1201724340260",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 3
+  },
+  {
+   "barcode": "1204120300326",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 2
+  },
+  {
+   "barcode": "1204124200448",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 8
+  },
+  {
+   "barcode": "1204320340146",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 2
+  },
+  {
+   "barcode": "1204322240505",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 8
+  },
+  {
+   "barcode": "1204522200507",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 9
+  },
+  {
+   "barcode": "1204526340520",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 11
+  },
+  {
+   "barcode": "1204720300306",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 3
+  },
+  {
+   "barcode": "1204724240165",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 1
+  },
+  {
+   "barcode": "1205320300468",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 10
+  },
+  {
+   "barcode": "1205322240403",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 8
+  },
+  {
+   "barcode": "1205324340668",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 10
+  },
+  {
+   "barcode": "1205520300329",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 3
+  },
+  {
+   "barcode": "1205524200762",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 9
+  },
+  {
+   "barcode": "1205720240401",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 9
+  },
+  {
+   "barcode": "1205722340024",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 3
+  },
+  {
+   "barcode": "1205724240223",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 1
+  },
+  {
+   "barcode": "1220122200525",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 12
+  },
+  {
+   "barcode": "1220122240026",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 4
+  },
+  {
+   "barcode": "1220324240466",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 12
+  },
+  {
+   "barcode": "1220520200523",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 13
+  },
+  {
+   "barcode": "1220524240105",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 5
+  },
+  {
+   "barcode": "1220524240723",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 13
+  },
+  {
+   "barcode": "1220720240220",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 5
+  },
+  {
+   "barcode": "1220720340449",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 15
+  },
+  {
+   "barcode": "1220724200343",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 5
+  },
+  {
+   "barcode": "1221122240504",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 12
+  },
+  {
+   "barcode": "1221124240205",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 4
+  },
+  {
+   "barcode": "1221320240726",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 12
+  },
+  {
+   "barcode": "1221320340242",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 6,
+   "swipe_us": 600
+  },
+  {
+   "barcode": "1221322300022",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 6
+  },
+  {
+   "barcode": "1221324240043",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 4
+  },
+  {
+   "barcode": "1221324340620",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 14
+  },
+  {
+   "barcode": "1221524340567",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 15
+  },
+  {
+   "barcode": "1221524340765",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 15
+  },
+  {
+   "barcode": "1224120200501",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 12
+  },
+  {
+   "barcode": "1224122340427",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 14
+  },
+  {
+   "barcode": "1224124240220",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 4
+  },
+  {
+   "barcode": "1224320240246",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 4
+  },
+  {
+   "barcode": "1224320300209",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 6
+  },
+  {
+   "barcode": "1224324300366",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 6
+  },
+  {
+   "barcode": "1224720300663",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 15
+  },
+  {
+   "barcode": "1224724200549",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 13
+  },
+  {
+   "barcode": "1224724300164",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 7
+  },
+  {
+   "barcode": "1224724340702",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 15
+  },
+  {
+   "barcode": "1225122200100",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 4
+  },
+  {
+   "barcode": "1225124300143",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 6
+  },
+  {
+   "barcode": "1225320340301",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 6
+  },
+  {
+   "barcode": "1225520200108",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 5
+  },
+  {
+   "barcode": "1225520200160",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 5
+  },
+  {
+   "barcode": "1225520240661",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 13
+  },
+  {
+   "barcode": "1225520300341",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 7
+  },
+  {
+   "barcode": "1225524300521",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 15
+  },
+  {
+   "barcode": "1225724300703",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 15
+  },
+  {
+   "barcode": "1225726200124",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 5,
+   "swipe_us": 350
+  },
+  {
+   "barcode": "1240124340609",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 10
+  },
+  {
+   "barcode": "1240322340524",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 10
+  },
+  {
+   "barcode": "1240520340265",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 3
+  },
+  {
+   "barcode": "1240524240240",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 1
+  },
+  {
+   "barcode": "1240720240563",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 9
+  },
+  {
+   "barcode": "1240722340100",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 3
+  },
+  {
+   "barcode": "1240724300126",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 3
+  },
+  {
+   "barcode": "1241124200665",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 8
+  },
+  {
+   "barcode": "1241124240609",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 8
+  },
+  {
+   "barcode": "1241124300044",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 2
+  },
+  {
+   "barcode": "1241320200407",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 8
+  },
+  {
+   "barcode": "1241322300129",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 2
+  },
+  {
+   "barcode": "1241326340527",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 10
+  },
+  {
+   "barcode": "1241522240409",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 9
+  },
+  {
+   "barcode": "1241524340428",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 11
+  },
+  {
+   "barcode": "1241720340048",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 3
+  },
+  {
+   "barcode": "1241724340747",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 11
+  },
+  {
+   "barcode": "1244120300568",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 10
+  },
+  {
+   "barcode": "1244124340744",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 10
+  },
+  {
+   "barcode": "1244324340407",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 10
+  },
+  {
+   "barcode": "1244524240620",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 9
+  },
+  {
+   "barcode": "1244524300645",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 11
+  },
+  {
+   "barcode": "1244524340061",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 3
+  },
+  {
+   "barcode": "1244720240523",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 9
+  },
+  {
+   "barcode": "1244720340421",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 11
+  },
+  {
+   "barcode": "1244720340544",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 11
+  },
+  {
+   "barcode": "1244720340728",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 11
+  },
+  {
+   "barcode": "1244722240026",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 1
+  },
+  {
+   "barcode": "1244724240307",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 1
+  },
+  {
+   "barcode": "1245120300220",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 2
+  },
+  {
+   "barcode": "1245320340620",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 10
+  },
+  {
+   "barcode": "1245324340404",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 10
+  },
+  {
+   "barcode": "1245522340428",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 11
+  },
+  {
+   "barcode": "1245524240726",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 9
+  },
+  {
+   "barcode": "1245524340723",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 11
+  },
+  {
+   "barcode": "1245720240261",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 1
+  },
+  {
+   "barcode": "1245720240568",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 9
+  },
+  {
+   "barcode": "1245724300541",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 11
+  },
+  {
+   "barcode": "1260124240761",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 12
+  },
+  {
+   "barcode": "1260124300465",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 14
+  },
+  {
+   "barcode": "1260124340522",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 14
+  },
+  {
+   "barcode": "1260320300726",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 14
+  },
+  {
+   "barcode": "1260320300740",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 14
+  },
+  {
+   "barcode": "1260324200701",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 12
+  },
+  {
+   "barcode": "1260324240042",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 4
+  },
+  {
+   "barcode": "1260326300102",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 6,
+   "swipe_us": 350
+  },
+  {
+   "barcode": "1260524200044",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 5
+  },
+  {
+   "barcode": "1260526300407",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 15
+  },
+  {
+   "barcode": "1260720300425",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 15
+  },
+  {
+   "barcode": "1260722240422",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 13
+  },
+  {
+   "barcode": "1260726300122",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 7,
+   "swipe_us": 350
+  },
+  {
+   "barcode": "1261120200766",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 12
+  },
+  {
+   "barcode": "1261120240021",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 4
+  },
+  {
+   "barcode": "1261120240465",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 12
+  },
+  {
+   "barcode": "1261126300422",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 14,
+   "swipe_us": 450
+  },
+  {
+   "barcode": "1261320300501",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 14
+  },
+  {
+   "barcode": "1261720200722",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 13
+  },
+  {
+   "barcode": "1261720340305",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 7
+  },
+  {
+   "barcode": "1261724200308",
+   "generated": false,
+   "kind": 13,
+   "team": 3,
+   "player": 5
+  },
+  {
+   "barcode": "1261724340141",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 7
+  },
+  {
+   "barcode": "1261726300402",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 15,
+   "swipe_us": 300
+  },
+  {
+   "barcode": "1264120300023",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 6
+  },
+  {
+   "barcode": "1264120300146",
+   "generated": false,
+   "kind": 13,
+   "team": 4,
+   "player": 6
+  },
+  {
+   "barcode": "1264324200105",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 4
+  },
+  {
+   "barcode": "1264520200763",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 13
+  },
+  {
+   "barcode": "1264520300227",
+   "generated": false,
+   "kind": 13,
+   "team": 2,
+   "player": 7
+  },
+  {
+   "barcode": "1264520300265",
+   "generated": false,
+   "kind": 13,
+   "team": 6,
+   "player": 7
+  },
+  {
+   "barcode": "1264524340106",
+   "generated": false,
+   "kind": 13,
+   "team": 0,
+   "player": 7
+  },
+  {
+   "barcode": "1264726240006",
+   "generated": false,
+   "kind": 13,
+   "team": 8,
+   "player": 5,
+   "swipe_us": 350
+  },
+  {
+   "barcode": "1265120200528",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 12
+  },
+  {
+   "barcode": "1265124240247",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 4
+  },
+  {
+   "barcode": "1265320300028",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 6
+  },
+  {
+   "barcode": "1265324300468",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 14
+  },
+  {
+   "barcode": "1265324340662",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 14
+  },
+  {
+   "barcode": "1265520200562",
+   "generated": false,
+   "kind": 13,
+   "team": 5,
+   "player": 13
+  },
+  {
+   "barcode": "1265524240502",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 13
+  },
+  {
+   "barcode": "1265526340101",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 7
+  },
+  {
+   "barcode": "1265720200348",
+   "generated": false,
+   "kind": 13,
+   "team": 7,
+   "player": 5
+  },
+  {
+   "barcode": "1265724340125",
+   "generated": false,
+   "kind": 13,
+   "team": 1,
+   "player": 7
+  },
+  {
+   "barcode": "1265726200502",
+   "generated": false,
+   "kind": 13,
+   "team": 9,
+   "player": 13,
+   "swipe_us": 450
+  },
+  {
+   "barcode": "1300400200000",
+   "generated": false,
+   "kind": 1,
+   "team": 0,
+   "player": 1
+  },
+  {
+   "barcode": "1300404200600",
+   "generated": false,
+   "kind": 1,
+   "team": 2,
+   "player": 9
+  },
+  {
+   "barcode": "1301404200041",
+   "generated": false,
+   "kind": 1,
+   "team": 5,
+   "player": 1
+  },
+  {
+   "barcode": "1301600200005",
+   "generated": false,
+   "kind": 1,
+   "team": 1,
+   "player": 1
+  },
+  {
+   "barcode": "1304004300043",
+   "generated": false,
+   "kind": 1,
+   "team": 4,
+   "player": 2
+  },
+  {
+   "barcode": "1304600300645",
+   "generated": false,
+   "kind": 1,
+   "team": 6,
+   "player": 11
+  },
+  {
+   "barcode": "1321404300640",
+   "generated": false,
+   "kind": 1,
+   "team": 7,
+   "player": 15
+  },
+  {
+   "barcode": "1321600300604",
+   "generated": false,
+   "kind": 1,
+   "team": 3,
+   "player": 15
+  },
+  {
+   "barcode": "1321606200403",
+   "generated": false,
+   "kind": 1,
+   "team": 9,
+   "player": 13,
+   "swipe_us": 300
+  },
+  {
+   "barcode": "1324602300405",
+   "generated": false,
+   "kind": 1,
+   "team": 8,
+   "player": 15
+  },
+  {
+   "barcode": "0000002000206",
+   "generated": true,
+   "kind": 0,
+   "team": 1,
+   "player": 15
+  },
+  {
+   "barcode": "0000002200248",
+   "generated": true,
+   "kind": 1,
+   "team": 5,
+   "player": 15
+  },
+  {
+   "barcode": "0000020000646",
+   "generated": true,
+   "kind": 4,
+   "team": 6,
+   "player": 8
+  },
+  {
+   "barcode": "0000020220006",
+   "generated": true,
+   "kind": 7,
+   "team": 0,
+   "player": 15
+  },
+  {
+   "barcode": "0000022020000",
+   "generated": true,
+   "kind": 6,
+   "team": 8,
+   "player": 15
+  },
+  {
+   "barcode": "0000500200207",
+   "generated": true,
+   "kind": 9,
+   "team": 2,
+   "player": 1
+  },
+  {
+   "barcode": "0001022200041",
+   "generated": true,
+   "kind": 5,
+   "team": 4,
+   "player": 15
+  },
+  {
+   "barcode": "0001402120204",
+   "generated": true,
+   "kind": 2,
+   "team": 2,
+   "player": 3
+  },
+  {
+   "barcode": "0001402200647",
+   "generated": true,
+   "kind": 1,
+   "team": 6,
+   "player": 9
+  },
+  {
+   "barcode": "0020520100448",
+   "generated": true,
+   "kind": 12,
+   "team": 4,
+   "player": 15
+  },
+  {
+   "barcode": "0020522320042",
+   "generated": true,
+   "kind": 15,
+   "team": 3,
+   "player": 7
+  },
+  {
+   "barcode": "0021002220401",
+   "generated": true,
+   "kind": 3,
+   "team": 9,
+   "player": 12
+  }
+ ]
+}

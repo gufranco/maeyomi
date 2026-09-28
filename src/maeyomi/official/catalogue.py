@@ -13,7 +13,9 @@ were the 76 SD Gundam Wars barcodes, two on each of 37 cards and two on a
 special card, which retrostuff.org read the same way. The 37 Yu Yu Hakusho
 barcodes come from the spreadsheet archive.org keeps beside its scans of a
 complete set, with the English card names that spreadsheet gives, and were read
-by the game in MAME too. The Zelda, Shogaku
+by the game in MAME too, as were the 160 J.League Super Top Players barcodes,
+four on each of 40 cards, from the spreadsheet beside archive.org's scans of
+that set, named as the game's own player directory names them. The Zelda, Shogaku
 Ninensei and Street Fighter II cards come from the card lists in
 barcodebattler.co.uk's deeta.js, a collector site that publishes them in
 English; one Zelda item, the red potion, is also a card of the board game list.
@@ -99,6 +101,7 @@ class OfficialSet(Enum):
     DATACH_ULTRAMAN = "データック ウルトラマン倶楽部 スポ根ファイト! カードリスト"
     DATACH_SD_GUNDAM = "データック SDガンダム ガンダムウォーズ カードリスト"
     DATACH_YUYU = "データック 幽遊白書 爆闘暗黒武術会 カードリスト"
+    DATACH_JLEAGUE = "データック Jリーグ スーパートッププレイヤーズ カードリスト"
 
     @property
     def device(self) -> Device:
@@ -130,6 +133,7 @@ _DEVICES: Final[dict[OfficialSet, Device]] = {
     OfficialSet.DATACH_ULTRAMAN: Device.DATACH_ULTRAMAN,
     OfficialSet.DATACH_SD_GUNDAM: Device.DATACH_SD_GUNDAM,
     OfficialSet.DATACH_YUYU: Device.DATACH_YUYU,
+    OfficialSet.DATACH_JLEAGUE: Device.DATACH_JLEAGUE,
 }
 
 _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
@@ -163,6 +167,7 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.DATACH_ULTRAMAN: "Datach Ultraman Club: Supokon Fight!",
     OfficialSet.DATACH_SD_GUNDAM: "Datach SD Gundam: Gundam Wars",
     OfficialSet.DATACH_YUYU: "Datach Yu Yu Hakusho: Bakutou Ankoku Bujutsukai",
+    OfficialSet.DATACH_JLEAGUE: "Datach J.League Super Top Players",
 }
 
 
