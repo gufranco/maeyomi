@@ -8,7 +8,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 [![ci](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml/badge.svg)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](#development)
+[![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
 [![python](https://img.shields.io/badge/python-3.14-blue)](pyproject.toml)
 
 <p align="center">
@@ -895,24 +895,3 @@ printed codes on a device say otherwise: the high health bonus follows
 [note.com analysis](https://note.com/sakigomyway_5634/n/n61808a7245e5), and job 6
 is a warrior. Five of the recorded questions would put an unverified value on
 a printed card, and the generator refuses to emit any code that reaches them.
-
-## Development
-
-```bash
-uv run ruff format .
-uv run ruff check .
-uv run pyright
-uv run pytest --cov
-```
-
-Fixtures are rebuilt with `uv run python tools/fetch_fixtures.py`. The Datach
-Dragon Ball Z record comes from `uv run python tools/oracle/record_dbz.py`, which
-needs MAME and a dump of your own cartridge whose SHA-256 matches
-[`artifacts.manifest.json`](artifacts.manifest.json); MAME runs without a window.
-The later games' records come from `uv run python tools/oracle/record_game.py`
-with `--game`, under the same conditions.
-
-With `maeyomi serve` running, `node tools/render/layout.e2e.mjs` drives the
-page in a real browser through `agent-browser`: no tab may scroll sideways at
-320 or 1280 pixels, the device switch must show each device's fields, and the
-notes must be visible and link their sources.

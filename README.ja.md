@@ -8,7 +8,7 @@
 
 [![ci](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml/badge.svg)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](#開発)
+[![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
 [![python](https://img.shields.io/badge/python-3.14-blue)](pyproject.toml)
 
 <p align="center">
@@ -398,16 +398,3 @@ PDF には、構造ツリーなしで持てるものを入れてあります。�
 - **VITIMan/barcode-battler-engine**、GPL-3 は使っていません。コード、構造、名前のどれも取っていません。直接取得している wikiwiki.jp のリストを指していただけです。
 
 資料どうしが食い違う点は、それぞれの資料の記述と採用した判断を `src/maeyomi/decoder/uncertainties.py` に記録しています。デコーダはシミュレータに従いますが、印刷したバーコードを実機で確かめた資料が異なる結果を示している点ではそちらに従います。体力が高いときのボーナスは [barcodebattler.net](https://barcodebattler.net/page21.htm) と [note.com の解析](https://note.com/sakigomyway_5634/n/n61808a7245e5) に、職業6は戦士として扱います。記録した疑問のうち5つは確認できていない値を印刷したカードに載せてしまうため、ジェネレータはそこに達するバーコードを出力しません。
-
-## 開発
-
-```bash
-uv run ruff format .
-uv run ruff check .
-uv run pyright
-uv run pytest --cov
-```
-
-テストデータは `uv run python tools/fetch_fixtures.py` で作り直します。データック ドラゴンボールZ の記録は `uv run python tools/oracle/record_dbz.py` で作ります。MAME と、SHA-256 が [`artifacts.manifest.json`](artifacts.manifest.json) と一致する手持ちのカートリッジのダンプが必要です。MAME はウィンドウを開かずに動きます。 後のゲームの記録は、同じ条件で `uv run python tools/oracle/record_game.py` に `--game` を付けて作ります。
-
-`maeyomi serve` を動かした状態で `node tools/render/layout.e2e.mjs` を実行すると、`agent-browser` で実際のブラウザを操作してページを確かめます。320ピクセルと1280ピクセルでどのタブも横にはみ出さないこと、本体の切り替えでその本体の項目が出ること、説明文が見えていて出典にリンクしていることを確かめます。
