@@ -313,7 +313,7 @@ def card_text(language: str) -> dict[str, str]:
     chosen = next((known for known in CardLanguage if known.value == language), None)
     if chosen is None or not chosen.is_chinese:
         raise HTTPException(status_code=NOT_FOUND, detail=f"no card words for {language!r}")
-    return catalogue(chosen)
+    return dict(catalogue(chosen))
 
 
 def dbz_characters() -> list[DbzChoiceView]:

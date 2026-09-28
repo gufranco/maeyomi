@@ -11,8 +11,10 @@ English; a test holds every card the program makes to a full catalogue.
 
 import json
 import re
+from collections.abc import Mapping
 from functools import cache
 from importlib import resources
+from types import MappingProxyType
 from typing import Final
 
 from maeyomi.rendering.labels import Bilingual
@@ -67,8 +69,8 @@ def _from_catalogue(english: str, language: CardLanguage) -> str | None:
 
 
 @cache
-def catalogue(language: CardLanguage) -> dict[str, str]:
-    """Every translated template of one Chinese language."""
+def catalogue(language: CardLanguage) -> Mapping[str, str]:
+    """Every translated template of one Chinese language, shared and read-only."""
     source = resources.files("maeyomi.rendering").joinpath(CATALOGUE_DIR, f"{language}.json")
     loaded: dict[str, str] = json.loads(source.read_text("utf-8"))
-    return loaded
+    return MappingProxyType(loaded)

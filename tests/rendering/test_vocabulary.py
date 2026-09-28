@@ -6,7 +6,7 @@ import pytest
 
 from maeyomi.rendering.labels import SWIPE, Bilingual
 from maeyomi.rendering.language import CardLanguage
-from maeyomi.rendering.translations import PART_SEPARATOR, catalogue, template_of
+from maeyomi.rendering.translations import PART_SEPARATOR, PLACEHOLDER, catalogue, template_of
 from maeyomi.rendering.vocabulary import printed_texts
 
 TEXTS: Final = printed_texts()
@@ -40,8 +40,7 @@ def test_every_translation_keeps_the_placeholders_of_its_english(language: CardL
     mismatched = [
         key
         for key, words in catalogue(language).items()
-        if sorted(template_of(key)[0].count(f"{{{n}}}") for n in range(9))
-        != sorted(words.count(f"{{{n}}}") for n in range(9))
+        if sorted(PLACEHOLDER.findall(key)) != sorted(PLACEHOLDER.findall(words))
     ]
 
     assert mismatched == []

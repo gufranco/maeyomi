@@ -4,7 +4,7 @@ import pytest
 
 from maeyomi.rendering.labels import Bilingual
 from maeyomi.rendering.language import CardLanguage
-from maeyomi.rendering.translations import localise, template_of
+from maeyomi.rendering.translations import catalogue, localise, template_of
 
 ROBOT = Bilingual("Robot", "ロボット")
 CHINESE = [CardLanguage.SIMPLIFIED, CardLanguage.HONG_KONG]
@@ -53,6 +53,14 @@ def test_a_joined_label_is_translated_part_by_part(language: CardLanguage) -> No
     assert "24600" in printed
     assert "Fights" not in printed
     assert "power" not in printed
+
+
+@pytest.mark.parametrize("language", CHINESE)
+def test_the_shared_catalogue_cannot_be_changed_by_a_caller(language: CardLanguage) -> None:
+    words = catalogue(language)
+
+    with pytest.raises(TypeError):
+        words["Robot"] = "Robot"  # pyright: ignore[reportIndexIssue]
 
 
 @pytest.mark.parametrize("language", CHINESE)
