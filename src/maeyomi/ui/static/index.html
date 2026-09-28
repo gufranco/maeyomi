@@ -48,14 +48,25 @@
 </div>
 
 <div class="layout">
-  <aside class="sidebar" aria-labelledby="device-label">
+  <aside class="sidebar" id="sidebar" aria-labelledby="device-label">
     <p class="group-label" id="device-label" data-i18n="device.label">Machine or game</p>
-    <div id="device" class="device-list" role="group" aria-labelledby="device-label"
-         aria-describedby="device-hint"></div>
-    <p class="hint" id="device-hint" data-i18n="device.hint">
-      Every tab, and the cheat code, makes cards for this choice and reads
-      barcodes its way. The same barcode is a different card on each one.
-    </p>
+    <button type="button" class="device-toggle" id="device-toggle" aria-expanded="false"
+            aria-controls="device-panel" aria-describedby="device-label">
+      <span class="device-current" id="device-current"></span>
+      <span class="device-toggle-hint" data-i18n="device.change">Change</span>
+    </button>
+    <div class="device-panel" id="device-panel">
+      <p class="field device-filter">
+        <label for="device-filter" data-i18n="device.filter">Find a machine or game</label>
+        <input id="device-filter" type="search" autocomplete="off" spellcheck="false">
+      </p>
+      <div id="device" class="device-list" role="group" aria-labelledby="device-label"
+           aria-describedby="device-hint"></div>
+      <p class="hint" id="device-hint" data-i18n="device.hint">
+        Every tab, and the cheat code, makes cards for this choice and reads
+        barcodes its way. The same barcode is a different card on each one.
+      </p>
+    </div>
   </aside>
 
   <div class="panel" id="main-panel">

@@ -140,6 +140,48 @@ function renderDeviceOptions() {
     'afterbegin',
     DEVICE_GROUPS.map(([group, key]) => deviceGroupHtml(group, key)).join(''),
   );
+  const current = deviceList.find((device) => device.key === chosenDevice);
+  $('device-current').textContent = current ? (isJapanese() ? current.japanese : current.english) : '';
+  filterDevices();
+  revealCurrentDevice();
+}
+
+function revealCurrentDevice() {
+  const list = $('device');
+  const button = list.querySelector('[aria-current="true"]');
+  if (!button || list.scrollHeight <= list.clientHeight) return;
+  const offset = button.getBoundingClientRect().top - list.getBoundingClientRect().top;
+  list.scrollTop += offset - list.clientHeight / 2;
+}
+
+function filterDevices() {
+  const query = $('device-filter').value.trim().toLocaleLowerCase(currentLanguage);
+  document.querySelectorAll('#device .item-list').forEach((list) => {
+    const items = [...list.children];
+    items.forEach((item) => {
+      const text = item.textContent.toLocaleLowerCase(currentLanguage);
+      item.toggleAttribute('hidden', query !== '' && !text.includes(query));
+    });
+    list.previousElementSibling.toggleAttribute('hidden', items.every((item) => item.hidden));
+  });
+}
+
+function setDeviceMenuOpen(open) {
+  $('sidebar').toggleAttribute('data-open', open);
+  $('device-toggle').setAttribute('aria-expanded', String(open));
+}
+
+function setUpDeviceMenu() {
+  $('device-toggle').addEventListener('click', () => {
+    setDeviceMenuOpen(!$('sidebar').hasAttribute('data-open'));
+    revealCurrentDevice();
+  });
+  $('device-filter').addEventListener('input', filterDevices);
+  $('sidebar').addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !$('sidebar').hasAttribute('data-open')) return;
+    setDeviceMenuOpen(false);
+    $('device-toggle').focus();
+  });
 }
 
 const JOB_NAMES = {
@@ -255,9 +297,12 @@ async function setUpDevices() {
   dbzList = dbz;
   renderDevices();
   chooseDevice(savedDevice());
+  setUpDeviceMenu();
   $('device').addEventListener('click', (event) => {
     const button = event.target.closest('[data-device]');
-    if (button) chooseDevice(button.dataset.device);
+    if (!button) return;
+    chooseDevice(button.dataset.device);
+    setDeviceMenuOpen(false);
   });
   $('backRead').addEventListener('change', () => applySliders(deviceForm()));
   $('game-character').addEventListener('change', () => {

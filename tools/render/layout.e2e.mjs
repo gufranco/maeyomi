@@ -8,7 +8,12 @@ const failures = [];
 const browser = (...args) => execFileSync('agent-browser', args, { encoding: 'utf8' }).trim();
 
 const pickDevice = (key) => {
-  browser('eval', `document.querySelector('[data-device="${key}"]').scrollIntoView({ block: 'center' }); 'ok'`);
+  browser('eval', `(() => {
+    const toggle = document.getElementById('device-toggle');
+    if (toggle.offsetParent !== null && toggle.getAttribute('aria-expanded') === 'false') toggle.click();
+    document.querySelector('[data-device="${key}"]').scrollIntoView({ block: 'center' });
+    return 'ok';
+  })()`);
   browser('click', `[data-device="${key}"]`);
 };
 
@@ -286,9 +291,40 @@ function checkBehaviour() {
   expect(open === 'true', 'a link to #official does not open that tab');
 }
 
+function checkPhoneDeviceMenu() {
+  browser('set', 'viewport', '390', '844');
+  const closed = evaluate(`JSON.stringify([
+    document.getElementById('device-toggle').offsetParent !== null,
+    document.getElementById('device').offsetParent === null,
+  ])`);
+  expect(closed[0] && closed[1], `the phone device menu does not start closed: ${closed}`);
+  pickDevice('dbz');
+  const after = evaluate(`JSON.stringify([
+    document.getElementById('device-toggle').getAttribute('aria-expanded'),
+    document.getElementById('device-current').textContent,
+  ])`);
+  expect(after[0] === 'false' && after[1] === 'Datach Dragon Ball Z',
+    `choosing on a phone does not close the menu and name the choice: ${after}`);
+  pickDevice('bb2');
+  browser('set', 'viewport', '1280', '900');
+}
+
+function checkDeviceFilter() {
+  browser('fill', '#device-filter', 'datach');
+  const shown = evaluate(`JSON.stringify([...document.querySelectorAll('#device [data-device]')]
+    .filter((button) => !button.closest('li').hidden).map((button) => button.dataset.device))`);
+  expect(shown.length === 6 && shown.every((key) => key !== 'bb2'),
+    `the filter for datach shows ${shown}`);
+  browser('fill', '#device-filter', '');
+}
+
 browser('open', URL);
 browser('wait', '1500');
+browser('set', 'viewport', '1280', '900');
+pickDevice('bb2');
 checkDeviceMenu();
+checkDeviceFilter();
+checkPhoneDeviceMenu();
 checkInlineCheckboxes();
 checkJobMenu();
 checkBackRead();
