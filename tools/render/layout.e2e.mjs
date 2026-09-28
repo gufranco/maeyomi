@@ -1,7 +1,7 @@
 import { execFileSync } from 'node:child_process';
 
 const URL = process.env.MAEYOMI_URL ?? 'http://127.0.0.1:8000/';
-const TABS = ['one', 'many', 'official', 'shop', 'read'];
+const TABS = ['one', 'many', 'official', 'shop', 'read', 'cheat'];
 const WIDTHS = [320, 1280];
 const failures = [];
 
@@ -385,6 +385,42 @@ function checkPhoneTabsFit() {
   browser('set', 'viewport', '1280', '900');
 }
 
+function checkCheatLinkShowsThatDevicesCard() {
+  browser('open', `${URL.replace(/#.*$/, '')}?device=battlerush#tab-cheat`);
+  browser('wait', '3000');
+  const pair = evaluate(`(async () => {
+    const response = await fetch('/api/device-cheat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ device: 'battlerush' }),
+    });
+    const expected = (await response.json()).barcode;
+    return JSON.stringify([document.getElementById('cheat-code-value').textContent, expected]);
+  })()`);
+  expect(pair[0] === pair[1], `a link to the cheat tab shows another device's card: ${pair}`);
+  browser('open', URL.replace(/#.*$/, ''));
+  browser('wait', '1500');
+  browser('set', 'viewport', '1280', '900');
+  pickDevice('bb2');
+}
+
+function checkCheatTab() {
+  browser('click', '#tab-cheat');
+  browser('wait', '2000');
+  const shown = evaluate(`JSON.stringify([
+    document.getElementById('cheat-image').hasAttribute('src'),
+    document.getElementById('cheat-code-value').textContent,
+  ])`);
+  expect(shown[0] && /^\d{13}$/.test(shown[1]), `the cheat tab shows no card: ${shown}`);
+  pickDevice('dbz');
+  const after = evaluate(`JSON.stringify([
+    document.getElementById('tab-one').getAttribute('aria-selected'),
+    document.getElementById('cheat-image').hasAttribute('src'),
+  ])`);
+  expect(after[0] === 'true' && !after[1], `changing device leaves the cheat card: ${after}`);
+  pickDevice('bb2');
+}
+
 function checkPhoneDeviceMenu() {
   browser('set', 'viewport', '390', '844');
   const closed = evaluate(`JSON.stringify([
@@ -439,6 +475,8 @@ checkFoldedOptions();
 checkFreshStartOnDeviceChange();
 checkAddressAndKeys();
 checkEmptyRealCards();
+checkCheatTab();
+checkCheatLinkShowsThatDevicesCard();
 checkPhoneTabsFit();
 checkPhoneDeviceMenu();
 checkInlineCheckboxes();

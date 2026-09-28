@@ -200,8 +200,10 @@ function startFresh() {
   ['one', 'read'].forEach((form) => $(form).reset());
   clearCardImage('card-image', 'card-placeholder');
   clearCardImage('read-image', 'read-placeholder');
+  clearCardImage('cheat-image', 'cheat-placeholder');
+  $('cheat-code').toggleAttribute('hidden', true);
   clearFrame('sheet-frame', 'many.placeholder');
-  ['one-status', 'many-status', 'read-status'].forEach((id) => {
+  ['one-status', 'many-status', 'read-status', 'cheat-status'].forEach((id) => {
     $(id).setAttribute('class', 'status');
     $(id).replaceChildren();
   });
@@ -438,26 +440,6 @@ async function makeDeviceCard() {
   showCode(body.barcode);
   await showPreview(body.barcode, $('name').value || 'Card');
   return body;
-}
-
-async function activateDeviceCheat(typed) {
-  const { ok, body } = await postJson('/api/device-cheat', {
-    device: chosenDevice,
-    ...(typed ? { name: typed } : {}),
-  });
-  if (!ok) {
-    $('tab-one').click();
-    refuse('one-status', body);
-    return;
-  }
-  cheatCard = { barcode: body.barcode, name: body.name, device: chosenDevice, companion: body.companion };
-  $('name').value = body.name;
-  $('tab-one').click();
-  celebrate();
-  setStatus('one-status', 'cheat', 'tag.cheat',
-    t('status.deviceCheat', { name: body.name, device: deviceName() }), factLines(body.facts));
-  showCode(body.barcode);
-  await showPreview(body.barcode, body.name);
 }
 
 function showDeviceFacts(facts) {

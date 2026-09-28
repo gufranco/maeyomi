@@ -26,7 +26,6 @@ from fastapi.responses import FileResponse, HTMLResponse, Response
 from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_race
 from maeyomi.decoder.decode import decode
 from maeyomi.decoder.errors import BarcodeError
-from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
 from maeyomi.generator.device_random import random_for
 from maeyomi.generator.nearest import solve_nearest
 from maeyomi.generator.solve import solve
@@ -73,8 +72,6 @@ from maeyomi.ui.schemas import (
     BarcodeSheetSpec,
     CardSpec,
     CharacterView,
-    CheatResult,
-    CheatSpec,
     DbzChoiceView,
     DeviceCardSpec,
     DeviceCheatSpec,
@@ -188,14 +185,6 @@ def sheet(spec: SheetSpec) -> FileResponse:
 def random_sheet(spec: RandomSpec) -> FileResponse:
     """Build a sheet of random cards."""
     return _sheet_response(_random_cards(spec), "cards.pdf")
-
-
-def cheat(spec: CheatSpec) -> CheatResult:
-    """The strongest card the device will read, under whatever name was typed."""
-    card = strongest_card(spec.name or DEFAULT_CHEAT_NAME)
-    return CheatResult(
-        name=card.name, barcode=card.barcode, character=CharacterView.of(card.character)
-    )
 
 
 def barcode_sheet(spec: BarcodeSheetSpec) -> FileResponse:
@@ -381,7 +370,6 @@ def create_app() -> FastAPI:
     app.add_api_route("/api/sheet-preview", sheet_preview, methods=["POST"])
     app.add_api_route("/api/sheet", sheet, methods=["POST"])
     app.add_api_route("/api/random", random_sheet, methods=["POST"])
-    app.add_api_route("/api/cheat", cheat, methods=["POST"])
     app.add_api_route("/api/barcode-sheet", barcode_sheet, methods=["POST"])
     app.add_api_route("/api/official", official, methods=["GET"])
     app.add_api_route("/api/official-sheet", official_sheet, methods=["POST"])

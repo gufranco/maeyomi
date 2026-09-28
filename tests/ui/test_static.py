@@ -64,7 +64,7 @@ def test_the_page_is_served_as_it_is_written_with_stamped_assets(client: TestCli
         "/api/sheet",
         "/api/sheet-preview",
         "/api/random",
-        "/api/cheat",
+        "/api/device-cheat",
         "/api/barcode-sheet",
         "/api/official",
         "/api/official-sheet",
@@ -136,8 +136,8 @@ def test_every_control_meets_the_minimum_target_size() -> None:
 
 def test_the_tabs_carry_their_roles() -> None:
     assert 'role="tablist"' in MARKUP
-    assert MARKUP.count('role="tab"') == 5
-    assert MARKUP.count('role="tabpanel"') == 5
+    assert MARKUP.count('role="tab"') == 6
+    assert MARKUP.count('role="tabpanel"') == 6
 
 
 def test_the_preview_regions_announce_their_updates() -> None:
@@ -176,26 +176,21 @@ def test_the_konami_code_is_listened_for() -> None:
     assert "ArrowDown" in SCRIPT
 
 
-def test_the_cheat_banner_is_announced_to_screen_readers() -> None:
-    assert re.search(r'id="cheat-banner"[^>]*aria-live="polite"', MARKUP)
+def test_the_cheat_card_is_the_tab_after_reading_a_barcode() -> None:
+    tabs = re.findall(r'role="tab" id="(tab-\w+)"', MARKUP)
 
-
-def test_the_cheat_animation_stops_for_anyone_who_asked_for_less_motion() -> None:
-    assert "prefers-reduced-motion" in STYLES
-    assert "cheat-shake" in STYLES
+    assert tabs[-2:] == ["tab-read", "tab-cheat"]
+    assert 'id="panel-cheat"' in MARKUP
+    assert "cheat-banner" not in MARKUP
 
 
 def test_a_hidden_element_stays_hidden_whatever_its_layout_class_says() -> None:
     assert re.search(r"\[hidden\]\s*\{\s*display:\s*none\s*!important", STYLES)
 
 
-def test_the_cheat_is_one_button_in_the_footer() -> None:
-    assert 'id="konami"' in MARKUP
-    assert MARKUP.count("konami-doodle") == 1
-
-
-def test_the_cheat_button_has_an_accessible_name() -> None:
-    assert re.search(r'id="konami"[^>]*aria-label="[^"]+"', MARKUP, re.DOTALL)
+def test_the_konami_code_opens_the_cheat_card_tab() -> None:
+    assert "$('tab-cheat').click();" in SCRIPT
+    assert 'id="konami"' not in MARKUP
 
 
 def test_the_arrows_still_work_from_the_keyboard() -> None:
@@ -224,7 +219,7 @@ def test_every_tab_and_panel_sits_inside_the_main_landmark() -> None:
     main = MARKUP[MARKUP.index("<main>") : MARKUP.index("</main>")]
 
     assert 'role="tablist"' in main
-    assert main.count('role="tabpanel"') == 5
+    assert main.count('role="tabpanel"') == 6
 
 
 def test_the_shelf_can_be_scrolled_from_the_keyboard_and_has_a_name() -> None:
@@ -232,12 +227,6 @@ def test_the_shelf_can_be_scrolled_from_the_keyboard_and_has_a_name() -> None:
 
     assert 'tabindex="0"' in shelf
     assert 'aria-labelledby="shop-results-heading"' in shelf
-
-
-def test_the_cheat_hint_is_not_dimmed_below_the_contrast_floor() -> None:
-    hints = STYLES[STYLES.index(".secret-hints {") :]
-
-    assert "opacity" not in hints[: hints.index("}")]
 
 
 def test_the_tablist_moves_focus_with_one_tab_stop() -> None:

@@ -13,6 +13,12 @@ const MESSAGES = {
     'tab.official': 'The real cards',
     'skip': 'Skip to the card maker',
     'tab.read': 'Read a barcode',
+    'tab.cheat': 'Cheat card',
+    'cheat.note': 'The strongest card the chosen machine or game will read, with every number at the most it allows.',
+    'cheat.name': 'Name',
+    'cheat.name.hint': "Leave it empty for the card's own name. It does not change the barcode.",
+    'cheat.preview': 'The cheat card',
+    'cheat.placeholder': 'The card appears here.',
     'tab.shop': 'The supermarket',
     'shop.legend': 'Real Japanese groceries',
     'shop.query': 'Look for something',
@@ -56,8 +62,6 @@ const MESSAGES = {
     'fact.reading': 'Read from',
     'reading.front': 'the front',
     'reading.back': 'the back',
-    'cheat.title': 'Cheat activated',
-    'cheat.button': 'Cheat',
     'one.who': 'Who is on the card',
     'one.name': 'Name',
     'one.name.hint': 'Printed on the card. It does not change the barcode.',
@@ -148,7 +152,7 @@ const MESSAGES = {
     'device.summary.excite94': 'Epoch, 1994. 240 hidden players and item cards for a match.',
     'device.summary.battlerush': 'Bandai, 1993. A robot built from two cards read in order.',
     'device.hint':
-      'Every tab, and the cheat code, makes cards for this choice and reads barcodes its way. ' +
+      'Every tab makes cards for this choice and reads barcodes its way. ' +
       'The same barcode is a different card on each one.',
     'stat.bp': 'Battle power',
     'stat.dp': 'Defence power',
@@ -292,19 +296,10 @@ const MESSAGES = {
     'status.official': '{count} cards.',
     'status.officialMore':
       '{count} cards. The first {shown} are shown here; the download has all of them.',
-    'status.cheat': '{name}: {hp} health, {st} attack, {df} defence, and its attack doubles.',
     'alt.card': 'The card for {name}, showing its numbers and barcode',
     'alt.page': '{label}, page {page}',
     'label.sheet': 'Sheet',
     'label.official': 'Official cards',
-    quips: [
-      'The machine is sweating.',
-      'Please do not tell the other fighters.',
-      '99900 health. Your friends will need a bigger calculator.',
-      'Attack doubled, because normal attack was just not enough.',
-      'Warning: may cause your friends to stop playing with you.',
-      'The barcode is real. The fairness is not.',
-    ],
     wrong: [
       'Nice try. The machine is not impressed.',
       'Nope. Maybe ask a grown-up who played in 1992?',
@@ -322,6 +317,12 @@ const MESSAGES = {
     'tab.official': 'ほんものの カード',
     'skip': 'カードづくりへ とぶ',
     'tab.read': 'バーコードを よむ',
+    'tab.cheat': 'チートカード',
+    'cheat.note': 'えらんだ マシンや ゲームが よめる いちばん つよい カード。どの すうじも いちばん おおきく なるよ。',
+    'cheat.name': 'なまえ',
+    'cheat.name.hint': 'からっぽなら カードの なまえの まま。バーコードは かわらないよ。',
+    'cheat.preview': 'チートカード',
+    'cheat.placeholder': 'ここに カードが でるよ。',
     'tab.shop': 'スーパーマーケット',
     'shop.legend': 'ほんものの 日本の しょくひん',
     'shop.query': 'さがしてみよう',
@@ -365,8 +366,6 @@ const MESSAGES = {
     'fact.reading': 'よみかた',
     'reading.front': 'まえから',
     'reading.back': 'うしろから',
-    'cheat.title': 'チート はつどう',
-    'cheat.button': 'チート',
     'one.who': 'カードに のる キャラクター',
     'one.name': 'なまえ',
     'one.name.hint': 'カードに いんさつされます。バーコードは かわりません。',
@@ -457,7 +456,7 @@ const MESSAGES = {
     'device.summary.excite94': 'エポックしゃ、1994ねん。240にんの かくし せんしゅと しあいの アイテム カード。',
     'device.summary.battlerush': 'バンダイ、1993ねん。じゅんに よませる 2まいの カードで つくる ロボット。',
     'device.hint':
-      'どの タブも かくしコマンドも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +
+      'どの タブも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +
       'おなじ バーコードでも マシンや ゲームごとに ちがう カードに なります。',
     'stat.bp': 'せんとうりょく',
     'stat.dp': 'ぼうぎょりょく',
@@ -600,19 +599,10 @@ const MESSAGES = {
     'status.official': '{count}まい。',
     'status.officialMore':
       '{count}まい。ここでは さいしょの {shown}まいだけ。ダウンロードには ぜんぶ はいっています。',
-    'status.cheat': '{name}: たいりょく {hp}、こうげき {st}、ぼうぎょ {df}、しかも こうげき 2ばい。',
     'alt.card': '{name} の カード。すうじと バーコードが のっています',
     'alt.page': '{label} {page}ページめ',
     'label.sheet': 'シート',
     'label.official': 'ほんものの カード',
-    quips: [
-      'マシンが あせを かいている。',
-      'ほかの せんしには ないしょだよ。',
-      'たいりょく 99900。ともだちは おおきな でんたくが ひつようかも。',
-      'こうげき 2ばい。ふつうの こうげきでは たりなかったから。',
-      'ちゅうい: ともだちが あそんで くれなく なるかも。',
-      'バーコードは ほんもの。フェアさは ない。',
-    ],
     wrong: [
       'おしい。マシンは びくとも しない。',
       'ちがうよ。1992ねんに あそんでいた おとなに きいて みたら？',

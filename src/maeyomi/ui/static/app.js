@@ -2,7 +2,6 @@ const HIGH_HP = 20000;
 const MARKER_REMAINDER = 900;
 const CARDS_PER_PAGE = 9;
 const COPY_RESET_MS = 1500;
-const SHAKE_MS = 700;
 const ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 const KONAMI = [
   'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
@@ -15,8 +14,6 @@ let catalogue = null;
 let cheatCard = null;
 
 const $ = (id) => document.getElementById(id);
-
-const pick = (items) => items[Math.floor(Math.random() * items.length)];
 
 const escapeHtml = (text) => String(text).replace(/[&<>"']/g, (ch) => ESCAPES[ch]);
 
@@ -86,6 +83,7 @@ function setUpTabs() {
       $(tab.getAttribute('aria-controls')).toggleAttribute('hidden', !on);
     });
     rememberTab(chosen);
+    document.dispatchEvent(new CustomEvent('tabchange', { detail: chosen.id }));
   };
   select(tabFromHash() ?? tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') ?? tabs[0]);
   window.addEventListener('hashchange', () => {
@@ -207,24 +205,23 @@ function describeResult(body) {
   $('one-code-value').textContent = body.barcode;
 }
 
-async function showPreview(barcode, name) {
+async function showPreview(barcode, name, imageId = 'card-image', placeholderId = 'card-placeholder') {
   const { ok, response } = await postJson('/api/preview', {
     barcode,
     name,
     device: currentDevice(),
   });
   if (!ok) return;
-  const previous = $('card-image').getAttribute('src');
-  $('card-image').setAttribute('src', URL.createObjectURL(await response.blob()));
-  $('card-image').setAttribute('alt', t('alt.card', { name }));
+  const previous = $(imageId).getAttribute('src');
+  $(imageId).setAttribute('src', URL.createObjectURL(await response.blob()));
+  $(imageId).setAttribute('alt', t('alt.card', { name }));
   if (previous) URL.revokeObjectURL(previous);
-  $('card-placeholder').toggleAttribute('hidden', true);
+  $(placeholderId).toggleAttribute('hidden', true);
 }
 
 async function makeOneCard(event) {
   event?.preventDefault();
   if (!checkForm($('one'))) return null;
-  cheatCard = null;
   const button = $('one').querySelector('button[type="submit"]');
   setBusy(button, true);
   try {
@@ -248,11 +245,6 @@ function withCompanion(card) {
 }
 
 async function downloadOneCard() {
-  if (cheatCard) {
-    const name = $('name').value.trim() || cheatCard.name;
-    await downloadBarcodes(withCompanion({ ...cheatCard, name }), 'cheat-card.pdf', 'one-status');
-    return;
-  }
   const result = await makeOneCard();
   if (!result) return;
   if (!isSecond()) {
@@ -467,51 +459,60 @@ async function downloadOfficial() {
   setStatus('official-status', 'good', 'tag.done', t('status.saved'));
 }
 
-function celebrate() {
-  $('cheat-quip').textContent = pick(t('quips'));
-  $('cheat-banner').toggleAttribute('hidden', false);
-  document.body.classList.add('cheat-shake');
-  setTimeout(() => document.body.classList.remove('cheat-shake'), SHAKE_MS);
-}
-
-async function activateCheat() {
-  const typed = $('name').value.trim();
-  const custom = typed && typed !== $('name').defaultValue;
-  if (!isSecond()) {
-    await activateDeviceCheat(custom ? typed : '');
+async function showCheatCard() {
+  const typed = $('cheat-name').value.trim();
+  const { ok, body } = await postJson('/api/device-cheat', {
+    device: currentDevice(),
+    ...(typed ? { name: typed } : {}),
+  });
+  cheatCard = ok
+    ? { barcode: body.barcode, name: body.name, device: currentDevice(), companion: body.companion }
+    : null;
+  $('cheat-code').toggleAttribute('hidden', !ok);
+  if (!ok) {
+    clearCardImage('cheat-image', 'cheat-placeholder');
+    refuse('cheat-status', body);
     return;
   }
-  const { ok, body } = await postJson('/api/cheat', custom ? { name: typed } : {});
-  if (!ok) return;
-  cheatCard = { barcode: body.barcode, name: body.name, device: currentDevice() };
-  $('name').value = body.name;
-  $('race').value = body.character.race;
-  showRaceHint();
-  $('class').value = body.character.character_class ?? '';
-  $('tab-one').click();
-  celebrate();
-  const { hp, st, df } = body.character;
-  setStatus('one-status', 'cheat', 'tag.cheat', t('status.cheat', { name: body.name, hp, st, df }));
-  $('one-code').toggleAttribute('hidden', false);
-  $('one-code-value').textContent = body.barcode;
-  await showPreview(body.barcode, body.name);
+  $('cheat-code-value').textContent = body.barcode;
+  setStatus('cheat-status', 'cheat', 'tag.cheat',
+    t('status.deviceCheat', { name: body.name, device: deviceName() }), factLines(body.facts));
+  await showPreview(body.barcode, body.name, 'cheat-image', 'cheat-placeholder');
+}
+
+async function downloadCheatCard() {
+  if (!cheatCard) return;
+  await downloadBarcodes(withCompanion(cheatCard), 'cheat-card.pdf', 'cheat-status');
 }
 
 function setUpCheat() {
-  $('konami').addEventListener('click', activateCheat);
-
+  const refresh = () => showCheatCard()
+    .catch(() => setStatus('cheat-status', 'bad', 'tag.impossible', t('status.wrong')));
+  document.addEventListener('tabchange', (event) => {
+    if (event.detail === 'tab-cheat' && deviceList.length > 0) refresh();
+  });
+  let typing = null;
+  $('cheat-name').addEventListener('input', () => {
+    clearTimeout(typing);
+    typing = setTimeout(refresh, SEARCH_DELAY_MS);
+  });
+  $('cheat-pdf').addEventListener('click', downloadCheatCard);
   let progress = 0;
-  document.addEventListener('keydown', async (event) => {
-    const typing =
+  document.addEventListener('keydown', (event) => {
+    const inField =
       event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement;
-    if (typing) return;
+    if (inField) return;
     const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
     progress = key === KONAMI[progress] ? progress + 1 : Number(key === KONAMI[0]);
-    if (progress === KONAMI.length) {
-      progress = 0;
-      await activateCheat();
-    }
+    if (progress !== KONAMI.length) return;
+    progress = 0;
+    $('tab-cheat').click();
   });
+}
+
+function showCheatIfOpen() {
+  if ($('tab-cheat').getAttribute('aria-selected') !== 'true') return;
+  showCheatCard().catch(() => setStatus('cheat-status', 'bad', 'tag.impossible', t('status.wrong')));
 }
 
 
@@ -714,6 +715,9 @@ $('official-pdf').addEventListener('click', downloadOfficial);
 setUpLivePreview();
 setUpOfficial();
 Promise.all([setUpChoices(), setUpDevices()])
-  .then(refreshPreviewSoon)
+  .then(() => {
+    refreshPreviewSoon();
+    showCheatIfOpen();
+  })
   .catch(() => setStatus('one-status', 'bad', 'tag.impossible', t('status.wrong')));
 setUpCheat();

@@ -269,7 +269,7 @@ Datach Battle Rush. Every tab follows it: the card maker shows only the fields t
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
-the cheat code is that device's strongest card. The same barcode is a
+**Cheat card** shows that device's strongest card. The same barcode is a
 different card on each device. Choosing another one clears every tab and
 returns to the card maker, whose card redraws as the numbers change. The
 choice is kept in the address, as in `?device=dbz`, so a link or a reload
@@ -635,9 +635,9 @@ MAME.
 
 ## The cheat code
 
-`maeyomi cheat -o cheat.pdf`, or press the row of arrows at the foot of
-the web page, or type up, up, down, down, left, right, left, right, B, A
-anywhere on it. The card is a mechanical magician with 99900 health and its
+`maeyomi cheat -o cheat.pdf`, or the **Cheat card** tab of the web page,
+which typing up, up, down, down, left, right, left, right, B, A anywhere on
+the page also opens. The card is a mechanical magician with 99900 health and its
 attack doubled. The device displays 14600 attack and 19900 defence, and fights
 with 24600 attack.
 
@@ -754,18 +754,18 @@ rather than embedded. For a print shop, send the page images instead of the PDF,
 ## Getting at it without a mouse or without sight
 
 The page answers to a keyboard alone. A skip link jumps past the masthead, the
-five tabs are one stop with the arrow keys moving between them, Home and End go
+six tabs are one stop with the arrow keys moving between them, Home and End go
 to the ends, every control paints a visible focus ring, every control is at
 least 44 by 44 pixels, and the list of groceries can be scrolled from the
 keyboard. The language switch changes the `lang` on the document, so a screen
 reader changes voice with it. Animation is dropped when the system asks for
 less of it.
 
-axe-core reports no violation on any of the five tabs, in the light scheme and
+axe-core reports no violation on any of the six tabs, in the light scheme and
 in the dark one, against WCAG 2.2 A and AA plus its own best-practice set. The
 checks that a rule set cannot make were made by hand in a real browser: the
 focus ring was read back off the focused element rather than off the
-stylesheet, and the cheat hint in the footer measures 7.43:1 against the page.
+stylesheet.
 
 The PDFs carry what a PDF can carry without a structure tree. Each one names
 itself, so a reader announces "Barcode Battler II card: Tea" instead of

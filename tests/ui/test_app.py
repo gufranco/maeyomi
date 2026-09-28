@@ -258,26 +258,6 @@ def test_a_sheet_preview_that_cannot_be_filled_reports_the_shortfall(client: Tes
     assert "distinct" in response.json()["detail"]
 
 
-def test_the_cheat_returns_the_strongest_card(client: TestClient) -> None:
-    response = client.post("/api/cheat", json={"name": "Grandma"})
-
-    assert response.status_code == 200
-    body = response.json()
-    assert body["name"] == "Grandma"
-    assert (body["character"]["hp"], body["character"]["st"], body["character"]["df"]) == (
-        99900,
-        14600,
-        19900,
-    )
-    assert (body["character"]["battle_st"], body["character"]["battle_df"]) == (24600, None)
-
-
-def test_the_cheat_has_a_silly_default_name(client: TestClient) -> None:
-    response = client.post("/api/cheat", json={})
-
-    assert response.json()["name"] == "Maximus Cheatimus"
-
-
 def test_a_sheet_can_be_built_from_barcodes(client: TestClient, tmp_path: object) -> None:
     response = client.post(
         "/api/barcode-sheet",

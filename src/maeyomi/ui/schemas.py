@@ -100,20 +100,6 @@ class LookupResult(BaseModel):
     name: str | None = None
 
 
-class CheatSpec(BaseModel):
-    """The name to print on the strongest card."""
-
-    name: str | None = None
-
-
-class CheatResult(BaseModel):
-    """The strongest card, decoded."""
-
-    name: str
-    barcode: str
-    character: CharacterView
-
-
 class OfficialSpec(BaseModel):
     """One official set, or every set when none is named."""
 

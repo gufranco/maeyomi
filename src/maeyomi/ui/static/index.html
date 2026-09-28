@@ -44,7 +44,7 @@
       <div id="device" class="device-list" role="group" aria-labelledby="device-label"
            aria-describedby="device-hint"></div>
       <p class="hint" id="device-hint" data-i18n="device.hint">
-        Every tab, and the cheat code, makes cards for this choice and reads
+        Every tab makes cards for this choice and reads
         barcodes its way. The same barcode is a different card on each one.
       </p>
     </div>
@@ -64,11 +64,8 @@
             data-i18n="tab.shop">The supermarket</button>
     <button role="tab" id="tab-read" aria-controls="panel-read" aria-selected="false"
             data-i18n="tab.read">Read a barcode</button>
-  </div>
-
-  <div id="cheat-banner" class="cheat-banner" role="status" aria-live="polite" hidden>
-    <p class="cheat-title" data-i18n="cheat.title">Cheat activated</p>
-    <p class="cheat-quip" id="cheat-quip"></p>
+    <button role="tab" id="tab-cheat" aria-controls="panel-cheat" aria-selected="false"
+            data-i18n="tab.cheat">Cheat card</button>
   </div>
 
   <div class="panel" id="main-panel">
@@ -557,6 +554,40 @@
   </aside>
 </section>
 
+<section id="panel-cheat" role="tabpanel" aria-labelledby="tab-cheat" class="columns" hidden>
+  <form id="cheat" class="fields">
+    <p class="note" data-i18n="cheat.note">
+      The strongest card the chosen machine or game will read, with every
+      number at the most it allows.
+    </p>
+    <p class="field">
+      <label for="cheat-name" data-i18n="cheat.name">Name</label>
+      <input id="cheat-name" name="name" maxlength="40" autocomplete="off">
+      <span class="hint" data-i18n="cheat.name.hint">
+        Leave it empty for the card's own name. It does not change the barcode.
+      </span>
+    </p>
+    <p class="actions">
+      <button type="button" id="cheat-pdf" class="primary" data-i18n="download">Download to print</button>
+    </p>
+  </form>
+
+  <aside class="preview" aria-live="polite">
+    <h2 data-i18n="cheat.preview">The cheat card</h2>
+    <div class="card-frame">
+      <img id="cheat-image" alt="" width="381" height="533">
+      <p class="placeholder" id="cheat-placeholder" data-i18n="cheat.placeholder">
+        The card appears here.
+      </p>
+    </div>
+    <p class="code" id="cheat-code" hidden>
+      <span class="code-label" data-i18n="one.code">Barcode number</span>
+      <code id="cheat-code-value"></code>
+    </p>
+    <div id="cheat-status" class="status"></div>
+  </aside>
+</section>
+
   </div>
   </div>
 </div>
@@ -564,12 +595,6 @@
 </main>
 
 <footer>
-  <p class="secret-hints">
-    <button type="button" id="konami" class="konami-doodle"
-            aria-label="Cheat" data-i18n-aria-label="cheat.button">
-      &#8593; &#8593; &#8595; &#8595; &#8592; &#8594; &#8592; &#8594; B A
-    </button>
-  </p>
   <p data-i18n="footer.local">
     Nothing leaves this machine. The page talks to a server you started.
   </p>

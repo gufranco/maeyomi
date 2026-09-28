@@ -131,8 +131,6 @@ h1 { font-size: 1.75rem; margin: 0 0 6px; letter-spacing: -0.01em; }
 
 .workspace { min-width: 0; display: grid; gap: 16px; }
 
-.workspace .cheat-banner { margin: 0; max-width: none; }
-
 .sidebar {
   background: var(--card);
   border: 1px solid var(--line);
@@ -613,60 +611,7 @@ footer p { margin: 0 auto .5rem; max-width: 46rem; }
 
 .is-loading { opacity: .5; }
 
-.cheat-banner {
-  max-width: 68rem;
-  margin: 0 auto var(--gap);
-  padding: .9rem 1.2rem;
-  border: 3px dashed var(--cheat);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--cheat) 12%, var(--card));
-  text-align: center;
-}
-
-.cheat-title {
-  margin: 0;
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--cheat);
-}
-
-.cheat-quip { margin: .3rem 0 0; font-size: 1.05rem; }
-
-.cheat-form {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: .5rem;
-  margin-bottom: 1rem;
-}
-
-.cheat-form label { font-weight: 600; }
-
-.cheat-form input {
-  width: 11rem;
-  min-height: 44px;
-  font-family: ui-monospace, monospace;
-  text-transform: uppercase;
-}
-
-.cheat-form button { min-height: 44px; }
-
 #official-rejected { margin: .5rem 0 0; padding-left: 1.1rem; }
-
-@media (prefers-reduced-motion: no-preference) {
-  .cheat-shake { animation: cheat-shake .7s ease-in-out; }
-}
-
-@keyframes cheat-shake {
-  0%, 100% { transform: none; }
-  15% { transform: translate(-6px, 2px) rotate(-.6deg); }
-  30% { transform: translate(6px, -2px) rotate(.6deg); }
-  45% { transform: translate(-4px, 1px) rotate(-.4deg); }
-  60% { transform: translate(4px, -1px) rotate(.4deg); }
-  75% { transform: translate(-2px, 0); }
-}
 
 .language {
   display: inline-flex;
@@ -694,28 +639,6 @@ footer p { margin: 0 auto .5rem; max-width: 46rem; }
   background: var(--accent);
   color: var(--accent-ink);
 }
-
-.secret-hints {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.konami-doodle {
-  min-height: 44px;
-  color: var(--ink-soft);
-  padding: 0 .75rem;
-  border: 1px dashed var(--line);
-  border-radius: 999px;
-  background: none;
-  font-family: ui-monospace, monospace;
-  font-size: .8rem;
-  letter-spacing: .25em;
-  cursor: pointer;
-}
-
-.konami-doodle:hover { border-style: solid; }
 
 @media (max-width: 62rem) {
   .layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
@@ -776,8 +699,6 @@ footer p { margin: 0 auto .5rem; max-width: 46rem; }
   .field.stat > label { grid-area: name; }
   .field.stat input[type="range"] { grid-area: slider; }
   .field.stat .stat-box { grid-area: box; }
-  .secret-hints { flex-wrap: wrap; }
-  .cheat-title { font-size: 1.25rem; }
 }
 
 .facts {
