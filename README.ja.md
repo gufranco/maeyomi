@@ -2,7 +2,7 @@
 
 # maeyomi
 
-<strong>エポック社の「バーコードバトラー」と「バーコードバトラーII」で遊べるカードを印刷します。</strong>
+<strong>バーコードバトラーの本体やバーコードで遊ぶゲームで使えるカードを印刷します。</strong>
 
 [English](README.md) &nbsp;|&nbsp; 日本語
 

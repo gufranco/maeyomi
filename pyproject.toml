@@ -1,7 +1,7 @@
 [project]
 name = "maeyomi"
 version = "1.0.0"
-description = "Print playable cards for Epoch's Barcode Battler and Barcode Battler II"
+description = "Print playable cards for Barcode Battler machines and barcode games"
 readme = "README.md"
 authors = [{ name = "Gustavo Franco", email = "gufranco@users.noreply.github.com" }]
 requires-python = ">=3.14"

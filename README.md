@@ -2,7 +2,7 @@
 
 # maeyomi
 
-<strong>Print playable cards for Epoch's Barcode Battler and Barcode Battler II.</strong>
+<strong>Print playable cards for Barcode Battler machines and barcode games.</strong>
 
 English &nbsp;|&nbsp; [日本語](README.ja.md)
 

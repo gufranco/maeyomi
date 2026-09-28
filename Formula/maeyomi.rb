@@ -1,7 +1,7 @@
 class Maeyomi < Formula
   include Language::Python::Virtualenv
 
-  desc "Print playable cards for Epoch's Barcode Battler and Barcode Battler II"
+  desc "Print playable cards for Barcode Battler machines and barcode games"
   homepage "https://github.com/gufranco/maeyomi"
   url "https://github.com/gufranco/maeyomi/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "35d221880bae92ff6a4e3bffa0a2763b3ebfc98c2019b4fb0c7e2f5cb3f361fd"
