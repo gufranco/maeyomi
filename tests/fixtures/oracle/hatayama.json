@@ -1,0 +1,1634 @@
+{
+ "game": "Hatayama Hatch no Paro Yakyuu News! Jitsumei Ban",
+ "software": "hatayama",
+ "rom": {
+  "sha1": "27b381b003445ef9bd1db0ecf9f018093a3e586b",
+  "size": 1048576
+ },
+ "emulator": "MAME 0.289, snes with barcode_battler on ctrl2, fed by tools/oracle/drive.lua bbscan",
+ "screen": "Battle Baseball Board, battler input; class at $7EFF69, stamina, attack, defense and magic at $7EFF70, 74, 78 and 7C, which a refused code leaves at 20, 50, 50 and 0",
+ "recorded_utc": "2026-09-28T17:27:57Z",
+ "cards": [
+  {
+   "barcode": "4794701255260",
+   "generated": false,
+   "stamina": 479,
+   "attack": 147,
+   "defense": 101,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4956444703839",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4121053748810",
+   "generated": false,
+   "stamina": 88,
+   "attack": 53,
+   "defense": 51,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4627760551069",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4537048854792",
+   "generated": false,
+   "stamina": 474,
+   "attack": 49,
+   "defense": 12,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4318609786055",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4729929525673",
+   "generated": false,
+   "stamina": 365,
+   "attack": 30,
+   "defense": 29,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4522683945844",
+   "generated": false,
+   "stamina": 285,
+   "attack": 50,
+   "defense": 21,
+   "mp": 18,
+   "wizard": 1
+  },
+  {
+   "barcode": "4057715461196",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4384008685145",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4879567886770",
+   "generated": false,
+   "stamina": 376,
+   "attack": 41,
+   "defense": 35,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4623986686004",
+   "generated": false,
+   "stamina": 6,
+   "attack": 71,
+   "defense": 35,
+   "mp": 20,
+   "wizard": 1
+  },
+  {
+   "barcode": "4525945302973",
+   "generated": false,
+   "stamina": 392,
+   "attack": 67,
+   "defense": 97,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4877426327877",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4622858236859",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4351927726976",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4972750610524",
+   "generated": false,
+   "stamina": 150,
+   "attack": 25,
+   "defense": 78,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4598550627335",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4312747597641",
+   "generated": false,
+   "stamina": 267,
+   "attack": 32,
+   "defense": 46,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4403226176454",
+   "generated": false,
+   "stamina": 246,
+   "attack": 111,
+   "defense": 34,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4637042707312",
+   "generated": false,
+   "stamina": 37,
+   "attack": 102,
+   "defense": 47,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4883708450416",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4951824715266",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4431743919261",
+   "generated": false,
+   "stamina": 329,
+   "attack": 94,
+   "defense": 68,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4898124997346",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4035193635704",
+   "generated": false,
+   "stamina": 75,
+   "attack": 40,
+   "defense": 20,
+   "mp": 7,
+   "wizard": 1
+  },
+  {
+   "barcode": "4885344627061",
+   "generated": false,
+   "stamina": 307,
+   "attack": 72,
+   "defense": 49,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4646585185594",
+   "generated": false,
+   "stamina": 455,
+   "attack": 20,
+   "defense": 25,
+   "mp": 25,
+   "wizard": 1
+  },
+  {
+   "barcode": "4219503683191",
+   "generated": false,
+   "stamina": 413,
+   "attack": 88,
+   "defense": 5,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4627608693531",
+   "generated": false,
+   "stamina": 153,
+   "attack": 28,
+   "defense": 6,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4344809909499",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4366382003524",
+   "generated": false,
+   "stamina": 153,
+   "attack": 28,
+   "defense": 7,
+   "mp": 5,
+   "wizard": 1
+  },
+  {
+   "barcode": "4354843655047",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4553742776543",
+   "generated": false,
+   "stamina": 256,
+   "attack": 21,
+   "defense": 34,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4387142228308",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4024068024170",
+   "generated": false,
+   "stamina": 314,
+   "attack": 89,
+   "defense": 19,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4791289630885",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4642430875634",
+   "generated": false,
+   "stamina": 165,
+   "attack": 30,
+   "defense": 24,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4326903643158",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4363346476851",
+   "generated": false,
+   "stamina": 286,
+   "attack": 51,
+   "defense": 34,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4468928865051",
+   "generated": false,
+   "stamina": 205,
+   "attack": 70,
+   "defense": 23,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4857939698572",
+   "generated": false,
+   "stamina": 358,
+   "attack": 23,
+   "defense": 56,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4516281170005",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4128128378729",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4436038110613",
+   "generated": false,
+   "stamina": 60,
+   "attack": 35,
+   "defense": 78,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4934011206037",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4017773728815",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4491374447205",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4842910763851",
+   "generated": false,
+   "stamina": 283,
+   "attack": 58,
+   "defense": 3,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4807147866836",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4592198827980",
+   "generated": false,
+   "stamina": 497,
+   "attack": 62,
+   "defense": 49,
+   "mp": 9,
+   "wizard": 1
+  },
+  {
+   "barcode": "4188917289193",
+   "generated": false,
+   "stamina": 419,
+   "attack": 84,
+   "defense": 65,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4227256425050",
+   "generated": false,
+   "stamina": 205,
+   "attack": 70,
+   "defense": 29,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4724927664355",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4917981897221",
+   "generated": false,
+   "stamina": 127,
+   "attack": 92,
+   "defense": 46,
+   "mp": 22,
+   "wizard": 1
+  },
+  {
+   "barcode": "4805768083465",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4065551933906",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4956840893783",
+   "generated": false,
+   "stamina": 473,
+   "attack": 48,
+   "defense": 6,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4034330301007",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4771772275885",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4142111777504",
+   "generated": false,
+   "stamina": 57,
+   "attack": 22,
+   "defense": 44,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4081430142450",
+   "generated": false,
+   "stamina": 242,
+   "attack": 117,
+   "defense": 91,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4421429082433",
+   "generated": false,
+   "stamina": 142,
+   "attack": 117,
+   "defense": 95,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4174332259378",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4453583666723",
+   "generated": false,
+   "stamina": 176,
+   "attack": 41,
+   "defense": 33,
+   "mp": 17,
+   "wizard": 1
+  },
+  {
+   "barcode": "4671475090030",
+   "generated": false,
+   "stamina": 100,
+   "attack": 75,
+   "defense": 76,
+   "mp": 20,
+   "wizard": 1
+  },
+  {
+   "barcode": "4144930724462",
+   "generated": false,
+   "stamina": 344,
+   "attack": 119,
+   "defense": 19,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4997893933545",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4523972340203",
+   "generated": false,
+   "stamina": 20,
+   "attack": 95,
+   "defense": 71,
+   "mp": 12,
+   "wizard": 1
+  },
+  {
+   "barcode": "4399424857755",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4801721620487",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4794719824632",
+   "generated": false,
+   "stamina": 164,
+   "attack": 39,
+   "defense": 19,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4224660262417",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4564270888202",
+   "generated": false,
+   "stamina": 28,
+   "attack": 93,
+   "defense": 55,
+   "mp": 22,
+   "wizard": 1
+  },
+  {
+   "barcode": "4531306767497",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4170261566747",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4716839338547",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4502255399145",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4223009155731",
+   "generated": false,
+   "stamina": 175,
+   "attack": 40,
+   "defense": 22,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4569503158626",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4454061280608",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4334703333278",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4285017587850",
+   "generated": false,
+   "stamina": 287,
+   "attack": 52,
+   "defense": 45,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4087215895252",
+   "generated": false,
+   "stamina": 225,
+   "attack": 90,
+   "defense": 26,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4806856861170",
+   "generated": false,
+   "stamina": 311,
+   "attack": 86,
+   "defense": 83,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4016578566264",
+   "generated": false,
+   "stamina": 326,
+   "attack": 91,
+   "defense": 33,
+   "mp": 12,
+   "wizard": 1
+  },
+  {
+   "barcode": "4904086470992",
+   "generated": false,
+   "stamina": 490,
+   "attack": 65,
+   "defense": 74,
+   "mp": 19,
+   "wizard": 1
+  },
+  {
+   "barcode": "4795701697098",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "4603614739401",
+   "generated": false,
+   "stamina": 49,
+   "attack": 114,
+   "defense": 60,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4718606226361",
+   "generated": false,
+   "stamina": 336,
+   "attack": 101,
+   "defense": 39,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0612258124027",
+   "generated": false,
+   "stamina": 61,
+   "attack": 22,
+   "defense": 58,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0786865262721",
+   "generated": false,
+   "stamina": 78,
+   "attack": 68,
+   "defense": 65,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0209298685054",
+   "generated": false,
+   "stamina": 205,
+   "attack": 70,
+   "defense": 25,
+   "mp": 20,
+   "wizard": 1
+  },
+  {
+   "barcode": "0468806822347",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "0381772081054",
+   "generated": false,
+   "stamina": 38,
+   "attack": 17,
+   "defense": 72,
+   "mp": 5,
+   "wizard": 1
+  },
+  {
+   "barcode": "0050434962610",
+   "generated": false,
+   "stamina": 62,
+   "attack": 37,
+   "defense": 93,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0360947385913",
+   "generated": false,
+   "stamina": 36,
+   "attack": 9,
+   "defense": 47,
+   "mp": 91,
+   "wizard": 1
+  },
+  {
+   "barcode": "0653095668855",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "0988022424298",
+   "generated": false,
+   "stamina": 98,
+   "attack": 80,
+   "defense": 22,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0748809308599",
+   "generated": false,
+   "stamina": 74,
+   "attack": 88,
+   "defense": 9,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0773129419694",
+   "generated": false,
+   "stamina": 77,
+   "attack": 31,
+   "defense": 29,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0196236820960",
+   "generated": false,
+   "stamina": 390,
+   "attack": 65,
+   "defense": 79,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0572697420732",
+   "generated": false,
+   "stamina": 57,
+   "attack": 26,
+   "defense": 97,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0420028453907",
+   "generated": false,
+   "stamina": 42,
+   "attack": 0,
+   "defense": 28,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0827122722197",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "0229899959309",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "0779871711031",
+   "generated": false,
+   "stamina": 101,
+   "attack": 76,
+   "defense": 88,
+   "mp": 0,
+   "wizard": 1
+  },
+  {
+   "barcode": "0518345881036",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "0665843169941",
+   "generated": false,
+   "stamina": 66,
+   "attack": 58,
+   "defense": 43,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0706250612085",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "0223337492007",
+   "generated": false,
+   "stamina": 22,
+   "attack": 33,
+   "defense": 37,
+   "mp": 0,
+   "wizard": 1
+  },
+  {
+   "barcode": "0505008028662",
+   "generated": false,
+   "stamina": 50,
+   "attack": 50,
+   "defense": 8,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0473197885604",
+   "generated": false,
+   "stamina": 65,
+   "attack": 30,
+   "defense": 25,
+   "mp": 26,
+   "wizard": 1
+  },
+  {
+   "barcode": "0184114317350",
+   "generated": false,
+   "stamina": 18,
+   "attack": 41,
+   "defense": 14,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0511836210933",
+   "generated": false,
+   "stamina": 51,
+   "attack": 18,
+   "defense": 36,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0004851818388",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "0568818249825",
+   "generated": false,
+   "stamina": 56,
+   "attack": 88,
+   "defense": 18,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0078722650865",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "0035296380369",
+   "generated": false,
+   "stamina": 3,
+   "attack": 52,
+   "defense": 96,
+   "mp": 36,
+   "wizard": 1
+  },
+  {
+   "barcode": "0860374669537",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "1715073609812",
+   "generated": false,
+   "stamina": 89,
+   "attack": 54,
+   "defense": 67,
+   "mp": 8,
+   "wizard": 1
+  },
+  {
+   "barcode": "1231686890237",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "1876684341208",
+   "generated": false,
+   "stamina": 187,
+   "attack": 66,
+   "defense": 84,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "1983121097236",
+   "generated": false,
+   "stamina": 198,
+   "attack": 31,
+   "defense": 21,
+   "mp": 23,
+   "wizard": 1
+  },
+  {
+   "barcode": "1504464635642",
+   "generated": false,
+   "stamina": 265,
+   "attack": 30,
+   "defense": 20,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "1373618840887",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "1297113092988",
+   "generated": false,
+   "stamina": 129,
+   "attack": 71,
+   "defense": 13,
+   "mp": 98,
+   "wizard": 1
+  },
+  {
+   "barcode": "1321681085216",
+   "generated": false,
+   "stamina": 132,
+   "attack": 16,
+   "defense": 81,
+   "mp": 21,
+   "wizard": 1
+  },
+  {
+   "barcode": "1117114144878",
+   "generated": false,
+   "stamina": 111,
+   "attack": 71,
+   "defense": 14,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "1836692609080",
+   "generated": false,
+   "stamina": 409,
+   "attack": 74,
+   "defense": 67,
+   "mp": 0,
+   "wizard": 1
+  },
+  {
+   "barcode": "1851141537738",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "1889101828121",
+   "generated": false,
+   "stamina": 118,
+   "attack": 83,
+   "defense": 59,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "1794887623856",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "1017997535148",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "1108672040924",
+   "generated": false,
+   "stamina": 110,
+   "attack": 86,
+   "defense": 72,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "1718983019542",
+   "generated": false,
+   "stamina": 171,
+   "attack": 89,
+   "defense": 83,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "1124600689911",
+   "generated": false,
+   "stamina": 99,
+   "attack": 64,
+   "defense": 65,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "1727226055742",
+   "generated": false,
+   "stamina": 172,
+   "attack": 72,
+   "defense": 26,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "1146628547554",
+   "generated": false,
+   "stamina": 257,
+   "attack": 22,
+   "defense": 41,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "1107335593050",
+   "generated": false,
+   "stamina": 203,
+   "attack": 78,
+   "defense": 6,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "86616485",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "00592390",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "10160626",
+   "generated": false,
+   "stamina": 0,
+   "attack": 0,
+   "defense": 10,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "37800772",
+   "generated": false,
+   "stamina": 370,
+   "attack": 45,
+   "defense": 77,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "04539339",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "57837307",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "64072036",
+   "generated": false,
+   "stamina": 0,
+   "attack": 0,
+   "defense": 64,
+   "mp": 3,
+   "wizard": 1
+  },
+  {
+   "barcode": "50111008",
+   "generated": false,
+   "stamina": 0,
+   "attack": 0,
+   "defense": 50,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "08975133",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "11289180",
+   "generated": false,
+   "stamina": 0,
+   "attack": 0,
+   "defense": 11,
+   "mp": 18,
+   "wizard": 1
+  },
+  {
+   "barcode": "74284436",
+   "generated": false,
+   "stamina": 0,
+   "attack": 0,
+   "defense": 74,
+   "mp": 43,
+   "wizard": 1
+  },
+  {
+   "barcode": "37320485",
+   "generated": false,
+   "stamina": 0,
+   "attack": 0,
+   "defense": 37,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "11803348",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "33486505",
+   "generated": false,
+   "stamina": 0,
+   "attack": 0,
+   "defense": 33,
+   "mp": 50,
+   "wizard": 1
+  },
+  {
+   "barcode": "17331432",
+   "generated": false,
+   "stamina": 0,
+   "attack": 0,
+   "defense": 17,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "12650033",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "41059616",
+   "generated": false,
+   "stamina": 0,
+   "attack": 0,
+   "defense": 41,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "80033554",
+   "generated": false,
+   "stamina": 0,
+   "attack": 0,
+   "defense": 80,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "15426024",
+   "generated": false,
+   "stamina": 0,
+   "attack": 0,
+   "defense": 15,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "57459776",
+   "generated": false,
+   "stamina": 0,
+   "attack": 0,
+   "defense": 57,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "33820620",
+   "generated": false,
+   "stamina": 160,
+   "attack": 35,
+   "defense": 79,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "41332030",
+   "generated": false,
+   "stamina": 0,
+   "attack": 0,
+   "defense": 41,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "37864057",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "45653933",
+   "generated": false,
+   "stamina": 193,
+   "attack": 68,
+   "defense": 2,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "98668618",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "5890900075421",
+   "generated": true,
+   "stamina": 589,
+   "attack": 109,
+   "defense": 0,
+   "mp": 42,
+   "wizard": 1
+  },
+  {
+   "barcode": "8993075205000",
+   "generated": true,
+   "stamina": 899,
+   "attack": 130,
+   "defense": 175,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "5992083205005",
+   "generated": true,
+   "stamina": 599,
+   "attack": 120,
+   "defense": 183,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "3698175075151",
+   "generated": true,
+   "stamina": 369,
+   "attack": 181,
+   "defense": 75,
+   "mp": 15,
+   "wizard": 1
+  },
+  {
+   "barcode": "6798002005003",
+   "generated": true,
+   "stamina": 679,
+   "attack": 180,
+   "defense": 2,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "3897469375230",
+   "generated": true,
+   "stamina": 389,
+   "attack": 74,
+   "defense": 69,
+   "mp": 23,
+   "wizard": 1
+  },
+  {
+   "barcode": "1916346370846",
+   "generated": true,
+   "stamina": 191,
+   "attack": 63,
+   "defense": 46,
+   "mp": 84,
+   "wizard": 1
+  },
+  {
+   "barcode": "0635607300002",
+   "generated": true,
+   "stamina": 63,
+   "attack": 56,
+   "defense": 7,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "1409964300000",
+   "generated": true,
+   "stamina": 140,
+   "attack": 99,
+   "defense": 64,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "9090503275570",
+   "generated": true,
+   "stamina": 909,
+   "attack": 105,
+   "defense": 103,
+   "mp": 57,
+   "wizard": 1
+  },
+  {
+   "barcode": "7090534005001",
+   "generated": true,
+   "stamina": 709,
+   "attack": 105,
+   "defense": 34,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "1315644300003",
+   "generated": true,
+   "stamina": 131,
+   "attack": 56,
+   "defense": 44,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "7597017175591",
+   "generated": true,
+   "stamina": 759,
+   "attack": 70,
+   "defense": 117,
+   "mp": 59,
+   "wizard": 1
+  },
+  {
+   "barcode": "4095559075353",
+   "generated": true,
+   "stamina": 409,
+   "attack": 155,
+   "defense": 59,
+   "mp": 35,
+   "wizard": 1
+  },
+  {
+   "barcode": "9399429175132",
+   "generated": true,
+   "stamina": 939,
+   "attack": 94,
+   "defense": 129,
+   "mp": 13,
+   "wizard": 1
+  },
+  {
+   "barcode": "1072843300004",
+   "generated": true,
+   "stamina": 107,
+   "attack": 28,
+   "defense": 43,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "7791469375480",
+   "generated": true,
+   "stamina": 779,
+   "attack": 14,
+   "defense": 69,
+   "mp": 48,
+   "wizard": 1
+  },
+  {
+   "barcode": "5599650375804",
+   "generated": true,
+   "stamina": 559,
+   "attack": 96,
+   "defense": 50,
+   "mp": 80,
+   "wizard": 1
+  },
+  {
+   "barcode": "6994040105006",
+   "generated": true,
+   "stamina": 699,
+   "attack": 40,
+   "defense": 140,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "6797841005007",
+   "generated": true,
+   "stamina": 679,
+   "attack": 178,
+   "defense": 41,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "5697673205006",
+   "generated": true,
+   "stamina": 569,
+   "attack": 176,
+   "defense": 173,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "3692446175991",
+   "generated": true,
+   "stamina": 369,
+   "attack": 24,
+   "defense": 146,
+   "mp": 99,
+   "wizard": 1
+  },
+  {
+   "barcode": "0015985370598",
+   "generated": true,
+   "stamina": 1,
+   "attack": 59,
+   "defense": 85,
+   "mp": 59,
+   "wizard": 1
+  },
+  {
+   "barcode": "6797764305000",
+   "generated": true,
+   "stamina": 679,
+   "attack": 77,
+   "defense": 64,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "9890518105004",
+   "generated": true,
+   "stamina": 989,
+   "attack": 5,
+   "defense": 118,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "3699695275021",
+   "generated": true,
+   "stamina": 369,
+   "attack": 196,
+   "defense": 195,
+   "mp": 2,
+   "wizard": 1
+  },
+  {
+   "barcode": "0947274300002",
+   "generated": true,
+   "stamina": 94,
+   "attack": 72,
+   "defense": 74,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "8393452105006",
+   "generated": true,
+   "stamina": 839,
+   "attack": 34,
+   "defense": 152,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "4695004175142",
+   "generated": true,
+   "stamina": 469,
+   "attack": 50,
+   "defense": 104,
+   "mp": 14,
+   "wizard": 1
+  },
+  {
+   "barcode": "5592286005008",
+   "generated": true,
+   "stamina": 559,
+   "attack": 122,
+   "defense": 86,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "8794073075349",
+   "generated": true,
+   "stamina": 879,
+   "attack": 140,
+   "defense": 73,
+   "mp": 34,
+   "wizard": 1
+  },
+  {
+   "barcode": "3398864205004",
+   "generated": true,
+   "stamina": 339,
+   "attack": 188,
+   "defense": 164,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "7794336305009",
+   "generated": true,
+   "stamina": 779,
+   "attack": 43,
+   "defense": 36,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "8996807105005",
+   "generated": true,
+   "stamina": 899,
+   "attack": 68,
+   "defense": 107,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "2896825205007",
+   "generated": true,
+   "stamina": 289,
+   "attack": 168,
+   "defense": 125,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "0207362300001",
+   "generated": true,
+   "stamina": 20,
+   "attack": 73,
+   "defense": 62,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "9191429305003",
+   "generated": true,
+   "stamina": 919,
+   "attack": 14,
+   "defense": 29,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "9299618075246",
+   "generated": true,
+   "stamina": 929,
+   "attack": 196,
+   "defense": 18,
+   "mp": 24,
+   "wizard": 1
+  },
+  {
+   "barcode": "5690491075073",
+   "generated": true,
+   "stamina": 569,
+   "attack": 104,
+   "defense": 91,
+   "mp": 7,
+   "wizard": 1
+  },
+  {
+   "barcode": "5890113305001",
+   "generated": true,
+   "stamina": 589,
+   "attack": 1,
+   "defense": 13,
+   "mp": 0,
+   "wizard": 0
+  },
+  {
+   "barcode": "9999999275999",
+   "generated": true,
+   "stamina": 999,
+   "attack": 199,
+   "defense": 199,
+   "mp": 99,
+   "wizard": 1
+  },
+  {
+   "barcode": "0000000500005",
+   "generated": false,
+   "refused": true
+  },
+  {
+   "barcode": "9999999295997",
+   "generated": false,
+   "stamina": 999,
+   "attack": 199,
+   "defense": 199,
+   "mp": 99,
+   "wizard": 1
+  },
+  {
+   "barcode": "4594701255266",
+   "generated": false,
+   "stamina": 459,
+   "attack": 147,
+   "defense": 101,
+   "mp": 0,
+   "wizard": 0
+  }
+ ]
+}

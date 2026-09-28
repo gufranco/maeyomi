@@ -14,8 +14,9 @@ from maeyomi.barcode.geometry import (
     BarcodeGeometry,
 )
 from maeyomi.barcode.rasterise import ink_box, render_pdf_pages
-from maeyomi.barcode.symbol import draw_symbol, symbol_size_mm
+from maeyomi.barcode.symbol import KeptCheckEan13, draw_symbol, kept_widget, symbol_size_mm
 from maeyomi.barcode.verify import decode_pdf
+from maeyomi.decoder.errors import BarcodeError, CheckDigitError
 
 MARGIN_MM = 10.0
 MEASURE_DPI = 600
@@ -185,3 +186,29 @@ def test_a_code_that_is_not_a_valid_barcode_is_rejected() -> None:
 def test_a_twelve_digit_code_is_rejected() -> None:
     with pytest.raises(ValueError, match="8 or 13"):
         symbol_size_mm("040120723750", BarcodeGeometry())
+
+
+def test_a_symbol_told_to_keep_its_check_digit_draws_the_digit_it_was_given() -> None:
+    geometry = BarcodeGeometry(kept_check=True)
+
+    widget = kept_widget("0021495637396", geometry)
+
+    assert isinstance(widget, KeptCheckEan13)
+    assert widget.value + widget.drawn_check_digit == "0021495637396"
+
+
+@pytest.mark.parametrize("code", ["00214956373A6", "002149563739"])
+def test_a_kept_check_symbol_still_needs_thirteen_digits(code: str) -> None:
+    with pytest.raises(BarcodeError):
+        kept_widget(code, BarcodeGeometry(kept_check=True))
+
+
+def test_a_wrong_check_digit_is_still_refused_unless_the_symbol_is_told_to_keep_it() -> None:
+    with pytest.raises(CheckDigitError):
+        symbol_size_mm("0021495637396", BarcodeGeometry())
+
+
+def test_a_kept_check_digit_draws_the_same_width_as_a_correct_one() -> None:
+    kept = symbol_size_mm("0021495637396", BarcodeGeometry(kept_check=True))
+
+    assert kept == symbol_size_mm("0021495637397", BarcodeGeometry())

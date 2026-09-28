@@ -3,7 +3,8 @@
 import pytest
 
 from maeyomi.datach.game_card import GameKind
-from maeyomi.datach.games import GAMES, GameOrder, game_for
+from maeyomi.datach.game_types import GameOrder
+from maeyomi.datach.games import GAMES, game_for
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.device import Device
 

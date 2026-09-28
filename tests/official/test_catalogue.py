@@ -8,6 +8,7 @@ import pytest
 from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.bb1.decode import decode_first
 from maeyomi.datach.dbz import decode_dbz
+from maeyomi.datach.game_card import DatachCard
 from maeyomi.datach.jleague import decode_jleague
 from maeyomi.datach.sdgundam import decode_sdgundam
 from maeyomi.datach.ultraman import decode_ultraman
@@ -15,6 +16,8 @@ from maeyomi.datach.yuyu import decode_yuyu
 from maeyomi.decoder.decode import decode
 from maeyomi.double.decode import decode_double
 from maeyomi.games.barcode_world import decode_barcode_world
+from maeyomi.games.excite94 import decode_excite94
+from maeyomi.games.excite95 import KICK_SPEED, decode_excite95
 from maeyomi.models.device import Device
 from maeyomi.official.catalogue import (
     OfficialSet,
@@ -31,6 +34,7 @@ SD_GUNDAM_CARDS = 76
 YUYU_CARDS = 37
 JLEAGUE_CARDS = 160
 BARCODE_WORLD_CARDS = 24
+EXCITE_CLUB_CARDS = 12
 ADDED_CARDS = 346
 SCANNED_CARDS = 71
 TRANSCRIBED = (
@@ -43,8 +47,23 @@ TRANSCRIBED = (
     + YUYU_CARDS
     + JLEAGUE_CARDS
     + BARCODE_WORLD_CARDS
+    + EXCITE_CLUB_CARDS * 2
 )
-SHARED_BETWEEN_SETS = {"0000500970445"}
+EXCITE_CLUB_BARCODES = {
+    "0000000034111",
+    "0000000014113",
+    "0000000102711",
+    "0000700114113",
+    "0000000291040",
+    "0000000024112",
+    "0000000261401",
+    "0003000054110",
+    "0007000004113",
+    "0000000823531",
+    "0000000391443",
+    "0000000632171",
+}
+SHARED_BETWEEN_SETS = {"0000500970445", *EXCITE_CLUB_BARCODES}
 WIKI = "https://wikiwiki.jp/barcode/"
 UK_LIST = "https://www.barcodebattler.co.uk/deeta.js"
 UK_SCANS = "https://www.barcodebattler.co.uk/scans/Japan/"
@@ -86,6 +105,8 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.DATACH_YUYU: "https://archive.org/details/",
         OfficialSet.DATACH_JLEAGUE: "https://archive.org/details/",
         OfficialSet.BARCODE_WORLD: UK_SCANS,
+        OfficialSet.EXCITE_CLUBS: UK_SCANS,
+        OfficialSet.EXCITE94_CLUBS: UK_SCANS,
     }
     for card in official_catalogue():
         assert card.source_url.startswith(sources.get(card.official_set, WIKI))
@@ -122,6 +143,8 @@ def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
             Device.DATACH_YUYU: decode_yuyu,
             Device.DATACH_JLEAGUE: decode_jleague,
             Device.BARCODE_WORLD: decode_barcode_world,
+            Device.EXCITE95: decode_excite95,
+            Device.EXCITE94: decode_excite94,
         }
         for card in official_cards(official_set):
             assert readers[official_set.device](card.barcode) == card.character
@@ -252,3 +275,12 @@ def test_the_barcode_world_set_is_every_card_with_a_barcode() -> None:
 
     assert len(cards) == BARCODE_WORLD_CARDS
     assert {card.name for card in cards} >= {"キャリー", "ニトロガン"}
+
+
+def test_the_excite_stage_club_cards_are_item_cards_for_excite_stage_95() -> None:
+    cards = official_cards(OfficialSet.EXCITE_CLUBS)
+
+    assert len(cards) == EXCITE_CLUB_CARDS
+    flugels = next(card for card in cards if card.name == "横浜フリューゲルス")
+    assert isinstance(flugels.character, DatachCard)
+    assert (flugels.character.ident, flugels.character.traits) == (KICK_SPEED, (104,))

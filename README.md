@@ -108,10 +108,21 @@ The rule agrees with the game in MAME on its 160 released barcodes and on 12
 codes built to reach every folded value the game allows. No card for it has
 been read by a physical Datach yet.
 
-Two Datach games cannot take a card. Crayon Shin-chan: Ora to Poi Poi has no
-barcode reading in its program at all, and Battle Rush: Build Up Robot
-Tournament needs a save chip MAME does not fully emulate and has no known card
-list, so it is not supported yet.
+Crayon Shin-chan: Ora to Poi Poi, a Datach game, has no barcode reading in its
+program at all, so it cannot take a card.
+
+Datach Battle Rush: Build Up Robot Tournament builds a robot at its Robo
+Factory from two cards scanned in order, and `--device battlerush` makes the
+pair. The first card carries the robot's number, head, body, shoulder, foot and
+pilot; the second its weapons and four levels. The game refuses a shop's
+barcode on purpose: the last digit of its own cards is one or two below the
+check digit an EAN would have, so these cards are printed with that digit and
+no ordinary barcode reader takes them. Pick the robot by number or by the name
+of one of the 16 opponents with `--character`, and its parts and levels with
+`--pick head=3 --pick attack=7` and so on. The rule was read from the game's
+program and agrees with it in MAME on every pair tried; MAME only partly
+emulates the game's save chip, so the checks write two of its bytes to reach
+the factory. No list of the cards Bandai printed is known.
 
 Sunsoft's Barcode World, a Famicom game of 1992, takes its cards through a
 Barcode Battler II connected to the Famicom, so it reads every barcode.
@@ -149,6 +160,56 @@ one by name or number. Each rule was read from the game's program and agrees
 with the game in MAME on every code tried: 250 for Lupin III, 247 for Donald
 Duck, 221 for Spider-Man and 253 for Alice. A code that matches no rule is read
 and does nothing.
+
+Three Doraemon games for the Super Famicom read codes the same way on two
+screens each: Doraemon 2 with `--device doraemon2` on its password screen and
+in a stage's item menu, Doraemon 3 with `--device doraemon3` on its password
+screen and in its equipment menu during play, and Nobita to Yousei no Kuni with
+`--device yousei` on its password screen and on the town map's item screen. The
+password screens give cheats such as invincibility, 99 lives or a later world,
+and the menus give secret tools, weapons, protectors and items. Every card
+names the screen to scan it on. Doraemon 4 carries the same reading code but
+never calls it, so no screen in it takes a barcode.
+
+J.League Excite Stage '94 reads a code on the Barcode Battler panel of its
+roster screen before a pre-season match, and `--device excite94` makes cards
+for it. A code whose check digit is 4 or more is one of 240 hidden players,
+each with a name and grades for kicking, shooting, running and dribbling or,
+for a keeper, defending; a lower check digit is an item card like those of
+Excite Stage '95. Pick a player or an item with `--character` and an item's
+amount with `--pick value=253`. The names and grades come straight from the
+game's own tables, and every player but one, whom no code's digits can reach,
+can be printed. The rule agrees with the game in MAME on every code tried.
+
+J.League Excite Stage '95 for the Super Famicom reads a code on its Barcode
+Battler II input screen before an open match, a league, a tournament or a
+dream match, and `--device excite95` makes cards for it. Each code is an item
+card: overall power, dribble, pass speed, kick speed or a keeper's saving,
+raised by 0 to 253, or a special card for up to 4 handicap points or for fouls
+that show no card. Pick the item with `--character` and the amount with
+`--pick value=253`. The rule agrees with the game in MAME on every code tried.
+PK mode reads codes another way and is not modelled.
+
+Falcom's Dragon Slayer: Eiyuu Densetsu II, which Epoch released for the Super
+Famicom in 1993, reads a code on its title menu and in its field menu, and
+`--device dslayer2` makes cards for it. The title menu gives cheats such as
+every status at its highest, doubled experience and gold, the monster list or
+the sound mode. In the field, codes that start 038438816 give the item their
+last three digits number, 999 opens every warp, and a few codes use a lamp, a
+Bisna nut, a rest mushroom or the map without owning it. The Dragon Slayer
+cards Epoch printed for the Barcode Battler II are not treated specially by the
+game.
+
+Hatayama Hatch no Paro Yakyuu News! Jitsumei Ban, Epoch's baseball game of
+1993, reads a code as a battler on its Battle Baseball Board, and
+`--device hatayama` makes cards for it. A code laid out the way Epoch's cards
+are is read in place: stamina up to 99900, attack and defense up to 19900 in
+hundreds, and a wizard's magic up to 99; any other code is worked from its last
+digits. Pick a warrior or a wizard with `--character`, the numbers with
+`--hp`, `--st` and `--df`, and the magic with `--pick mp=99`. The same code's
+last digit also picks a strategy and a graphic on the game's other two
+barcode screens, and each card prints which. The game came with cards for 14
+teams, and nobody has published their barcodes.
 
 ## Install
 
@@ -193,7 +254,9 @@ the numbers you asked for, and shows the barcode it worked out.
 Barcode Battler II, the first Barcode Battler, the Double, Datach Dragon Ball
 Z, Datach Ultraman Club, Datach SD Gundam Wars, Datach Yu Yu Hakusho,
 Datach J.League, Barcode World, Barcode Battler Senki, Lupin III, Donald Duck,
-Spider-Man or Alice no Paint Adventure. Every tab follows it: the card maker shows only the fields that device reads
+Spider-Man, Alice no Paint Adventure, Doraemon 2, Doraemon 3, Nobita to Yousei
+no Kuni, J.League Excite Stage '94 or '95, Dragon Slayer II, Hatayama Hatch or
+Datach Battle Rush. Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -538,7 +601,14 @@ white ones, per
 [its Japanese Wikipedia article](https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E3%83%90%E3%83%88%E3%83%A9%E3%83%BC%E6%88%A6%E8%A8%98_%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E6%88%A6%E5%A3%AB%E5%87%BA%E6%92%83%E3%81%9B%E3%82%88!).
 Nobody has published their barcodes, so `maeyomi official --device senki` says
 so rather than printing an empty sheet. Lupin III, Donald Duck, Spider-Man and
-Alice no Paint Adventure came with no cards at all.
+Alice no Paint Adventure came with no cards at all, and neither did the three
+Doraemon games.
+
+Epoch printed a roster card for each of the 12 J.League clubs of 1994 for
+Excite Stage '94. Their barcodes were read off the scans
+[barcodebattler.co.uk publishes](https://www.barcodebattler.co.uk/scans/Japan/J-League/),
+and both Excite Stage '94 and '95 read each one as an item card, checked in
+MAME.
 
 ## The cheat code
 
@@ -615,6 +685,24 @@ lives in Spider-Man, and the last scene of the story with every late flag set
 in Alice no Paint Adventure. Spider-Man keeps three of its effects in separate
 places, so endless lives, double health and half boss health can be scanned
 one after another and all three stay.
+
+Doraemon 2 gets 99 lives, Doraemon 3 starts in world 5, and Nobita to Yousei no
+Kuni makes Doraemon invincible.
+
+J.League Excite Stage '95 gets overall power raised by 253, the most any card
+raises it.
+
+Dragon Slayer II starts with every status at its highest.
+
+Hatayama Hatch gets a wizard with stamina 99900, attack and defense 19900 and
+99 magic.
+
+Datach Battle Rush prints the pair for the robot with attack, defense and speed
+233, the most they reach together, and recovery at 255. A byte wraps inside the
+game's sum, so the largest parts do not make the strongest robot.
+
+J.League Excite Stage '94 gets Gamamoto Kunikuni, the hidden player graded A at
+everything.
 
 ## Two languages and pictures
 

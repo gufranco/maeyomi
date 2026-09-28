@@ -323,7 +323,7 @@ async function activateDeviceCheat(typed) {
     refuse('one-status', body);
     return;
   }
-  cheatCard = { barcode: body.barcode, name: body.name, device: chosenDevice };
+  cheatCard = { barcode: body.barcode, name: body.name, device: chosenDevice, companion: body.companion };
   $('name').value = body.name;
   $('tab-one').click();
   celebrate();

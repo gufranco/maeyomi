@@ -3,7 +3,13 @@
 What these produce in a browser is checked by tools/render/layout.e2e.mjs.
 """
 
+import itertools
 import re
+import shutil
+import subprocess
+from pathlib import Path
+
+import pytest
 
 from maeyomi.ui.app import STATIC_DIR
 
@@ -41,3 +47,24 @@ def test_japanese_product_names_are_marked_as_japanese() -> None:
 
 def test_the_supermarket_searches_as_you_type() -> None:
     assert "setUpSearchAsYouType($('shop-query'), searchShelf)" in APP
+
+
+@pytest.mark.parametrize("script", sorted(STATIC_DIR.glob("*.js")), ids=lambda script: script.name)
+def test_every_page_script_parses(script: Path) -> None:
+    node = shutil.which("node")
+    assert node is not None
+
+    command = [node, "--check", str(script)]
+    checked = subprocess.run(command, capture_output=True, text=True, check=False)  # noqa: S603
+
+    assert checked.returncode == 0, checked.stderr
+
+
+@pytest.mark.parametrize(
+    "panel", re.findall(r'<section id="panel-.*?</section>', MARKUP, re.DOTALL)
+)
+def test_no_heading_in_a_tab_skips_a_level_below_the_page_title(panel: str) -> None:
+    levels = [1, *(int(level) for level in re.findall(r"<h([1-6])\b", panel))]
+
+    skips = [pair for pair in itertools.pairwise(levels) if pair[1] > pair[0] + 1]
+    assert skips == []

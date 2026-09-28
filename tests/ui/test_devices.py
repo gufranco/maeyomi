@@ -415,3 +415,24 @@ def test_senki_has_no_set_of_real_cards_to_offer(client: TestClient) -> None:
     body = client.get("/api/official?device=senki").json()
 
     assert (body["sets"], body["total"]) == ([], 0)
+
+
+def test_a_battle_rush_robot_comes_back_with_its_weapon_card(client: TestClient) -> None:
+    payload = {"device": "battlerush", "character": "5", "picks": {"attack": 7}}
+
+    body = client.post("/api/device-card", json=payload).json()
+
+    assert body["companion"] is not None
+    assert body["companion"] != body["barcode"]
+
+
+def test_the_battle_rush_cheat_comes_back_with_its_weapon_card(client: TestClient) -> None:
+    body = client.post("/api/device-cheat", json={"device": "battlerush"}).json()
+
+    assert body["companion"] is not None
+
+
+def test_a_single_card_game_brings_no_companion(client: TestClient) -> None:
+    body = client.post("/api/device-cheat", json={"device": "lupin"}).json()
+
+    assert body["companion"] is None

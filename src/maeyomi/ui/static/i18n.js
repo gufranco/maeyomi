@@ -133,6 +133,14 @@ const MESSAGES = {
     'device.summary.donald': 'Epoch, 1995. Codes on the password screen open stages and endings.',
     'device.summary.spiderman': 'Epoch, 1995. Codes on the password screen set off cheats.',
     'device.summary.alice': 'Epoch, 1995. Codes on the password screen start the story later on.',
+    'device.summary.doraemon2': 'Epoch, 1993. Codes set off cheats or give secret tools.',
+    'device.summary.doraemon3': 'Epoch, 1994. Codes set off cheats or give weapons and items.',
+    'device.summary.yousei': 'Epoch, 1993. Codes set off cheats or give gadgets.',
+    'device.summary.excite95': "Epoch, 1995. Item cards that raise a player's ability for a match.",
+    'device.summary.dslayer2': 'Epoch, 1993. Codes set off cheats or give items in the field.',
+    'device.summary.hatayama': 'Epoch, 1993. Battlers with stamina, attack, defense and magic.',
+    'device.summary.excite94': 'Epoch, 1994. 240 hidden players and item cards for a match.',
+    'device.summary.battlerush': 'Bandai, 1993. A robot built from two cards read in order.',
     'device.games': 'Games',
     'device.hint':
       'Every tab, and the cheat code, makes cards for this choice and reads barcodes its way. ' +
@@ -225,9 +233,25 @@ const MESSAGES = {
       'ones. Nobody has published their barcodes, so there is no set to print. Any card made ' +
       'here is read by the game the way it was checked in the MAME emulator.',
     'official.source.senki': 'What came in the Senki box:',
+    'official.note.excite95':
+      'Epoch printed a roster card for each of the 12 J.League clubs of 1994 for Excite Stage ' +
+      "'94. Excite Stage '95 reads each one as an item card. The barcodes were read off the scans " +
+      'barcodebattler.co.uk publishes, and each was read by the game in the MAME emulator.',
+    'official.source.excite95': 'Club roster cards:',
+    'official.note.excite94':
+      'Epoch printed a roster card for each of the 12 J.League clubs of 1994 for this game. ' +
+      'Each reads as an item card. The barcodes were read off the scans barcodebattler.co.uk ' +
+      'publishes, and each was read by the game in the MAME emulator.',
+    'official.source.excite94': 'Club roster cards:',
+    'official.note.battlerush':
+      'No list of the cards Bandai printed for Battle Rush is known. Each robot made here ' +
+      'prints as two cards, scanned in order at the Robo Factory.',
+    'official.note.hatayama':
+      'Hatayama Hatch came with cards for 12 real teams and 2 of its own, and nobody has ' +
+      'published their barcodes.',
     'official.note.effects':
-      'This game came with no cards. Every barcode is scanned on its password screen, and ' +
-      'each code made here was seen setting off its effect in the MAME emulator.',
+      'This game came with no cards. Each code made here names the screen to scan it on, and ' +
+      'was seen setting off its effect there in the MAME emulator.',
     'official.skipped': 'Cards left out',
     'official.skipped.hint':
       'The wikiwiki.jp page has a typo in these five. The last digit of a barcode is a ' +
@@ -413,6 +437,14 @@ const MESSAGES = {
     'device.summary.donald': 'エポックしゃ、1995ねん。パスワード がめんの コードで ステージと エンディング。',
     'device.summary.spiderman': 'エポックしゃ、1995ねん。パスワード がめんの コードで うらわざ。',
     'device.summary.alice': 'エポックしゃ、1995ねん。パスワード がめんの コードで おはなしの とちゅうから。',
+    'device.summary.doraemon2': 'エポックしゃ、1993ねん。コードで うらわざや ひみつどうぐ。',
+    'device.summary.doraemon3': 'エポックしゃ、1994ねん。コードで うらわざや ぶき、アイテム。',
+    'device.summary.yousei': 'エポックしゃ、1993ねん。コードで うらわざや どうぐ。',
+    'device.summary.excite95': 'エポックしゃ、1995ねん。しあいで せんしゅの のうりょくを あげる アイテム カード。',
+    'device.summary.dslayer2': 'エポックしゃ、1993ねん。コードで うらわざや フィールドの アイテム。',
+    'device.summary.hatayama': 'エポックしゃ、1993ねん。たいりょく、こうげき、ぼうぎょ、まほうの バトラー。',
+    'device.summary.excite94': 'エポックしゃ、1994ねん。240にんの かくし せんしゅと しあいの アイテム カード。',
+    'device.summary.battlerush': 'バンダイ、1993ねん。じゅんに よませる 2まいの カードで つくる ロボット。',
     'device.games': 'ゲーム',
     'device.hint':
       'どの タブも かくしコマンドも、ここで えらんだ ものの カードを つくり、その よみかたで バーコードを よみます。' +
@@ -504,9 +536,26 @@ const MESSAGES = {
       'まっしろな カード 2まいです。その バーコードは だれも こうかいしていないので、いんさつできる ' +
       'シリーズは ありません。ここで つくる カードは、MAME で たしかめた とおりに ゲームが よみます。',
     'official.source.senki': 'バーコードバトラー戦記 の はこの なかみ:',
+    'official.note.excite95':
+      "エポックしゃは エキサイトステージ'94 の ために、1994ねんの Jリーグ 12クラブの " +
+      "とうろく せんしゅ リストの カードを つくりました。エキサイトステージ'95 は それぞれを " +
+      'アイテム カードとして よみます。バーコードは barcodebattler.co.uk の スキャンから よみとり、' +
+      '1まいずつ MAME で ゲームに よませました。',
+    'official.source.excite95': 'クラブの カード:',
+    'official.note.excite94':
+      'エポックしゃは この ゲームの ために、1994ねんの Jリーグ 12クラブの とうろく せんしゅ ' +
+      'リストの カードを つくりました。どれも アイテム カードとして よまれます。バーコードは ' +
+      'barcodebattler.co.uk の スキャンから よみとり、1まいずつ MAME で ゲームに よませました。',
+    'official.source.excite94': 'クラブの カード:',
+    'official.note.battlerush':
+      'バンダイが バトルラッシュ に つけた カードの いちらんは しられていません。ここで つくる ' +
+      'ロボットは 2まいの カードに なり、ロボ こうじょうで じゅんに よませます。',
+    'official.note.hatayama':
+      'はた山ハッチの パロ野球ニュース には じっさいの 12チームと オリジナルの 2チームの ' +
+      'カードが ついていましたが、その バーコードは だれも こうかいしていません。',
     'official.note.effects':
-      'この ゲームには カードが ついていません。バーコードは パスワード がめんで よませます。' +
-      'ここで つくる コードは、MAME で こうかが でることを たしかめました。',
+      'この ゲームには カードが ついていません。ここで つくる コードには よませる がめんが ' +
+      'かいてあり、MAME で そこで こうかが でることを たしかめました。',
     'official.skipped': 'のぞいた カード',
     'official.skipped.hint':
       'wikiwiki.jp の ページで この 5まいは うちまちがいが あります。バーコードの さいごの けたは ' +

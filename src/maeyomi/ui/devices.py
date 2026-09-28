@@ -27,6 +27,8 @@ from maeyomi.datach.ultraman import HUNDRED, STRONGEST_HUNDREDS
 from maeyomi.decoder.back_read import fighter_limits
 from maeyomi.double.solve import MAX_VALUE as DOUBLE_MAX
 from maeyomi.games.barcode_world import TOP_HP, TOP_STAT
+from maeyomi.games.hatayama import TOP_STAMINA
+from maeyomi.games.hatayama import TOP_STAT as HATAYAMA_TOP_STAT
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import CardResult
 from maeyomi.rendering.face import face_of
@@ -58,6 +60,8 @@ GUNDAM_STEP: Final = 10
 YUYU_MAX: Final = 9999
 WORLD_MAX_HP: Final = TOP_HP * HUNDRED
 WORLD_MAX_STAT: Final = TOP_STAT * HUNDRED
+HATAYAMA_MAX_HP: Final = TOP_STAMINA * HUNDRED
+HATAYAMA_MAX_STAT: Final = HATAYAMA_TOP_STAT * HUNDRED
 
 
 def _gundam_range(index: int, bonus: tuple[int, ...]) -> Range:
@@ -165,8 +169,30 @@ FORMS: Final[dict[Device, DeviceForm]] = {
     ),
     **{
         device: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=())
-        for device in (Device.LUPIN, Device.DONALD, Device.SPIDERMAN, Device.ALICE)
+        for device in (
+            Device.LUPIN,
+            Device.DONALD,
+            Device.SPIDERMAN,
+            Device.ALICE,
+            Device.DORAEMON2,
+            Device.DORAEMON3,
+            Device.YOUSEI,
+            Device.DSLAYER2,
+        )
     },
+    Device.EXCITE95: DeviceForm(("game", "picks"), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
+    Device.EXCITE94: DeviceForm(("game", "picks"), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
+    Device.DATACH_BATTLE_RUSH: DeviceForm(
+        ("game", "picks"), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()
+    ),
+    Device.HATAYAMA: DeviceForm(
+        ("game", "picks", "stats"),
+        HATAYAMA_MAX_HP,
+        HATAYAMA_MAX_STAT,
+        HATAYAMA_MAX_STAT,
+        stat_keys=("stat.whp", "stat.wst", "stat.wdf"),
+        ranges=((1000, 19900), (100, 9900), (100, 9900)),
+    ),
 }
 
 

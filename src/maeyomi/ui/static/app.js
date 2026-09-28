@@ -242,18 +242,23 @@ async function makeOneCard(event) {
   }
 }
 
+function withCompanion(card) {
+  const { companion, ...first } = card;
+  return companion ? [first, { ...first, barcode: companion }] : [first];
+}
+
 async function downloadOneCard() {
   if (cheatCard) {
     const name = $('name').value.trim() || cheatCard.name;
-    await downloadBarcodes([{ ...cheatCard, name }], 'cheat-card.pdf', 'one-status');
+    await downloadBarcodes(withCompanion({ ...cheatCard, name }), 'cheat-card.pdf', 'one-status');
     return;
   }
   const result = await makeOneCard();
   if (!result) return;
   if (!isSecond()) {
     const name = $('name').value.trim() || 'Card';
-    await downloadBarcodes([{ barcode: result.barcode, name, device: currentDevice() }],
-      'card.pdf', 'one-status');
+    const card = { barcode: result.barcode, name, device: currentDevice(), companion: result.companion };
+    await downloadBarcodes(withCompanion(card), 'card.pdf', 'one-status');
     return;
   }
   const { ok, body, response } = await postJson('/api/sheet', {

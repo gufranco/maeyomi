@@ -1,0 +1,1448 @@
+{
+ "game": "J.League Excite Stage '95",
+ "software": "jlexct95",
+ "rom": {
+  "sha1": "9a4f292114b6fb6deaf6a4f768345e7a7636fb71",
+  "size": 1048576
+ },
+ "emulator": "MAME 0.289, snes with barcode_battler on ctrl2, fed by tools/oracle/drive.lua bbscan",
+ "screen": "Barcode Battler II input screen before an open match; the item kind at $1B8F and its value at $1B90",
+ "recorded_utc": "2026-09-28T17:16:51Z",
+ "cards": [
+  {
+   "barcode": "4720877954522",
+   "generated": false,
+   "club_card": false,
+   "kind": 3,
+   "value": 114
+  },
+  {
+   "barcode": "4268937385676",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 143
+  },
+  {
+   "barcode": "4936484474890",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 124
+  },
+  {
+   "barcode": "4421498612845",
+   "generated": false,
+   "club_card": false,
+   "kind": 1,
+   "value": 72
+  },
+  {
+   "barcode": "4745287234132",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 104
+  },
+  {
+   "barcode": "4824165353612",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 91
+  },
+  {
+   "barcode": "4193944199780",
+   "generated": false,
+   "club_card": false,
+   "kind": 3,
+   "value": 248
+  },
+  {
+   "barcode": "4738822266972",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 176
+  },
+  {
+   "barcode": "4394952515023",
+   "generated": false,
+   "club_card": false,
+   "kind": 3,
+   "value": 127
+  },
+  {
+   "barcode": "4325894271784",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 45
+  },
+  {
+   "barcode": "4454568997535",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 191
+  },
+  {
+   "barcode": "4250151984414",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 111
+  },
+  {
+   "barcode": "4215103275200",
+   "generated": false,
+   "club_card": false,
+   "kind": 3,
+   "value": 132
+  },
+  {
+   "barcode": "4985772135555",
+   "generated": false,
+   "club_card": false,
+   "kind": 1,
+   "value": 140
+  },
+  {
+   "barcode": "4444259391797",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 45
+  },
+  {
+   "barcode": "4944058160292",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 7
+  },
+  {
+   "barcode": "4507904404027",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 102
+  },
+  {
+   "barcode": "4327639341769",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 3
+  },
+  {
+   "barcode": "4350213059804",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 248
+  },
+  {
+   "barcode": "4723435124375",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 110
+  },
+  {
+   "barcode": "4011419907305",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 185
+  },
+  {
+   "barcode": "4993866453768",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 2
+  },
+  {
+   "barcode": "4608748342947",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 74
+  },
+  {
+   "barcode": "4447736929681",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 245
+  },
+  {
+   "barcode": "4617238765524",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 140
+  },
+  {
+   "barcode": "4875415231488",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 4
+  },
+  {
+   "barcode": "4386685367307",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 185
+  },
+  {
+   "barcode": "4606584295106",
+   "generated": false,
+   "club_card": false,
+   "kind": 1,
+   "value": 129
+  },
+  {
+   "barcode": "4836787812972",
+   "generated": false,
+   "club_card": false,
+   "kind": 1,
+   "value": 75
+  },
+  {
+   "barcode": "4894998848081",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 205
+  },
+  {
+   "barcode": "4983408161954",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 49
+  },
+  {
+   "barcode": "4344930427367",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 186
+  },
+  {
+   "barcode": "4229894603043",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 77
+  },
+  {
+   "barcode": "4566591942922",
+   "generated": false,
+   "club_card": false,
+   "kind": 2,
+   "value": 74
+  },
+  {
+   "barcode": "4129055384845",
+   "generated": false,
+   "club_card": false,
+   "kind": 2,
+   "value": 122
+  },
+  {
+   "barcode": "4215830467480",
+   "generated": false,
+   "club_card": false,
+   "kind": 2,
+   "value": 189
+  },
+  {
+   "barcode": "4573959455369",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 2
+  },
+  {
+   "barcode": "4398779208328",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 1
+  },
+  {
+   "barcode": "4064089940387",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 9
+  },
+  {
+   "barcode": "4882088881209",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 1
+  },
+  {
+   "barcode": "4837120371613",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 40
+  },
+  {
+   "barcode": "4786095791936",
+   "generated": false,
+   "club_card": false,
+   "kind": 3,
+   "value": 49
+  },
+  {
+   "barcode": "4312013356583",
+   "generated": false,
+   "club_card": false,
+   "kind": 3,
+   "value": 167
+  },
+  {
+   "barcode": "4712228773890",
+   "generated": false,
+   "club_card": false,
+   "kind": 1,
+   "value": 98
+  },
+  {
+   "barcode": "4322591289814",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 249
+  },
+  {
+   "barcode": "4470424658259",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 2
+  },
+  {
+   "barcode": "4234802353583",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 90
+  },
+  {
+   "barcode": "4051052317758",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 4
+  },
+  {
+   "barcode": "4707104187441",
+   "generated": false,
+   "club_card": false,
+   "kind": 2,
+   "value": 188
+  },
+  {
+   "barcode": "4207126425748",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 3
+  },
+  {
+   "barcode": "4718263431757",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 44
+  },
+  {
+   "barcode": "4906450280299",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 1
+  },
+  {
+   "barcode": "4062137825259",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 3
+  },
+  {
+   "barcode": "4878306392602",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 66
+  },
+  {
+   "barcode": "4484624668604",
+   "generated": false,
+   "club_card": false,
+   "kind": 2,
+   "value": 218
+  },
+  {
+   "barcode": "4268929199083",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 230
+  },
+  {
+   "barcode": "4876726211169",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 2
+  },
+  {
+   "barcode": "4177433919394",
+   "generated": false,
+   "club_card": false,
+   "kind": 3,
+   "value": 238
+  },
+  {
+   "barcode": "4521868610379",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 2
+  },
+  {
+   "barcode": "4537515516420",
+   "generated": false,
+   "club_card": false,
+   "kind": 3,
+   "value": 163
+  },
+  {
+   "barcode": "4206392861304",
+   "generated": false,
+   "club_card": false,
+   "kind": 2,
+   "value": 33
+  },
+  {
+   "barcode": "4204227159312",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 236
+  },
+  {
+   "barcode": "4648115948723",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 221
+  },
+  {
+   "barcode": "4362423323835",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 97
+  },
+  {
+   "barcode": "4015209848397",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 213
+  },
+  {
+   "barcode": "4035552304210",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 106
+  },
+  {
+   "barcode": "4309937417186",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 182
+  },
+  {
+   "barcode": "4880244530084",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 2
+  },
+  {
+   "barcode": "4989804073631",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 92
+  },
+  {
+   "barcode": "4712888257280",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 184
+  },
+  {
+   "barcode": "4581356490258",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 2
+  },
+  {
+   "barcode": "4958914893019",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 2
+  },
+  {
+   "barcode": "4080353905104",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 129
+  },
+  {
+   "barcode": "4334214126482",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 164
+  },
+  {
+   "barcode": "4141948918838",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 4
+  },
+  {
+   "barcode": "4610291727614",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 193
+  },
+  {
+   "barcode": "4965729034469",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 4
+  },
+  {
+   "barcode": "4718975857111",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 180
+  },
+  {
+   "barcode": "4925951906262",
+   "generated": false,
+   "club_card": false,
+   "kind": 2,
+   "value": 158
+  },
+  {
+   "barcode": "4154787149721",
+   "generated": false,
+   "club_card": false,
+   "kind": 2,
+   "value": 246
+  },
+  {
+   "barcode": "4465176966721",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 170
+  },
+  {
+   "barcode": "4421923055919",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 2
+  },
+  {
+   "barcode": "4403476194796",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 121
+  },
+  {
+   "barcode": "4016691343261",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 82
+  },
+  {
+   "barcode": "4711117050043",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 1
+  },
+  {
+   "barcode": "4807599773744",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 94
+  },
+  {
+   "barcode": "4581461830468",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 4
+  },
+  {
+   "barcode": "4333377079260",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 235
+  },
+  {
+   "barcode": "4291580466553",
+   "generated": false,
+   "club_card": false,
+   "kind": 2,
+   "value": 166
+  },
+  {
+   "barcode": "4482886350138",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 4
+  },
+  {
+   "barcode": "4648725672988",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 4
+  },
+  {
+   "barcode": "4208810915583",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 141
+  },
+  {
+   "barcode": "4933520967002",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 177
+  },
+  {
+   "barcode": "4656772111589",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 4
+  },
+  {
+   "barcode": "4050962553515",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 89
+  },
+  {
+   "barcode": "4088952079851",
+   "generated": false,
+   "club_card": false,
+   "kind": 3,
+   "value": 250
+  },
+  {
+   "barcode": "4518395656864",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 174
+  },
+  {
+   "barcode": "4137433922978",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 1
+  },
+  {
+   "barcode": "4237729218379",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 2
+  },
+  {
+   "barcode": "4493988414949",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 2
+  },
+  {
+   "barcode": "4010990085181",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 131
+  },
+  {
+   "barcode": "4008579891506",
+   "generated": false,
+   "club_card": false,
+   "kind": 1,
+   "value": 38
+  },
+  {
+   "barcode": "4370766949698",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 3
+  },
+  {
+   "barcode": "4107984391462",
+   "generated": false,
+   "club_card": false,
+   "kind": 3,
+   "value": 37
+  },
+  {
+   "barcode": "4039688568393",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 213
+  },
+  {
+   "barcode": "4850677429460",
+   "generated": false,
+   "club_card": false,
+   "kind": 2,
+   "value": 240
+  },
+  {
+   "barcode": "4356756924852",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 123
+  },
+  {
+   "barcode": "4613843531400",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 35
+  },
+  {
+   "barcode": "4193546056900",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 175
+  },
+  {
+   "barcode": "4379989676770",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 171
+  },
+  {
+   "barcode": "4566930359688",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 4
+  },
+  {
+   "barcode": "4474295030060",
+   "generated": false,
+   "club_card": false,
+   "kind": 3,
+   "value": 1
+  },
+  {
+   "barcode": "4801848773417",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 86
+  },
+  {
+   "barcode": "4213793582233",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 56
+  },
+  {
+   "barcode": "4769487611012",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 25
+  },
+  {
+   "barcode": "4415375334760",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 120
+  },
+  {
+   "barcode": "4005874873770",
+   "generated": false,
+   "club_card": false,
+   "kind": 3,
+   "value": 95
+  },
+  {
+   "barcode": "4059312565673",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 143
+  },
+  {
+   "barcode": "4362049453497",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 88
+  },
+  {
+   "barcode": "4728715675912",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 150
+  },
+  {
+   "barcode": "08632579",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 4
+  },
+  {
+   "barcode": "36634576",
+   "generated": false,
+   "club_card": false,
+   "kind": 3,
+   "value": 116
+  },
+  {
+   "barcode": "09792579",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 4
+  },
+  {
+   "barcode": "74850556",
+   "generated": false,
+   "club_card": false,
+   "kind": 1,
+   "value": 13
+  },
+  {
+   "barcode": "83845345",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 135
+  },
+  {
+   "barcode": "64998763",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 222
+  },
+  {
+   "barcode": "01294583",
+   "generated": false,
+   "club_card": false,
+   "kind": 1,
+   "value": 116
+  },
+  {
+   "barcode": "75541729",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 3
+  },
+  {
+   "barcode": "53888457",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 214
+  },
+  {
+   "barcode": "51702229",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 3
+  },
+  {
+   "barcode": "80423195",
+   "generated": false,
+   "club_card": false,
+   "kind": 2,
+   "value": 80
+  },
+  {
+   "barcode": "06988494",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 215
+  },
+  {
+   "barcode": "26995250",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 133
+  },
+  {
+   "barcode": "54380967",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 24
+  },
+  {
+   "barcode": "76174452",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 112
+  },
+  {
+   "barcode": "14798627",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 218
+  },
+  {
+   "barcode": "40097855",
+   "generated": false,
+   "club_card": false,
+   "kind": 1,
+   "value": 199
+  },
+  {
+   "barcode": "41768709",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 1
+  },
+  {
+   "barcode": "81137947",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 201
+  },
+  {
+   "barcode": "88319704",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 246
+  },
+  {
+   "barcode": "76173929",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 2
+  },
+  {
+   "barcode": "38752469",
+   "generated": false,
+   "club_card": false,
+   "kind": 5,
+   "value": 4
+  },
+  {
+   "barcode": "56066173",
+   "generated": false,
+   "club_card": false,
+   "kind": 2,
+   "value": 156
+  },
+  {
+   "barcode": "86895385",
+   "generated": false,
+   "club_card": false,
+   "kind": 1,
+   "value": 136
+  },
+  {
+   "barcode": "46939227",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 234
+  },
+  {
+   "barcode": "69067303",
+   "generated": false,
+   "club_card": false,
+   "kind": 2,
+   "value": 185
+  },
+  {
+   "barcode": "97689614",
+   "generated": false,
+   "club_card": false,
+   "kind": 0,
+   "value": 244
+  },
+  {
+   "barcode": "10108673",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 220
+  },
+  {
+   "barcode": "25369519",
+   "generated": false,
+   "club_card": false,
+   "kind": 6,
+   "value": 1
+  },
+  {
+   "barcode": "13586492",
+   "generated": false,
+   "club_card": false,
+   "kind": 4,
+   "value": 164
+  },
+  {
+   "barcode": "0000000034111",
+   "generated": false,
+   "club_card": true,
+   "kind": 3,
+   "value": 104
+  },
+  {
+   "barcode": "0000000014113",
+   "generated": false,
+   "club_card": true,
+   "kind": 1,
+   "value": 104
+  },
+  {
+   "barcode": "0000000102711",
+   "generated": false,
+   "club_card": true,
+   "kind": 4,
+   "value": 68
+  },
+  {
+   "barcode": "0000700114113",
+   "generated": false,
+   "club_card": true,
+   "kind": 4,
+   "value": 104
+  },
+  {
+   "barcode": "0000000291040",
+   "generated": false,
+   "club_card": true,
+   "kind": 1,
+   "value": 26
+  },
+  {
+   "barcode": "0000000024112",
+   "generated": false,
+   "club_card": true,
+   "kind": 2,
+   "value": 104
+  },
+  {
+   "barcode": "0000000261401",
+   "generated": false,
+   "club_card": true,
+   "kind": 2,
+   "value": 35
+  },
+  {
+   "barcode": "0003000054110",
+   "generated": false,
+   "club_card": true,
+   "kind": 1,
+   "value": 104
+  },
+  {
+   "barcode": "0007000004113",
+   "generated": false,
+   "club_card": true,
+   "kind": 0,
+   "value": 104
+  },
+  {
+   "barcode": "0000000823531",
+   "generated": false,
+   "club_card": true,
+   "kind": 2,
+   "value": 89
+  },
+  {
+   "barcode": "0000000391443",
+   "generated": false,
+   "club_card": true,
+   "kind": 4,
+   "value": 36
+  },
+  {
+   "barcode": "0000000632171",
+   "generated": false,
+   "club_card": true,
+   "kind": 3,
+   "value": 55
+  },
+  {
+   "barcode": "4000000000006",
+   "generated": true,
+   "club_card": false,
+   "kind": 0,
+   "value": 0
+  },
+  {
+   "barcode": "4000000000044",
+   "generated": true,
+   "club_card": false,
+   "kind": 0,
+   "value": 1
+  },
+  {
+   "barcode": "4000000002536",
+   "generated": true,
+   "club_card": false,
+   "kind": 0,
+   "value": 64
+  },
+  {
+   "barcode": "4000100005017",
+   "generated": true,
+   "club_card": false,
+   "kind": 0,
+   "value": 127
+  },
+  {
+   "barcode": "4000000007883",
+   "generated": true,
+   "club_card": false,
+   "kind": 0,
+   "value": 200
+  },
+  {
+   "barcode": "4000000009931",
+   "generated": true,
+   "club_card": false,
+   "kind": 0,
+   "value": 252
+  },
+  {
+   "barcode": "4000200009977",
+   "generated": true,
+   "club_card": false,
+   "kind": 0,
+   "value": 253
+  },
+  {
+   "barcode": "4000000010005",
+   "generated": true,
+   "club_card": false,
+   "kind": 1,
+   "value": 0
+  },
+  {
+   "barcode": "4000000010043",
+   "generated": true,
+   "club_card": false,
+   "kind": 1,
+   "value": 1
+  },
+  {
+   "barcode": "4000000012535",
+   "generated": true,
+   "club_card": false,
+   "kind": 1,
+   "value": 64
+  },
+  {
+   "barcode": "4000000015017",
+   "generated": true,
+   "club_card": false,
+   "kind": 1,
+   "value": 127
+  },
+  {
+   "barcode": "4000000017882",
+   "generated": true,
+   "club_card": false,
+   "kind": 1,
+   "value": 200
+  },
+  {
+   "barcode": "4000000019930",
+   "generated": true,
+   "club_card": false,
+   "kind": 1,
+   "value": 252
+  },
+  {
+   "barcode": "4000100019977",
+   "generated": true,
+   "club_card": false,
+   "kind": 1,
+   "value": 253
+  },
+  {
+   "barcode": "4000000020004",
+   "generated": true,
+   "club_card": false,
+   "kind": 2,
+   "value": 0
+  },
+  {
+   "barcode": "4000000020042",
+   "generated": true,
+   "club_card": false,
+   "kind": 2,
+   "value": 1
+  },
+  {
+   "barcode": "4000000022534",
+   "generated": true,
+   "club_card": false,
+   "kind": 2,
+   "value": 64
+  },
+  {
+   "barcode": "4000000025016",
+   "generated": true,
+   "club_card": false,
+   "kind": 2,
+   "value": 127
+  },
+  {
+   "barcode": "4000000027881",
+   "generated": true,
+   "club_card": false,
+   "kind": 2,
+   "value": 200
+  },
+  {
+   "barcode": "4000200029937",
+   "generated": true,
+   "club_card": false,
+   "kind": 2,
+   "value": 252
+  },
+  {
+   "barcode": "4000000029977",
+   "generated": true,
+   "club_card": false,
+   "kind": 2,
+   "value": 253
+  },
+  {
+   "barcode": "4000000030003",
+   "generated": true,
+   "club_card": false,
+   "kind": 3,
+   "value": 0
+  },
+  {
+   "barcode": "4000000030041",
+   "generated": true,
+   "club_card": false,
+   "kind": 3,
+   "value": 1
+  },
+  {
+   "barcode": "4000000032533",
+   "generated": true,
+   "club_card": false,
+   "kind": 3,
+   "value": 64
+  },
+  {
+   "barcode": "4000000035015",
+   "generated": true,
+   "club_card": false,
+   "kind": 3,
+   "value": 127
+  },
+  {
+   "barcode": "4000000037880",
+   "generated": true,
+   "club_card": false,
+   "kind": 3,
+   "value": 200
+  },
+  {
+   "barcode": "4000100039937",
+   "generated": true,
+   "club_card": false,
+   "kind": 3,
+   "value": 252
+  },
+  {
+   "barcode": "4000000039976",
+   "generated": true,
+   "club_card": false,
+   "kind": 3,
+   "value": 253
+  },
+  {
+   "barcode": "4100000000003",
+   "generated": true,
+   "club_card": false,
+   "kind": 4,
+   "value": 0
+  },
+  {
+   "barcode": "4100000000041",
+   "generated": true,
+   "club_card": false,
+   "kind": 4,
+   "value": 1
+  },
+  {
+   "barcode": "4100000002533",
+   "generated": true,
+   "club_card": false,
+   "kind": 4,
+   "value": 64
+  },
+  {
+   "barcode": "4100000005015",
+   "generated": true,
+   "club_card": false,
+   "kind": 4,
+   "value": 127
+  },
+  {
+   "barcode": "4100000007880",
+   "generated": true,
+   "club_card": false,
+   "kind": 4,
+   "value": 200
+  },
+  {
+   "barcode": "4100100009937",
+   "generated": true,
+   "club_card": false,
+   "kind": 4,
+   "value": 252
+  },
+  {
+   "barcode": "4100000009976",
+   "generated": true,
+   "club_card": false,
+   "kind": 4,
+   "value": 253
+  },
+  {
+   "barcode": "4000700000009",
+   "generated": true,
+   "club_card": false,
+   "kind": 5,
+   "value": 1
+  },
+  {
+   "barcode": "4000600010009",
+   "generated": true,
+   "club_card": false,
+   "kind": 5,
+   "value": 2
+  },
+  {
+   "barcode": "4000500020009",
+   "generated": true,
+   "club_card": false,
+   "kind": 5,
+   "value": 3
+  },
+  {
+   "barcode": "4000400030009",
+   "generated": true,
+   "club_card": false,
+   "kind": 5,
+   "value": 4
+  },
+  {
+   "barcode": "4000400000019",
+   "generated": true,
+   "club_card": false,
+   "kind": 6,
+   "value": 1
+  },
+  {
+   "barcode": "4000300010019",
+   "generated": true,
+   "club_card": false,
+   "kind": 6,
+   "value": 2
+  },
+  {
+   "barcode": "4000200020019",
+   "generated": true,
+   "club_card": false,
+   "kind": 6,
+   "value": 3
+  },
+  {
+   "barcode": "4000100030019",
+   "generated": true,
+   "club_card": false,
+   "kind": 6,
+   "value": 4
+  }
+ ]
+}

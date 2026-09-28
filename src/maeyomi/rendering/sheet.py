@@ -5,12 +5,16 @@ there is one renderer, one geometry and one thing to verify.
 """
 
 from collections.abc import Sequence
+from dataclasses import replace
 from pathlib import Path
+from typing import Final
 
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
 from maeyomi.barcode.geometry import BarcodeGeometry
+from maeyomi.datach.game_card import DatachCard
+from maeyomi.models.device import Device
 from maeyomi.models.generated_card import AnyCard
 from maeyomi.rendering.calibration import draw_calibration
 from maeyomi.rendering.card import CardStyle, draw_card
@@ -18,6 +22,9 @@ from maeyomi.rendering.document import describe
 from maeyomi.rendering.layout import CUT_MARK_LENGTH_MM, SheetLayout
 
 CUT_MARK_LINE_WIDTH = 0.25
+
+MARKED_CHECK: Final = frozenset({Device.DATACH_BATTLE_RUSH})
+"""Games whose cards carry a thirteenth digit that is not the EAN check digit."""
 
 
 def write_sheet(
@@ -82,7 +89,7 @@ def _draw_page(
             y_mm=y_mm,
             width_mm=layout.card_width_mm,
             height_mm=layout.card_height_mm,
-            geometry=geometry,
+            geometry=_geometry_for(card, geometry),
             style=style,
             bleed_mm=layout.bleed_mm,
         )
@@ -95,6 +102,12 @@ def _draw_page(
             page_height_mm=layout.page_height_mm,
             symbol_width_mm=geometry.total_width_mm(13),
         )
+
+
+def _geometry_for(card: AnyCard, geometry: BarcodeGeometry) -> BarcodeGeometry:
+    """The sheet's geometry, keeping the check digit of a card whose game wants it wrong."""
+    marked = isinstance(card.character, DatachCard) and card.character.game in MARKED_CHECK
+    return replace(geometry, kept_check=True) if marked else geometry
 
 
 def _draw_cut_marks(canvas: Canvas, layout: SheetLayout) -> None:

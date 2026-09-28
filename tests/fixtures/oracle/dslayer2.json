@@ -1,0 +1,3246 @@
+{
+ "game": "Dragon Slayer: Eiyuu Densetsu II",
+ "software": "dslayed2",
+ "rom": {
+  "sha1": "680539d0a7699adcf06eb0b1ba541603d3aa02e9",
+  "size": 1572864
+ },
+ "emulator": "MAME 0.289 under its debugger, snes with barcode_battler on ctrl2, fed by tools/oracle/drive.lua bbscan",
+ "screen": "screen 0 is the title menu, screen 1 the field menu; each code lists the branches of $C1:E43F it took",
+ "recorded_utc": "2026-09-28T17:25:54Z",
+ "cards": [
+  {
+   "barcode": "4794701255260",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4956444703839",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4121053748810",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4627760551069",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4537048854792",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4318609786055",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4729929525673",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4522683945844",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4057715461196",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4384008685145",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4879567886770",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4623986686004",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4525945302973",
+   "screen": 0,
+   "effect": 7,
+   "hits": [
+    "BOOST 20"
+   ]
+  },
+  {
+   "barcode": "4877426327877",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4622858236859",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4351927726976",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4972750610524",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4598550627335",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4312747597641",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4403226176454",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4637042707312",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4883708450416",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4951824715266",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4431743919261",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4898124997346",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4035193635704",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4885344627061",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4646585185594",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4219503683191",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4627608693531",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4344809909499",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4366382003524",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4354843655047",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4553742776543",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4387142228308",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4024068024170",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4791289630885",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4642430875634",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4326903643158",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4363346476851",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4468928865051",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4857939698572",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4516281170005",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4128128378729",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4436038110613",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4934011206037",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4017773728815",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4491374447205",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4842910763851",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4807147866836",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4592198827980",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4188917289193",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4227256425050",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4724927664355",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4917981897221",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4805768083465",
+   "screen": 0,
+   "effect": 10,
+   "hits": [
+    "SOUND 30"
+   ]
+  },
+  {
+   "barcode": "4065551933906",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4956840893783",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4034330301007",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4771772275885",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4142111777504",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4081430142450",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4421429082433",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4174332259378",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4453583666723",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4671475090030",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4144930724462",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4997893933545",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4523972340203",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4399424857755",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4801721620487",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4794719824632",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4224660262417",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4564270888202",
+   "screen": 0,
+   "effect": 3,
+   "hits": [
+    "BOOST 02"
+   ]
+  },
+  {
+   "barcode": "4531306767497",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4170261566747",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4716839338547",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4502255399145",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4223009155731",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4569503158626",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4454061280608",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4334703333278",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4285017587850",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4087215895252",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4806856861170",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4016578566264",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4904086470992",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4795701697098",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4603614739401",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4718606226361",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4612258124023",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4786865262727",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4209298685050",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4468806822343",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4381772081050",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4050434962616",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4360947385919",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4653095668851",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4988022424294",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4748809308595",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4773129419690",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4196236820966",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4572697420738",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4420028453903",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4827122722193",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4229899959305",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4779871711037",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4518345881032",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4665843169947",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4706250612081",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "22333742",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "92005051",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "00802864",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "64731971",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "88560182",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "41143179",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "35511830",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "62109307",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "04851813",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "83856884",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "18249828",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "07872266",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "50860357",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "29638031",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "68603748",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "66953715",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "50736096",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "81231683",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "68902384",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "76684340",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "12098316",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "21097232",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "50446469",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "35643739",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "61884083",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0401209245504",
+   "screen": 0,
+   "effect": 9,
+   "hits": [
+    "BOOST 0f"
+   ]
+  },
+  {
+   "barcode": "0381110246503",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0391012275501",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0350909477503",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000400640042",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000000903141",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000000906258",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000005840120",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000010840320",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0130000903053",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000500970384",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000005980154",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0501314355706",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0421211003756",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0680111374254",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0621517145802",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0721920275766",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0701720454653",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0852121445655",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0742010016700",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "1352418245719",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0992222475813",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "1053234056663",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "1172729215771",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0772228077125",
+   "screen": 0,
+   "effect": 10,
+   "hits": [
+    "SOUND 30"
+   ]
+  },
+  {
+   "barcode": "0994444275820",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "1705050159775",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "1814050044667",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "2596167495837",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "1995253171722",
+   "screen": 0,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4949420968001",
+   "screen": 0,
+   "effect": 1,
+   "hits": [
+    "ENDING 30"
+   ]
+  },
+  {
+   "barcode": "4939876995102",
+   "screen": 0,
+   "effect": 2,
+   "hits": [
+    "BOOST 01"
+   ]
+  },
+  {
+   "barcode": "4966192164202",
+   "screen": 0,
+   "effect": 3,
+   "hits": [
+    "BOOST 02"
+   ]
+  },
+  {
+   "barcode": "4949318243302",
+   "screen": 0,
+   "effect": 4,
+   "hits": [
+    "BOOST 04"
+   ]
+  },
+  {
+   "barcode": "4951430848402",
+   "screen": 0,
+   "effect": 5,
+   "hits": [
+    "BOOST 08"
+   ]
+  },
+  {
+   "barcode": "4915079061363",
+   "screen": 0,
+   "effect": 6,
+   "hits": [
+    "BOOST 10"
+   ]
+  },
+  {
+   "barcode": "4945210092383",
+   "screen": 0,
+   "effect": 7,
+   "hits": [
+    "BOOST 20"
+   ]
+  },
+  {
+   "barcode": "4989564891544",
+   "screen": 0,
+   "effect": 8,
+   "hits": [
+    "MONSTERS 39"
+   ]
+  },
+  {
+   "barcode": "4900000040104",
+   "screen": 0,
+   "effect": 9,
+   "hits": [
+    "BOOST 0f"
+   ]
+  },
+  {
+   "barcode": "4945069037115",
+   "screen": 0,
+   "effect": 10,
+   "hits": [
+    "SOUND 30"
+   ]
+  },
+  {
+   "barcode": "4836394398654",
+   "screen": 0,
+   "effect": 8,
+   "hits": [
+    "MONSTERS 39"
+   ]
+  },
+  {
+   "barcode": "4905644821973",
+   "screen": 0,
+   "effect": 6,
+   "hits": [
+    "BOOST 10"
+   ]
+  },
+  {
+   "barcode": "4075025035005",
+   "screen": 0,
+   "effect": 10,
+   "hits": [
+    "SOUND 30"
+   ]
+  },
+  {
+   "barcode": "4560975846202",
+   "screen": 0,
+   "effect": 3,
+   "hits": [
+    "BOOST 02"
+   ]
+  },
+  {
+   "barcode": "4325758893534",
+   "screen": 0,
+   "effect": 8,
+   "hits": [
+    "MONSTERS 39"
+   ]
+  },
+  {
+   "barcode": "4961404059895",
+   "screen": 0,
+   "effect": 10,
+   "hits": [
+    "SOUND 30"
+   ]
+  },
+  {
+   "barcode": "4578251908001",
+   "screen": 0,
+   "effect": 1,
+   "hits": [
+    "ENDING 30"
+   ]
+  },
+  {
+   "barcode": "4962950074745",
+   "screen": 0,
+   "effect": 10,
+   "hits": [
+    "SOUND 30"
+   ]
+  },
+  {
+   "barcode": "4680784464302",
+   "screen": 0,
+   "effect": 4,
+   "hits": [
+    "BOOST 04"
+   ]
+  },
+  {
+   "barcode": "4515242092202",
+   "screen": 0,
+   "effect": 3,
+   "hits": [
+    "BOOST 02"
+   ]
+  },
+  {
+   "barcode": "4415226892364",
+   "screen": 0,
+   "effect": 8,
+   "hits": [
+    "MONSTERS 39"
+   ]
+  },
+  {
+   "barcode": "4542157089102",
+   "screen": 0,
+   "effect": 2,
+   "hits": [
+    "BOOST 01"
+   ]
+  },
+  {
+   "barcode": "4756543862402",
+   "screen": 0,
+   "effect": 5,
+   "hits": [
+    "BOOST 08"
+   ]
+  },
+  {
+   "barcode": "4225226341683",
+   "screen": 0,
+   "effect": 6,
+   "hits": [
+    "BOOST 10"
+   ]
+  },
+  {
+   "barcode": "4458317476302",
+   "screen": 0,
+   "effect": 4,
+   "hits": [
+    "BOOST 04"
+   ]
+  },
+  {
+   "barcode": "4175918041103",
+   "screen": 0,
+   "effect": 6,
+   "hits": [
+    "BOOST 10"
+   ]
+  },
+  {
+   "barcode": "4162749666001",
+   "screen": 0,
+   "effect": 1,
+   "hits": [
+    "ENDING 30"
+   ]
+  },
+  {
+   "barcode": "4196475545804",
+   "screen": 0,
+   "effect": 9,
+   "hits": [
+    "BOOST 0f"
+   ]
+  },
+  {
+   "barcode": "4253499023302",
+   "screen": 0,
+   "effect": 4,
+   "hits": [
+    "BOOST 04"
+   ]
+  },
+  {
+   "barcode": "4269975552402",
+   "screen": 0,
+   "effect": 5,
+   "hits": [
+    "BOOST 08"
+   ]
+  },
+  {
+   "barcode": "4582128784001",
+   "screen": 0,
+   "effect": 1,
+   "hits": [
+    "ENDING 30"
+   ]
+  },
+  {
+   "barcode": "4348990688102",
+   "screen": 0,
+   "effect": 2,
+   "hits": [
+    "BOOST 01"
+   ]
+  },
+  {
+   "barcode": "4712653796402",
+   "screen": 0,
+   "effect": 5,
+   "hits": [
+    "BOOST 08"
+   ]
+  },
+  {
+   "barcode": "4925611542823",
+   "screen": 0,
+   "effect": 7,
+   "hits": [
+    "BOOST 20"
+   ]
+  },
+  {
+   "barcode": "4456288868102",
+   "screen": 0,
+   "effect": 2,
+   "hits": [
+    "BOOST 01"
+   ]
+  },
+  {
+   "barcode": "4623330246304",
+   "screen": 0,
+   "effect": 9,
+   "hits": [
+    "BOOST 0f"
+   ]
+  },
+  {
+   "barcode": "4154722141704",
+   "screen": 0,
+   "effect": 9,
+   "hits": [
+    "BOOST 0f"
+   ]
+  },
+  {
+   "barcode": "4995929912823",
+   "screen": 0,
+   "effect": 7,
+   "hits": [
+    "BOOST 20"
+   ]
+  },
+  {
+   "barcode": "4767742254202",
+   "screen": 0,
+   "effect": 3,
+   "hits": [
+    "BOOST 02"
+   ]
+  },
+  {
+   "barcode": "4465995772763",
+   "screen": 0,
+   "effect": 7,
+   "hits": [
+    "BOOST 20"
+   ]
+  },
+  {
+   "barcode": "4944264710076",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4314545223296",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4099926876901",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4824578275471",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4163383274720",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4465095380387",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4297611967211",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4568344000910",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4223132721032",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4138369296980",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4574943814414",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4531898453402",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4962350080377",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4796867596577",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4289028382695",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4514928468737",
+   "screen": 1,
+   "effect": 22,
+   "hits": [
+    "USE 3a"
+   ]
+  },
+  {
+   "barcode": "4164450232322",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4824391747612",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4404478809831",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4429519278841",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4336265662964",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4625316033601",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4973434337973",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4061004593659",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4086107809889",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4338725556639",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4421585694136",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4455515208056",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4348526984210",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4270938135839",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4823761568536",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4827616024581",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4441481006307",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4370823586163",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4606356750505",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4410648507513",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4150870369441",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4525603063666",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4588626958210",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4203555463238",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4354267182983",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4453029051977",
+   "screen": 1,
+   "effect": 22,
+   "hits": [
+    "USE 3a"
+   ]
+  },
+  {
+   "barcode": "4340325691030",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4116932677879",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4177064397127",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4141720899027",
+   "screen": 1,
+   "effect": 22,
+   "hits": [
+    "USE 3a"
+   ]
+  },
+  {
+   "barcode": "4418262645826",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4589717618839",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4785097621968",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4867297417586",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4443739612155",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4510163917771",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4682035432160",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4049925848034",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4148010478498",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4113951013978",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4404491754507",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4776142638802",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4785227748596",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4327623499216",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4995893746080",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4177489421100",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4243509404399",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4135354310140",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4390762904477",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4110044058267",
+   "screen": 1,
+   "effect": 24,
+   "hits": [
+    "USE 33"
+   ]
+  },
+  {
+   "barcode": "4923721203269",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4094484674334",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4530742790519",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4759964719546",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4174168226995",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4179711257440",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4667823934835",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4868272656891",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4395062437953",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4412737601935",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4778298842324",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4193372956306",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4151641301110",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4345238070613",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4785927844994",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4455488654928",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4775519572466",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4384705375721",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4670855583032",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4849854336974",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4540165177422",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4781480140177",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4187951915327",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4664906709809",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4102781449699",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4111534002968",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4524837213014",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4507644792002",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4498393189710",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4673828183321",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4417610635885",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4540972693108",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4046715361681",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4373896176729",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4460830337862",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4206448547398",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4159350557453",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4386404319099",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4913140189978",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "CHAP 30",
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4151812786968",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4982962659815",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4026843813306",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4428209623503",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "4440102439852",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "13446208",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "36498574",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "22533289",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "71595498",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "93743556",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "39397386",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "70205190",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "81040636",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "58236727",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "27049723",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "56550702",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "57547572",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "84442789",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "89650066",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "49944662",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "27256046",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "12835713",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "29854165",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "82297695",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "65727171",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "19019567",
+   "screen": 1,
+   "effect": 21,
+   "hits": [
+    "USE 38"
+   ]
+  },
+  {
+   "barcode": "92161160",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "22486301",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "23512405",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "02175348",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0401209245504",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0381110246503",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0391012275501",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0350909477503",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000400640042",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000000903141",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000000906258",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000005840120",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000010840320",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0130000903053",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000500970384",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0000005980154",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0501314355706",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0421211003756",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0680111374254",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0621517145802",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0721920275766",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0701720454653",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0852121445655",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0742010016700",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "1352418245719",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0992222475813",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "1053234056663",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "1172729215771",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0772228077125",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0994444275820",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "1705050159775",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "1814050044667",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "2596167495837",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "1995253171722",
+   "screen": 1,
+   "effect": null,
+   "hits": [
+    "EXIT ff"
+   ]
+  },
+  {
+   "barcode": "0384388169994",
+   "screen": 1,
+   "effect": 20,
+   "hits": [
+    "WARP 39"
+   ]
+  },
+  {
+   "barcode": "4956310970747",
+   "screen": 1,
+   "effect": 21,
+   "hits": [
+    "USE 38"
+   ]
+  },
+  {
+   "barcode": "4946327948617",
+   "screen": 1,
+   "effect": 22,
+   "hits": [
+    "USE 3a"
+   ]
+  },
+  {
+   "barcode": "4931730936597",
+   "screen": 1,
+   "effect": 23,
+   "hits": [
+    "USE 40"
+   ]
+  },
+  {
+   "barcode": "4910246357287",
+   "screen": 1,
+   "effect": 24,
+   "hits": [
+    "USE 33"
+   ]
+  },
+  {
+   "barcode": "0384388160014",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM 01"
+   ]
+  },
+  {
+   "barcode": "0384388160168",
+   "screen": 1,
+   "effect": 31,
+   "hits": [
+    "ITEM 10"
+   ]
+  },
+  {
+   "barcode": "0384388161394",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM 8b"
+   ]
+  },
+  {
+   "barcode": "0384388164807",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM e0"
+   ]
+  },
+  {
+   "barcode": "0384388164135",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM 9d"
+   ]
+  },
+  {
+   "barcode": "0384388162971",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM 29"
+   ]
+  },
+  {
+   "barcode": "0384388168874",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM 77"
+   ]
+  },
+  {
+   "barcode": "0384388160953",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM 5f"
+   ]
+  },
+  {
+   "barcode": "0384388169383",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM aa"
+   ]
+  },
+  {
+   "barcode": "0384388164661",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM d2"
+   ]
+  },
+  {
+   "barcode": "0384388162469",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM f6"
+   ]
+  },
+  {
+   "barcode": "0384388167433",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM e7"
+   ]
+  },
+  {
+   "barcode": "0384388164739",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM d9"
+   ]
+  },
+  {
+   "barcode": "0384388167143",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM ca"
+   ]
+  },
+  {
+   "barcode": "0384388168973",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM 81"
+   ]
+  },
+  {
+   "barcode": "0384388165644",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM 34"
+   ]
+  },
+  {
+   "barcode": "0384388162926",
+   "screen": 1,
+   "effect": 30,
+   "hits": [
+    "ITEM 24"
+   ]
+  },
+  {
+   "barcode": "4189740792317",
+   "screen": 1,
+   "effect": 24,
+   "hits": [
+    "USE 33"
+   ]
+  },
+  {
+   "barcode": "4693410179327",
+   "screen": 1,
+   "effect": 21,
+   "hits": [
+    "USE 38"
+   ]
+  },
+  {
+   "barcode": "4546031711677",
+   "screen": 1,
+   "effect": 23,
+   "hits": [
+    "USE 40"
+   ]
+  },
+  {
+   "barcode": "4699547348247",
+   "screen": 1,
+   "effect": 24,
+   "hits": [
+    "USE 33"
+   ]
+  },
+  {
+   "barcode": "4998033208837",
+   "screen": 1,
+   "effect": 23,
+   "hits": [
+    "USE 40"
+   ]
+  },
+  {
+   "barcode": "4984032004167",
+   "screen": 1,
+   "effect": 23,
+   "hits": [
+    "USE 40"
+   ]
+  },
+  {
+   "barcode": "4028425727957",
+   "screen": 1,
+   "effect": 22,
+   "hits": [
+    "USE 3a"
+   ]
+  },
+  {
+   "barcode": "4936647177187",
+   "screen": 1,
+   "effect": 24,
+   "hits": [
+    "USE 33"
+   ]
+  },
+  {
+   "barcode": "4584726272577",
+   "screen": 1,
+   "effect": 22,
+   "hits": [
+    "USE 3a"
+   ]
+  },
+  {
+   "barcode": "4283826811517",
+   "screen": 1,
+   "effect": 22,
+   "hits": [
+    "USE 3a"
+   ]
+  },
+  {
+   "barcode": "4288018899557",
+   "screen": 1,
+   "effect": 21,
+   "hits": [
+    "USE 38"
+   ]
+  },
+  {
+   "barcode": "4924413408207",
+   "screen": 1,
+   "effect": 21,
+   "hits": [
+    "USE 38"
+   ]
+  }
+ ]
+}

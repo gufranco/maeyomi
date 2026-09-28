@@ -5,11 +5,10 @@ and the card faces, looks the game up here rather than branching on it, so a
 game added to this table is a game every surface supports.
 """
 
-from collections.abc import Callable
-from dataclasses import dataclass
 from typing import Final
 
-from maeyomi.datach.game_card import DatachCard, GameKind, GamePick
+from maeyomi.datach.game_card import DatachCard, GameKind
+from maeyomi.datach.game_types import CardText, DatachGame, GameEntry, GameOrder
 from maeyomi.datach.jleague import build_jleague, decode_jleague
 from maeyomi.datach.jleague_names import PLAYERS as JLEAGUE_PLAYERS
 from maeyomi.datach.jleague_names import TEAM_SLOTS, TEAMS, ident_of, names_of
@@ -36,7 +35,6 @@ from maeyomi.datach.yuyu_names import ITEMS as YUYU_ITEMS
 from maeyomi.datach.yuyu_names import TECHNIQUE_NAMES, bonus_text
 from maeyomi.datach.yuyu_names import card_named as yuyu_named
 from maeyomi.datach.yuyu_tables import SECRET_CHARACTER
-from maeyomi.games.alice import ALICE
 from maeyomi.games.barcode_world import (
     MAGICIAN,
     WARRIOR,
@@ -46,18 +44,14 @@ from maeyomi.games.barcode_world import (
     strongest_barcode_world,
 )
 from maeyomi.games.barcode_world import picks_for as barcode_world_picks
-from maeyomi.games.donald import DONALD
-from maeyomi.games.effects import (
-    EffectGame,
-    build_effect,
-    decode_effect,
-    effect_of,
-    strongest_effect,
-)
-from maeyomi.games.lupin import LUPIN
 from maeyomi.games.senki import SenkiOrder, build_senki, decode_senki, strongest_senki
-from maeyomi.games.spiderman import SPIDERMAN
-from maeyomi.models.constraint import Constraint
+from maeyomi.games.served import (
+    BATTLE_RUSH_GAME,
+    EFFECT_GAMES,
+    EXCITE94_GAME,
+    EXCITE95_GAME,
+    HATAYAMA_GAME,
+)
 from maeyomi.models.device import Device
 
 type Pair = tuple[str, str]
@@ -74,55 +68,6 @@ NO_TECHNIQUE: Final[Pair] = ("No technique", "わざ なし")
 TEAM_CARD: Final[Pair] = ("Team card", "チーム カード")
 PLAYER_HEADING: Final[Pair] = ("Player", "せんしゅ")
 TEAM_HEADING: Final[Pair] = ("Team", "チーム")
-NO_EFFECT: Final[Pair] = ("No effect", "なにも おきない")
-NOTHING_HAPPENS: Final[Pair] = (
-    "The game reads it and nothing happens",
-    "よみこむが なにも おきない",
-)
-
-
-@dataclass(frozen=True, slots=True)
-class GameOrder:
-    """A card asked of a game: which one, what its numbers must be, and its other choices."""
-
-    ident: int | None
-    stats: tuple[Constraint, Constraint, Constraint]
-    picks: tuple[tuple[str, int], ...] = ()
-
-
-@dataclass(frozen=True, slots=True)
-class GameEntry:
-    """One card a game can read, as its list of cards names it."""
-
-    ident: int
-    kind: GameKind
-    english: str
-    japanese: str
-
-
-@dataclass(frozen=True, slots=True)
-class CardText:
-    """What a card says in both languages: its name, what it is, and one more line."""
-
-    name: Pair
-    detail: Pair
-    heading: Pair
-    power: Pair
-
-
-@dataclass(frozen=True, slots=True)
-class DatachGame:
-    """Everything a surface needs to read, build, list and describe one game's cards."""
-
-    decode: Callable[[str], DatachCard]
-    build: Callable[[GameOrder], DatachCard | None]
-    strongest: Callable[[], DatachCard] | None
-    entries: Callable[[], tuple[GameEntry, ...]]
-    describe: Callable[[DatachCard], CardText]
-    named: Callable[[str], int]
-    stat_keys: tuple[str, ...]
-    picks: Callable[[int], tuple[GamePick, ...]] = lambda _: ()
-    datach_reader: bool = True
 
 
 def _ultraman_order(order: GameOrder) -> DatachCard | None:
@@ -351,41 +296,6 @@ def _barcode_world_text(card: DatachCard) -> CardText:
     )
 
 
-def _effect_game(game: EffectGame) -> DatachGame:
-    """A game whose barcodes each set off one effect, served like every other game."""
-    return DatachGame(
-        decode=lambda code: decode_effect(code, game),
-        build=lambda order: None if order.ident is None else build_effect(order.ident, game),
-        strongest=lambda: strongest_effect(game),
-        entries=lambda: tuple(
-            GameEntry(effect.ident, GameKind.EFFECT, *effect.name) for effect in game.effects
-        ),
-        describe=lambda card: _effect_text(card, game),
-        named=lambda typed: _effect_named(typed, game),
-        stat_keys=(),
-        datach_reader=False,
-    )
-
-
-def _effect_text(card: DatachCard, game: EffectGame) -> CardText:
-    """What the effect is and does, and where the game reads the code."""
-    effect = effect_of(card.ident, game)
-    if effect is None:
-        return CardText(NO_EFFECT, NOTHING_HAPPENS, EFFECT, game.screen)
-    return CardText(effect.name, effect.detail, EFFECT, game.screen)
-
-
-def _effect_named(typed: str, game: EffectGame) -> int:
-    """An effect typed by name or number, or a ValueError naming the game."""
-    wanted = typed.strip().casefold()
-    for effect in game.effects:
-        english, japanese = effect.name
-        if wanted in {english.casefold(), japanese, str(effect.ident)}:
-            return effect.ident
-    message = f"unknown {game.device.english} effect {typed!r}; kinds lists them"
-    raise ValueError(message)
-
-
 GAMES: Final[dict[Device, DatachGame]] = {
     Device.DATACH_ULTRAMAN: DatachGame(
         decode=decode_ultraman,
@@ -447,7 +357,11 @@ GAMES: Final[dict[Device, DatachGame]] = {
         picks=barcode_world_picks,
         datach_reader=False,
     ),
-    **{game.device: _effect_game(game) for game in (LUPIN, DONALD, SPIDERMAN, ALICE)},
+    **EFFECT_GAMES,
+    Device.EXCITE95: EXCITE95_GAME,
+    Device.HATAYAMA: HATAYAMA_GAME,
+    Device.EXCITE94: EXCITE94_GAME,
+    Device.DATACH_BATTLE_RUSH: BATTLE_RUSH_GAME,
 }
 
 

@@ -105,6 +105,8 @@ class OfficialSet(Enum):
     DATACH_YUYU = "データック 幽遊白書 爆闘暗黒武術会 カードリスト"
     DATACH_JLEAGUE = "データック Jリーグ スーパートッププレイヤーズ カードリスト"
     BARCODE_WORLD = "バーコードワールド カードリスト"
+    EXCITE_CLUBS = "Jリーグ 登録選手リスト カード、エキサイトステージ'95 で よむ"
+    EXCITE94_CLUBS = "Jリーグ 登録選手リスト カード、エキサイトステージ'94 で よむ"
 
     @property
     def device(self) -> Device:
@@ -138,6 +140,8 @@ _DEVICES: Final[dict[OfficialSet, Device]] = {
     OfficialSet.DATACH_YUYU: Device.DATACH_YUYU,
     OfficialSet.DATACH_JLEAGUE: Device.DATACH_JLEAGUE,
     OfficialSet.BARCODE_WORLD: Device.BARCODE_WORLD,
+    OfficialSet.EXCITE_CLUBS: Device.EXCITE95,
+    OfficialSet.EXCITE94_CLUBS: Device.EXCITE94,
 }
 
 _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
@@ -173,6 +177,8 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.DATACH_YUYU: "Datach Yu Yu Hakusho: Bakutou Ankoku Bujutsukai",
     OfficialSet.DATACH_JLEAGUE: "Datach J.League Super Top Players",
     OfficialSet.BARCODE_WORLD: "Barcode World",
+    OfficialSet.EXCITE_CLUBS: "J.League Excite Stage club roster cards, as '95 reads them",
+    OfficialSet.EXCITE94_CLUBS: "J.League Excite Stage club roster cards, as '94 reads them",
 }
 
 

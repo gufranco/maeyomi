@@ -1,0 +1,1249 @@
+{
+  "game": "J.League Excite Stage '94",
+  "software": "jlexct94",
+  "rom": {
+    "sha1": "0422ed14df97df5917dd67efead191ee54d596ab",
+    "size": 1048576
+  },
+  "emulator": "MAME 0.289, snes with barcode_battler on ctrl2, fed by tools/oracle/drive.lua bbscan",
+  "screen": "Barcode Battler panel of the roster screen before a pre-season match; a player sets $1D8B, its keeper flag $1D8A, team $1D8D and slot $1D8E; an item its kind at $1D93 and value at $1C76",
+  "recorded_utc": "2026-09-28T17:35:28Z",
+  "cards": [
+    {
+      "barcode": "4774659205449",
+      "generated": false,
+      "ident": 254,
+      "trait": 0
+    },
+    {
+      "barcode": "4540590016884",
+      "generated": false,
+      "ident": 267,
+      "trait": 0
+    },
+    {
+      "barcode": "4882887722741",
+      "generated": false,
+      "ident": 1004,
+      "trait": 69
+    },
+    {
+      "barcode": "4668924802733",
+      "generated": false,
+      "ident": 1000,
+      "trait": 69
+    },
+    {
+      "barcode": "4312054689053",
+      "generated": false,
+      "ident": 1004,
+      "trait": 229
+    },
+    {
+      "barcode": "4908016903512",
+      "generated": false,
+      "ident": 1001,
+      "trait": 89
+    },
+    {
+      "barcode": "4890895852954",
+      "generated": false,
+      "ident": 400,
+      "trait": 1
+    },
+    {
+      "barcode": "4183592870261",
+      "generated": false,
+      "ident": 1004,
+      "trait": 6
+    },
+    {
+      "barcode": "4649768940157",
+      "generated": false,
+      "ident": 320,
+      "trait": 1
+    },
+    {
+      "barcode": "4270093724541",
+      "generated": false,
+      "ident": 1004,
+      "trait": 115
+    },
+    {
+      "barcode": "4813930897178",
+      "generated": false,
+      "ident": 375,
+      "trait": 1
+    },
+    {
+      "barcode": "4765317241435",
+      "generated": false,
+      "ident": 293,
+      "trait": 0
+    },
+    {
+      "barcode": "4740024963511",
+      "generated": false,
+      "ident": 1003,
+      "trait": 89
+    },
+    {
+      "barcode": "4577281007692",
+      "generated": false,
+      "ident": 1004,
+      "trait": 195
+    },
+    {
+      "barcode": "4292431055599",
+      "generated": false,
+      "ident": 308,
+      "trait": 0
+    },
+    {
+      "barcode": "4861242022245",
+      "generated": false,
+      "ident": 271,
+      "trait": 0
+    },
+    {
+      "barcode": "4210418317980",
+      "generated": false,
+      "ident": 1004,
+      "trait": 202
+    },
+    {
+      "barcode": "4981428027793",
+      "generated": false,
+      "ident": 1004,
+      "trait": 197
+    },
+    {
+      "barcode": "4291525268693",
+      "generated": false,
+      "ident": 1000,
+      "trait": 220
+    },
+    {
+      "barcode": "4673647147795",
+      "generated": false,
+      "ident": 412,
+      "trait": 0
+    },
+    {
+      "barcode": "4617164199172",
+      "generated": false,
+      "ident": 1004,
+      "trait": 232
+    },
+    {
+      "barcode": "4774772957652",
+      "generated": false,
+      "ident": 1002,
+      "trait": 194
+    },
+    {
+      "barcode": "4142215995460",
+      "generated": false,
+      "ident": 1002,
+      "trait": 138
+    },
+    {
+      "barcode": "4262285955826",
+      "generated": false,
+      "ident": 375,
+      "trait": 1
+    },
+    {
+      "barcode": "4230496854818",
+      "generated": false,
+      "ident": 355,
+      "trait": 1
+    },
+    {
+      "barcode": "4584815586813",
+      "generated": false,
+      "ident": 1001,
+      "trait": 172
+    },
+    {
+      "barcode": "4834799729295",
+      "generated": false,
+      "ident": 375,
+      "trait": 1
+    },
+    {
+      "barcode": "4180275091548",
+      "generated": false,
+      "ident": 351,
+      "trait": 0
+    },
+    {
+      "barcode": "4247827103187",
+      "generated": false,
+      "ident": 356,
+      "trait": 0
+    },
+    {
+      "barcode": "4571720217253",
+      "generated": false,
+      "ident": 1004,
+      "trait": 184
+    },
+    {
+      "barcode": "4492637273043",
+      "generated": false,
+      "ident": 1001,
+      "trait": 77
+    },
+    {
+      "barcode": "4200034017548",
+      "generated": false,
+      "ident": 269,
+      "trait": 0
+    },
+    {
+      "barcode": "4155919567222",
+      "generated": false,
+      "ident": 1003,
+      "trait": 183
+    },
+    {
+      "barcode": "4464735693986",
+      "generated": false,
+      "ident": 460,
+      "trait": 1
+    },
+    {
+      "barcode": "4723994004453",
+      "generated": false,
+      "ident": 1004,
+      "trait": 112
+    },
+    {
+      "barcode": "4489276321525",
+      "generated": false,
+      "ident": 383,
+      "trait": 0
+    },
+    {
+      "barcode": "4294555339005",
+      "generated": false,
+      "ident": 394,
+      "trait": 0
+    },
+    {
+      "barcode": "4429392032332",
+      "generated": false,
+      "ident": 1003,
+      "trait": 59
+    },
+    {
+      "barcode": "4859352607308",
+      "generated": false,
+      "ident": 280,
+      "trait": 1
+    },
+    {
+      "barcode": "4891624690915",
+      "generated": false,
+      "ident": 380,
+      "trait": 1
+    },
+    {
+      "barcode": "4695188937321",
+      "generated": false,
+      "ident": 1004,
+      "trait": 185
+    },
+    {
+      "barcode": "4106233434424",
+      "generated": false,
+      "ident": 285,
+      "trait": 0
+    },
+    {
+      "barcode": "4916777165728",
+      "generated": false,
+      "ident": 433,
+      "trait": 0
+    },
+    {
+      "barcode": "4526346916356",
+      "generated": false,
+      "ident": 320,
+      "trait": 1
+    },
+    {
+      "barcode": "4714532102687",
+      "generated": false,
+      "ident": 361,
+      "trait": 0
+    },
+    {
+      "barcode": "4100728048080",
+      "generated": false,
+      "ident": 1004,
+      "trait": 205
+    },
+    {
+      "barcode": "4735380668569",
+      "generated": false,
+      "ident": 380,
+      "trait": 1
+    },
+    {
+      "barcode": "4804526617430",
+      "generated": false,
+      "ident": 1003,
+      "trait": 188
+    },
+    {
+      "barcode": "4039283524978",
+      "generated": false,
+      "ident": 396,
+      "trait": 0
+    },
+    {
+      "barcode": "4884315651036",
+      "generated": false,
+      "ident": 300,
+      "trait": 1
+    },
+    {
+      "barcode": "4869558781924",
+      "generated": false,
+      "ident": 400,
+      "trait": 1
+    },
+    {
+      "barcode": "4743853539070",
+      "generated": false,
+      "ident": 1000,
+      "trait": 230
+    },
+    {
+      "barcode": "4782940853637",
+      "generated": false,
+      "ident": 360,
+      "trait": 1
+    },
+    {
+      "barcode": "4841851430860",
+      "generated": false,
+      "ident": 1003,
+      "trait": 21
+    },
+    {
+      "barcode": "4093577532919",
+      "generated": false,
+      "ident": 398,
+      "trait": 0
+    },
+    {
+      "barcode": "4266170351748",
+      "generated": false,
+      "ident": 421,
+      "trait": 0
+    },
+    {
+      "barcode": "4979242582383",
+      "generated": false,
+      "ident": 1001,
+      "trait": 60
+    },
+    {
+      "barcode": "4024511987571",
+      "generated": false,
+      "ident": 1004,
+      "trait": 192
+    },
+    {
+      "barcode": "4612890161707",
+      "generated": false,
+      "ident": 427,
+      "trait": 0
+    },
+    {
+      "barcode": "4138288972439",
+      "generated": false,
+      "ident": 340,
+      "trait": 1
+    },
+    {
+      "barcode": "4700885675565",
+      "generated": false,
+      "ident": 395,
+      "trait": 1
+    },
+    {
+      "barcode": "4025822986260",
+      "generated": false,
+      "ident": 1004,
+      "trait": 158
+    },
+    {
+      "barcode": "4219109116062",
+      "generated": false,
+      "ident": 1004,
+      "trait": 153
+    },
+    {
+      "barcode": "4547131265930",
+      "generated": false,
+      "ident": 1004,
+      "trait": 150
+    },
+    {
+      "barcode": "4718744365137",
+      "generated": false,
+      "ident": 428,
+      "trait": 0
+    },
+    {
+      "barcode": "4951356382264",
+      "generated": false,
+      "ident": 451,
+      "trait": 0
+    },
+    {
+      "barcode": "4543086775586",
+      "generated": false,
+      "ident": 415,
+      "trait": 1
+    },
+    {
+      "barcode": "4755232267412",
+      "generated": false,
+      "ident": 1004,
+      "trait": 188
+    },
+    {
+      "barcode": "4616726805117",
+      "generated": false,
+      "ident": 275,
+      "trait": 1
+    },
+    {
+      "barcode": "4234614826121",
+      "generated": false,
+      "ident": 1002,
+      "trait": 155
+    },
+    {
+      "barcode": "4935868838617",
+      "generated": false,
+      "ident": 320,
+      "trait": 1
+    },
+    {
+      "barcode": "4314064428950",
+      "generated": false,
+      "ident": 1004,
+      "trait": 227
+    },
+    {
+      "barcode": "4304196642300",
+      "generated": false,
+      "ident": 1004,
+      "trait": 58
+    },
+    {
+      "barcode": "4920208445129",
+      "generated": false,
+      "ident": 293,
+      "trait": 0
+    },
+    {
+      "barcode": "4293010732870",
+      "generated": false,
+      "ident": 1004,
+      "trait": 72
+    },
+    {
+      "barcode": "4808630898532",
+      "generated": false,
+      "ident": 1001,
+      "trait": 216
+    },
+    {
+      "barcode": "4990976495701",
+      "generated": false,
+      "ident": 1004,
+      "trait": 144
+    },
+    {
+      "barcode": "4903395332151",
+      "generated": false,
+      "ident": 1002,
+      "trait": 54
+    },
+    {
+      "barcode": "4169535105256",
+      "generated": false,
+      "ident": 365,
+      "trait": 0
+    },
+    {
+      "barcode": "4658501444685",
+      "generated": false,
+      "ident": 296,
+      "trait": 0
+    },
+    {
+      "barcode": "4225558859177",
+      "generated": false,
+      "ident": 355,
+      "trait": 1
+    },
+    {
+      "barcode": "4242396947262",
+      "generated": false,
+      "ident": 1004,
+      "trait": 184
+    },
+    {
+      "barcode": "4823889597784",
+      "generated": false,
+      "ident": 467,
+      "trait": 0
+    },
+    {
+      "barcode": "4940924458685",
+      "generated": false,
+      "ident": 311,
+      "trait": 0
+    },
+    {
+      "barcode": "4763337013230",
+      "generated": false,
+      "ident": 1004,
+      "trait": 82
+    },
+    {
+      "barcode": "4239842334578",
+      "generated": false,
+      "ident": 403,
+      "trait": 0
+    },
+    {
+      "barcode": "4995388699143",
+      "generated": false,
+      "ident": 1004,
+      "trait": 232
+    },
+    {
+      "barcode": "4943650410187",
+      "generated": false,
+      "ident": 252,
+      "trait": 0
+    },
+    {
+      "barcode": "4949479939342",
+      "generated": false,
+      "ident": 1000,
+      "trait": 237
+    },
+    {
+      "barcode": "4437870853065",
+      "generated": false,
+      "ident": 335,
+      "trait": 1
+    },
+    {
+      "barcode": "04097242",
+      "generated": false,
+      "ident": 1001,
+      "trait": 183
+    },
+    {
+      "barcode": "73263241",
+      "generated": false,
+      "ident": 1000,
+      "trait": 82
+    },
+    {
+      "barcode": "33850610",
+      "generated": false,
+      "ident": 1001,
+      "trait": 15
+    },
+    {
+      "barcode": "36504725",
+      "generated": false,
+      "ident": 366,
+      "trait": 0
+    },
+    {
+      "barcode": "39975027",
+      "generated": false,
+      "ident": 300,
+      "trait": 1
+    },
+    {
+      "barcode": "63561005",
+      "generated": false,
+      "ident": 419,
+      "trait": 0
+    },
+    {
+      "barcode": "65100288",
+      "generated": false,
+      "ident": 353,
+      "trait": 0
+    },
+    {
+      "barcode": "17670319",
+      "generated": false,
+      "ident": 315,
+      "trait": 1
+    },
+    {
+      "barcode": "69685026",
+      "generated": false,
+      "ident": 315,
+      "trait": 1
+    },
+    {
+      "barcode": "86710640",
+      "generated": false,
+      "ident": 1004,
+      "trait": 16
+    },
+    {
+      "barcode": "34636008",
+      "generated": false,
+      "ident": 255,
+      "trait": 1
+    },
+    {
+      "barcode": "13396749",
+      "generated": false,
+      "ident": 470,
+      "trait": 0
+    },
+    {
+      "barcode": "35371380",
+      "generated": false,
+      "ident": 1004,
+      "trait": 35
+    },
+    {
+      "barcode": "83740657",
+      "generated": false,
+      "ident": 375,
+      "trait": 1
+    },
+    {
+      "barcode": "66408321",
+      "generated": false,
+      "ident": 1000,
+      "trait": 211
+    },
+    {
+      "barcode": "73317050",
+      "generated": false,
+      "ident": 1004,
+      "trait": 179
+    },
+    {
+      "barcode": "87462173",
+      "generated": false,
+      "ident": 1002,
+      "trait": 55
+    },
+    {
+      "barcode": "07610950",
+      "generated": false,
+      "ident": 1003,
+      "trait": 24
+    },
+    {
+      "barcode": "51205515",
+      "generated": false,
+      "ident": 252,
+      "trait": 0
+    },
+    {
+      "barcode": "67017102",
+      "generated": false,
+      "ident": 1001,
+      "trait": 180
+    },
+    {
+      "barcode": "78015951",
+      "generated": false,
+      "ident": 1001,
+      "trait": 151
+    },
+    {
+      "barcode": "91762641",
+      "generated": false,
+      "ident": 1004,
+      "trait": 67
+    },
+    {
+      "barcode": "79488884",
+      "generated": false,
+      "ident": 347,
+      "trait": 0
+    },
+    {
+      "barcode": "52336508",
+      "generated": false,
+      "ident": 397,
+      "trait": 0
+    },
+    {
+      "barcode": "67421725",
+      "generated": false,
+      "ident": 273,
+      "trait": 0
+    },
+    {
+      "barcode": "0000000034111",
+      "generated": false,
+      "ident": 1003,
+      "trait": 104
+    },
+    {
+      "barcode": "0000000014113",
+      "generated": false,
+      "ident": 1001,
+      "trait": 104
+    },
+    {
+      "barcode": "0000000102711",
+      "generated": false,
+      "ident": 1004,
+      "trait": 68
+    },
+    {
+      "barcode": "0000700114113",
+      "generated": false,
+      "ident": 1004,
+      "trait": 104
+    },
+    {
+      "barcode": "0000000291040",
+      "generated": false,
+      "ident": 1003,
+      "trait": 26
+    },
+    {
+      "barcode": "0000000024112",
+      "generated": false,
+      "ident": 1002,
+      "trait": 104
+    },
+    {
+      "barcode": "0000000261401",
+      "generated": false,
+      "ident": 1000,
+      "trait": 35
+    },
+    {
+      "barcode": "0003000054110",
+      "generated": false,
+      "ident": 1001,
+      "trait": 104
+    },
+    {
+      "barcode": "0007000004113",
+      "generated": false,
+      "ident": 1000,
+      "trait": 104
+    },
+    {
+      "barcode": "0000000823531",
+      "generated": false,
+      "ident": 1002,
+      "trait": 89
+    },
+    {
+      "barcode": "0000000391443",
+      "generated": false,
+      "ident": 1004,
+      "trait": 36
+    },
+    {
+      "barcode": "0000000632171",
+      "generated": false,
+      "ident": 1001,
+      "trait": 55
+    },
+    {
+      "barcode": "4900000020977",
+      "generated": true,
+      "ident": 281,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000047974",
+      "generated": true,
+      "ident": 310,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000159974",
+      "generated": true,
+      "ident": 434,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000036978",
+      "generated": true,
+      "ident": 298,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000126976",
+      "generated": true,
+      "ident": 398,
+      "trait": 0
+    },
+    {
+      "barcode": "4940000099979",
+      "generated": true,
+      "ident": 368,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000043976",
+      "generated": true,
+      "ident": 306,
+      "trait": 0
+    },
+    {
+      "barcode": "4920000176979",
+      "generated": true,
+      "ident": 453,
+      "trait": 0
+    },
+    {
+      "barcode": "4940000185979",
+      "generated": true,
+      "ident": 464,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000000276",
+      "generated": true,
+      "ident": 250,
+      "trait": 0
+    },
+    {
+      "barcode": "4920000147979",
+      "generated": true,
+      "ident": 422,
+      "trait": 0
+    },
+    {
+      "barcode": "4930000195979",
+      "generated": true,
+      "ident": 474,
+      "trait": 0
+    },
+    {
+      "barcode": "4930000179979",
+      "generated": true,
+      "ident": 457,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000000979",
+      "generated": true,
+      "ident": 258,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000109979",
+      "generated": true,
+      "ident": 379,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000076974",
+      "generated": true,
+      "ident": 343,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000196979",
+      "generated": true,
+      "ident": 476,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000174977",
+      "generated": true,
+      "ident": 451,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000024975",
+      "generated": true,
+      "ident": 285,
+      "trait": 0
+    },
+    {
+      "barcode": "4920000051979",
+      "generated": true,
+      "ident": 314,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000026979",
+      "generated": true,
+      "ident": 287,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000107975",
+      "generated": true,
+      "ident": 377,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000037975",
+      "generated": true,
+      "ident": 299,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000001976",
+      "generated": true,
+      "ident": 259,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000046977",
+      "generated": true,
+      "ident": 309,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000188974",
+      "generated": true,
+      "ident": 467,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000600698",
+      "generated": true,
+      "ident": 395,
+      "trait": 1
+    },
+    {
+      "barcode": "4900000005974",
+      "generated": true,
+      "ident": 264,
+      "trait": 0
+    },
+    {
+      "barcode": "4940000028979",
+      "generated": true,
+      "ident": 289,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000089974",
+      "generated": true,
+      "ident": 357,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000065978",
+      "generated": true,
+      "ident": 330,
+      "trait": 0
+    },
+    {
+      "barcode": "4910000199979",
+      "generated": true,
+      "ident": 479,
+      "trait": 0
+    },
+    {
+      "barcode": "4930000137979",
+      "generated": true,
+      "ident": 410,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000081978",
+      "generated": true,
+      "ident": 348,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000034974",
+      "generated": true,
+      "ident": 296,
+      "trait": 0
+    },
+    {
+      "barcode": "4940000172979",
+      "generated": true,
+      "ident": 449,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000132977",
+      "generated": true,
+      "ident": 405,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000165975",
+      "generated": true,
+      "ident": 442,
+      "trait": 0
+    },
+    {
+      "barcode": "4930000038979",
+      "generated": true,
+      "ident": 301,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000052978",
+      "generated": true,
+      "ident": 316,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000180978",
+      "generated": true,
+      "ident": 458,
+      "trait": 0
+    },
+    {
+      "barcode": "4920000163979",
+      "generated": true,
+      "ident": 439,
+      "trait": 0
+    },
+    {
+      "barcode": "4940000086979",
+      "generated": true,
+      "ident": 353,
+      "trait": 0
+    },
+    {
+      "barcode": "4940000044979",
+      "generated": true,
+      "ident": 307,
+      "trait": 0
+    },
+    {
+      "barcode": "4910000173979",
+      "generated": true,
+      "ident": 450,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000103977",
+      "generated": true,
+      "ident": 372,
+      "trait": 0
+    },
+    {
+      "barcode": "4940000073979",
+      "generated": true,
+      "ident": 339,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000149975",
+      "generated": true,
+      "ident": 424,
+      "trait": 0
+    },
+    {
+      "barcode": "4920000093979",
+      "generated": true,
+      "ident": 362,
+      "trait": 0
+    },
+    {
+      "barcode": "4930000600299",
+      "generated": true,
+      "ident": 355,
+      "trait": 1
+    },
+    {
+      "barcode": "4900000091977",
+      "generated": true,
+      "ident": 359,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000000009",
+      "generated": true,
+      "ident": 241,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000010978",
+      "generated": true,
+      "ident": 269,
+      "trait": 0
+    },
+    {
+      "barcode": "4910000186979",
+      "generated": true,
+      "ident": 465,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000138979",
+      "generated": true,
+      "ident": 411,
+      "trait": 0
+    },
+    {
+      "barcode": "4900000168976",
+      "generated": true,
+      "ident": 445,
+      "trait": 0
+    },
+    {
+      "barcode": "4940000031979",
+      "generated": true,
+      "ident": 292,
+      "trait": 0
+    },
+    {
+      "barcode": "4940000600069",
+      "generated": true,
+      "ident": 300,
+      "trait": 1
+    },
+    {
+      "barcode": "4900000055979",
+      "generated": true,
+      "ident": 319,
+      "trait": 0
+    },
+    {
+      "barcode": "4001000000003",
+      "generated": true,
+      "ident": 1000,
+      "trait": 0
+    },
+    {
+      "barcode": "4001000000041",
+      "generated": true,
+      "ident": 1000,
+      "trait": 1
+    },
+    {
+      "barcode": "4002000005012",
+      "generated": true,
+      "ident": 1000,
+      "trait": 127
+    },
+    {
+      "barcode": "4002000009973",
+      "generated": true,
+      "ident": 1000,
+      "trait": 253
+    },
+    {
+      "barcode": "4001000010002",
+      "generated": true,
+      "ident": 1001,
+      "trait": 0
+    },
+    {
+      "barcode": "4000000010043",
+      "generated": true,
+      "ident": 1001,
+      "trait": 1
+    },
+    {
+      "barcode": "4002000015011",
+      "generated": true,
+      "ident": 1001,
+      "trait": 127
+    },
+    {
+      "barcode": "4002000019972",
+      "generated": true,
+      "ident": 1001,
+      "trait": 253
+    },
+    {
+      "barcode": "4001000020001",
+      "generated": true,
+      "ident": 1002,
+      "trait": 0
+    },
+    {
+      "barcode": "4000000020042",
+      "generated": true,
+      "ident": 1002,
+      "trait": 1
+    },
+    {
+      "barcode": "4001000025013",
+      "generated": true,
+      "ident": 1002,
+      "trait": 127
+    },
+    {
+      "barcode": "4002000029971",
+      "generated": true,
+      "ident": 1002,
+      "trait": 253
+    },
+    {
+      "barcode": "4000000030003",
+      "generated": true,
+      "ident": 1003,
+      "trait": 0
+    },
+    {
+      "barcode": "4000000030041",
+      "generated": true,
+      "ident": 1003,
+      "trait": 1
+    },
+    {
+      "barcode": "4001000035012",
+      "generated": true,
+      "ident": 1003,
+      "trait": 127
+    },
+    {
+      "barcode": "4001000039973",
+      "generated": true,
+      "ident": 1003,
+      "trait": 253
+    },
+    {
+      "barcode": "4100000000003",
+      "generated": true,
+      "ident": 1004,
+      "trait": 0
+    },
+    {
+      "barcode": "4100000000041",
+      "generated": true,
+      "ident": 1004,
+      "trait": 1
+    },
+    {
+      "barcode": "4101000005012",
+      "generated": true,
+      "ident": 1004,
+      "trait": 127
+    },
+    {
+      "barcode": "4101000009973",
+      "generated": true,
+      "ident": 1004,
+      "trait": 253
+    }
+  ]
+}

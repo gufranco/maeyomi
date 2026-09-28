@@ -19,7 +19,7 @@ from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.datach.dbz import DbzCard, DbzKind
 from maeyomi.datach.dbz_reader import Readability, readability
 from maeyomi.datach.dbz_solve import unread_fields
-from maeyomi.datach.game_card import DatachCard, GameKind
+from maeyomi.datach.game_card import DatachCard
 from maeyomi.datach.game_reader import printable
 from maeyomi.datach.games import GAMES, game_for
 from maeyomi.decoder.check_digit import expected_check_digit
@@ -45,9 +45,6 @@ FIELD_OF_TILE: Final = {
         for key, field in zip(game.stat_keys, REQUEST_FIELDS, strict=False)
     },
 }
-FIGHTING_KINDS: Final = frozenset(
-    {GameKind.FIGHTER, GameKind.UNIT, GameKind.PLAYER, GameKind.HIDDEN, GameKind.EFFECT}
-)
 
 
 @dataclass(frozen=True, slots=True)
@@ -133,11 +130,11 @@ def _admits(template: CardRequest, card: CardResult) -> bool:
 
 
 def _is_fighter(card: CardResult) -> bool:
-    """A fighter or an enemy to fight, never an item."""
+    """A fighter or an enemy to fight, or whatever else the game draws, never a plain item."""
     if isinstance(card, DbzCard):
         return card.kind is not DbzKind.ITEM
     if isinstance(card, DatachCard):
-        return card.kind in FIGHTING_KINDS
+        return card.kind in GAMES[card.game].drawable
     if isinstance(card, (FirstBattlerCard, DoubleCard)) and card.race is None:
         return True
     return card.race is not None and card.race.is_fighter

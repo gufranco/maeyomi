@@ -21,7 +21,8 @@ from maeyomi.datach.dbz_names import character_id
 from maeyomi.datach.dbz_reader import Readability, ReaderRefusalError, readability
 from maeyomi.datach.dbz_solve import request_from, solve_dbz, solve_dbz_nearest, unread_fields
 from maeyomi.datach.game_reader import game_readability
-from maeyomi.datach.games import DatachGame, GameOrder, game_for
+from maeyomi.datach.game_types import DatachGame, GameOrder
+from maeyomi.datach.games import game_for
 from maeyomi.decoder.decode import decode
 from maeyomi.double.cheat import strongest_double_card
 from maeyomi.double.decode import decode_double
@@ -61,6 +62,7 @@ class DeviceOutcome:
     card: CardResult | None = None
     blockers: tuple[str, ...] = ()
     exact: bool = True
+    companion: CardResult | None = None
 
 
 def device_named(key: str) -> Device:
@@ -181,7 +183,8 @@ def _build_game(
     except ValueError as error:
         return DeviceOutcome(blockers=(str(error),))
     stats = (request.hp, request.st, request.df)
-    card = game.build(GameOrder(ident, stats, choice.picks))
+    order = GameOrder(ident, stats, choice.picks)
+    card = game.build(order)
     if card is None:
         return DeviceOutcome(blockers=(NO_GAME_CARD.format(game=device.english),))
     exact = all(
@@ -189,7 +192,16 @@ def _build_game(
         for key, constraint in zip(game.stat_keys, stats, strict=False)
         if any(stat.key == key for stat in card.stats)
     )
-    return DeviceOutcome(card, exact=exact)
+    return DeviceOutcome(card, exact=exact, companion=game.companion(order))
+
+
+def cheat_companion_as(device: Device, name: str | None) -> AnyCard | None:
+    """The strongest card's partner, for a game that reads its cards in pairs."""
+    game = game_for(device)
+    card = None if game is None else game.strongest_companion()
+    if card is None:
+        return None
+    return GeneratedCard(name=name or DEFAULT_CHEAT_NAME, barcode=card.barcode, character=card)
 
 
 NO_STRONGEST: Final = "{game} cards carry no numbers, so none is stronger than another"

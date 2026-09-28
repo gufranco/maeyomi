@@ -22,6 +22,7 @@ from maeyomi.registry import (
     DeviceChoice,
     build_as,
     cheat_as,
+    cheat_companion_as,
     printable_as,
     read_as,
     speed_note,
@@ -118,7 +119,13 @@ def generate_game(
         typer.echo(line)
     typer.echo("")
     printable = printable_as(device, outcome.card.barcode, request.name)
-    write_cards((printable,), output, images, sheet_layout(print_shop=print_shop))
+    partner = outcome.companion
+    cards = (
+        (printable,)
+        if partner is None
+        else (printable, printable_as(device, partner.barcode, request.name))
+    )
+    write_cards(cards, output, images, sheet_layout(print_shop=print_shop))
 
 
 def cheat_game(
@@ -144,4 +151,6 @@ def cheat_game(
     )
     kind = face_of(read).kind.english
     typer.echo(f"{card.name}: {kind}" + (f", {numbers}" if numbers else ""))
-    write_cards((card,), output, images, sheet_layout(print_shop=print_shop))
+    partner = cheat_companion_as(device, name)
+    cards = (card,) if partner is None else (card, partner)
+    write_cards(cards, output, images, sheet_layout(print_shop=print_shop))

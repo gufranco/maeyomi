@@ -356,3 +356,34 @@ def test_generate_prints_a_senki_magician_the_game_reads_back(tmp_path: Path) ->
         15000,
         10,
     )
+
+
+def test_generate_prints_a_battle_rush_robot_as_its_two_cards(tmp_path: Path) -> None:
+    output = tmp_path / "robot.pdf"
+
+    result = runner.invoke(
+        app,
+        [
+            "generate",
+            "--device",
+            "battlerush",
+            "--character",
+            "5",
+            "--pick",
+            "attack=7",
+            "-o",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert "Wrote 2 card(s)" in result.output
+
+
+def test_cheat_prints_the_strongest_battle_rush_robot_as_its_two_cards(tmp_path: Path) -> None:
+    output = tmp_path / "cheat.pdf"
+
+    result = runner.invoke(app, ["cheat", "--device", "battlerush", "-o", str(output)])
+
+    assert result.exit_code == 0
+    assert "Wrote 2 card(s)" in result.output

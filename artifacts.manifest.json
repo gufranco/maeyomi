@@ -119,6 +119,116 @@
       "sha1": "18b6fadbcee0741001537ad3f62c8477a2b664cf",
       "crc32": "05798da8",
       "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "doraemon2_rom",
+      "what": "Cartridge ROM of Doraemon 2: Nobita no Toys Land Daibouken, Epoch 1993, as MAME's snes software list names it",
+      "path": "snes/doraemn2/shvc-2d-0.u1",
+      "size": 1048576,
+      "sha256": "3fe6952b916dd6b4495eb9efc9e2a69c2e88317fbc82c01efbec490dac9ce5b4",
+      "sha1": "8672e208c3716b8fae3fd612bc80679a5459b616",
+      "crc32": "d343b398",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "doraemon3_rom",
+      "what": "Cartridge ROM of Doraemon 3: Nobita to Toki no Hougyoku, Epoch 1994, first chip, as MAME's snes software list names it",
+      "path": "snes/doraemn3/shvc-4t-0 p0.u1",
+      "size": 1048576,
+      "sha256": "60bf02c81ae5fb7e5f447a8fceb3cd510e875523436ca9dccb76ef9df5627dc0",
+      "sha1": "eacf072f3b0c7c181597123e16f6b0be5b3bca9d",
+      "crc32": "50e22ac2",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "doraemon3_p1",
+      "what": "Cartridge ROM of Doraemon 3: Nobita to Toki no Hougyoku, Epoch 1994, second chip, as MAME's snes software list names it",
+      "path": "snes/doraemn3/shvc-4t-0 p1.u2",
+      "size": 524288,
+      "sha256": "bf7132976dc991ded3c090d6ea630ad4fedbd79405754fe9adebe8099bfddfa9",
+      "sha1": "82c8e498908e235fcaff0d3a81a2e7863d2c9031",
+      "crc32": "965c8e80",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "yousei_rom",
+      "what": "Cartridge ROM of Doraemon: Nobita to Yousei no Kuni, Epoch 1993, revision A, as MAME's snes software list names it",
+      "path": "snes/doraemon/shvc-dr-1.u1",
+      "size": 524288,
+      "sha256": "0a0eaaf876827b59c45a9236b70827d55372c094fb572941168e8d1ff8617fba",
+      "sha1": "95b8e45c194618fc122ca10d5af5dbf9b9077aac",
+      "crc32": "55e44983",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "excite95_rom",
+      "what": "Cartridge ROM of J.League Excite Stage '95, Epoch 1995, first chip, as MAME's snes software list names it",
+      "path": "snes/jlexct95/shvc-aj2j-0 p0.u1",
+      "size": 1048576,
+      "sha256": "5c62401d4bae5369ff5500e752dd486f661d58738185ad085b4ec74a91118c75",
+      "sha1": "9a4f292114b6fb6deaf6a4f768345e7a7636fb71",
+      "crc32": "5d05e97b",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "excite95_p1",
+      "what": "Cartridge ROM of J.League Excite Stage '95, Epoch 1995, second chip, as MAME's snes software list names it",
+      "path": "snes/jlexct95/shvc-aj2j-0 p1.u2",
+      "size": 524288,
+      "sha256": "d71b58b4e5b1a20fc5f5f57841d481e9946ae369bcdce7409a2b02c7dab5e3e9",
+      "sha1": "c2c20c0a706d60ec8baaf2fc7d08264768be30f4",
+      "crc32": "a791e51c",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "dslayer2_rom",
+      "what": "Cartridge ROM of Dragon Slayer: Eiyuu Densetsu II, Epoch 1993, as MAME's snes software list names it",
+      "path": "snes/dslayed2/dragon slayer - eiyuu densetsu ii (japan).sfc",
+      "size": 1572864,
+      "sha256": "06e7b2ab97fb7c38ec36d6a0a145a4bbeca89e8e2950e3b00d84a46cb2b56b7a",
+      "sha1": "680539d0a7699adcf06eb0b1ba541603d3aa02e9",
+      "crc32": "f409c139",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "hatayama_rom",
+      "what": "Cartridge ROM of Hatayama Hatch no Pro Yakyuu News! Jitsumei Ban, Epoch 1993, as MAME's snes software list names it",
+      "path": "snes/hatayama/hatayama hatch no pro yakyuu news - jitsumei ban (japan).sfc",
+      "size": 1048576,
+      "sha256": "da44facf3ea24e242b88adaac7ebcf5e5d8617aec7153b0bd73fb0aeba7449da",
+      "sha1": "27b381b003445ef9bd1db0ecf9f018093a3e586b",
+      "crc32": "7a585763",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "excite94_rom",
+      "what": "Cartridge ROM of J.League Excite Stage '94, Epoch 1994, revision A, chip 1, as MAME's snes software list names it",
+      "path": "snes/jlexct94/shvc-jl-1 p0.u1",
+      "size": 1048576,
+      "sha256": "43d3cfad08a6f9c28991d4579767cb6fed489214542f4fd7f97c956259bc6cc3",
+      "sha1": "0422ed14df97df5917dd67efead191ee54d596ab",
+      "crc32": "2cf17e39",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "excite94_p1",
+      "what": "Cartridge ROM of J.League Excite Stage '94, Epoch 1994, revision A, chip 2, as MAME's snes software list names it",
+      "path": "snes/jlexct94/shvc-jl-1 p1.u2",
+      "size": 524288,
+      "sha256": "6f3009bac943a358ba150fff6649cc837dda9cbabe5efbbf14f4df43c92ab9cc",
+      "sha1": "d76cbee8a7e7790639b0fa81af3896d2433a0e30",
+      "crc32": "c6eaa3af",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "datach_battlerush_prg",
+      "what": "Program ROM of Datach Battle Rush: Build Up Robot Tournament, Bandai 1993, as MAME's nes_datach software list names it; the list marks it a bad dump",
+      "path": "nes_datach/dtc_brsh/b-ai '93 battle-rush.ic1",
+      "size": 262144,
+      "sha256": "cbc404d57879beca0b65b855b19fda9e017e7d8cc716941b52bbea8f8a6ee859",
+      "sha1": "29cc759d5ca214eefc0cc1c6ce0f8b9111e58124",
+      "crc32": "983d8175",
+      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
     }
   ]
 }

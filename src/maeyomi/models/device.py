@@ -15,12 +15,20 @@ class Device(StrEnum):
     DATACH_SD_GUNDAM = "sdgundam"
     DATACH_YUYU = "yuyu"
     DATACH_JLEAGUE = "jleague"
+    DATACH_BATTLE_RUSH = "battlerush"
     BARCODE_WORLD = "barcodeworld"
     SENKI = "senki"
     LUPIN = "lupin"
     DONALD = "donald"
     SPIDERMAN = "spiderman"
     ALICE = "alice"
+    DORAEMON2 = "doraemon2"
+    DORAEMON3 = "doraemon3"
+    YOUSEI = "yousei"
+    EXCITE95 = "excite95"
+    DSLAYER2 = "dslayer2"
+    HATAYAMA = "hatayama"
+    EXCITE94 = "excite94"
 
     @property
     def is_game(self) -> bool:
@@ -49,10 +57,18 @@ _NAMES: Final[dict[Device, tuple[str, str]]] = {
     Device.DATACH_SD_GUNDAM: ("Datach SD Gundam Wars", "データック SDガンダム ガンダムウォーズ"),
     Device.DATACH_YUYU: ("Datach Yu Yu Hakusho", "データック 幽遊白書"),
     Device.DATACH_JLEAGUE: ("Datach J.League", "データック Jリーグ スーパートッププレイヤーズ"),
+    Device.DATACH_BATTLE_RUSH: ("Datach Battle Rush", "データック バトルラッシュ"),
     Device.BARCODE_WORLD: ("Barcode World", "バーコードワールド"),
     Device.SENKI: ("Barcode Battler Senki", "バーコードバトラー戦記"),
     Device.LUPIN: ("Lupin III", "ルパン三世 伝説の秘宝を追え!"),
     Device.DONALD: ("Donald Duck no Mahou no Boushi", "ドナルドダックの魔法のぼうし"),
     Device.SPIDERMAN: ("Spider-Man: Lethal Foes", "スパイダーマン リーサルフォーズ"),
     Device.ALICE: ("Alice no Paint Adventure", "アリスのペイントアドベンチャー"),
+    Device.DORAEMON2: ("Doraemon 2", "ドラえもん2 のび太のトイズランド大冒険"),
+    Device.DORAEMON3: ("Doraemon 3", "ドラえもん3 のび太と時の宝玉"),
+    Device.YOUSEI: ("Doraemon: Yousei no Kuni", "ドラえもん のび太と妖精の国"),
+    Device.EXCITE95: ("J.League Excite Stage '95", "J.リーグエキサイトステージ'95"),
+    Device.DSLAYER2: ("Dragon Slayer II", "ドラゴンスレイヤー英雄伝説II"),
+    Device.HATAYAMA: ("Hatayama Hatch", "はた山ハッチのパロ野球ニュース!実名版"),
+    Device.EXCITE94: ("J.League Excite Stage '94", "J.リーグエキサイトステージ'94"),
 }

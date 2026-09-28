@@ -248,3 +248,116 @@ def test_a_code_the_matcher_never_wrote_for_is_recorded_as_unmatched() -> None:
     entry = tool.record(tool.GAMES["lupin"], ["4912345678904"], output)
 
     assert entry["catch 05b3"] is None
+
+
+@pytest.mark.parametrize(
+    ("screen", "software"),
+    [
+        ("doraemon2", "doraemn2"),
+        ("doraemon2_menu", "doraemn2"),
+        ("doraemon3", "doraemn3"),
+        ("doraemon3_menu", "doraemn3"),
+    ],
+)
+def test_each_doraemon_screen_runs_as_its_games_set(screen: str, software: str) -> None:
+    tool = load()
+
+    command = tool.mame_command(ROOT, tool.GAMES[screen])
+
+    assert command[1:6] == ["snes", "-ctrl2", "barcode_battler", "-cart", software]
+
+
+def test_a_screen_deep_in_a_game_gets_a_session_long_enough_to_reach_it() -> None:
+    tool = load()
+    game = tool.GAMES["yousei_menu"]
+
+    command = tool.mame_command(ROOT, game)
+
+    seconds = int(command[command.index("-seconds_to_run") + 1])
+    assert seconds * 60 > game.scan_frame + game.read_delay
+
+
+@pytest.mark.parametrize("screen", ["yousei", "yousei_menu"])
+def test_yousei_is_loaded_from_its_file_since_its_list_entry_names_no_rom_mapping(
+    screen: str,
+) -> None:
+    tool = load()
+
+    command = tool.mame_command(ROOT, tool.GAMES[screen])
+
+    cart = command[command.index("-cart") + 1]
+    assert cart == str(ROOT.resolve() / "snes" / "doraemon" / "shvc-dr-1.u1")
+
+
+def test_excite_stage_95_opens_its_barcode_screen_before_an_open_match() -> None:
+    tool = load()
+
+    lines = tool.plan_lines(tool.GAMES["excite95"], ["4964262129977"])
+
+    assert lines[:3] == ["700 press Start", "1000 press Start", "1300 press Start"]
+    assert "2250 bbscan 4964262129977" in lines
+    assert tool.GAMES["excite95"].extras == ("snes_spc700_ipl", "excite95_p1")
+
+
+def test_a_game_read_by_its_branches_runs_under_the_debugger_with_each_breakpoint_set() -> None:
+    tool = load()
+    game = tool.GAMES["dslayer2"]
+
+    command = tool.mame_command(ROOT, game)
+    lines = tool.plan_lines(game, ["4900000040104"])
+
+    assert command[command.index("-debug") + 1 : command.index("-debug") + 3] == [
+        "-debugger",
+        "none",
+    ]
+    assert "10 bp c1e5a9 ENDING" in lines
+
+
+def test_the_branches_a_code_took_are_recorded_in_order() -> None:
+    tool = load()
+    output = "HIT BOOST 0f\nHIT EXIT ff\nPEEK 0b57 0f\n"
+
+    entry = tool.record(tool.GAMES["dslayer2"], ["4900000040104"], output)
+
+    assert entry["hits"] == ["BOOST 0f", "EXIT ff"]
+
+
+def test_hatayama_is_read_on_its_battle_baseball_board_battler_screen() -> None:
+    tool = load()
+
+    lines = tool.plan_lines(tool.GAMES["hatayama"], ["9999999295997"])
+
+    assert "1900 bbscan 9999999295997" in lines
+    assert "1990 peek 7eff69 20" in lines
+
+
+def test_every_write_to_a_caught_address_is_kept_in_order() -> None:
+    tool = load()
+    output = (
+        "CATCH 08ca 02\nCATCH 08ca 10\nCATCH 08ca 00\n"
+        "PEEK 03d3 04 02 06 02 03 06 02 05 04 09 07 04 00\n"
+    )
+
+    entry = tool.record(tool.GAMES["doraemon3_menu"], ["4794052362624"], output)
+
+    assert (entry["catch 08ca"], entry["writes 08ca"]) == ("02", ["02", "10", "00"])
+
+
+def test_battle_rush_scans_a_robots_two_cards_one_after_the_other() -> None:
+    tool = load()
+
+    lines = tool.plan_lines(tool.GAMES["battlerush"], ["0021495637396", "0021474877439"])
+
+    assert "3100 scan 0021495637396" in lines
+    assert "3400 scan 0021474877439" in lines
+    assert "1100 poke 05a2 02" in lines
+    assert "4300 peek 0348 48" in lines
+
+
+def test_a_paired_read_records_both_cards() -> None:
+    tool = load()
+    output = "PEEK 0348 " + " ".join(["00"] * 48) + "\n"
+
+    entry = tool.record(tool.GAMES["battlerush"], ["0021495637396", "0021474877439"], output)
+
+    assert (entry["barcode"], entry["second"]) == ("0021495637396", "0021474877439")

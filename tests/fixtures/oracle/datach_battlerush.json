@@ -1,0 +1,1333 @@
+{
+  "game": "Datach Battle Rush: Build Up Robot Tournament",
+  "software": "dtc_brsh",
+  "rom": {
+    "sha1": "29cc759d5ca214eefc0cc1c6ce0f8b9111e58124",
+    "size": 262144
+  },
+  "emulator": "MAME 0.289, nes with the Datach reader, the frame card then the weapon card",
+  "screen": "Robo Factory; the robot's attack, defense, speed, recovery and weight at $035B to $035F",
+  "recorded_utc": "2026-09-28T17:37:09Z",
+  "pairs": [
+    {
+      "frame": "0021495637396",
+      "weapons": "0021474877439",
+      "stats": {
+        "attack": 233,
+        "defense": 233,
+        "speed": 233,
+        "recovery": 255,
+        "weight": 197
+      }
+    },
+    {
+      "frame": "0081961299091",
+      "weapons": "0082768050389",
+      "stats": {
+        "attack": 82,
+        "defense": 204,
+        "speed": 168,
+        "recovery": 74,
+        "weight": 169
+      }
+    },
+    {
+      "frame": "0047068590141",
+      "weapons": "0047587338933",
+      "stats": {
+        "attack": 122,
+        "defense": 116,
+        "speed": 160,
+        "recovery": 114,
+        "weight": 189
+      }
+    },
+    {
+      "frame": "0032361716534",
+      "weapons": "0033512192459",
+      "stats": {
+        "attack": 96,
+        "defense": 91,
+        "speed": 219,
+        "recovery": 137,
+        "weight": 129
+      }
+    },
+    {
+      "frame": "0020152926712",
+      "weapons": "0020207726679",
+      "stats": {
+        "attack": 176,
+        "defense": 166,
+        "speed": 72,
+        "recovery": 225,
+        "weight": 223
+      }
+    },
+    {
+      "frame": "0014890095847",
+      "weapons": "0015726030505",
+      "stats": {
+        "attack": 209,
+        "defense": 56,
+        "speed": 139,
+        "recovery": 103,
+        "weight": 149
+      }
+    },
+    {
+      "frame": "0063218592056",
+      "weapons": "0064119135686",
+      "stats": {
+        "attack": 149,
+        "defense": 43,
+        "speed": 115,
+        "recovery": 120,
+        "weight": 166
+      }
+    },
+    {
+      "frame": "0056523364883",
+      "weapons": "0057465248964",
+      "stats": {
+        "attack": 89,
+        "defense": 39,
+        "speed": 131,
+        "recovery": 94,
+        "weight": 106
+      }
+    },
+    {
+      "frame": "0009529782397",
+      "weapons": "0010398965117",
+      "stats": {
+        "attack": 100,
+        "defense": 168,
+        "speed": 85,
+        "recovery": 146,
+        "weight": 185
+      }
+    },
+    {
+      "frame": "0073874451482",
+      "weapons": "0073925946041",
+      "stats": {
+        "attack": 187,
+        "defense": 92,
+        "speed": 184,
+        "recovery": 93,
+        "weight": 165
+      }
+    },
+    {
+      "frame": "0057787396795",
+      "weapons": "0058899511303",
+      "stats": {
+        "attack": 80,
+        "defense": 84,
+        "speed": 140,
+        "recovery": 74,
+        "weight": 113
+      }
+    },
+    {
+      "frame": "0084724010346",
+      "weapons": "0084902905258",
+      "stats": {
+        "attack": 96,
+        "defense": 182,
+        "speed": 123,
+        "recovery": 68,
+        "weight": 183
+      }
+    },
+    {
+      "frame": "0012137258857",
+      "weapons": "0013419821843",
+      "stats": {
+        "attack": 201,
+        "defense": 42,
+        "speed": 84,
+        "recovery": 74,
+        "weight": 190
+      }
+    },
+    {
+      "frame": "0067140440904",
+      "weapons": "0068087975916",
+      "stats": {
+        "attack": 136,
+        "defense": 68,
+        "speed": 155,
+        "recovery": 82,
+        "weight": 163
+      }
+    },
+    {
+      "frame": "0034966923676",
+      "weapons": "0035713873809",
+      "stats": {
+        "attack": 99,
+        "defense": 153,
+        "speed": 107,
+        "recovery": 93,
+        "weight": 147
+      }
+    },
+    {
+      "frame": "0042957267654",
+      "weapons": "0043241014229",
+      "stats": {
+        "attack": 106,
+        "defense": 142,
+        "speed": 113,
+        "recovery": 99,
+        "weight": 165
+      }
+    },
+    {
+      "frame": "0039075437106",
+      "weapons": "0038943801277",
+      "stats": {
+        "attack": 122,
+        "defense": 51,
+        "speed": 136,
+        "recovery": 106,
+        "weight": 149
+      }
+    },
+    {
+      "frame": "0001439992835",
+      "weapons": "0088105628730",
+      "stats": {
+        "attack": 73,
+        "defense": 173,
+        "speed": 60,
+        "recovery": 103,
+        "weight": 175
+      }
+    },
+    {
+      "frame": "0060454427548",
+      "weapons": "0061667753829",
+      "stats": {
+        "attack": 114,
+        "defense": 137,
+        "speed": 129,
+        "recovery": 80,
+        "weight": 201
+      }
+    },
+    {
+      "frame": "0020177707297",
+      "weapons": "0020288333742",
+      "stats": {
+        "attack": 187,
+        "defense": 101,
+        "speed": 104,
+        "recovery": 93,
+        "weight": 219
+      }
+    },
+    {
+      "frame": "0033664208078",
+      "weapons": "0034384478009",
+      "stats": {
+        "attack": 76,
+        "defense": 153,
+        "speed": 49,
+        "recovery": 176,
+        "weight": 195
+      }
+    },
+    {
+      "frame": "0073954071951",
+      "weapons": "0074127796618",
+      "stats": {
+        "attack": 150,
+        "defense": 134,
+        "speed": 217,
+        "recovery": 145,
+        "weight": 167
+      }
+    },
+    {
+      "frame": "0000082980930",
+      "weapons": "0000418478598",
+      "stats": {
+        "attack": 132,
+        "defense": 116,
+        "speed": 119,
+        "recovery": 182,
+        "weight": 189
+      }
+    },
+    {
+      "frame": "0057778921296",
+      "weapons": "0057849957635",
+      "stats": {
+        "attack": 195,
+        "defense": 128,
+        "speed": 61,
+        "recovery": 127,
+        "weight": 193
+      }
+    },
+    {
+      "frame": "0030870157640",
+      "weapons": "0031472376629",
+      "stats": {
+        "attack": 136,
+        "defense": 53,
+        "speed": 220,
+        "recovery": 86,
+        "weight": 107
+      }
+    },
+    {
+      "frame": "0063197929706",
+      "weapons": "0063625975670",
+      "stats": {
+        "attack": 172,
+        "defense": 65,
+        "speed": 89,
+        "recovery": 94,
+        "weight": 171
+      }
+    },
+    {
+      "frame": "0069916502595",
+      "weapons": "0070471527922",
+      "stats": {
+        "attack": 104,
+        "defense": 144,
+        "speed": 111,
+        "recovery": 108,
+        "weight": 153
+      }
+    },
+    {
+      "frame": "0001392326562",
+      "weapons": "0001795368892",
+      "stats": {
+        "attack": 90,
+        "defense": 183,
+        "speed": 127,
+        "recovery": 94,
+        "weight": 125
+      }
+    },
+    {
+      "frame": "0026976756733",
+      "weapons": "0027294776938",
+      "stats": {
+        "attack": 79,
+        "defense": 81,
+        "speed": 183,
+        "recovery": 111,
+        "weight": 113
+      }
+    },
+    {
+      "frame": "0064500084488",
+      "weapons": "0065070716938",
+      "stats": {
+        "attack": 84,
+        "defense": 111,
+        "speed": 198,
+        "recovery": 86,
+        "weight": 125
+      }
+    },
+    {
+      "frame": "0041740925887",
+      "weapons": "0042339567104",
+      "stats": {
+        "attack": 112,
+        "defense": 126,
+        "speed": 84,
+        "recovery": 137,
+        "weight": 183
+      }
+    },
+    {
+      "frame": "0031010179621",
+      "weapons": "0032200165096",
+      "stats": {
+        "attack": 98,
+        "defense": 177,
+        "speed": 201,
+        "recovery": 145,
+        "weight": 131
+      }
+    },
+    {
+      "frame": "0017586279187",
+      "weapons": "0017449616172",
+      "stats": {
+        "attack": 67,
+        "defense": 81,
+        "speed": 102,
+        "recovery": 86,
+        "weight": 131
+      }
+    },
+    {
+      "frame": "0024242909531",
+      "weapons": "0024762779613",
+      "stats": {
+        "attack": 2,
+        "defense": 166,
+        "speed": 94,
+        "recovery": 114,
+        "weight": 184
+      }
+    },
+    {
+      "frame": "0000131791371",
+      "weapons": "0000275917285",
+      "stats": {
+        "attack": 160,
+        "defense": 54,
+        "speed": 59,
+        "recovery": 103,
+        "weight": 159
+      }
+    },
+    {
+      "frame": "0041624206866",
+      "weapons": "0042214042573",
+      "stats": {
+        "attack": 2,
+        "defense": 58,
+        "speed": 117,
+        "recovery": 180,
+        "weight": 114
+      }
+    },
+    {
+      "frame": "0037746690874",
+      "weapons": "0037918823764",
+      "stats": {
+        "attack": 94,
+        "defense": 114,
+        "speed": 50,
+        "recovery": 21,
+        "weight": 199
+      }
+    },
+    {
+      "frame": "0082011694712",
+      "weapons": "0082093382919",
+      "stats": {
+        "attack": 171,
+        "defense": 142,
+        "speed": 124,
+        "recovery": 146,
+        "weight": 173
+      }
+    },
+    {
+      "frame": "0060445874740",
+      "weapons": "0060584438581",
+      "stats": {
+        "attack": 81,
+        "defense": 88,
+        "speed": 124,
+        "recovery": 103,
+        "weight": 121
+      }
+    },
+    {
+      "frame": "0083266081647",
+      "weapons": "0084201010769",
+      "stats": {
+        "attack": 139,
+        "defense": 209,
+        "speed": 81,
+        "recovery": 129,
+        "weight": 229
+      }
+    },
+    {
+      "frame": "0027005069183",
+      "weapons": "0027728318666",
+      "stats": {
+        "attack": 212,
+        "defense": 130,
+        "speed": 62,
+        "recovery": 155,
+        "weight": 235
+      }
+    },
+    {
+      "frame": "0022836668659",
+      "weapons": "0023373773331",
+      "stats": {
+        "attack": 236,
+        "defense": 107,
+        "speed": 165,
+        "recovery": 240,
+        "weight": 195
+      }
+    },
+    {
+      "frame": "0057824939053",
+      "weapons": "0058695045439",
+      "stats": {
+        "attack": 141,
+        "defense": 66,
+        "speed": 105,
+        "recovery": 131,
+        "weight": 161
+      }
+    },
+    {
+      "frame": "0000065932499",
+      "weapons": "0000525931597",
+      "stats": {
+        "attack": 122,
+        "defense": 92,
+        "speed": 100,
+        "recovery": 107,
+        "weight": 185
+      }
+    },
+    {
+      "frame": "0081898517817",
+      "weapons": "0083104243373",
+      "stats": {
+        "attack": 169,
+        "defense": 175,
+        "speed": 116,
+        "recovery": 68,
+        "weight": 223
+      }
+    },
+    {
+      "frame": "0012116295477",
+      "weapons": "0012101885682",
+      "stats": {
+        "attack": 18,
+        "defense": 51,
+        "speed": 51,
+        "recovery": 97,
+        "weight": 82
+      }
+    },
+    {
+      "frame": "0018881498655",
+      "weapons": "0019130635547",
+      "stats": {
+        "attack": 86,
+        "defense": 98,
+        "speed": 157,
+        "recovery": 114,
+        "weight": 133
+      }
+    },
+    {
+      "frame": "0044360978479",
+      "weapons": "0044801734076",
+      "stats": {
+        "attack": 174,
+        "defense": 99,
+        "speed": 74,
+        "recovery": 106,
+        "weight": 201
+      }
+    },
+    {
+      "frame": "0052457264299",
+      "weapons": "0053431866156",
+      "stats": {
+        "attack": 182,
+        "defense": 100,
+        "speed": 105,
+        "recovery": 159,
+        "weight": 193
+      }
+    },
+    {
+      "frame": "0016205686085",
+      "weapons": "0016241467234",
+      "stats": {
+        "attack": 164,
+        "defense": 35,
+        "speed": 137,
+        "recovery": 94,
+        "weight": 154
+      }
+    },
+    {
+      "frame": "0008206518366",
+      "weapons": "0009278932288",
+      "stats": {
+        "attack": 150,
+        "defense": 88,
+        "speed": 70,
+        "recovery": 106,
+        "weight": 187
+      }
+    },
+    {
+      "frame": "0057768495431",
+      "weapons": "0058490562841",
+      "stats": {
+        "attack": 170,
+        "defense": 80,
+        "speed": 130,
+        "recovery": 106,
+        "weight": 197
+      }
+    },
+    {
+      "frame": "0021572643463",
+      "weapons": "0021477822863",
+      "stats": {
+        "attack": 154,
+        "defense": 125,
+        "speed": 192,
+        "recovery": 154,
+        "weight": 193
+      }
+    },
+    {
+      "frame": "0028188669900",
+      "weapons": "0028484919302",
+      "stats": {
+        "attack": 31,
+        "defense": 142,
+        "speed": 56,
+        "recovery": 86,
+        "weight": 178
+      }
+    },
+    {
+      "frame": "0022904955094",
+      "weapons": "0023850538064",
+      "stats": {
+        "attack": 181,
+        "defense": 127,
+        "speed": 196,
+        "recovery": 86,
+        "weight": 193
+      }
+    },
+    {
+      "frame": "0045685807697",
+      "weapons": "0046543674306",
+      "stats": {
+        "attack": 73,
+        "defense": 179,
+        "speed": 113,
+        "recovery": 94,
+        "weight": 173
+      }
+    },
+    {
+      "frame": "0080677192948",
+      "weapons": "0080621108307",
+      "stats": {
+        "attack": 138,
+        "defense": 147,
+        "speed": 137,
+        "recovery": 124,
+        "weight": 201
+      }
+    },
+    {
+      "frame": "0073980309721",
+      "weapons": "0074438101491",
+      "stats": {
+        "attack": 11,
+        "defense": 151,
+        "speed": 127,
+        "recovery": 106,
+        "weight": 160
+      }
+    },
+    {
+      "frame": "0000048602791",
+      "weapons": "0000241511929",
+      "stats": {
+        "attack": 127,
+        "defense": 93,
+        "speed": 122,
+        "recovery": 135,
+        "weight": 137
+      }
+    },
+    {
+      "frame": "0006751472232",
+      "weapons": "0007565829372",
+      "stats": {
+        "attack": 139,
+        "defense": 107,
+        "speed": 114,
+        "recovery": 239,
+        "weight": 183
+      }
+    },
+    {
+      "frame": "0055162069210",
+      "weapons": "0055194097983",
+      "stats": {
+        "attack": 95,
+        "defense": 86,
+        "speed": 75,
+        "recovery": 94,
+        "weight": 189
+      }
+    },
+    {
+      "frame": "0006792089291",
+      "weapons": "0007223067757",
+      "stats": {
+        "attack": 146,
+        "defense": 107,
+        "speed": 42,
+        "recovery": 148,
+        "weight": 124
+      }
+    },
+    {
+      "frame": "0025622318035",
+      "weapons": "0026712150572",
+      "stats": {
+        "attack": 83,
+        "defense": 104,
+        "speed": 29,
+        "recovery": 106,
+        "weight": 140
+      }
+    },
+    {
+      "frame": "0053799107015",
+      "weapons": "0054689495839",
+      "stats": {
+        "attack": 122,
+        "defense": 85,
+        "speed": 161,
+        "recovery": 150,
+        "weight": 165
+      }
+    },
+    {
+      "frame": "0002709861875",
+      "weapons": "0003708041007",
+      "stats": {
+        "attack": 136,
+        "defense": 211,
+        "speed": 165,
+        "recovery": 90,
+        "weight": 187
+      }
+    },
+    {
+      "frame": "0004166103673",
+      "weapons": "0005011539110",
+      "stats": {
+        "attack": 204,
+        "defense": 111,
+        "speed": 163,
+        "recovery": 86,
+        "weight": 195
+      }
+    },
+    {
+      "frame": "0006836960180",
+      "weapons": "0007464568396",
+      "stats": {
+        "attack": 87,
+        "defense": 81,
+        "speed": 207,
+        "recovery": 111,
+        "weight": 117
+      }
+    },
+    {
+      "frame": "0016237339256",
+      "weapons": "0017227155305",
+      "stats": {
+        "attack": 137,
+        "defense": 67,
+        "speed": 124,
+        "recovery": 137,
+        "weight": 169
+      }
+    },
+    {
+      "frame": "0029633948175",
+      "weapons": "0115825084581",
+      "stats": {
+        "attack": 135,
+        "defense": 94,
+        "speed": 73,
+        "recovery": 144,
+        "weight": 157
+      }
+    },
+    {
+      "frame": "0065824078573",
+      "weapons": "0066140923324",
+      "stats": {
+        "attack": 138,
+        "defense": 128,
+        "speed": 117,
+        "recovery": 93,
+        "weight": 195
+      }
+    },
+    {
+      "frame": "0150338658783",
+      "weapons": "0065209313229",
+      "stats": {
+        "attack": 120,
+        "defense": 197,
+        "speed": 115,
+        "recovery": 84,
+        "weight": 187
+      }
+    },
+    {
+      "frame": "0001379323300",
+      "weapons": "0001374308349",
+      "stats": {
+        "attack": 184,
+        "defense": 69,
+        "speed": 122,
+        "recovery": 187,
+        "weight": 149
+      }
+    },
+    {
+      "frame": "0065790249533",
+      "weapons": "0067033196696",
+      "stats": {
+        "attack": 216,
+        "defense": 94,
+        "speed": 138,
+        "recovery": 93,
+        "weight": 183
+      }
+    },
+    {
+      "frame": "0036247934821",
+      "weapons": "0036244042443",
+      "stats": {
+        "attack": 147,
+        "defense": 188,
+        "speed": 174,
+        "recovery": 82,
+        "weight": 181
+      }
+    },
+    {
+      "frame": "0024324522894",
+      "weapons": "0025163568103",
+      "stats": {
+        "attack": 83,
+        "defense": 115,
+        "speed": 78,
+        "recovery": 80,
+        "weight": 159
+      }
+    },
+    {
+      "frame": "0051027680057",
+      "weapons": "0051669248539",
+      "stats": {
+        "attack": 124,
+        "defense": 113,
+        "speed": 210,
+        "recovery": 74,
+        "weight": 145
+      }
+    },
+    {
+      "frame": "0083261504042",
+      "weapons": "0083361482409",
+      "stats": {
+        "attack": 165,
+        "defense": 166,
+        "speed": 75,
+        "recovery": 80,
+        "weight": 237
+      }
+    },
+    {
+      "frame": "0004076940177",
+      "weapons": "0004444330479",
+      "stats": {
+        "attack": 153,
+        "defense": 133,
+        "speed": 110,
+        "recovery": 94,
+        "weight": 199
+      }
+    },
+    {
+      "frame": "0021527973706",
+      "weapons": "0022041108413",
+      "stats": {
+        "attack": 133,
+        "defense": 93,
+        "speed": 100,
+        "recovery": 113,
+        "weight": 145
+      }
+    },
+    {
+      "frame": "0083247274990",
+      "weapons": "0083539090641",
+      "stats": {
+        "attack": 61,
+        "defense": 95,
+        "speed": 100,
+        "recovery": 119,
+        "weight": 131
+      }
+    },
+    {
+      "frame": "0036384714799",
+      "weapons": "0036527497663",
+      "stats": {
+        "attack": 107,
+        "defense": 207,
+        "speed": 80,
+        "recovery": 141,
+        "weight": 227
+      }
+    },
+    {
+      "frame": "0021585557177",
+      "weapons": "0021480747153",
+      "stats": {
+        "attack": 156,
+        "defense": 70,
+        "speed": 147,
+        "recovery": 112,
+        "weight": 159
+      }
+    },
+    {
+      "frame": "0076589301875",
+      "weapons": "0076643041302",
+      "stats": {
+        "attack": 65,
+        "defense": 84,
+        "speed": 143,
+        "recovery": 78,
+        "weight": 111
+      }
+    },
+    {
+      "frame": "0073953763543",
+      "weapons": "0075051530361",
+      "stats": {
+        "attack": 147,
+        "defense": 109,
+        "speed": 91,
+        "recovery": 137,
+        "weight": 217
+      }
+    },
+    {
+      "frame": "0014803667192",
+      "weapons": "0015429166839",
+      "stats": {
+        "attack": 88,
+        "defense": 101,
+        "speed": 104,
+        "recovery": 207,
+        "weight": 171
+      }
+    },
+    {
+      "frame": "0071178492804",
+      "weapons": "0071168517875",
+      "stats": {
+        "attack": 78,
+        "defense": 64,
+        "speed": 92,
+        "recovery": 93,
+        "weight": 135
+      }
+    },
+    {
+      "frame": "0063219842778",
+      "weapons": "0063248175587",
+      "stats": {
+        "attack": 85,
+        "defense": 78,
+        "speed": 118,
+        "recovery": 146,
+        "weight": 161
+      }
+    },
+    {
+      "frame": "0061754585396",
+      "weapons": "0062113070385",
+      "stats": {
+        "attack": 73,
+        "defense": 126,
+        "speed": 145,
+        "recovery": 96,
+        "weight": 175
+      }
+    },
+    {
+      "frame": "0073832512125",
+      "weapons": "0074966322696",
+      "stats": {
+        "attack": 134,
+        "defense": 130,
+        "speed": 112,
+        "recovery": 80,
+        "weight": 209
+      }
+    },
+    {
+      "frame": "0008212782591",
+      "weapons": "0008501667041",
+      "stats": {
+        "attack": 200,
+        "defense": 169,
+        "speed": 97,
+        "recovery": 90,
+        "weight": 183
+      }
+    },
+    {
+      "frame": "0030953445688",
+      "weapons": "0031385196833",
+      "stats": {
+        "attack": 116,
+        "defense": 146,
+        "speed": 154,
+        "recovery": 125,
+        "weight": 197
+      }
+    },
+    {
+      "frame": "0014822789004",
+      "weapons": "0015385561983",
+      "stats": {
+        "attack": 65,
+        "defense": 91,
+        "speed": 24,
+        "recovery": 126,
+        "weight": 144
+      }
+    },
+    {
+      "frame": "0045777822010",
+      "weapons": "0046282525563",
+      "stats": {
+        "attack": 114,
+        "defense": 132,
+        "speed": 162,
+        "recovery": 101,
+        "weight": 155
+      }
+    },
+    {
+      "frame": "0000046557024",
+      "weapons": "0000111100307",
+      "stats": {
+        "attack": 75,
+        "defense": 146,
+        "speed": 147,
+        "recovery": 96,
+        "weight": 171
+      }
+    },
+    {
+      "frame": "0014772680505",
+      "weapons": "0014972688331",
+      "stats": {
+        "attack": 91,
+        "defense": 151,
+        "speed": 94,
+        "recovery": 68,
+        "weight": 165
+      }
+    },
+    {
+      "frame": "0051091613890",
+      "weapons": "0051376947619",
+      "stats": {
+        "attack": 136,
+        "defense": 134,
+        "speed": 129,
+        "recovery": 62,
+        "weight": 175
+      }
+    },
+    {
+      "frame": "0017533114547",
+      "weapons": "0018758046827",
+      "stats": {
+        "attack": 119,
+        "defense": 59,
+        "speed": 80,
+        "recovery": 68,
+        "weight": 171
+      }
+    },
+    {
+      "frame": "0013479382538",
+      "weapons": "0013893002394",
+      "stats": {
+        "attack": 111,
+        "defense": 25,
+        "speed": 209,
+        "recovery": 93,
+        "weight": 142
+      }
+    },
+    {
+      "frame": "0081995807446",
+      "weapons": "0082166450729",
+      "stats": {
+        "attack": 124,
+        "defense": 149,
+        "speed": 96,
+        "recovery": 144,
+        "weight": 175
+      }
+    },
+    {
+      "frame": "0042967025350",
+      "weapons": "0128851668588",
+      "stats": {
+        "attack": 137,
+        "defense": 91,
+        "speed": 106,
+        "recovery": 255,
+        "weight": 179
+      }
+    },
+    {
+      "frame": "0043091234748",
+      "weapons": "0044278452701",
+      "stats": {
+        "attack": 52,
+        "defense": 68,
+        "speed": 195,
+        "recovery": 132,
+        "weight": 85
+      }
+    },
+    {
+      "frame": "0006829652511",
+      "weapons": "0007398391480",
+      "stats": {
+        "attack": 195,
+        "defense": 158,
+        "speed": 84,
+        "recovery": 99,
+        "weight": 223
+      }
+    },
+    {
+      "frame": "0079307110872",
+      "weapons": "0079847125366",
+      "stats": {
+        "attack": 83,
+        "defense": 157,
+        "speed": 102,
+        "recovery": 93,
+        "weight": 151
+      }
+    },
+    {
+      "frame": "0059201821685",
+      "weapons": "0059183950334",
+      "stats": {
+        "attack": 84,
+        "defense": 150,
+        "speed": 134,
+        "recovery": 117,
+        "weight": 153
+      }
+    },
+    {
+      "frame": "0091309019243",
+      "weapons": "0005953290872",
+      "stats": {
+        "attack": 69,
+        "defense": 116,
+        "speed": 208,
+        "recovery": 138,
+        "weight": 139
+      }
+    },
+    {
+      "frame": "0008145876237",
+      "weapons": "0009057422962",
+      "stats": {
+        "attack": 107,
+        "defense": 195,
+        "speed": 65,
+        "recovery": 138,
+        "weight": 197
+      }
+    },
+    {
+      "frame": "0072562095366",
+      "weapons": "0073121465056",
+      "stats": {
+        "attack": 162,
+        "defense": 58,
+        "speed": 90,
+        "recovery": 62,
+        "weight": 173
+      }
+    },
+    {
+      "frame": "0008053220504",
+      "weapons": "0008560974234",
+      "stats": {
+        "attack": 165,
+        "defense": 61,
+        "speed": 69,
+        "recovery": 68,
+        "weight": 195
+      }
+    },
+    {
+      "frame": "0049710942315",
+      "weapons": "0050990950739",
+      "stats": {
+        "attack": 120,
+        "defense": 111,
+        "speed": 68,
+        "recovery": 135,
+        "weight": 191
+      }
+    },
+    {
+      "frame": "0010739945519",
+      "weapons": "0011293852816",
+      "stats": {
+        "attack": 99,
+        "defense": 124,
+        "speed": 48,
+        "recovery": 131,
+        "weight": 189
+      }
+    },
+    {
+      "frame": "0080611433342",
+      "weapons": "0080724657283",
+      "stats": {
+        "attack": 50,
+        "defense": 115,
+        "speed": 56,
+        "recovery": 198,
+        "weight": 165
+      }
+    },
+    {
+      "frame": "0041702526374",
+      "weapons": "0041861449896",
+      "stats": {
+        "attack": 55,
+        "defense": 65,
+        "speed": 208,
+        "recovery": 86,
+        "weight": 85
+      }
+    },
+    {
+      "frame": "0055069667014",
+      "weapons": "0055055513331",
+      "stats": {
+        "attack": 133,
+        "defense": 176,
+        "speed": 106,
+        "recovery": 207,
+        "weight": 195
+      }
+    },
+    {
+      "frame": "0084721890576",
+      "weapons": "0085633291153",
+      "stats": {
+        "attack": 128,
+        "defense": 84,
+        "speed": 100,
+        "recovery": 21,
+        "weight": 161
+      }
+    },
+    {
+      "frame": "0025514378048",
+      "weapons": "0026257682385",
+      "stats": {
+        "attack": 111,
+        "defense": 116,
+        "speed": 60,
+        "recovery": 93,
+        "weight": 110
+      }
+    },
+    {
+      "frame": "0059131795490",
+      "weapons": "0059278648160",
+      "stats": {
+        "attack": 185,
+        "defense": 156,
+        "speed": 129,
+        "recovery": 86,
+        "weight": 167
+      }
+    },
+    {
+      "frame": "0056390436027",
+      "weapons": "0056957022051",
+      "stats": {
+        "attack": 212,
+        "defense": 130,
+        "speed": 147,
+        "recovery": 180,
+        "weight": 193
+      }
+    },
+    {
+      "frame": "0064520406741",
+      "weapons": "0065579939241",
+      "stats": {
+        "attack": 70,
+        "defense": 126,
+        "speed": 37,
+        "recovery": 129,
+        "weight": 92
+      }
+    },
+    {
+      "frame": "0068612140254",
+      "weapons": "0068768920389",
+      "stats": {
+        "attack": 68,
+        "defense": 180,
+        "speed": 73,
+        "recovery": 123,
+        "weight": 197
+      }
+    },
+    {
+      "frame": "0021501045542",
+      "weapons": "0021871024863",
+      "stats": {
+        "attack": 184,
+        "defense": 47,
+        "speed": 33,
+        "recovery": 94,
+        "weight": 129
+      }
+    }
+  ]
+}

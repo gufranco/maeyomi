@@ -26,6 +26,7 @@ import sys
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Final
 
 HERE = Path(__file__).parent
 ROOT = HERE.parent.parent
@@ -38,6 +39,9 @@ TIMEOUT_SECONDS = 150
 PEEK = re.compile(r"PEEK (\w+) ((?:[0-9a-f]{2} ?)+)")
 CATCH = re.compile(r"CATCH (\w+) ([0-9a-f]{2})")
 CATCH_LEAD = 10
+BREAK_FRAME = 10
+PAIR_GAP = 300
+HIT = re.compile(r"HIT (\S+ [0-9a-f]{2})")
 UNMATCHED = "ff"
 SNES = "snes"
 SNES_PORT = ("-ctrl2", "barcode_battler", "-cart")
@@ -60,6 +64,100 @@ class Game:
     feed: str = "scan"
     extras: tuple[str, ...] = ()
     catches: tuple[str, ...] = ()
+    seconds: str = SESSION_SECONDS
+    breakpoints: tuple[tuple[str, str], ...] = ()
+    paired: bool = False
+
+
+DORAEMON2_PASSWORD: Final = (
+    "900 press Start",
+    "1200 press Start",
+    "1500 press Start",
+    "1620 press Down",
+    "1680 press A",
+)
+DORAEMON3_PASSWORD: Final = (
+    "1500 press Start",
+    "1950 press Start",
+    "3200 press Start",
+    "3300 press Right",
+    "3350 press A",
+)
+DORAEMON3_PLAY: Final = (
+    "1500 press Start",
+    "1950 press Start",
+    "3200 press Start",
+    "3300 press A",
+    *(f"{frame} press Start" for frame in range(3450, 4651, 60)),
+    "5000 press Select",
+)
+EXCITE95_OPEN_MATCH: Final = (
+    "700 press Start",
+    "1000 press Start",
+    "1300 press Start",
+    *(f"{frame} press Down" for frame in range(1400, 1461, 20)),
+    "1500 press Left",
+    *(f"{frame} press Up" for frame in range(1540, 1601, 20)),
+    *(f"{frame} press Start" for frame in range(1650, 2101, 150)),
+)
+DSLAYER2_BRANCHES: Final = (
+    ("c1e48e", "WARP"),
+    ("c1e9fc", "ITEM"),
+    ("c1e5a9", "ENDING"),
+    ("c1e669", "BOOST"),
+    ("c1e6de", "BOOST"),
+    ("c1e791", "BOOST"),
+    ("c1e711", "MONSTERS"),
+    ("c1e7c4", "SOUND"),
+    ("c1e891", "USE"),
+    ("c1e964", "CHAP"),
+    ("c1eace", "EXIT"),
+    ("c1eaf7", "EXIT"),
+)
+"""The branches of $C1:E43F, each outcome's own entry point, and its two exits."""
+DSLAYER2_FIELD: Final = (
+    "700 press Start",
+    "1000 press Start",
+    "1250 press Down",
+    "1450 press A",
+    "1700 press A",
+    *(f"{frame} press A" for frame in range(2000, 4701, 300)),
+    "5100 press A",
+    "5700 press B",
+    "5900 press X",
+)
+EXCITE94_FRIENDLY: Final = (
+    *(f"{frame} press Start" for frame in (600, 900, 1200, 1500, 1650, 1770)),
+    "1850 press Down",
+    *(f"{frame} press Start" for frame in (1890, 2010, 2130, 2250)),
+)
+BATTLE_RUSH_FACTORY: Final = (
+    "700 press Start",
+    "800 press Down",
+    "900 press Down",
+    "1020 press Start",
+    "1100 poke 05a2 02",
+    "1101 poke 05a3 12",
+    "1150 press Down",
+    "1250 press Start",
+    "2400 press A",
+    "2700 press A",
+    "3900 press A",
+)
+"""VS BATTLE, VS COM, Robo Factory; the pokes pass the save chip MAME only partly emulates."""
+YOUSEI_FILE: Final = "{rompath}/snes/doraemon/shvc-dr-1.u1"
+"""MAME's list entry for this cartridge names no ROM mapping and boots it as LoROM, a black
+screen; passed as a file, MAME reads the HiROM mapping from the ROM's own header."""
+YOUSEI_TITLE: Final = tuple(f"{frame} press Start" for frame in (300, 600, 900, 1300, 1900))
+YOUSEI_MAP: Final = (
+    *YOUSEI_TITLE,
+    "2100 press Start",
+    *(f"{frame} press A" for frame in range(2200, 7961, 40)),
+    "8200 press Start",
+    "8400 press Start",
+    "8600 press Select",
+    "8800 press Select",
+)
 
 
 GAMES = {
@@ -198,6 +296,191 @@ GAMES = {
         feed="bbscan",
         extras=SNES_EXTRAS,
     ),
+    "doraemon2": Game(
+        software="doraemn2",
+        artifact="doraemon2_rom",
+        menu=DORAEMON2_PASSWORD,
+        scan_frame=1820,
+        read_delay=10,
+        peeks=(("0598", 13),),
+        accepted=(),
+        system=SNES,
+        media=(*SNES_PORT, "doraemn2"),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=SNES_EXTRAS,
+        catches=("0c6b",),
+    ),
+    "doraemon2_menu": Game(
+        software="doraemn2",
+        artifact="doraemon2_rom",
+        menu=(
+            *DORAEMON2_PASSWORD,
+            "1820 bbscan 4916858783100",
+            "1860 press Start",
+            "2100 press A",
+            "2400 press Select",
+        ),
+        scan_frame=2500,
+        read_delay=40,
+        peeks=(("0b2a", 1), ("0b4e", 1), ("0598", 13)),
+        accepted=(),
+        system=SNES,
+        media=(*SNES_PORT, "doraemn2"),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=SNES_EXTRAS,
+        catches=("0b2a",),
+    ),
+    "doraemon3": Game(
+        software="doraemn3",
+        artifact="doraemon3_rom",
+        menu=DORAEMON3_PASSWORD,
+        scan_frame=3570,
+        read_delay=10,
+        peeks=(("03d3", 13),),
+        accepted=(),
+        system=SNES,
+        media=(*SNES_PORT, "doraemn3"),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=(*SNES_EXTRAS, "doraemon3_p1"),
+        catches=("03d1",),
+    ),
+    "doraemon3_menu": Game(
+        software="doraemn3",
+        artifact="doraemon3_rom",
+        menu=DORAEMON3_PLAY,
+        scan_frame=5130,
+        read_delay=20,
+        peeks=(("03d3", 13),),
+        accepted=(),
+        system=SNES,
+        media=(*SNES_PORT, "doraemn3"),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=(*SNES_EXTRAS, "doraemon3_p1"),
+        catches=("08ca",),
+        seconds="120",
+    ),
+    "yousei": Game(
+        software="doraemon",
+        artifact="yousei_rom",
+        menu=(*YOUSEI_TITLE, "2040 press Down", "2160 press Start"),
+        scan_frame=2350,
+        read_delay=50,
+        peeks=(("7e0f48", 1), ("7e0fa7", 13)),
+        accepted=(("7e0f48", 0),),
+        system=SNES,
+        media=(*SNES_PORT, YOUSEI_FILE),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=SNES_EXTRAS,
+    ),
+    "yousei_menu": Game(
+        software="doraemon",
+        artifact="yousei_rom",
+        menu=YOUSEI_MAP,
+        scan_frame=8950,
+        read_delay=50,
+        peeks=(("7e043d", 2), ("7e0fa7", 13)),
+        accepted=(),
+        system=SNES,
+        media=(*SNES_PORT, YOUSEI_FILE),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=SNES_EXTRAS,
+        seconds="170",
+    ),
+    "excite95": Game(
+        software="jlexct95",
+        artifact="excite95_rom",
+        menu=EXCITE95_OPEN_MATCH,
+        scan_frame=2250,
+        read_delay=200,
+        peeks=(("1b8e", 3), ("1b49", 13)),
+        accepted=(),
+        system=SNES,
+        media=(*SNES_PORT, "jlexct95"),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=(*SNES_EXTRAS, "excite95_p1"),
+    ),
+    "dslayer2": Game(
+        software="dslayed2",
+        artifact="dslayer2_rom",
+        menu=("700 press Start", "1000 press Start"),
+        scan_frame=1250,
+        read_delay=50,
+        peeks=(("0b57", 1),),
+        accepted=(),
+        system=SNES,
+        media=(*SNES_PORT, "dslayed2"),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=SNES_EXTRAS,
+        breakpoints=DSLAYER2_BRANCHES,
+    ),
+    "dslayer2_field": Game(
+        software="dslayed2",
+        artifact="dslayer2_rom",
+        menu=DSLAYER2_FIELD,
+        scan_frame=6100,
+        read_delay=100,
+        peeks=(("013d", 8),),
+        accepted=(),
+        system=SNES,
+        media=(*SNES_PORT, "dslayed2"),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=SNES_EXTRAS,
+        breakpoints=DSLAYER2_BRANCHES,
+        seconds="120",
+    ),
+    "hatayama": Game(
+        software="hatayama",
+        artifact="hatayama_rom",
+        menu=(
+            "850 press Start",
+            "1250 press Start",
+            "1450 press Down",
+            "1550 press Down",
+            "1650 press A",
+        ),
+        scan_frame=1900,
+        read_delay=90,
+        peeks=(("7eff69", 20),),
+        accepted=(),
+        system=SNES,
+        media=(*SNES_PORT, "hatayama"),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=SNES_EXTRAS,
+    ),
+    "excite94": Game(
+        software="jlexct94",
+        artifact="excite94_rom",
+        menu=EXCITE94_FRIENDLY,
+        scan_frame=2350,
+        read_delay=200,
+        peeks=(("1d89", 12), ("1c76", 1), ("1e9c", 13)),
+        accepted=(),
+        system=SNES,
+        media=(*SNES_PORT, "jlexct94"),
+        reader=SNES_READER,
+        feed="bbscan",
+        extras=(*SNES_EXTRAS, "excite94_p1"),
+    ),
+    "battlerush": Game(
+        software="dtc_brsh",
+        artifact="datach_battlerush_prg",
+        menu=BATTLE_RUSH_FACTORY,
+        scan_frame=3100,
+        read_delay=1200,
+        peeks=(("0348", 48),),
+        accepted=(),
+        paired=True,
+    ),
 }
 """An unread code leaves 0 in both bytes, which is also Yusuke with no technique: the
 analyzer cannot tell those two apart, so no such code should be recorded."""
@@ -250,11 +533,26 @@ def verify_artifact(rompath: Path, artifact: str, hint: str) -> None:
 
 def plan_lines(game: Game, words: list[str]) -> list[str]:
     code = words[0]
-    feed = f"swipe {code} {words[1]}" if len(words) > 1 else f"{game.feed} {code}"
+    if game.paired:
+        scans = [
+            f"{game.scan_frame} {game.feed} {code}",
+            f"{game.scan_frame + PAIR_GAP} {game.feed} {words[1]}",
+        ]
+    else:
+        feed = f"swipe {code} {words[1]}" if len(words) > 1 else f"{game.feed} {code}"
+        scans = [f"{game.scan_frame} {feed}"]
     frame = game.scan_frame + game.read_delay
     peeks = [f"{frame} peek {address} {length}" for address, length in game.peeks]
     catches = [f"{game.scan_frame - CATCH_LEAD} catch {address}" for address in game.catches]
-    return [*game.menu, *catches, f"{game.scan_frame} {feed}", *peeks, f"{frame + 5} exit"]
+    breaks = [f"{BREAK_FRAME} bp {address} {label}" for address, label in game.breakpoints]
+    return [
+        *breaks,
+        *game.menu,
+        *catches,
+        *scans,
+        *peeks,
+        f"{frame + 5} exit",
+    ]
 
 
 def run_session(rompath: Path, game: Game, words: list[str]) -> str:
@@ -275,7 +573,11 @@ def run_session(rompath: Path, game: Game, words: list[str]) -> str:
 
 
 def mame_command(rompath: Path, game: Game) -> list[str]:
-    media = game.media or ("-cart", "datach", "-cart2", game.software)
+    rompath_text = str(rompath.resolve())
+    media = tuple(
+        item.format(rompath=rompath_text)
+        for item in game.media or ("-cart", "datach", "-cart2", game.software)
+    )
     return [
         "mame",
         game.system,
@@ -292,7 +594,8 @@ def mame_command(rompath: Path, game: Game) -> list[str]:
         "-nothrottle",
         "-skip_gameinfo",
         "-seconds_to_run",
-        SESSION_SECONDS,
+        game.seconds,
+        *(("-debug", "-debugger", "none") if game.breakpoints else ()),
         "-autoboot_script",
         str(HERE / "drive.lua"),
     ]
@@ -310,21 +613,31 @@ def record(game: Game, words: list[str], output: str) -> dict[str, object]:
         )
         raise RuntimeError(message)
     caught = first_catches(game, output)
+    firsts = [caught[f"catch {address}"] for address in game.catches]
     accepted = any(peeked[address][offset] != 0 for address, offset in game.accepted) or any(
-        value not in {None, UNMATCHED} for value in caught.values()
+        value not in {None, UNMATCHED} for value in firsts
     )
     entry: dict[str, object] = {"barcode": words[0], "accepted": accepted, **caught}
-    if len(words) > 1:
+    if game.paired:
+        entry = {**entry, "second": words[1]}
+    if game.breakpoints:
+        entry = {**entry, "hits": HIT.findall(output)}
+    if len(words) > 1 and not game.paired:
         entry["swipe_us"] = int(words[1])
     return {**entry, **{name: values.hex(" ") for name, values in peeked.items()}}
 
 
-def first_catches(game: Game, output: str) -> dict[str, str | None]:
-    """The first byte the game wrote to each caught address after the scan, if it wrote one."""
-    written: dict[str, str] = {}
-    for address, value in CATCH.findall(output):
-        written.setdefault(address, value)
-    return {f"catch {address}": written.get(address) for address in game.catches}
+def first_catches(game: Game, output: str) -> dict[str, object]:
+    """The first byte the game wrote to each caught address after the scan, and every write."""
+    found = CATCH.findall(output)
+    writes = {address: [value for at, value in found if at == address] for address in game.catches}
+    return {
+        **{
+            f"catch {address}": (values[0] if values else None)
+            for address, values in writes.items()
+        },
+        **{f"writes {address}": values for address, values in writes.items()},
+    }
 
 
 if __name__ == "__main__":

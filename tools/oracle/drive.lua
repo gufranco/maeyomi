@@ -86,17 +86,31 @@ end
 local function bbscan(code)
   local mem = manager.machine.devices[":maincpu"].spaces["program"]
   if #bbii.taps == 0 then
-    bbii.taps[1] = mem:install_read_tap(0x421b, 0x421b, "bbii_frame", function(offset, data, mask)
+    local function frame(offset, data, mask)
       bbii.k = 0
       return data
-    end)
-    bbii.taps[2] = mem:install_read_tap(0x4017, 0x4017, "bbii_port", function(offset, data, mask)
-      if not bbii.armed then return data end
+    end
+    local function strobe(offset, data, mask)
+      bbii.latch = (data & 1) == 1
+      if bbii.latch then bbii.k = -BBII_FIRST end
+      return data
+    end
+    local function port(offset, data, mask)
+      if not bbii.armed or bbii.latch then return data end
+      if bbii.k < 0 then bbii.k = bbii.k + 1; return data end
       local bit = bbii.stream[bbii.k + 1] or 0
       bbii.k = bbii.k + 1
       if bbii.k >= BBII_LAST - BBII_FIRST then bbii.armed = false end
       return (data & 0xfe) | bit
-    end)
+    end
+    for _, mirror in ipairs({0x00, 0x80}) do
+      for bank = mirror, mirror + 0x3f do
+        local base = bank * 0x10000
+        bbii.taps[#bbii.taps + 1] = mem:install_read_tap(base + 0x421b, base + 0x421b, "bbii_frame_" .. bank, frame)
+        bbii.taps[#bbii.taps + 1] = mem:install_write_tap(base + 0x4016, base + 0x4016, "bbii_strobe_" .. bank, strobe)
+        bbii.taps[#bbii.taps + 1] = mem:install_read_tap(base + 0x4017, base + 0x4017, "bbii_port_" .. bank, port)
+      end
+    end
   end
   bbii.stream = bbii_stream(code)
   bbii.k = 0
@@ -114,6 +128,17 @@ local function catch(address)
   caught[#caught + 1] = mem:install_write_tap(low, low, "catch_low_" .. address, report)
   caught[#caught + 1] = mem:install_write_tap(0x7e0000 | low, 0x7e0000 | low, "catch_wram_" .. address, report)
 end
+local function breakpoint(arg)
+  local address, label = arg:match("^(%x+)%s+(%S+)$")
+  manager.machine.debugger:command("bpset " .. address .. ',1,{printf "HIT ' .. label .. ' %02x",a&ff; g}')
+  manager.machine.debugger:command("g")
+end
+local function flush_hits()
+  if not manager.machine.debugger then return end
+  for _, line in ipairs(manager.machine.debugger.consolelog) do
+    if line:match("^HIT ") then print(line) end
+  end
+end
 local n = 0
 emu.register_frame_done(function()
   n = n + 1
@@ -125,6 +150,11 @@ emu.register_frame_done(function()
       if a == "swipe" then swipe(x) end
       if a == "bbscan" then bbscan(x) end
       if a == "catch" then catch(x) end
+      if a == "bp" then breakpoint(x) end
+      if a == "poke" then
+        local address, value = x:match("^(%x+)%s+(%x+)$")
+        manager.machine.devices[":maincpu"].spaces["program"]:write_u8(tonumber(address, 16), tonumber(value, 16))
+      end
       if a == "snap" then manager.machine.video:snapshot(); print("SNAP", n, x) end
       if a == "dumpram" then
         local mem = manager.machine.devices[":maincpu"].spaces["program"]
@@ -155,7 +185,7 @@ emu.register_frame_done(function()
         for i = 0, tonumber(len) - 1 do bytes[#bytes + 1] = string.format("%02x", mem:read_u8(tonumber(lo, 16) + i)) end
         print("PEEK " .. lo .. " " .. table.concat(bytes, " "))
       end
-      if a == "exit" then manager.machine:exit() end
+      if a == "exit" then flush_hits(); manager.machine:exit() end
     end
   end
   for k, until_frame in pairs(held) do

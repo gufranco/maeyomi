@@ -13,6 +13,7 @@ import pytest
 
 from maeyomi.barcode.rasterise import render_pdf_pages
 from maeyomi.barcode.verify import decode_image, decode_pdf
+from maeyomi.datach.battlerush import strongest_robot
 from maeyomi.generator.random_cards import generate_random
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.constraint import Constraint
@@ -180,3 +181,14 @@ def test_a_print_shop_page_carries_no_ruler(tmp_path: Path) -> None:
     write_sheet(cards(1), path, layout=SheetLayout.print_shop())
 
     assert "Ruler" not in page_text(path)
+
+
+def test_a_battle_rush_pair_is_drawn_with_the_last_digits_the_game_wants(tmp_path: Path) -> None:
+    frame, weapons = strongest_robot()
+    cards = [
+        GeneratedCard(name="", barcode=card.barcode, character=card) for card in (frame, weapons)
+    ]
+
+    pages = write_sheet(cards, tmp_path / "robot.pdf")
+
+    assert pages == 1

@@ -64,6 +64,9 @@ the published total, which costs nothing.
 class BarcodeGeometry:
     """How large a symbol is printed, in millimetres.
 
+    `kept_check` draws the thirteenth digit as given, right or wrong, for a game
+    such as Datach Battle Rush that marks its own cards with a wrong one.
+
     `bar_height_mm` is the height of the data bars, which is what the
     specification calls the bar height. The guard bars and the space for the
     digits are added on top of it, so the drawn symbol is taller than this
@@ -73,6 +76,7 @@ class BarcodeGeometry:
     module_width_mm: float = NOMINAL_MODULE_WIDTH_MM
     bar_height_mm: float = NOMINAL_BAR_HEIGHT_MM
     show_digits: bool = True
+    kept_check: bool = False
 
     def __post_init__(self) -> None:
         """Reject a size outside what the specification permits."""

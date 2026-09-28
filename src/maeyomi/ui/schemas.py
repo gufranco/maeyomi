@@ -293,12 +293,16 @@ class FactView(BaseModel):
 
 
 class DeviceReading(BaseModel):
-    """A barcode as one device reads it, and whether it is exactly what was asked for."""
+    """A barcode as one device reads it, and whether it is exactly what was asked for.
+
+    `companion` is the second card's barcode for a game that reads cards in pairs.
+    """
 
     name: str = ""
     barcode: str
     facts: list[FactView]
     is_exact: bool = True
+    companion: str | None = None
 
 
 class DbzChoiceView(BaseModel):

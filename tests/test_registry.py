@@ -4,6 +4,7 @@ import pytest
 
 from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.datach.dbz import DbzCard
+from maeyomi.datach.game_card import DatachCard
 from maeyomi.decoder.errors import BarcodeError
 from maeyomi.double.card import DoubleCard
 from maeyomi.models.card_request import CardRequest
@@ -30,10 +31,19 @@ def test_one_barcode_reads_as_each_device_reads_it(device: Device, shape: type) 
     assert isinstance(read_as(device, GOKU), shape)
 
 
-@pytest.mark.parametrize("device", list(Device))
+@pytest.mark.parametrize(
+    "device", [device for device in Device if device is not Device.DATACH_BATTLE_RUSH]
+)
 def test_every_device_refuses_a_code_whose_check_digit_is_wrong(device: Device) -> None:
     with pytest.raises(BarcodeError):
         read_as(device, "0022248300118")
+
+
+def test_battle_rush_reads_a_wrong_check_digit_as_the_mark_of_its_own_cards() -> None:
+    card = read_as(Device.DATACH_BATTLE_RUSH, "0022248300116")
+
+    assert isinstance(card, DatachCard)
+    assert card.traits[0] == 1
 
 
 def test_a_device_is_named_by_its_key() -> None:

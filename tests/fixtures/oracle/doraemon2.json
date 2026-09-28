@@ -1,0 +1,1893 @@
+{
+ "game": "Doraemon 2: Nobita no Toys Land Daibouken",
+ "software": "doraemn2",
+ "rom": {
+  "sha1": "8672e208c3716b8fae3fd612bc80679a5459b616",
+  "size": 1048576
+ },
+ "emulator": "MAME 0.289, snes with barcode_battler on ctrl2, fed by tools/oracle/drive.lua bbscan",
+ "screen": "screen 0 is the password screen, screen 1 the item or equipment menu",
+ "recorded_utc": "2026-09-28T17:13:26Z",
+ "cards": [
+  {
+   "barcode": "4774659205449",
+   "screen": 0,
+   "effect": 9
+  },
+  {
+   "barcode": "4540590016884",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4882887722741",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4668924802733",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4312054689053",
+   "screen": 0,
+   "effect": 3
+  },
+  {
+   "barcode": "4908016903512",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4890895852954",
+   "screen": 0,
+   "effect": 4
+  },
+  {
+   "barcode": "4183592870261",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4649768940157",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4270093724541",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4813930897178",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4765317241435",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4740024963511",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4577281007692",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4292431055599",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4861242022245",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4210418317980",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4981428027793",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4291525268693",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4673647147795",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4617164199172",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4774772957652",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4142215995460",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4262285955826",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4230496854818",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4584815586813",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4834799729295",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4180275091548",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4247827103187",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4571720217253",
+   "screen": 0,
+   "effect": 3
+  },
+  {
+   "barcode": "4492637273043",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4200034017548",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4155919567222",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4464735693986",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4723994004453",
+   "screen": 0,
+   "effect": 3
+  },
+  {
+   "barcode": "4489276321525",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4294555339005",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4429392032332",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4859352607308",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4891624690915",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4695188937321",
+   "screen": 0,
+   "effect": 1
+  },
+  {
+   "barcode": "4106233434424",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4916777165728",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4526346916356",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4714532102687",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4100728048080",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4735380668569",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4804526617430",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4039283524978",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4884315651036",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4869558781924",
+   "screen": 0,
+   "effect": 4
+  },
+  {
+   "barcode": "4743853539070",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4782940853637",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4841851430860",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4093577532919",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4266170351748",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4979242582383",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4024511987571",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4612890161707",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4138288972439",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4700885675565",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4025822986260",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4219109116062",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4547131265930",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4718744365137",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4951356382264",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4543086775586",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4755232267412",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4616726805117",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4234614826121",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4935868838617",
+   "screen": 0,
+   "effect": 7
+  },
+  {
+   "barcode": "4314064428950",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4304196642300",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4920208445129",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4293010732870",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4808630898532",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4990976495701",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4903395332151",
+   "screen": 0,
+   "effect": 1
+  },
+  {
+   "barcode": "4169535105256",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4658501444685",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4225558859177",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4242396947262",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4823889597784",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4940924458685",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4763337013230",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4239842334578",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4995388699143",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4943650410187",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4949479939342",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4437870853065",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4040972473262",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4324338506130",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4650472399759",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4026356100658",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4100281767039",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4169685028672",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4106434636009",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4133967435373",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4138837406569",
+   "screen": 0,
+   "effect": 9
+  },
+  {
+   "barcode": "4640832733170",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4058746217073",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4610955120553",
+   "screen": 0,
+   "effect": 3
+  },
+  {
+   "barcode": "4167017107804",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4159591762647",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4794888852337",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4650674217226",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4439840818630",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4242831439130",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4752635348878",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4478677701807",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "33342061",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "87919738",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "96986974",
+   "screen": 0,
+   "effect": 4
+  },
+  {
+   "barcode": "68898267",
+   "screen": 0,
+   "effect": 7
+  },
+  {
+   "barcode": "31836142",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "36117116",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "75367978",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "67837649",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "69377785",
+   "screen": 0,
+   "effect": 5
+  },
+  {
+   "barcode": "99915490",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "24337847",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "52268472",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "28326397",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "55523448",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "77759535",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "03244333",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "69413346",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "05089673",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "63259445",
+   "screen": 0,
+   "effect": 5
+  },
+  {
+   "barcode": "70660951",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "41734261",
+   "screen": 0,
+   "effect": 1
+  },
+  {
+   "barcode": "73637356",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "96023006",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "77599834",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "33434940",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "27038277",
+   "screen": 0,
+   "effect": 7
+  },
+  {
+   "barcode": "82579555",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "24425056",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "20529789",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "61015678",
+   "screen": 0,
+   "effect": null
+  },
+  {
+   "barcode": "4992174218090",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4975702934341",
+   "screen": 0,
+   "effect": 1
+  },
+  {
+   "barcode": "4916433699932",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4921178502553",
+   "screen": 0,
+   "effect": 3
+  },
+  {
+   "barcode": "4954981771984",
+   "screen": 0,
+   "effect": 4
+  },
+  {
+   "barcode": "4923267569065",
+   "screen": 0,
+   "effect": 5
+  },
+  {
+   "barcode": "4992622439336",
+   "screen": 0,
+   "effect": 6
+  },
+  {
+   "barcode": "4955702838337",
+   "screen": 0,
+   "effect": 7
+  },
+  {
+   "barcode": "4958480210418",
+   "screen": 0,
+   "effect": 8
+  },
+  {
+   "barcode": "4973043201719",
+   "screen": 0,
+   "effect": 9
+  },
+  {
+   "barcode": "4437542073746",
+   "screen": 0,
+   "effect": 6
+  },
+  {
+   "barcode": "4556126117970",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4192711766453",
+   "screen": 0,
+   "effect": 3
+  },
+  {
+   "barcode": "4438730122222",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4002932236416",
+   "screen": 0,
+   "effect": 6
+  },
+  {
+   "barcode": "4695938368542",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4513576882360",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4037679937500",
+   "screen": 0,
+   "effect": 0
+  },
+  {
+   "barcode": "4733051990872",
+   "screen": 0,
+   "effect": 2
+  },
+  {
+   "barcode": "4100060558247",
+   "screen": 0,
+   "effect": 7
+  },
+  {
+   "barcode": "4203463341185",
+   "screen": 0,
+   "effect": 5
+  },
+  {
+   "barcode": "4847439336951",
+   "screen": 0,
+   "effect": 1
+  },
+  {
+   "barcode": "4323180601994",
+   "screen": 0,
+   "effect": 4
+  },
+  {
+   "barcode": "4256116505953",
+   "screen": 0,
+   "effect": 3
+  },
+  {
+   "barcode": "4023577598837",
+   "screen": 0,
+   "effect": 7
+  },
+  {
+   "barcode": "4157917031651",
+   "screen": 0,
+   "effect": 1
+  },
+  {
+   "barcode": "4755792703719",
+   "screen": 0,
+   "effect": 9
+  },
+  {
+   "barcode": "4784398899984",
+   "screen": 0,
+   "effect": 4
+  },
+  {
+   "barcode": "4341900213258",
+   "screen": 0,
+   "effect": 8
+  },
+  {
+   "barcode": "4794616548297",
+   "screen": 0,
+   "effect": 7
+  },
+  {
+   "barcode": "4004267233153",
+   "screen": 0,
+   "effect": 3
+  },
+  {
+   "barcode": "4636498146904",
+   "screen": 0,
+   "effect": 4
+  },
+  {
+   "barcode": "4496522788636",
+   "screen": 0,
+   "effect": 6
+  },
+  {
+   "barcode": "4076502809379",
+   "screen": 0,
+   "effect": 9
+  },
+  {
+   "barcode": "4052061931195",
+   "screen": 0,
+   "effect": 5
+  },
+  {
+   "barcode": "4169656235511",
+   "screen": 0,
+   "effect": 1
+  },
+  {
+   "barcode": "4685360560805",
+   "screen": 0,
+   "effect": 5
+  },
+  {
+   "barcode": "4977064309829",
+   "screen": 0,
+   "effect": 9
+  },
+  {
+   "barcode": "4619950119838",
+   "screen": 0,
+   "effect": 8
+  },
+  {
+   "barcode": "4609900419248",
+   "screen": 0,
+   "effect": 8
+  },
+  {
+   "barcode": "4908329212028",
+   "screen": 1,
+   "effect": 12
+  },
+  {
+   "barcode": "4509926925146",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4144441924931",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4720012321554",
+   "screen": 1,
+   "effect": 22
+  },
+  {
+   "barcode": "4335073251568",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4101666927642",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4103519844793",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4610529577431",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4790811258535",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4834127251795",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4890943225204",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4867966862600",
+   "screen": 1,
+   "effect": 26
+  },
+  {
+   "barcode": "4846392505862",
+   "screen": 1,
+   "effect": 15
+  },
+  {
+   "barcode": "4905975270921",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4996472240661",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4078824873106",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4750242590475",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4272286140527",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4550361583811",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4668712299134",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4123602853709",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4327299062202",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4424956397025",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4529905511061",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4971791924584",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4862239528610",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4166750358351",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4513233480618",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4662887285794",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4151829766434",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4187898142572",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4106993970118",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4517334530982",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4815239792017",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4033202761994",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4771237328187",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4698385564376",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4170346114863",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4119819144679",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4546078986878",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4690713812111",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4846353950069",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4262576398929",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4792508797471",
+   "screen": 1,
+   "effect": 17
+  },
+  {
+   "barcode": "4222320675133",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4817588435690",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4185827574166",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4355484571314",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4874220468249",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4531878913384",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4311911729871",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4635924776159",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4250457179149",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4458506680183",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4737450568489",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4613669152742",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4116630541472",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4358845391675",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4916406202602",
+   "screen": 1,
+   "effect": 12
+  },
+  {
+   "barcode": "4523962316782",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4363913205747",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4429085145998",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4346552344565",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4648853961916",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4825304638454",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4378810345434",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4063171107332",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4107604867100",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4003799183905",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4127558395986",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4404420159144",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4032982593467",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4087364057785",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4768719748175",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4374054806458",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4695591012882",
+   "screen": 1,
+   "effect": 21
+  },
+  {
+   "barcode": "4511798455225",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4523319886234",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4101702937024",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4211218890994",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4792850591758",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4556035995607",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4925802166432",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4017392783929",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4797441129723",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4334730999836",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4180810514969",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4607487880468",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4701209093829",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4989581963170",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4935117260503",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4752641134922",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4508264599170",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4942153532457",
+   "screen": 1,
+   "effect": 23
+  },
+  {
+   "barcode": "4927141756732",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4927669833540",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4298882142383",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4444996237037",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4487125167836",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4197589354245",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4799831217164",
+   "screen": 1,
+   "effect": 21
+  },
+  {
+   "barcode": "4917057244690",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4066531688816",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4243521477944",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4505121674018",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4090741415498",
+   "screen": 1,
+   "effect": 21
+  },
+  {
+   "barcode": "4947866577313",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4332704346013",
+   "screen": 1,
+   "effect": 24
+  },
+  {
+   "barcode": "4544338415946",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4168729448438",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "47344662",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "41728468",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "21269936",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "29398553",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "38994456",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "62964081",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "57087153",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "13664794",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "79789912",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "75109127",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "07127922",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "16878303",
+   "screen": 1,
+   "effect": 18
+  },
+  {
+   "barcode": "58736937",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "46526571",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "79222655",
+   "screen": 1,
+   "effect": 12
+  },
+  {
+   "barcode": "15313997",
+   "screen": 1,
+   "effect": 13
+  },
+  {
+   "barcode": "47190443",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "05394531",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "89666159",
+   "screen": 1,
+   "effect": 16
+  },
+  {
+   "barcode": "76080272",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "11836056",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "63820102",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "81311149",
+   "screen": 1,
+   "effect": 21
+  },
+  {
+   "barcode": "21359576",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "52205897",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "42360612",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "93539043",
+   "screen": 1,
+   "effect": 23
+  },
+  {
+   "barcode": "70820720",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "24026673",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "39630728",
+   "screen": 1,
+   "effect": null
+  },
+  {
+   "barcode": "4954009171451",
+   "screen": 1,
+   "effect": 11
+  },
+  {
+   "barcode": "4939097252909",
+   "screen": 1,
+   "effect": 12
+  },
+  {
+   "barcode": "4999934333833",
+   "screen": 1,
+   "effect": 13
+  },
+  {
+   "barcode": "4916630494033",
+   "screen": 1,
+   "effect": 14
+  },
+  {
+   "barcode": "4906898575315",
+   "screen": 1,
+   "effect": 15
+  },
+  {
+   "barcode": "4910843646975",
+   "screen": 1,
+   "effect": 16
+  },
+  {
+   "barcode": "4948358757169",
+   "screen": 1,
+   "effect": 17
+  },
+  {
+   "barcode": "4986071838468",
+   "screen": 1,
+   "effect": 18
+  },
+  {
+   "barcode": "4969091111469",
+   "screen": 1,
+   "effect": 21
+  },
+  {
+   "barcode": "4954412625855",
+   "screen": 1,
+   "effect": 22
+  },
+  {
+   "barcode": "4925953331239",
+   "screen": 1,
+   "effect": 23
+  },
+  {
+   "barcode": "4900994846911",
+   "screen": 1,
+   "effect": 24
+  },
+  {
+   "barcode": "4981985451055",
+   "screen": 1,
+   "effect": 25
+  },
+  {
+   "barcode": "4905136365534",
+   "screen": 1,
+   "effect": 26
+  },
+  {
+   "barcode": "4643074443371",
+   "screen": 1,
+   "effect": 24
+  },
+  {
+   "barcode": "4046554464710",
+   "screen": 1,
+   "effect": 14
+  },
+  {
+   "barcode": "4237486474155",
+   "screen": 1,
+   "effect": 14
+  },
+  {
+   "barcode": "4597455754979",
+   "screen": 1,
+   "effect": 25
+  },
+  {
+   "barcode": "4762624686805",
+   "screen": 1,
+   "effect": 16
+  },
+  {
+   "barcode": "4830742522456",
+   "screen": 1,
+   "effect": 22
+  },
+  {
+   "barcode": "4152009686191",
+   "screen": 1,
+   "effect": 16
+  },
+  {
+   "barcode": "4744331787860",
+   "screen": 1,
+   "effect": 17
+  },
+  {
+   "barcode": "4491611514585",
+   "screen": 1,
+   "effect": 21
+  },
+  {
+   "barcode": "4092214353788",
+   "screen": 1,
+   "effect": 13
+  },
+  {
+   "barcode": "4310926862894",
+   "screen": 1,
+   "effect": 26
+  },
+  {
+   "barcode": "4816155121295",
+   "screen": 1,
+   "effect": 11
+  },
+  {
+   "barcode": "4074081131232",
+   "screen": 1,
+   "effect": 11
+  },
+  {
+   "barcode": "4358232505715",
+   "screen": 1,
+   "effect": 15
+  },
+  {
+   "barcode": "4300606061631",
+   "screen": 1,
+   "effect": 26
+  },
+  {
+   "barcode": "4891864222976",
+   "screen": 1,
+   "effect": 12
+  },
+  {
+   "barcode": "4981310878212",
+   "screen": 1,
+   "effect": 18
+  },
+  {
+   "barcode": "4088656368176",
+   "screen": 1,
+   "effect": 26
+  },
+  {
+   "barcode": "4760524585556",
+   "screen": 1,
+   "effect": 15
+  },
+  {
+   "barcode": "4547576797140",
+   "screen": 1,
+   "effect": 17
+  },
+  {
+   "barcode": "4583827767067",
+   "screen": 1,
+   "effect": 17
+  },
+  {
+   "barcode": "4539104748915",
+   "screen": 1,
+   "effect": 24
+  },
+  {
+   "barcode": "4484572222958",
+   "screen": 1,
+   "effect": 22
+  },
+  {
+   "barcode": "4861852303468",
+   "screen": 1,
+   "effect": 13
+  },
+  {
+   "barcode": "4011915696376",
+   "screen": 1,
+   "effect": 16
+  },
+  {
+   "barcode": "4638071363333",
+   "screen": 1,
+   "effect": 13
+  },
+  {
+   "barcode": "4749922282779",
+   "screen": 1,
+   "effect": 12
+  },
+  {
+   "barcode": "4250643233105",
+   "screen": 1,
+   "effect": 23
+  },
+  {
+   "barcode": "4640833536343",
+   "screen": 1,
+   "effect": 23
+  },
+  {
+   "barcode": "4318013234418",
+   "screen": 1,
+   "effect": 23
+  },
+  {
+   "barcode": "4337001711656",
+   "screen": 1,
+   "effect": 21
+  },
+  {
+   "barcode": "4813708515914",
+   "screen": 1,
+   "effect": 15
+  },
+  {
+   "barcode": "4520712888285",
+   "screen": 1,
+   "effect": 18
+  },
+  {
+   "barcode": "4037795878091",
+   "screen": 1,
+   "effect": 18
+  },
+  {
+   "barcode": "4470340232731",
+   "screen": 1,
+   "effect": 12
+  },
+  {
+   "barcode": "4499391115794",
+   "screen": 1,
+   "effect": 21
+  },
+  {
+   "barcode": "4497555852271",
+   "screen": 1,
+   "effect": 25
+  },
+  {
+   "barcode": "4354604649544",
+   "screen": 1,
+   "effect": 24
+  },
+  {
+   "barcode": "4300464474406",
+   "screen": 1,
+   "effect": 14
+  },
+  {
+   "barcode": "4403446151675",
+   "screen": 1,
+   "effect": 11
+  },
+  {
+   "barcode": "4464095250270",
+   "screen": 1,
+   "effect": 25
+  },
+  {
+   "barcode": "4996472521609",
+   "screen": 1,
+   "effect": 22
+  }
+ ]
+}

@@ -55,6 +55,7 @@ from maeyomi.registry import (
     DeviceChoice,
     build_as,
     cheat_as,
+    cheat_companion_as,
     device_named,
     printable_as,
     read_as,
@@ -349,6 +350,7 @@ def device_card(spec: DeviceCardSpec) -> DeviceReading:
         barcode=outcome.card.barcode,
         facts=facts_of(outcome.card),
         is_exact=outcome.exact,
+        companion=None if outcome.companion is None else outcome.companion.barcode,
     )
 
 
@@ -358,7 +360,13 @@ def device_cheat(spec: DeviceCheatSpec) -> DeviceReading:
         card = cheat_as(_device(spec.device), spec.name)
     except ValueError as error:
         raise HTTPException(status_code=UNPROCESSABLE, detail=str(error)) from error
-    return DeviceReading(name=card.name, barcode=card.barcode, facts=facts_of(card.character))
+    partner = cheat_companion_as(_device(spec.device), spec.name)
+    return DeviceReading(
+        name=card.name,
+        barcode=card.barcode,
+        facts=facts_of(card.character),
+        companion=None if partner is None else partner.barcode,
+    )
 
 
 def create_app() -> FastAPI:
