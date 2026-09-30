@@ -13,6 +13,8 @@ stays independently readable and testable.
 """
 
 import base64
+import ipaddress
+import logging
 import shutil
 import tempfile
 from collections.abc import Sequence
@@ -22,6 +24,7 @@ from pathlib import Path
 from typing import Final
 
 from fastapi import BackgroundTasks, FastAPI, HTTPException
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import FileResponse, HTMLResponse, Response
 
 from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_race
@@ -97,6 +100,10 @@ from maeyomi.ui.schemas import (
     SheetSpec,
 )
 
+LOGGER: Final = logging.getLogger(__name__)
+DEFAULT_BIND: Final = "127.0.0.1"
+LOOPBACK_NAMES: Final = frozenset({"127.0.0.1", "localhost"})
+ANY_HOST: Final = "*"
 BAD_REQUEST: Final = 400
 UNPROCESSABLE: Final = 422
 NOT_FOUND: Final = 404
@@ -259,7 +266,8 @@ def lookup(barcode: str) -> LookupResult:
         name = look_up_name(barcode)
     except BarcodeError as error:
         raise HTTPException(status_code=BAD_REQUEST, detail=str(error)) from error
-    except ProductLookupError:
+    except ProductLookupError as error:
+        LOGGER.warning("product lookup for %s failed: %s", barcode, error)
         return LookupResult(barcode=barcode)
     return LookupResult(barcode=barcode, name=name)
 
@@ -374,9 +382,33 @@ def device_cheat(spec: DeviceCheatSpec) -> DeviceReading:
     )
 
 
-def create_app() -> FastAPI:
-    """Build the application with every route attached."""
+def allowed_hosts(bind_host: str) -> list[str]:
+    """The host names a server bound to that address answers to.
+
+    A page elsewhere can point its own name at this machine and then call this
+    server from the visitor's browser, so a server on one address answers only
+    the names that reach it there. One bound to every interface was exposed on
+    purpose and answers any name.
+    """
+    address = _address_of(bind_host)
+    if address is not None and address.is_unspecified:
+        return [ANY_HOST]
+    name = f"[{bind_host}]" if isinstance(address, ipaddress.IPv6Address) else bind_host
+    return sorted(LOOPBACK_NAMES | {name})
+
+
+def _address_of(host: str) -> ipaddress.IPv4Address | ipaddress.IPv6Address | None:
+    """The IP address a host is written as, or None when it is a name."""
+    try:
+        return ipaddress.ip_address(host)
+    except ValueError:
+        return None
+
+
+def create_app(bind_host: str = DEFAULT_BIND) -> FastAPI:
+    """Build the application with every route attached, answering only its own host names."""
     app = FastAPI(title="maeyomi", docs_url="/docs")
+    app.add_middleware(TrustedHostMiddleware, allowed_hosts=allowed_hosts(bind_host))
     app.add_api_route("/", index, methods=["GET"], response_class=HTMLResponse)
     app.add_api_route("/api/races", races, methods=["GET"])
     app.add_api_route("/api/abilities", abilities, methods=["GET"])

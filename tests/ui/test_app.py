@@ -10,12 +10,12 @@ from fastapi.testclient import TestClient
 import maeyomi.ui.app as app_module
 from maeyomi.barcode.verify import decode_pdf
 from maeyomi.products.lookup import ProductLookupError
-from maeyomi.ui.app import create_app
+from maeyomi.ui.app import allowed_hosts, create_app
 
 
 @pytest.fixture(name="client")
 def client_fixture() -> TestClient:
-    return TestClient(create_app())
+    return TestClient(create_app(), base_url="http://localhost")
 
 
 def sheet_codes(content: bytes, tmp_path: object) -> list[str]:
@@ -441,6 +441,22 @@ def test_a_lookup_that_cannot_reach_the_service_is_not_an_error(
     assert response.json()["name"] is None
 
 
+def test_a_lookup_the_database_cannot_answer_is_logged(
+    client: TestClient, monkeypatch: pytest.MonkeyPatch, caplog: pytest.LogCaptureFixture
+) -> None:
+    def refuse(_: str) -> str:
+        message = "no answer"
+        raise ProductLookupError(message)
+
+    monkeypatch.setattr(app_module, "look_up_name", refuse)
+
+    client.get("/api/lookup/4901085061169")
+
+    assert [(record.levelname, record.getMessage()) for record in caplog.records] == [
+        ("WARNING", "product lookup for 4901085061169 failed: no answer")
+    ]
+
+
 def test_a_lookup_of_a_bad_barcode_is_refused(client: TestClient) -> None:
     response = client.get("/api/lookup/12")
 
@@ -516,3 +532,45 @@ def test_the_page_can_fetch_the_card_words_of_a_chinese_language(
 @pytest.mark.parametrize("language", ["en", "ja", "both", "fr"])
 def test_only_chinese_has_a_card_word_catalogue(client: TestClient, language: str) -> None:
     assert client.get(f"/api/card-text/{language}").status_code == 404
+
+
+def test_a_request_naming_another_host_is_refused() -> None:
+    rebound = TestClient(create_app(), base_url="http://attacker.example")
+
+    response = rebound.get("/api/devices")
+
+    assert response.status_code == 400
+
+
+def test_a_server_on_every_interface_answers_any_host() -> None:
+    exposed = TestClient(create_app("0.0.0.0"), base_url="http://192.168.1.20")  # noqa: S104
+
+    response = exposed.get("/api/devices")
+
+    assert response.status_code == 200
+
+
+@pytest.mark.parametrize(
+    ("bind", "expected"),
+    [
+        ("127.0.0.1", ["127.0.0.1", "localhost"]),
+        ("127.0.0.2", ["127.0.0.1", "127.0.0.2", "localhost"]),
+        ("localhost", ["127.0.0.1", "localhost"]),
+        ("192.168.1.20", ["127.0.0.1", "192.168.1.20", "localhost"]),
+        ("::1", ["127.0.0.1", "[::1]", "localhost"]),
+        ("0.0.0.0", ["*"]),  # noqa: S104
+        ("::", ["*"]),
+    ],
+)
+def test_the_server_answers_only_the_names_it_can_be_reached_by(
+    bind: str, expected: list[str]
+) -> None:
+    assert allowed_hosts(bind) == expected
+
+
+def test_a_server_on_the_ipv6_loopback_answers_its_own_address() -> None:
+    local = TestClient(create_app("::1"), base_url="http://[::1]:8000")
+
+    response = local.get("/api/devices")
+
+    assert response.status_code == 200

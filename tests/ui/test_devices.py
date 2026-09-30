@@ -17,7 +17,7 @@ KORIN = "0120631203219"
 
 @pytest.fixture(name="client")
 def client_fixture() -> TestClient:
-    return TestClient(create_app())
+    return TestClient(create_app(), base_url="http://localhost")
 
 
 def test_every_device_is_offered_with_its_form(client: TestClient) -> None:

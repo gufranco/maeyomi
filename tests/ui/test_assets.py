@@ -11,7 +11,7 @@ from maeyomi.ui.assets import asset_stamp, stamped
 
 @pytest.fixture(name="client")
 def client_fixture() -> TestClient:
-    return TestClient(create_app())
+    return TestClient(create_app(), base_url="http://localhost")
 
 
 def test_every_asset_link_carries_the_content_stamp(client: TestClient) -> None:

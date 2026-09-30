@@ -4,6 +4,8 @@ from pathlib import Path
 
 import pypdfium2 as pdfium
 import pytest
+from fastapi import FastAPI
+from fastapi.testclient import TestClient
 from typer.testing import CliRunner
 
 from maeyomi.barcode.verify import decode_pdf
@@ -254,6 +256,21 @@ def test_serve_starts_the_local_interface(monkeypatch: pytest.MonkeyPatch) -> No
     assert result.exit_code == 0
     assert started["host"] == "127.0.0.2"
     assert started["port"] == 8123
+
+
+def test_serve_answers_the_address_it_was_started_on(monkeypatch: pytest.MonkeyPatch) -> None:
+    started: list[FastAPI] = []
+
+    def fake_run(application: FastAPI, *, host: str, port: int) -> None:
+        assert (host, port) == ("127.0.0.2", 8000)
+        started.append(application)
+
+    monkeypatch.setattr("uvicorn.run", fake_run)
+
+    runner.invoke(app, ["serve", "--host", "127.0.0.2"])
+
+    assert TestClient(started[0], base_url="http://127.0.0.2").get("/").status_code == 200
+    assert TestClient(started[0], base_url="http://attacker.example").get("/").status_code == 400
 
 
 def test_serve_explains_how_to_install_the_optional_dependencies(
@@ -544,7 +561,7 @@ def test_the_web_command_opens_a_browser_at_the_served_address(
         opened.append(url)
         return True
 
-    monkeypatch.setattr(main, "_web_server", lambda: (serve, object))
+    monkeypatch.setattr(main, "_web_server", lambda: (serve, str))
     monkeypatch.setattr(main.webbrowser, "open", remember)
 
     result = runner.invoke(app, ["web", "--port", "8123"])
@@ -567,7 +584,7 @@ def test_the_web_command_can_be_told_not_to_open_a_browser(
         opened.append(url)
         return True
 
-    monkeypatch.setattr(main, "_web_server", lambda: (serve, object))
+    monkeypatch.setattr(main, "_web_server", lambda: (serve, str))
     monkeypatch.setattr(main.webbrowser, "open", remember)
 
     result = runner.invoke(app, ["web", "--no-open"])

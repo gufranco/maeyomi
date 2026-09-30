@@ -21,7 +21,7 @@ STYLES = (STATIC_DIR / "app.css").read_text(encoding="utf-8")
 
 @pytest.fixture(name="client")
 def client_fixture() -> TestClient:
-    return TestClient(create_app())
+    return TestClient(create_app(), base_url="http://localhost")
 
 
 def test_every_static_file_is_present() -> None:

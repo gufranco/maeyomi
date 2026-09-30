@@ -516,7 +516,7 @@ def web(
     typer.echo(f"the card maker is at {address}")
     if open_browser:
         webbrowser.open(address)
-    run(build(), host=host, port=port)
+    run(build(host), host=host, port=port)
 
 
 @app.command()
@@ -527,10 +527,10 @@ def serve(
     """Run the local web interface without opening a browser."""
     run, build = _require_web()
     typer.echo(DISCLAIMER)
-    run(build(), host=host, port=port)
+    run(build(host), host=host, port=port)
 
 
-def _require_web() -> tuple[Callable[..., None], Callable[[], object]]:
+def _require_web() -> tuple[Callable[..., None], Callable[[str], object]]:
     """Load the optional web dependencies, or say which extra is missing."""
     try:
         return _web_server()
@@ -539,7 +539,7 @@ def _require_web() -> tuple[Callable[..., None], Callable[[], object]]:
         raise typer.Exit(code=1) from error
 
 
-def _web_server() -> tuple[Callable[..., None], Callable[[], object]]:
+def _web_server() -> tuple[Callable[..., None], Callable[[str], object]]:
     """Import the optional web dependencies only when the server is asked for."""
     import uvicorn  # noqa: PLC0415
 
