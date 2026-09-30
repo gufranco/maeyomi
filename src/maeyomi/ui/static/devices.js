@@ -18,7 +18,7 @@ const deviceForm = () => deviceList.find((device) => device.key === chosenDevice
 const deviceName = () => {
   const device = deviceForm();
   if (!device) return '';
-  return inLanguage(device.english, device.japanese);
+  return isJapanese() ? device.japanese : device.english;
 };
 
 const reads = (field) => deviceForm()?.fields.includes(field) ?? false;
@@ -56,7 +56,7 @@ function rememberDevice() {
 }
 
 function dbzOptionHtml(entry, chosen) {
-  const label = inLanguage(entry.english, entry.japanese);
+  const label = isJapanese() ? entry.japanese : entry.english;
   const value = String(entry.id);
   return `<option value="${value}"${value === chosen ? ' selected' : ''}>` +
     `${escapeHtml(label)}</option>`;
@@ -97,9 +97,9 @@ async function loadGameCards() {
 }
 
 function pickFieldHtml(pick) {
-  const label = inLanguage(pick.english, pick.japanese);
+  const label = isJapanese() ? pick.japanese : pick.english;
   const options = pick.options.map((option) => {
-    const name = inLanguage(option.english, option.japanese);
+    const name = isJapanese() ? option.japanese : option.english;
     return `<option value="${escapeHtml(String(option.value))}">${escapeHtml(name)}</option>`;
   }).join('');
   const id = `pick-${pick.key}`;
@@ -133,7 +133,7 @@ const DEVICE_GROUPS = [
 ];
 
 function deviceButtonHtml(device) {
-  const name = inLanguage(device.english, device.japanese);
+  const name = isJapanese() ? device.japanese : device.english;
   const current = device.key === chosenDevice;
   return `<li><button type="button" data-device="${escapeHtml(device.key)}"` +
     ` aria-pressed="${current}"${current ? ' aria-current="true"' : ''}>` +
@@ -143,7 +143,7 @@ function deviceButtonHtml(device) {
 }
 
 function deviceGroupHtml(group, key) {
-  const label = (device) => inLanguage(device.english, device.japanese);
+  const label = (device) => (isJapanese() ? device.japanese : device.english);
   const items = deviceList
     .filter((device) => device.platform === group)
     .toSorted((first, second) => label(first).localeCompare(label(second), currentLanguage))
@@ -159,7 +159,7 @@ function renderDeviceOptions() {
     DEVICE_GROUPS.map(([group, key]) => deviceGroupHtml(group, key)).join(''),
   );
   const current = deviceList.find((device) => device.key === chosenDevice);
-  $('device-current').textContent = current ? inLanguage(current.english, current.japanese) : '';
+  $('device-current').textContent = current ? (isJapanese() ? current.japanese : current.english) : '';
   filterDevices();
 }
 
@@ -417,7 +417,7 @@ function deviceCardPayload() {
 
 const factLines = (facts) =>
   facts.map((fact) =>
-    `${inLanguage(fact.label, fact.label_ja)}: ${inLanguage(fact.value, fact.value_ja)}`);
+    isJapanese() ? `${fact.label_ja}: ${fact.value_ja}` : `${fact.label}: ${fact.value}`);
 
 function showCode(barcode) {
   $('one-code').toggleAttribute('hidden', false);
@@ -444,8 +444,9 @@ async function makeDeviceCard() {
 
 function showDeviceFacts(facts) {
   const rows = facts.map((fact) =>
-    `<dt>${escapeHtml(inLanguage(fact.label, fact.label_ja))}</dt>` +
-    `<dd>${escapeHtml(inLanguage(fact.value, fact.value_ja))}</dd>`);
+    isJapanese()
+      ? `<dt>${escapeHtml(fact.label_ja)}</dt><dd>${escapeHtml(fact.value_ja)}</dd>`
+      : `<dt>${escapeHtml(fact.label)}</dt><dd>${escapeHtml(fact.value)}</dd>`);
   $('read-facts').replaceChildren();
   $('read-facts').insertAdjacentHTML('afterbegin', rows.join(''));
   $('read-facts').toggleAttribute('hidden', false);

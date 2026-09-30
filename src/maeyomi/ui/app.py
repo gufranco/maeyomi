@@ -65,10 +65,8 @@ from maeyomi.registry import (
     readable_as,
     speed_note,
 )
-from maeyomi.rendering.card import CardStyle
 from maeyomi.rendering.face import summary_of
 from maeyomi.rendering.labels import UNREADABLE, UNREADABLE_KIND, Bilingual
-from maeyomi.rendering.language import CardLanguage
 from maeyomi.rendering.preview import card_png, sheet_png_pages
 from maeyomi.rendering.sheet import write_sheet
 from maeyomi.ui.assets import PAGE_HEADERS, CachedStaticFiles, asset_stamp, stamped
@@ -175,15 +173,13 @@ def generate_one(spec: CardSpec) -> GenerateResult:
 
 def preview(spec: PreviewSpec) -> Response:
     """Draw one card exactly as it would print, and return it as an image."""
-    image = card_png(_decoded_card(spec), style=CardStyle(language=spec.language))
-    return Response(content=image, media_type="image/png")
+    return Response(content=card_png(_decoded_card(spec)), media_type="image/png")
 
 
 def sheet_preview(spec: RandomSpec) -> SheetPreview:
     """Draw the first pages of a random sheet, as images the page can show."""
     cards = _random_cards(spec)
-    style = CardStyle(language=spec.language)
-    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE], style=style)
+    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE])
     return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
 
 
@@ -191,19 +187,19 @@ def sheet(spec: SheetSpec) -> FileResponse:
     """Build a sheet from an explicit list of cards."""
     if not spec.cards:
         raise HTTPException(status_code=UNPROCESSABLE, detail="no cards were requested")
-    return _sheet_response([_solve_card(card) for card in spec.cards], "card.pdf", spec.language)
+    return _sheet_response([_solve_card(card) for card in spec.cards], "card.pdf")
 
 
 def random_sheet(spec: RandomSpec) -> FileResponse:
     """Build a sheet of random cards."""
-    return _sheet_response(_random_cards(spec), "cards.pdf", spec.language)
+    return _sheet_response(_random_cards(spec), "cards.pdf")
 
 
 def barcode_sheet(spec: BarcodeSheetSpec) -> FileResponse:
     """Build a sheet from cards that already carry a barcode."""
     if not spec.cards:
         raise HTTPException(status_code=UNPROCESSABLE, detail="no cards were requested")
-    return _sheet_response([_decoded_card(card) for card in spec.cards], "cards.pdf", spec.language)
+    return _sheet_response([_decoded_card(card) for card in spec.cards], "cards.pdf")
 
 
 def official(device: str = "bb2") -> OfficialCatalogue:
@@ -235,14 +231,13 @@ def official(device: str = "bb2") -> OfficialCatalogue:
 
 def official_sheet(spec: OfficialSpec) -> FileResponse:
     """Download one official set, or all of them."""
-    return _sheet_response(_official_cards(spec), "official-cards.pdf", spec.language)
+    return _sheet_response(_official_cards(spec), "official-cards.pdf")
 
 
 def official_preview(spec: OfficialSpec) -> SheetPreview:
     """Draw the first pages of an official set."""
     cards = _official_cards(spec)
-    style = CardStyle(language=spec.language)
-    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE], style=style)
+    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE])
     return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
 
 
@@ -506,13 +501,11 @@ def _official_set(spec: OfficialSpec) -> OfficialSet | None:
         ) from error
 
 
-def _sheet_response(
-    cards: Sequence[AnyCard], filename: str, language: CardLanguage
-) -> FileResponse:
-    """Render the cards to a temporary PDF in one language, serve it, then delete it."""
+def _sheet_response(cards: Sequence[AnyCard], filename: str) -> FileResponse:
+    """Render the cards to a temporary PDF, serve it as a download, then delete it."""
     directory = Path(tempfile.mkdtemp(prefix="maeyomi-"))
     path = directory / filename
-    write_sheet(cards, path, style=CardStyle(language=language))
+    write_sheet(cards, path)
     removal = BackgroundTasks()
     removal.add_task(shutil.rmtree, directory)
     return FileResponse(path, media_type="application/pdf", filename=filename, background=removal)

@@ -6,7 +6,7 @@ const MESSAGES = {
     title: 'Maeyomi',
     lede:
       'Playable cards for Barcode Battler machines and barcode games, ' +
-      'printed in the language you choose.',
+      'printed in English and Japanese.',
     'tabs.label': 'What would you like to make',
     'tab.one': 'One card',
     'tab.many': 'A sheet of cards',
@@ -310,7 +310,7 @@ const MESSAGES = {
     title: 'Maeyomi',
     lede:
       'バーコードバトラーや バーコードで あそぶ ゲームの カードを、' +
-      'えらんだ ことばで いんさつしよう。',
+      'えいごと にほんごで いんさつしよう。',
     'tabs.label': 'なにを つくる？',
     'tab.one': 'カード 1まい',
     'tab.many': 'カードを まとめて',
@@ -622,10 +622,6 @@ function detectLanguage() {
 }
 
 let currentLanguage = detectLanguage();
-
-function inLanguage(english, japanese) {
-  return currentLanguage === 'ja' ? japanese || english : english;
-}
 
 function t(key, values = {}) {
   const message = MESSAGES[currentLanguage][key] ?? MESSAGES.en[key] ?? key;

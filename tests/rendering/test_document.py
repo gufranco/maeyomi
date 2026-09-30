@@ -13,9 +13,7 @@ import pytest
 
 from maeyomi.decoder.decode import decode
 from maeyomi.models.generated_card import GeneratedCard
-from maeyomi.rendering.card import CardStyle
 from maeyomi.rendering.document import AUTHOR, LANGUAGE, SUBJECT
-from maeyomi.rendering.language import CardLanguage
 from maeyomi.rendering.sheet import write_sheet
 
 BARCODE = "4902102072618"
@@ -79,22 +77,6 @@ def test_the_document_declares_its_language(card: GeneratedCard, tmp_path: Path)
     raw = written([card], tmp_path)
 
     assert f"/Lang ({LANGUAGE})".encode() in raw
-
-
-@pytest.mark.parametrize(
-    ("language", "declared"),
-    [
-        (CardLanguage.BOTH, "en"),
-        (CardLanguage.ENGLISH, "en"),
-        (CardLanguage.JAPANESE, "ja"),
-    ],
-)
-def test_a_sheet_in_one_language_declares_that_language(
-    card: GeneratedCard, tmp_path: Path, language: CardLanguage, declared: str
-) -> None:
-    raw = written([card], tmp_path, style=CardStyle(language=language))
-
-    assert f"/Lang ({declared})".encode() in raw
 
 
 def test_the_document_says_who_made_it_and_what_it_is(card: GeneratedCard, tmp_path: Path) -> None:

@@ -23,7 +23,7 @@ The two known divergences from the simulator are recorded at the top of
 
 | Obligation | What it means here |
 |---|---|
-| English and Japanese only | A card prints in one language: the page's own, or the one `--language` names, English or Japanese. With no `--language`, the command line prints English and Japanese together. No other language is supported, on the cards, the page or the READMEs |
+| Two languages, always | Every card carries English and Japanese together, whatever language the page is in. Not a toggle, not a variant: both on the same card |
 | A child who cannot read must still understand | Every kind, every stat and every special power has a pictogram beside the words |
 | Portrait, at the original size | 63.5 by 88.9 mm. No landscape variant. The size is not up for revisiting |
 | The barcode is a measurement, not a picture | Vectors at the specified module width and full bar height. A shortened bar removes the reader's whole alignment tolerance |

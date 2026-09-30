@@ -2,7 +2,6 @@
 
 from pathlib import Path
 
-import pypdfium2 as pdfium
 import pytest
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
@@ -603,29 +602,3 @@ def test_a_failing_check_makes_the_doctor_exit_non_zero(
 
     assert result.exit_code == 1
     assert "may not read" in result.output
-
-
-def pdf_text(path: Path) -> str:
-    document = pdfium.PdfDocument(str(path))
-    try:
-        return str(document[0].get_textpage().get_text_range())
-    finally:
-        document.close()
-
-
-def test_cards_print_in_english_and_japanese_by_default(tmp_path: Path) -> None:
-    output = tmp_path / "both.pdf"
-
-    result = runner.invoke(app, ["cheat", "-o", str(output)])
-
-    assert result.exit_code == 0
-    assert "Swipe this end" in pdf_text(output)
-
-
-def test_japanese_prints_the_cards_without_english_labels(tmp_path: Path) -> None:
-    output = tmp_path / "ja.pdf"
-
-    result = runner.invoke(app, ["--language", "ja", "cheat", "-o", str(output)])
-
-    assert result.exit_code == 0
-    assert "Swipe this end" not in pdf_text(output)

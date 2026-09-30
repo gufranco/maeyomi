@@ -421,23 +421,6 @@ function checkCheatTab() {
   pickDevice('bb2');
 }
 
-function checkJapaneseRedrawsTheCard() {
-  browser('click', '#tab-one');
-  browser('wait', '1500');
-  const before = evaluate(`JSON.stringify(document.getElementById('card-image').getAttribute('src'))`);
-  browser('eval', `document.querySelector('[data-language="ja"]').click(); 'ok'`);
-  browser('wait', '2500');
-  const after = evaluate(`JSON.stringify([
-    document.documentElement.lang,
-    document.getElementById('card-image').getAttribute('src'),
-    document.querySelector('#race option:checked').textContent,
-  ])`);
-  expect(after[0] === 'ja' && after[1] !== before && after[2] === 'にんげん',
-    `switching to Japanese does not redraw the card in Japanese: ${after}`);
-  browser('eval', `document.querySelector('[data-language="en"]').click(); 'ok'`);
-  browser('wait', '1500');
-}
-
 function checkPhoneDeviceMenu() {
   browser('set', 'viewport', '390', '844');
   const closed = evaluate(`JSON.stringify([
@@ -493,7 +476,6 @@ checkFreshStartOnDeviceChange();
 checkAddressAndKeys();
 checkEmptyRealCards();
 checkCheatTab();
-checkJapaneseRedrawsTheCard();
 checkCheatLinkShowsThatDevicesCard();
 checkPhoneTabsFit();
 checkPhoneDeviceMenu();

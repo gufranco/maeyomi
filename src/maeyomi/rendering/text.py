@@ -1,8 +1,8 @@
 """Setting text on a card: choosing a face, wrapping, and fitting a width.
 
-A card carries English and Japanese side by side, or one of them alone, so
-every string is set in the face that has its glyphs. Latin text uses the PDF
-base fonts. Anything else uses a Japanese gothic that PDF readers carry.
+A card carries English and Japanese side by side, so every string is set in the
+face that has its glyphs. Latin text uses the PDF base fonts. Anything else uses
+a Japanese gothic that PDF readers carry.
 """
 
 from functools import cache

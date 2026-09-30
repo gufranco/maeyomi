@@ -33,13 +33,7 @@ from maeyomi.games.hatayama import TOP_STAT as HATAYAMA_TOP_STAT
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import CardResult
 from maeyomi.rendering.face import face_of
-from maeyomi.rendering.labels import (
-    FACT_DETAIL,
-    FACT_KIND,
-    SPECIAL_POWER,
-    STAT_LABELS,
-    Bilingual,
-)
+from maeyomi.rendering.labels import SPECIAL_POWER, STAT_LABELS, Bilingual
 from maeyomi.ui.schemas import DbzChoiceView, DeviceView, FactView, OptionView, PickView
 
 HUNDREDS: Final = 100
@@ -48,6 +42,8 @@ HALVED_STEP: Final = HP_STEP // 2
 SECOND_MAX_HP: Final = 99900
 SECOND_MAX_STAT: Final = 19900
 CLASSIC_STATS: Final = ["stat.hp", "stat.st", "stat.df"]
+KIND: Final = Bilingual("Kind", "しゅるい")
+DETAIL: Final = Bilingual("Type", "タイプ")
 
 
 type Range = tuple[int, int]
@@ -307,8 +303,8 @@ def facts_of(result: CardResult) -> list[FactView]:
         for tile in face.tiles
     ]
     return [
-        _fact(FACT_KIND, face.kind),
-        _fact(FACT_DETAIL, face.detail),
+        _fact(KIND, face.kind),
+        _fact(DETAIL, face.detail),
         *tiles,
         _fact(heading, face.power_text),
     ]

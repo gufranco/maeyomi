@@ -1,8 +1,6 @@
 """Pieces every command shares: reading the options into a request, and writing a sheet."""
 
-from contextvars import ContextVar
 from pathlib import Path
-from typing import Final
 
 import typer
 
@@ -10,9 +8,7 @@ from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_r
 from maeyomi.cli.report import disclaimers
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.generated_card import AnyCard
-from maeyomi.rendering.card import CardStyle
 from maeyomi.rendering.export import ImageFormat, export_images
-from maeyomi.rendering.language import CardLanguage
 from maeyomi.rendering.layout import SheetLayout
 from maeyomi.rendering.sheet import write_sheet
 
@@ -56,20 +52,14 @@ def sheet_layout(*, print_shop: bool) -> SheetLayout:
     return SheetLayout.print_shop() if print_shop else SheetLayout()
 
 
-CARD_LANGUAGE: Final[ContextVar[CardLanguage]] = ContextVar(
-    "card_language", default=CardLanguage.BOTH
-)
-"""The language `--language` chose for this run; the command line sets it on every run."""
-
-
 def write_cards(
     cards: tuple[AnyCard, ...],
     output: Path,
     images: ImageFormat | None,
     layout: SheetLayout | None = None,
 ) -> None:
-    """Write the sheet in the chosen card language, export images when asked, and report."""
-    pages = write_sheet(cards, output, layout=layout, style=CardStyle(language=CARD_LANGUAGE.get()))
+    """Write the sheet, export images when asked, and state what was verified."""
+    pages = write_sheet(cards, output, layout=layout)
     typer.echo(f"Wrote {len(cards)} card(s) across {pages} page(s) to {output}")
     if images is not None:
         directory = output.with_name(f"{output.stem}-images")

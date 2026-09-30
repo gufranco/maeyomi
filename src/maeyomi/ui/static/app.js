@@ -30,7 +30,7 @@ async function postJson(url, payload) {
   const response = await fetch(url, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ ...payload, language: currentLanguage }),
+    body: JSON.stringify(payload),
   });
   const isJson = response.headers.get('content-type')?.includes('json');
   return { ok: response.ok, body: isJson ? await response.json() : null, response };
@@ -140,9 +140,9 @@ function fillSelect(id, options, fallback) {
   );
 }
 
-const raceName = (race) => inLanguage(race.label, race.label_ja);
-const raceHint = (race) => inLanguage(race.description, race.description_ja);
-const abilityText = (ability) => inLanguage(ability.description, ability.description_ja);
+const raceName = (race) => (isJapanese() ? race.label_ja : race.label);
+const raceHint = (race) => (isJapanese() ? race.description_ja : race.description);
+const abilityText = (ability) => (isJapanese() ? ability.description_ja : ability.description);
 
 function renderChoices() {
   const fighters = raceList
@@ -356,7 +356,7 @@ function renderOfficial() {
   $('official-single').toggleAttribute('hidden', !single);
   if (single) {
     $('official-single').textContent = t('official.single', {
-      title: inLanguage(single.english, single.japanese),
+      title: isJapanese() ? single.japanese : single.english,
       count: single.count,
     });
     return;
@@ -364,7 +364,7 @@ function renderOfficial() {
   const sets = catalogue.sets.map((entry) => ({
     value: entry.key,
     label: t('official.option', {
-      title: inLanguage(entry.english, entry.japanese),
+      title: isJapanese() ? entry.japanese : entry.english,
       count: entry.count,
     }),
   }));
@@ -536,7 +536,7 @@ function showFacts(character) {
     factRow('fact.df', character.df),
     ...battleRows(character),
     factRow('fact.power', `${String(character.special.code).padStart(2, '0')} ` +
-      `${inLanguage(character.special.description, character.special.description_ja)}`),
+      `${isJapanese() ? character.special.description_ja : character.special.description}`),
     factRow('fact.reading', t(`reading.${character.read_type}`)),
   ];
   if (character.character_class) {
@@ -612,14 +612,14 @@ function resetShelf() {
 }
 
 function shelfRow(product) {
-  const name = inLanguage(product.label, product.label_ja);
+  const name = isJapanese() ? product.label_ja : product.label;
   return [
     '<li class="shelf-row">',
     `<span class="shelf-name" lang="ja">${escapeHtml(product.name)}</span>`,
     `<span class="shelf-kind">${escapeHtml(name)}</span>`,
-    `<span class="shelf-stats">${escapeHtml(inLanguage(product.stats, product.stats_ja))}</span>`,
+    `<span class="shelf-stats">${escapeHtml(isJapanese() ? product.stats_ja : product.stats)}</span>`,
     product.note
-      ? `<span class="shelf-note">${escapeHtml(inLanguage(product.note, product.note_ja))}</span>`
+      ? `<span class="shelf-note">${escapeHtml(isJapanese() ? product.note_ja : product.note)}</span>`
       : '',
     `<code class="shelf-code">${escapeHtml(product.barcode)}</code>`,
     '</li>',
@@ -691,9 +691,6 @@ function setUpLanguage() {
     renderChoices();
     renderOfficial();
     renderDevices();
-    if (deviceList.length === 0) return;
-    refreshPreviewSoon();
-    showCheatIfOpen();
   });
   applyLanguage(currentLanguage);
 }
