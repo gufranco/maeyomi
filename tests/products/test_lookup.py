@@ -7,6 +7,9 @@ slow, broken or unreachable.
 """
 
 import json
+from collections.abc import Callable
+from http.client import IncompleteRead
+from importlib.metadata import version
 from typing import Self
 from urllib.request import Request
 
@@ -16,11 +19,12 @@ import maeyomi.products.lookup as lookup_module
 from maeyomi.products.lookup import (
     API_URL,
     FIELDS,
+    MAX_ANSWER_BYTES,
     TIMEOUT_SECONDS,
-    USER_AGENT,
     Fetcher,
     ProductLookupError,
     look_up_name,
+    user_agent,
 )
 
 FOUND = json.dumps(
@@ -98,19 +102,64 @@ def test_the_real_fetcher_reads_what_it_is_given(monkeypatch: pytest.MonkeyPatch
         def __exit__(self, *_: object) -> None:
             return None
 
-        def read(self) -> bytes:
-            return b'{"status":0}'
+        def read(self, limit: int) -> bytes:
+            return b'{"status":0}'[:limit]
 
     def fake_urlopen(request: Request, timeout: float) -> Answer:
         opened.append(request.full_url)
         assert timeout == TIMEOUT_SECONDS
-        assert request.get_header("User-agent") == USER_AGENT
+        assert request.get_header("User-agent") == user_agent()
         return Answer()
 
     monkeypatch.setattr(lookup_module, "urlopen", fake_urlopen)
 
     assert look_up_name(BARCODE) is None
     assert opened == [API_URL.format(barcode=BARCODE) + f"?fields={FIELDS}"]
+
+
+def answering(body: bytes) -> Callable[[Request, float], object]:
+    class Answer:
+        def __enter__(self) -> Self:
+            return self
+
+        def __exit__(self, *_: object) -> None:
+            return None
+
+        def read(self, limit: int) -> bytes:
+            return body[:limit]
+
+    def fake_urlopen(request: Request, timeout: float) -> Answer:
+        assert request.full_url.startswith(API_URL.format(barcode=BARCODE))
+        assert timeout == TIMEOUT_SECONDS
+        return Answer()
+
+    return fake_urlopen
+
+
+def test_an_answer_larger_than_any_product_is_refused(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(lookup_module, "urlopen", answering(b" " * (MAX_ANSWER_BYTES + 1)))
+
+    with pytest.raises(ProductLookupError, match="too large"):
+        look_up_name(BARCODE)
+
+
+def test_an_answer_that_is_not_utf8_is_reported(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(lookup_module, "urlopen", answering(b"\xff\xfe\xfa"))
+
+    with pytest.raises(ProductLookupError, match="could not be read"):
+        look_up_name(BARCODE)
+
+
+def test_an_answer_cut_off_mid_way_is_reported() -> None:
+    def cut_off(url: str, *, timeout: float) -> str:
+        raise IncompleteRead(url.encode(), int(timeout))
+
+    with pytest.raises(ProductLookupError, match="could not be read"):
+        look_up_name(BARCODE, fetch=cut_off)
+
+
+def test_the_request_names_the_installed_version() -> None:
+    assert user_agent().startswith(f"maeyomi/{version('maeyomi')} ")
 
 
 def test_a_brand_is_used_when_nobody_recorded_a_name() -> None:
