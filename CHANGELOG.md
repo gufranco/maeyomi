@@ -2,6 +2,32 @@
 
 <!-- version list -->
 
+## v1.2.2 (2026-09-30)
+
+### Bug Fixes
+
+- Bound the product lookup and classify every failure
+  ([`811d52d`](https://github.com/gufranco/maeyomi/commit/811d52d117cde2a333dbc114d4a7d1058fca9d64))
+
+- **ui**: Answer only the host names the server is on
+  ([`36733e1`](https://github.com/gufranco/maeyomi/commit/36733e14ad8bf71df68013076157ad0963aa1c6c))
+
+### Build System
+
+- **deps**: Update fastapi and charset-normalizer
+  ([`e09168b`](https://github.com/gufranco/maeyomi/commit/e09168b48f4e8e57940d06cdf7ec3efa15714d57))
+
+### Chores
+
+- **formula**: Point at v1.2.1 [skip ci]
+  ([`901d3ea`](https://github.com/gufranco/maeyomi/commit/901d3ea25d42abe8ee5ccbfed0c2c1062c4c96e1))
+
+### Continuous Integration
+
+- Pin actions to commit SHAs at their latest releases
+  ([`41f751b`](https://github.com/gufranco/maeyomi/commit/41f751b065730f491edcfd6a0f773a0f2102f314))
+
+
 ## v1.2.1 (2026-09-28)
 
 ### Bug Fixes
