@@ -26,5 +26,8 @@ BONUSES: Final = (
     ("A Namco game: guts +2", "ナムコの ソフト: ガッツ2アップ"),
     ("A Namco card: type +2", "ナムコの カード: タイプ2アップ"),
     ("A Namco card: jump +2", "ナムコの カード: ジャンプ2アップ"),
-    ("A Barcode Boy card: plus 1", "バーコードボーイの カード: プラス1"),
+    (
+        "A Barcode Boy card: every number +1, up to 10",
+        "バーコードボーイの カード: ぜんぶの すうじ 1アップ・10まで",
+    ),
 )

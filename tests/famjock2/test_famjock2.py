@@ -34,6 +34,7 @@ CARDS: Final = json.loads(FIXTURE.read_text(encoding="utf-8"))["cards"]
 KINDS: Final = {"racehorse": RACEHORSE, "mare": MARE, "stallion": STALLION}
 MARE_A: Final = "2378649896765"
 FAMICOM_BOX: Final = "4907892000001"
+BARCODE_BOY_BOX: Final = "4907892052000"
 ANY: Final = Constraint.anything()
 KNOWN_CARDS: Final = 8
 
@@ -86,6 +87,15 @@ def test_a_namco_box_code_names_its_bonus() -> None:
     assert text.detail == (
         "A Namco Famicom game: stamina +2",
         "ナムコの ファミコンソフト: スタミナ2アップ",
+    )
+
+
+def test_the_barcode_boy_box_code_raises_every_number_by_one() -> None:
+    text = famjock2_text(decode_famjock2(BARCODE_BOY_BOX))
+
+    assert text.detail == (
+        "A Barcode Boy card: every number +1, up to 10",
+        "バーコードボーイの カード: ぜんぶの すうじ 1アップ・10まで",
     )
 
 

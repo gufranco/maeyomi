@@ -572,7 +572,8 @@ different horses. The card shows the racehorse on its tiles and the other two
 in its panel. Pick the menu with `--character` and each number with
 `--pick speed=`, `stamina=`, `guts=`, `jump=`, `turbo=` and `type=`; any left
 out is 9. The game also knows seven barcodes of Namco's own game boxes, and a
-card carrying one earns the bonus the game names, such as two more stamina.
+card carrying one earns the bonus the game names: two more of one number, or,
+for the Barcode Boy's own card, one more of all six. No number passes 10.
 The decoder agrees with the game in MAME on all 459 codes it was given in each
 of the three menus.
 
