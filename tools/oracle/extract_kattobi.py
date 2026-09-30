@@ -19,6 +19,8 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from record_game import verify_artifact
 
+from maeyomi.romaji import romanised
+
 ARTIFACT: Final = "gameboy_kattobi"
 ROM_PATH: Final = "gameboy/kattobi/dmg-k5j-0.u1"
 MODELS: Final = 0xE000
@@ -32,31 +34,6 @@ WEIGHT: Final = 14
 CATEGORY_NAMES: Final = 0x39F9
 CATEGORY_SIZE: Final = 9
 CATEGORY_COUNT: Final = 5
-SYLLABLES: Final = {
-    **dict(zip("アイウエオ", ("a", "i", "u", "e", "o"), strict=True)),
-    **dict(zip("カキクケコ", ("ka", "ki", "ku", "ke", "ko"), strict=True)),
-    **dict(zip("ガギグゲゴ", ("ga", "gi", "gu", "ge", "go"), strict=True)),
-    **dict(zip("サシスセソ", ("sa", "shi", "su", "se", "so"), strict=True)),
-    **dict(zip("ザジズゼゾ", ("za", "ji", "zu", "ze", "zo"), strict=True)),
-    **dict(zip("タチツテト", ("ta", "chi", "tsu", "te", "to"), strict=True)),
-    **dict(zip("ダヂヅデド", ("da", "ji", "zu", "de", "do"), strict=True)),
-    **dict(zip("ナニヌネノ", ("na", "ni", "nu", "ne", "no"), strict=True)),
-    **dict(zip("ハヒフヘホ", ("ha", "hi", "fu", "he", "ho"), strict=True)),
-    **dict(zip("バビブベボ", ("ba", "bi", "bu", "be", "bo"), strict=True)),
-    **dict(zip("パピプペポ", ("pa", "pi", "pu", "pe", "po"), strict=True)),
-    **dict(zip("マミムメモ", ("ma", "mi", "mu", "me", "mo"), strict=True)),
-    **dict(zip("ヤユヨ", ("ya", "yu", "yo"), strict=True)),
-    **dict(zip("ラリルレロ", ("ra", "ri", "ru", "re", "ro"), strict=True)),
-    **dict(zip("ワヲン", ("wa", "o", "n"), strict=True)),
-    "ヴ": "vu",
-}
-SMALL_Y: Final = {"ャ": "a", "ュ": "u", "ョ": "o"}
-SMALL_VOWELS: Final = {"ァ": "a", "ィ": "i", "ゥ": "u", "ェ": "e", "ォ": "o"}
-Y_KEEPS: Final = ("sh", "ch", "j")
-STEMS: Final = {"shi": "sh", "chi": "ch", "tsu": "ts", "fu": "f", "u": "w", "ji": "j", "vu": "v"}
-LONG: Final = "ー"
-DOUBLE: Final = "ッ"
-VOWELS: Final = "aeiou"
 
 
 def main() -> None:
@@ -113,58 +90,6 @@ def categories(rom: bytes) -> tuple[str, ...]:
         .strip()
         for index in range(CATEGORY_COUNT)
     )
-
-
-def romanised(name: str) -> str:
-    runs: list[str] = []
-    for character in name:
-        kana = "ァ" <= character <= "ー"
-        if runs and (runs[-1][:1] == "\x01") == kana:
-            runs = [*runs[:-1], runs[-1] + character]
-        else:
-            runs = [*runs, ("\x01" if kana else "") + character]
-    words = [_word(run[1:]) if run.startswith("\x01") else run for run in runs]
-    return " ".join(words)
-
-
-def _word(kana: str) -> str:
-    text = ""
-    doubled = False
-    for character in kana:
-        text, doubled = _with(text, character, doubled=doubled)
-    return text[:1].upper() + text[1:]
-
-
-def _with(text: str, character: str, *, doubled: bool) -> tuple[str, bool]:
-    if character == DOUBLE:
-        return text, True
-    if character == LONG:
-        vowel = next((letter for letter in reversed(text) if letter in VOWELS), "")
-        return text + vowel, False
-    if character in SMALL_Y:
-        return _small_y(text, SMALL_Y[character]), False
-    if character in SMALL_VOWELS:
-        return _small_vowel(text, SMALL_VOWELS[character]), False
-    syllable = SYLLABLES.get(character, character)
-    if doubled:
-        syllable = ("t" if syllable.startswith("ch") else syllable[:1]) + syllable
-    return text + syllable, False
-
-
-def _small_y(text: str, vowel: str) -> str:
-    stem = text[:-1]
-    if stem.endswith(Y_KEEPS):
-        return stem + vowel
-    return stem + "y" + vowel
-
-
-def _small_vowel(text: str, vowel: str) -> str:
-    for syllable, stem in sorted(STEMS.items(), key=lambda pair: -len(pair[0])):
-        if text.endswith(syllable):
-            return text[: -len(syllable)] + stem + vowel
-    if text and text[-1] in VOWELS:
-        return text[:-1] + vowel
-    return text + vowel
 
 
 if __name__ == "__main__":

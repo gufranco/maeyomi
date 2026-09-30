@@ -266,8 +266,9 @@ class CardSummary:
 def summary_of(result: CardResult) -> CardSummary:
     """The card's numbers, or its effect when it carries none."""
     face = face_of(result)
-    numbers = " / ".join(f"{STAT_LABELS[tile.key].english} {tile.value}" for tile in face.tiles)
-    stats = Bilingual(numbers, numbers) if numbers else face.power_text
+    english = " / ".join(f"{STAT_LABELS[tile.key].english} {tile.value}" for tile in face.tiles)
+    japanese = " / ".join(f"{STAT_LABELS[tile.key].japanese} {tile.value}" for tile in face.tiles)
+    stats = Bilingual(english, japanese) if english else face.power_text
     return CardSummary(kind=_kind_key(result), label=face.kind, stats=stats, effect=face.power_text)
 
 

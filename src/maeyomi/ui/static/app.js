@@ -43,21 +43,34 @@ function reasons(body) {
   return [t('status.wrong')];
 }
 
+const statusRenderers = new Map();
+
 function setStatus(id, kind, tagKey, message, items = []) {
-  const list = items.length
-    ? `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
-    : '';
-  const node = $(id);
-  node.setAttribute('class', `status is-${kind}`);
-  node.replaceChildren();
-  node.insertAdjacentHTML(
-    'afterbegin',
-    `<p><span class="tag">${escapeHtml(t(tagKey))}</span>${escapeHtml(message)}</p>${list}`,
-  );
+  const render = () => {
+    const text = typeof message === 'function' ? message() : message;
+    const lines = typeof items === 'function' ? items() : items;
+    const list = lines.length
+      ? `<ul>${lines.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
+      : '';
+    const node = $(id);
+    node.setAttribute('class', `status is-${kind}`);
+    node.replaceChildren();
+    node.insertAdjacentHTML(
+      'afterbegin',
+      `<p><span class="tag">${escapeHtml(t(tagKey))}</span>${escapeHtml(text)}</p>${list}`,
+    );
+  };
+  statusRenderers.set(id, render);
+  render();
+}
+
+function clearStatus(id) {
+  statusRenderers.delete(id);
+  $(id).replaceChildren();
 }
 
 const refuse = (id, body, key = 'status.adjust') =>
-  setStatus(id, 'bad', 'tag.impossible', t(key), reasons(body));
+  setStatus(id, 'bad', 'tag.impossible', () => t(key), () => reasons(body));
 
 function download(blob, filename) {
   const link = document.createElement('a');
@@ -197,9 +210,9 @@ function oneCardPayload() {
 
 function describeResult(body) {
   if (body.is_exact) {
-    setStatus('one-status', 'good', 'tag.exact', t('status.exact'));
+    setStatus('one-status', 'good', 'tag.exact', () => t('status.exact'));
   } else {
-    setStatus('one-status', 'warn', 'tag.closest', t('status.closest'), body.differences);
+    setStatus('one-status', 'warn', 'tag.closest', () => t('status.closest'), body.differences);
   }
   $('one-code').toggleAttribute('hidden', false);
   $('one-code-value').textContent = body.barcode;
@@ -302,7 +315,7 @@ async function makeSheet(event) {
     }
     showPages('sheet-frame', body.pages, t('label.sheet'));
     const pages = body.pages.length;
-    const message =
+    const message = () =>
       pages === 1
         ? t('status.sheetOne', { count: body.count })
         : t('status.sheet', { count: body.count, pages });
@@ -417,7 +430,7 @@ async function loadOfficial() {
     'afterbegin',
     `<p class="placeholder">${escapeHtml(t('official.placeholder'))}</p>`,
   );
-  $('official-status').replaceChildren();
+  clearStatus('official-status');
 }
 
 async function setUpOfficial() {
@@ -429,7 +442,7 @@ async function showOfficial(event) {
   event?.preventDefault();
   const button = $('official').querySelector('button[type="submit"]');
   setBusy(button, true);
-  setStatus('official-status', 'info', 'tag.working', t('status.drawing'));
+  setStatus('official-status', 'info', 'tag.working', () => t('status.drawing'));
   try {
     const { ok, body } = await postJson('/api/official-preview', officialPayload());
     if (!ok) {
@@ -438,7 +451,7 @@ async function showOfficial(event) {
     }
     showPages('official-frame', body.pages, t('label.official'));
     const shown = body.pages.length * CARDS_PER_PAGE;
-    const message =
+    const message = () =>
       body.count > shown
         ? t('status.officialMore', { count: body.count, shown })
         : t('status.official', { count: body.count });
@@ -449,14 +462,14 @@ async function showOfficial(event) {
 }
 
 async function downloadOfficial() {
-  setStatus('official-status', 'info', 'tag.working', t('status.building'));
+  setStatus('official-status', 'info', 'tag.working', () => t('status.building'));
   const { ok, body, response } = await postJson('/api/official-sheet', officialPayload());
   if (!ok) {
     refuse('official-status', body, 'status.again');
     return;
   }
   download(await response.blob(), 'official-cards.pdf');
-  setStatus('official-status', 'good', 'tag.done', t('status.saved'));
+  setStatus('official-status', 'good', 'tag.done', () => t('status.saved'));
 }
 
 async function showCheatCard() {
@@ -476,7 +489,8 @@ async function showCheatCard() {
   }
   $('cheat-code-value').textContent = body.barcode;
   setStatus('cheat-status', 'cheat', 'tag.cheat',
-    t('status.deviceCheat', { name: body.name, device: deviceName() }), factLines(body.facts));
+    () => t('status.deviceCheat', { name: body.name, device: deviceName() }),
+    () => factLines(body.facts));
   await showPreview(body.barcode, body.name, 'cheat-image', 'cheat-placeholder');
 }
 
@@ -487,7 +501,7 @@ async function downloadCheatCard() {
 
 function setUpCheat() {
   const refresh = () => showCheatCard()
-    .catch(() => setStatus('cheat-status', 'bad', 'tag.impossible', t('status.wrong')));
+    .catch(() => setStatus('cheat-status', 'bad', 'tag.impossible', () => t('status.wrong')));
   document.addEventListener('tabchange', (event) => {
     if (event.detail === 'tab-cheat' && deviceList.length > 0) refresh();
   });
@@ -512,7 +526,7 @@ function setUpCheat() {
 
 function showCheatIfOpen() {
   if ($('tab-cheat').getAttribute('aria-selected') !== 'true') return;
-  showCheatCard().catch(() => setStatus('cheat-status', 'bad', 'tag.impossible', t('status.wrong')));
+  showCheatCard().catch(() => setStatus('cheat-status', 'bad', 'tag.impossible', () => t('status.wrong')));
 }
 
 
@@ -528,6 +542,7 @@ function battleRows(character) {
 }
 
 function showFacts(character) {
+  redrawReadFacts = () => showFacts(character);
   const race = raceList.find((entry) => entry.name === character.race);
   const rows = [
     factRow('fact.kind', race ? raceName(race) : character.race),
@@ -556,18 +571,18 @@ async function readBarcode(event) {
   event?.preventDefault();
   const barcode = typedBarcode();
   if (!barcode) {
-    setStatus('read-status', 'bad', 'tag.impossible', t('read.empty'));
+    setStatus('read-status', 'bad', 'tag.impossible', () => t('read.empty'));
     return null;
   }
   const url = isSecond() ? `/api/decode/${barcode}` : `/api/read/${currentDevice()}/${barcode}`;
   const response = await fetch(url);
   const body = await response.json();
   if (!response.ok) {
-    setStatus('read-status', 'bad', 'tag.impossible', t('read.refused'), reasons(body));
-    $('read-facts').toggleAttribute('hidden', true);
+    setStatus('read-status', 'bad', 'tag.impossible', () => t('read.refused'), () => reasons(body));
+    hideReadFacts();
     return null;
   }
-  setStatus('read-status', 'good', 'tag.ready', t('read.ok'));
+  setStatus('read-status', 'good', 'tag.ready', () => t('read.ok'));
   if (isSecond()) {
     showFacts(body);
   } else {
@@ -606,9 +621,10 @@ let shelf = [];
 
 function resetShelf() {
   shelf = [];
+  shelfBody = null;
   $('shop-list').replaceChildren();
   $('shop-placeholder').toggleAttribute('hidden', false);
-  $('shop-status').replaceChildren();
+  clearStatus('shop-status');
 }
 
 function shelfRow(product) {
@@ -626,17 +642,26 @@ function shelfRow(product) {
   ].join('');
 }
 
+let shelfBody = null;
+
 function showShelf(body) {
+  shelfBody = body;
   shelf = body.products;
+  renderShelf();
+}
+
+function renderShelf() {
+  if (!shelfBody) return;
+  const body = shelfBody;
   $('shop-list').innerHTML = shelf.map(shelfRow).join('');
   $('shop-placeholder').toggleAttribute('hidden', shelf.length > 0);
   $('shop-credit').textContent = t('shop.credit', body);
   if (!shelf.length) {
-    setStatus('shop-status', 'bad', 'tag.impossible', t('shop.empty'));
+    setStatus('shop-status', 'bad', 'tag.impossible', () => t('shop.empty'));
     return;
   }
   setStatus('shop-status', 'good', 'tag.ready',
-    t('shop.found', { count: shelf.length, total: body.total }));
+    () => t('shop.found', { count: shelf.length, total: body.total }));
 }
 
 async function searchShelf(event) {
@@ -658,7 +683,7 @@ async function surpriseShelf() {
 
 async function downloadShelf() {
   if (!shelf.length) {
-    setStatus('shop-status', 'bad', 'tag.impossible', t('shop.empty'));
+    setStatus('shop-status', 'bad', 'tag.impossible', () => t('shop.empty'));
     return;
   }
   const device = currentDevice();
@@ -691,6 +716,9 @@ function setUpLanguage() {
     renderChoices();
     renderOfficial();
     renderDevices();
+    renderShelf();
+    redrawReadFacts?.();
+    statusRenderers.forEach((render) => render());
   });
   applyLanguage(currentLanguage);
 }
@@ -719,5 +747,5 @@ Promise.all([setUpChoices(), setUpDevices()])
     refreshPreviewSoon();
     showCheatIfOpen();
   })
-  .catch(() => setStatus('one-status', 'bad', 'tag.impossible', t('status.wrong')));
+  .catch(() => setStatus('one-status', 'bad', 'tag.impossible', () => t('status.wrong')));
 setUpCheat();

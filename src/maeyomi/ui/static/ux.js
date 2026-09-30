@@ -78,7 +78,7 @@ function setUpSearchAsYouType(input, search) {
   input.addEventListener('input', () => {
     clearTimeout(pending);
     pending = setTimeout(() => {
-      search().catch(() => setStatus('shop-status', 'bad', 'tag.impossible', t('status.wrong')));
+      search().catch(() => setStatus('shop-status', 'bad', 'tag.impossible', () => t('status.wrong')));
     }, SEARCH_DELAY_MS);
   });
 }
@@ -102,7 +102,7 @@ async function refreshPreview() {
   try {
     await makeOneCard();
   } catch {
-    setStatus('one-status', 'bad', 'tag.impossible', t('status.wrong'));
+    setStatus('one-status', 'bad', 'tag.impossible', () => t('status.wrong'));
   } finally {
     previewRunning = false;
   }

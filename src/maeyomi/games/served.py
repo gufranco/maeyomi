@@ -62,6 +62,7 @@ from maeyomi.games.hatayama import (
 from maeyomi.games.lupin import LUPIN
 from maeyomi.games.spiderman import SPIDERMAN
 from maeyomi.games.yousei import YOUSEI
+from maeyomi.romaji import romanised
 
 type Pair = tuple[str, str]
 
@@ -235,18 +236,21 @@ def _excite94_text(card: DatachCard) -> CardText:
     (keeper,) = card.traits
     letters = [GRADE_LETTERS[int(nibble, 16)] for nibble in grades]
     shown = (
-        f"DEF {letters[2]}"
+        (f"DEF {letters[2]}", f"ディフェンス {letters[2]}")
         if keeper
-        else (f"KIC {letters[2]}, SHT {letters[3]}, RUN {letters[4]}, DRB {letters[5]}")
+        else (
+            f"KIC {letters[2]}, SHT {letters[3]}, RUN {letters[4]}, DRB {letters[5]}",
+            f"キック {letters[2]}・シュート {letters[3]}・ラン {letters[4]}・ドリブル {letters[5]}",
+        )
     )
-    return CardText((name, name), KEEPER if keeper else FIELD_PLAYER, GRADES, (shown, shown))
+    return CardText((romanised(name), name), KEEPER if keeper else FIELD_PLAYER, GRADES, shown)
 
 
 def _excite94_named(typed: str) -> int:
     """A player or item typed by name or number, or a ValueError naming the game."""
     wanted = typed.strip().casefold()
     named = {
-        **{ident: (name, name) for ident, (name, _) in PLAYERS.items()},
+        **{ident: (romanised(name), name) for ident, (name, _) in PLAYERS.items()},
         **{EXCITE94_FIRST_ITEM + kind: names for kind, names in EXCITE94_ITEMS.items()},
     }
     for ident, (english, japanese) in named.items():
@@ -259,7 +263,7 @@ def _excite94_named(typed: str) -> int:
 def _excite94_entries() -> tuple[GameEntry, ...]:
     """Every hidden player a code reaches, then the five items."""
     players = tuple(
-        GameEntry(ident, GameKind.PLAYER, name, name)
+        GameEntry(ident, GameKind.PLAYER, romanised(name), name)
         for ident, (name, _) in PLAYERS.items()
         if build_excite94_player(ident) is not None
     )
@@ -319,7 +323,7 @@ SHOP_CODE: Final[Pair] = (
 def _robot_name(ident: int) -> Pair:
     """An opponent's names, or the robot's number."""
     name = OPPONENTS.get(ident)
-    return (name, name) if name else (f"Robot {ident}", f"ロボット {ident}")
+    return (romanised(name), name) if name else (f"Robot {ident}", f"ロボット {ident}")
 
 
 def _robot_order(order: GameOrder) -> RobotOrder:
@@ -370,11 +374,17 @@ def _robot_text(card: DatachCard) -> CardText:
         return CardText(REFUSED, SHOP_CODE, PARTS_HEADING, SHOP_CODE)
     if card.traits[0] == FRAME_CARD:
         _, _, head, body, shoulder, foot, pilot, _ = card.traits
-        parts = f"Head {head}, body {body}, shoulder {shoulder}, foot {foot}, pilot {pilot}"
-        return CardText(_robot_name(card.ident), FRAME_TEXT, PARTS_HEADING, (parts, parts))
+        parts = (
+            f"Head {head}, body {body}, shoulder {shoulder}, foot {foot}, pilot {pilot}",
+            f"あたま {head}・からだ {body}・かた {shoulder}・あし {foot}・パイロット {pilot}",
+        )
+        return CardText(_robot_name(card.ident), FRAME_TEXT, PARTS_HEADING, parts)
     recovery, defense, attack, speed = card.traits[-4:]
-    levels = f"Recovery {recovery}, defense {defense}, attack {attack}, speed {speed}"
-    return CardText(_robot_name(card.ident), WEAPON_TEXT, LEVELS_HEADING, (levels, levels))
+    levels = (
+        f"Recovery {recovery}, defense {defense}, attack {attack}, speed {speed}",
+        f"かいふく {recovery}・ぼうぎょ {defense}・こうげき {attack}・スピード {speed}",
+    )
+    return CardText(_robot_name(card.ident), WEAPON_TEXT, LEVELS_HEADING, levels)
 
 
 def _robot_named(typed: str) -> int:
@@ -382,8 +392,11 @@ def _robot_named(typed: str) -> int:
     wanted = typed.strip().casefold()
     for ident in range(ROBOTS):
         english, japanese = _robot_name(ident)
-        if wanted in {english.casefold(), str(ident)} or any(
-            part.strip() == typed.strip() for part in japanese.split("/")
+        if wanted == str(ident) or any(
+            wanted in {english_part.strip().casefold(), japanese_part.strip().casefold()}
+            for english_part, japanese_part in zip(
+                [english, *english.split("/")], [japanese, *japanese.split("/")], strict=True
+            )
         ):
             return ident
     message = f"unknown Datach Battle Rush robot {typed!r}; choose 0 to 63 or an opponent's name"

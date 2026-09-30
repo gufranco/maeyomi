@@ -920,6 +920,10 @@ the special power showing what it changes and which way, such as a sword with
 an arrow up for "own attack doubled". The arrow's direction carries the
 meaning, never its colour. A card for any other game carries the numbers that
 game reads, with their labels in both languages, on the same coloured tiles.
+A name a game shows only in kana, such as a J.League Excite Stage '94 player, a
+Datach Battle Rush pilot or a Kattobi Road car, is romanised by rule for the
+English side. The page redraws every message and list when its language
+changes.
 
 The Barcode Battler II's special power text is the published wording in both languages: the Japanese
 is copied from barcodebattler.net/page05.htm and the English is this project's

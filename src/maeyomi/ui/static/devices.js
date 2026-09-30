@@ -205,11 +205,11 @@ function startFresh() {
   $('cheat-code').toggleAttribute('hidden', true);
   clearFrame('sheet-frame', 'many.placeholder');
   ['one-status', 'many-status', 'read-status', 'cheat-status'].forEach((id) => {
+    clearStatus(id);
     $(id).setAttribute('class', 'status');
-    $(id).replaceChildren();
   });
   $('one-code').toggleAttribute('hidden', true);
-  $('read-facts').toggleAttribute('hidden', true);
+  hideReadFacts();
   $('tab-one').click();
   window.scrollTo(0, 0);
 }
@@ -368,8 +368,8 @@ function chooseDevice(key) {
   rememberDevice();
   applyDeviceForm();
   resetShelf();
-  loadOfficial().catch(() => setStatus('official-status', 'bad', 'tag.impossible', t('status.wrong')));
-  loadGameCards().catch(() => setStatus('one-status', 'bad', 'tag.impossible', t('status.wrong')));
+  loadOfficial().catch(() => setStatus('official-status', 'bad', 'tag.impossible', () => t('status.wrong')));
+  loadGameCards().catch(() => setStatus('one-status', 'bad', 'tag.impossible', () => t('status.wrong')));
 }
 
 async function setUpDevices() {
@@ -391,7 +391,7 @@ async function setUpDevices() {
   });
   $('backRead').addEventListener('change', () => applySliders(deviceForm()));
   $('game-character').addEventListener('change', () => {
-    loadGamePicks().catch(() => setStatus('one-status', 'bad', 'tag.impossible', t('status.wrong')));
+    loadGamePicks().catch(() => setStatus('one-status', 'bad', 'tag.impossible', () => t('status.wrong')));
   });
 }
 
@@ -426,24 +426,32 @@ function showCode(barcode) {
 }
 
 async function makeDeviceCard() {
-  setStatus('one-status', 'info', 'tag.working', t('status.searching', { device: deviceName() }));
+  setStatus('one-status', 'info', 'tag.working', () => t('status.searching', { device: deviceName() }));
   const { ok, body } = await postJson('/api/device-card', deviceCardPayload());
   if (!ok) {
     refuse('one-status', body);
     return null;
   }
   if (body.is_exact) {
-    setStatus('one-status', 'good', 'tag.exact', t('status.deviceCard', { device: deviceName() }),
-      factLines(body.facts));
+    setStatus('one-status', 'good', 'tag.exact', () => t('status.deviceCard', { device: deviceName() }),
+      () => factLines(body.facts));
   } else {
-    setStatus('one-status', 'warn', 'tag.closest', t('status.deviceClosest'), factLines(body.facts));
+    setStatus('one-status', 'warn', 'tag.closest', () => t('status.deviceClosest'), () => factLines(body.facts));
   }
   showCode(body.barcode);
   await showPreview(body.barcode, $('name').value || 'Card');
   return body;
 }
 
+let redrawReadFacts = null;
+
+function hideReadFacts() {
+  redrawReadFacts = null;
+  $('read-facts').toggleAttribute('hidden', true);
+}
+
 function showDeviceFacts(facts) {
+  redrawReadFacts = () => showDeviceFacts(facts);
   const rows = facts.map((fact) =>
     isJapanese()
       ? `<dt>${escapeHtml(fact.label_ja)}</dt><dd>${escapeHtml(fact.value_ja)}</dd>`

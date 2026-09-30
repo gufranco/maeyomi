@@ -91,8 +91,11 @@ def test_a_hatayama_class_is_found_by_name_or_number() -> None:
 def test_an_excite_94_player_is_described_by_name_and_grades() -> None:
     text = EXCITE94_GAME.describe(EXCITE94_GAME.decode("4900000011005"))
 
-    assert text.name == ("がまもと くにくに", "がまもと くにくに")
-    assert text.power == ("KIC A, SHT A, RUN A, DRB A", "KIC A, SHT A, RUN A, DRB A")
+    assert text.name == ("Gamamoto Kunikuni", "がまもと くにくに")
+    assert text.power == (
+        "KIC A, SHT A, RUN A, DRB A",
+        "キック A・シュート A・ラン A・ドリブル A",
+    )
 
 
 def test_an_excite_94_item_is_built_with_the_value_picked() -> None:
@@ -104,6 +107,10 @@ def test_an_excite_94_item_is_built_with_the_value_picked() -> None:
 
 def test_an_excite_94_player_is_found_by_name() -> None:
     assert EXCITE94_GAME.named("がまもと くにくに") == BEST
+
+
+def test_an_excite_94_player_is_found_by_english_name() -> None:
+    assert EXCITE94_GAME.named("gamamoto kunikuni") == BEST
 
 
 def test_only_an_excite_94_item_offers_a_value() -> None:
@@ -138,6 +145,15 @@ def test_a_battle_rush_opponent_is_found_by_name_and_described_as_a_frame() -> N
     assert card is not None
     text = BATTLE_RUSH_GAME.describe(card)
     assert text.detail == ("Frame card: scan it first", "1まいめに よませる")
+    assert text.name == ("Misutaa X / Bonbon R-01", "ミスターX / ボンボンR-01")
+    assert text.power == (
+        "Head 0, body 0, shoulder 0, foot 0, pilot 0",
+        "あたま 0・からだ 0・かた 0・あし 0・パイロット 0",
+    )
+
+
+def test_a_battle_rush_opponent_is_found_by_english_name() -> None:
+    assert BATTLE_RUSH_GAME.named("bonbon r-01") == BATTLE_RUSH_GAME.named("ミスターX")
 
 
 def test_a_battle_rush_weapon_card_names_its_levels() -> None:
@@ -146,7 +162,10 @@ def test_a_battle_rush_weapon_card_names_its_levels() -> None:
 
     assert weapons is not None
     text = BATTLE_RUSH_GAME.describe(weapons)
-    assert text.power[0] == "Recovery 1, defense 2, attack 0, speed 0"
+    assert text.power == (
+        "Recovery 1, defense 2, attack 0, speed 0",
+        "かいふく 1・ぼうぎょ 2・こうげき 0・スピード 0",
+    )
 
 
 def test_a_shop_barcode_is_described_as_refused_by_battle_rush() -> None:
