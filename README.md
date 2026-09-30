@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**1549** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**1559** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -205,9 +205,9 @@ Famicom in 1993, reads a code on its title menu and in its field menu, and
 every status at its highest, doubled experience and gold, the monster list or
 the sound mode. In the field, codes that start 038438816 give the item their
 last three digits number, 999 opens every warp, and a few codes use a lamp, a
-Bisna nut, a rest mushroom or the map without owning it. The Dragon Slayer
-cards Epoch printed for the Barcode Battler II are not treated specially by the
-game.
+Bisna nut, a rest mushroom or the map without owning it. Of the Dragon Slayer
+cards Epoch printed for the Barcode Battler II, the game knows Selios: scanned
+on the title menu, it sets every status of the hero to its highest.
 
 Hatayama Hatch no Paro Yakyuu News! Jitsumei Ban, Epoch's baseball game of
 1993, reads a code as a battler on its Battle Baseball Board, and
@@ -219,6 +219,18 @@ digits. Pick a warrior or a wizard with `--character`, the numbers with
 last digit also picks a strategy and a graphic on the game's other two
 barcode screens, and each card prints which. The game came with cards for 14
 teams, and nobody has published their barcodes.
+
+Battle Space, which Namco packed with its Barcode Boy reader for the Game Boy
+in 1992, reads a code as a fighter, and `--device bspace` makes cards for it.
+The game builds thirteen new digits from the barcode and reads them as HP, MP,
+AP and DP, which its status screen shows times a hundred. Where those four sit
+against the game's thresholds picks one of 98 classes, and the class fixes the
+magic, one of three spell groups or none, and the special move. Pick a class
+with `--character`, and HP, AP and DP with `--hp`, `--st` and `--df`; the
+program chooses the highest MP that keeps the class and prints it on the card.
+MAME has no Barcode Boy, so a script answers the Game Boy's link port the way
+the reader does, and the decoder agrees with the game on all 668 codes it was
+given, among them one card built for each class.
 
 ## What it supports
 
@@ -251,6 +263,7 @@ games and their card packs are on
 | Datach Ultraman Club | データック ウルトラマン倶楽部 | Famicom Datach | `ultraman` |
 | Datach Yu Yu Hakusho | データック 幽遊白書 | Famicom Datach | `yuyu` |
 | Barcode World | バーコードワールド | Famicom, through the Barcode Battler II | `barcodeworld` |
+| Battle Space | バトルスペース | Game Boy, through the Barcode Boy | `bspace` |
 
 ## Install
 
@@ -296,8 +309,8 @@ Barcode Battler II, the first Barcode Battler, the Double, Datach Dragon Ball
 Z, Datach Ultraman Club, Datach SD Gundam Wars, Datach Yu Yu Hakusho,
 Datach J.League, Barcode World, Barcode Battler Senki, Lupin III, Donald Duck,
 Spider-Man, Alice no Paint Adventure, Doraemon 2, Doraemon 3, Nobita to Yousei
-no Kuni, J.League Excite Stage '94 or '95, Dragon Slayer II, Hatayama Hatch or
-Datach Battle Rush. Every tab follows it: the card maker shows only the fields that device reads
+no Kuni, J.League Excite Stage '94 or '95, Dragon Slayer II, Hatayama Hatch,
+Datach Battle Rush or Battle Space. Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -329,8 +342,8 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other three tabs print a sheet of random cards, the 1549 cards Epoch and
-Bandai actually released, and the strongest card the chosen machine or game
+The other three tabs print a sheet of random cards, the 1559 cards Epoch,
+Bandai and Namco actually released, and the strongest card the chosen machine or game
 will read. The page is in English and Japanese, and switches with the
 buttons at the top.
 
@@ -559,9 +572,9 @@ convenience: the lookup failing changes nothing about the card.
 
 ## The real cards
 
-`maeyomi official --list` names the 40 card lists Epoch and Bandai released,
+`maeyomi official --list` names the 42 card lists Epoch, Bandai and Namco released,
 how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
-candy.pdf` prints one, and leaving out `--set` prints all 1549. The web page has
+candy.pdf` prints one, and leaving out `--set` prints all 1559. The web page has
 the same thing under **The real cards**.
 
 Epoch never published a machine-readable list, so the barcodes come from the
@@ -658,9 +671,16 @@ Barcode Battler Senki came with 10 cards: 5 characters, 3 items and 2 blank
 white ones, per
 [its Japanese Wikipedia article](https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E3%83%90%E3%83%88%E3%83%A9%E3%83%BC%E6%88%A6%E8%A8%98_%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E6%88%A6%E5%A3%AB%E5%87%BA%E6%92%83%E3%81%9B%E3%82%88!).
 Nobody has published their barcodes, so `maeyomi official --device senki` says
-so rather than printing an empty sheet. Lupin III, Donald Duck, Spider-Man and
-Alice no Paint Adventure came with no cards at all, and neither did the three
-Doraemon games.
+so rather than printing an empty sheet. No record says Lupin III, Donald Duck,
+Spider-Man, Alice no Paint Adventure, the three Doraemon games or Dragon Slayer
+II came with cards, and the manuals of the first four name none. The one card
+Dragon Slayer II is known to read, Selios from the Barcode Battler II pack, is
+listed under that game.
+
+Battle Space came with ten cards. Their barcodes come from
+[the Barcode Boy notes of the GBE+ emulator](https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt), which list every
+known Barcode Boy card from high-resolution scans, and each decodes to the
+class printed on its card.
 
 Epoch printed a roster card for each of the 12 J.League clubs of 1994 for
 Excite Stage '94. Their barcodes were read off the scans
@@ -751,6 +771,10 @@ J.League Excite Stage '95 gets overall power raised by 253, the most any card
 raises it.
 
 Dragon Slayer II starts with every status at its highest.
+
+Battle Space gets a Sorcerer King, the class with every spell, with HP 999900,
+AP 99900, DP 99400 and MP 83100. No code reads all four at their top: MP and
+AP at 999 fix six digits that HP at 9999 needs for itself.
 
 Hatayama Hatch gets a wizard with stamina 99900, attack and defense 19900 and
 99 magic.
@@ -877,6 +901,9 @@ under which licence:
   Yu Hakusho and J.League Super Top Players barcodes.
 - **[A 5ch thread](https://mevius.5ch.net/test/read.cgi/toy/1226667612/)**,
   post 484: the Double's 7-read race.
+- **[GBE+](https://github.com/shonumi/gbe-plus)**, GPL-2: its
+  [Barcode Boy notes](https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt) give the reader's protocol and the barcodes of
+  every known Barcode Boy card. No code from GBE+ appears here.
 - **[MAME](https://www.mamedev.org/)** 0.289 runs every game in the checks. The
   game rules come from each game's own program; no ROM byte is shipped, and each
   ROM is named in `artifacts.manifest.json` by its checksum.

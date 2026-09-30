@@ -29,6 +29,7 @@ class Device(StrEnum):
     DSLAYER2 = "dslayer2"
     HATAYAMA = "hatayama"
     EXCITE94 = "excite94"
+    BATTLE_SPACE = "bspace"
 
     @property
     def is_game(self) -> bool:
@@ -71,4 +72,5 @@ _NAMES: Final[dict[Device, tuple[str, str]]] = {
     Device.DSLAYER2: ("Dragon Slayer II", "ドラゴンスレイヤー英雄伝説II"),
     Device.HATAYAMA: ("Hatayama Hatch", "はた山ハッチのパロ野球ニュース!実名版"),
     Device.EXCITE94: ("J.League Excite Stage '94", "J.リーグエキサイトステージ'94"),
+    Device.BATTLE_SPACE: ("Battle Space", "バトルスペース"),
 }

@@ -130,6 +130,7 @@ const DEVICE_GROUPS = [
   ['super_famicom', 'device.super_famicom'],
   ['datach', 'device.datach'],
   ['famicom', 'device.famicom'],
+  ['game_boy', 'device.game_boy'],
 ];
 
 function deviceButtonHtml(device) {

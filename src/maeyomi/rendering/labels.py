@@ -88,6 +88,7 @@ STAT_LABELS: Final[dict[str, Bilingual]] = {
     "WDF": Bilingual("DF", "しゅびりょく"),
     "WMP": Bilingual("MP", "まほうの かず"),
     "WPP": Bilingual("PP", "やくそうの かず"),
+    "BMP": Bilingual("MP", "MP"),
 }
 
 RACE_DESCRIPTIONS: Final[dict[Race, str]] = {

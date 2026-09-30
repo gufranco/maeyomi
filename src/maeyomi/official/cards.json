@@ -9349,6 +9349,66 @@
    "name": "セリオス",
    "set": "バーコードバトラーII「ドラゴンスレイヤー英雄伝説」の セリオス",
    "source_url": "https://www.barcodebattler.co.uk/scans/Japan/DragonSlayer/"
+  },
+  {
+   "barcode": "4907981000301",
+   "name": "バーサーカー",
+   "set": "バトルスペース カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt"
+  },
+  {
+   "barcode": "4908052808369",
+   "name": "バルキリー",
+   "set": "バトルスペース カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt"
+  },
+  {
+   "barcode": "4916911302309",
+   "name": "グリズリー",
+   "set": "バトルスペース カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt"
+  },
+  {
+   "barcode": "4902776809367",
+   "name": "マホウセンシ",
+   "set": "バトルスペース カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt"
+  },
+  {
+   "barcode": "4905672306367",
+   "name": "ナイト",
+   "set": "バトルスペース カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt"
+  },
+  {
+   "barcode": "4912713004366",
+   "name": "レイス",
+   "set": "バトルスペース カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt"
+  },
+  {
+   "barcode": "4913508504399",
+   "name": "シャーマン",
+   "set": "バトルスペース カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt"
+  },
+  {
+   "barcode": "4918156001351",
+   "name": "シーフ",
+   "set": "バトルスペース カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt"
+  },
+  {
+   "barcode": "4911826551347",
+   "name": "ソーサラー",
+   "set": "バトルスペース カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt"
+  },
+  {
+   "barcode": "4909062206350",
+   "name": "ウォリアー",
+   "set": "バトルスペース カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt"
   }
  ]
 }

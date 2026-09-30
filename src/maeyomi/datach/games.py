@@ -35,6 +35,15 @@ from maeyomi.datach.yuyu_names import ITEMS as YUYU_ITEMS
 from maeyomi.datach.yuyu_names import TECHNIQUE_NAMES, bonus_text
 from maeyomi.datach.yuyu_names import card_named as yuyu_named
 from maeyomi.datach.yuyu_tables import SECRET_CHARACTER
+from maeyomi.gameboy.battlespace import STAT_KEYS as BATTLE_SPACE_STATS
+from maeyomi.gameboy.battlespace import (
+    battle_space_entries,
+    battle_space_named,
+    battle_space_text,
+    build_battle_space,
+    decode_battle_space,
+    strongest_battle_space,
+)
 from maeyomi.games.barcode_world import (
     MAGICIAN,
     WARRIOR,
@@ -378,6 +387,16 @@ GAMES: Final[dict[Device, DatachGame]] = {
     Device.HATAYAMA: HATAYAMA_GAME,
     Device.EXCITE94: EXCITE94_GAME,
     Device.DATACH_BATTLE_RUSH: BATTLE_RUSH_GAME,
+    Device.BATTLE_SPACE: DatachGame(
+        decode=decode_battle_space,
+        build=build_battle_space,
+        strongest=strongest_battle_space,
+        entries=battle_space_entries,
+        describe=battle_space_text,
+        named=battle_space_named,
+        stat_keys=BATTLE_SPACE_STATS,
+        datach_reader=False,
+    ),
 }
 
 

@@ -50,6 +50,11 @@ type Range = tuple[int, int]
 
 CLASSIC_RANGES: Final[tuple[Range, Range, Range]] = ((1000, 10000), (100, 3000), (100, 3000))
 DBZ_RANGES: Final[tuple[Range, Range, Range]] = ((10000, 60000), (5000, 30000), (5000, 30000))
+BATTLE_SPACE_RANGES: Final[tuple[Range, Range, Range]] = (
+    (100, 999900),
+    (100, 99900),
+    (100, 99900),
+)
 """Where most Dragon Ball Z fighters sit: 80 percent of random codes fall inside these."""
 ULTRAMAN_MAX: Final = STRONGEST_HUNDREDS * HUNDRED
 ULTRAMAN_RANGES: Final[tuple[Range, Range, Range]] = (
@@ -63,6 +68,8 @@ WORLD_MAX_HP: Final = TOP_HP * HUNDRED
 WORLD_MAX_STAT: Final = TOP_STAT * HUNDRED
 HATAYAMA_MAX_HP: Final = TOP_STAMINA * HUNDRED
 HATAYAMA_MAX_STAT: Final = HATAYAMA_TOP_STAT * HUNDRED
+BATTLE_SPACE_MAX_HP: Final = 999900
+BATTLE_SPACE_MAX_STAT: Final = 99900
 
 
 def _gundam_range(index: int, bonus: tuple[int, ...]) -> Range:
@@ -186,6 +193,15 @@ FORMS: Final[dict[Device, DeviceForm]] = {
     Device.DATACH_BATTLE_RUSH: DeviceForm(
         ("game", "picks"), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()
     ),
+    Device.BATTLE_SPACE: DeviceForm(
+        ("game", "stats"),
+        BATTLE_SPACE_MAX_HP,
+        BATTLE_SPACE_MAX_STAT,
+        BATTLE_SPACE_MAX_STAT,
+        stat_keys=("stat.hp", "stat.ap", "stat.gdp"),
+        sheet_fields=(),
+        ranges=BATTLE_SPACE_RANGES,
+    ),
     Device.HATAYAMA: DeviceForm(
         ("game", "picks", "stats"),
         HATAYAMA_MAX_HP,
@@ -204,10 +220,12 @@ class Platform(StrEnum):
     DATACH = "datach"
     FAMICOM = "famicom"
     SUPER_FAMICOM = "super_famicom"
+    GAME_BOY = "game_boy"
 
 
 DATACH_PREFIX: Final = "DATACH_"
 FAMICOM_GAMES: Final = frozenset({Device.BARCODE_WORLD})
+GAME_BOY_GAMES: Final = frozenset({Device.BATTLE_SPACE})
 
 
 def platform_of(device: Device) -> Platform:
@@ -216,6 +234,8 @@ def platform_of(device: Device) -> Platform:
         return Platform.MACHINE
     if device.name.startswith(DATACH_PREFIX):
         return Platform.DATACH
+    if device in GAME_BOY_GAMES:
+        return Platform.GAME_BOY
     return Platform.FAMICOM if device in FAMICOM_GAMES else Platform.SUPER_FAMICOM
 
 

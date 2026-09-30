@@ -16,6 +16,7 @@ from maeyomi.datach.ultraman import decode_ultraman
 from maeyomi.datach.yuyu import decode_yuyu
 from maeyomi.decoder.decode import decode
 from maeyomi.double.decode import decode_double
+from maeyomi.gameboy.battlespace import decode_battle_space
 from maeyomi.games.barcode_world import decode_barcode_world
 from maeyomi.games.excite94 import decode_excite94
 from maeyomi.games.excite95 import KICK_SPEED, decode_excite95
@@ -43,6 +44,8 @@ ADDED_CARDS = 346
 SCANNED_CARDS = 71
 SELIOS = "0401209245504"
 SELIOS_FOR_DRAGON_SLAYER_TWO = 1
+BATTLE_SPACE_CARDS = 10
+GBE_PLUS = "https://github.com/shonumi/gbe-plus/"
 TRANSCRIBED = (
     577
     + DBZ_CARDS
@@ -57,6 +60,7 @@ TRANSCRIBED = (
     + WESTERN_PACK_CARDS * 5
     + MARIO_CARDS
     + SELIOS_FOR_DRAGON_SLAYER_TWO
+    + BATTLE_SPACE_CARDS
 )
 EXCITE_CLUB_BARCODES = {
     "0000000034111",
@@ -155,6 +159,7 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.BARCODE_WORLD: UK_SCANS,
         OfficialSet.EXCITE_CLUBS: UK_SCANS,
         OfficialSet.DRAGON_SLAYER_HERO: UK_SCANS,
+        OfficialSet.BATTLE_SPACE: GBE_PLUS,
         OfficialSet.EXCITE94_CLUBS: UK_SCANS,
         OfficialSet.IRWIN: UK_PAGES,
         OfficialSet.TOMY: UK_PAGES,
@@ -201,6 +206,7 @@ def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
             Device.EXCITE95: decode_excite95,
             Device.EXCITE94: decode_excite94,
             Device.DSLAYER2: partial(read_as, Device.DSLAYER2),
+            Device.BATTLE_SPACE: decode_battle_space,
         }
         for card in official_cards(official_set):
             assert readers[official_set.device](card.barcode) == card.character

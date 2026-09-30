@@ -229,6 +229,76 @@
       "sha1": "29cc759d5ca214eefc0cc1c6ce0f8b9111e58124",
       "crc32": "983d8175",
       "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "gameboy_bspace",
+      "what": "Battle Space, Namco 1992, the game packed with the Barcode Boy reader, as MAME's gameboy software list names it",
+      "path": "gameboy/bspace/dmg-nxj-0.u1",
+      "size": 65536,
+      "sha256": "85b16134b866e1a1009cb0e8eea892293d60b7592262e64c0fba85bf73b67dbc",
+      "sha1": "76e47ad844abdde9eff09ea29a014f9a1eae5093",
+      "crc32": "a828fd4f",
+      "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/extract_barcode_boy.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "gameboy_monstmkb",
+      "what": "Monster Maker: Barcode Saga, Namco 1993, a Barcode Boy game, as MAME's gameboy software list names it",
+      "path": "gameboy/monstmkb/dmg-qnj-0.u1",
+      "size": 131072,
+      "sha256": "d1a01667610bb8ef9b1e5c355a78579e0b1360adcf0aea9be04312658b580862",
+      "sha1": "f7a101338c4eebcdcc1e5d9082a30caa2d706969",
+      "crc32": "56ba6a71",
+      "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/extract_barcode_boy.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "gameboy_kattobi",
+      "what": "Kattobi Road, Namco 1993, which reads the Barcode Boy for extra cars, as MAME's gameboy software list names it",
+      "path": "gameboy/kattobi/dmg-k5j-0.u1",
+      "size": 131072,
+      "sha256": "e231dacb818e3d1f9cb0e4e79c5679848be73d59b4c3f7b6ee09d50c58a32abb",
+      "sha1": "7ac064a877ecc8247dfb7213722dbd0f4be665f0",
+      "crc32": "efbc23fc",
+      "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/extract_barcode_boy.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "gameboy_famjock2",
+      "what": "Family Jockey 2: Meiba no Kettou, Namco 1993, which reads the Barcode Boy for extra horses, as MAME's gameboy software list names it",
+      "path": "gameboy/famjock2/dmg-fvj-0.u1",
+      "size": 131072,
+      "sha256": "37708a2ddc3eadeb0dd5846223befc938637be69941ce69299d5b6e950b8ffb1",
+      "sha1": "d858fcdfce099435fa632859a9f8e8c82823bbcb",
+      "crc32": "0325e729",
+      "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/extract_barcode_boy.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "gameboy_famista3",
+      "what": "Famista 3, Namco 1993, which reads the Barcode Boy for extra players, as MAME's gameboy software list names it",
+      "path": "gameboy/famista3/dmg-n3j-0.u1",
+      "size": 262144,
+      "sha256": "ad8e99fdf0e7b3c7a24c8f4ffe12cd5a0a7730353318583cb7abbc039090241d",
+      "sha1": "ac4b03e11e2ba135d0427c8b1da7de57c006b4a6",
+      "crc32": "bdc4ccc3",
+      "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/extract_barcode_boy.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "gameboy_dmg_boot",
+      "what": "Boot ROM of the original Game Boy, which MAME's gameboy driver needs to start",
+      "path": "gameboy/dmg_boot.bin",
+      "size": 256,
+      "sha256": "cf053eccb4ccafff9e67339d4e78e98dce7d1ed59be819d2a1ba2232c6fce1c7",
+      "sha1": "4ed31ec6b0b175bb109c0eb5fd3d193da823339f",
+      "crc32": "59c8598e",
+      "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/extract_barcode_boy.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+    },
+    {
+      "id": "gameboy_dmg_v0",
+      "what": "Early boot ROM of the original Game Boy, the second file MAME's gameboy driver asks for",
+      "path": "gameboy/dmg_v0.rom",
+      "size": 256,
+      "sha256": "26e71cf01e301e5dc40e987cd2ecbf6d0276245890ac829db2a25323da86818e",
+      "sha1": "8bd501e31921e9601788316dbd3ce9833a97bcbc",
+      "crc32": "c2f5cc97",
+      "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/extract_barcode_boy.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
     }
   ]
 }
