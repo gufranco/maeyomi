@@ -12,11 +12,12 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 [![python](https://img.shields.io/badge/python-3.14-blue)](pyproject.toml)
 
 <p align="center">
+  <a href="#what-it-supports">What it supports</a> &nbsp;|&nbsp;
   <a href="#install">Install</a> &nbsp;|&nbsp;
   <a href="#open-it">Open it</a> &nbsp;|&nbsp;
   <a href="#from-the-command-line">Command line</a> &nbsp;|&nbsp;
-  <a href="#how-it-works">How it works</a> &nbsp;|&nbsp;
-  <a href="#the-supermarket">The supermarket</a> &nbsp;|&nbsp;
+  <a href="#the-machines-and-games">Machines and games</a> &nbsp;|&nbsp;
+  <a href="#the-real-cards">The real cards</a> &nbsp;|&nbsp;
   <a href="#where-this-came-from">Sources</a>
 </p>
 
@@ -26,15 +27,290 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 ---
 
-The Barcode Battler II reads a barcode and derives a fighter or an item from
-the digits alone. Maeyomi is the device's own word for the front read, the one
-that produces a fighter. This program inverts that arithmetic: ask for a 2400
-defence armour card and it works out which barcode the device would read that
-way, then prints it.
+Barcode Battler machines, and a family of Famicom, Super Famicom and Game Boy
+games, read a barcode and derive a fighter, an item or an effect from the
+digits alone. This program inverts that arithmetic: ask for a 2400 defence
+armour card and it works out which barcode the device would read that way,
+then prints it. Maeyomi is the Barcode Battler's own word for the front read,
+the one that produces a fighter.
 
-Every barcode is decoded again before it reaches paper, and every printed page
-is rasterised and read back with a barcode reader. Printed cards were swiped on
-a physical Barcode Battler II.
+It covers three standalone machines and 24 games: six Datach games for the
+Famicom, whose reader sits in the cartridge; thirteen Famicom and Super
+Famicom games that take their codes from a Barcode Battler II plugged into the
+console; and five Game Boy games read through Namco's Barcode Boy. For each
+one it prints the released cards whose barcodes are known, a card made to
+order, and a cheat card: the strongest or most useful card the device will
+read.
+
+Every game's rule was read from the game's own program and checked against the
+game running in MAME. Every barcode is decoded again before it reaches paper,
+and every printed page is rasterised and read back with a barcode reader.
+Printed cards were swiped on a physical Barcode Battler II.
+
+## What it supports
+
+Every machine and game below is a `--device` on the command line and an
+entry under **Machine or game** on the web page. Photos of the machines, the
+games and their card packs are on
+[barcodebattler.co.uk](https://www.barcodebattler.co.uk/scans/Japan/).
+
+| Machine or game | Japanese title | Runs on | `--device` |
+|---|---|---|---|
+| Barcode Battler | バーコードバトラー | Standalone machine | `bb1` |
+| Barcode Battler 2 | バーコードバトラー2 | Standalone machine | `bb2` |
+| Barcode Battler 2 Double | バーコードバトラー2 ダブル | Standalone machine | `double` |
+| Alice no Paint Adventure | アリスのペイントアドベンチャー | Super Famicom, through the Barcode Battler II | `alice` |
+| Barcode Battler Senki | バーコードバトラー戦記 | Super Famicom, through the Barcode Battler II | `senki` |
+| Donald Duck no Mahou no Boushi | ドナルドダックの魔法のぼうし | Super Famicom, through the Barcode Battler II | `donald` |
+| Doraemon 2 | ドラえもん2 のび太のトイズランド大冒険 | Super Famicom, through the Barcode Battler II | `doraemon2` |
+| Doraemon 3 | ドラえもん3 のび太と時の宝玉 | Super Famicom, through the Barcode Battler II | `doraemon3` |
+| Doraemon: Yousei no Kuni | ドラえもん のび太と妖精の国 | Super Famicom, through the Barcode Battler II | `yousei` |
+| Dragon Slayer II | ドラゴンスレイヤー英雄伝説II | Super Famicom, through the Barcode Battler II | `dslayer2` |
+| Hatayama Hatch | はた山ハッチのパロ野球ニュース!実名版 | Super Famicom, through the Barcode Battler II | `hatayama` |
+| J.League Excite Stage '94 | J.リーグエキサイトステージ'94 | Super Famicom, through the Barcode Battler II | `excite94` |
+| J.League Excite Stage '95 | J.リーグエキサイトステージ'95 | Super Famicom, through the Barcode Battler II | `excite95` |
+| Lupin III | ルパン三世 伝説の秘宝を追え! | Super Famicom, through the Barcode Battler II | `lupin` |
+| Spider-Man: Lethal Foes | スパイダーマン リーサルフォーズ | Super Famicom, through the Barcode Battler II | `spiderman` |
+| Datach Battle Rush | データック バトルラッシュ | Famicom Datach | `battlerush` |
+| Datach Dragon Ball Z | データック ドラゴンボールZ | Famicom Datach | `dbz` |
+| Datach J.League | データック Jリーグ スーパートッププレイヤーズ | Famicom Datach | `jleague` |
+| Datach SD Gundam Wars | データック SDガンダム ガンダムウォーズ | Famicom Datach | `sdgundam` |
+| Datach Ultraman Club | データック ウルトラマン倶楽部 | Famicom Datach | `ultraman` |
+| Datach Yu Yu Hakusho | データック 幽遊白書 | Famicom Datach | `yuyu` |
+| Barcode World | バーコードワールド | Famicom, through the Barcode Battler II | `barcodeworld` |
+| Battle Space | バトルスペース | Game Boy, through the Barcode Boy | `bspace` |
+| Monster Maker: Barcode Saga | モンスターメーカー バーコードサーガ | Game Boy, through the Barcode Boy | `monstmkb` |
+| Kattobi Road | カットビロード | Game Boy, through the Barcode Boy | `kattobi` |
+| Famista 3 | ファミスタ3 | Game Boy, through the Barcode Boy | `famista3` |
+| Family Jockey 2 | ファミリージョッキー2 名馬の血統 | Game Boy, through the Barcode Boy | `famjock2` |
+
+## Install
+
+```bash
+brew tap gufranco/maeyomi https://github.com/gufranco/maeyomi
+brew install gufranco/maeyomi/maeyomi
+```
+
+The tap is this repository. Homebrew wants the explicit URL because the repo is
+not called `homebrew-maeyomi`, which keeps the formula, the source and the
+release beside each other instead of in a second repo that drifts.
+
+Installing pulls in Python 3.14 and builds an isolated environment from the
+committed lockfile, so you get the versions the tests ran against and nothing
+lands in your own Python.
+
+From a checkout instead, `uv sync --extra ui` and put `uv run` in front of
+every command below.
+
+## Open it
+
+```bash
+maeyomi web
+```
+
+That starts a local page and opens your browser at it. Everything the program
+does is in there, so nothing below this point is required reading. The page
+says what it is for in a line:
+
+> Playable cards for Barcode Battler machines and barcode games, printed in English and Japanese.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/one-card-dark.png">
+  <img alt="The card maker, with a fighter designed on the left and the printable card drawn on the right" src="assets/screenshots/one-card-light.png">
+</picture>
+
+Design a fighter with the sliders, watch the card redraw as you move them, and
+print it. The panel underneath says whether the machine will read back exactly
+the numbers you asked for, and shows the barcode it worked out.
+
+**Machine or game**, first on the page, picks what the cards are for, from the
+27 in the table under [What it supports](#what-it-supports). Every tab follows it: the card maker shows only the fields that device reads
+and stops its sliders at the device's limits, the random sheet and the
+supermarket read each barcode the way that device does, **The real cards**
+lists only that device's sets and hides the set picker when there is one, and
+**Cheat card** shows that device's strongest card. The same barcode is a
+different card on each device. Choosing another one clears every tab and
+returns to the card maker, whose card redraws as the numbers change. The
+choice is kept in the address, as in `?device=dbz`, so a link or a reload
+opens the same one and the back button returns to the previous one; `/`
+jumps to the filter over the list, and Enter picks its first match. On the
+command line, `--device` does the same for `generate`, `decode`, `cheat`,
+`random`, `products`, `kinds`, `abilities` and `official`.
+
+**Any barcode you already own is also a card.** Type the digits from the
+shopping into **Read a barcode** and the page shows what the device makes of
+it. This one is a bottle of Coca-Cola, which the machine reads as armour worth
+2400 defence.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/read-a-barcode-dark.png">
+  <img alt="A bottle of Coca-Cola typed in as a barcode, read back as an armour card worth 2400 defence" src="assets/screenshots/read-a-barcode-light.png">
+</picture>
+
+**The supermarket** holds 2958 real Japanese groceries, so a game can be played
+without a shopping trip. Search it, or press **Surprise me** and print the nine
+you get.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/supermarket-dark.png">
+  <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
+</picture>
+
+The other three tabs print a sheet of random cards, the 1584 cards Epoch,
+Bandai and Namco actually released, and the strongest card the chosen machine or game
+will read. The page is in English and Japanese, and switches with the
+buttons at the top.
+
+`maeyomi web --no-open` starts the server without a browser, and `maeyomi
+serve` is the same thing for a machine that has none.
+
+## From the command line
+
+Every tab above is also a command, and each takes `--device` with any name
+from the table under [What it supports](#what-it-supports). Without it, a
+command makes cards for the Barcode Battler II, which is what the examples
+below do.
+
+A sheet of 24 random cards, nine to an A4 page, reproducible from a seed:
+
+```bash
+maeyomi random --count 24 --hp 1000-10000 --st 100-3000 --df 100-3000 \
+    --seed 1234 --output cards.pdf
+```
+
+One card built to an exact specification:
+
+```bash
+maeyomi generate --name "Fire Knight" \
+    --hp 5000 --attack 1800 --defense 1200 \
+    --race human --class warrior --ability 17 \
+    --output fire-knight.pdf
+```
+
+It prints what you asked for beside what came out, so a card that differs cannot
+pass unnoticed:
+
+```
+Field    Requested       Generated       Difference
+---------------------------------------------------
+HP       5000            5000
+ST       1800            1800
+DF       1200            1200
+PP       any             5
+MP       any             0
+Race     human           human
+Job      -               0
+Class    warrior         warrior
+Speed    -               0
+Ability  17              17
+```
+
+Read a barcode the way the device reads it:
+
+```bash
+maeyomi decode 0401207237501
+```
+
+The device carries numeric ability codes rather than named elements. List them:
+
+```bash
+maeyomi abilities
+```
+
+Items are built the same way. A weapon carries only attack, armour only
+defence, and a helper item one thing: health, herbs or magic points. Herbs and
+magic points are plain counts from 0 to 99:
+
+```bash
+maeyomi generate --name "Herb Pouch" --race support_item --herbs 99 \
+    --output herbs.pdf
+```
+
+Every stat option takes an exact value, a range, or a bound: `5000`,
+`5000-6000`, `>=1500`, `<=3000`. Add `--images png` to export page images
+beside the PDF.
+
+When a request cannot be met exactly, `generate` says which field blocks it and
+writes nothing. Add `--nearest` to get the closest reachable card instead:
+
+```bash
+maeyomi generate --hp 20900 --st 11000 --df 10000 \
+    --race mechanical --nearest --output golem.pdf
+```
+
+```
+closest card differs by 100 across the requested stats
+  df: requested 10000, produced 9900
+```
+
+The distance is the sum of the gaps on HP, ST and DF in displayed units,
+counting only the stats the request constrained. Race, class, job, ability and
+speed are never approximated: a request for a human is not better served by a
+bird, so a request blocked on one of those comes back unsatisfied.
+
+Add `--back-read` for a card the device reads from the back rather than the
+front. Those carry lower ceilings, 49900 HP against 99900, and four digits feed
+the stats and the ability jointly, so far fewer combinations are reachable.
+
+## The machines and games
+
+### Barcode Battler II
+
+The Barcode Battler II is the default device. It reads a barcode and derives a
+fighter or an item from the digits alone, from the front or, for a card swiped
+the other way, from the back.
+
+#### What the device actually stores
+
+From [barcodebattler.net](https://barcodebattler.net/), reproduced by the
+decoder rather than coded into it.
+
+| Attribute | Front read | Back read |
+|---|---|---|
+| HP | 0 to 99900 | 0 to 49900 |
+| ST | 0 to 19900 | 0 to 11900 |
+| DF | 0 to 19900 | 0 to 9900 |
+| Special ability | 00 to 99 | 00 to 29 |
+
+Races 0 to 4 are characters: mechanical, animal, aquatic, bird, human. Races 5
+to 9 are items. Job digits 0 to 6 are warriors, 7 to 9 are magicians. Values are
+stored in units of 100, so every stat is a multiple of 100.
+
+Two constraints narrow what can be asked for. A request that hits either one is
+refused with the reason, never quietly altered:
+
+- A character above 19900 HP needs the published front-read marker, which forces
+  the third digit to 9. Such a card's HP always ends in 900, and its speed is
+  always 5.
+- Races 0, 1 and 2 have their strength and defence rewritten above 20000 HP, so
+  not every pair of values is reachable at that size. Some of those codes make
+  the device fight with more attack or defence than it displays, up to 24600;
+  the card prints that value too.
+
+#### How it works
+
+```
+requested attributes -> digit placement -> barcode -> decoder -> compare -> accept
+```
+
+The front reading maps fixed digit slices onto attributes, so inverting it is
+placement rather than search: a fully specified request determines every digit
+and the check digit is computed, leaving one candidate rather than the 10^12 a
+brute force would walk. Every candidate still goes back through the decoder, and
+one that disagrees on any field is discarded.
+
+The back reading is not a bijection. Four digits feed hit points, strength,
+defence and the ability jointly, and the race sits on the check digit position,
+so it cannot be placed and has to be arrived at by tuning a free digit. The
+reachable set is small enough to enumerate outright: 10000 digit combinations
+produce 5000 distinct stat triples, because the hit point hundreds digit is
+halved.
+
+Barcodes are drawn as vectors at an explicit module width, defaulting to the EAN
+nominal 0.33 mm. A rasterised barcode scaled to fit a layout rounds its modules
+unevenly and stops scanning, which no test on the digit string would catch.
+
+### The first Barcode Battler
 
 The first Barcode Battler, from 1991, reads the same digits its own way: every
 fighter is a warrior, health stops at 19900, attack and defence at 9900, and the
@@ -43,6 +319,8 @@ doubles the attack. Add `--device bb1` to `decode`, `generate` and `cheat` to
 make cards for it. Its decoder reproduces 113 published cards from the four
 lists written for it, and no card for it has been read on a physical first
 Barcode Battler yet, which every sheet for it says.
+
+### Barcode Battler II Double
 
 The Barcode Battler II Double, the II² of 1993, has no reader and takes codes
 from a II. It reads them the II's way, except a code that starts with 7 and has
@@ -57,6 +335,11 @@ found on the 正伝3 and 正伝4 enemy cards; all eleven fit, and with a hundred
 digit below 5 the race is unknown. Its speed is still unknown.
 The Double also names two classes the II does not, the priest for job 4 and the
 holy warrior for job 6, and has its own table of special powers.
+
+### Datach games
+
+The Datach is Bandai's barcode reader for the Famicom, a cartridge with a slot
+for the game's own smaller cartridge.
 
 Bandai's Datach Dragon Ball Z: Gekitou Tenkaichi Budoukai, a Famicom game of
 1992, came with a barcode reader. `--device dbz` makes cards for it. The game
@@ -127,6 +410,11 @@ of one of the 16 opponents with `--character`, and its parts and levels with
 program and agrees with it in MAME on every pair tried; MAME only partly
 emulates the game's save chip, so the checks write two of its bytes to reach
 the factory. No list of the cards Bandai printed is known.
+
+### Games read through a Barcode Battler II
+
+These Famicom and Super Famicom games have no reader of their own. A Barcode
+Battler II plugged into the console reads the card and sends the digits on.
 
 Sunsoft's Barcode World, a Famicom game of 1992, takes its cards through a
 Barcode Battler II connected to the Famicom, so it reads every barcode.
@@ -220,6 +508,11 @@ last digit also picks a strategy and a graphic on the game's other two
 barcode screens, and each card prints which. The game came with cards for 14
 teams, and nobody has published their barcodes.
 
+### Game Boy games read through the Barcode Boy
+
+The Barcode Boy is Namco's reader for the Game Boy, which sends the digits over
+the link port.
+
 Battle Space, which Namco packed with its Barcode Boy reader for the Game Boy
 in 1992, reads a code as a fighter, and `--device bspace` makes cards for it.
 The game builds thirteen new digits from the barcode and reads them as HP, MP,
@@ -283,213 +576,6 @@ card carrying one earns the bonus the game names, such as two more stamina.
 The decoder agrees with the game in MAME on all 459 codes it was given in each
 of the three menus.
 
-## What it supports
-
-Every machine and game below is a `--device` on the command line and an
-entry under **Machine or game** on the web page. Photos of the machines, the
-games and their card packs are on
-[barcodebattler.co.uk](https://www.barcodebattler.co.uk/scans/Japan/).
-
-| Machine or game | Japanese title | Runs on | `--device` |
-|---|---|---|---|
-| Barcode Battler | バーコードバトラー | Standalone machine | `bb1` |
-| Barcode Battler 2 | バーコードバトラー2 | Standalone machine | `bb2` |
-| Barcode Battler 2 Double | バーコードバトラー2 ダブル | Standalone machine | `double` |
-| Alice no Paint Adventure | アリスのペイントアドベンチャー | Super Famicom, through the Barcode Battler II | `alice` |
-| Barcode Battler Senki | バーコードバトラー戦記 | Super Famicom, through the Barcode Battler II | `senki` |
-| Donald Duck no Mahou no Boushi | ドナルドダックの魔法のぼうし | Super Famicom, through the Barcode Battler II | `donald` |
-| Doraemon 2 | ドラえもん2 のび太のトイズランド大冒険 | Super Famicom, through the Barcode Battler II | `doraemon2` |
-| Doraemon 3 | ドラえもん3 のび太と時の宝玉 | Super Famicom, through the Barcode Battler II | `doraemon3` |
-| Doraemon: Yousei no Kuni | ドラえもん のび太と妖精の国 | Super Famicom, through the Barcode Battler II | `yousei` |
-| Dragon Slayer II | ドラゴンスレイヤー英雄伝説II | Super Famicom, through the Barcode Battler II | `dslayer2` |
-| Hatayama Hatch | はた山ハッチのパロ野球ニュース!実名版 | Super Famicom, through the Barcode Battler II | `hatayama` |
-| J.League Excite Stage '94 | J.リーグエキサイトステージ'94 | Super Famicom, through the Barcode Battler II | `excite94` |
-| J.League Excite Stage '95 | J.リーグエキサイトステージ'95 | Super Famicom, through the Barcode Battler II | `excite95` |
-| Lupin III | ルパン三世 伝説の秘宝を追え! | Super Famicom, through the Barcode Battler II | `lupin` |
-| Spider-Man: Lethal Foes | スパイダーマン リーサルフォーズ | Super Famicom, through the Barcode Battler II | `spiderman` |
-| Datach Battle Rush | データック バトルラッシュ | Famicom Datach | `battlerush` |
-| Datach Dragon Ball Z | データック ドラゴンボールZ | Famicom Datach | `dbz` |
-| Datach J.League | データック Jリーグ スーパートッププレイヤーズ | Famicom Datach | `jleague` |
-| Datach SD Gundam Wars | データック SDガンダム ガンダムウォーズ | Famicom Datach | `sdgundam` |
-| Datach Ultraman Club | データック ウルトラマン倶楽部 | Famicom Datach | `ultraman` |
-| Datach Yu Yu Hakusho | データック 幽遊白書 | Famicom Datach | `yuyu` |
-| Barcode World | バーコードワールド | Famicom, through the Barcode Battler II | `barcodeworld` |
-| Battle Space | バトルスペース | Game Boy, through the Barcode Boy | `bspace` |
-| Monster Maker: Barcode Saga | モンスターメーカー バーコードサーガ | Game Boy, through the Barcode Boy | `monstmkb` |
-| Kattobi Road | カットビロード | Game Boy, through the Barcode Boy | `kattobi` |
-| Famista 3 | ファミスタ3 | Game Boy, through the Barcode Boy | `famista3` |
-| Family Jockey 2 | ファミリージョッキー2 名馬の血統 | Game Boy, through the Barcode Boy | `famjock2` |
-
-## Install
-
-```bash
-brew tap gufranco/maeyomi https://github.com/gufranco/maeyomi
-brew install gufranco/maeyomi/maeyomi
-```
-
-The tap is this repository. Homebrew wants the explicit URL because the repo is
-not called `homebrew-maeyomi`, which keeps the formula, the source and the
-release beside each other instead of in a second repo that drifts.
-
-Installing pulls in Python 3.14 and builds an isolated environment from the
-committed lockfile, so you get the versions the tests ran against and nothing
-lands in your own Python.
-
-From a checkout instead, `uv sync --extra ui` and put `uv run` in front of
-every command below.
-
-## Open it
-
-```bash
-maeyomi web
-```
-
-That starts a local page and opens your browser at it. Everything the program
-does is in there, so nothing below this point is required reading. The page
-says what it is for in a line:
-
-> Playable cards for Barcode Battler machines and barcode games, printed in English and Japanese.
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/one-card-dark.png">
-  <img alt="The card maker, with a fighter designed on the left and the printable card drawn on the right" src="assets/screenshots/one-card-light.png">
-</picture>
-
-Design a fighter with the sliders, watch the card redraw as you move them, and
-print it. The panel underneath says whether the machine will read back exactly
-the numbers you asked for, and shows the barcode it worked out.
-
-**Machine or game**, first on the page, picks what the cards are for: the
-Barcode Battler II, the first Barcode Battler, the Double, Datach Dragon Ball
-Z, Datach Ultraman Club, Datach SD Gundam Wars, Datach Yu Yu Hakusho,
-Datach J.League, Barcode World, Barcode Battler Senki, Lupin III, Donald Duck,
-Spider-Man, Alice no Paint Adventure, Doraemon 2, Doraemon 3, Nobita to Yousei
-no Kuni, J.League Excite Stage '94 or '95, Dragon Slayer II, Hatayama Hatch,
-Datach Battle Rush, Battle Space, Monster Maker: Barcode Saga, Kattobi Road, Famista 3 or Family Jockey 2. Every tab follows it: the card maker shows only the fields that device reads
-and stops its sliders at the device's limits, the random sheet and the
-supermarket read each barcode the way that device does, **The real cards**
-lists only that device's sets and hides the set picker when there is one, and
-**Cheat card** shows that device's strongest card. The same barcode is a
-different card on each device. Choosing another one clears every tab and
-returns to the card maker, whose card redraws as the numbers change. The
-choice is kept in the address, as in `?device=dbz`, so a link or a reload
-opens the same one and the back button returns to the previous one; `/`
-jumps to the filter over the list, and Enter picks its first match. On the
-command line, `--device` does the same for `generate`, `decode`, `cheat`,
-`random`, `products`, `kinds`, `abilities` and `official`.
-
-**Any barcode you already own is also a card.** Type the digits from the
-shopping into **Read a barcode** and the page shows what the device makes of
-it. This one is a bottle of Coca-Cola, which the machine reads as armour worth
-2400 defence.
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/read-a-barcode-dark.png">
-  <img alt="A bottle of Coca-Cola typed in as a barcode, read back as an armour card worth 2400 defence" src="assets/screenshots/read-a-barcode-light.png">
-</picture>
-
-**The supermarket** holds 2958 real Japanese groceries, so a game can be played
-without a shopping trip. Search it, or press **Surprise me** and print the nine
-you get.
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/supermarket-dark.png">
-  <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
-</picture>
-
-The other three tabs print a sheet of random cards, the 1584 cards Epoch,
-Bandai and Namco actually released, and the strongest card the chosen machine or game
-will read. The page is in English and Japanese, and switches with the
-buttons at the top.
-
-`maeyomi web --no-open` starts the server without a browser, and `maeyomi
-serve` is the same thing for a machine that has none.
-
-## From the command line
-
-Every tab above is also a command.
-
-A sheet of 24 random cards, nine to an A4 page, reproducible from a seed:
-
-```bash
-maeyomi random --count 24 --hp 1000-10000 --st 100-3000 --df 100-3000 \
-    --seed 1234 --output cards.pdf
-```
-
-One card built to an exact specification:
-
-```bash
-maeyomi generate --name "Fire Knight" \
-    --hp 5000 --attack 1800 --defense 1200 \
-    --race human --class warrior --ability 17 \
-    --output fire-knight.pdf
-```
-
-It prints what you asked for beside what came out, so a card that differs cannot
-pass unnoticed:
-
-```
-Field    Requested       Generated       Difference
----------------------------------------------------
-HP       5000            5000
-ST       1800            1800
-DF       1200            1200
-PP       any             5
-MP       any             0
-Race     human           human
-Job      -               0
-Class    warrior         warrior
-Speed    -               0
-Ability  17              17
-```
-
-Read a barcode the way the device reads it:
-
-```bash
-maeyomi decode 0401207237501
-```
-
-The device carries numeric ability codes rather than named elements. List them:
-
-```bash
-maeyomi abilities
-```
-
-Items are built the same way. A weapon carries only attack, armour only
-defence, and a helper item one thing: health, herbs or magic points. Herbs and
-magic points are plain counts from 0 to 99:
-
-```bash
-maeyomi generate --name "Herb Pouch" --race support_item --herbs 99 \
-    --output herbs.pdf
-```
-
-Every stat option takes an exact value, a range, or a bound: `5000`,
-`5000-6000`, `>=1500`, `<=3000`. Add `--images png` to export page images
-beside the PDF.
-
-When a request cannot be met exactly, `generate` says which field blocks it and
-writes nothing. Add `--nearest` to get the closest reachable card instead:
-
-```bash
-maeyomi generate --hp 20900 --st 11000 --df 10000 \
-    --race mechanical --nearest --output golem.pdf
-```
-
-```
-closest card differs by 100 across the requested stats
-  df: requested 10000, produced 9900
-```
-
-The distance is the sum of the gaps on HP, ST and DF in displayed units,
-counting only the stats the request constrained. Race, class, job, ability and
-speed are never approximated: a request for a human is not better served by a
-bird, so a request blocked on one of those comes back unsatisfied.
-
-Add `--back-read` for a card the device reads from the back rather than the
-front. Those carry lower ceilings, 49900 HP against 99900, and four digits feed
-the stats and the ability jointly, so far fewer combinations are reachable.
-
 ## Checking the machine
 
 `maeyomi doctor` checks that this computer can print a card the device will
@@ -500,56 +586,6 @@ thresholds, counts both card lists, and reports what runs it, whether the
 terminal can print Japanese and how much room is left. It exits non-zero only
 when something is genuinely wrong. Run it first, either way: a font that did
 not resolve otherwise shows up as blank text on a printed card.
-
-## What the device actually stores
-
-From [barcodebattler.net](https://barcodebattler.net/), reproduced by the
-decoder rather than coded into it.
-
-| Attribute | Front read | Back read |
-|---|---|---|
-| HP | 0 to 99900 | 0 to 49900 |
-| ST | 0 to 19900 | 0 to 11900 |
-| DF | 0 to 19900 | 0 to 9900 |
-| Special ability | 00 to 99 | 00 to 29 |
-
-Races 0 to 4 are characters: mechanical, animal, aquatic, bird, human. Races 5
-to 9 are items. Job digits 0 to 6 are warriors, 7 to 9 are magicians. Values are
-stored in units of 100, so every stat is a multiple of 100.
-
-Two constraints narrow what can be asked for. A request that hits either one is
-refused with the reason, never quietly altered:
-
-- A character above 19900 HP needs the published front-read marker, which forces
-  the third digit to 9. Such a card's HP always ends in 900, and its speed is
-  always 5.
-- Races 0, 1 and 2 have their strength and defence rewritten above 20000 HP, so
-  not every pair of values is reachable at that size. Some of those codes make
-  the device fight with more attack or defence than it displays, up to 24600;
-  the card prints that value too.
-
-## How it works
-
-```
-requested attributes -> digit placement -> barcode -> decoder -> compare -> accept
-```
-
-The front reading maps fixed digit slices onto attributes, so inverting it is
-placement rather than search: a fully specified request determines every digit
-and the check digit is computed, leaving one candidate rather than the 10^12 a
-brute force would walk. Every candidate still goes back through the decoder, and
-one that disagrees on any field is discarded.
-
-The back reading is not a bijection. Four digits feed hit points, strength,
-defence and the ability jointly, and the race sits on the check digit position,
-so it cannot be placed and has to be arrived at by tuning a free digit. The
-reachable set is small enough to enumerate outright: 10000 digit combinations
-produce 5000 distinct stat triples, because the hit point hundreds digit is
-halved.
-
-Barcodes are drawn as vectors at an explicit module width, defaulting to the EAN
-nominal 0.33 mm. A rasterised barcode scaled to fit a layout rounds its modules
-unevenly and stops scanning, which no test on the digit string would catch.
 
 ## Printing
 
@@ -599,7 +635,6 @@ you can print.
 `maeyomi kinds` lists every kind of card the device knows, in both
 languages, with what each one does.
 
-
 This is how the machine was actually played. Any product barcode is a card, so a
 bottle of tomato sauce is a fighter and a packet of crisps is a weapon. Japanese
 product codes work like any other: `4902102072618`, a bottle of tea, is armour
@@ -611,7 +646,6 @@ worth 2400 defence.
 match, `--count 9 --seed 3` takes a handful at random, and `-o shopping.pdf`
 prints them. The web page has the same thing under **The supermarket**, with a
 **Surprise me** button. Tomato sauce against noodles is a fair fight.
-
 
 The shelf is a curated subset of [Open Food Facts](https://world.openfoodfacts.org/),
 kept to barcodes issued to Japanese companies, the 45 and 49 prefixes, with a
@@ -877,15 +911,17 @@ everything.
 ## Two languages and pictures
 
 Every card is printed in English and Japanese, whichever language the page is
-in. The kind of creature, how it fights, the three battle numbers, the special
+in, for every machine and game. On a Barcode Battler II card, the kind of
+creature, how it fights, the three battle numbers, the special
 power and the swipe caption all appear in both. Each fact also has a picture
 for a child who reads neither yet: a coloured band with a pictogram for the kind
 of creature, a heart, a sword and a shield for the numbers, and a pictogram for
 the special power showing what it changes and which way, such as a sword with
 an arrow up for "own attack doubled". The arrow's direction carries the
-meaning, never its colour.
+meaning, never its colour. A card for any other game carries the numbers that
+game reads, with their labels in both languages, on the same coloured tiles.
 
-The special power text is the published wording in both languages: the Japanese
+The Barcode Battler II's special power text is the published wording in both languages: the Japanese
 is copied from barcodebattler.net/page05.htm and the English is this project's
 reading of the same page. The race, class and stat names are this project's own
 translation, in the hiragana and katakana a young reader learns first. A
@@ -992,6 +1028,9 @@ under which licence:
 - **[GBE+](https://github.com/shonumi/gbe-plus)**, GPL-2: its
   [Barcode Boy notes](https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt) give the reader's protocol and the barcodes of
   every known Barcode Boy card. No code from GBE+ appears here.
+- **[MAME's Game Boy software list](https://github.com/mamedev/mame/blob/master/hash/gameboy.xml)**:
+  the barcodes and names of the Kattobi Road, Famista 3 and Family Jockey 2
+  cards.
 - **[MAME](https://www.mamedev.org/)** 0.289 runs every game in the checks. The
   game rules come from each game's own program; no ROM byte is shipped, and each
   ROM is named in `artifacts.manifest.json` by its checksum.

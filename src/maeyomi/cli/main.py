@@ -61,7 +61,7 @@ from maeyomi.rendering.stat_tiles import stat_tiles
 
 app = typer.Typer(
     add_completion=False,
-    help="Generate printable cards for the Barcode Battler II.",
+    help="Print playable cards for Barcode Battler machines and barcode games.",
     no_args_is_help=True,
 )
 
@@ -114,15 +114,17 @@ DeviceOption = Annotated[
     typer.Option(
         "--device",
         help=(
-            "bb2 for the Barcode Battler II, bb1 for the first Barcode Battler, "
-            "double for the Barcode Battler II Double, dbz for Datach Dragon Ball Z, "
-            "ultraman for Datach Ultraman Club."
+            "The machine or game the card is for: bb2 for the Barcode Battler II, the "
+            "default, bb1 for the first Barcode Battler, double for the II Double, or a "
+            "game's own name, such as dbz, senki or bspace. The README lists all 27."
         ),
     ),
 ]
 CharacterOption = Annotated[
     str | None,
-    typer.Option("--character", help="The Datach game's fighter, item or card, by name or id."),
+    typer.Option(
+        "--character", help="The game's fighter, item, player, car or horse, by name or number."
+    ),
 ]
 PickOption = Annotated[
     list[str] | None,
@@ -426,7 +428,7 @@ def official(
     images: ImagesOption = None,
     print_shop: PrintShopOption = False,
 ) -> None:
-    """Print the cards Epoch and Bandai released, as the community transcribed them."""
+    """Print the cards Epoch, Bandai and Namco released, as the community transcribed them."""
     if listing:
         for line in official_lines(device):
             typer.echo(line)
