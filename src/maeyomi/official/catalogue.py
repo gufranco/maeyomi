@@ -108,6 +108,7 @@ class OfficialSet(Enum):
     DATACH_JLEAGUE = "データック Jリーグ スーパートッププレイヤーズ カードリスト"
     BARCODE_WORLD = "バーコードワールド カードリスト"
     EXCITE_CLUBS = "Jリーグ 登録選手リスト カード、エキサイトステージ'95 で よむ"
+    DRAGON_SLAYER_HERO = "ドラゴンスレイヤー英雄伝説 カードリスト、英雄伝説II で よむ"
     EXCITE94_CLUBS = "Jリーグ 登録選手リスト カード、エキサイトステージ'94 で よむ"
     IRWIN = "アーウィン版 バーコードバトラー カードリスト"
     TOMY = "トミー版 バーコードバトラー カードリスト"
@@ -149,6 +150,7 @@ _DEVICES: Final[dict[OfficialSet, Device]] = {
     OfficialSet.DATACH_JLEAGUE: Device.DATACH_JLEAGUE,
     OfficialSet.BARCODE_WORLD: Device.BARCODE_WORLD,
     OfficialSet.EXCITE_CLUBS: Device.EXCITE95,
+    OfficialSet.DRAGON_SLAYER_HERO: Device.DSLAYER2,
     OfficialSet.EXCITE94_CLUBS: Device.EXCITE94,
 }
 
@@ -186,6 +188,7 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.DATACH_JLEAGUE: "Datach J.League Super Top Players",
     OfficialSet.BARCODE_WORLD: "Barcode World",
     OfficialSet.EXCITE_CLUBS: "J.League Excite Stage club roster cards, as '95 reads them",
+    OfficialSet.DRAGON_SLAYER_HERO: "Dragon Slayer: The Legend of Heroes cards, as II reads them",
     OfficialSet.EXCITE94_CLUBS: "J.League Excite Stage club roster cards, as '94 reads them",
     OfficialSet.IRWIN: "Irwin Barcode Battler, United States and Canada",
     OfficialSet.TOMY: "Tomy Barcode Battler, United Kingdom, Ireland and Italy",

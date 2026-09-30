@@ -355,7 +355,7 @@ function renderOfficial() {
   }
   $('official-single').toggleAttribute('hidden', !single);
   if (single) {
-    $('official-single').textContent = t('official.single', {
+    $('official-single').textContent = t(single.count === 1 ? 'official.single.one' : 'official.single', {
       title: isJapanese() ? single.japanese : single.english,
       count: single.count,
     });
@@ -363,7 +363,7 @@ function renderOfficial() {
   }
   const sets = catalogue.sets.map((entry) => ({
     value: entry.key,
-    label: t('official.option', {
+    label: t(entry.count === 1 ? 'official.option.one' : 'official.option', {
       title: isJapanese() ? entry.japanese : entry.english,
       count: entry.count,
     }),

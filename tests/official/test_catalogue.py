@@ -1,6 +1,7 @@
 """Tests for the officially released cards, as transcribed by the community."""
 
 import json
+from functools import partial
 from pathlib import Path
 
 import pytest
@@ -27,6 +28,7 @@ from maeyomi.official.catalogue import (
     rejected_transcriptions,
     sets_for,
 )
+from maeyomi.registry import read_as
 
 DBZ_CARDS = 36
 ULTRAMAN_CARDS = 38
@@ -39,6 +41,8 @@ WESTERN_PACK_CARDS = 26
 MARIO_CARDS = 30
 ADDED_CARDS = 346
 SCANNED_CARDS = 71
+SELIOS = "0401209245504"
+SELIOS_FOR_DRAGON_SLAYER_TWO = 1
 TRANSCRIBED = (
     577
     + DBZ_CARDS
@@ -52,6 +56,7 @@ TRANSCRIBED = (
     + EXCITE_CLUB_CARDS * 2
     + WESTERN_PACK_CARDS * 5
     + MARIO_CARDS
+    + SELIOS_FOR_DRAGON_SLAYER_TWO
 )
 EXCITE_CLUB_BARCODES = {
     "0000000034111",
@@ -106,7 +111,7 @@ def test_only_the_red_potion_the_club_cards_and_the_western_packs_share_barcodes
 
     shared = {code for code in barcodes if barcodes.count(code) > 1}
 
-    assert shared == {"0000500970445", *EXCITE_CLUB_BARCODES}
+    assert shared == {"0000500970445", SELIOS, *EXCITE_CLUB_BARCODES}
 
 
 def test_every_tomy_card_is_an_epoch_card_and_irwin_recoded_ten() -> None:
@@ -149,6 +154,7 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.DATACH_JLEAGUE: "https://archive.org/details/",
         OfficialSet.BARCODE_WORLD: UK_SCANS,
         OfficialSet.EXCITE_CLUBS: UK_SCANS,
+        OfficialSet.DRAGON_SLAYER_HERO: UK_SCANS,
         OfficialSet.EXCITE94_CLUBS: UK_SCANS,
         OfficialSet.IRWIN: UK_PAGES,
         OfficialSet.TOMY: UK_PAGES,
@@ -194,6 +200,7 @@ def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
             Device.BARCODE_WORLD: decode_barcode_world,
             Device.EXCITE95: decode_excite95,
             Device.EXCITE94: decode_excite94,
+            Device.DSLAYER2: partial(read_as, Device.DSLAYER2),
         }
         for card in official_cards(official_set):
             assert readers[official_set.device](card.barcode) == card.character

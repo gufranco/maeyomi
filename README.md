@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**1548** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**1549** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -329,7 +329,7 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other three tabs print a sheet of random cards, the 1548 cards Epoch and
+The other three tabs print a sheet of random cards, the 1549 cards Epoch and
 Bandai actually released, and the strongest card the chosen machine or game
 will read. The page is in English and Japanese, and switches with the
 buttons at the top.
@@ -561,7 +561,7 @@ convenience: the lookup failing changes nothing about the card.
 
 `maeyomi official --list` names the 40 card lists Epoch and Bandai released,
 how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
-candy.pdf` prints one, and leaving out `--set` prints all 1548. The web page has
+candy.pdf` prints one, and leaving out `--set` prints all 1549. The web page has
 the same thing under **The real cards**.
 
 Epoch never published a machine-readable list, so the barcodes come from the

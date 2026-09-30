@@ -255,8 +255,8 @@ function checkRealCards() {
     sources: document.getElementById('official-sources').offsetParent !== null,
   })`);
   expect(!alice.picker && !aliceForm.actions, 'Alice offers to print a set it does not have');
-  expect(!aliceForm.sources && alice.links.length === 0,
-    `Alice lists sources for cards it never had: ${alice.links}`);
+  expect(aliceForm.sources && alice.links.length === 1 && alice.links[0].includes('setsumei'),
+    `Alice does not link the manual that shows it had no cards: ${alice.links}`);
   pickDevice('bb2');
 }
 
@@ -364,7 +364,7 @@ function checkAddressAndKeys() {
 }
 
 function checkEmptyRealCards() {
-  pickDevice('dslayer2');
+  pickDevice('lupin');
   browser('click', '#tab-official');
   browser('wait', '800');
   const empty = evaluate(`JSON.stringify([
@@ -373,6 +373,14 @@ function checkEmptyRealCards() {
     document.getElementById('official-note').offsetParent !== null,
   ])`);
   expect(empty.every(Boolean), `a game with no cards still shows empty parts: ${empty}`);
+  pickDevice('dslayer2');
+  browser('click', '#tab-official');
+  browser('wait', '800');
+  const selios = evaluate(`JSON.stringify([
+    document.getElementById('official-actions').offsetParent !== null,
+    document.getElementById('official-single').textContent,
+  ])`);
+  expect(selios[0] && selios[1].includes('1'), `Dragon Slayer II does not offer the Selios card: ${selios}`);
   pickDevice('bb2');
 }
 

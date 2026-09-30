@@ -192,6 +192,7 @@ const MESSAGES = {
     'status.deviceClosest': 'Those exact numbers cannot be printed, so this is the closest card that can.',
     'official.legend': 'Cards that were really sold',
     'official.single': '{title}: {count} cards',
+    'official.single.one': '{title}: 1 card',
     'official.set': 'Which set',
     'official.note.epoch':
       'Epoch never published a list of its cards, so these barcodes were typed in by ' +
@@ -259,8 +260,36 @@ const MESSAGES = {
       'Hatayama Hatch came with cards for 12 real teams and 2 of its own, and nobody has ' +
       'published their barcodes.',
     'official.note.effects':
-      'This game came with no cards. Each code made here names the screen to scan it on, and ' +
-      'was seen setting off its effect there in the MAME emulator.',
+      'No card is known to have come with this game: its manual names none and tells you to ' +
+      'try any barcode. Each code made here names the screen to scan it on, and was seen ' +
+      'setting off its effect there in the MAME emulator.',
+    'official.note.alice':
+      'No card is known to have come with this game: its manual names none and says the ' +
+      'game takes only the numbers it sets in advance. Each code made here is one of them, ' +
+      'names the screen to scan it on, and was seen setting off its effect there in the ' +
+      'MAME emulator.',
+    'official.note.doraemon':
+      'No record says this game came with cards, and nobody has published which barcodes do ' +
+      'what in it. Each code made here was found in the game itself, names the screen to ' +
+      'scan it on, and was seen setting off its effect there in the MAME emulator.',
+    'official.note.yousei':
+      'No record says this game came with cards. A known trick scans the barcode on the ' +
+      'game\'s own box, but that number is not known here, so it is not offered. Each code ' +
+      'made here names the screen to scan it on, and was seen setting off its effect there ' +
+      'in the MAME emulator.',
+    'official.note.dslayer2':
+      'No record says this game came with cards. It reads Selios, a card of the separately ' +
+      'sold Barcode Battler II pack Dragon Slayer: The Legend of Heroes, and raises every ' +
+      'status of the hero to its highest; that card prints below. A known trick also scans ' +
+      'the barcode on the Barcode Battler II\'s own box, but that number is not known here, ' +
+      'so it is not offered. Each code made here names the screen to scan it on, and was ' +
+      'seen setting off its effect there in the MAME emulator.',
+    'official.source.manual':
+      'The game\'s manual:',
+    'official.source.dslayer2':
+      'The Selios card and what it does:',
+    'official.source.yousei':
+      'The box barcode trick:',
     'official.skipped': 'Cards left out',
     'official.skipped.hint':
       'The last digit of a barcode is a check digit worked out from the other twelve, so a ' +
@@ -272,6 +301,7 @@ const MESSAGES = {
     'official.placeholder': 'Pick a set and press Show the cards.',
     'official.every': 'Every set, {count} cards',
     'official.option': '{title}, {count} cards',
+    'official.option.one': '{title}, 1 card',
     'official.inJapanese': 'In Japanese: {title}',
     'official.everyHint': 'Every card from every set, one after another.',
     'footer.local': 'Nothing leaves this machine. The page talks to a server you started.',
@@ -496,6 +526,7 @@ const MESSAGES = {
     'status.deviceClosest': 'その すうじ ぴったりの カードは つくれないので、いちばん ちかい カードに しました。',
     'official.legend': 'ほんとうに うられた カード',
     'official.single': '{title}: {count}まい',
+    'official.single.one': '{title}: 1まい',
     'official.set': 'どの シリーズ',
     'official.note.epoch':
       'エポック社は カードの いちらんを こうかいしていません。そこで バーコードは、wikiwiki.jp に ある ' +
@@ -563,8 +594,28 @@ const MESSAGES = {
       'はた山ハッチの パロ野球ニュース には じっさいの 12チームと オリジナルの 2チームの ' +
       'カードが ついていましたが、その バーコードは だれも こうかいしていません。',
     'official.note.effects':
-      'この ゲームには カードが ついていません。ここで つくる コードには よませる がめんが ' +
-      'かいてあり、MAME で そこで こうかが でることを たしかめました。',
+      'この ゲームに カードが ついていた という きろくは ありません。せつめいしょにも カードは なく、いろいろな バーコードを ためすように かいてあります。ここで ' +
+      'つくる コードには よませる がめんが かいてあり、MAME で そこで こうかが でることを たしかめました。',
+    'official.note.alice':
+      'この ゲームに カードが ついていた という きろくは ありません。せつめいしょにも カードは なく、ゲームで きめてある ばんごう しか うけつけないと ' +
+      'かいてあります。ここで つくる コードは その ばんごうで、よませる がめんが かいてあり、MAME で そこで こうかが でることを たしかめました。',
+    'official.note.doraemon':
+      'この ゲームに カードが ついていた という きろくは なく、どの バーコードで なにが おきるかも こうかいされていません。ここで つくる コードは ゲームの ' +
+      'なかから みつけた もので、よませる がめんが かいてあり、MAME で そこで こうかが でることを たしかめました。',
+    'official.note.yousei':
+      'この ゲームに カードが ついていた という きろくは ありません。ゲームの はこの バーコードを よませる うらわざが しられていますが、その ばんごうは ここでは ' +
+      'わからないので のせていません。ここで つくる コードには よませる がめんが かいてあり、MAME で そこで こうかが でることを たしかめました。',
+    'official.note.dslayer2':
+      'この ゲームに カードが ついていた という きろくは ありません。べつうりの バーコードバトラーII の カード「ドラゴンスレイヤー英雄伝説」の セリオスを ' +
+      'よませると、しゅじんこうの のうりょくが すべて さいだいに なります。その カードは したで いんさつできます。バーコードバトラーII の はこの バーコードを ' +
+      'つかう うらわざも しられていますが、その ばんごうは ここでは わからないので のせていません。ここで つくる コードには よませる がめんが かいてあり、MAME ' +
+      'で そこで こうかが でることを たしかめました。',
+    'official.source.manual':
+      'ゲームの せつめいしょ:',
+    'official.source.dslayer2':
+      'セリオスの カードと その こうか:',
+    'official.source.yousei':
+      'はこの バーコードの うらわざ:',
     'official.skipped': 'のぞいた カード',
     'official.skipped.hint':
       'バーコードの さいごの けたは ほかの 12けたから けいさんする チェック用の すうじなので、' +
@@ -576,6 +627,7 @@ const MESSAGES = {
     'official.placeholder': 'シリーズを えらんで「カードを みる」を おしてね。',
     'official.every': 'ぜんぶの シリーズ ({count}まい)',
     'official.option': '{title} ({count}まい)',
+    'official.option.one': '{title} (1まい)',
     'official.inJapanese': '{title}',
     'official.everyHint': 'すべての シリーズの カードを じゅんばんに。',
     'footer.local': 'データは この きかいから そとに でません。この ページは、あなたが うごかした サーバーと だけ はなします。',
