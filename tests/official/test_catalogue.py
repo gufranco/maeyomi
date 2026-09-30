@@ -84,13 +84,7 @@ WIKI = "https://wikiwiki.jp/barcode/"
 UK_LIST = "https://www.barcodebattler.co.uk/deeta.js"
 UK_SCANS = "https://www.barcodebattler.co.uk/scans/Japan/"
 RETROSTUFF = "https://retrostuff.org/"
-KNOWN_BAD_CHECK_DIGITS = {
-    "1162864348006",
-    "1273634357000",
-    "1784651464171",
-    "1444764195221",
-    "3966666425072",
-}
+KNOWN_BAD_CHECK_DIGITS = {"3966666425072"}
 
 
 def test_the_catalogue_holds_every_transcribed_barcode_once_per_set() -> None:

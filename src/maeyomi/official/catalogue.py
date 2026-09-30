@@ -32,8 +32,10 @@ over:
 
 - A transcription can be wrong. Five entries carry a check digit that does not
   match their other twelve digits, which means somebody mistyped a digit. The
-  wrong digit cannot be identified, so those five are rejected and listed by
-  `rejected_transcriptions`, never repaired by guessing.
+  source also gives every card's numbers, and when exactly one single-digit
+  repair reads as those numbers on the card's own machine, the entry records
+  that repair and the card prints with it. An entry no single repair fits is
+  listed by `rejected_transcriptions`, never repaired by guessing.
 - A card missing from every page is missing here. The catalogue is the known
   cards, not a proof that no others were printed.
 
@@ -196,12 +198,17 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
 
 @dataclass(frozen=True, slots=True)
 class OfficialCard:
-    """One transcribed card and where it was read from."""
+    """One transcribed card, the barcode it prints with, and where it was read from.
+
+    `barcode` equals `transcribed` unless the source mistyped a digit that the
+    card's published numbers identify, in which case it is the repaired code.
+    """
 
     barcode: str
     name: str
     official_set: OfficialSet
     source_url: str
+    transcribed: str
 
 
 @cache
@@ -211,10 +218,11 @@ def official_catalogue() -> tuple[OfficialCard, ...]:
     entries = json.loads(raw)["cards"]
     return tuple(
         OfficialCard(
-            barcode=entry["barcode"],
+            barcode=entry.get("correction", {}).get("barcode", entry["barcode"]),
             name=entry["name"],
             official_set=OfficialSet(entry["set"]),
             source_url=entry["source_url"],
+            transcribed=entry["barcode"],
         )
         for entry in entries
     )

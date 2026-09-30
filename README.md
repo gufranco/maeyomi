@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**1544** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**1548** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -329,7 +329,7 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other three tabs print a sheet of random cards, the 1544 cards Epoch and
+The other three tabs print a sheet of random cards, the 1548 cards Epoch and
 Bandai actually released, and the strongest card the chosen machine or game
 will read. The page is in English and Japanese, and switches with the
 buttons at the top.
@@ -561,15 +561,17 @@ convenience: the lookup failing changes nothing about the card.
 
 `maeyomi official --list` names the 40 card lists Epoch and Bandai released,
 how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
-candy.pdf` prints one, and leaving out `--set` prints all 1544. The web page has
+candy.pdf` prints one, and leaving out `--set` prints all 1548. The web page has
 the same thing under **The real cards**.
 
 Epoch never published a machine-readable list, so the barcodes come from the
 pages where collectors typed in the cards they own, on
 [wikiwiki.jp](https://wikiwiki.jp/barcode/). Every entry keeps the address of
 its page. Five entries fail their own check digit, which means someone mistyped
-a digit; the wrong one cannot be identified, so they are listed and left out
-rather than repaired by guessing. The numbers printed on each card are read from
+a digit. The same pages give each card's numbers, and for four of the five only
+one single-digit repair reads as those numbers on the card's own machine, so
+those four print with the repaired digit. The fifth, ガングラティ, fits no single
+repair and is listed and left out rather than repaired by guessing. The numbers printed on each card are read from
 the barcode by this project's decoder, not copied from the wiki.
 
 Six lists were written for the first Barcode Battler: the original set, The

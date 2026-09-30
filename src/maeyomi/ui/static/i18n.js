@@ -263,10 +263,10 @@ const MESSAGES = {
       'was seen setting off its effect there in the MAME emulator.',
     'official.skipped': 'Cards left out',
     'official.skipped.hint':
-      'The wikiwiki.jp page has a typo in these five. The last digit of a barcode is a ' +
-      'check digit worked out from the other twelve, and here it does not match, so the ' +
-      'machine would refuse them. Guessing which digit is wrong would mean printing a card ' +
-      'nobody ever sold, so they are left out.',
+      'The last digit of a barcode is a check digit worked out from the other twelve, so a ' +
+      'mistyped digit on the wikiwiki.jp page shows up. Where the numbers that page gives ' +
+      'for the card point to one digit, the card is repaired and printed. No single repair ' +
+      'fits the numbers of the cards below, so they are left out rather than guessed.',
     'official.show': 'Show the cards',
     'official.preview': 'The set',
     'official.placeholder': 'Pick a set and press Show the cards.',
@@ -567,10 +567,10 @@ const MESSAGES = {
       'かいてあり、MAME で そこで こうかが でることを たしかめました。',
     'official.skipped': 'のぞいた カード',
     'official.skipped.hint':
-      'wikiwiki.jp の ページで この 5まいは うちまちがいが あります。バーコードの さいごの けたは ' +
-      'ほかの 12けたから けいさんする チェック用の すうじですが、それが あわないので マシンは ' +
-      'よみとれません。どの けたが まちがいかを あてずっぽうで きめると、うられた ことの ない ' +
-      'カードに なるので のぞきました。',
+      'バーコードの さいごの けたは ほかの 12けたから けいさんする チェック用の すうじなので、' +
+      'wikiwiki.jp の ページの うちまちがいが わかります。ページに のっている カードの すうじから ' +
+      'まちがいの けたが 1つに きまる カードは なおして いんさつします。したの カードは どう ' +
+      'なおしても すうじが あわないので、あてずっぽうで つくらず のぞきました。',
     'official.show': 'カードを みる',
     'official.preview': 'シリーズ',
     'official.placeholder': 'シリーズを えらんで「カードを みる」を おしてね。',

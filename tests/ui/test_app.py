@@ -310,13 +310,13 @@ def test_the_official_sets_are_listed_with_their_counts(client: TestClient) -> N
     board = next(entry for entry in body["sets"] if entry["key"] == "board_game")
     assert board["english"] == "Barcode Battler II board game"
     assert board["count"] > 0
-    assert body["total"] == 930
-    assert len(body["rejected"]) == 4
+    assert body["total"] == 933
+    assert len(body["rejected"]) == 1
 
 
 @pytest.mark.parametrize(
     ("device", "sets", "total", "rejected"),
-    [("bb2", 24, 930, 4), ("bb1", 6, 163, 1), ("double", 2, 56, 0), ("dbz", 1, 36, 0)],
+    [("bb2", 24, 933, 1), ("bb1", 6, 164, 0), ("double", 2, 56, 0), ("dbz", 1, 36, 0)],
 )
 def test_the_real_cards_are_only_those_of_the_chosen_device(
     client: TestClient, device: str, sets: int, total: int, rejected: int
