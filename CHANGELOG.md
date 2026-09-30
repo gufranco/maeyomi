@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.10.0 (2026-09-30)
+
+### Chores
+
+- **formula**: Point at v1.9.0 [skip ci]
+  ([`3dc98d7`](https://github.com/gufranco/maeyomi/commit/3dc98d7a64811cfe3cb63b60c3fea4e8fd2e613d))
+
+### Features
+
+- Offer every kind of cheat card a device has
+  ([`dbf9e69`](https://github.com/gufranco/maeyomi/commit/dbf9e69c0c65525dfacd6e87250f05537835c1d1))
+
+
 ## v1.9.0 (2026-09-30)
 
 ### Chores
