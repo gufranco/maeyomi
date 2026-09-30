@@ -350,6 +350,7 @@ function hideEmptySections() {
 function applyDeviceForm() {
   const form = deviceForm();
   if (!form) return;
+  renderCheatKinds();
   document.querySelectorAll('[data-device-field]').forEach((node) => {
     node.toggleAttribute('hidden', !form.fields.includes(node.dataset.deviceField));
   });

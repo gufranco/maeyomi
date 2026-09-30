@@ -388,8 +388,9 @@ read by a physical Datach yet.
 
 Datach J.League Super Top Players, of 1994, reads a barcode as one of the 150
 players of the 1993 J.League's ten clubs, or as one of those clubs. A card
-names a real player and carries no numbers of its own, so the game keeps each
-player's abilities and there is no cheat card for it. `--device jleague` makes
+names a real player and carries no numbers of its own. The game's program
+keeps a profile, a face and an appearance for each player and no ability, so
+no card is stronger than another and there is no cheat card for it. `--device jleague` makes
 cards for it: pick the player or club with `--character`, by name or number.
 The rule agrees with the game in MAME on its 160 released barcodes and on 12
 codes built to reach every folded value the game allows. No card for it has
@@ -804,6 +805,36 @@ and both Excite Stage '94 and '95 read each one as an item card, checked in
 MAME.
 
 ## The cheat code
+
+Every machine and game but one offers one or more kinds of cheat card, each
+with every number it names at the most the device takes. `maeyomi cheat
+--device famista3 --kinds` lists a device's kinds, `--kind era` prints one, and
+the web page offers them in a picker on the **Cheat card** tab. The first kind
+is the default, the card this section describes for each device.
+
+| Machine or game | Kinds |
+|---|---|
+| Barcode Battler II | `fighter`, `warrior` who can hold every item, `items` |
+| First Barcode Battler, Double, Datach Dragon Ball Z | `fighter`, `items` |
+| Datach Ultraman Club | `strongest`, `items` |
+| Datach SD Gundam Wars | `strongest`, `hp`, `ap`, `dp` |
+| Datach Yu Yu Hakusho | `strongest`, `items` at their top level |
+| Datach Battle Rush | `strongest`, `attack`, `defense`, `speed` |
+| Barcode World, Barcode Battler Senki, Hatayama Hatch | `strongest`, `warrior` |
+| Lupin III, Donald Duck, Spider-Man, Alice, the three Doraemon games, Dragon Slayer II | `strongest`, then one kind for every other effect |
+| J.League Excite Stage '95 | `strongest`, `items` |
+| J.League Excite Stage '94 | `strongest`, `keeper`, `items` |
+| Battle Space | `strongest`, `dp`, `mp` |
+| Monster Maker | `strongest`, `ap` and `mp` later in the game |
+| Kattobi Road | `strongest`, `torque` |
+| Famista 3 | `strongest`, `average`, `speed`, `era`, `pitch`, `stamina` |
+| Family Jockey 2 | `strongest`, `mare`, `stallion` |
+
+A kind that would print the strongest card again is left out, so Battle Space
+has no HP or AP kind: its strongest card already has the most of both.
+Datach J.League Super Top Players has none: its cards name players, and the
+game's program keeps a profile, a face and an appearance for each player but
+no number a card could raise.
 
 `maeyomi cheat -o cheat.pdf`, or the **Cheat card** tab of the web page,
 which typing up, up, down, down, left, right, left, right, B, A anywhere on

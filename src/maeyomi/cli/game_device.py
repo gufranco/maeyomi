@@ -11,6 +11,7 @@ from typing import Final
 
 import typer
 
+from maeyomi.cheat_kinds import cheat_kind, cheat_kinds
 from maeyomi.cli.common import sheet_layout, write_cards
 from maeyomi.datach.dbz_solve import unread_fields
 from maeyomi.decoder.errors import BarcodeError
@@ -153,4 +154,32 @@ def cheat_game(
     typer.echo(f"{card.name}: {kind}" + (f", {numbers}" if numbers else ""))
     partner = cheat_companion_as(device, name)
     cards = (card,) if partner is None else (card, partner)
+    write_cards(cards, output, images, sheet_layout(print_shop=print_shop))
+
+
+def cheat_kind_lines(device: Device) -> list[str]:
+    """Every cheat kind the device offers, its key first, the default at the top."""
+    return [f"{kind.key}: {kind.english}" for kind in cheat_kinds(device)]
+
+
+def cheat_of_kind(
+    device: Device,
+    key: str,
+    name: str,
+    *,
+    output: Path,
+    images: ImageFormat | None,
+    print_shop: bool,
+) -> None:
+    """Print every card of one cheat kind, a line for each, or say why the kind does not exist."""
+    try:
+        cards = cheat_kind(device, key).cards(name)
+    except ValueError as error:
+        typer.echo(str(error), err=True)
+        raise typer.Exit(code=2) from error
+    for card in cards:
+        face = face_of(card.character)
+        numbers = ", ".join(f"{STAT_LABELS[tile.key].english} {tile.value}" for tile in face.tiles)
+        said = f"{face.kind.english}" + (f", {numbers}" if numbers else "")
+        typer.echo(f"{card.barcode} {said}; {face.power_text.english}")
     write_cards(cards, output, images, sheet_layout(print_shop=print_shop))

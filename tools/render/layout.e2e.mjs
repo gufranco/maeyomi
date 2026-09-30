@@ -413,6 +413,35 @@ function checkCheatLinkShowsThatDevicesCard() {
   pickDevice('bb2');
 }
 
+function checkCheatKindsFollowThePickAndTheLanguage() {
+  browser('open', `${URL.replace(/#.*$/, '')}?device=famista3#tab-cheat`);
+  browser('wait', '3000');
+  const state = evaluate(`(async () => {
+    const select = document.getElementById('cheat-kind');
+    const keys = [...select.options].map((option) => option.value);
+    select.value = 'era';
+    select.dispatchEvent(new Event('change'));
+    await new Promise((done) => setTimeout(done, 2500));
+    const response = await fetch('/api/device-cheat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ device: 'famista3', kind: 'era' }),
+    });
+    const expected = (await response.json()).barcode;
+    document.querySelector('[data-language="ja"]').click();
+    await new Promise((done) => setTimeout(done, 800));
+    const japanese = select.selectedOptions[0].text;
+    document.querySelector('[data-language="en"]').click();
+    return JSON.stringify([keys.join(','), document.getElementById('cheat-code-value').textContent, expected, japanese]);
+  })()`);
+  expect(state[0] === 'strongest,average,speed,era,pitch,stamina', `Famista 3 offers other cheat kinds: ${state[0]}`);
+  expect(state[1] === state[2], `picking a cheat kind shows another card: ${state}`);
+  expect(/[\u3040-\u30ff]/.test(state[3]), `a cheat kind stays in English on the Japanese page: ${state[3]}`);
+  browser('open', URL.replace(/#.*$/, ''));
+  browser('wait', '1500');
+  pickDevice('bb2');
+}
+
 function checkNothingIsFocusedOnOpen() {
   for (const [address, tab] of [['', 'tab-one'], ['#tab=many', 'tab-many'], ['#tab-cheat', 'tab-cheat']]) {
     browser('open', 'about:blank');
@@ -515,6 +544,7 @@ checkNothingIsFocusedOnOpen();
 checkLanguageLeavesTheCard();
 checkCheatTab();
 checkCheatLinkShowsThatDevicesCard();
+checkCheatKindsFollowThePickAndTheLanguage();
 checkPhoneTabsFit();
 checkPhoneDeviceMenu();
 checkInlineCheckboxes();

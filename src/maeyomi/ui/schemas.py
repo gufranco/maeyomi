@@ -250,6 +250,15 @@ class DeviceCheatSpec(BaseModel):
 
     device: str = "bb2"
     name: str | None = None
+    kind: str | None = None
+
+
+class CheatKindView(BaseModel):
+    """One kind of cheat card a device offers, named in both languages."""
+
+    key: str
+    english: str
+    japanese: str
 
 
 class DeviceView(BaseModel):
@@ -269,6 +278,7 @@ class DeviceView(BaseModel):
     sheet_fields: list[str]
     ranges: list[list[int]]
     back_ranges: list[list[int]] | None
+    cheat_kinds: list[CheatKindView]
 
 
 class FactView(BaseModel):
@@ -283,7 +293,8 @@ class FactView(BaseModel):
 class DeviceReading(BaseModel):
     """A barcode as one device reads it, and whether it is exactly what was asked for.
 
-    `companion` is the second card's barcode for a game that reads cards in pairs.
+    `companion` is the second card's barcode for a game that reads cards in pairs,
+    and `cards` every barcode of a cheat kind that prints more than one card.
     """
 
     name: str = ""
@@ -291,6 +302,7 @@ class DeviceReading(BaseModel):
     facts: list[FactView]
     is_exact: bool = True
     companion: str | None = None
+    cards: list[str] = Field(default_factory=list)
 
 
 class DbzChoiceView(BaseModel):

@@ -34,8 +34,10 @@ STRONGEST_MAGICIAN_JOB: Final = 9
 ATTACK_DOUBLED: Final = 18
 
 
-def strongest_card(name: str = DEFAULT_CHEAT_NAME) -> GeneratedCard:
-    """Return the strongest front-read fighter, verified through the decoder."""
+def strongest_card(
+    name: str = DEFAULT_CHEAT_NAME, *, job: int = STRONGEST_MAGICIAN_JOB
+) -> GeneratedCard:
+    """Return the strongest front-read fighter of this job, verified through the decoder."""
     hp_units = MAX_HP_DISPLAY // DISPLAY_SCALE
     race, st_digits, df_digits = max(
         _candidates(hp_units), key=lambda candidate: _strength(hp_units, *candidate)
@@ -45,7 +47,7 @@ def strongest_card(name: str = DEFAULT_CHEAT_NAME) -> GeneratedCard:
         st_digits=st_digits,
         df_digits=df_digits,
         race=race,
-        job=STRONGEST_MAGICIAN_JOB,
+        job=job,
         speed=MARKER_SPEED_DIGIT,
         special=ATTACK_DOUBLED,
     )

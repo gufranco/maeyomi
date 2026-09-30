@@ -134,7 +134,16 @@ def robot_stats(frame: DatachCard, weapons: DatachCard) -> dict[str, int] | None
     if not paired or frame.ident != weapons.ident:
         return None
     _, _, head, body, shoulder, foot, pilot, _ = frame.traits
-    recovery_level, defense_level, attack_level, speed_level = weapons.traits[-4:]
+    recovery, defense, attack, speed = weapons.traits[-4:]
+    levels = (recovery, defense, attack, speed)
+    order = RobotOrder(frame.ident, head, body, shoulder, foot, pilot, levels=levels)
+    return robot_numbers(order)
+
+
+def robot_numbers(order: RobotOrder) -> dict[str, int]:
+    """The attack, defense, speed, recovery and weight a robot's parts and levels give."""
+    head, body, shoulder, foot = order.head, order.body, order.shoulder, order.foot
+    recovery_level, defense_level, attack_level, speed_level = order.levels
     stats = {
         "attack": _scaled(SHOULDER_ATTACK[shoulder] + HEAD_ATTACK[head], attack_level),
         "defense": _scaled(BODY_DEFENSE[body] + HEAD_DEFENSE[head], defense_level),
@@ -142,7 +151,7 @@ def robot_stats(frame: DatachCard, weapons: DatachCard) -> dict[str, int] | None
         "recovery": _scaled(HEAD_RECOVERY[head] * RECOVERY_TIMES + RECOVERY_BASE, recovery_level),
         "weight": (SHOULDER_WEIGHT[shoulder] + BODY_WEIGHT[body] + FOOT_WEIGHT[foot]) & TOP_BYTE,
     }
-    bonuses = {STAT_BYTES[byte]: add for byte, add in PILOT_BONUSES.get(pilot, ())}
+    bonuses = {STAT_BYTES[byte]: add for byte, add in PILOT_BONUSES.get(order.pilot, ())}
     return {stat: min(TOP_BYTE, value + bonuses.get(stat, 0)) for stat, value in stats.items()}
 
 

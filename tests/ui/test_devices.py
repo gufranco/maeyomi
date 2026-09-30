@@ -470,3 +470,28 @@ def test_a_single_card_game_brings_no_companion(client: TestClient) -> None:
     body = client.post("/api/device-cheat", json={"device": "lupin"}).json()
 
     assert body["companion"] is None
+
+
+def test_every_device_lists_its_cheat_kinds(client: TestClient) -> None:
+    body = client.get("/api/devices").json()
+
+    kinds = {entry["key"]: [kind["key"] for kind in entry["cheat_kinds"]] for entry in body}
+    assert kinds["bb2"] == ["fighter", "warrior", "items"]
+    assert kinds["jleague"] == []
+
+
+def test_a_cheat_kind_returns_every_card_it_prints(client: TestClient) -> None:
+    response = client.post("/api/device-cheat", json={"device": "bb2", "kind": "items"})
+
+    body = response.json()
+    assert response.status_code == 200
+    assert len(body["cards"]) == 5
+    assert body["barcode"] == body["cards"][0]
+
+
+def test_a_cheat_kind_the_device_lacks_is_refused_in_both_languages(client: TestClient) -> None:
+    response = client.post("/api/device-cheat", json={"device": "bb2", "kind": "ninja"})
+
+    assert response.status_code == 422
+    assert "its kinds are" in response.json()["detail"]
+    assert "えらべるのは" in response.json()["detail_ja"]

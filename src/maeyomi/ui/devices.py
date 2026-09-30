@@ -16,6 +16,7 @@ from typing import Final
 from maeyomi.bb1.solve import ENEMY_DF, ENEMY_HP, ENEMY_ST
 from maeyomi.bb1.solve import MAX_HP as FIRST_MAX_HP
 from maeyomi.bb1.solve import MAX_STAT as FIRST_MAX_STAT
+from maeyomi.cheat_kinds import cheat_kinds
 from maeyomi.datach.dbz import BONUS, UNIT
 from maeyomi.datach.dbz_names import FIGHTERS, ITEMS
 from maeyomi.datach.dbz_solve import (
@@ -34,7 +35,14 @@ from maeyomi.models.device import Device
 from maeyomi.models.generated_card import CardResult
 from maeyomi.rendering.face import face_of
 from maeyomi.rendering.labels import SPECIAL_POWER, STAT_LABELS, Bilingual
-from maeyomi.ui.schemas import DbzChoiceView, DeviceView, FactView, OptionView, PickView
+from maeyomi.ui.schemas import (
+    CheatKindView,
+    DbzChoiceView,
+    DeviceView,
+    FactView,
+    OptionView,
+    PickView,
+)
 
 HUNDREDS: Final = 100
 HP_STEP: Final = BONUS * UNIT
@@ -271,6 +279,10 @@ def device_views() -> list[DeviceView]:
             sheet_fields=list(FORMS[device].sheet_fields),
             ranges=[list(bounds) for bounds in FORMS[device].ranges],
             back_ranges=_listed(FORMS[device].back_ranges),
+            cheat_kinds=[
+                CheatKindView(key=kind.key, english=kind.english, japanese=kind.japanese)
+                for kind in cheat_kinds(device)
+            ],
         )
         for device in Device
     ]

@@ -13,11 +13,10 @@ from collections.abc import Sequence
 from dataclasses import dataclass
 from typing import Final
 
-from maeyomi.bb1.cheat import strongest_first_card
 from maeyomi.bb1.decode import decode_first
 from maeyomi.bb1.solve import solve_first
+from maeyomi.cheat_kinds import cheat_kind
 from maeyomi.datach.dbz import decode_dbz
-from maeyomi.datach.dbz_cheat import strongest_dbz_card
 from maeyomi.datach.dbz_names import character_id
 from maeyomi.datach.dbz_reader import Readability, ReaderRefusalError, readability
 from maeyomi.datach.dbz_solve import request_from, solve_dbz, solve_dbz_nearest, unread_fields
@@ -25,10 +24,9 @@ from maeyomi.datach.game_reader import game_readability
 from maeyomi.datach.game_types import DatachGame, GameOrder
 from maeyomi.datach.games import game_for
 from maeyomi.decoder.decode import decode
-from maeyomi.double.cheat import strongest_double_card
 from maeyomi.double.decode import decode_double
 from maeyomi.double.solve import solve_double
-from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
+from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME
 from maeyomi.generator.solve import solve
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.device import Device
@@ -159,18 +157,8 @@ def build_as(device: Device, request: CardRequest, choice: DeviceChoice) -> Devi
 
 
 def cheat_as(device: Device, name: str | None) -> AnyCard:
-    """The strongest card the device will read, under the typed name or the default one."""
-    chosen = name or DEFAULT_CHEAT_NAME
-    if device is Device.BB1:
-        return strongest_first_card(chosen)
-    if device is Device.DOUBLE:
-        return strongest_double_card(chosen)
-    if device is Device.DATACH_DBZ:
-        return strongest_dbz_card(chosen)
-    game = game_for(device)
-    if game is not None:
-        return _strongest_game(device, game, chosen)
-    return strongest_card(chosen)
+    """The device's default cheat card, under the typed name or the default one."""
+    return cheat_kind(device, None).cards(name or DEFAULT_CHEAT_NAME)[0]
 
 
 def _build_dbz(request: CardRequest, choice: DeviceChoice) -> DeviceOutcome:
@@ -214,21 +202,8 @@ def _build_game(
 
 
 def cheat_companion_as(device: Device, name: str | None) -> AnyCard | None:
-    """The strongest card's partner, for a game that reads its cards in pairs."""
+    """The default cheat card's partner, for a game that reads its cards in pairs."""
+    cards = cheat_kind(device, None).cards(name or DEFAULT_CHEAT_NAME)
     game = game_for(device)
-    card = None if game is None else game.strongest_companion()
-    if card is None:
-        return None
-    return GeneratedCard(name=name or DEFAULT_CHEAT_NAME, barcode=card.barcode, character=card)
-
-
-def _strongest_game(device: Device, game: DatachGame, name: str) -> AnyCard:
-    """The game's strongest card under the name, or a ValueError when its cards carry none."""
-    if game.strongest is None:
-        message = Said(
-            f"{device.english} cards carry no numbers, so none is stronger than another",
-            f"{device.japanese} の カードには すうじが ないので、いちばん つよい カードは ない",
-        )
-        raise ValueError(message)
-    card = game.strongest()
-    return GeneratedCard(name=name, barcode=card.barcode, character=card)
+    paired = game is not None and game.strongest_companion() is not None
+    return cards[1] if paired and len(cards) > 1 else None

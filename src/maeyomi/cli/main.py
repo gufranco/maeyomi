@@ -29,6 +29,8 @@ from maeyomi.cli.double_device import cheat_double, generate_double, show_double
 from maeyomi.cli.first_device import cheat_first, generate_first, show_first
 from maeyomi.cli.game_device import (
     cheat_game,
+    cheat_kind_lines,
+    cheat_of_kind,
     generate_game,
     parse_picks,
     refuse_picks,
@@ -377,10 +379,16 @@ def kinds(device: DeviceOption = Device.BB2) -> None:
 
 @app.command()
 def cheat(
-    output: OutputOption,
+    output: Annotated[Path | None, typer.Option("--output", "-o", help="PDF to write.")] = None,
     name: Annotated[str, typer.Option("--name", help="Printed on the card only.")] = (
         DEFAULT_CHEAT_NAME
     ),
+    kind: Annotated[
+        str | None, typer.Option("--kind", help="One cheat kind, by the key --kinds prints.")
+    ] = None,
+    listing: Annotated[
+        bool, typer.Option("--kinds", help="List the device's cheat kinds and stop.")
+    ] = False,
     items: Annotated[
         bool,
         typer.Option(
@@ -392,6 +400,16 @@ def cheat(
     print_shop: PrintShopOption = False,
 ) -> None:
     """Print the strongest card the device will read. Nobody has to know."""
+    if listing:
+        for line in cheat_kind_lines(device):
+            typer.echo(line)
+        return
+    if output is None:
+        typer.echo("--output is required unless --kinds is given", err=True)
+        raise typer.Exit(code=2)
+    if kind is not None:
+        cheat_of_kind(device, kind, name, output=output, images=images, print_shop=print_shop)
+        return
     if device is not Device.BB2:
         cheat = _CHEAT[device]
         cheat(name, items=items, output=output, images=images, print_shop=print_shop)

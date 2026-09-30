@@ -424,6 +424,36 @@ def test_cheat_takes_a_name(tmp_path: Path) -> None:
     assert "Grandma" in result.output
 
 
+def test_cheat_lists_the_kinds_a_device_offers() -> None:
+    result = runner.invoke(app, ["cheat", "--device", "bspace", "--kinds"])
+
+    assert result.exit_code == 0
+    assert result.output.splitlines() == ["strongest: Strongest card", "dp: Most DP", "mp: Most MP"]
+
+
+def test_cheat_prints_the_kind_asked_for(tmp_path: Path) -> None:
+    output = tmp_path / "items.pdf"
+
+    result = runner.invoke(app, ["cheat", "--kind", "items", "--output", str(output)])
+
+    assert result.exit_code == 0
+    assert len(decode_pdf(output)) == 5
+
+
+def test_cheat_refuses_a_kind_the_device_does_not_offer(tmp_path: Path) -> None:
+    result = runner.invoke(app, ["cheat", "--kind", "ninja", "--output", str(tmp_path / "x.pdf")])
+
+    assert result.exit_code == 2
+    assert "its kinds are fighter, warrior, items" in result.output
+
+
+def test_cheat_needs_an_output_unless_it_lists_kinds() -> None:
+    result = runner.invoke(app, ["cheat"])
+
+    assert result.exit_code == 2
+    assert "--output is required unless --kinds is given" in result.output
+
+
 def test_official_lists_every_set_with_its_count() -> None:
     result = runner.invoke(app, ["official", "--list"])
 

@@ -27,9 +27,11 @@ from fastapi import BackgroundTasks, FastAPI, HTTPException, Request
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Response
 
+from maeyomi.cheat_kinds import cheat_kind
 from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_race
 from maeyomi.decoder.decode import decode
 from maeyomi.decoder.errors import BarcodeError
+from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME
 from maeyomi.generator.device_random import random_for
 from maeyomi.generator.nearest import solve_nearest
 from maeyomi.generator.solve import solve
@@ -57,7 +59,6 @@ from maeyomi.products.lookup import ProductLookupError, look_up_name
 from maeyomi.registry import (
     DeviceChoice,
     build_as,
-    cheat_as,
     cheat_companion_as,
     device_named,
     printable_as,
@@ -356,17 +357,20 @@ def device_card(spec: DeviceCardSpec) -> DeviceReading:
 
 
 def device_cheat(spec: DeviceCheatSpec) -> DeviceReading:
-    """The strongest card the chosen device will read, or why a game has none."""
+    """A cheat kind's cards on the chosen device, or why it has none."""
+    device = _device(spec.device)
     try:
-        card = cheat_as(_device(spec.device), spec.name)
+        cards = cheat_kind(device, spec.kind).cards(spec.name or DEFAULT_CHEAT_NAME)
     except ValueError as error:
         raise HTTPException(status_code=UNPROCESSABLE, detail=said_of(error)) from error
-    partner = cheat_companion_as(_device(spec.device), spec.name)
+    first = cards[0]
+    partner = cheat_companion_as(device, spec.name) if spec.kind is None else None
     return DeviceReading(
-        name=card.name,
-        barcode=card.barcode,
-        facts=facts_of(card.character),
+        name=first.name,
+        barcode=first.barcode,
+        facts=facts_of(first.character),
         companion=None if partner is None else partner.barcode,
+        cards=[card.barcode for card in cards],
     )
 
 

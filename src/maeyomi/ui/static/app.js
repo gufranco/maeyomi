@@ -473,14 +473,38 @@ async function downloadOfficial() {
   setStatus('official-status', 'good', 'tag.done', () => t('status.saved'));
 }
 
+function cheatHeadline(body) {
+  const select = $('cheat-kind');
+  const kinds = deviceForm()?.cheat_kinds ?? [];
+  const kind = kinds.find((entry) => entry.key === select.value);
+  if (!kind || select.selectedIndex <= 0) {
+    return t('status.deviceCheat', { name: body.name, device: deviceName() });
+  }
+  const label = isJapanese() ? kind.japanese : kind.english;
+  return t('status.cheatKind', { name: body.name, kind: label, device: deviceName() });
+}
+
+function renderCheatKinds() {
+  const kinds = deviceForm()?.cheat_kinds ?? [];
+  const select = $('cheat-kind');
+  const chosen = select.value;
+  select.innerHTML = kinds
+    .map((kind) => `<option value="${escapeHtml(kind.key)}">${escapeHtml(isJapanese() ? kind.japanese : kind.english)}</option>`)
+    .join('');
+  if (kinds.some((kind) => kind.key === chosen)) select.value = chosen;
+  $('cheat-kind-field').toggleAttribute('hidden', kinds.length < 2);
+}
+
 async function showCheatCard() {
   const typed = $('cheat-name').value.trim();
+  const kind = $('cheat-kind').value;
   const { ok, body } = await postJson('/api/device-cheat', {
     device: currentDevice(),
     ...(typed ? { name: typed } : {}),
+    ...(kind ? { kind } : {}),
   });
   cheatCard = ok
-    ? { barcode: body.barcode, name: body.name, device: currentDevice(), companion: body.companion }
+    ? { barcode: body.barcode, name: body.name, device: currentDevice(), companion: body.companion, cards: body.cards }
     : null;
   $('cheat-code').toggleAttribute('hidden', !ok);
   if (!ok) {
@@ -490,14 +514,19 @@ async function showCheatCard() {
   }
   $('cheat-code-value').textContent = body.barcode;
   setStatus('cheat-status', 'cheat', 'tag.cheat',
-    () => t('status.deviceCheat', { name: body.name, device: deviceName() }),
+    () => cheatHeadline(body) +
+      (body.cards.length > 1 ? ` ${t('status.cheatMore', { count: body.cards.length })}` : ''),
     () => factLines(body.facts));
   await showPreview(body.barcode, body.name, 'cheat-image', 'cheat-placeholder');
 }
 
 async function downloadCheatCard() {
   if (!cheatCard) return;
-  await downloadBarcodes(withCompanion(cheatCard), 'cheat-card.pdf', 'cheat-status');
+  const { cards, companion, ...first } = cheatCard;
+  const sheet = cards.length > 1
+    ? cards.map((barcode) => ({ ...first, barcode }))
+    : withCompanion({ ...first, companion });
+  await downloadBarcodes(sheet, 'cheat-card.pdf', 'cheat-status');
 }
 
 function setUpCheat() {
@@ -512,6 +541,7 @@ function setUpCheat() {
     typing = setTimeout(refresh, SEARCH_DELAY_MS);
   });
   $('cheat-pdf').addEventListener('click', downloadCheatCard);
+  $('cheat-kind').addEventListener('change', refresh);
   let progress = 0;
   document.addEventListener('keydown', (event) => {
     const inField =
@@ -718,6 +748,7 @@ function setUpLanguage() {
     renderOfficial();
     renderDevices();
     renderShelf();
+    renderCheatKinds();
     redrawReadFacts?.();
     statusRenderers.forEach((render) => render());
   });
