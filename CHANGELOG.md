@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.8.0 (2026-09-30)
+
+### Chores
+
+- **formula**: Point at v1.7.0 [skip ci]
+  ([`fd3bb9f`](https://github.com/gufranco/maeyomi/commit/fd3bb9fe1db638a5e5c1975ff8bcbfb414edf4b1))
+
+### Features
+
+- Print ガングラティ with the nearest barcode the II reads
+  ([`789c469`](https://github.com/gufranco/maeyomi/commit/789c469160e61089d5d60f451152da87f47e30ca))
+
+
 ## v1.7.0 (2026-09-30)
 
 ### Chores
