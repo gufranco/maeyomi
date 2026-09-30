@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**1571** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**1575** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -258,6 +258,18 @@ the most power. The cars are named as the game shows them, and their English
 names are romanised by rule. The decoder agrees with the game in MAME on all
 592 codes it was given, among them one built for each car.
 
+Famista 3, Namco's 1993 baseball game, reads a card in team editing as a rookie
+batter or pitcher, and `--device famista3` makes cards for it. The game builds
+no player from the digits: two of them decide batter or pitcher, the last picks
+one of its groups of player data, and pairs of the rest point at one player in
+it, whose numbers are copied as they are. A batter shows its side, average,
+home runs and speed, a pitcher its side, ERA, pitch speed and stamina. Pick
+batter or pitcher with `--character` and one of the 833 batters or 384
+pitchers a code can reach with `--pick player=`; the page lists them strongest
+first. The decoder agrees with the game in MAME on all 1551 codes it was
+given, among them one built for every player, and eight-digit codes, which the
+game reads with a rule of their own.
+
 ## What it supports
 
 Every machine and game below is a `--device` on the command line and an
@@ -292,6 +304,7 @@ games and their card packs are on
 | Battle Space | バトルスペース | Game Boy, through the Barcode Boy | `bspace` |
 | Monster Maker: Barcode Saga | モンスターメーカー バーコードサーガ | Game Boy, through the Barcode Boy | `monstmkb` |
 | Kattobi Road | カットビロード | Game Boy, through the Barcode Boy | `kattobi` |
+| Famista 3 | ファミスタ3 | Game Boy, through the Barcode Boy | `famista3` |
 
 ## Install
 
@@ -338,7 +351,7 @@ Z, Datach Ultraman Club, Datach SD Gundam Wars, Datach Yu Yu Hakusho,
 Datach J.League, Barcode World, Barcode Battler Senki, Lupin III, Donald Duck,
 Spider-Man, Alice no Paint Adventure, Doraemon 2, Doraemon 3, Nobita to Yousei
 no Kuni, J.League Excite Stage '94 or '95, Dragon Slayer II, Hatayama Hatch,
-Datach Battle Rush, Battle Space, Monster Maker: Barcode Saga or Kattobi Road. Every tab follows it: the card maker shows only the fields that device reads
+Datach Battle Rush, Battle Space, Monster Maker: Barcode Saga, Kattobi Road or Famista 3. Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -370,7 +383,7 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other three tabs print a sheet of random cards, the 1571 cards Epoch,
+The other three tabs print a sheet of random cards, the 1575 cards Epoch,
 Bandai and Namco actually released, and the strongest card the chosen machine or game
 will read. The page is in English and Japanese, and switches with the
 buttons at the top.
@@ -600,9 +613,9 @@ convenience: the lookup failing changes nothing about the card.
 
 ## The real cards
 
-`maeyomi official --list` names the 44 card lists Epoch, Bandai and Namco released,
+`maeyomi official --list` names the 45 card lists Epoch, Bandai and Namco released,
 how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
-candy.pdf` prints one, and leaving out `--set` prints all 1571. The web page has
+candy.pdf` prints one, and leaving out `--set` prints all 1575. The web page has
 the same thing under **The real cards**.
 
 Epoch never published a machine-readable list, so the barcodes come from the
@@ -720,6 +733,10 @@ Each decodes to the car it is named for, and two are named as the game shows
 them, ナイター2000 and ハイスラックス, where the notes have ナイト 2000 and
 リイスラックス.
 
+Famista 3 came with four cards, listed under the names MAME's software list
+gives them, and each reads as the kind it is named for: three batters and a
+pitcher.
+
 Epoch printed a roster card for each of the 12 J.League clubs of 1994 for
 Excite Stage '94. Their barcodes were read off the scans
 [barcodebattler.co.uk publishes](https://www.barcodebattler.co.uk/scans/Japan/J-League/),
@@ -819,6 +836,9 @@ Monster Maker gets Lorian, who comes back later in the game at level 9 with HP
 
 Kattobi Road gets USAドロンコ, a special car with 11028 PS and 403.4 kg-m of
 torque, the most power any code gives.
+
+Famista 3 gets a rookie who bats left and hits 60 home runs, the most any code
+gives, at a .204 average.
 
 Hatayama Hatch gets a wizard with stamina 99900, attack and defense 19900 and
 99 magic.

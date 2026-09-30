@@ -17,6 +17,7 @@ from maeyomi.datach.yuyu import decode_yuyu
 from maeyomi.decoder.decode import decode
 from maeyomi.double.decode import decode_double
 from maeyomi.gameboy.battlespace import decode_battle_space
+from maeyomi.gameboy.famista3 import decode_famista3
 from maeyomi.gameboy.kattobi import decode_kattobi
 from maeyomi.gameboy.monstermaker import decode_monster_maker
 from maeyomi.games.barcode_world import decode_barcode_world
@@ -49,6 +50,7 @@ SELIOS_FOR_DRAGON_SLAYER_TWO = 1
 BATTLE_SPACE_CARDS = 10
 MONSTER_MAKER_CARDS = 6
 KATTOBI_CARDS = 6
+FAMISTA3_CARDS = 4
 MAME_LIST = "https://github.com/mamedev/mame/"
 GBE_PLUS = "https://github.com/shonumi/gbe-plus/"
 TRANSCRIBED = (
@@ -68,6 +70,7 @@ TRANSCRIBED = (
     + BATTLE_SPACE_CARDS
     + MONSTER_MAKER_CARDS
     + KATTOBI_CARDS
+    + FAMISTA3_CARDS
 )
 EXCITE_CLUB_BARCODES = {
     "0000000034111",
@@ -169,6 +172,7 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.BATTLE_SPACE: GBE_PLUS,
         OfficialSet.MONSTER_MAKER: GBE_PLUS,
         OfficialSet.KATTOBI: MAME_LIST,
+        OfficialSet.FAMISTA3: MAME_LIST,
         OfficialSet.EXCITE94_CLUBS: UK_SCANS,
         OfficialSet.IRWIN: UK_PAGES,
         OfficialSet.TOMY: UK_PAGES,
@@ -218,6 +222,7 @@ def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
             Device.BATTLE_SPACE: decode_battle_space,
             Device.MONSTER_MAKER: decode_monster_maker,
             Device.KATTOBI: decode_kattobi,
+            Device.FAMISTA3: decode_famista3,
         }
         for card in official_cards(official_set):
             assert readers[official_set.device](card.barcode) == card.character

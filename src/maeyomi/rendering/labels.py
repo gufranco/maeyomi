@@ -91,6 +91,10 @@ STAT_LABELS: Final[dict[str, Bilingual]] = {
     "BMP": Bilingual("MP", "MP"),
     "KPW": Bilingual("Power, PS", "パワー PS"),
     "KWT": Bilingual("Weight, kg", "おもさ kg"),
+    "FHR": Bilingual("Home runs", "本塁打"),
+    "FSP": Bilingual("Speed", "走力"),
+    "FKM": Bilingual("Pitch speed, km/h", "球速 km/h"),
+    "FST": Bilingual("Stamina", "スタミナ"),
 }
 
 RACE_DESCRIPTIONS: Final[dict[Race, str]] = {

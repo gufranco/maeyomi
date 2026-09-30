@@ -1,304 +1,304 @@
 {
-  "artifacts": [
-    {
-      "id": "datach_dbz_prg",
-      "what": "Program ROM of Datach Dragon Ball Z: Gekitou Tenkaichi Budoukai, Bandai 1992, as MAME's nes_datach software list names it",
-      "path": "nes_datach/dtc_dbz/datach - dragon ball z - gekitou tenkaichi budou kai (japan).prg",
-      "size": 262144,
-      "sha256": "a1370e7410a98a4a2de19f4872281a065b1d7d7cd7b5f2ba0da70504b4a1d52d",
-      "sha1": "87478b635fefb25fa13c4876e20f505a97426c1b",
-      "crc32": "19e81461",
-      "used_by": "tools/oracle/record_dbz.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "datach_ultraman_prg",
-      "what": "Program ROM of Datach Ultraman Club: Supokon Fight!, Bandai 1993, as MAME's nes_datach software list names it",
-      "path": "nes_datach/dtc_ultr/datach - ultraman club - supokon fight (japan).prg",
-      "size": 262144,
-      "sha256": "85f0ab77ae56df26e18bf55caafb795ec24712c168912f0963756fe4daa2ef65",
-      "sha1": "533170d5eb685231ccd27b9c136ffa4fad68a7b8",
-      "crc32": "5b457641",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "datach_sdgundam_prg",
-      "what": "Program ROM of Datach SD Gundam: Gundam Wars, Bandai 1993, as MAME's nes_datach software list names it",
-      "path": "nes_datach/dtc_sdgn/datach gundam.ic1",
-      "size": 262144,
-      "sha256": "a6a909d829e3d9ef1a14d002f8ac3c59173420530d467c09fe338b28143f4308",
-      "sha1": "edd7a45a7f27e396b6d686f1861642d509863132",
-      "crc32": "0be0a328",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "datach_yuyu_prg",
-      "what": "Program ROM of Datach Yu Yu Hakusho: Bakutou Ankoku Bujutsukai, Bandai 1993, as MAME's nes_datach software list names it",
-      "path": "nes_datach/dtc_yuyu/datach - yuu yuu hakusho - bakutou ankoku bujutsu kai (japan).prg",
-      "size": 262144,
-      "sha256": "acc54496853ce6306589790857b0d56145d8382bd00f5d0f40ecdfa2906ad349",
-      "sha1": "74218aae93e4febfb2284bcf15811453418a2029",
-      "crc32": "f51a7f46",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "datach_jleague_prg",
-      "what": "Program ROM of Datach J.League Super Top Players, Bandai 1994, as MAME's nes_datach software list names it",
-      "path": "nes_datach/dtc_jltp/datach - j league super top players (japan).prg",
-      "size": 262144,
-      "sha256": "a7b1e4693093c8a155747f9023399ebb2537064e788970ecdcccee467108b62e",
-      "sha1": "b2089533e05fe95814d0d77f2729944cbeb95988",
-      "crc32": "be06853f",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "barcode_world_prg",
-      "what": "Program ROM of Barcode World, Sunsoft 1992, as MAME's nes software list names it",
-      "path": "nes/barcodew/bbw prg",
-      "size": 131072,
-      "sha256": "9111e7878a2e625b661096ce6e18066d01fcac85c7efc867e06a2a9e1e87ca30",
-      "sha1": "92f055653d33b8e31ec91b458357e75ad2336c33",
-      "crc32": "67898319",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "senki_rom",
-      "what": "Cartridge ROM of Conveni Wars Barcode Battler Senki: Super Senshi Shutsugeki seyo!, Epoch 1993, as MAME's snes software list names it",
-      "path": "snes/conveni/conveni wars barcode battler senki - super senshi shutsugeki seyo (japan).sfc",
-      "size": 524288,
-      "sha256": "c195641a1b472590cb3d0be0c48d682b9fee94d7b700dd7bd3297bb995b49307",
-      "sha1": "72ca858f50d67121b06868633b8588a79316c3e2",
-      "crc32": "115233db",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "snes_spc700_ipl",
-      "what": "The Super Famicom sound processor's 64-byte boot ROM, which MAME's snes driver needs to start any game",
-      "path": "snes/spc700.rom",
-      "size": 64,
-      "sha256": "c95f88b299030d5afa55b1031e2b5ef2dff650c4b4e6bb6f8b1359436521278f",
-      "sha1": "97e352553e94242ae823547cd853eecda55c20f0",
-      "crc32": "44bb3a40",
-      "used_by": "tools/oracle/record_game.py, for every Super Famicom game it runs; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "lupin_rom",
-      "what": "Cartridge ROM of Lupin Sansei: Densetsu no Hihou o Oe!, Epoch 1994, as MAME's snes software list names it",
-      "path": "snes/lupin3/lupin sansei - densetsu no hihou o oe (japan).sfc",
-      "size": 1572864,
-      "sha256": "d8dc6c6fbe0263b383b6f25cf024d4b4401c4cc47698a051456f3bb584346a20",
-      "sha1": "99ae1fcd0b778d221d04f8980458824b809392e7",
-      "crc32": "74adc6e2",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "donald_rom",
-      "what": "Cartridge ROM of Donald Duck no Mahou no Boushi, Epoch 1995, as MAME's snes software list names it",
-      "path": "snes/donaldd/donald duck no mahou no boushi (japan).sfc",
-      "size": 1572864,
-      "sha256": "90dbc1130af7555d3086afcd657f3cb510c52686a0f242d073c6caeb720affad",
-      "sha1": "e5a2e94af71509dee1e8ed86a80c7fec9c40d51f",
-      "crc32": "1ed5d2fa",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "spiderman_rom",
-      "what": "Cartridge ROM of The Amazing Spider-Man: Lethal Foes, Epoch 1995, as MAME's snes software list names it",
-      "path": "snes/spidfoes/amazing spider-man, the - lethal foes (japan).sfc",
-      "size": 1572864,
-      "sha256": "5c4e283efc338958b8dd45ebd6daf133a9eb280420a98e2e1df358ae0242c366",
-      "sha1": "94763d6fc3216082e33cafbecb1e737ef3c5bda9",
-      "crc32": "82f7f710",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "alice_rom",
-      "what": "Cartridge ROM of Alice no Paint Adventure, Epoch 1995, as MAME's snes software list names it",
-      "path": "snes/alicepnt/alice no paint adventure (japan).sfc",
-      "size": 1048576,
-      "sha256": "bef02017488bb76fa7ada9bb7719fdf4336fec8e847d6005c8cf244146f90fbd",
-      "sha1": "18b6fadbcee0741001537ad3f62c8477a2b664cf",
-      "crc32": "05798da8",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "doraemon2_rom",
-      "what": "Cartridge ROM of Doraemon 2: Nobita no Toys Land Daibouken, Epoch 1993, as MAME's snes software list names it",
-      "path": "snes/doraemn2/shvc-2d-0.u1",
-      "size": 1048576,
-      "sha256": "3fe6952b916dd6b4495eb9efc9e2a69c2e88317fbc82c01efbec490dac9ce5b4",
-      "sha1": "8672e208c3716b8fae3fd612bc80679a5459b616",
-      "crc32": "d343b398",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "doraemon3_rom",
-      "what": "Cartridge ROM of Doraemon 3: Nobita to Toki no Hougyoku, Epoch 1994, first chip, as MAME's snes software list names it",
-      "path": "snes/doraemn3/shvc-4t-0 p0.u1",
-      "size": 1048576,
-      "sha256": "60bf02c81ae5fb7e5f447a8fceb3cd510e875523436ca9dccb76ef9df5627dc0",
-      "sha1": "eacf072f3b0c7c181597123e16f6b0be5b3bca9d",
-      "crc32": "50e22ac2",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "doraemon3_p1",
-      "what": "Cartridge ROM of Doraemon 3: Nobita to Toki no Hougyoku, Epoch 1994, second chip, as MAME's snes software list names it",
-      "path": "snes/doraemn3/shvc-4t-0 p1.u2",
-      "size": 524288,
-      "sha256": "bf7132976dc991ded3c090d6ea630ad4fedbd79405754fe9adebe8099bfddfa9",
-      "sha1": "82c8e498908e235fcaff0d3a81a2e7863d2c9031",
-      "crc32": "965c8e80",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "yousei_rom",
-      "what": "Cartridge ROM of Doraemon: Nobita to Yousei no Kuni, Epoch 1993, revision A, as MAME's snes software list names it",
-      "path": "snes/doraemon/shvc-dr-1.u1",
-      "size": 524288,
-      "sha256": "0a0eaaf876827b59c45a9236b70827d55372c094fb572941168e8d1ff8617fba",
-      "sha1": "95b8e45c194618fc122ca10d5af5dbf9b9077aac",
-      "crc32": "55e44983",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "excite95_rom",
-      "what": "Cartridge ROM of J.League Excite Stage '95, Epoch 1995, first chip, as MAME's snes software list names it",
-      "path": "snes/jlexct95/shvc-aj2j-0 p0.u1",
-      "size": 1048576,
-      "sha256": "5c62401d4bae5369ff5500e752dd486f661d58738185ad085b4ec74a91118c75",
-      "sha1": "9a4f292114b6fb6deaf6a4f768345e7a7636fb71",
-      "crc32": "5d05e97b",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "excite95_p1",
-      "what": "Cartridge ROM of J.League Excite Stage '95, Epoch 1995, second chip, as MAME's snes software list names it",
-      "path": "snes/jlexct95/shvc-aj2j-0 p1.u2",
-      "size": 524288,
-      "sha256": "d71b58b4e5b1a20fc5f5f57841d481e9946ae369bcdce7409a2b02c7dab5e3e9",
-      "sha1": "c2c20c0a706d60ec8baaf2fc7d08264768be30f4",
-      "crc32": "a791e51c",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "dslayer2_rom",
-      "what": "Cartridge ROM of Dragon Slayer: Eiyuu Densetsu II, Epoch 1993, as MAME's snes software list names it",
-      "path": "snes/dslayed2/dragon slayer - eiyuu densetsu ii (japan).sfc",
-      "size": 1572864,
-      "sha256": "06e7b2ab97fb7c38ec36d6a0a145a4bbeca89e8e2950e3b00d84a46cb2b56b7a",
-      "sha1": "680539d0a7699adcf06eb0b1ba541603d3aa02e9",
-      "crc32": "f409c139",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "hatayama_rom",
-      "what": "Cartridge ROM of Hatayama Hatch no Pro Yakyuu News! Jitsumei Ban, Epoch 1993, as MAME's snes software list names it",
-      "path": "snes/hatayama/hatayama hatch no pro yakyuu news - jitsumei ban (japan).sfc",
-      "size": 1048576,
-      "sha256": "da44facf3ea24e242b88adaac7ebcf5e5d8617aec7153b0bd73fb0aeba7449da",
-      "sha1": "27b381b003445ef9bd1db0ecf9f018093a3e586b",
-      "crc32": "7a585763",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "excite94_rom",
-      "what": "Cartridge ROM of J.League Excite Stage '94, Epoch 1994, revision A, chip 1, as MAME's snes software list names it",
-      "path": "snes/jlexct94/shvc-jl-1 p0.u1",
-      "size": 1048576,
-      "sha256": "43d3cfad08a6f9c28991d4579767cb6fed489214542f4fd7f97c956259bc6cc3",
-      "sha1": "0422ed14df97df5917dd67efead191ee54d596ab",
-      "crc32": "2cf17e39",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "excite94_p1",
-      "what": "Cartridge ROM of J.League Excite Stage '94, Epoch 1994, revision A, chip 2, as MAME's snes software list names it",
-      "path": "snes/jlexct94/shvc-jl-1 p1.u2",
-      "size": 524288,
-      "sha256": "6f3009bac943a358ba150fff6649cc837dda9cbabe5efbbf14f4df43c92ab9cc",
-      "sha1": "d76cbee8a7e7790639b0fa81af3896d2433a0e30",
-      "crc32": "c6eaa3af",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "datach_battlerush_prg",
-      "what": "Program ROM of Datach Battle Rush: Build Up Robot Tournament, Bandai 1993, as MAME's nes_datach software list names it; the list marks it a bad dump",
-      "path": "nes_datach/dtc_brsh/b-ai '93 battle-rush.ic1",
-      "size": 262144,
-      "sha256": "cbc404d57879beca0b65b855b19fda9e017e7d8cc716941b52bbea8f8a6ee859",
-      "sha1": "29cc759d5ca214eefc0cc1c6ce0f8b9111e58124",
-      "crc32": "983d8175",
-      "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "gameboy_bspace",
-      "what": "Battle Space, Namco 1992, the game packed with the Barcode Boy reader, as MAME's gameboy software list names it",
-      "path": "gameboy/bspace/dmg-nxj-0.u1",
-      "size": 65536,
-      "sha256": "85b16134b866e1a1009cb0e8eea892293d60b7592262e64c0fba85bf73b67dbc",
-      "sha1": "76e47ad844abdde9eff09ea29a014f9a1eae5093",
-      "crc32": "a828fd4f",
-      "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/extract_barcode_boy.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "gameboy_monstmkb",
-      "what": "Monster Maker: Barcode Saga, Namco 1993, a Barcode Boy game, as MAME's gameboy software list names it",
-      "path": "gameboy/monstmkb/dmg-qnj-0.u1",
-      "size": 131072,
-      "sha256": "d1a01667610bb8ef9b1e5c355a78579e0b1360adcf0aea9be04312658b580862",
-      "sha1": "f7a101338c4eebcdcc1e5d9082a30caa2d706969",
-      "crc32": "56ba6a71",
-      "used_by": "tools/oracle/record_monster_maker.py and tools/oracle/extract_monster_maker.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "gameboy_kattobi",
-      "what": "Kattobi Road, Namco 1993, which reads the Barcode Boy for extra cars, as MAME's gameboy software list names it",
-      "path": "gameboy/kattobi/dmg-k5j-0.u1",
-      "size": 131072,
-      "sha256": "e231dacb818e3d1f9cb0e4e79c5679848be73d59b4c3f7b6ee09d50c58a32abb",
-      "sha1": "7ac064a877ecc8247dfb7213722dbd0f4be665f0",
-      "crc32": "efbc23fc",
-      "used_by": "tools/oracle/record_kattobi.py and tools/oracle/extract_kattobi.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "gameboy_famjock2",
-      "what": "Family Jockey 2: Meiba no Kettou, Namco 1993, which reads the Barcode Boy for extra horses, as MAME's gameboy software list names it",
-      "path": "gameboy/famjock2/dmg-fvj-0.u1",
-      "size": 131072,
-      "sha256": "37708a2ddc3eadeb0dd5846223befc938637be69941ce69299d5b6e950b8ffb1",
-      "sha1": "d858fcdfce099435fa632859a9f8e8c82823bbcb",
-      "crc32": "0325e729",
-      "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/extract_barcode_boy.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "gameboy_famista3",
-      "what": "Famista 3, Namco 1993, which reads the Barcode Boy for extra players, as MAME's gameboy software list names it",
-      "path": "gameboy/famista3/dmg-n3j-0.u1",
-      "size": 262144,
-      "sha256": "ad8e99fdf0e7b3c7a24c8f4ffe12cd5a0a7730353318583cb7abbc039090241d",
-      "sha1": "ac4b03e11e2ba135d0427c8b1da7de57c006b4a6",
-      "crc32": "bdc4ccc3",
-      "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/extract_barcode_boy.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "gameboy_dmg_boot",
-      "what": "Boot ROM of the original Game Boy, which MAME's gameboy driver needs to start",
-      "path": "gameboy/dmg_boot.bin",
-      "size": 256,
-      "sha256": "cf053eccb4ccafff9e67339d4e78e98dce7d1ed59be819d2a1ba2232c6fce1c7",
-      "sha1": "4ed31ec6b0b175bb109c0eb5fd3d193da823339f",
-      "crc32": "59c8598e",
-      "used_by": "tools/oracle/record_barcode_boy.py, tools/oracle/record_monster_maker.py and tools/oracle/record_kattobi.py, which boot the Game Boy in MAME with it; nothing in the package or its tests reads it"
-    },
-    {
-      "id": "gameboy_dmg_v0",
-      "what": "Early boot ROM of the original Game Boy, the second file MAME's gameboy driver asks for",
-      "path": "gameboy/dmg_v0.rom",
-      "size": 256,
-      "sha256": "26e71cf01e301e5dc40e987cd2ecbf6d0276245890ac829db2a25323da86818e",
-      "sha1": "8bd501e31921e9601788316dbd3ce9833a97bcbc",
-      "crc32": "c2f5cc97",
-      "used_by": "tools/oracle/record_barcode_boy.py, tools/oracle/record_monster_maker.py and tools/oracle/record_kattobi.py, which boot the Game Boy in MAME with it; nothing in the package or its tests reads it"
-    }
-  ]
+ "artifacts": [
+  {
+   "id": "datach_dbz_prg",
+   "what": "Program ROM of Datach Dragon Ball Z: Gekitou Tenkaichi Budoukai, Bandai 1992, as MAME's nes_datach software list names it",
+   "path": "nes_datach/dtc_dbz/datach - dragon ball z - gekitou tenkaichi budou kai (japan).prg",
+   "size": 262144,
+   "sha256": "a1370e7410a98a4a2de19f4872281a065b1d7d7cd7b5f2ba0da70504b4a1d52d",
+   "sha1": "87478b635fefb25fa13c4876e20f505a97426c1b",
+   "crc32": "19e81461",
+   "used_by": "tools/oracle/record_dbz.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "datach_ultraman_prg",
+   "what": "Program ROM of Datach Ultraman Club: Supokon Fight!, Bandai 1993, as MAME's nes_datach software list names it",
+   "path": "nes_datach/dtc_ultr/datach - ultraman club - supokon fight (japan).prg",
+   "size": 262144,
+   "sha256": "85f0ab77ae56df26e18bf55caafb795ec24712c168912f0963756fe4daa2ef65",
+   "sha1": "533170d5eb685231ccd27b9c136ffa4fad68a7b8",
+   "crc32": "5b457641",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "datach_sdgundam_prg",
+   "what": "Program ROM of Datach SD Gundam: Gundam Wars, Bandai 1993, as MAME's nes_datach software list names it",
+   "path": "nes_datach/dtc_sdgn/datach gundam.ic1",
+   "size": 262144,
+   "sha256": "a6a909d829e3d9ef1a14d002f8ac3c59173420530d467c09fe338b28143f4308",
+   "sha1": "edd7a45a7f27e396b6d686f1861642d509863132",
+   "crc32": "0be0a328",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "datach_yuyu_prg",
+   "what": "Program ROM of Datach Yu Yu Hakusho: Bakutou Ankoku Bujutsukai, Bandai 1993, as MAME's nes_datach software list names it",
+   "path": "nes_datach/dtc_yuyu/datach - yuu yuu hakusho - bakutou ankoku bujutsu kai (japan).prg",
+   "size": 262144,
+   "sha256": "acc54496853ce6306589790857b0d56145d8382bd00f5d0f40ecdfa2906ad349",
+   "sha1": "74218aae93e4febfb2284bcf15811453418a2029",
+   "crc32": "f51a7f46",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "datach_jleague_prg",
+   "what": "Program ROM of Datach J.League Super Top Players, Bandai 1994, as MAME's nes_datach software list names it",
+   "path": "nes_datach/dtc_jltp/datach - j league super top players (japan).prg",
+   "size": 262144,
+   "sha256": "a7b1e4693093c8a155747f9023399ebb2537064e788970ecdcccee467108b62e",
+   "sha1": "b2089533e05fe95814d0d77f2729944cbeb95988",
+   "crc32": "be06853f",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "barcode_world_prg",
+   "what": "Program ROM of Barcode World, Sunsoft 1992, as MAME's nes software list names it",
+   "path": "nes/barcodew/bbw prg",
+   "size": 131072,
+   "sha256": "9111e7878a2e625b661096ce6e18066d01fcac85c7efc867e06a2a9e1e87ca30",
+   "sha1": "92f055653d33b8e31ec91b458357e75ad2336c33",
+   "crc32": "67898319",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "senki_rom",
+   "what": "Cartridge ROM of Conveni Wars Barcode Battler Senki: Super Senshi Shutsugeki seyo!, Epoch 1993, as MAME's snes software list names it",
+   "path": "snes/conveni/conveni wars barcode battler senki - super senshi shutsugeki seyo (japan).sfc",
+   "size": 524288,
+   "sha256": "c195641a1b472590cb3d0be0c48d682b9fee94d7b700dd7bd3297bb995b49307",
+   "sha1": "72ca858f50d67121b06868633b8588a79316c3e2",
+   "crc32": "115233db",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "snes_spc700_ipl",
+   "what": "The Super Famicom sound processor's 64-byte boot ROM, which MAME's snes driver needs to start any game",
+   "path": "snes/spc700.rom",
+   "size": 64,
+   "sha256": "c95f88b299030d5afa55b1031e2b5ef2dff650c4b4e6bb6f8b1359436521278f",
+   "sha1": "97e352553e94242ae823547cd853eecda55c20f0",
+   "crc32": "44bb3a40",
+   "used_by": "tools/oracle/record_game.py, for every Super Famicom game it runs; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "lupin_rom",
+   "what": "Cartridge ROM of Lupin Sansei: Densetsu no Hihou o Oe!, Epoch 1994, as MAME's snes software list names it",
+   "path": "snes/lupin3/lupin sansei - densetsu no hihou o oe (japan).sfc",
+   "size": 1572864,
+   "sha256": "d8dc6c6fbe0263b383b6f25cf024d4b4401c4cc47698a051456f3bb584346a20",
+   "sha1": "99ae1fcd0b778d221d04f8980458824b809392e7",
+   "crc32": "74adc6e2",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "donald_rom",
+   "what": "Cartridge ROM of Donald Duck no Mahou no Boushi, Epoch 1995, as MAME's snes software list names it",
+   "path": "snes/donaldd/donald duck no mahou no boushi (japan).sfc",
+   "size": 1572864,
+   "sha256": "90dbc1130af7555d3086afcd657f3cb510c52686a0f242d073c6caeb720affad",
+   "sha1": "e5a2e94af71509dee1e8ed86a80c7fec9c40d51f",
+   "crc32": "1ed5d2fa",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "spiderman_rom",
+   "what": "Cartridge ROM of The Amazing Spider-Man: Lethal Foes, Epoch 1995, as MAME's snes software list names it",
+   "path": "snes/spidfoes/amazing spider-man, the - lethal foes (japan).sfc",
+   "size": 1572864,
+   "sha256": "5c4e283efc338958b8dd45ebd6daf133a9eb280420a98e2e1df358ae0242c366",
+   "sha1": "94763d6fc3216082e33cafbecb1e737ef3c5bda9",
+   "crc32": "82f7f710",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "alice_rom",
+   "what": "Cartridge ROM of Alice no Paint Adventure, Epoch 1995, as MAME's snes software list names it",
+   "path": "snes/alicepnt/alice no paint adventure (japan).sfc",
+   "size": 1048576,
+   "sha256": "bef02017488bb76fa7ada9bb7719fdf4336fec8e847d6005c8cf244146f90fbd",
+   "sha1": "18b6fadbcee0741001537ad3f62c8477a2b664cf",
+   "crc32": "05798da8",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "doraemon2_rom",
+   "what": "Cartridge ROM of Doraemon 2: Nobita no Toys Land Daibouken, Epoch 1993, as MAME's snes software list names it",
+   "path": "snes/doraemn2/shvc-2d-0.u1",
+   "size": 1048576,
+   "sha256": "3fe6952b916dd6b4495eb9efc9e2a69c2e88317fbc82c01efbec490dac9ce5b4",
+   "sha1": "8672e208c3716b8fae3fd612bc80679a5459b616",
+   "crc32": "d343b398",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "doraemon3_rom",
+   "what": "Cartridge ROM of Doraemon 3: Nobita to Toki no Hougyoku, Epoch 1994, first chip, as MAME's snes software list names it",
+   "path": "snes/doraemn3/shvc-4t-0 p0.u1",
+   "size": 1048576,
+   "sha256": "60bf02c81ae5fb7e5f447a8fceb3cd510e875523436ca9dccb76ef9df5627dc0",
+   "sha1": "eacf072f3b0c7c181597123e16f6b0be5b3bca9d",
+   "crc32": "50e22ac2",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "doraemon3_p1",
+   "what": "Cartridge ROM of Doraemon 3: Nobita to Toki no Hougyoku, Epoch 1994, second chip, as MAME's snes software list names it",
+   "path": "snes/doraemn3/shvc-4t-0 p1.u2",
+   "size": 524288,
+   "sha256": "bf7132976dc991ded3c090d6ea630ad4fedbd79405754fe9adebe8099bfddfa9",
+   "sha1": "82c8e498908e235fcaff0d3a81a2e7863d2c9031",
+   "crc32": "965c8e80",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "yousei_rom",
+   "what": "Cartridge ROM of Doraemon: Nobita to Yousei no Kuni, Epoch 1993, revision A, as MAME's snes software list names it",
+   "path": "snes/doraemon/shvc-dr-1.u1",
+   "size": 524288,
+   "sha256": "0a0eaaf876827b59c45a9236b70827d55372c094fb572941168e8d1ff8617fba",
+   "sha1": "95b8e45c194618fc122ca10d5af5dbf9b9077aac",
+   "crc32": "55e44983",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "excite95_rom",
+   "what": "Cartridge ROM of J.League Excite Stage '95, Epoch 1995, first chip, as MAME's snes software list names it",
+   "path": "snes/jlexct95/shvc-aj2j-0 p0.u1",
+   "size": 1048576,
+   "sha256": "5c62401d4bae5369ff5500e752dd486f661d58738185ad085b4ec74a91118c75",
+   "sha1": "9a4f292114b6fb6deaf6a4f768345e7a7636fb71",
+   "crc32": "5d05e97b",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "excite95_p1",
+   "what": "Cartridge ROM of J.League Excite Stage '95, Epoch 1995, second chip, as MAME's snes software list names it",
+   "path": "snes/jlexct95/shvc-aj2j-0 p1.u2",
+   "size": 524288,
+   "sha256": "d71b58b4e5b1a20fc5f5f57841d481e9946ae369bcdce7409a2b02c7dab5e3e9",
+   "sha1": "c2c20c0a706d60ec8baaf2fc7d08264768be30f4",
+   "crc32": "a791e51c",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "dslayer2_rom",
+   "what": "Cartridge ROM of Dragon Slayer: Eiyuu Densetsu II, Epoch 1993, as MAME's snes software list names it",
+   "path": "snes/dslayed2/dragon slayer - eiyuu densetsu ii (japan).sfc",
+   "size": 1572864,
+   "sha256": "06e7b2ab97fb7c38ec36d6a0a145a4bbeca89e8e2950e3b00d84a46cb2b56b7a",
+   "sha1": "680539d0a7699adcf06eb0b1ba541603d3aa02e9",
+   "crc32": "f409c139",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "hatayama_rom",
+   "what": "Cartridge ROM of Hatayama Hatch no Pro Yakyuu News! Jitsumei Ban, Epoch 1993, as MAME's snes software list names it",
+   "path": "snes/hatayama/hatayama hatch no pro yakyuu news - jitsumei ban (japan).sfc",
+   "size": 1048576,
+   "sha256": "da44facf3ea24e242b88adaac7ebcf5e5d8617aec7153b0bd73fb0aeba7449da",
+   "sha1": "27b381b003445ef9bd1db0ecf9f018093a3e586b",
+   "crc32": "7a585763",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "excite94_rom",
+   "what": "Cartridge ROM of J.League Excite Stage '94, Epoch 1994, revision A, chip 1, as MAME's snes software list names it",
+   "path": "snes/jlexct94/shvc-jl-1 p0.u1",
+   "size": 1048576,
+   "sha256": "43d3cfad08a6f9c28991d4579767cb6fed489214542f4fd7f97c956259bc6cc3",
+   "sha1": "0422ed14df97df5917dd67efead191ee54d596ab",
+   "crc32": "2cf17e39",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "excite94_p1",
+   "what": "Cartridge ROM of J.League Excite Stage '94, Epoch 1994, revision A, chip 2, as MAME's snes software list names it",
+   "path": "snes/jlexct94/shvc-jl-1 p1.u2",
+   "size": 524288,
+   "sha256": "6f3009bac943a358ba150fff6649cc837dda9cbabe5efbbf14f4df43c92ab9cc",
+   "sha1": "d76cbee8a7e7790639b0fa81af3896d2433a0e30",
+   "crc32": "c6eaa3af",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "datach_battlerush_prg",
+   "what": "Program ROM of Datach Battle Rush: Build Up Robot Tournament, Bandai 1993, as MAME's nes_datach software list names it; the list marks it a bad dump",
+   "path": "nes_datach/dtc_brsh/b-ai '93 battle-rush.ic1",
+   "size": 262144,
+   "sha256": "cbc404d57879beca0b65b855b19fda9e017e7d8cc716941b52bbea8f8a6ee859",
+   "sha1": "29cc759d5ca214eefc0cc1c6ce0f8b9111e58124",
+   "crc32": "983d8175",
+   "used_by": "tools/oracle/record_game.py, which runs the game in MAME to check the decoder; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "gameboy_bspace",
+   "what": "Battle Space, Namco 1992, the game packed with the Barcode Boy reader, as MAME's gameboy software list names it",
+   "path": "gameboy/bspace/dmg-nxj-0.u1",
+   "size": 65536,
+   "sha256": "85b16134b866e1a1009cb0e8eea892293d60b7592262e64c0fba85bf73b67dbc",
+   "sha1": "76e47ad844abdde9eff09ea29a014f9a1eae5093",
+   "crc32": "a828fd4f",
+   "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/extract_barcode_boy.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "gameboy_monstmkb",
+   "what": "Monster Maker: Barcode Saga, Namco 1993, a Barcode Boy game, as MAME's gameboy software list names it",
+   "path": "gameboy/monstmkb/dmg-qnj-0.u1",
+   "size": 131072,
+   "sha256": "d1a01667610bb8ef9b1e5c355a78579e0b1360adcf0aea9be04312658b580862",
+   "sha1": "f7a101338c4eebcdcc1e5d9082a30caa2d706969",
+   "crc32": "56ba6a71",
+   "used_by": "tools/oracle/record_monster_maker.py and tools/oracle/extract_monster_maker.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "gameboy_kattobi",
+   "what": "Kattobi Road, Namco 1993, which reads the Barcode Boy for extra cars, as MAME's gameboy software list names it",
+   "path": "gameboy/kattobi/dmg-k5j-0.u1",
+   "size": 131072,
+   "sha256": "e231dacb818e3d1f9cb0e4e79c5679848be73d59b4c3f7b6ee09d50c58a32abb",
+   "sha1": "7ac064a877ecc8247dfb7213722dbd0f4be665f0",
+   "crc32": "efbc23fc",
+   "used_by": "tools/oracle/record_kattobi.py and tools/oracle/extract_kattobi.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "gameboy_famjock2",
+   "what": "Family Jockey 2: Meiba no Kettou, Namco 1993, which reads the Barcode Boy for extra horses, as MAME's gameboy software list names it",
+   "path": "gameboy/famjock2/dmg-fvj-0.u1",
+   "size": 131072,
+   "sha256": "37708a2ddc3eadeb0dd5846223befc938637be69941ce69299d5b6e950b8ffb1",
+   "sha1": "d858fcdfce099435fa632859a9f8e8c82823bbcb",
+   "crc32": "0325e729",
+   "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/extract_barcode_boy.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "gameboy_famista3",
+   "what": "Famista 3, Namco 1993, which reads the Barcode Boy for extra players, as MAME's gameboy software list names it",
+   "path": "gameboy/famista3/dmg-n3j-0.u1",
+   "size": 262144,
+   "sha256": "ad8e99fdf0e7b3c7a24c8f4ffe12cd5a0a7730353318583cb7abbc039090241d",
+   "sha1": "ac4b03e11e2ba135d0427c8b1da7de57c006b4a6",
+   "crc32": "bdc4ccc3",
+   "used_by": "tools/oracle/record_famista3.py and tools/oracle/extract_famista3.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "gameboy_dmg_boot",
+   "what": "Boot ROM of the original Game Boy, which MAME's gameboy driver needs to start",
+   "path": "gameboy/dmg_boot.bin",
+   "size": 256,
+   "sha256": "cf053eccb4ccafff9e67339d4e78e98dce7d1ed59be819d2a1ba2232c6fce1c7",
+   "sha1": "4ed31ec6b0b175bb109c0eb5fd3d193da823339f",
+   "crc32": "59c8598e",
+   "used_by": "tools/oracle/record_barcode_boy.py, record_monster_maker.py, record_kattobi.py and record_famista3.py, which boot the Game Boy in MAME with it; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "gameboy_dmg_v0",
+   "what": "Early boot ROM of the original Game Boy, the second file MAME's gameboy driver asks for",
+   "path": "gameboy/dmg_v0.rom",
+   "size": 256,
+   "sha256": "26e71cf01e301e5dc40e987cd2ecbf6d0276245890ac829db2a25323da86818e",
+   "sha1": "8bd501e31921e9601788316dbd3ce9833a97bcbc",
+   "crc32": "c2f5cc97",
+   "used_by": "tools/oracle/record_barcode_boy.py, record_monster_maker.py, record_kattobi.py and record_famista3.py, which boot the Game Boy in MAME with it; nothing in the package or its tests reads it"
+  }
+ ]
 }

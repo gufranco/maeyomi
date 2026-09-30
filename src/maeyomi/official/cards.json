@@ -9481,6 +9481,30 @@
    "name": "ハイスラックス",
    "set": "カットビロード カード",
    "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "8357933639923",
+   "name": "ホームランバッター",
+   "set": "ファミスタ3 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "7814374127798",
+   "name": "高打率バッター",
+   "set": "ファミスタ3 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "9880692151263",
+   "name": "駿足バッター",
+   "set": "ファミスタ3 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "1414213562177",
+   "name": "ピッチャー",
+   "set": "ファミスタ3 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
   }
  ]
 }

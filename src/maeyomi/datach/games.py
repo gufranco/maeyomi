@@ -44,6 +44,16 @@ from maeyomi.gameboy.battlespace import (
     decode_battle_space,
     strongest_battle_space,
 )
+from maeyomi.gameboy.famista3 import STAT_KEYS as FAMISTA3_STATS
+from maeyomi.gameboy.famista3 import (
+    build_famista3,
+    decode_famista3,
+    famista3_entries,
+    famista3_named,
+    famista3_picks,
+    famista3_text,
+    strongest_famista3,
+)
 from maeyomi.gameboy.kattobi import STAT_KEYS as KATTOBI_STATS
 from maeyomi.gameboy.kattobi import (
     build_kattobi,
@@ -435,6 +445,17 @@ GAMES: Final[dict[Device, DatachGame]] = {
         describe=kattobi_text,
         named=kattobi_named,
         stat_keys=KATTOBI_STATS,
+        datach_reader=False,
+    ),
+    Device.FAMISTA3: DatachGame(
+        decode=decode_famista3,
+        build=build_famista3,
+        strongest=strongest_famista3,
+        entries=famista3_entries,
+        describe=famista3_text,
+        named=famista3_named,
+        stat_keys=FAMISTA3_STATS,
+        picks=famista3_picks,
         datach_reader=False,
     ),
 }
