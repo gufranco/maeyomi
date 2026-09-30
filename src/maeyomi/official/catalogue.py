@@ -113,6 +113,7 @@ class OfficialSet(Enum):
     MONSTER_MAKER = "モンスターメーカー カード"
     KATTOBI = "カットビロード カード"
     FAMISTA3 = "ファミスタ3 カード"
+    FAMJOCK2 = "ファミリージョッキー2 カード"
     EXCITE94_CLUBS = "エキサイトステージ'94 の Jリーグ 登録選手リスト カード"
     IRWIN = "アーウィン版 バーコードバトラー カードリスト"
     TOMY = "トミー版 バーコードバトラー カードリスト"
@@ -159,6 +160,7 @@ _DEVICES: Final[dict[OfficialSet, Device]] = {
     OfficialSet.MONSTER_MAKER: Device.MONSTER_MAKER,
     OfficialSet.KATTOBI: Device.KATTOBI,
     OfficialSet.FAMISTA3: Device.FAMISTA3,
+    OfficialSet.FAMJOCK2: Device.FAMJOCK2,
     OfficialSet.EXCITE94_CLUBS: Device.EXCITE94,
 }
 
@@ -203,6 +205,7 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.MONSTER_MAKER: "Monster Maker cards",
     OfficialSet.KATTOBI: "Kattobi Road cards",
     OfficialSet.FAMISTA3: "Famista 3 cards",
+    OfficialSet.FAMJOCK2: "Family Jockey 2 cards",
     OfficialSet.EXCITE94_CLUBS: "J.League club roster cards",
     OfficialSet.IRWIN: "Irwin Barcode Battler, United States and Canada",
     OfficialSet.TOMY: "Tomy Barcode Battler, United Kingdom, Ireland and Italy",

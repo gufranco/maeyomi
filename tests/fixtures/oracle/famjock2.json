@@ -1,0 +1,9652 @@
+{
+ "game": "Family Jockey 2",
+ "software": "famjock2",
+ "rom": {
+  "sha1": "d858fcdfce099435fa632859a9f8e8c82823bbcb",
+  "size": 131072
+ },
+ "emulator": "MAME 0.289, gameboy with no link device; tools/oracle/barcode_boy.lua answers the serial port the way a Barcode Boy does",
+ "screen": "each code is scanned from the バーコード item of the racehorse, mare and stallion menus of a new game; horse is the 7 bytes at $A8ED, menu the id at $AF36, bonus the Namco box bonus at $D90C",
+ "recorded_utc": "2026-09-30T20:17:00Z",
+ "cards": [
+  {
+   "barcode": "5893713522816",
+   "kind": "racehorse",
+   "horse": "07030605070401",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1509843019075",
+   "kind": "racehorse",
+   "horse": "05070506040602",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2378649896765",
+   "kind": "racehorse",
+   "horse": "02020002000000",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4232978865152",
+   "kind": "racehorse",
+   "horse": "03080101020101",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7164625542390",
+   "kind": "racehorse",
+   "horse": "09020001010002",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9845554422318",
+   "kind": "racehorse",
+   "horse": "07080605060501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3572821107673",
+   "kind": "racehorse",
+   "horse": "05030305050400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6319537443513",
+   "kind": "racehorse",
+   "horse": "01040101000203",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4907892000001",
+   "kind": "racehorse",
+   "horse": "06050403020301",
+   "menu": 12,
+   "bonus": 1
+  },
+  {
+   "barcode": "4907892070004",
+   "kind": "racehorse",
+   "horse": "06050400020301",
+   "menu": 12,
+   "bonus": 2
+  },
+  {
+   "barcode": "4907892040007",
+   "kind": "racehorse",
+   "horse": "06050407020301",
+   "menu": 12,
+   "bonus": 3
+  },
+  {
+   "barcode": "4907892031005",
+   "kind": "racehorse",
+   "horse": "04030304000101",
+   "menu": 12,
+   "bonus": 4
+  },
+  {
+   "barcode": "4907892033009",
+   "kind": "racehorse",
+   "horse": "00090100060701",
+   "menu": 12,
+   "bonus": 5
+  },
+  {
+   "barcode": "4907892055001",
+   "kind": "racehorse",
+   "horse": "06050908020301",
+   "menu": 12,
+   "bonus": 6
+  },
+  {
+   "barcode": "4907892052000",
+   "kind": "racehorse",
+   "horse": "02010204080903",
+   "menu": 12,
+   "bonus": 7
+  },
+  {
+   "barcode": "9378785700257",
+   "kind": "racehorse",
+   "horse": "09050201070400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2402053733221",
+   "kind": "racehorse",
+   "horse": "02010100030801",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5858605421868",
+   "kind": "racehorse",
+   "horse": "08090101020202",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6732077359326",
+   "kind": "racehorse",
+   "horse": "08080308050803",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1010768543069",
+   "kind": "racehorse",
+   "horse": "02050707070902",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6223855373875",
+   "kind": "racehorse",
+   "horse": "07070104090001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5273941616615",
+   "kind": "racehorse",
+   "horse": "03070600040802",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4263793433974",
+   "kind": "racehorse",
+   "horse": "07080100000801",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7632385224752",
+   "kind": "racehorse",
+   "horse": "07080401000202",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6103918654342",
+   "kind": "racehorse",
+   "horse": "02000000000103",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9975922851089",
+   "kind": "racehorse",
+   "horse": "08090902040702",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6606877263957",
+   "kind": "racehorse",
+   "horse": "03060901060001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0346808950544",
+   "kind": "racehorse",
+   "horse": "06060004070502",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1699000868070",
+   "kind": "racehorse",
+   "horse": "07090603040500",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8258166090683",
+   "kind": "racehorse",
+   "horse": "06030604040900",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6388064432864",
+   "kind": "racehorse",
+   "horse": "04050808080700",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4371973608644",
+   "kind": "racehorse",
+   "horse": "02030405000601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2364753762935",
+   "kind": "racehorse",
+   "horse": "01060801010603",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9728158732246",
+   "kind": "racehorse",
+   "horse": "04010000030301",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5152914661107",
+   "kind": "racehorse",
+   "horse": "04040307060301",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1850564692314",
+   "kind": "racehorse",
+   "horse": "01020006020902",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1769425942027",
+   "kind": "racehorse",
+   "horse": "06030405090402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1154480024496",
+   "kind": "racehorse",
+   "horse": "03070603000900",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2677698761599",
+   "kind": "racehorse",
+   "horse": "07020701010103",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0183375215528",
+   "kind": "racehorse",
+   "horse": "08000904040603",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7275605763534",
+   "kind": "racehorse",
+   "horse": "09000709090600",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2016152389250",
+   "kind": "racehorse",
+   "horse": "05010705090701",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1250551355909",
+   "kind": "racehorse",
+   "horse": "06040908050201",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4102599754923",
+   "kind": "racehorse",
+   "horse": "08040808090001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5749502470823",
+   "kind": "racehorse",
+   "horse": "04090006020902",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9521298248208",
+   "kind": "racehorse",
+   "horse": "06070207040901",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6603712816774",
+   "kind": "racehorse",
+   "horse": "01000802080101",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8930586158296",
+   "kind": "racehorse",
+   "horse": "05070208030700",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9829275476461",
+   "kind": "racehorse",
+   "horse": "02090000060603",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5691753959063",
+   "kind": "racehorse",
+   "horse": "00030106090201",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6642492173714",
+   "kind": "racehorse",
+   "horse": "03080306090903",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5047889172287",
+   "kind": "racehorse",
+   "horse": "02050408010800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3699721410952",
+   "kind": "racehorse",
+   "horse": "09020202040002",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9092218431265",
+   "kind": "racehorse",
+   "horse": "04090708080103",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9358413336010",
+   "kind": "racehorse",
+   "horse": "03010602010003",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5078461235588",
+   "kind": "racehorse",
+   "horse": "06020108060400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9756217202171",
+   "kind": "racehorse",
+   "horse": "03060603040801",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0591350894352",
+   "kind": "racehorse",
+   "horse": "05020206040501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0589417064275",
+   "kind": "racehorse",
+   "horse": "01050607000601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6869049039778",
+   "kind": "racehorse",
+   "horse": "09080902080602",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1499315480086",
+   "kind": "racehorse",
+   "horse": "02030209040401",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5437183633018",
+   "kind": "racehorse",
+   "horse": "09070908000602",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2065037738133",
+   "kind": "racehorse",
+   "horse": "07040004070603",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8722314470905",
+   "kind": "racehorse",
+   "horse": "08060602080703",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1707553558192",
+   "kind": "racehorse",
+   "horse": "03040006050201",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0887760899415",
+   "kind": "racehorse",
+   "horse": "09010504020300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4920356841729",
+   "kind": "racehorse",
+   "horse": "08020507000701",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0313696306920",
+   "kind": "racehorse",
+   "horse": "06020801030501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2145485394300",
+   "kind": "racehorse",
+   "horse": "04060600030400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1988814312184",
+   "kind": "racehorse",
+   "horse": "02040402030301",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2617921008251",
+   "kind": "racehorse",
+   "horse": "05010607060602",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8075432131686",
+   "kind": "racehorse",
+   "horse": "08050900070703",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9311895812403",
+   "kind": "racehorse",
+   "horse": "00030008040001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8992474362024",
+   "kind": "racehorse",
+   "horse": "08050609050503",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7175577210541",
+   "kind": "racehorse",
+   "horse": "02020606060001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5821720438318",
+   "kind": "racehorse",
+   "horse": "09000408080300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2165228759715",
+   "kind": "racehorse",
+   "horse": "07020308090902",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1242967298086",
+   "kind": "racehorse",
+   "horse": "08090606080202",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2770029071968",
+   "kind": "racehorse",
+   "horse": "00020308000802",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1886886841901",
+   "kind": "racehorse",
+   "horse": "04020305080500",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3619639475133",
+   "kind": "racehorse",
+   "horse": "09060900060003",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1265186473768",
+   "kind": "racehorse",
+   "horse": "06060104000100",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2100649939087",
+   "kind": "racehorse",
+   "horse": "02030104090800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9782773796014",
+   "kind": "racehorse",
+   "horse": "07050002090403",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6050899621422",
+   "kind": "racehorse",
+   "horse": "02030909020401",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5787739960915",
+   "kind": "racehorse",
+   "horse": "03000005070601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3807255685573",
+   "kind": "racehorse",
+   "horse": "07040305020001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1831742335797",
+   "kind": "racehorse",
+   "horse": "05020906050300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2261753141961",
+   "kind": "racehorse",
+   "horse": "00020305010201",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0281174190753",
+   "kind": "racehorse",
+   "horse": "09000200010303",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1708008792239",
+   "kind": "racehorse",
+   "horse": "05030208050502",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5967169502088",
+   "kind": "racehorse",
+   "horse": "00010209030600",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1820039779468",
+   "kind": "racehorse",
+   "horse": "06030704030403",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4993711484404",
+   "kind": "racehorse",
+   "horse": "04070609040001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9787401182696",
+   "kind": "racehorse",
+   "horse": "03090409010000",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9837154714719",
+   "kind": "racehorse",
+   "horse": "03080400050103",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0208177491267",
+   "kind": "racehorse",
+   "horse": "06010906000203",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6142443715647",
+   "kind": "racehorse",
+   "horse": "04050308030800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7411439705580",
+   "kind": "racehorse",
+   "horse": "08040307030403",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7711181287106",
+   "kind": "racehorse",
+   "horse": "06060101040200",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2362377699682",
+   "kind": "racehorse",
+   "horse": "04010302080803",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8119858854184",
+   "kind": "racehorse",
+   "horse": "04060808000901",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1583765311158",
+   "kind": "racehorse",
+   "horse": "05000908090002",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9066000910481",
+   "kind": "racehorse",
+   "horse": "08030808050500",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5728534957564",
+   "kind": "racehorse",
+   "horse": "02000108010503",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3761213299380",
+   "kind": "racehorse",
+   "horse": "08020706080801",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4165928114034",
+   "kind": "racehorse",
+   "horse": "07030602010702",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4741988901038",
+   "kind": "racehorse",
+   "horse": "01070705030102",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9437579715706",
+   "kind": "racehorse",
+   "horse": "06020904090003",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7090898496156",
+   "kind": "racehorse",
+   "horse": "03080204080103",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0303126944754",
+   "kind": "racehorse",
+   "horse": "09000605090502",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0608413361048",
+   "kind": "racehorse",
+   "horse": "04090903090801",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5807193778403",
+   "kind": "racehorse",
+   "horse": "08010402010603",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5775074948767",
+   "kind": "racehorse",
+   "horse": "08080803070101",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6948491603369",
+   "kind": "racehorse",
+   "horse": "00060501060001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9625510799209",
+   "kind": "racehorse",
+   "horse": "00010706030501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9948725555973",
+   "kind": "racehorse",
+   "horse": "01020706050402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9010421046977",
+   "kind": "racehorse",
+   "horse": "03040007020202",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4756314540140",
+   "kind": "racehorse",
+   "horse": "04000801010901",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9252625564363",
+   "kind": "racehorse",
+   "horse": "00060607050402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6166729168941",
+   "kind": "racehorse",
+   "horse": "06000805090600",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6950011775999",
+   "kind": "racehorse",
+   "horse": "03020708070001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6478692259657",
+   "kind": "racehorse",
+   "horse": "07070904000903",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9919107396545",
+   "kind": "racehorse",
+   "horse": "08080800030600",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1996084990254",
+   "kind": "racehorse",
+   "horse": "07030008070102",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3952630594220",
+   "kind": "racehorse",
+   "horse": "08070802070103",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9806706294900",
+   "kind": "racehorse",
+   "horse": "06040802040700",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8605872747972",
+   "kind": "racehorse",
+   "horse": "05060309010501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0505375910829",
+   "kind": "racehorse",
+   "horse": "02070808050003",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5986295213842",
+   "kind": "racehorse",
+   "horse": "04070108080001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6144592546493",
+   "kind": "racehorse",
+   "horse": "07010209090503",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6661548825704",
+   "kind": "racehorse",
+   "horse": "08040107020102",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2749429660942",
+   "kind": "racehorse",
+   "horse": "04080803020402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0549300935235",
+   "kind": "racehorse",
+   "horse": "07050704090900",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9537956677112",
+   "kind": "racehorse",
+   "horse": "05040908060501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6111442479041",
+   "kind": "racehorse",
+   "horse": "04090704000700",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9073023772118",
+   "kind": "racehorse",
+   "horse": "07060600090402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9516234644343",
+   "kind": "racehorse",
+   "horse": "04020201020903",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2727314560829",
+   "kind": "racehorse",
+   "horse": "04090005030103",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6035072069710",
+   "kind": "racehorse",
+   "horse": "03080905080901",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6050549042881",
+   "kind": "racehorse",
+   "horse": "06050809040202",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7952047398639",
+   "kind": "racehorse",
+   "horse": "01030404070002",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7800280772221",
+   "kind": "racehorse",
+   "horse": "04030206050702",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7723199165765",
+   "kind": "racehorse",
+   "horse": "00000707010801",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5572113937320",
+   "kind": "racehorse",
+   "horse": "06060904090201",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3338749145001",
+   "kind": "racehorse",
+   "horse": "04030705010800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0753537267162",
+   "kind": "racehorse",
+   "horse": "06000503080203",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7342526505946",
+   "kind": "racehorse",
+   "horse": "08020701050502",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9275883550886",
+   "kind": "racehorse",
+   "horse": "08070802010800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7103542576767",
+   "kind": "racehorse",
+   "horse": "02020000070300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6514668870126",
+   "kind": "racehorse",
+   "horse": "08060400000902",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4360909869334",
+   "kind": "racehorse",
+   "horse": "03020703040400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8141715641859",
+   "kind": "racehorse",
+   "horse": "01030507080601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5867381972211",
+   "kind": "racehorse",
+   "horse": "07070600010200",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7795465268425",
+   "kind": "racehorse",
+   "horse": "08090209040602",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7449225150535",
+   "kind": "racehorse",
+   "horse": "01020600050800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8228933067897",
+   "kind": "racehorse",
+   "horse": "07050301040601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3926559740723",
+   "kind": "racehorse",
+   "horse": "00040609010203",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3497149939303",
+   "kind": "racehorse",
+   "horse": "00020700050400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6718670492981",
+   "kind": "racehorse",
+   "horse": "02020400040903",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9767051603833",
+   "kind": "racehorse",
+   "horse": "07010501060001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3522817348573",
+   "kind": "racehorse",
+   "horse": "01080005030601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9170878951870",
+   "kind": "racehorse",
+   "horse": "03030508010903",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0019497704742",
+   "kind": "racehorse",
+   "horse": "04060207030201",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6092023274890",
+   "kind": "racehorse",
+   "horse": "07050002060600",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7599460087728",
+   "kind": "racehorse",
+   "horse": "00040303040300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5679326844763",
+   "kind": "racehorse",
+   "horse": "02020807000702",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9588320440290",
+   "kind": "racehorse",
+   "horse": "09010801000502",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3203844847566",
+   "kind": "racehorse",
+   "horse": "02000107000500",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8651578245014",
+   "kind": "racehorse",
+   "horse": "03010503000501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4331883671015",
+   "kind": "racehorse",
+   "horse": "07050500080400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6864687357406",
+   "kind": "racehorse",
+   "horse": "06090108050800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5907126443092",
+   "kind": "racehorse",
+   "horse": "07070909080900",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3899665140728",
+   "kind": "racehorse",
+   "horse": "06000205010402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8252754531541",
+   "kind": "racehorse",
+   "horse": "02020708090703",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6527405256398",
+   "kind": "racehorse",
+   "horse": "07000200060802",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6905953524556",
+   "kind": "racehorse",
+   "horse": "05040209010801",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9271618078595",
+   "kind": "racehorse",
+   "horse": "03080008000701",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3639755635457",
+   "kind": "racehorse",
+   "horse": "09070704060401",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1074798970523",
+   "kind": "racehorse",
+   "horse": "00020602030103",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1448390049206",
+   "kind": "racehorse",
+   "horse": "06070307020101",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8594952890731",
+   "kind": "racehorse",
+   "horse": "09020402000301",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5780969630740",
+   "kind": "racehorse",
+   "horse": "04060800020402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7850397567777",
+   "kind": "racehorse",
+   "horse": "01000907050601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0771768140306",
+   "kind": "racehorse",
+   "horse": "06080407030902",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2065068023246",
+   "kind": "racehorse",
+   "horse": "04010109060302",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9306865360176",
+   "kind": "racehorse",
+   "horse": "03060409050602",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6504113339766",
+   "kind": "racehorse",
+   "horse": "06060700090801",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5814902258446",
+   "kind": "racehorse",
+   "horse": "08070006020100",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0205549643811",
+   "kind": "racehorse",
+   "horse": "05010505060800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4096347484814",
+   "kind": "racehorse",
+   "horse": "09050003080002",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3719662980731",
+   "kind": "racehorse",
+   "horse": "01040603030500",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2690414083515",
+   "kind": "racehorse",
+   "horse": "05080509000301",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7107339091471",
+   "kind": "racehorse",
+   "horse": "05010704040201",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3203614557947",
+   "kind": "racehorse",
+   "horse": "06000704030103",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3931650512254",
+   "kind": "racehorse",
+   "horse": "07030200030703",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6472193061535",
+   "kind": "racehorse",
+   "horse": "01020701040603",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4866324742493",
+   "kind": "racehorse",
+   "horse": "07010809010700",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8805585629811",
+   "kind": "racehorse",
+   "horse": "03090901040202",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8173639752519",
+   "kind": "racehorse",
+   "horse": "03060204050601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8850129858691",
+   "kind": "racehorse",
+   "horse": "05010208000002",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6134952722995",
+   "kind": "racehorse",
+   "horse": "09080009030701",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6950936006390",
+   "kind": "racehorse",
+   "horse": "01040609080301",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5183862373996",
+   "kind": "racehorse",
+   "horse": "05040700050302",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3328259113003",
+   "kind": "racehorse",
+   "horse": "06050704030001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9346481501089",
+   "kind": "racehorse",
+   "horse": "02030301050000",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0742557036261",
+   "kind": "racehorse",
+   "horse": "00050804000601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7114479285189",
+   "kind": "racehorse",
+   "horse": "00020507000601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9431729298460",
+   "kind": "racehorse",
+   "horse": "06030606080402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9210483442056",
+   "kind": "racehorse",
+   "horse": "09030405040200",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8363001294277",
+   "kind": "racehorse",
+   "horse": "05090004060402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4595698633501",
+   "kind": "racehorse",
+   "horse": "00040100020301",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9606658288244",
+   "kind": "racehorse",
+   "horse": "08050009020701",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7948098560767",
+   "kind": "racehorse",
+   "horse": "08080005030503",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1543134472828",
+   "kind": "racehorse",
+   "horse": "00050802080701",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0521337105362",
+   "kind": "racehorse",
+   "horse": "00060701010603",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7737515396184",
+   "kind": "racehorse",
+   "horse": "00020608010203",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5564652490961",
+   "kind": "racehorse",
+   "horse": "04060604080503",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8592354727679",
+   "kind": "racehorse",
+   "horse": "07050509030901",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6108674511878",
+   "kind": "racehorse",
+   "horse": "05050706090701",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3834264803926",
+   "kind": "racehorse",
+   "horse": "06020501080302",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8274389296930",
+   "kind": "racehorse",
+   "horse": "09040002040000",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3035566289504",
+   "kind": "racehorse",
+   "horse": "02060907000300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8409006056424",
+   "kind": "racehorse",
+   "horse": "06070806000500",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1057666845697",
+   "kind": "racehorse",
+   "horse": "05010907000702",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3574516208542",
+   "kind": "racehorse",
+   "horse": "02020405060903",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4426943778268",
+   "kind": "racehorse",
+   "horse": "02070200090400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1143534857357",
+   "kind": "racehorse",
+   "horse": "07040704060101",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9406547162866",
+   "kind": "racehorse",
+   "horse": "06070003070200",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7033816756505",
+   "kind": "racehorse",
+   "horse": "02060604050303",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0585732393809",
+   "kind": "racehorse",
+   "horse": "08050904070501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1331406447953",
+   "kind": "racehorse",
+   "horse": "01040107060700",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0922509764217",
+   "kind": "racehorse",
+   "horse": "01010203030400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3383473924033",
+   "kind": "racehorse",
+   "horse": "01070007030601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7674848857916",
+   "kind": "racehorse",
+   "horse": "07040108000900",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2637183587486",
+   "kind": "racehorse",
+   "horse": "02070909050200",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6216031370942",
+   "kind": "racehorse",
+   "horse": "04080804090603",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1424534068838",
+   "kind": "racehorse",
+   "horse": "05090805080101",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7673121182400",
+   "kind": "racehorse",
+   "horse": "08010803050400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0673315162758",
+   "kind": "racehorse",
+   "horse": "05060003070001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0691642881258",
+   "kind": "racehorse",
+   "horse": "01070501000300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5742421197666",
+   "kind": "racehorse",
+   "horse": "02010102030202",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6156399616668",
+   "kind": "racehorse",
+   "horse": "04030206000203",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9039815808861",
+   "kind": "racehorse",
+   "horse": "08090809060203",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6469980849872",
+   "kind": "racehorse",
+   "horse": "03030307000100",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4506294527712",
+   "kind": "racehorse",
+   "horse": "01060509010901",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4695768174368",
+   "kind": "racehorse",
+   "horse": "06020204070302",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5863811826550",
+   "kind": "racehorse",
+   "horse": "09080803080001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "8463388651059",
+   "kind": "racehorse",
+   "horse": "07010104040502",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1353877361095",
+   "kind": "racehorse",
+   "horse": "03030307030603",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1508332888277",
+   "kind": "racehorse",
+   "horse": "05090403020501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "9989091319776",
+   "kind": "racehorse",
+   "horse": "01000102030001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "6322199329668",
+   "kind": "racehorse",
+   "horse": "08070901010603",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1431797037488",
+   "kind": "racehorse",
+   "horse": "06010308040003",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4641632916541",
+   "kind": "racehorse",
+   "horse": "02020206030501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1335989865906",
+   "kind": "racehorse",
+   "horse": "08060101020202",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "0883542706209",
+   "kind": "racehorse",
+   "horse": "00010407030700",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4976209058455",
+   "kind": "racehorse",
+   "horse": "05030602060400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "1843554738147",
+   "kind": "racehorse",
+   "horse": "00060206090501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2049236576840",
+   "kind": "racehorse",
+   "horse": "06090606030301",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "3848653232808",
+   "kind": "racehorse",
+   "horse": "06030606040401",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4777773775997",
+   "kind": "racehorse",
+   "horse": "01000506050001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "2862551079861",
+   "kind": "racehorse",
+   "horse": "02030300020201",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4030027623483",
+   "kind": "racehorse",
+   "horse": "06010907000000",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "7106061499562",
+   "kind": "racehorse",
+   "horse": "08060908020800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "69490019",
+   "kind": "racehorse",
+   "horse": "05030200040802",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "28965688",
+   "kind": "racehorse",
+   "horse": "06030101030100",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "62940740",
+   "kind": "racehorse",
+   "horse": "02040609030500",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "99015510",
+   "kind": "racehorse",
+   "horse": "07000904020001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "50662265",
+   "kind": "racehorse",
+   "horse": "04090801000303",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "95792989",
+   "kind": "racehorse",
+   "horse": "02020400070401",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "97143208",
+   "kind": "racehorse",
+   "horse": "00010101070201",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "03668573",
+   "kind": "racehorse",
+   "horse": "01080007060200",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "00917865",
+   "kind": "racehorse",
+   "horse": "08090700070702",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "87182521",
+   "kind": "racehorse",
+   "horse": "02040005070200",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "98983247",
+   "kind": "racehorse",
+   "horse": "00070701010901",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "78308954",
+   "kind": "racehorse",
+   "horse": "05080607090303",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "25311891",
+   "kind": "racehorse",
+   "horse": "05030504050602",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "09070431",
+   "kind": "racehorse",
+   "horse": "03030804060400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "00743884",
+   "kind": "racehorse",
+   "horse": "08070101030500",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "41033425",
+   "kind": "racehorse",
+   "horse": "00010908040402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "01062601",
+   "kind": "racehorse",
+   "horse": "02070205080802",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "46734389",
+   "kind": "racehorse",
+   "horse": "08020200030100",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "31336161",
+   "kind": "racehorse",
+   "horse": "06000400090603",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "63189391",
+   "kind": "racehorse",
+   "horse": "05080301030402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "97645313",
+   "kind": "racehorse",
+   "horse": "05060705060601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "11548317",
+   "kind": "racehorse",
+   "horse": "07080207070201",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "57624716",
+   "kind": "racehorse",
+   "horse": "05000603060601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "08375940",
+   "kind": "racehorse",
+   "horse": "06000506010502",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "25621969",
+   "kind": "racehorse",
+   "horse": "02040505080602",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "65192849",
+   "kind": "racehorse",
+   "horse": "04070006070002",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "73435082",
+   "kind": "racehorse",
+   "horse": "06070108080601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "72058572",
+   "kind": "racehorse",
+   "horse": "09060804080901",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "67963690",
+   "kind": "racehorse",
+   "horse": "01070305070400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "10541814",
+   "kind": "racehorse",
+   "horse": "01070901010501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018765433",
+   "kind": "racehorse",
+   "horse": "09090909090901",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900039876545",
+   "kind": "racehorse",
+   "horse": "00000000000003",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900045319753",
+   "kind": "racehorse",
+   "horse": "01020304050600",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900024208641",
+   "kind": "racehorse",
+   "horse": "00010203040502",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900016420860",
+   "kind": "racehorse",
+   "horse": "02030405060701",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900037531972",
+   "kind": "racehorse",
+   "horse": "03040506070803",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900008642089",
+   "kind": "racehorse",
+   "horse": "04050607080900",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029753191",
+   "kind": "racehorse",
+   "horse": "05060708090002",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900040864203",
+   "kind": "racehorse",
+   "horse": "06070809000100",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900011975310",
+   "kind": "racehorse",
+   "horse": "07080900010201",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032086422",
+   "kind": "racehorse",
+   "horse": "08090001020303",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003197539",
+   "kind": "racehorse",
+   "horse": "09000102030400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013210983",
+   "kind": "racehorse",
+   "horse": "04040404040401",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900034321095",
+   "kind": "racehorse",
+   "horse": "05050505050503",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900017972795",
+   "kind": "racehorse",
+   "horse": "05020600010801",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900002675052",
+   "kind": "racehorse",
+   "horse": "01050900080300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900012932640",
+   "kind": "racehorse",
+   "horse": "00010606010301",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900020772351",
+   "kind": "racehorse",
+   "horse": "01080600090102",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015766471",
+   "kind": "racehorse",
+   "horse": "03090009090601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013056840",
+   "kind": "racehorse",
+   "horse": "00030008020401",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003784708",
+   "kind": "racehorse",
+   "horse": "06020801090400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900002767726",
+   "kind": "racehorse",
+   "horse": "08020109090300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900019784693",
+   "kind": "racehorse",
+   "horse": "05010801090001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900014453839",
+   "kind": "racehorse",
+   "horse": "09030708060501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900002223413",
+   "kind": "racehorse",
+   "horse": "07090705040300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900017267860",
+   "kind": "racehorse",
+   "horse": "02030109040801",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900000713015",
+   "kind": "racehorse",
+   "horse": "07050704090100",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900011392353",
+   "kind": "racehorse",
+   "horse": "01080602050201",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900038686114",
+   "kind": "racehorse",
+   "horse": "07060001080903",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018561097",
+   "kind": "racehorse",
+   "horse": "05050509070901",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900030517614",
+   "kind": "racehorse",
+   "horse": "07010104070103",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900005245948",
+   "kind": "racehorse",
+   "horse": "00040907040600",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900048023596",
+   "kind": "racehorse",
+   "horse": "05000705020900",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900031206258",
+   "kind": "racehorse",
+   "horse": "01070003040203",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900031942170",
+   "kind": "racehorse",
+   "horse": "03060607010203",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015014114",
+   "kind": "racehorse",
+   "horse": "07060804020601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032422923",
+   "kind": "racehorse",
+   "horse": "08040605060303",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900012198664",
+   "kind": "racehorse",
+   "horse": "02010202030301",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003295242",
+   "kind": "racehorse",
+   "horse": "00070902040400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900028352746",
+   "kind": "racehorse",
+   "horse": "00020608050902",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900039758032",
+   "kind": "racehorse",
+   "horse": "09050208090003",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900045432315",
+   "kind": "racehorse",
+   "horse": "07080606060600",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900030172257",
+   "kind": "racehorse",
+   "horse": "01070600030103",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900038388278",
+   "kind": "racehorse",
+   "horse": "03070201050903",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900017066647",
+   "kind": "racehorse",
+   "horse": "00010009020801",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022975057",
+   "kind": "racehorse",
+   "horse": "01050900010302",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900028318131",
+   "kind": "racehorse",
+   "horse": "09060204050902",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900006587290",
+   "kind": "racehorse",
+   "horse": "05070101070700",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900000080216",
+   "kind": "racehorse",
+   "horse": "07070401020100",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900039693999",
+   "kind": "racehorse",
+   "horse": "05040702080003",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029691370",
+   "kind": "racehorse",
+   "horse": "03080502080002",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900014617927",
+   "kind": "racehorse",
+   "horse": "08040104080501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007659064",
+   "kind": "racehorse",
+   "horse": "02050308080800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015105898",
+   "kind": "racehorse",
+   "horse": "05030903030601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029344870",
+   "kind": "racehorse",
+   "horse": "03030807050002",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900038113948",
+   "kind": "racehorse",
+   "horse": "00040704030903",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022921290",
+   "kind": "racehorse",
+   "horse": "05070505010302",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900002303856",
+   "kind": "racehorse",
+   "horse": "01030703050300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900004575411",
+   "kind": "racehorse",
+   "horse": "07090900070500",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900041502654",
+   "kind": "racehorse",
+   "horse": "01010603070200",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900045537003",
+   "kind": "racehorse",
+   "horse": "06050106070600",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900001898759",
+   "kind": "racehorse",
+   "horse": "01020202000200",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900036768232",
+   "kind": "racehorse",
+   "horse": "09070209090703",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900039054790",
+   "kind": "racehorse",
+   "horse": "05020808020003",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900047949194",
+   "kind": "racehorse",
+   "horse": "05060307010800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022755024",
+   "kind": "racehorse",
+   "horse": "08050908090302",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900020166921",
+   "kind": "racehorse",
+   "horse": "08040009030102",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022296015",
+   "kind": "racehorse",
+   "horse": "07050002040302",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032503851",
+   "kind": "racehorse",
+   "horse": "01030703070303",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900044248078",
+   "kind": "racehorse",
+   "horse": "03050207040500",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900005293215",
+   "kind": "racehorse",
+   "horse": "07070702040600",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022106079",
+   "kind": "racehorse",
+   "horse": "03050003030302",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007629166",
+   "kind": "racehorse",
+   "horse": "02060305080800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900012002039",
+   "kind": "racehorse",
+   "horse": "09050603020301",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022278196",
+   "kind": "racehorse",
+   "horse": "05060200040302",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900042064885",
+   "kind": "racehorse",
+   "horse": "04030809020300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900048159776",
+   "kind": "racehorse",
+   "horse": "03020308030900",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025948379",
+   "kind": "racehorse",
+   "horse": "03080207010602",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900040636756",
+   "kind": "racehorse",
+   "horse": "01020006080100",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900019535301",
+   "kind": "racehorse",
+   "horse": "06080906070001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015693418",
+   "kind": "racehorse",
+   "horse": "07090702080601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900030553759",
+   "kind": "racehorse",
+   "horse": "01020708070103",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029686673",
+   "kind": "racehorse",
+   "horse": "03010001080002",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032826141",
+   "kind": "racehorse",
+   "horse": "00060005000303",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900012881764",
+   "kind": "racehorse",
+   "horse": "02020501000301",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007439482",
+   "kind": "racehorse",
+   "horse": "04090306060800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900036365103",
+   "kind": "racehorse",
+   "horse": "06060909050703",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900026967232",
+   "kind": "racehorse",
+   "horse": "09070109010702",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015890879",
+   "kind": "racehorse",
+   "horse": "03030402000601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018483030",
+   "kind": "racehorse",
+   "horse": "09050701060901",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007235190",
+   "kind": "racehorse",
+   "horse": "05060906040800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900019392409",
+   "kind": "racehorse",
+   "horse": "06090602050001",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900044515675",
+   "kind": "racehorse",
+   "horse": "03010904070500",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900004742370",
+   "kind": "racehorse",
+   "horse": "03080607090500",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900047165310",
+   "kind": "racehorse",
+   "horse": "07080909030800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029749736",
+   "kind": "racehorse",
+   "horse": "09020307090002",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032321493",
+   "kind": "racehorse",
+   "horse": "05090505050303",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900041699378",
+   "kind": "racehorse",
+   "horse": "03080302080200",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900042908608",
+   "kind": "racehorse",
+   "horse": "06010203010300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900036674335",
+   "kind": "racehorse",
+   "horse": "09080800080703",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025341552",
+   "kind": "racehorse",
+   "horse": "01000507050602",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900010423638",
+   "kind": "racehorse",
+   "horse": "09010705060101",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900024750478",
+   "kind": "racehorse",
+   "horse": "03090408090502",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900024063264",
+   "kind": "racehorse",
+   "horse": "02070709020502",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900047806534",
+   "kind": "racehorse",
+   "horse": "09000003000800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900034574491",
+   "kind": "racehorse",
+   "horse": "05090800070503",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032792644",
+   "kind": "racehorse",
+   "horse": "00010602090303",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018429328",
+   "kind": "racehorse",
+   "horse": "08080305060901",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900010317203",
+   "kind": "racehorse",
+   "horse": "06070104050101",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033455494",
+   "kind": "racehorse",
+   "horse": "05090908060403",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900011880270",
+   "kind": "racehorse",
+   "horse": "03070401000201",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022340411",
+   "kind": "racehorse",
+   "horse": "07090407050302",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900023103855",
+   "kind": "racehorse",
+   "horse": "01030703030402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900004334995",
+   "kind": "racehorse",
+   "horse": "05040806050500",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900037537066",
+   "kind": "racehorse",
+   "horse": "02050106070803",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033504543",
+   "kind": "racehorse",
+   "horse": "00000803070403",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900040657249",
+   "kind": "racehorse",
+   "horse": "00070108080100",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900023913621",
+   "kind": "racehorse",
+   "horse": "08010704010402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900005549879",
+   "kind": "racehorse",
+   "horse": "03030307070600",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900042770250",
+   "kind": "racehorse",
+   "horse": "01070400090300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013228452",
+   "kind": "racehorse",
+   "horse": "01090205040401",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900009578431",
+   "kind": "racehorse",
+   "horse": "09090200070000",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033507919",
+   "kind": "racehorse",
+   "horse": "07040103070403",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900010543923",
+   "kind": "racehorse",
+   "horse": "08040707070101",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900049580821",
+   "kind": "racehorse",
+   "horse": "08030401070000",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013557286",
+   "kind": "racehorse",
+   "horse": "04070108070401",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900000789805",
+   "kind": "racehorse",
+   "horse": "06030301090100",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900008020368",
+   "kind": "racehorse",
+   "horse": "02080405020900",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900016127929",
+   "kind": "racehorse",
+   "horse": "08040105030701",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900016896115",
+   "kind": "racehorse",
+   "horse": "07060002000701",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900014490117",
+   "kind": "racehorse",
+   "horse": "07060402060501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900014827005",
+   "kind": "racehorse",
+   "horse": "06050105000501",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900023807197",
+   "kind": "racehorse",
+   "horse": "05060103000402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900028437085",
+   "kind": "racehorse",
+   "horse": "04050106060902",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013812057",
+   "kind": "racehorse",
+   "horse": "01050604000401",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003190554",
+   "kind": "racehorse",
+   "horse": "01000402030400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025301303",
+   "kind": "racehorse",
+   "horse": "06080503050602",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900020154140",
+   "kind": "racehorse",
+   "horse": "00060808030102",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900043063146",
+   "kind": "racehorse",
+   "horse": "00060709020400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900016094511",
+   "kind": "racehorse",
+   "horse": "07000802020701",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900043210007",
+   "kind": "racehorse",
+   "horse": "06050404040400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900005640804",
+   "kind": "racehorse",
+   "horse": "06030407080600",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900027188759",
+   "kind": "racehorse",
+   "horse": "01020201030802",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900036349318",
+   "kind": "racehorse",
+   "horse": "07080307050703",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900010104704",
+   "kind": "racehorse",
+   "horse": "06020803030101",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032384061",
+   "kind": "racehorse",
+   "horse": "02050801050303",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900045805997",
+   "kind": "racehorse",
+   "horse": "05040903000600",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033404102",
+   "kind": "racehorse",
+   "horse": "06060803060403",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900024713596",
+   "kind": "racehorse",
+   "horse": "05000704090502",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900023904360",
+   "kind": "racehorse",
+   "horse": "02080803010402",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033442173",
+   "kind": "racehorse",
+   "horse": "03060607060403",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018536743",
+   "kind": "racehorse",
+   "horse": "00020006070901",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900026637517",
+   "kind": "racehorse",
+   "horse": "07000106080702",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900031007817",
+   "kind": "racehorse",
+   "horse": "07030103020203",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900009683623",
+   "kind": "racehorse",
+   "horse": "08010701080000",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003869740",
+   "kind": "racehorse",
+   "horse": "00020309000400",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900020934964",
+   "kind": "racehorse",
+   "horse": "02040806010102",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015164956",
+   "kind": "racehorse",
+   "horse": "01040809030601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007875884",
+   "kind": "racehorse",
+   "horse": "04030900000800",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900026120286",
+   "kind": "racehorse",
+   "horse": "04070405030702",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025804828",
+   "kind": "racehorse",
+   "horse": "08030803000602",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025506586",
+   "kind": "racehorse",
+   "horse": "04000003070602",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900042339952",
+   "kind": "racehorse",
+   "horse": "01040306050300",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015331518",
+   "kind": "racehorse",
+   "horse": "07000506050601",
+   "menu": 12,
+   "bonus": 0
+  },
+  {
+   "barcode": "5893713522816",
+   "kind": "mare",
+   "horse": "02080100020902",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1509843019075",
+   "kind": "mare",
+   "horse": "00020001090103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2378649896765",
+   "kind": "mare",
+   "horse": "07070507050501",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4232978865152",
+   "kind": "mare",
+   "horse": "08030606070602",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7164625542390",
+   "kind": "mare",
+   "horse": "04070506060503",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9845554422318",
+   "kind": "mare",
+   "horse": "02030100010002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3572821107673",
+   "kind": "mare",
+   "horse": "00080800000901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6319537443513",
+   "kind": "mare",
+   "horse": "06090606050700",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4907892000001",
+   "kind": "mare",
+   "horse": "01000908070802",
+   "menu": 18,
+   "bonus": 1
+  },
+  {
+   "barcode": "4907892070004",
+   "kind": "mare",
+   "horse": "01000905070802",
+   "menu": 18,
+   "bonus": 2
+  },
+  {
+   "barcode": "4907892040007",
+   "kind": "mare",
+   "horse": "01000902070802",
+   "menu": 18,
+   "bonus": 3
+  },
+  {
+   "barcode": "4907892031005",
+   "kind": "mare",
+   "horse": "09080809050600",
+   "menu": 18,
+   "bonus": 4
+  },
+  {
+   "barcode": "4907892033009",
+   "kind": "mare",
+   "horse": "05040605010202",
+   "menu": 18,
+   "bonus": 5
+  },
+  {
+   "barcode": "4907892055001",
+   "kind": "mare",
+   "horse": "01000403070802",
+   "menu": 18,
+   "bonus": 6
+  },
+  {
+   "barcode": "4907892052000",
+   "kind": "mare",
+   "horse": "07060709030402",
+   "menu": 18,
+   "bonus": 7
+  },
+  {
+   "barcode": "9378785700257",
+   "kind": "mare",
+   "horse": "04000706020903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2402053733221",
+   "kind": "mare",
+   "horse": "07060605080302",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5858605421868",
+   "kind": "mare",
+   "horse": "03040606070701",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6732077359326",
+   "kind": "mare",
+   "horse": "03030803000300",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1010768543069",
+   "kind": "mare",
+   "horse": "07000202020403",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6223855373875",
+   "kind": "mare",
+   "horse": "02020609040502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5273941616615",
+   "kind": "mare",
+   "horse": "08020105090301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4263793433974",
+   "kind": "mare",
+   "horse": "02030605050302",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7632385224752",
+   "kind": "mare",
+   "horse": "02030906050701",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6103918654342",
+   "kind": "mare",
+   "horse": "07050505050600",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9975922851089",
+   "kind": "mare",
+   "horse": "03040407090203",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6606877263957",
+   "kind": "mare",
+   "horse": "08010406010502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0346808950544",
+   "kind": "mare",
+   "horse": "01010509020001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1699000868070",
+   "kind": "mare",
+   "horse": "02040108090001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8258166090683",
+   "kind": "mare",
+   "horse": "01080109090401",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6388064432864",
+   "kind": "mare",
+   "horse": "09000303030201",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4371973608644",
+   "kind": "mare",
+   "horse": "07080900050102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2364753762935",
+   "kind": "mare",
+   "horse": "06010306060100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9728158732246",
+   "kind": "mare",
+   "horse": "09060505080802",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5152914661107",
+   "kind": "mare",
+   "horse": "09090802010800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1850564692314",
+   "kind": "mare",
+   "horse": "06070501070403",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1769425942027",
+   "kind": "mare",
+   "horse": "01080900040901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1154480024496",
+   "kind": "mare",
+   "horse": "08020108050403",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2677698761599",
+   "kind": "mare",
+   "horse": "02070206060600",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0183375215528",
+   "kind": "mare",
+   "horse": "03050409090100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7275605763534",
+   "kind": "mare",
+   "horse": "04050204040101",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2016152389250",
+   "kind": "mare",
+   "horse": "00060200040202",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1250551355909",
+   "kind": "mare",
+   "horse": "01090403000702",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4102599754923",
+   "kind": "mare",
+   "horse": "03090303040502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5749502470823",
+   "kind": "mare",
+   "horse": "09040501070401",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9521298248208",
+   "kind": "mare",
+   "horse": "01020702090402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6603712816774",
+   "kind": "mare",
+   "horse": "06050307030600",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8930586158296",
+   "kind": "mare",
+   "horse": "00020703080201",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9829275476461",
+   "kind": "mare",
+   "horse": "07040505010100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5691753959063",
+   "kind": "mare",
+   "horse": "05080601040700",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6642492173714",
+   "kind": "mare",
+   "horse": "08030801040402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5047889172287",
+   "kind": "mare",
+   "horse": "07000903060303",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3699721410952",
+   "kind": "mare",
+   "horse": "04070707090501",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9092218431265",
+   "kind": "mare",
+   "horse": "09040203030600",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9358413336010",
+   "kind": "mare",
+   "horse": "08060107060502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5078461235588",
+   "kind": "mare",
+   "horse": "01070603010901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9756217202171",
+   "kind": "mare",
+   "horse": "08010108090302",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0591350894352",
+   "kind": "mare",
+   "horse": "00070701090002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0589417064275",
+   "kind": "mare",
+   "horse": "06000102050100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6869049039778",
+   "kind": "mare",
+   "horse": "04030407030101",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1499315480086",
+   "kind": "mare",
+   "horse": "07080704090900",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5437183633018",
+   "kind": "mare",
+   "horse": "04020403050103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2065037738133",
+   "kind": "mare",
+   "horse": "02090509020102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8722314470905",
+   "kind": "mare",
+   "horse": "03010107030200",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1707553558192",
+   "kind": "mare",
+   "horse": "08090501000700",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0887760899415",
+   "kind": "mare",
+   "horse": "04060009070801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4920356841729",
+   "kind": "mare",
+   "horse": "03070002050202",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0313696306920",
+   "kind": "mare",
+   "horse": "01070306080000",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2145485394300",
+   "kind": "mare",
+   "horse": "09010105080903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1988814312184",
+   "kind": "mare",
+   "horse": "07090907080800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2617921008251",
+   "kind": "mare",
+   "horse": "00060102010103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8075432131686",
+   "kind": "mare",
+   "horse": "03000405020200",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9311895812403",
+   "kind": "mare",
+   "horse": "05080503090502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8992474362024",
+   "kind": "mare",
+   "horse": "03000104000000",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7175577210541",
+   "kind": "mare",
+   "horse": "07070101010502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5821720438318",
+   "kind": "mare",
+   "horse": "04050903030801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2165228759715",
+   "kind": "mare",
+   "horse": "02070803040403",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1242967298086",
+   "kind": "mare",
+   "horse": "03040101030703",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2770029071968",
+   "kind": "mare",
+   "horse": "05070803050301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1886886841901",
+   "kind": "mare",
+   "horse": "09070800030003",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3619639475133",
+   "kind": "mare",
+   "horse": "04010405010500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1265186473768",
+   "kind": "mare",
+   "horse": "01010609050601",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2100649939087",
+   "kind": "mare",
+   "horse": "07080609040303",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9782773796014",
+   "kind": "mare",
+   "horse": "02000507040900",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6050899621422",
+   "kind": "mare",
+   "horse": "07080404070902",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5787739960915",
+   "kind": "mare",
+   "horse": "08050500020100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3807255685573",
+   "kind": "mare",
+   "horse": "02090800070502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1831742335797",
+   "kind": "mare",
+   "horse": "00070401000801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2261753141961",
+   "kind": "mare",
+   "horse": "05070800060700",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0281174190753",
+   "kind": "mare",
+   "horse": "04050705060802",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1708008792239",
+   "kind": "mare",
+   "horse": "00080703000001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5967169502088",
+   "kind": "mare",
+   "horse": "05060704080103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1820039779468",
+   "kind": "mare",
+   "horse": "01080209080900",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4993711484404",
+   "kind": "mare",
+   "horse": "09020104090500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9787401182696",
+   "kind": "mare",
+   "horse": "08040904060503",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9837154714719",
+   "kind": "mare",
+   "horse": "08030905000602",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0208177491267",
+   "kind": "mare",
+   "horse": "01060401050700",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6142443715647",
+   "kind": "mare",
+   "horse": "09000803080301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7411439705580",
+   "kind": "mare",
+   "horse": "03090802080900",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7711181287106",
+   "kind": "mare",
+   "horse": "01010606090701",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2362377699682",
+   "kind": "mare",
+   "horse": "09060807030300",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8119858854184",
+   "kind": "mare",
+   "horse": "09010303050402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1583765311158",
+   "kind": "mare",
+   "horse": "00050403040503",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9066000910481",
+   "kind": "mare",
+   "horse": "03080303000001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5728534957564",
+   "kind": "mare",
+   "horse": "07050603060000",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3761213299380",
+   "kind": "mare",
+   "horse": "03070201030302",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4165928114034",
+   "kind": "mare",
+   "horse": "02080107060201",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4741988901038",
+   "kind": "mare",
+   "horse": "06020200080603",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9437579715706",
+   "kind": "mare",
+   "horse": "01070409040500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7090898496156",
+   "kind": "mare",
+   "horse": "08030709030600",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0303126944754",
+   "kind": "mare",
+   "horse": "04050100040001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0608413361048",
+   "kind": "mare",
+   "horse": "09040408040302",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5807193778403",
+   "kind": "mare",
+   "horse": "03060907060100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5775074948767",
+   "kind": "mare",
+   "horse": "03030308020600",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6948491603369",
+   "kind": "mare",
+   "horse": "05010006010500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9625510799209",
+   "kind": "mare",
+   "horse": "05060201080002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9948725555973",
+   "kind": "mare",
+   "horse": "06070201000901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9010421046977",
+   "kind": "mare",
+   "horse": "08090502070703",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4756314540140",
+   "kind": "mare",
+   "horse": "09050306060402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9252625564363",
+   "kind": "mare",
+   "horse": "05010102000901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6166729168941",
+   "kind": "mare",
+   "horse": "01050300040103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6950011775999",
+   "kind": "mare",
+   "horse": "08070203020500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6478692259657",
+   "kind": "mare",
+   "horse": "02020409050402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9919107396545",
+   "kind": "mare",
+   "horse": "03030305080103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1996084990254",
+   "kind": "mare",
+   "horse": "02080503020601",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3952630594220",
+   "kind": "mare",
+   "horse": "03020307020600",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9806706294900",
+   "kind": "mare",
+   "horse": "01090307090201",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8605872747972",
+   "kind": "mare",
+   "horse": "00010804060002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0505375910829",
+   "kind": "mare",
+   "horse": "07020303000500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5986295213842",
+   "kind": "mare",
+   "horse": "09020603030502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6144592546493",
+   "kind": "mare",
+   "horse": "02060704040000",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6661548825704",
+   "kind": "mare",
+   "horse": "03090602070603",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2749429660942",
+   "kind": "mare",
+   "horse": "09030308070903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0549300935235",
+   "kind": "mare",
+   "horse": "02000209040403",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9537956677112",
+   "kind": "mare",
+   "horse": "00090403010000",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6111442479041",
+   "kind": "mare",
+   "horse": "09040209050201",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9073023772118",
+   "kind": "mare",
+   "horse": "02010105040903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9516234644343",
+   "kind": "mare",
+   "horse": "09070706070400",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2727314560829",
+   "kind": "mare",
+   "horse": "09040500080602",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6035072069710",
+   "kind": "mare",
+   "horse": "08030400030400",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6050549042881",
+   "kind": "mare",
+   "horse": "01000304090703",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7952047398639",
+   "kind": "mare",
+   "horse": "06080909020503",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7800280772221",
+   "kind": "mare",
+   "horse": "09080701000201",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7723199165765",
+   "kind": "mare",
+   "horse": "05050202060300",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5572113937320",
+   "kind": "mare",
+   "horse": "01010409040700",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3338749145001",
+   "kind": "mare",
+   "horse": "09080200060303",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0753537267162",
+   "kind": "mare",
+   "horse": "01050008030700",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7342526505946",
+   "kind": "mare",
+   "horse": "03070206000001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9275883550886",
+   "kind": "mare",
+   "horse": "03020307060301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7103542576767",
+   "kind": "mare",
+   "horse": "07070505020801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6514668870126",
+   "kind": "mare",
+   "horse": "03010905050403",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4360909869334",
+   "kind": "mare",
+   "horse": "08070208090901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8141715641859",
+   "kind": "mare",
+   "horse": "06080002030102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5867381972211",
+   "kind": "mare",
+   "horse": "02020105060701",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7795465268425",
+   "kind": "mare",
+   "horse": "03040704090103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7449225150535",
+   "kind": "mare",
+   "horse": "06070105000301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8228933067897",
+   "kind": "mare",
+   "horse": "02000806090102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3926559740723",
+   "kind": "mare",
+   "horse": "05090104060700",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3497149939303",
+   "kind": "mare",
+   "horse": "05070205000901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6718670492981",
+   "kind": "mare",
+   "horse": "07070905090402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9767051603833",
+   "kind": "mare",
+   "horse": "02060006010500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3522817348573",
+   "kind": "mare",
+   "horse": "06030500080100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9170878951870",
+   "kind": "mare",
+   "horse": "08080003060400",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0019497704742",
+   "kind": "mare",
+   "horse": "09010702080702",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6092023274890",
+   "kind": "mare",
+   "horse": "02000507010101",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7599460087728",
+   "kind": "mare",
+   "horse": "05090808090801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5679326844763",
+   "kind": "mare",
+   "horse": "07070302050203",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9588320440290",
+   "kind": "mare",
+   "horse": "04060306050003",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3203844847566",
+   "kind": "mare",
+   "horse": "07050602050001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8651578245014",
+   "kind": "mare",
+   "horse": "08060008050000",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4331883671015",
+   "kind": "mare",
+   "horse": "02000005030901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6864687357406",
+   "kind": "mare",
+   "horse": "01040603000301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5907126443092",
+   "kind": "mare",
+   "horse": "02020404030401",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3899665140728",
+   "kind": "mare",
+   "horse": "01050700060901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8252754531541",
+   "kind": "mare",
+   "horse": "07070203040200",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6527405256398",
+   "kind": "mare",
+   "horse": "02050705010303",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6905953524556",
+   "kind": "mare",
+   "horse": "00090704060302",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9271618078595",
+   "kind": "mare",
+   "horse": "08030503050200",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3639755635457",
+   "kind": "mare",
+   "horse": "04020209010900",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1074798970523",
+   "kind": "mare",
+   "horse": "05070107080600",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1448390049206",
+   "kind": "mare",
+   "horse": "01020802070602",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8594952890731",
+   "kind": "mare",
+   "horse": "04070907050802",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5780969630740",
+   "kind": "mare",
+   "horse": "09010305070903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7850397567777",
+   "kind": "mare",
+   "horse": "06050402000100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0771768140306",
+   "kind": "mare",
+   "horse": "01030902080403",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2065068023246",
+   "kind": "mare",
+   "horse": "09060604010803",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9306865360176",
+   "kind": "mare",
+   "horse": "08010904000103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6504113339766",
+   "kind": "mare",
+   "horse": "01010205040302",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5814902258446",
+   "kind": "mare",
+   "horse": "03020501070603",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0205549643811",
+   "kind": "mare",
+   "horse": "00060000010303",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4096347484814",
+   "kind": "mare",
+   "horse": "04000508030503",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3719662980731",
+   "kind": "mare",
+   "horse": "06090108080001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2690414083515",
+   "kind": "mare",
+   "horse": "00030004050800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7107339091471",
+   "kind": "mare",
+   "horse": "00060209090702",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3203614557947",
+   "kind": "mare",
+   "horse": "01050209080602",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3931650512254",
+   "kind": "mare",
+   "horse": "02080705080202",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6472193061535",
+   "kind": "mare",
+   "horse": "06070206090100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4866324742493",
+   "kind": "mare",
+   "horse": "02060304060201",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8805585629811",
+   "kind": "mare",
+   "horse": "08040406090701",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8173639752519",
+   "kind": "mare",
+   "horse": "08010709000100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8850129858691",
+   "kind": "mare",
+   "horse": "00060703050503",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6134952722995",
+   "kind": "mare",
+   "horse": "04030504080202",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6950936006390",
+   "kind": "mare",
+   "horse": "06090104030800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5183862373996",
+   "kind": "mare",
+   "horse": "00090205000803",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3328259113003",
+   "kind": "mare",
+   "horse": "01000209080502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9346481501089",
+   "kind": "mare",
+   "horse": "07080806000503",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0742557036261",
+   "kind": "mare",
+   "horse": "05000309050100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7114479285189",
+   "kind": "mare",
+   "horse": "05070002050100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9431729298460",
+   "kind": "mare",
+   "horse": "01080101030903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9210483442056",
+   "kind": "mare",
+   "horse": "04080900090703",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8363001294277",
+   "kind": "mare",
+   "horse": "00040509010903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4595698633501",
+   "kind": "mare",
+   "horse": "05090605070802",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9606658288244",
+   "kind": "mare",
+   "horse": "03000504070200",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7948098560767",
+   "kind": "mare",
+   "horse": "03030500080002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1543134472828",
+   "kind": "mare",
+   "horse": "05000307030202",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0521337105362",
+   "kind": "mare",
+   "horse": "05010206060102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7737515396184",
+   "kind": "mare",
+   "horse": "05070103060702",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5564652490961",
+   "kind": "mare",
+   "horse": "09010109030000",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8592354727679",
+   "kind": "mare",
+   "horse": "02000004080402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6108674511878",
+   "kind": "mare",
+   "horse": "00000201040202",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3834264803926",
+   "kind": "mare",
+   "horse": "01070006030801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8274389296930",
+   "kind": "mare",
+   "horse": "04090507090501",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3035566289504",
+   "kind": "mare",
+   "horse": "07010402050803",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8409006056424",
+   "kind": "mare",
+   "horse": "01020301050003",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1057666845697",
+   "kind": "mare",
+   "horse": "00060402050203",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3574516208542",
+   "kind": "mare",
+   "horse": "07070900010400",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4426943778268",
+   "kind": "mare",
+   "horse": "07020705040901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1143534857357",
+   "kind": "mare",
+   "horse": "02090209010600",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9406547162866",
+   "kind": "mare",
+   "horse": "01020508020701",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7033816756505",
+   "kind": "mare",
+   "horse": "07010109000802",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0585732393809",
+   "kind": "mare",
+   "horse": "03000409020002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1331406447953",
+   "kind": "mare",
+   "horse": "06090602010201",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0922509764217",
+   "kind": "mare",
+   "horse": "06060708080901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3383473924033",
+   "kind": "mare",
+   "horse": "06020502080102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7674848857916",
+   "kind": "mare",
+   "horse": "02090603050401",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2637183587486",
+   "kind": "mare",
+   "horse": "07020404000703",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6216031370942",
+   "kind": "mare",
+   "horse": "09030309040100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1424534068838",
+   "kind": "mare",
+   "horse": "00040300030600",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7673121182400",
+   "kind": "mare",
+   "horse": "03060308000901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0673315162758",
+   "kind": "mare",
+   "horse": "00010508020502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0691642881258",
+   "kind": "mare",
+   "horse": "06020006050801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5742421197666",
+   "kind": "mare",
+   "horse": "07060607080703",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6156399616668",
+   "kind": "mare",
+   "horse": "09080701050700",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9039815808861",
+   "kind": "mare",
+   "horse": "03040304010702",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6469980849872",
+   "kind": "mare",
+   "horse": "08080802050601",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4506294527712",
+   "kind": "mare",
+   "horse": "06010004060402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4695768174368",
+   "kind": "mare",
+   "horse": "01070709020803",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5863811826550",
+   "kind": "mare",
+   "horse": "04030308030500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "8463388651059",
+   "kind": "mare",
+   "horse": "02060609090001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1353877361095",
+   "kind": "mare",
+   "horse": "08080802080102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1508332888277",
+   "kind": "mare",
+   "horse": "00040908070002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "9989091319776",
+   "kind": "mare",
+   "horse": "06050607080500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "6322199329668",
+   "kind": "mare",
+   "horse": "03020406060102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1431797037488",
+   "kind": "mare",
+   "horse": "01060803090500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4641632916541",
+   "kind": "mare",
+   "horse": "07070701080002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1335989865906",
+   "kind": "mare",
+   "horse": "03010606070703",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "0883542706209",
+   "kind": "mare",
+   "horse": "05060902080201",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4976209058455",
+   "kind": "mare",
+   "horse": "00080107010901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "1843554738147",
+   "kind": "mare",
+   "horse": "05010701040002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2049236576840",
+   "kind": "mare",
+   "horse": "01040101080800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "3848653232808",
+   "kind": "mare",
+   "horse": "01080101090902",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4777773775997",
+   "kind": "mare",
+   "horse": "06050001000500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "2862551079861",
+   "kind": "mare",
+   "horse": "07080805070702",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4030027623483",
+   "kind": "mare",
+   "horse": "01060402050501",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "7106061499562",
+   "kind": "mare",
+   "horse": "03010403070303",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "69490019",
+   "kind": "mare",
+   "horse": "00080705090301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "28965688",
+   "kind": "mare",
+   "horse": "01080606080601",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "62940740",
+   "kind": "mare",
+   "horse": "07090104080001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "99015510",
+   "kind": "mare",
+   "horse": "02050409070502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "50662265",
+   "kind": "mare",
+   "horse": "09040306050800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "95792989",
+   "kind": "mare",
+   "horse": "07070905020900",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "97143208",
+   "kind": "mare",
+   "horse": "05060606020702",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "03668573",
+   "kind": "mare",
+   "horse": "06030502010703",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "00917865",
+   "kind": "mare",
+   "horse": "03040205020201",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "87182521",
+   "kind": "mare",
+   "horse": "07090500020701",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "98983247",
+   "kind": "mare",
+   "horse": "05020206060402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "78308954",
+   "kind": "mare",
+   "horse": "00030102040800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "25311891",
+   "kind": "mare",
+   "horse": "00080009000103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "09070431",
+   "kind": "mare",
+   "horse": "08080309010901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "00743884",
+   "kind": "mare",
+   "horse": "03020606080001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "41033425",
+   "kind": "mare",
+   "horse": "05060403090903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "01062601",
+   "kind": "mare",
+   "horse": "07020700030301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "46734389",
+   "kind": "mare",
+   "horse": "03070705080601",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "31336161",
+   "kind": "mare",
+   "horse": "01050905040100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "63189391",
+   "kind": "mare",
+   "horse": "00030806080903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "97645313",
+   "kind": "mare",
+   "horse": "00010200010100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "11548317",
+   "kind": "mare",
+   "horse": "02030702020702",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "57624716",
+   "kind": "mare",
+   "horse": "00050108010100",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "08375940",
+   "kind": "mare",
+   "horse": "01050001060001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "25621969",
+   "kind": "mare",
+   "horse": "07090000030103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "65192849",
+   "kind": "mare",
+   "horse": "09020501020503",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "73435082",
+   "kind": "mare",
+   "horse": "01020603030102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "72058572",
+   "kind": "mare",
+   "horse": "04010309030400",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "67963690",
+   "kind": "mare",
+   "horse": "06020800020903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "10541814",
+   "kind": "mare",
+   "horse": "06020406060002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018765433",
+   "kind": "mare",
+   "horse": "04040404040402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900039876545",
+   "kind": "mare",
+   "horse": "05050505050500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900045319753",
+   "kind": "mare",
+   "horse": "06070809000101",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900024208641",
+   "kind": "mare",
+   "horse": "05060708090003",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900016420860",
+   "kind": "mare",
+   "horse": "07080900010202",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900037531972",
+   "kind": "mare",
+   "horse": "08090001020300",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900008642089",
+   "kind": "mare",
+   "horse": "09000102030401",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029753191",
+   "kind": "mare",
+   "horse": "00010203040503",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900040864203",
+   "kind": "mare",
+   "horse": "01020304050601",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900011975310",
+   "kind": "mare",
+   "horse": "02030405060702",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032086422",
+   "kind": "mare",
+   "horse": "03040506070800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003197539",
+   "kind": "mare",
+   "horse": "04050607080901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013210983",
+   "kind": "mare",
+   "horse": "09090909090902",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900034321095",
+   "kind": "mare",
+   "horse": "00000000000000",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900017972795",
+   "kind": "mare",
+   "horse": "00070105060302",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900002675052",
+   "kind": "mare",
+   "horse": "06000405030801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900012932640",
+   "kind": "mare",
+   "horse": "05060101060802",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900020772351",
+   "kind": "mare",
+   "horse": "06030105040603",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015766471",
+   "kind": "mare",
+   "horse": "08040504040102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013056840",
+   "kind": "mare",
+   "horse": "05080503070902",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003784708",
+   "kind": "mare",
+   "horse": "01070306040901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900002767726",
+   "kind": "mare",
+   "horse": "03070604040801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900019784693",
+   "kind": "mare",
+   "horse": "00060306040502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900014453839",
+   "kind": "mare",
+   "horse": "04080203010002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900002223413",
+   "kind": "mare",
+   "horse": "02040200090801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900017267860",
+   "kind": "mare",
+   "horse": "07080604090302",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900000713015",
+   "kind": "mare",
+   "horse": "02000209040601",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900011392353",
+   "kind": "mare",
+   "horse": "06030107000702",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900038686114",
+   "kind": "mare",
+   "horse": "02010506030400",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018561097",
+   "kind": "mare",
+   "horse": "00000004020402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900030517614",
+   "kind": "mare",
+   "horse": "02060609020600",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900005245948",
+   "kind": "mare",
+   "horse": "05090402090101",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900048023596",
+   "kind": "mare",
+   "horse": "00050200070401",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900031206258",
+   "kind": "mare",
+   "horse": "06020508090700",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900031942170",
+   "kind": "mare",
+   "horse": "08010102060700",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015014114",
+   "kind": "mare",
+   "horse": "02010309070102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032422923",
+   "kind": "mare",
+   "horse": "03090100010800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900012198664",
+   "kind": "mare",
+   "horse": "07060707080802",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003295242",
+   "kind": "mare",
+   "horse": "05020407090901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900028352746",
+   "kind": "mare",
+   "horse": "05070103000403",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900039758032",
+   "kind": "mare",
+   "horse": "04000703040500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900045432315",
+   "kind": "mare",
+   "horse": "02030101010101",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900030172257",
+   "kind": "mare",
+   "horse": "06020105080600",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900038388278",
+   "kind": "mare",
+   "horse": "08020706000400",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900017066647",
+   "kind": "mare",
+   "horse": "05060504070302",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022975057",
+   "kind": "mare",
+   "horse": "06000405060803",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900028318131",
+   "kind": "mare",
+   "horse": "04010709000403",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900006587290",
+   "kind": "mare",
+   "horse": "00020606020201",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900000080216",
+   "kind": "mare",
+   "horse": "02020906070601",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900039693999",
+   "kind": "mare",
+   "horse": "00090207030500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029691370",
+   "kind": "mare",
+   "horse": "08030007030503",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900014617927",
+   "kind": "mare",
+   "horse": "03090609030002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007659064",
+   "kind": "mare",
+   "horse": "07000803030301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015105898",
+   "kind": "mare",
+   "horse": "00080408080102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029344870",
+   "kind": "mare",
+   "horse": "08080302000503",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900038113948",
+   "kind": "mare",
+   "horse": "05090209080400",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022921290",
+   "kind": "mare",
+   "horse": "00020000060803",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900002303856",
+   "kind": "mare",
+   "horse": "06080208000801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900004575411",
+   "kind": "mare",
+   "horse": "02040405020001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900041502654",
+   "kind": "mare",
+   "horse": "06060108020701",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900045537003",
+   "kind": "mare",
+   "horse": "01000601020101",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900001898759",
+   "kind": "mare",
+   "horse": "06070707050701",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900036768232",
+   "kind": "mare",
+   "horse": "04020704040200",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900039054790",
+   "kind": "mare",
+   "horse": "00070303070500",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900047949194",
+   "kind": "mare",
+   "horse": "00010802060301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022755024",
+   "kind": "mare",
+   "horse": "03000403040803",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900020166921",
+   "kind": "mare",
+   "horse": "03090504080603",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022296015",
+   "kind": "mare",
+   "horse": "02000507090803",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032503851",
+   "kind": "mare",
+   "horse": "06080208020800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900044248078",
+   "kind": "mare",
+   "horse": "08000702090001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900005293215",
+   "kind": "mare",
+   "horse": "02020207090101",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022106079",
+   "kind": "mare",
+   "horse": "08000508080803",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007629166",
+   "kind": "mare",
+   "horse": "07010800030301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900012002039",
+   "kind": "mare",
+   "horse": "04000108070802",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022278196",
+   "kind": "mare",
+   "horse": "00010705090803",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900042064885",
+   "kind": "mare",
+   "horse": "09080304070801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900048159776",
+   "kind": "mare",
+   "horse": "08070803080401",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025948379",
+   "kind": "mare",
+   "horse": "08030702060103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900040636756",
+   "kind": "mare",
+   "horse": "06070501030601",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900019535301",
+   "kind": "mare",
+   "horse": "01030401020502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015693418",
+   "kind": "mare",
+   "horse": "02040207030102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900030553759",
+   "kind": "mare",
+   "horse": "06070203020600",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029686673",
+   "kind": "mare",
+   "horse": "08060506030503",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032826141",
+   "kind": "mare",
+   "horse": "05010500050800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900012881764",
+   "kind": "mare",
+   "horse": "07070006050802",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007439482",
+   "kind": "mare",
+   "horse": "09040801010301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900036365103",
+   "kind": "mare",
+   "horse": "01010404000200",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900026967232",
+   "kind": "mare",
+   "horse": "04020604060203",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015890879",
+   "kind": "mare",
+   "horse": "08080907050102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018483030",
+   "kind": "mare",
+   "horse": "04000206010402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007235190",
+   "kind": "mare",
+   "horse": "00010401090301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900019392409",
+   "kind": "mare",
+   "horse": "01040107000502",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900044515675",
+   "kind": "mare",
+   "horse": "08060409020001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900004742370",
+   "kind": "mare",
+   "horse": "08030102040001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900047165310",
+   "kind": "mare",
+   "horse": "02030404080301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029749736",
+   "kind": "mare",
+   "horse": "04070802040503",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032321493",
+   "kind": "mare",
+   "horse": "00040000000800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900041699378",
+   "kind": "mare",
+   "horse": "08030807030701",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900042908608",
+   "kind": "mare",
+   "horse": "01060708060801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900036674335",
+   "kind": "mare",
+   "horse": "04030305030200",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025341552",
+   "kind": "mare",
+   "horse": "06050002000103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900010423638",
+   "kind": "mare",
+   "horse": "04060200010602",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900024750478",
+   "kind": "mare",
+   "horse": "08040903040003",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900024063264",
+   "kind": "mare",
+   "horse": "07020204070003",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900047806534",
+   "kind": "mare",
+   "horse": "04050508050301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900034574491",
+   "kind": "mare",
+   "horse": "00040305020000",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032792644",
+   "kind": "mare",
+   "horse": "05060107040800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018429328",
+   "kind": "mare",
+   "horse": "03030800010402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900010317203",
+   "kind": "mare",
+   "horse": "01020609000602",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033455494",
+   "kind": "mare",
+   "horse": "00040403010900",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900011880270",
+   "kind": "mare",
+   "horse": "08020906050702",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022340411",
+   "kind": "mare",
+   "horse": "02040902000803",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900023103855",
+   "kind": "mare",
+   "horse": "06080208080903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900004334995",
+   "kind": "mare",
+   "horse": "00090301000001",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900037537066",
+   "kind": "mare",
+   "horse": "07000601020300",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033504543",
+   "kind": "mare",
+   "horse": "05050308020900",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900040657249",
+   "kind": "mare",
+   "horse": "05020603030601",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900023913621",
+   "kind": "mare",
+   "horse": "03060209060903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900005549879",
+   "kind": "mare",
+   "horse": "08080802020101",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900042770250",
+   "kind": "mare",
+   "horse": "06020905040801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013228452",
+   "kind": "mare",
+   "horse": "06040700090902",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900009578431",
+   "kind": "mare",
+   "horse": "04040705020501",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033507919",
+   "kind": "mare",
+   "horse": "02090608020900",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900010543923",
+   "kind": "mare",
+   "horse": "03090202020602",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900049580821",
+   "kind": "mare",
+   "horse": "03080906020501",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013557286",
+   "kind": "mare",
+   "horse": "09020603020902",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900000789805",
+   "kind": "mare",
+   "horse": "01080806040601",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900008020368",
+   "kind": "mare",
+   "horse": "07030900070401",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900016127929",
+   "kind": "mare",
+   "horse": "03090600080202",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900016896115",
+   "kind": "mare",
+   "horse": "02010507050202",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900014490117",
+   "kind": "mare",
+   "horse": "02010907010002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900014827005",
+   "kind": "mare",
+   "horse": "01000600050002",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900023807197",
+   "kind": "mare",
+   "horse": "00010608050903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900028437085",
+   "kind": "mare",
+   "horse": "09000601010403",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013812057",
+   "kind": "mare",
+   "horse": "06000109050902",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003190554",
+   "kind": "mare",
+   "horse": "06050907080901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025301303",
+   "kind": "mare",
+   "horse": "01030008000103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900020154140",
+   "kind": "mare",
+   "horse": "05010303080603",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900043063146",
+   "kind": "mare",
+   "horse": "05010204070901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900016094511",
+   "kind": "mare",
+   "horse": "02050307070202",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900043210007",
+   "kind": "mare",
+   "horse": "01000909090901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900005640804",
+   "kind": "mare",
+   "horse": "01080902030101",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900027188759",
+   "kind": "mare",
+   "horse": "06070706080303",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900036349318",
+   "kind": "mare",
+   "horse": "02030802000200",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900010104704",
+   "kind": "mare",
+   "horse": "01070308080602",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032384061",
+   "kind": "mare",
+   "horse": "07000306000800",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900045805997",
+   "kind": "mare",
+   "horse": "00090408050101",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033404102",
+   "kind": "mare",
+   "horse": "01010308010900",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900024713596",
+   "kind": "mare",
+   "horse": "00050209040003",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900023904360",
+   "kind": "mare",
+   "horse": "07030308060903",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033442173",
+   "kind": "mare",
+   "horse": "08010102010900",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018536743",
+   "kind": "mare",
+   "horse": "05070501020402",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900026637517",
+   "kind": "mare",
+   "horse": "02050601030203",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900031007817",
+   "kind": "mare",
+   "horse": "02080608070700",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900009683623",
+   "kind": "mare",
+   "horse": "03060206030501",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003869740",
+   "kind": "mare",
+   "horse": "05070804050901",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900020934964",
+   "kind": "mare",
+   "horse": "07090301060603",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015164956",
+   "kind": "mare",
+   "horse": "06090304080102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007875884",
+   "kind": "mare",
+   "horse": "09080405050301",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900026120286",
+   "kind": "mare",
+   "horse": "09020900080203",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025804828",
+   "kind": "mare",
+   "horse": "03080308050103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025506586",
+   "kind": "mare",
+   "horse": "09050508020103",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900042339952",
+   "kind": "mare",
+   "horse": "06090801000801",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015331518",
+   "kind": "mare",
+   "horse": "02050001000102",
+   "menu": 18,
+   "bonus": 0
+  },
+  {
+   "barcode": "5893713522816",
+   "kind": "stallion",
+   "horse": "07030605070401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1509843019075",
+   "kind": "stallion",
+   "horse": "07090708060800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2378649896765",
+   "kind": "stallion",
+   "horse": "02020002000000",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4232978865152",
+   "kind": "stallion",
+   "horse": "05000303040303",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7164625542390",
+   "kind": "stallion",
+   "horse": "03060405050402",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9845554422318",
+   "kind": "stallion",
+   "horse": "07080605060501",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3572821107673",
+   "kind": "stallion",
+   "horse": "07050507070602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6319537443513",
+   "kind": "stallion",
+   "horse": "05080505040603",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4907892000001",
+   "kind": "stallion",
+   "horse": "06050403020301",
+   "menu": 83,
+   "bonus": 1
+  },
+  {
+   "barcode": "4907892070004",
+   "kind": "stallion",
+   "horse": "06050400020301",
+   "menu": 83,
+   "bonus": 2
+  },
+  {
+   "barcode": "4907892040007",
+   "kind": "stallion",
+   "horse": "06050407020301",
+   "menu": 83,
+   "bonus": 3
+  },
+  {
+   "barcode": "4907892031005",
+   "kind": "stallion",
+   "horse": "03020203090000",
+   "menu": 83,
+   "bonus": 4
+  },
+  {
+   "barcode": "4907892033009",
+   "kind": "stallion",
+   "horse": "04030504000101",
+   "menu": 83,
+   "bonus": 5
+  },
+  {
+   "barcode": "4907892055001",
+   "kind": "stallion",
+   "horse": "06050908020301",
+   "menu": 83,
+   "bonus": 6
+  },
+  {
+   "barcode": "4907892052000",
+   "kind": "stallion",
+   "horse": "09080901050600",
+   "menu": 83,
+   "bonus": 7
+  },
+  {
+   "barcode": "9378785700257",
+   "kind": "stallion",
+   "horse": "08040100060303",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2402053733221",
+   "kind": "stallion",
+   "horse": "06050504070201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5858605421868",
+   "kind": "stallion",
+   "horse": "05060808090903",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6732077359326",
+   "kind": "stallion",
+   "horse": "08080308050803",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1010768543069",
+   "kind": "stallion",
+   "horse": "02050707070902",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6223855373875",
+   "kind": "stallion",
+   "horse": "01010508030401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5273941616615",
+   "kind": "stallion",
+   "horse": "00040307010503",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4263793433974",
+   "kind": "stallion",
+   "horse": "01020504040201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7632385224752",
+   "kind": "stallion",
+   "horse": "04050108070903",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6103918654342",
+   "kind": "stallion",
+   "horse": "04020202020301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9975922851089",
+   "kind": "stallion",
+   "horse": "02030306080102",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6606877263957",
+   "kind": "stallion",
+   "horse": "05080103080203",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0346808950544",
+   "kind": "stallion",
+   "horse": "03030701040203",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1699000868070",
+   "kind": "stallion",
+   "horse": "01030007080900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8258166090683",
+   "kind": "stallion",
+   "horse": "08050806060102",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6388064432864",
+   "kind": "stallion",
+   "horse": "06070000000902",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4371973608644",
+   "kind": "stallion",
+   "horse": "04050607020803",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2364753762935",
+   "kind": "stallion",
+   "horse": "03080003030801",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9728158732246",
+   "kind": "stallion",
+   "horse": "08050404070701",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5152914661107",
+   "kind": "stallion",
+   "horse": "03030206050200",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1850564692314",
+   "kind": "stallion",
+   "horse": "05060400060302",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1769425942027",
+   "kind": "stallion",
+   "horse": "05020304080301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1154480024496",
+   "kind": "stallion",
+   "horse": "02060502090803",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2677698761599",
+   "kind": "stallion",
+   "horse": "09040903030301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0183375215528",
+   "kind": "stallion",
+   "horse": "08000904040603",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7275605763534",
+   "kind": "stallion",
+   "horse": "09000709090600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2016152389250",
+   "kind": "stallion",
+   "horse": "09050109030101",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1250551355909",
+   "kind": "stallion",
+   "horse": "06040908050201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4102599754923",
+   "kind": "stallion",
+   "horse": "08040808090001",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5749502470823",
+   "kind": "stallion",
+   "horse": "01060703090603",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9521298248208",
+   "kind": "stallion",
+   "horse": "06070207040901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6603712816774",
+   "kind": "stallion",
+   "horse": "00090701070000",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8930586158296",
+   "kind": "stallion",
+   "horse": "05070208030700",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9829275476461",
+   "kind": "stallion",
+   "horse": "02090000060603",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5691753959063",
+   "kind": "stallion",
+   "horse": "09020005080100",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6642492173714",
+   "kind": "stallion",
+   "horse": "00050003060600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5047889172287",
+   "kind": "stallion",
+   "horse": "01040307000703",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3699721410952",
+   "kind": "stallion",
+   "horse": "08010101030901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9092218431265",
+   "kind": "stallion",
+   "horse": "06010900000301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9358413336010",
+   "kind": "stallion",
+   "horse": "00080309080700",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5078461235588",
+   "kind": "stallion",
+   "horse": "08040300080602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9756217202171",
+   "kind": "stallion",
+   "horse": "03060603040801",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0591350894352",
+   "kind": "stallion",
+   "horse": "09060600080901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0589417064275",
+   "kind": "stallion",
+   "horse": "00040506090500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6869049039778",
+   "kind": "stallion",
+   "horse": "06050609050303",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1499315480086",
+   "kind": "stallion",
+   "horse": "01020108030300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5437183633018",
+   "kind": "stallion",
+   "horse": "01090100020800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2065037738133",
+   "kind": "stallion",
+   "horse": "06030903060502",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8722314470905",
+   "kind": "stallion",
+   "horse": "00080804000901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1707553558192",
+   "kind": "stallion",
+   "horse": "02030905040100",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0887760899415",
+   "kind": "stallion",
+   "horse": "01030706040502",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4920356841729",
+   "kind": "stallion",
+   "horse": "08020507000701",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0313696306920",
+   "kind": "stallion",
+   "horse": "05010700020400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2145485394300",
+   "kind": "stallion",
+   "horse": "03050509020303",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1988814312184",
+   "kind": "stallion",
+   "horse": "01030301020200",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2617921008251",
+   "kind": "stallion",
+   "horse": "09050001000002",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8075432131686",
+   "kind": "stallion",
+   "horse": "02090304010103",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9311895812403",
+   "kind": "stallion",
+   "horse": "04070402080401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8992474362024",
+   "kind": "stallion",
+   "horse": "08050609050503",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7175577210541",
+   "kind": "stallion",
+   "horse": "04040808080203",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5821720438318",
+   "kind": "stallion",
+   "horse": "01020600000502",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2165228759715",
+   "kind": "stallion",
+   "horse": "07020308090902",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1242967298086",
+   "kind": "stallion",
+   "horse": "02030000020602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2770029071968",
+   "kind": "stallion",
+   "horse": "09010207090701",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1886886841901",
+   "kind": "stallion",
+   "horse": "03010204070403",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3619639475133",
+   "kind": "stallion",
+   "horse": "09060900060003",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1265186473768",
+   "kind": "stallion",
+   "horse": "00000508040500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2100649939087",
+   "kind": "stallion",
+   "horse": "01020003080703",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9782773796014",
+   "kind": "stallion",
+   "horse": "07050002090403",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6050899621422",
+   "kind": "stallion",
+   "horse": "06070303060801",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5787739960915",
+   "kind": "stallion",
+   "horse": "00070702040302",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3807255685573",
+   "kind": "stallion",
+   "horse": "01080709060401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1831742335797",
+   "kind": "stallion",
+   "horse": "05020906050300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2261753141961",
+   "kind": "stallion",
+   "horse": "09010204000100",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0281174190753",
+   "kind": "stallion",
+   "horse": "08090109000202",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1708008792239",
+   "kind": "stallion",
+   "horse": "02000905020203",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5967169502088",
+   "kind": "stallion",
+   "horse": "07080906000301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1820039779468",
+   "kind": "stallion",
+   "horse": "00070108070803",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4993711484404",
+   "kind": "stallion",
+   "horse": "03060508030900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9787401182696",
+   "kind": "stallion",
+   "horse": "02080308000903",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9837154714719",
+   "kind": "stallion",
+   "horse": "00050107020800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0208177491267",
+   "kind": "stallion",
+   "horse": "00050300040603",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6142443715647",
+   "kind": "stallion",
+   "horse": "08090702070200",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7411439705580",
+   "kind": "stallion",
+   "horse": "02080701070803",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7711181287106",
+   "kind": "stallion",
+   "horse": "06060101040200",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2362377699682",
+   "kind": "stallion",
+   "horse": "04010302080803",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8119858854184",
+   "kind": "stallion",
+   "horse": "04060808000901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1583765311158",
+   "kind": "stallion",
+   "horse": "09040302030402",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9066000910481",
+   "kind": "stallion",
+   "horse": "02070202090900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5728534957564",
+   "kind": "stallion",
+   "horse": "02000108010503",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3761213299380",
+   "kind": "stallion",
+   "horse": "02060100020201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4165928114034",
+   "kind": "stallion",
+   "horse": "06020501000601",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4741988901038",
+   "kind": "stallion",
+   "horse": "03090907050300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9437579715706",
+   "kind": "stallion",
+   "horse": "06020904090003",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7090898496156",
+   "kind": "stallion",
+   "horse": "05000406000301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0303126944754",
+   "kind": "stallion",
+   "horse": "08090504080401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0608413361048",
+   "kind": "stallion",
+   "horse": "08030307030201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5807193778403",
+   "kind": "stallion",
+   "horse": "00030604030801",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5775074948767",
+   "kind": "stallion",
+   "horse": "05050500040802",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6948491603369",
+   "kind": "stallion",
+   "horse": "09050400050900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9625510799209",
+   "kind": "stallion",
+   "horse": "04050100070901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9948725555973",
+   "kind": "stallion",
+   "horse": "00010605040301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9010421046977",
+   "kind": "stallion",
+   "horse": "03040007020202",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4756314540140",
+   "kind": "stallion",
+   "horse": "08040205050301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9252625564363",
+   "kind": "stallion",
+   "horse": "09050506040301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6166729168941",
+   "kind": "stallion",
+   "horse": "03070502060301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6950011775999",
+   "kind": "stallion",
+   "horse": "02010607060900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6478692259657",
+   "kind": "stallion",
+   "horse": "04040601070600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9919107396545",
+   "kind": "stallion",
+   "horse": "07070709020503",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1996084990254",
+   "kind": "stallion",
+   "horse": "04000705040803",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3952630594220",
+   "kind": "stallion",
+   "horse": "08070802070103",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9806706294900",
+   "kind": "stallion",
+   "horse": "06040802040700",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8605872747972",
+   "kind": "stallion",
+   "horse": "07080501030703",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0505375910829",
+   "kind": "stallion",
+   "horse": "06010202090403",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5986295213842",
+   "kind": "stallion",
+   "horse": "08010502020401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6144592546493",
+   "kind": "stallion",
+   "horse": "09030401010701",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6661548825704",
+   "kind": "stallion",
+   "horse": "00060309040300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2749429660942",
+   "kind": "stallion",
+   "horse": "08020207060802",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0549300935235",
+   "kind": "stallion",
+   "horse": "06040603080803",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9537956677112",
+   "kind": "stallion",
+   "horse": "04030807050400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6111442479041",
+   "kind": "stallion",
+   "horse": "08030108040100",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9073023772118",
+   "kind": "stallion",
+   "horse": "07060600090402",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9516234644343",
+   "kind": "stallion",
+   "horse": "08060605060303",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2727314560829",
+   "kind": "stallion",
+   "horse": "01060702000800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6035072069710",
+   "kind": "stallion",
+   "horse": "00050602050602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6050549042881",
+   "kind": "stallion",
+   "horse": "08070001060400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7952047398639",
+   "kind": "stallion",
+   "horse": "03050606090200",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7800280772221",
+   "kind": "stallion",
+   "horse": "01000903020403",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7723199165765",
+   "kind": "stallion",
+   "horse": "09090606000700",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5572113937320",
+   "kind": "stallion",
+   "horse": "05050803080100",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3338749145001",
+   "kind": "stallion",
+   "horse": "03020604000703",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0753537267162",
+   "kind": "stallion",
+   "horse": "00040907020603",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7342526505946",
+   "kind": "stallion",
+   "horse": "07010600040401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9275883550886",
+   "kind": "stallion",
+   "horse": "02010206050200",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7103542576767",
+   "kind": "stallion",
+   "horse": "02020000070300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6514668870126",
+   "kind": "stallion",
+   "horse": "08060400000902",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4360909869334",
+   "kind": "stallion",
+   "horse": "07060107080800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8141715641859",
+   "kind": "stallion",
+   "horse": "01030507080601",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5867381972211",
+   "kind": "stallion",
+   "horse": "07070600010200",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7795465268425",
+   "kind": "stallion",
+   "horse": "08090209040602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7449225150535",
+   "kind": "stallion",
+   "horse": "03040802070002",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8228933067897",
+   "kind": "stallion",
+   "horse": "09070503060803",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3926559740723",
+   "kind": "stallion",
+   "horse": "02060801030401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3497149939303",
+   "kind": "stallion",
+   "horse": "04060104090800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6718670492981",
+   "kind": "stallion",
+   "horse": "01010309030802",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9767051603833",
+   "kind": "stallion",
+   "horse": "06000400050900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3522817348573",
+   "kind": "stallion",
+   "horse": "00070904020500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9170878951870",
+   "kind": "stallion",
+   "horse": "03030508010903",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0019497704742",
+   "kind": "stallion",
+   "horse": "08000601070601",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6092023274890",
+   "kind": "stallion",
+   "horse": "09070204080802",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7599460087728",
+   "kind": "stallion",
+   "horse": "02060505060502",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5679326844763",
+   "kind": "stallion",
+   "horse": "02020807000702",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9588320440290",
+   "kind": "stallion",
+   "horse": "03050205040902",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3203844847566",
+   "kind": "stallion",
+   "horse": "02000107000500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8651578245014",
+   "kind": "stallion",
+   "horse": "00080200070202",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4331883671015",
+   "kind": "stallion",
+   "horse": "07050500080400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6864687357406",
+   "kind": "stallion",
+   "horse": "06090108050800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5907126443092",
+   "kind": "stallion",
+   "horse": "09090101000102",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3899665140728",
+   "kind": "stallion",
+   "horse": "05090104000301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8252754531541",
+   "kind": "stallion",
+   "horse": "04040900010901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6527405256398",
+   "kind": "stallion",
+   "horse": "09020402080000",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6905953524556",
+   "kind": "stallion",
+   "horse": "09080603050201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9271618078595",
+   "kind": "stallion",
+   "horse": "02070907090600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3639755635457",
+   "kind": "stallion",
+   "horse": "08060603050300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1074798970523",
+   "kind": "stallion",
+   "horse": "02040804050301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1448390049206",
+   "kind": "stallion",
+   "horse": "06070307020101",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8594952890731",
+   "kind": "stallion",
+   "horse": "09020402000301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5780969630740",
+   "kind": "stallion",
+   "horse": "08000204060802",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7850397567777",
+   "kind": "stallion",
+   "horse": "00090806040500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0771768140306",
+   "kind": "stallion",
+   "horse": "06080407030902",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2065068023246",
+   "kind": "stallion",
+   "horse": "08050503000702",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9306865360176",
+   "kind": "stallion",
+   "horse": "03060409050602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6504113339766",
+   "kind": "stallion",
+   "horse": "00000104030201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5814902258446",
+   "kind": "stallion",
+   "horse": "07060905010003",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0205549643811",
+   "kind": "stallion",
+   "horse": "04000404050703",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4096347484814",
+   "kind": "stallion",
+   "horse": "01070205000200",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3719662980731",
+   "kind": "stallion",
+   "horse": "03060805050702",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2690414083515",
+   "kind": "stallion",
+   "horse": "04070408090200",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7107339091471",
+   "kind": "stallion",
+   "horse": "07030906060403",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3203614557947",
+   "kind": "stallion",
+   "horse": "03070401000800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3931650512254",
+   "kind": "stallion",
+   "horse": "04000907000400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6472193061535",
+   "kind": "stallion",
+   "horse": "03040903060801",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4866324742493",
+   "kind": "stallion",
+   "horse": "09030001030902",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8805585629811",
+   "kind": "stallion",
+   "horse": "00060608010903",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8173639752519",
+   "kind": "stallion",
+   "horse": "00030901020302",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8850129858691",
+   "kind": "stallion",
+   "horse": "05010208000002",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6134952722995",
+   "kind": "stallion",
+   "horse": "03020403070101",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6950936006390",
+   "kind": "stallion",
+   "horse": "08010306050002",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5183862373996",
+   "kind": "stallion",
+   "horse": "05040700050302",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3328259113003",
+   "kind": "stallion",
+   "horse": "06050704030001",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9346481501089",
+   "kind": "stallion",
+   "horse": "01020200040903",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0742557036261",
+   "kind": "stallion",
+   "horse": "09040703090500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7114479285189",
+   "kind": "stallion",
+   "horse": "07090204070302",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9431729298460",
+   "kind": "stallion",
+   "horse": "00070000020802",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9210483442056",
+   "kind": "stallion",
+   "horse": "08020304030103",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8363001294277",
+   "kind": "stallion",
+   "horse": "07010206080600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4595698633501",
+   "kind": "stallion",
+   "horse": "04080504060701",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9606658288244",
+   "kind": "stallion",
+   "horse": "07040908010600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7948098560767",
+   "kind": "stallion",
+   "horse": "05050702000200",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1543134472828",
+   "kind": "stallion",
+   "horse": "02070004000903",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0521337105362",
+   "kind": "stallion",
+   "horse": "09050600000502",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7737515396184",
+   "kind": "stallion",
+   "horse": "07090305080900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5564652490961",
+   "kind": "stallion",
+   "horse": "06080806000701",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8592354727679",
+   "kind": "stallion",
+   "horse": "01090903070301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6108674511878",
+   "kind": "stallion",
+   "horse": "07070908010903",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3834264803926",
+   "kind": "stallion",
+   "horse": "05010400070201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8274389296930",
+   "kind": "stallion",
+   "horse": "09040002040000",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3035566289504",
+   "kind": "stallion",
+   "horse": "09030604070001",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8409006056424",
+   "kind": "stallion",
+   "horse": "05060705090403",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1057666845697",
+   "kind": "stallion",
+   "horse": "05010907000702",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3574516208542",
+   "kind": "stallion",
+   "horse": "04040607080101",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4426943778268",
+   "kind": "stallion",
+   "horse": "02070200090400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1143534857357",
+   "kind": "stallion",
+   "horse": "04010401030802",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9406547162866",
+   "kind": "stallion",
+   "horse": "00010407010600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7033816756505",
+   "kind": "stallion",
+   "horse": "09030301020000",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0585732393809",
+   "kind": "stallion",
+   "horse": "00070106090703",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1331406447953",
+   "kind": "stallion",
+   "horse": "01040107060700",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0922509764217",
+   "kind": "stallion",
+   "horse": "05050607070800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3383473924033",
+   "kind": "stallion",
+   "horse": "03090209050803",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7674848857916",
+   "kind": "stallion",
+   "horse": "07040108000900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2637183587486",
+   "kind": "stallion",
+   "horse": "01060808040103",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6216031370942",
+   "kind": "stallion",
+   "horse": "08020208030003",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1424534068838",
+   "kind": "stallion",
+   "horse": "02060502050802",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7673121182400",
+   "kind": "stallion",
+   "horse": "00030005070602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0673315162758",
+   "kind": "stallion",
+   "horse": "09000407010401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0691642881258",
+   "kind": "stallion",
+   "horse": "01070501000300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5742421197666",
+   "kind": "stallion",
+   "horse": "02010102030202",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6156399616668",
+   "kind": "stallion",
+   "horse": "06050408020401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9039815808861",
+   "kind": "stallion",
+   "horse": "05060506030900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6469980849872",
+   "kind": "stallion",
+   "horse": "03030307000100",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4506294527712",
+   "kind": "stallion",
+   "horse": "05000903050301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4695768174368",
+   "kind": "stallion",
+   "horse": "00060608010702",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "5863811826550",
+   "kind": "stallion",
+   "horse": "08070702070900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "8463388651059",
+   "kind": "stallion",
+   "horse": "04080801010203",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1353877361095",
+   "kind": "stallion",
+   "horse": "02020206020502",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1508332888277",
+   "kind": "stallion",
+   "horse": "07010605040703",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "9989091319776",
+   "kind": "stallion",
+   "horse": "00090001020900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "6322199329668",
+   "kind": "stallion",
+   "horse": "05040608080300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1431797037488",
+   "kind": "stallion",
+   "horse": "08030500060201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4641632916541",
+   "kind": "stallion",
+   "horse": "04040408050703",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1335989865906",
+   "kind": "stallion",
+   "horse": "00080303040400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "0883542706209",
+   "kind": "stallion",
+   "horse": "04050801070100",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4976209058455",
+   "kind": "stallion",
+   "horse": "09070006000800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "1843554738147",
+   "kind": "stallion",
+   "horse": "00060206090501",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2049236576840",
+   "kind": "stallion",
+   "horse": "03060303000002",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "3848653232808",
+   "kind": "stallion",
+   "horse": "06030606040401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4777773775997",
+   "kind": "stallion",
+   "horse": "08070203020702",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "2862551079861",
+   "kind": "stallion",
+   "horse": "02030300020201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4030027623483",
+   "kind": "stallion",
+   "horse": "08030109020202",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "7106061499562",
+   "kind": "stallion",
+   "horse": "05030605090501",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "69490019",
+   "kind": "stallion",
+   "horse": "04020109030701",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "28965688",
+   "kind": "stallion",
+   "horse": "08050303050302",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "62940740",
+   "kind": "stallion",
+   "horse": "04060801050702",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "99015510",
+   "kind": "stallion",
+   "horse": "07000904020001",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "50662265",
+   "kind": "stallion",
+   "horse": "06010003020501",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "95792989",
+   "kind": "stallion",
+   "horse": "01010309060300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "97143208",
+   "kind": "stallion",
+   "horse": "04050505010601",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "03668573",
+   "kind": "stallion",
+   "horse": "00070906050103",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "00917865",
+   "kind": "stallion",
+   "horse": "05060407040403",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "87182521",
+   "kind": "stallion",
+   "horse": "06080409010600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "98983247",
+   "kind": "stallion",
+   "horse": "00070701010901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "78308954",
+   "kind": "stallion",
+   "horse": "09020001030703",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "25311891",
+   "kind": "stallion",
+   "horse": "05030504050602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "09070431",
+   "kind": "stallion",
+   "horse": "07070208000800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "00743884",
+   "kind": "stallion",
+   "horse": "02010505070900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "41033425",
+   "kind": "stallion",
+   "horse": "02030100060600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "01062601",
+   "kind": "stallion",
+   "horse": "09040902050503",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "46734389",
+   "kind": "stallion",
+   "horse": "02060604070500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "31336161",
+   "kind": "stallion",
+   "horse": "00040804030003",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "63189391",
+   "kind": "stallion",
+   "horse": "05080301030402",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "97645313",
+   "kind": "stallion",
+   "horse": "04050604050500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "11548317",
+   "kind": "stallion",
+   "horse": "07080207070201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "57624716",
+   "kind": "stallion",
+   "horse": "04090502050500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "08375940",
+   "kind": "stallion",
+   "horse": "03070203080203",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "25621969",
+   "kind": "stallion",
+   "horse": "02040505080602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "65192849",
+   "kind": "stallion",
+   "horse": "08010400010402",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "73435082",
+   "kind": "stallion",
+   "horse": "08090300000803",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "72058572",
+   "kind": "stallion",
+   "horse": "06030501050602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "67963690",
+   "kind": "stallion",
+   "horse": "08040002040101",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "10541814",
+   "kind": "stallion",
+   "horse": "05010305050901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018765433",
+   "kind": "stallion",
+   "horse": "09090909090901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900039876545",
+   "kind": "stallion",
+   "horse": "00000000000003",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900045319753",
+   "kind": "stallion",
+   "horse": "01020304050600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900024208641",
+   "kind": "stallion",
+   "horse": "00010203040502",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900016420860",
+   "kind": "stallion",
+   "horse": "02030405060701",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900037531972",
+   "kind": "stallion",
+   "horse": "03040506070803",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900008642089",
+   "kind": "stallion",
+   "horse": "04050607080900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029753191",
+   "kind": "stallion",
+   "horse": "05060708090002",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900040864203",
+   "kind": "stallion",
+   "horse": "06070809000100",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900011975310",
+   "kind": "stallion",
+   "horse": "07080900010201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032086422",
+   "kind": "stallion",
+   "horse": "08090001020303",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003197539",
+   "kind": "stallion",
+   "horse": "09000102030400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013210983",
+   "kind": "stallion",
+   "horse": "04040404040401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900034321095",
+   "kind": "stallion",
+   "horse": "05050505050503",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900017972795",
+   "kind": "stallion",
+   "horse": "05020600010801",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900002675052",
+   "kind": "stallion",
+   "horse": "01050900080300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900012932640",
+   "kind": "stallion",
+   "horse": "00010606010301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900020772351",
+   "kind": "stallion",
+   "horse": "01080600090102",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015766471",
+   "kind": "stallion",
+   "horse": "03090009090601",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013056840",
+   "kind": "stallion",
+   "horse": "00030008020401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003784708",
+   "kind": "stallion",
+   "horse": "06020801090400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900002767726",
+   "kind": "stallion",
+   "horse": "08020109090300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900019784693",
+   "kind": "stallion",
+   "horse": "05010801090001",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900014453839",
+   "kind": "stallion",
+   "horse": "09030708060501",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900002223413",
+   "kind": "stallion",
+   "horse": "07090705040300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900017267860",
+   "kind": "stallion",
+   "horse": "02030109040801",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900000713015",
+   "kind": "stallion",
+   "horse": "07050704090100",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900011392353",
+   "kind": "stallion",
+   "horse": "01080602050201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900038686114",
+   "kind": "stallion",
+   "horse": "07060001080903",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018561097",
+   "kind": "stallion",
+   "horse": "05050509070901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900030517614",
+   "kind": "stallion",
+   "horse": "07010104070103",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900005245948",
+   "kind": "stallion",
+   "horse": "00040907040600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900048023596",
+   "kind": "stallion",
+   "horse": "05000705020900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900031206258",
+   "kind": "stallion",
+   "horse": "01070003040203",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900031942170",
+   "kind": "stallion",
+   "horse": "03060607010203",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015014114",
+   "kind": "stallion",
+   "horse": "07060804020601",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032422923",
+   "kind": "stallion",
+   "horse": "08040605060303",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900012198664",
+   "kind": "stallion",
+   "horse": "02010202030301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003295242",
+   "kind": "stallion",
+   "horse": "00070902040400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900028352746",
+   "kind": "stallion",
+   "horse": "00020608050902",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900039758032",
+   "kind": "stallion",
+   "horse": "09050208090003",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900045432315",
+   "kind": "stallion",
+   "horse": "07080606060600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900030172257",
+   "kind": "stallion",
+   "horse": "01070600030103",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900038388278",
+   "kind": "stallion",
+   "horse": "03070201050903",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900017066647",
+   "kind": "stallion",
+   "horse": "00010009020801",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022975057",
+   "kind": "stallion",
+   "horse": "01050900010302",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900028318131",
+   "kind": "stallion",
+   "horse": "09060204050902",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900006587290",
+   "kind": "stallion",
+   "horse": "05070101070700",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900000080216",
+   "kind": "stallion",
+   "horse": "07070401020100",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900039693999",
+   "kind": "stallion",
+   "horse": "05040702080003",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029691370",
+   "kind": "stallion",
+   "horse": "03080502080002",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900014617927",
+   "kind": "stallion",
+   "horse": "08040104080501",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007659064",
+   "kind": "stallion",
+   "horse": "02050308080800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015105898",
+   "kind": "stallion",
+   "horse": "05030903030601",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029344870",
+   "kind": "stallion",
+   "horse": "03030807050002",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900038113948",
+   "kind": "stallion",
+   "horse": "00040704030903",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022921290",
+   "kind": "stallion",
+   "horse": "05070505010302",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900002303856",
+   "kind": "stallion",
+   "horse": "01030703050300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900004575411",
+   "kind": "stallion",
+   "horse": "07090900070500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900041502654",
+   "kind": "stallion",
+   "horse": "01010603070200",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900045537003",
+   "kind": "stallion",
+   "horse": "06050106070600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900001898759",
+   "kind": "stallion",
+   "horse": "01020202000200",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900036768232",
+   "kind": "stallion",
+   "horse": "09070209090703",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900039054790",
+   "kind": "stallion",
+   "horse": "05020808020003",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900047949194",
+   "kind": "stallion",
+   "horse": "05060307010800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022755024",
+   "kind": "stallion",
+   "horse": "08050908090302",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900020166921",
+   "kind": "stallion",
+   "horse": "08040009030102",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022296015",
+   "kind": "stallion",
+   "horse": "07050002040302",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032503851",
+   "kind": "stallion",
+   "horse": "01030703070303",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900044248078",
+   "kind": "stallion",
+   "horse": "03050207040500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900005293215",
+   "kind": "stallion",
+   "horse": "07070702040600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022106079",
+   "kind": "stallion",
+   "horse": "03050003030302",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007629166",
+   "kind": "stallion",
+   "horse": "02060305080800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900012002039",
+   "kind": "stallion",
+   "horse": "09050603020301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022278196",
+   "kind": "stallion",
+   "horse": "05060200040302",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900042064885",
+   "kind": "stallion",
+   "horse": "04030809020300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900048159776",
+   "kind": "stallion",
+   "horse": "03020308030900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025948379",
+   "kind": "stallion",
+   "horse": "03080207010602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900040636756",
+   "kind": "stallion",
+   "horse": "01020006080100",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900019535301",
+   "kind": "stallion",
+   "horse": "06080906070001",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015693418",
+   "kind": "stallion",
+   "horse": "07090702080601",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900030553759",
+   "kind": "stallion",
+   "horse": "01020708070103",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029686673",
+   "kind": "stallion",
+   "horse": "03010001080002",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032826141",
+   "kind": "stallion",
+   "horse": "00060005000303",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900012881764",
+   "kind": "stallion",
+   "horse": "02020501000301",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007439482",
+   "kind": "stallion",
+   "horse": "04090306060800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900036365103",
+   "kind": "stallion",
+   "horse": "06060909050703",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900026967232",
+   "kind": "stallion",
+   "horse": "09070109010702",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015890879",
+   "kind": "stallion",
+   "horse": "03030402000601",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018483030",
+   "kind": "stallion",
+   "horse": "09050701060901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007235190",
+   "kind": "stallion",
+   "horse": "05060906040800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900019392409",
+   "kind": "stallion",
+   "horse": "06090602050001",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900044515675",
+   "kind": "stallion",
+   "horse": "03010904070500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900004742370",
+   "kind": "stallion",
+   "horse": "03080607090500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900047165310",
+   "kind": "stallion",
+   "horse": "07080909030800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900029749736",
+   "kind": "stallion",
+   "horse": "09020307090002",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032321493",
+   "kind": "stallion",
+   "horse": "05090505050303",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900041699378",
+   "kind": "stallion",
+   "horse": "03080302080200",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900042908608",
+   "kind": "stallion",
+   "horse": "06010203010300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900036674335",
+   "kind": "stallion",
+   "horse": "09080800080703",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025341552",
+   "kind": "stallion",
+   "horse": "01000507050602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900010423638",
+   "kind": "stallion",
+   "horse": "09010705060101",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900024750478",
+   "kind": "stallion",
+   "horse": "03090408090502",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900024063264",
+   "kind": "stallion",
+   "horse": "02070709020502",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900047806534",
+   "kind": "stallion",
+   "horse": "09000003000800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900034574491",
+   "kind": "stallion",
+   "horse": "05090800070503",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032792644",
+   "kind": "stallion",
+   "horse": "00010602090303",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018429328",
+   "kind": "stallion",
+   "horse": "08080305060901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900010317203",
+   "kind": "stallion",
+   "horse": "06070104050101",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033455494",
+   "kind": "stallion",
+   "horse": "05090908060403",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900011880270",
+   "kind": "stallion",
+   "horse": "03070401000201",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900022340411",
+   "kind": "stallion",
+   "horse": "07090407050302",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900023103855",
+   "kind": "stallion",
+   "horse": "01030703030402",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900004334995",
+   "kind": "stallion",
+   "horse": "05040806050500",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900037537066",
+   "kind": "stallion",
+   "horse": "02050106070803",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033504543",
+   "kind": "stallion",
+   "horse": "00000803070403",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900040657249",
+   "kind": "stallion",
+   "horse": "00070108080100",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900023913621",
+   "kind": "stallion",
+   "horse": "08010704010402",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900005549879",
+   "kind": "stallion",
+   "horse": "03030307070600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900042770250",
+   "kind": "stallion",
+   "horse": "01070400090300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013228452",
+   "kind": "stallion",
+   "horse": "01090205040401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900009578431",
+   "kind": "stallion",
+   "horse": "09090200070000",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033507919",
+   "kind": "stallion",
+   "horse": "07040103070403",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900010543923",
+   "kind": "stallion",
+   "horse": "08040707070101",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900049580821",
+   "kind": "stallion",
+   "horse": "08030401070000",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013557286",
+   "kind": "stallion",
+   "horse": "04070108070401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900000789805",
+   "kind": "stallion",
+   "horse": "06030301090100",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900008020368",
+   "kind": "stallion",
+   "horse": "02080405020900",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900016127929",
+   "kind": "stallion",
+   "horse": "08040105030701",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900016896115",
+   "kind": "stallion",
+   "horse": "07060002000701",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900014490117",
+   "kind": "stallion",
+   "horse": "07060402060501",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900014827005",
+   "kind": "stallion",
+   "horse": "06050105000501",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900023807197",
+   "kind": "stallion",
+   "horse": "05060103000402",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900028437085",
+   "kind": "stallion",
+   "horse": "04050106060902",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900013812057",
+   "kind": "stallion",
+   "horse": "01050604000401",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003190554",
+   "kind": "stallion",
+   "horse": "01000402030400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025301303",
+   "kind": "stallion",
+   "horse": "06080503050602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900020154140",
+   "kind": "stallion",
+   "horse": "00060808030102",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900043063146",
+   "kind": "stallion",
+   "horse": "00060709020400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900016094511",
+   "kind": "stallion",
+   "horse": "07000802020701",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900043210007",
+   "kind": "stallion",
+   "horse": "06050404040400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900005640804",
+   "kind": "stallion",
+   "horse": "06030407080600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900027188759",
+   "kind": "stallion",
+   "horse": "01020201030802",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900036349318",
+   "kind": "stallion",
+   "horse": "07080307050703",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900010104704",
+   "kind": "stallion",
+   "horse": "06020803030101",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900032384061",
+   "kind": "stallion",
+   "horse": "02050801050303",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900045805997",
+   "kind": "stallion",
+   "horse": "05040903000600",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033404102",
+   "kind": "stallion",
+   "horse": "06060803060403",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900024713596",
+   "kind": "stallion",
+   "horse": "05000704090502",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900023904360",
+   "kind": "stallion",
+   "horse": "02080803010402",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900033442173",
+   "kind": "stallion",
+   "horse": "03060607060403",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900018536743",
+   "kind": "stallion",
+   "horse": "00020006070901",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900026637517",
+   "kind": "stallion",
+   "horse": "07000106080702",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900031007817",
+   "kind": "stallion",
+   "horse": "07030103020203",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900009683623",
+   "kind": "stallion",
+   "horse": "08010701080000",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900003869740",
+   "kind": "stallion",
+   "horse": "00020309000400",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900020934964",
+   "kind": "stallion",
+   "horse": "02040806010102",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015164956",
+   "kind": "stallion",
+   "horse": "01040809030601",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900007875884",
+   "kind": "stallion",
+   "horse": "04030900000800",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900026120286",
+   "kind": "stallion",
+   "horse": "04070405030702",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025804828",
+   "kind": "stallion",
+   "horse": "08030803000602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900025506586",
+   "kind": "stallion",
+   "horse": "04000003070602",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900042339952",
+   "kind": "stallion",
+   "horse": "01040306050300",
+   "menu": 83,
+   "bonus": 0
+  },
+  {
+   "barcode": "4900015331518",
+   "kind": "stallion",
+   "horse": "07000506050601",
+   "menu": 83,
+   "bonus": 0
+  }
+ ]
+}

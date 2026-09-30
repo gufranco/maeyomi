@@ -2,6 +2,7 @@ local mem = manager.machine.devices[":maincpu"].spaces["program"]
 local cpu = manager.machine.devices[":maincpu"]
 local BYTE_S, GAP_S = 0.001, 0.002
 local REPLY = {0xff, 0xff, 0x10, 0x07}
+local SILENT = os.getenv("SILENT_REPLY") ~= nil
 local RECORD, RECORD_LEN = tonumber(os.getenv("RECORD_ADDR") or "0xc99e"), tonumber(os.getenv("RECORD_LEN") or "0x31")
 local STATUS = tonumber(os.getenv("STATUS_ADDR") or "0xc834")
 local READY_FRAME = tonumber(os.getenv("READY_FRAME") or "1480")
@@ -17,6 +18,13 @@ local held, release = nil, 0
 local codes = {}
 for line in io.lines(os.getenv("CODES")) do if line:match("^%d+$") then codes[#codes + 1] = line end end
 local frame, internal, sb, armed, delivered = 0, 0, 0xff, false, false
+local saved_internal, saved_armed, last_time = 0, false, 0
+local SAVE_WAIT = 10
+local function rewound()
+  local t = manager.machine.time:as_double()
+  if t < last_time then internal, armed, delivered = saved_internal, saved_armed, false end
+  last_time = t
+end
 local stream, gaps, sent, scanning, next_at = {}, {}, 0, false, 0
 local index, phase, wait = 0, "boot", 0
 fields = {}
@@ -40,7 +48,8 @@ local function deliver()
 end
 wtap = mem:install_write_tap(0xff02, 0xff02, "sc", function(offset, data, mask)
   local v = data & 0xff
-  if v == 0x81 then sb = REPLY[(internal % 4) + 1]; internal = internal + 1; armed = false
+  rewound()
+  if v == 0x81 then sb = SILENT and 0xff or REPLY[(internal % 4) + 1]; internal = internal + 1; armed = false
   elseif v == 0x80 then armed = true; delivered = false end
 end)
 rtap = mem:install_read_tap(0xff01, 0xff01, "sb", function(offset, data, mask) return sb end)
@@ -70,7 +79,19 @@ if CAPTURE_ADDR and CAPTURE_PC then
     end
   end)
 end
+PEEKS = {}
+for item in (os.getenv("PEEK_ADDRS") or ""):gmatch("[^,]+") do PEEKS[#PEEKS + 1] = tonumber(item) end
+local function peeks()
+  if #PEEKS == 0 then return "" end
+  local s = ""
+  for _, address in ipairs(PEEKS) do s = s .. string.format("%02x", mem:read_u8(address)) end
+  return " " .. s
+end
 local function dump(code)
+  if #PEEKS > 0 then
+    print(string.format("REC %s %02x %s%s", code, mem:read_u8(STATUS), record(), peeks()))
+    return
+  end
   if CAPTURE_ADDR and CAPTURE_PC then
     print(string.format("REC %s %s %s", code, captured and "00" or "ee", captured or record()))
     return
@@ -85,6 +106,7 @@ local function start_next()
 end
 emu.register_frame_done(function()
   frame = frame + 1
+  rewound()
   if phase == "boot" then
     if next(BOOT_STEPS) then
       if held and frame >= release then fields[held]:set_value(0); held = nil end
@@ -98,7 +120,8 @@ emu.register_frame_done(function()
       fields["Start"]:set_value(0); fields["Button A"]:set_value(0)
       if held then fields[held]:set_value(0); held = nil end
       manager.machine:save("ready")
-      phase, wait = "saving", 2
+      saved_internal, saved_armed = internal, armed
+      phase, wait = "saving", SAVE_WAIT
     end
   elseif phase == "saving" then
     wait = wait - 1
@@ -108,7 +131,7 @@ emu.register_frame_done(function()
     if wait <= 0 then
       build(codes[index])
       if POKE_ADDR and POKE_VALUE then mem:write_u8(POKE_ADDR, POKE_VALUE) end
-      armed, delivered, sent, scanning, sb, captured = true, false, 0, true, 0xff, nil
+      delivered, sent, scanning, sb, captured = false, 0, true, 0xff, nil
       mem:write_u8(STATUS, 0xee)
       next_at = now()
       phase, wait = "scanning", SETTLE

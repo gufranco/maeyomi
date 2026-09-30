@@ -54,6 +54,16 @@ from maeyomi.gameboy.famista3 import (
     famista3_text,
     strongest_famista3,
 )
+from maeyomi.gameboy.famjock2 import STAT_KEYS as FAMJOCK2_STATS
+from maeyomi.gameboy.famjock2 import (
+    build_famjock2,
+    decode_famjock2,
+    famjock2_entries,
+    famjock2_named,
+    famjock2_picks,
+    famjock2_text,
+    strongest_famjock2,
+)
 from maeyomi.gameboy.kattobi import STAT_KEYS as KATTOBI_STATS
 from maeyomi.gameboy.kattobi import (
     build_kattobi,
@@ -456,6 +466,17 @@ GAMES: Final[dict[Device, DatachGame]] = {
         named=famista3_named,
         stat_keys=FAMISTA3_STATS,
         picks=famista3_picks,
+        datach_reader=False,
+    ),
+    Device.FAMJOCK2: DatachGame(
+        decode=decode_famjock2,
+        build=build_famjock2,
+        strongest=strongest_famjock2,
+        entries=famjock2_entries,
+        describe=famjock2_text,
+        named=famjock2_named,
+        stat_keys=FAMJOCK2_STATS,
+        picks=famjock2_picks,
         datach_reader=False,
     ),
 }

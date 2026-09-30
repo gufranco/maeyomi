@@ -95,6 +95,12 @@ STAT_LABELS: Final[dict[str, Bilingual]] = {
     "FSP": Bilingual("Speed", "走力"),
     "FKM": Bilingual("Pitch speed, km/h", "球速 km/h"),
     "FST": Bilingual("Stamina", "スタミナ"),
+    "HSP": Bilingual("Speed", "スピード"),
+    "HST": Bilingual("Stamina", "スタミナ"),
+    "HGT": Bilingual("Guts", "ガッツ"),
+    "HJP": Bilingual("Jump", "ジャンプ"),
+    "HTB": Bilingual("Turbo", "ターボ"),
+    "HTP": Bilingual("Type", "タイプ"),
 }
 
 RACE_DESCRIPTIONS: Final[dict[Race, str]] = {

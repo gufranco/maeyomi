@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**1575** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**1583** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -270,6 +270,19 @@ first. The decoder agrees with the game in MAME on all 1551 codes it was
 given, among them one built for every player, and eight-digit codes, which the
 game reads with a rule of their own.
 
+Family Jockey 2, Namco's 1993 horse racing game, reads a card as a racehorse, a
+mare or a stallion, depending on which menu it is scanned from, and
+`--device famjock2` makes cards for it. Each menu turns digits seven to twelve
+into speed, stamina, guts, jump, turbo and type, from 0 to 9, adding keys from
+its own table picked by the sum of all the digits, so one card is three
+different horses. The card shows the racehorse on its tiles and the other two
+in its panel. Pick the menu with `--character` and each number with
+`--pick speed=`, `stamina=`, `guts=`, `jump=`, `turbo=` and `type=`; any left
+out is 9. The game also knows seven barcodes of Namco's own game boxes, and a
+card carrying one earns the bonus the game names, such as two more stamina.
+The decoder agrees with the game in MAME on all 459 codes it was given in each
+of the three menus.
+
 ## What it supports
 
 Every machine and game below is a `--device` on the command line and an
@@ -305,6 +318,7 @@ games and their card packs are on
 | Monster Maker: Barcode Saga | モンスターメーカー バーコードサーガ | Game Boy, through the Barcode Boy | `monstmkb` |
 | Kattobi Road | カットビロード | Game Boy, through the Barcode Boy | `kattobi` |
 | Famista 3 | ファミスタ3 | Game Boy, through the Barcode Boy | `famista3` |
+| Family Jockey 2 | ファミリージョッキー2 名馬の血統 | Game Boy, through the Barcode Boy | `famjock2` |
 
 ## Install
 
@@ -351,7 +365,7 @@ Z, Datach Ultraman Club, Datach SD Gundam Wars, Datach Yu Yu Hakusho,
 Datach J.League, Barcode World, Barcode Battler Senki, Lupin III, Donald Duck,
 Spider-Man, Alice no Paint Adventure, Doraemon 2, Doraemon 3, Nobita to Yousei
 no Kuni, J.League Excite Stage '94 or '95, Dragon Slayer II, Hatayama Hatch,
-Datach Battle Rush, Battle Space, Monster Maker: Barcode Saga, Kattobi Road or Famista 3. Every tab follows it: the card maker shows only the fields that device reads
+Datach Battle Rush, Battle Space, Monster Maker: Barcode Saga, Kattobi Road, Famista 3 or Family Jockey 2. Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -383,7 +397,7 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other three tabs print a sheet of random cards, the 1575 cards Epoch,
+The other three tabs print a sheet of random cards, the 1583 cards Epoch,
 Bandai and Namco actually released, and the strongest card the chosen machine or game
 will read. The page is in English and Japanese, and switches with the
 buttons at the top.
@@ -613,9 +627,9 @@ convenience: the lookup failing changes nothing about the card.
 
 ## The real cards
 
-`maeyomi official --list` names the 45 card lists Epoch, Bandai and Namco released,
+`maeyomi official --list` names the 46 card lists Epoch, Bandai and Namco released,
 how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
-candy.pdf` prints one, and leaving out `--set` prints all 1575. The web page has
+candy.pdf` prints one, and leaving out `--set` prints all 1583. The web page has
 the same thing under **The real cards**.
 
 Epoch never published a machine-readable list, so the barcodes come from the
@@ -737,6 +751,11 @@ Famista 3 came with four cards, listed under the names MAME's software list
 gives them, and each reads as the kind it is named for: three batters and a
 pitcher.
 
+Family Jockey 2 came with eight cards: two racehorses, three mares and three
+stallions, listed under the names MAME's software list gives them. The GBE+
+notes found that five of them give other numbers than the ones printed on the
+card, and these print what the game reads.
+
 Epoch printed a roster card for each of the 12 J.League clubs of 1994 for
 Excite Stage '94. Their barcodes were read off the scans
 [barcodebattler.co.uk publishes](https://www.barcodebattler.co.uk/scans/Japan/J-League/),
@@ -839,6 +858,8 @@ torque, the most power any code gives.
 
 Famista 3 gets a rookie who bats left and hits 60 home runs, the most any code
 gives, at a .204 average.
+
+Family Jockey 2 gets a racehorse with 9 in all six numbers.
 
 Hatayama Hatch gets a wizard with stamina 99900, attack and defense 19900 and
 99 magic.

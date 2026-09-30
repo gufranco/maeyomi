@@ -9505,6 +9505,54 @@
    "name": "ピッチャー",
    "set": "ファミスタ3 カード",
    "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "5893713522816",
+   "name": "競走馬 A",
+   "set": "ファミリージョッキー2 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "1509843019075",
+   "name": "競走馬 B",
+   "set": "ファミリージョッキー2 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "2378649896765",
+   "name": "繁殖馬 A",
+   "set": "ファミリージョッキー2 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "4232978865152",
+   "name": "繁殖馬 B",
+   "set": "ファミリージョッキー2 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "7164625542390",
+   "name": "繁殖馬 C",
+   "set": "ファミリージョッキー2 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "9845554422318",
+   "name": "種馬 A",
+   "set": "ファミリージョッキー2 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "3572821107673",
+   "name": "種馬 B",
+   "set": "ファミリージョッキー2 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "6319537443513",
+   "name": "種馬 C",
+   "set": "ファミリージョッキー2 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
   }
  ]
 }
