@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.9.0 (2026-09-30)
+
+### Chores
+
+- **formula**: Point at v1.8.2 [skip ci]
+  ([`791bef4`](https://github.com/gufranco/maeyomi/commit/791bef42c6d09590434b4d5567de3f831e9751fc))
+
+### Features
+
+- Add the front of Monster Maker's first card
+  ([`3fdcebe`](https://github.com/gufranco/maeyomi/commit/3fdcebebc82f33beb007aa4407f4f0f1405bb1f3))
+
+
 ## v1.8.2 (2026-09-30)
 
 ### Bug Fixes
