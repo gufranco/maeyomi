@@ -1,6 +1,6 @@
 [project]
 name = "maeyomi"
-version = "1.2.4"
+version = "1.2.5"
 description = "Print playable cards for Barcode Battler machines and barcode games"
 readme = "README.md"
 authors = [{ name = "Gustavo Franco", email = "gufranco@users.noreply.github.com" }]

@@ -2,6 +2,33 @@
 
 <!-- version list -->
 
+## v1.2.5 (2026-09-30)
+
+### Bug Fixes
+
+- Print four official cards the wiki mistyped
+  ([`d8da243`](https://github.com/gufranco/maeyomi/commit/d8da243d20c17036034ebc95f8444f41be08a1b1))
+
+- **ui**: Open the page with nothing focused
+  ([`5b31f4e`](https://github.com/gufranco/maeyomi/commit/5b31f4e9cd0d684ec0beee04d84310f54dc14889))
+
+### Chores
+
+- Add an editorconfig matching the files
+  ([`6b1ff08`](https://github.com/gufranco/maeyomi/commit/6b1ff089125a846872f4b779b7eec07bac5e742b))
+
+- **formula**: Point at v1.2.4 [skip ci]
+  ([`60b1a1a`](https://github.com/gufranco/maeyomi/commit/60b1a1ae9834faca6237f842fc7312a092be1471))
+
+### Testing
+
+- Keep the accessibility check in the repository
+  ([`8c7cecd`](https://github.com/gufranco/maeyomi/commit/8c7cecd615da0eea90278c05afc24e668a561e76))
+
+- The page language never changes a card
+  ([`cabe6a4`](https://github.com/gufranco/maeyomi/commit/cabe6a42782ca466ec0df01bc10f7f71b00643bf))
+
+
 ## v1.2.4 (2026-09-30)
 
 ### Bug Fixes
