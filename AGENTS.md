@@ -65,8 +65,10 @@ never reach GitHub, so nothing published may link into them.
 ## Accessibility is a gate, not a pass
 
 The page: axe-core reports zero violations on every tab, in both colour
-schemes, against WCAG 2.2 A and AA plus best-practice. Keyboard alone reaches
-everything. A change to markup, styles or the component tree is unverified
+schemes, against WCAG 2.2 A and AA plus best-practice. With the server running,
+`node tools/render/accessibility.e2e.mjs` checks every tab of six devices at
+two widths in both schemes, and `node tools/render/layout.e2e.mjs` checks the
+layout. Keyboard alone reaches everything. A change to markup, styles or the component tree is unverified
 until a real browser has drawn it and the computed result was read back off the
 focused element. The stylesheet is not evidence.
 
