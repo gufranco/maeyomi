@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.6.0 (2026-09-30)
+
+### Chores
+
+- **formula**: Point at v1.5.0 [skip ci]
+  ([`fdd157e`](https://github.com/gufranco/maeyomi/commit/fdd157ed97a9821b917fff925dddf50df557bc95))
+
+### Features
+
+- Read Famista 3 cards through the Barcode Boy
+  ([`3e0fded`](https://github.com/gufranco/maeyomi/commit/3e0fdedb92f58f1b143ca40ff1b8186119e1eb23))
+
+
 ## v1.5.0 (2026-09-30)
 
 ### Chores
