@@ -107,9 +107,9 @@ class OfficialSet(Enum):
     DATACH_YUYU = "データック 幽遊白書 爆闘暗黒武術会 カードリスト"
     DATACH_JLEAGUE = "データック Jリーグ スーパートッププレイヤーズ カードリスト"
     BARCODE_WORLD = "バーコードワールド カードリスト"
-    EXCITE_CLUBS = "Jリーグ 登録選手リスト カード、エキサイトステージ'95 で よむ"
-    DRAGON_SLAYER_HERO = "ドラゴンスレイヤー英雄伝説 カードリスト、英雄伝説II で よむ"
-    EXCITE94_CLUBS = "Jリーグ 登録選手リスト カード、エキサイトステージ'94 で よむ"
+    EXCITE_CLUBS = "エキサイトステージ'95 の Jリーグ 登録選手リスト カード"
+    DRAGON_SLAYER_HERO = "バーコードバトラーII「ドラゴンスレイヤー英雄伝説」の セリオス"
+    EXCITE94_CLUBS = "エキサイトステージ'94 の Jリーグ 登録選手リスト カード"
     IRWIN = "アーウィン版 バーコードバトラー カードリスト"
     TOMY = "トミー版 バーコードバトラー カードリスト"
     TOMY_GERMANY = "トミー版 ドイツ バーコードバトラー カードリスト"
@@ -187,9 +187,11 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.DATACH_YUYU: "Datach Yu Yu Hakusho: Bakutou Ankoku Bujutsukai",
     OfficialSet.DATACH_JLEAGUE: "Datach J.League Super Top Players",
     OfficialSet.BARCODE_WORLD: "Barcode World",
-    OfficialSet.EXCITE_CLUBS: "J.League Excite Stage club roster cards, as '95 reads them",
-    OfficialSet.DRAGON_SLAYER_HERO: "Dragon Slayer: The Legend of Heroes cards, as II reads them",
-    OfficialSet.EXCITE94_CLUBS: "J.League Excite Stage club roster cards, as '94 reads them",
+    OfficialSet.EXCITE_CLUBS: "J.League club roster cards",
+    OfficialSet.DRAGON_SLAYER_HERO: (
+        "Selios, from the Barcode Battler II pack Dragon Slayer: The Legend of Heroes"
+    ),
+    OfficialSet.EXCITE94_CLUBS: "J.League club roster cards",
     OfficialSet.IRWIN: "Irwin Barcode Battler, United States and Canada",
     OfficialSet.TOMY: "Tomy Barcode Battler, United Kingdom, Ireland and Italy",
     OfficialSet.TOMY_GERMANY: "Tomy Barcode Battler, Germany",

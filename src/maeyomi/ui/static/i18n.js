@@ -191,8 +191,8 @@ const MESSAGES = {
     'status.searching': 'Looking for a barcode the {device} reads this way.',
     'status.deviceClosest': 'Those exact numbers cannot be printed, so this is the closest card that can.',
     'official.legend': 'Cards that were really sold',
-    'official.single': '{title}: {count} cards',
-    'official.single.one': '{title}: 1 card',
+    'official.single': '{title} ({count} cards)',
+    'official.single.one': '{title} (1 card)',
     'official.set': 'Which set',
     'official.note.epoch':
       'Epoch never published a list of its cards, so these barcodes were typed in by ' +
@@ -525,8 +525,8 @@ const MESSAGES = {
     'status.searching': '{device} が こう よむ バーコードを さがしています。',
     'status.deviceClosest': 'その すうじ ぴったりの カードは つくれないので、いちばん ちかい カードに しました。',
     'official.legend': 'ほんとうに うられた カード',
-    'official.single': '{title}: {count}まい',
-    'official.single.one': '{title}: 1まい',
+    'official.single': '{title}（{count}まい）',
+    'official.single.one': '{title}（1まい）',
     'official.set': 'どの シリーズ',
     'official.note.epoch':
       'エポック社は カードの いちらんを こうかいしていません。そこで バーコードは、wikiwiki.jp に ある ' +
