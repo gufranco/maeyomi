@@ -23,7 +23,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**1584** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**1586** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -156,7 +156,7 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other three tabs print a sheet of random cards, the 1584 cards Epoch,
+The other three tabs print a sheet of random cards, the 1586 cards Epoch,
 Bandai and Namco actually released, and the strongest card the chosen machine or game
 will read. The page is in English and Japanese, and switches with the
 buttons at the top.
@@ -664,7 +664,7 @@ convenience: the lookup failing changes nothing about the card.
 
 `maeyomi official --list` names the 46 card lists Epoch, Bandai and Namco released,
 how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
-candy.pdf` prints one, and leaving out `--set` prints all 1584. The web page has
+candy.pdf` prints one, and leaving out `--set` prints all 1586. The web page has
 the same thing under **The real cards**.
 
 Epoch never published a machine-readable list, so the barcodes come from the
@@ -770,10 +770,13 @@ II came with cards, and the manuals of the first four name none. The one card
 Dragon Slayer II is known to read, Selios from the Barcode Battler II pack, is
 listed under that game.
 
-Ten Battle Space cards and six Monster Maker cards are known. Their barcodes
-come from
+Ten Battle Space cards and eight Monster Maker barcodes are known. The
+barcodes come from
 [the Barcode Boy notes of the GBE+ emulator](https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt), which list every
-known Barcode Boy card from high-resolution scans. Each Battle Space card
+known Barcode Boy card from high-resolution scans, and two more Monster Maker
+codes, Link and Lufia on the front of its first card, from
+[MAME's Game Boy software list](https://github.com/mamedev/mame/blob/master/hash/gameboy.xml).
+Monster Maker came with five cards, two of them carrying four barcodes each. Each Battle Space card
 decodes to the class printed on it, and each Monster Maker card to the hero it
 is named for. Two of those heroes are named as the game shows them, エルサイス
 and ハーゲン, where the notes have エリサイス and ハーグン.

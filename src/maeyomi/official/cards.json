@@ -9459,6 +9459,18 @@
    "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt"
   },
   {
+   "barcode": "9120153954577",
+   "name": "リンク",
+   "set": "モンスターメーカー カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "9022038781998",
+   "name": "ルフィーア",
+   "set": "モンスターメーカー カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
    "barcode": "4903301160625",
    "name": "ナイター2000",
    "set": "カットビロード カード",

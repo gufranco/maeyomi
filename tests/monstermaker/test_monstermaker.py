@@ -40,7 +40,7 @@ HEROES: Final = 17
 LEVELS: Final = 9
 LORIAN_ID: Final = 17
 DRAGON_ID: Final = 20
-KNOWN_CARDS: Final = 6
+KNOWN_CARDS: Final = 8
 LINK_ID: Final = 3
 
 

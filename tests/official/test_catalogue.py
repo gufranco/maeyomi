@@ -51,7 +51,7 @@ SCANNED_CARDS = 71
 SELIOS = "0401209245504"
 SELIOS_FOR_DRAGON_SLAYER_TWO = 1
 BATTLE_SPACE_CARDS = 10
-MONSTER_MAKER_CARDS = 6
+MONSTER_MAKER_CARDS = 8
 KATTOBI_CARDS = 6
 FAMISTA3_CARDS = 4
 FAMJOCK2_CARDS = 8
@@ -158,7 +158,7 @@ def test_irwin_life_crystals_heal_less_than_the_epoch_card_they_replace() -> Non
 
 
 def test_every_card_names_the_page_it_came_from() -> None:
-    sources = {
+    sources: dict[OfficialSet, str | tuple[str, ...]] = {
         OfficialSet.DATACH_DBZ: "https://github.com/punesemu/puNES/",
         OfficialSet.ZELDA: UK_LIST,
         OfficialSet.SECOND_GRADE: UK_LIST,
@@ -175,7 +175,7 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.EXCITE_CLUBS: UK_SCANS,
         OfficialSet.DRAGON_SLAYER_HERO: UK_SCANS,
         OfficialSet.BATTLE_SPACE: GBE_PLUS,
-        OfficialSet.MONSTER_MAKER: GBE_PLUS,
+        OfficialSet.MONSTER_MAKER: (GBE_PLUS, MAME_LIST),
         OfficialSet.KATTOBI: MAME_LIST,
         OfficialSet.FAMISTA3: MAME_LIST,
         OfficialSet.FAMJOCK2: MAME_LIST,
