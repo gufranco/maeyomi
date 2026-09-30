@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.7.0 (2026-09-30)
+
+### Chores
+
+- **formula**: Point at v1.6.0 [skip ci]
+  ([`f5dde94`](https://github.com/gufranco/maeyomi/commit/f5dde94ce94fdb47bfe61d1231dda410fa7d12ce))
+
+### Features
+
+- Read Family Jockey 2 cards through the Barcode Boy
+  ([`b99b27c`](https://github.com/gufranco/maeyomi/commit/b99b27c76a97a496a6515bcf513837660f9e54e1))
+
+
 ## v1.6.0 (2026-09-30)
 
 ### Chores
