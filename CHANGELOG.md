@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.2.6 (2026-09-30)
+
+### Bug Fixes
+
+- **ui**: Say what is known about each game's cards
+  ([`98abfe0`](https://github.com/gufranco/maeyomi/commit/98abfe0dadb5e974ccae6d33b69cc3e16a5084a9))
+
+### Chores
+
+- **formula**: Point at v1.2.5 [skip ci]
+  ([`425b8b0`](https://github.com/gufranco/maeyomi/commit/425b8b00cf6fc7e1780a7867193621304d9b7064))
+
+
 ## v1.2.5 (2026-09-30)
 
 ### Bug Fixes
