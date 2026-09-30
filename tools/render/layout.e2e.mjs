@@ -289,7 +289,7 @@ function checkBehaviour() {
   expect(problem === 'Use a number from 1 to 200.', `an out-of-range count says ${problem}`);
   browser('fill', '#count', '9');
   const hash = evaluate('JSON.stringify(window.location.hash)');
-  expect(hash === '#tab-many', `the address does not name the open tab: ${hash}`);
+  expect(hash === '#tab=many', `the address does not name the open tab: ${hash}`);
   browser('open', URL.replace(/#.*$/, '') + '#official');
   browser('wait', '1500');
   const open = evaluate(`JSON.stringify(document.getElementById('tab-official').getAttribute('aria-selected'))`);
@@ -404,6 +404,20 @@ function checkCheatLinkShowsThatDevicesCard() {
   pickDevice('bb2');
 }
 
+function checkNothingIsFocusedOnOpen() {
+  for (const [address, tab] of [['', 'tab-one'], ['#tab=many', 'tab-many'], ['#tab-cheat', 'tab-cheat']]) {
+    browser('open', 'about:blank');
+    browser('open', `${URL}${address}`);
+    browser('wait', '1500');
+    const state = evaluate(`JSON.stringify([
+      document.activeElement === document.body,
+      document.querySelector('[role="tab"][aria-selected="true"]').id,
+    ])`);
+    expect(state[0] && state[1] === tab, `opening ${address || 'the page'} focuses something or opens the wrong tab: ${state}`);
+  }
+  browser('click', '#tab-one');
+}
+
 function checkLanguageLeavesTheCard() {
   browser('click', '#tab-one');
   browser('wait', '1500');
@@ -488,6 +502,7 @@ checkFoldedOptions();
 checkFreshStartOnDeviceChange();
 checkAddressAndKeys();
 checkEmptyRealCards();
+checkNothingIsFocusedOnOpen();
 checkLanguageLeavesTheCard();
 checkCheatTab();
 checkCheatLinkShowsThatDevicesCard();

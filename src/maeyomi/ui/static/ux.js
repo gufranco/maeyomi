@@ -1,6 +1,7 @@
 const SEARCH_DELAY_MS = 250;
 const PREVIEW_DELAY_MS = 350;
 const TAB_PREFIX = 'tab-';
+const TAB_KEY = 'tab=';
 
 function setBusy(button, busy) {
   button.toggleAttribute('disabled', busy);
@@ -8,15 +9,19 @@ function setBusy(button, busy) {
 }
 
 function tabFromHash() {
-  const name = decodeURIComponent(window.location.hash.slice(1));
+  const name = decodeURIComponent(window.location.hash.slice(1)).replace(TAB_KEY, '');
   const id = name.startsWith(TAB_PREFIX) ? name : TAB_PREFIX + name;
   const tab = name ? document.getElementById(id) : null;
   return tab?.getAttribute('role') === 'tab' ? tab : null;
 }
 
+function tabAddress(tab) {
+  return `#${TAB_KEY}${tab.id.slice(TAB_PREFIX.length)}`;
+}
+
 function rememberTab(tab) {
-  if (window.location.hash.slice(1) !== tab.id) {
-    window.history.replaceState(null, '', `#${tab.id}`);
+  if (window.location.hash !== tabAddress(tab)) {
+    window.history.replaceState(null, '', tabAddress(tab));
   }
 }
 
