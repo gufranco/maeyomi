@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.2.7 (2026-09-30)
+
+### Bug Fixes
+
+- **ui**: Name each card list plainly
+  ([`c85a3b9`](https://github.com/gufranco/maeyomi/commit/c85a3b9a8e0b4d01c82e200dc440c08cc58db113))
+
+### Chores
+
+- **formula**: Point at v1.2.6 [skip ci]
+  ([`0332f03`](https://github.com/gufranco/maeyomi/commit/0332f03958034ba65750422593b8f8942753bc96))
+
+
 ## v1.2.6 (2026-09-30)
 
 ### Bug Fixes
