@@ -7,6 +7,13 @@ local STATUS = tonumber(os.getenv("STATUS_ADDR") or "0xc834")
 local READY_FRAME = tonumber(os.getenv("READY_FRAME") or "1480")
 local SETTLE = tonumber(os.getenv("SETTLE") or "90")
 local POKE_ADDR, POKE_VALUE = tonumber(os.getenv("POKE_ADDR") or ""), tonumber(os.getenv("POKE_VALUE") or "")
+BOOT_STEPS = {}
+for item in (os.getenv("BOOT_STEPS") or ""):gmatch("[^,]+") do
+  local at, button = item:match("(%d+):(.+)")
+  BOOT_STEPS[tonumber(at)] = button
+end
+local PRESS_FRAMES = 6
+local held, release = nil, 0
 local codes = {}
 for line in io.lines(os.getenv("CODES")) do if line:match("^%d+$") then codes[#codes + 1] = line end end
 local frame, internal, sb, armed, delivered = 0, 0, 0xff, false, false
@@ -79,11 +86,17 @@ end
 emu.register_frame_done(function()
   frame = frame + 1
   if phase == "boot" then
-    local p = frame % 180
-    fields["Start"]:set_value((p >= 60 and p < 70) and 1 or 0)
-    fields["Button A"]:set_value((p >= 120 and p < 130) and 1 or 0)
+    if next(BOOT_STEPS) then
+      if held and frame >= release then fields[held]:set_value(0); held = nil end
+      if BOOT_STEPS[frame] then held = BOOT_STEPS[frame]; fields[held]:set_value(1); release = frame + PRESS_FRAMES end
+    else
+      local p = frame % 180
+      fields["Start"]:set_value((p >= 60 and p < 70) and 1 or 0)
+      fields["Button A"]:set_value((p >= 120 and p < 130) and 1 or 0)
+    end
     if frame == READY_FRAME then
       fields["Start"]:set_value(0); fields["Button A"]:set_value(0)
+      if held then fields[held]:set_value(0); held = nil end
       manager.machine:save("ready")
       phase, wait = "saving", 2
     end

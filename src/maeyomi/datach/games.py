@@ -44,6 +44,15 @@ from maeyomi.gameboy.battlespace import (
     decode_battle_space,
     strongest_battle_space,
 )
+from maeyomi.gameboy.kattobi import STAT_KEYS as KATTOBI_STATS
+from maeyomi.gameboy.kattobi import (
+    build_kattobi,
+    decode_kattobi,
+    kattobi_entries,
+    kattobi_named,
+    kattobi_text,
+    strongest_kattobi,
+)
 from maeyomi.gameboy.monstermaker import STAT_KEYS as MONSTER_MAKER_STATS
 from maeyomi.gameboy.monstermaker import (
     build_monster_maker,
@@ -416,6 +425,16 @@ GAMES: Final[dict[Device, DatachGame]] = {
         named=monster_maker_named,
         stat_keys=MONSTER_MAKER_STATS,
         picks=monster_maker_picks,
+        datach_reader=False,
+    ),
+    Device.KATTOBI: DatachGame(
+        decode=decode_kattobi,
+        build=build_kattobi,
+        strongest=strongest_kattobi,
+        entries=kattobi_entries,
+        describe=kattobi_text,
+        named=kattobi_named,
+        stat_keys=KATTOBI_STATS,
         datach_reader=False,
     ),
 }

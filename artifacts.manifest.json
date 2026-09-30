@@ -258,7 +258,7 @@
       "sha256": "e231dacb818e3d1f9cb0e4e79c5679848be73d59b4c3f7b6ee09d50c58a32abb",
       "sha1": "7ac064a877ecc8247dfb7213722dbd0f4be665f0",
       "crc32": "efbc23fc",
-      "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/extract_barcode_boy.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+      "used_by": "tools/oracle/record_kattobi.py and tools/oracle/extract_kattobi.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
     },
     {
       "id": "gameboy_famjock2",
@@ -288,7 +288,7 @@
       "sha256": "cf053eccb4ccafff9e67339d4e78e98dce7d1ed59be819d2a1ba2232c6fce1c7",
       "sha1": "4ed31ec6b0b175bb109c0eb5fd3d193da823339f",
       "crc32": "59c8598e",
-      "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/record_monster_maker.py, which boot the Game Boy in MAME with it; nothing in the package or its tests reads it"
+      "used_by": "tools/oracle/record_barcode_boy.py, tools/oracle/record_monster_maker.py and tools/oracle/record_kattobi.py, which boot the Game Boy in MAME with it; nothing in the package or its tests reads it"
     },
     {
       "id": "gameboy_dmg_v0",
@@ -298,7 +298,7 @@
       "sha256": "26e71cf01e301e5dc40e987cd2ecbf6d0276245890ac829db2a25323da86818e",
       "sha1": "8bd501e31921e9601788316dbd3ce9833a97bcbc",
       "crc32": "c2f5cc97",
-      "used_by": "tools/oracle/record_barcode_boy.py and tools/oracle/record_monster_maker.py, which boot the Game Boy in MAME with it; nothing in the package or its tests reads it"
+      "used_by": "tools/oracle/record_barcode_boy.py, tools/oracle/record_monster_maker.py and tools/oracle/record_kattobi.py, which boot the Game Boy in MAME with it; nothing in the package or its tests reads it"
     }
   ]
 }

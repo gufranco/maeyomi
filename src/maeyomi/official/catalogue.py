@@ -111,6 +111,7 @@ class OfficialSet(Enum):
     DRAGON_SLAYER_HERO = "バーコードバトラーII「ドラゴンスレイヤー英雄伝説」の セリオス"
     BATTLE_SPACE = "バトルスペース カード"
     MONSTER_MAKER = "モンスターメーカー カード"
+    KATTOBI = "カットビロード カード"
     EXCITE94_CLUBS = "エキサイトステージ'94 の Jリーグ 登録選手リスト カード"
     IRWIN = "アーウィン版 バーコードバトラー カードリスト"
     TOMY = "トミー版 バーコードバトラー カードリスト"
@@ -155,6 +156,7 @@ _DEVICES: Final[dict[OfficialSet, Device]] = {
     OfficialSet.DRAGON_SLAYER_HERO: Device.DSLAYER2,
     OfficialSet.BATTLE_SPACE: Device.BATTLE_SPACE,
     OfficialSet.MONSTER_MAKER: Device.MONSTER_MAKER,
+    OfficialSet.KATTOBI: Device.KATTOBI,
     OfficialSet.EXCITE94_CLUBS: Device.EXCITE94,
 }
 
@@ -197,6 +199,7 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     ),
     OfficialSet.BATTLE_SPACE: "Battle Space cards",
     OfficialSet.MONSTER_MAKER: "Monster Maker cards",
+    OfficialSet.KATTOBI: "Kattobi Road cards",
     OfficialSet.EXCITE94_CLUBS: "J.League club roster cards",
     OfficialSet.IRWIN: "Irwin Barcode Battler, United States and Canada",
     OfficialSet.TOMY: "Tomy Barcode Battler, United Kingdom, Ireland and Italy",

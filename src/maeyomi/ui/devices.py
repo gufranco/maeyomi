@@ -205,6 +205,7 @@ FORMS: Final[dict[Device, DeviceForm]] = {
     Device.MONSTER_MAKER: DeviceForm(
         ("game", "picks"), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()
     ),
+    Device.KATTOBI: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.HATAYAMA: DeviceForm(
         ("game", "picks", "stats"),
         HATAYAMA_MAX_HP,
@@ -228,7 +229,7 @@ class Platform(StrEnum):
 
 DATACH_PREFIX: Final = "DATACH_"
 FAMICOM_GAMES: Final = frozenset({Device.BARCODE_WORLD})
-GAME_BOY_GAMES: Final = frozenset({Device.BATTLE_SPACE, Device.MONSTER_MAKER})
+GAME_BOY_GAMES: Final = frozenset({Device.BATTLE_SPACE, Device.MONSTER_MAKER, Device.KATTOBI})
 
 
 def platform_of(device: Device) -> Platform:

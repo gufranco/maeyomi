@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**1565** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**1571** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -247,6 +247,17 @@ reads it and once with the flag the game sets later, and the decoder agrees
 with the game on both readings of all 830 codes, among them every card the
 program can build.
 
+Kattobi Road, Namco's 1993 racing game, reads a card as one of the 256 cars it
+keeps, and `--device kattobi` makes cards for it. Only the code's last five
+digits count. The first two and the last two pick the car, and with the middle
+digit they set its power within 30 PS of the car's own and its torque within
+5 kg-m. The
+card shows the car's category, power, weight and torque. Pick a car with
+`--character`, by number or by name, and the program prints the code giving it
+the most power. The cars are named as the game shows them, and their English
+names are romanised by rule. The decoder agrees with the game in MAME on all
+592 codes it was given, among them one built for each car.
+
 ## What it supports
 
 Every machine and game below is a `--device` on the command line and an
@@ -280,6 +291,7 @@ games and their card packs are on
 | Barcode World | バーコードワールド | Famicom, through the Barcode Battler II | `barcodeworld` |
 | Battle Space | バトルスペース | Game Boy, through the Barcode Boy | `bspace` |
 | Monster Maker: Barcode Saga | モンスターメーカー バーコードサーガ | Game Boy, through the Barcode Boy | `monstmkb` |
+| Kattobi Road | カットビロード | Game Boy, through the Barcode Boy | `kattobi` |
 
 ## Install
 
@@ -326,7 +338,7 @@ Z, Datach Ultraman Club, Datach SD Gundam Wars, Datach Yu Yu Hakusho,
 Datach J.League, Barcode World, Barcode Battler Senki, Lupin III, Donald Duck,
 Spider-Man, Alice no Paint Adventure, Doraemon 2, Doraemon 3, Nobita to Yousei
 no Kuni, J.League Excite Stage '94 or '95, Dragon Slayer II, Hatayama Hatch,
-Datach Battle Rush, Battle Space or Monster Maker: Barcode Saga. Every tab follows it: the card maker shows only the fields that device reads
+Datach Battle Rush, Battle Space, Monster Maker: Barcode Saga or Kattobi Road. Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -358,7 +370,7 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other three tabs print a sheet of random cards, the 1565 cards Epoch,
+The other three tabs print a sheet of random cards, the 1571 cards Epoch,
 Bandai and Namco actually released, and the strongest card the chosen machine or game
 will read. The page is in English and Japanese, and switches with the
 buttons at the top.
@@ -588,9 +600,9 @@ convenience: the lookup failing changes nothing about the card.
 
 ## The real cards
 
-`maeyomi official --list` names the 43 card lists Epoch, Bandai and Namco released,
+`maeyomi official --list` names the 44 card lists Epoch, Bandai and Namco released,
 how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
-candy.pdf` prints one, and leaving out `--set` prints all 1565. The web page has
+candy.pdf` prints one, and leaving out `--set` prints all 1571. The web page has
 the same thing under **The real cards**.
 
 Epoch never published a machine-readable list, so the barcodes come from the
@@ -701,6 +713,13 @@ decodes to the class printed on it, and each Monster Maker card to the hero it
 is named for. Two of those heroes are named as the game shows them, エルサイス
 and ハーゲン, where the notes have エリサイス and ハーグン.
 
+Kattobi Road came with six cards, and
+[MAME's Game Boy software list](https://github.com/mamedev/mame/blob/master/hash/gameboy.xml)
+gives all six barcodes, among them the formula car's that the GBE+ notes lack.
+Each decodes to the car it is named for, and two are named as the game shows
+them, ナイター2000 and ハイスラックス, where the notes have ナイト 2000 and
+リイスラックス.
+
 Epoch printed a roster card for each of the 12 J.League clubs of 1994 for
 Excite Stage '94. Their barcodes were read off the scans
 [barcodebattler.co.uk publishes](https://www.barcodebattler.co.uk/scans/Japan/J-League/),
@@ -797,6 +816,9 @@ AP at 999 fix six digits that HP at 9999 needs for itself.
 
 Monster Maker gets Lorian, who comes back later in the game at level 9 with HP
 460, the most any hero reaches, and AP and DP 97.
+
+Kattobi Road gets USAドロンコ, a special car with 11028 PS and 403.4 kg-m of
+torque, the most power any code gives.
 
 Hatayama Hatch gets a wizard with stamina 99900, attack and defense 19900 and
 99 magic.

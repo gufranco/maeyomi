@@ -9445,6 +9445,42 @@
    "name": "タムローン",
    "set": "モンスターメーカー カード",
    "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt"
+  },
+  {
+   "barcode": "4903301160625",
+   "name": "ナイター2000",
+   "set": "カットビロード カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "4987084410924",
+   "name": "ロクタスヨンート",
+   "set": "カットビロード カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "4902888119101",
+   "name": "ミイラターボ",
+   "set": "カットビロード カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "4901121110004",
+   "name": "ガウディ",
+   "set": "カットビロード カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "4902105002063",
+   "name": "フォワールド",
+   "set": "カットビロード カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "4901780161157",
+   "name": "ハイスラックス",
+   "set": "カットビロード カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
   }
  ]
 }
