@@ -2,6 +2,27 @@
 
 <!-- version list -->
 
+## v1.8.2 (2026-09-30)
+
+### Bug Fixes
+
+- Answer the page's refusals in its own language
+  ([`c193a58`](https://github.com/gufranco/maeyomi/commit/c193a583e1011560662d4cff339fec328bddf13c))
+
+- Say what the plus one bonus raises
+  ([`561d4ef`](https://github.com/gufranco/maeyomi/commit/561d4ef31276c539c12f363981326bf9d275ba7e))
+
+### Chores
+
+- **formula**: Point at v1.8.1 [skip ci]
+  ([`f8022f5`](https://github.com/gufranco/maeyomi/commit/f8022f57f0671bd95ccdd4f33e92aa9bf9877234))
+
+### Testing
+
+- Cover the refusal handler re-raise
+  ([`6c4db93`](https://github.com/gufranco/maeyomi/commit/6c4db9383b303ebb9f056bbf6b5f2af43a57efe7))
+
+
 ## v1.8.1 (2026-09-30)
 
 ### Bug Fixes
