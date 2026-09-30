@@ -83,7 +83,9 @@ drift into a compliance claim.
 
 ## Verification
 
-- 100% coverage, statements and branches, enforced in CI. A new module arrives
+- 100% coverage, statements and branches, enforced in CI by
+  `uv run pytest --cov=maeyomi --cov-fail-under=100`; a local run without
+  those two flags does not check coverage at all. A new module arrives
   with its tests.
 - A barcode claim is verified by rasterising the rendered page and decoding the
   symbol back out. A test on the digits proves nothing about what a scanner

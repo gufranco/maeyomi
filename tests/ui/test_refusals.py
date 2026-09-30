@@ -9,10 +9,11 @@ import re
 from typing import cast
 
 import pytest
+from fastapi import Request
 from fastapi.testclient import TestClient
 
 from maeyomi.datach.games import GAMES
-from maeyomi.ui.app import create_app
+from maeyomi.ui.app import create_app, refusal
 
 JAPANESE = re.compile(r"[぀-ヿ㐀-鿿]")
 RANDOM_SHORTFALL = {
@@ -110,3 +111,10 @@ def test_the_nearest_card_names_its_differences_in_japanese(client: TestClient) 
 
     assert len(body["differences_ja"]) == len(body["differences"]) > 0
     assert all(JAPANESE.search(line) for line in body["differences_ja"])
+
+
+def test_the_refusal_handler_passes_on_an_error_that_is_not_a_refusal() -> None:
+    error = ValueError("not a refusal")
+
+    with pytest.raises(ValueError, match="not a refusal"):
+        refusal(Request({"type": "http"}), error)
