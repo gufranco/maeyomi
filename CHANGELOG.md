@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.4.0 (2026-09-30)
+
+### Chores
+
+- **formula**: Point at v1.3.0 [skip ci]
+  ([`3ef1d2b`](https://github.com/gufranco/maeyomi/commit/3ef1d2b981d13fc4f508df18432859659c515967))
+
+### Features
+
+- Read Monster Maker cards through the Barcode Boy
+  ([`ba2bb91`](https://github.com/gufranco/maeyomi/commit/ba2bb91043b80d2ac36e1de3c6ed863a85057c70))
+
+
 ## v1.3.0 (2026-09-30)
 
 ### Chores
