@@ -9,6 +9,8 @@ the name the series uses in English, or this project's translation.
 from dataclasses import dataclass
 from typing import Final
 
+from maeyomi.said import Said
+
 
 @dataclass(frozen=True, slots=True)
 class Item:
@@ -153,5 +155,8 @@ def card_named(typed: str) -> int:
     for ident, (english, japanese) in names.items():
         if folded in {english.casefold(), japanese}:
             return ident
-    message = f"unknown Yu Yu Hakusho card {typed!r}; name a character or an item"
+    message = Said(
+        f"unknown Yu Yu Hakusho card {typed!r}; name a character or an item",
+        f"幽遊白書に {typed!r} という カードは ない。キャラクターか アイテムの なまえに して",
+    )
     raise ValueError(message)

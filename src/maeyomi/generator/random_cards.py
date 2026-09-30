@@ -22,6 +22,7 @@ from maeyomi.models.character import DISPLAY_SCALE
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.generated_card import GeneratedCard
 from maeyomi.models.race import Race
+from maeyomi.said import Said
 
 ATTEMPTS_PER_CARD: Final = 200
 HIGH_HP_DISPLAY: Final = 20000
@@ -141,8 +142,10 @@ def _reason(produced: int, requested: int, attempts: int, budget: int) -> str:
     """Explain a batch that could not be filled."""
     if produced >= requested:
         return ""
-    return (
+    return Said(
         f"produced {produced} of {requested} distinct cards after {attempts} attempts "
         f"against a budget of {budget}; the requested constraints admit too few "
-        f"distinct barcodes"
+        f"distinct barcodes",
+        f"{requested} まいの うち {produced} まいしか つくれなかった。"
+        "すうじの はんいを ひろげて みて",
     )

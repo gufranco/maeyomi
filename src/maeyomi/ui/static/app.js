@@ -37,7 +37,7 @@ async function postJson(url, payload) {
 }
 
 function reasons(body) {
-  const detail = body?.detail;
+  const detail = isJapanese() && body?.detail_ja !== undefined ? body.detail_ja : body?.detail;
   if (Array.isArray(detail)) return detail.map(String);
   if (typeof detail === 'string') return [detail];
   return [t('status.wrong')];
@@ -212,7 +212,8 @@ function describeResult(body) {
   if (body.is_exact) {
     setStatus('one-status', 'good', 'tag.exact', () => t('status.exact'));
   } else {
-    setStatus('one-status', 'warn', 'tag.closest', () => t('status.closest'), body.differences);
+    setStatus('one-status', 'warn', 'tag.closest', () => t('status.closest'),
+      () => (isJapanese() ? body.differences_ja : body.differences));
   }
   $('one-code').toggleAttribute('hidden', false);
   $('one-code-value').textContent = body.barcode;

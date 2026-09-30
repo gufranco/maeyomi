@@ -8,6 +8,8 @@ a given request always produces the same barcode.
 from collections.abc import Iterator
 from dataclasses import dataclass
 
+from maeyomi.said import Said
+
 
 @dataclass(frozen=True, slots=True)
 class Constraint:
@@ -19,7 +21,10 @@ class Constraint:
     def __post_init__(self) -> None:
         """Reject a range whose ends are the wrong way round."""
         if self.minimum is not None and self.maximum is not None and self.minimum > self.maximum:
-            message = f"minimum {self.minimum} is above maximum {self.maximum}"
+            message = Said(
+                f"minimum {self.minimum} is above maximum {self.maximum}",
+                f"さいしょうの {self.minimum} が さいだいの {self.maximum} より おおきい",
+            )
             raise ValueError(message)
 
     @classmethod

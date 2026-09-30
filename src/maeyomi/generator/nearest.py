@@ -44,6 +44,8 @@ from maeyomi.models.character import DISPLAY_SCALE, BarcodeBattlerCharacter
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.race import Race
+from maeyomi.rendering.labels import race_label
+from maeyomi.said import Said, field_in_japanese
 
 DEFAULT_WINDOW: Final = 2000
 CATEGORICAL_FIELDS: Final = ("race", "job", "character_class", "special", "speed")
@@ -91,9 +93,11 @@ def _item_blockers(request: CardRequest) -> tuple[str, ...]:
     if request.race is None or request.race.is_fighter:
         return ()
     return (
-        (
+        Said(
             f"race {request.race.name.lower()} is an item, which carries one modifier "
-            f"rather than three stats, so there is nothing to approximate"
+            f"rather than three stats, so there is nothing to approximate",
+            f"{race_label(request.race).japanese} は アイテムで、すうじを 1つしか"
+            " もたないので、ちかい カードは えらべない",
         ),
     )
 
@@ -225,7 +229,11 @@ def _verified(
 def _differences(request: CardRequest, character: BarcodeBattlerCharacter) -> tuple[str, ...]:
     """Name each stat that came out different, with both values."""
     return tuple(
-        f"{name}: requested {getattr(request, name)}, produced {getattr(character, name)}"
+        Said(
+            f"{name}: requested {getattr(request, name)}, produced {getattr(character, name)}",
+            f"{field_in_japanese(name)}: ほしい {getattr(request, name)}、"
+            f"できた {getattr(character, name)}",
+        )
         for name in ("hp", "st", "df")
         if not getattr(request, name).admits(getattr(character, name))
     )
@@ -234,8 +242,10 @@ def _differences(request: CardRequest, character: BarcodeBattlerCharacter) -> tu
 def _empty(window: int) -> tuple[str, ...]:
     """Explain a window that contained nothing reachable."""
     return (
-        (
+        Said(
             f"no reachable card within a window of {window} hit points; widen the "
-            f"window or relax a categorical field, which is never approximated"
+            f"window or relax a categorical field, which is never approximated",
+            f"たいりょく {window} の はんいに つくれる カードが ない。しゅぞくや"
+            " たたかいかたの えらびかたを かえて みて",
         ),
     )

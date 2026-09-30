@@ -41,6 +41,7 @@ from maeyomi.datach.dbz_tables import (
 from maeyomi.decoder.check_digit import expected_check_digit
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.constraint import Constraint
+from maeyomi.said import NO_MATCH, Said, field_in_japanese, not_a_multiple
 
 SEARCH_LIMIT: Final = 20_000
 STREAM_LIMIT: Final = 400_000
@@ -51,7 +52,6 @@ LEADS: Final = 100
 MAX_HP: Final = (max(BASES) + max(ADDENDS) + BONUS) * UNIT
 MAX_HALVED: Final = MAX_HP // 2
 NO_LEVEL: Final = 255
-NO_MATCH: Final = "no barcode satisfies every constraint at once"
 NEAR_WIDTHS: Final = (250, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 100000)
 
 type StatChoice = tuple[int, int, int]
@@ -236,9 +236,19 @@ def _blockers(request: DbzRequest) -> tuple[str, ...]:
     reasons: list[str] = []
     known = _item_ids() if request.kind is DbzKind.ITEM else _fighter_ids()
     if request.character is not None and request.character not in known:
-        reasons.append(f"character {request.character} is not one the game can produce")
+        reasons.append(
+            Said(
+                f"character {request.character} is not one the game can produce",
+                f"キャラクター {request.character} は ゲームに でて こない",
+            )
+        )
     if request.level is not None and request.level not in _levels():
-        reasons.append(f"level {request.level} is not one the game can produce")
+        reasons.append(
+            Said(
+                f"level {request.level} is not one the game can produce",
+                f"レベル {request.level} は ゲームに でて こない",
+            )
+        )
     for name, ceiling in (("hp", MAX_HP), ("bp", MAX_HALVED), ("dp", MAX_HALVED)):
         reasons += _stat_blockers(name, getattr(request, name), ceiling)
     return tuple(reasons)
@@ -248,9 +258,15 @@ def _stat_blockers(name: str, constraint: Constraint, ceiling: int) -> list[str]
     """Reasons one displayed stat cannot be met."""
     reasons: list[str] = []
     if constraint.exact_value is not None and constraint.exact_value % UNIT:
-        reasons.append(f"{name} of {constraint.exact_value} is not a multiple of {UNIT}")
+        reasons.append(not_a_multiple(name, constraint.exact_value, UNIT))
     if constraint.minimum is not None and constraint.minimum > ceiling:
-        reasons.append(f"{name} of {constraint.minimum} is above {ceiling}")
+        reasons.append(
+            Said(
+                f"{name} of {constraint.minimum} is above {ceiling}",
+                f"{field_in_japanese(name)} {constraint.minimum} は さいだい"
+                f" {ceiling} より おおきい",
+            )
+        )
     return reasons
 
 

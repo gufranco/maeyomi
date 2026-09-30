@@ -35,6 +35,7 @@ from maeyomi.gameboy.battlespace_tables import (
 )
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.device import Device
+from maeyomi.said import Said
 
 HP_KEY: Final = "GHP"
 MP_KEY: Final = "BMP"
@@ -363,7 +364,10 @@ def battle_space_named(typed: str) -> int:
     for number, names in enumerate(zip(CLASS_ENGLISH, CLASS_NAMES, strict=True)):
         if text.casefold() in (names[0].casefold(), names[1]):
             return number
-    message = f"no Battle Space class named {typed!r}"
+    message = Said(
+        f"no Battle Space class named {typed!r}",
+        f"バトルスペースに {typed!r} という クラスは ない",
+    )
     raise ValueError(message)
 
 

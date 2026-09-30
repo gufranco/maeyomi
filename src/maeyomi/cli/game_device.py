@@ -18,11 +18,11 @@ from maeyomi.models.card_request import CardRequest
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import CardResult
 from maeyomi.registry import (
-    GAME_NOT_READ,
     DeviceChoice,
     build_as,
     cheat_as,
     cheat_companion_as,
+    not_read,
     printable_as,
     read_as,
     speed_note,
@@ -106,7 +106,7 @@ def generate_game(
     """Build one card to order, or say what blocks it."""
     unread = unread_fields(request, back_read=choice.back_read)
     if unread:
-        typer.echo(GAME_NOT_READ.format(game=device.english, fields=", ".join(unread)), err=True)
+        typer.echo(not_read(device, unread), err=True)
         raise typer.Exit(code=2)
     outcome = build_as(device, request, choice)
     if outcome.card is None:

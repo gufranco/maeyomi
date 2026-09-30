@@ -8,6 +8,8 @@ in English, or this project's translation where a name has none.
 
 from typing import Final
 
+from maeyomi.said import Said
+
 NAMES: Final[dict[int, tuple[str, str]]] = {
     0: ("Ultraman", "ウルトラマン"),
     1: ("Ultraman Jack", "ジャック"),
@@ -73,5 +75,8 @@ def type_named(typed: str) -> int:
         if folded in {english.casefold(), japanese}:
             return identifier
     known = ", ".join(english for english, _ in NAMES.values())
-    message = f"unknown Ultraman Club type {typed!r}; known types: {known}"
+    message = Said(
+        f"unknown Ultraman Club type {typed!r}; known types: {known}",
+        f"ウルトラマン倶楽部に {typed!r} という タイプは ない。つかえるのは {known}",
+    )
     raise ValueError(message)

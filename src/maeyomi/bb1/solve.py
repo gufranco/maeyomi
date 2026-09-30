@@ -25,6 +25,7 @@ from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.race import Race
 from maeyomi.models.read_type import ReadType
+from maeyomi.said import NO_MATCH, Said, above_ceiling, field_in_japanese, not_a_multiple
 
 MAX_HP: Final = 19900
 MAX_STAT: Final = 9900
@@ -35,9 +36,14 @@ SEARCH_LIMIT: Final = 5000
 ENEMY_LEAD: Final = "2"
 ENEMY_FILLER: Final = "000000"
 NO_FLAG_CHECK_DIGIT: Final = 0
-NO_MATCH: Final = "no barcode satisfies every constraint at once"
-WARRIORS_ONLY: Final = "every fighter on the first Barcode Battler is a warrior"
-NO_POINTS: Final = "the first Barcode Battler has no herbs or magic points"
+WARRIORS_ONLY: Final = Said(
+    "every fighter on the first Barcode Battler is a warrior",
+    "しょだい バーコードバトラーの キャラクターは みんな せんし",
+)
+NO_POINTS: Final = Said(
+    "the first Barcode Battler has no herbs or magic points",
+    "しょだい バーコードバトラーには やくそうも まほうも ない",
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -91,7 +97,7 @@ def _shared_blockers(request: CardRequest) -> list[str]:
     for name in ("hp", "st", "df"):
         value = getattr(request, name).exact_value
         if value is not None and value % DISPLAY_SCALE:
-            reasons.append(f"{name} of {value} is not a multiple of 100")
+            reasons.append(not_a_multiple(name, value, DISPLAY_SCALE))
     return reasons
 
 
@@ -101,7 +107,7 @@ def _front_blockers(request: CardRequest) -> tuple[str, ...]:
     for name, ceiling in (("hp", MAX_HP), ("st", MAX_STAT), ("df", MAX_STAT)):
         minimum = getattr(request, name).minimum
         if minimum is not None and minimum > ceiling:
-            reasons.append(f"{name} of {minimum} is above the ceiling of {ceiling}")
+            reasons.append(above_ceiling(name, minimum, ceiling))
     return tuple(reasons)
 
 
@@ -112,13 +118,33 @@ def _enemy_blockers(request: CardRequest) -> tuple[str, ...]:
         constraint: Constraint = getattr(request, name)
         if not any(True for _ in constraint.values(step=DISPLAY_SCALE, floor=low, ceiling=high)):
             shown = constraint.minimum if constraint.minimum is not None else constraint.maximum
-            reasons.append(f"{name} of {shown} is outside the enemy range of {low} to {high}")
+            reasons.append(
+                Said(
+                    f"{name} of {shown} is outside the enemy range of {low} to {high}",
+                    f"{field_in_japanese(name)} {shown} は てきの はんい {low}〜{high} の そと",
+                )
+            )
     if request.race is not None:
-        reasons.append("an enemy read from the back has no race any source records")
+        reasons.append(
+            Said(
+                "an enemy read from the back has no race any source records",
+                "うしろから よむ てきの しゅぞくは どの しりょうにも ない",
+            )
+        )
     if request.special is not None:
-        reasons.append("an enemy's flag is disputed, see bb1_back_read_flag")
+        reasons.append(
+            Said(
+                "an enemy's flag is disputed, see bb1_back_read_flag",
+                "てきの とくしゅのうりょくは しりょうに よって ちがうので えらべない",
+            )
+        )
     if request.speed is not None or request.job not in {None, ENEMY_JOB}:
-        reasons.append("an enemy has no DX any source records and always has occupation 2")
+        reasons.append(
+            Said(
+                "an enemy has no DX any source records and always has occupation 2",
+                "てきの DX は どの しりょうにも なく、しょくぎょうは いつも 2",
+            )
+        )
     return tuple(reasons)
 
 

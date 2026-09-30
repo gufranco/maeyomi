@@ -7,6 +7,7 @@ failed so a caller can tell the user what to change.
 """
 
 from maeyomi.decoder.check_digit import EAN_8_LENGTH, EAN_13_LENGTH
+from maeyomi.said import Said, in_japanese
 
 
 class BarcodeError(ValueError):
@@ -19,7 +20,13 @@ class InvalidLengthError(BarcodeError):
     def __init__(self, length: int) -> None:
         """Record the rejected length."""
         self.length = length
-        super().__init__(f"barcode must be {EAN_8_LENGTH} or {EAN_13_LENGTH} digits, got {length}")
+        super().__init__(
+            Said(
+                f"barcode must be {EAN_8_LENGTH} or {EAN_13_LENGTH} digits, got {length}",
+                f"バーコードは {EAN_8_LENGTH}けたか {EAN_13_LENGTH}けたに して。"
+                f"いまは {length}けた",
+            )
+        )
 
 
 class InvalidCharacterError(BarcodeError):
@@ -28,7 +35,12 @@ class InvalidCharacterError(BarcodeError):
     def __init__(self, barcode: str) -> None:
         """Record the rejected barcode."""
         self.barcode = barcode
-        super().__init__(f"barcode must contain only digits, got {barcode!r}")
+        super().__init__(
+            Said(
+                f"barcode must contain only digits, got {barcode!r}",
+                f"バーコードは すうじだけに して。いまは {barcode!r}",
+            )
+        )
 
 
 class CheckDigitError(BarcodeError):
@@ -38,7 +50,12 @@ class CheckDigitError(BarcodeError):
         """Record the barcode and the digit that would have been correct."""
         self.barcode = barcode
         self.expected = expected
-        super().__init__(f"check digit of {barcode!r} is {barcode[-1]}, expected {expected}")
+        super().__init__(
+            Said(
+                f"check digit of {barcode!r} is {barcode[-1]}, expected {expected}",
+                f"{barcode!r} の さいごの すうじは {barcode[-1]}。ただしくは {expected}",
+            )
+        )
 
 
 class UnsupportedBarcodeError(BarcodeError):
@@ -48,4 +65,9 @@ class UnsupportedBarcodeError(BarcodeError):
         """Record the barcode and why this decoder declines it."""
         self.barcode = barcode
         self.reason = reason
-        super().__init__(f"cannot decode {barcode!r}: {reason}")
+        super().__init__(
+            Said(
+                f"cannot decode {barcode!r}: {reason}",
+                f"{barcode!r} は よめない: {in_japanese(reason) or reason}",
+            )
+        )

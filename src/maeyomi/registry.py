@@ -9,6 +9,7 @@ malformed codes, but each turns a code into a different card: the same digits
 are a robot on the Barcode Battler II and Goku in Datach Dragon Ball Z.
 """
 
+from collections.abc import Sequence
 from dataclasses import dataclass
 from typing import Final
 
@@ -34,14 +35,30 @@ from maeyomi.models.device import Device
 from maeyomi.models.generated_card import AnyCard, CardResult, GeneratedCard
 from maeyomi.models.read_type import ReadType
 from maeyomi.rendering.labels import SPEED_DEPENDENT, Bilingual
+from maeyomi.said import Said, fields_in_japanese, said_of
 
-NOT_READ: Final = "Datach Dragon Ball Z does not read {fields}"
-GAME_NOT_READ: Final = "{game} does not read {fields}"
-NO_GAME_CARD: Final = "{game} reads no card like the one asked for"
-NO_DOUBLE_BACK_READ: Final = (
+NO_DOUBLE_BACK_READ: Final = Said(
     "the Double reads II back-read codes the II's way; build them with --device bb2, "
-    "and use --device double for its own 7-read"
+    "and use --device double for its own 7-read",
+    "ダブルは II の うしろよみの コードを II と おなじに よむので、バーコードバトラーII で"
+    " つくって。ダブルの 7よみは ダブルで つくれる",
 )
+
+
+def not_read(device: Device, fields: Sequence[str]) -> Said:
+    """Why a device refuses a request naming fields it has no place for."""
+    return Said(
+        f"{device.english} does not read {', '.join(fields)}",
+        f"{device.japanese} は {fields_in_japanese(fields)} を よまない",
+    )
+
+
+def no_game_card(device: Device) -> Said:
+    """Why a game refuses a card that none of its codes gives."""
+    return Said(
+        f"{device.english} reads no card like the one asked for",
+        f"{device.japanese} には その カードは ない",
+    )
 
 
 @dataclass(frozen=True, slots=True)
@@ -71,7 +88,10 @@ def device_named(key: str) -> Device:
         return Device(key.strip().lower())
     except ValueError as error:
         known = ", ".join(device.value for device in Device)
-        message = f"unknown device {key!r}; known devices: {known}"
+        message = Said(
+            f"unknown device {key!r}; known devices: {known}",
+            f"{key!r} という マシンや ゲームは ない。つかえるのは {known}",
+        )
         raise ValueError(message) from error
 
 
@@ -157,12 +177,12 @@ def _build_dbz(request: CardRequest, choice: DeviceChoice) -> DeviceOutcome:
     """Refuse what the game cannot read, then solve what it can, nearest when asked."""
     unread = unread_fields(request, back_read=choice.back_read)
     if unread:
-        return DeviceOutcome(blockers=(NOT_READ.format(fields=", ".join(unread)),))
+        return DeviceOutcome(blockers=(not_read(Device.DATACH_DBZ, unread),))
     name = choice.character
     try:
         character = None if name is None or not name.strip() else character_id(name)
     except ValueError as error:
-        return DeviceOutcome(blockers=(str(error),))
+        return DeviceOutcome(blockers=(said_of(error),))
     wanted = request_from(request, character=character, level=choice.level)
     outcome = solve_dbz_nearest(wanted) if choice.nearest else solve_dbz(wanted)
     return DeviceOutcome(outcome.card, outcome.blockers, exact=outcome.exact)
@@ -174,19 +194,17 @@ def _build_game(
     """Refuse what the game cannot read, then build the card from its own tables."""
     unread = unread_fields(request, back_read=choice.back_read)
     if unread:
-        return DeviceOutcome(
-            blockers=(GAME_NOT_READ.format(game=device.english, fields=", ".join(unread)),)
-        )
+        return DeviceOutcome(blockers=(not_read(device, unread),))
     name = choice.character
     try:
         ident = None if name is None or not name.strip() else game.named(name)
     except ValueError as error:
-        return DeviceOutcome(blockers=(str(error),))
+        return DeviceOutcome(blockers=(said_of(error),))
     stats = (request.hp, request.st, request.df)
     order = GameOrder(ident, stats, choice.picks)
     card = game.build(order)
     if card is None:
-        return DeviceOutcome(blockers=(NO_GAME_CARD.format(game=device.english),))
+        return DeviceOutcome(blockers=(no_game_card(device),))
     exact = all(
         constraint.admits(card.value(key))
         for key, constraint in zip(game.stat_keys, stats, strict=False)
@@ -204,12 +222,13 @@ def cheat_companion_as(device: Device, name: str | None) -> AnyCard | None:
     return GeneratedCard(name=name or DEFAULT_CHEAT_NAME, barcode=card.barcode, character=card)
 
 
-NO_STRONGEST: Final = "{game} cards carry no numbers, so none is stronger than another"
-
-
 def _strongest_game(device: Device, game: DatachGame, name: str) -> AnyCard:
     """The game's strongest card under the name, or a ValueError when its cards carry none."""
     if game.strongest is None:
-        raise ValueError(NO_STRONGEST.format(game=device.english))
+        message = Said(
+            f"{device.english} cards carry no numbers, so none is stronger than another",
+            f"{device.japanese} の カードには すうじが ないので、いちばん つよい カードは ない",
+        )
+        raise ValueError(message)
     card = game.strongest()
     return GeneratedCard(name=name, barcode=card.barcode, character=card)

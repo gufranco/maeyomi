@@ -10,6 +10,7 @@ from typing import Final
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.race import Race
+from maeyomi.said import Said
 
 _EXACT: Final = re.compile(r"^\s*(\d+)\s*$")
 _AT_LEAST: Final = re.compile(r"^\s*>=?\s*(\d+)\s*$")
@@ -44,7 +45,10 @@ def _parse_range(text: str) -> Constraint:
         return Constraint.at_least(int(low))
     if high:
         return Constraint.at_most(int(high))
-    message = f"cannot read {text!r} as a value; {_EXAMPLES}"
+    message = Said(
+        f"cannot read {text!r} as a value; {_EXAMPLES}",
+        f"{text!r} は すうじとして よめない。5000、5000-6000、>=1500、<=3000 の ように かいて",
+    )
     raise ValueError(message)
 
 
@@ -57,7 +61,10 @@ def parse_race(text: str | None) -> Race | None:
         return Race[key]
     except KeyError:
         names = ", ".join(race.name.lower() for race in Race)
-        message = f"unknown race {text!r}; choose one of {names}"
+        message = Said(
+            f"unknown race {text!r}; choose one of {names}",
+            f"{text!r} という しゅぞくは ない。えらべるのは {names}",
+        )
         raise ValueError(message) from None
 
 
@@ -70,5 +77,8 @@ def parse_character_class(text: str | None) -> CharacterClass | None:
         if member.value == key:
             return member
     names = ", ".join(member.value for member in CharacterClass)
-    message = f"unknown class {text!r}; choose one of {names}"
+    message = Said(
+        f"unknown class {text!r}; choose one of {names}",
+        f"{text!r} という たたかいかたは ない。えらべるのは {names}",
+    )
     raise ValueError(message)

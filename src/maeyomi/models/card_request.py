@@ -11,6 +11,7 @@ from dataclasses import dataclass, field
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.race import Race
+from maeyomi.said import Said, field_in_japanese
 
 MAX_JOB_DIGIT = 9
 MAX_SPEED_DIGIT = 9
@@ -44,5 +45,8 @@ class CardRequest:
     def _check(name: str, value: int | None, maximum: int) -> None:
         """Raise when a categorical value falls outside the digits available to it."""
         if value is not None and not 0 <= value <= maximum:
-            message = f"{name} must be 0-{maximum}, got {value}"
+            message = Said(
+                f"{name} must be 0-{maximum}, got {value}",
+                f"{field_in_japanese(name)} は 0から{maximum}に して。いまは {value}",
+            )
             raise ValueError(message)

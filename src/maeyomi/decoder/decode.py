@@ -22,13 +22,17 @@ from maeyomi.decoder.read_type import classify_read_type
 from maeyomi.decoder.validation import validate_barcode
 from maeyomi.models.character import BarcodeBattlerCharacter
 from maeyomi.models.read_type import ReadType
+from maeyomi.said import Said
 
 BOX_EQUIVALENTS: Final[dict[str, str]] = {
     "4905040352507": "0521501106508",
     "4905040352521": "0521501187507",
 }
 UNRECORDED_BOXES: Final = frozenset({"4905040352606", "4905040352705", "4905040352804"})
-UNRECORDED_BOX_REASON: Final = "an Epoch box whose reading nobody has recorded"
+UNRECORDED_BOX_REASON: Final = Said(
+    "an Epoch box whose reading nobody has recorded",
+    "だれも よみかたを きろくして いない エポックしゃの はこ",
+)
 
 
 def decode(code: str) -> BarcodeBattlerCharacter:

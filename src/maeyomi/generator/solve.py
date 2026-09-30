@@ -23,6 +23,7 @@ from maeyomi.generator.quarantine import takes_quarantined_branch
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.character import BarcodeBattlerCharacter
 from maeyomi.models.read_type import ReadType
+from maeyomi.said import Said
 
 DEFAULT_BUDGET: Final = 500_000
 
@@ -146,14 +147,17 @@ def _exhaustion_reason(request: CardRequest, *, exhausted: bool) -> tuple[str, .
     if exhausted:
         target = request.name or "this card"
         return (
-            (
+            Said(
                 "no barcode found within the search budget; raise the budget or "
-                f"narrow the request for {target}"
+                f"narrow the request for {target}",
+                "さがせる はんいで バーコードが みつからなかった。すうじを しぼって みて",
             ),
         )
     return (
-        (
+        Said(
             "no barcode satisfies every constraint at once; each field is reachable "
-            "on its own, so at least two of them cannot hold together"
+            "on its own, so at least two of them cannot hold together",
+            "ぜんぶの じょうけんを いっしょに みたす バーコードは ない。"
+            "どれも ひとつずつなら つくれるけど、2つ いじょうが あわない",
         ),
     )

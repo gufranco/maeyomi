@@ -17,6 +17,8 @@ from maeyomi.models.card_request import MAX_POINTS, CardRequest
 from maeyomi.models.character import DISPLAY_SCALE, HIGHEST_WARRIOR_JOB
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.constraint import Constraint
+from maeyomi.rendering.labels import class_label
+from maeyomi.said import Said, field_in_japanese
 
 HIGH_HP_DISPLAY = HIGH_HP * DISPLAY_SCALE
 MARKER_HP_REMAINDER = 900
@@ -40,13 +42,27 @@ def _stat_blockers(name: str, constraint: Constraint, ceiling: int) -> Sequence[
     value = constraint.exact_value
     reasons: list[str] = []
     if value is not None and value % DISPLAY_SCALE:
-        reasons.append(f"{name} of {value} is not a multiple of 100, which the device stores")
+        reasons.append(
+            Said(
+                f"{name} of {value} is not a multiple of 100, which the device stores",
+                f"{field_in_japanese(name)} {value} は 100 ずつに して。マシンは 100 ずつ おぼえる",
+            )
+        )
     if constraint.minimum is not None and constraint.minimum > ceiling:
         reasons.append(
-            f"{name} of {constraint.minimum} is above the front-read ceiling of {ceiling}"
+            Said(
+                f"{name} of {constraint.minimum} is above the front-read ceiling of {ceiling}",
+                f"{field_in_japanese(name)} {constraint.minimum} は まえよみの さいだい"
+                f" {ceiling} より おおきい",
+            )
         )
     if constraint.minimum is not None and constraint.minimum < 0:
-        reasons.append(f"{name} of {constraint.minimum} is below zero")
+        reasons.append(
+            Said(
+                f"{name} of {constraint.minimum} is below zero",
+                f"{field_in_japanese(name)} {constraint.minimum} は 0 より ちいさい",
+            )
+        )
     return reasons
 
 
@@ -54,9 +70,20 @@ def _count_blockers(name: str, constraint: Constraint) -> Sequence[str]:
     """Reasons a count of herbs or magic points cannot be met."""
     reasons: list[str] = []
     if constraint.minimum is not None and constraint.minimum > MAX_POINTS:
-        reasons.append(f"{name} of {constraint.minimum} is above the ceiling of {MAX_POINTS}")
+        reasons.append(
+            Said(
+                f"{name} of {constraint.minimum} is above the ceiling of {MAX_POINTS}",
+                f"{field_in_japanese(name)} {constraint.minimum} は さいだい"
+                f" {MAX_POINTS} より おおきい",
+            )
+        )
     if constraint.minimum is not None and constraint.minimum < 0:
-        reasons.append(f"{name} of {constraint.minimum} is below zero")
+        reasons.append(
+            Said(
+                f"{name} of {constraint.minimum} is below zero",
+                f"{field_in_japanese(name)} {constraint.minimum} は 0 より ちいさい",
+            )
+        )
     return reasons
 
 
@@ -68,13 +95,21 @@ def _high_hp_blockers(request: CardRequest) -> Sequence[str]:
     reasons: list[str] = []
     if value % 1000 != MARKER_HP_REMAINDER:
         reasons.append(
-            f"hp of {value} is unreachable: above {HIGH_HP_DISPLAY} a front read needs the "
-            "published marker, which forces the third digit to 9, so hp must end in 900"
+            Said(
+                f"hp of {value} is unreachable: above {HIGH_HP_DISPLAY} a front read needs the "
+                "published marker, which forces the third digit to 9, so hp must end in 900",
+                f"たいりょく {value} は つくれない。{HIGH_HP_DISPLAY} を こえると 3けための"
+                " すうじが 9 に きまるので、たいりょくは 900 で おわる かずに して",
+            )
         )
     if request.speed is not None and request.speed != MARKER_SPEED_DIGIT:
         reasons.append(
-            f"speed of {request.speed} is unreachable above {HIGH_HP_DISPLAY} hp, where the "
-            f"marker forces the tenth digit, and therefore speed, to {MARKER_SPEED_DIGIT}"
+            Said(
+                f"speed of {request.speed} is unreachable above {HIGH_HP_DISPLAY} hp, where the "
+                f"marker forces the tenth digit, and therefore speed, to {MARKER_SPEED_DIGIT}",
+                f"たいりょくが {HIGH_HP_DISPLAY} を こえると スピードは {MARKER_SPEED_DIGIT}"
+                f" に きまるので、スピード {request.speed} は つくれない",
+            )
         )
     return reasons
 
@@ -89,8 +124,10 @@ def _class_blockers(request: CardRequest) -> Sequence[str]:
     if implied is request.character_class:
         return ()
     return (
-        (
+        Said(
             f"job {request.job} implies class {implied.value}, which contradicts the "
-            f"requested class {request.character_class.value}"
+            f"requested class {request.character_class.value}",
+            f"しょくぎょう {request.job} は {class_label(implied).japanese} なので、えらんだ"
+            f" たたかいかたの {class_label(request.character_class).japanese} と あわない",
         ),
     )

@@ -226,6 +226,7 @@ class GenerateResult(BaseModel):
     is_exact: bool = True
     distance: int = 0
     differences: list[str] = Field(default_factory=list)
+    differences_ja: list[str] = Field(default_factory=list)
 
 
 class SheetPreview(BaseModel):

@@ -29,6 +29,7 @@ from maeyomi.decoder.validation import validate_barcode
 from maeyomi.gameboy.famista3_tables import BATTER_GROUPS, BATTERS, PITCHER_GROUPS, PITCHERS
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.device import Device
+from maeyomi.said import Said
 
 HOMERS_KEY: Final = "FHR"
 RUN_SPEED_KEY: Final = "FSP"
@@ -259,7 +260,10 @@ def famista3_named(typed: str) -> int:
     for kind, (english, japanese) in enumerate(KINDS):
         if text.casefold() == english.casefold() or text == japanese:
             return kind
-    message = f"no Famista 3 player kind named {typed!r}"
+    message = Said(
+        f"no Famista 3 player kind named {typed!r}",
+        f"ファミスタ3に {typed!r} という せんしゅの しゅるいは ない",
+    )
     raise ValueError(message)
 
 

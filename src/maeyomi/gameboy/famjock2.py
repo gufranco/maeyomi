@@ -29,6 +29,7 @@ from maeyomi.gameboy.famjock2_names import BONUSES, KINDS, SHORT, STATS
 from maeyomi.gameboy.famjock2_tables import BOXES, MARE_KEYS, RACEHORSE_KEYS, STALLION_KEYS
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.device import Device
+from maeyomi.said import Said
 
 RACEHORSE: Final = 0
 MARE: Final = 1
@@ -170,7 +171,10 @@ def famjock2_named(typed: str) -> int:
     for kind, (english, japanese) in enumerate(KINDS):
         if text.casefold() == english.casefold() or text == japanese:
             return kind
-    message = f"no Family Jockey 2 horse kind named {typed!r}"
+    message = Said(
+        f"no Family Jockey 2 horse kind named {typed!r}",
+        f"ファミリージョッキー2に {typed!r} という うまの しゅるいは ない",
+    )
     raise ValueError(message)
 
 

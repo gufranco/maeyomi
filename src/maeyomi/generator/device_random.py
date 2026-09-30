@@ -28,8 +28,9 @@ from maeyomi.generator.random_cards import ATTEMPTS_PER_CARD, generate_random
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import AnyCard, CardResult
-from maeyomi.registry import GAME_NOT_READ, NOT_READ, printable_as
+from maeyomi.registry import not_read, printable_as
 from maeyomi.rendering.face import face_of
+from maeyomi.said import Said
 
 BODY_DIGITS: Final = 12
 REQUEST_FIELDS: Final = ("hp", "st", "df")
@@ -77,9 +78,7 @@ def random_for(
         return DeviceBatch(cards=second.cards, requested=count, reason=second.reason)
     unread = unread_fields(template, back_read=False) if device.is_game else ()
     if unread:
-        refusal = NOT_READ if device is Device.DATACH_DBZ else GAME_NOT_READ
-        reason = refusal.format(game=device.english, fields=", ".join(unread))
-        return DeviceBatch(requested=count, reason=reason)
+        return DeviceBatch(requested=count, reason=not_read(device, unread))
     return _draw_batch(device, count, template, random.Random(seed), count * attempts_per_card)
 
 
@@ -157,7 +156,9 @@ def _reason(produced: int, requested: int, budget: int) -> str:
     """Explain a batch that could not be filled."""
     if produced >= requested:
         return ""
-    return (
+    return Said(
         f"produced {produced} of {requested} distinct cards after {budget} barcodes; "
-        "the requested ranges admit too few of them"
+        "the requested ranges admit too few of them",
+        f"{requested} まいの うち {produced} まいしか つくれなかった。"
+        "すうじの はんいを ひろげて みて",
     )

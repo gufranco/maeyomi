@@ -25,6 +25,7 @@ from maeyomi.models.card_request import CardRequest
 from maeyomi.models.character import DISPLAY_SCALE
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.constraint import Constraint
+from maeyomi.said import NO_MATCH, Said, above_ceiling, not_a_multiple
 
 MAX_VALUE: Final = 99900
 SEARCH_LIMIT: Final = 5000
@@ -32,7 +33,6 @@ DOUBLE_JOBS: Final[dict[CharacterClass, tuple[int, ...]]] = {
     CharacterClass.WARRIOR: (0, 1, 2, 3, 5),
     CharacterClass.MAGICIAN: (7, 8, 9),
 }
-NO_MATCH: Final = "no barcode satisfies every constraint at once"
 
 
 @dataclass(frozen=True, slots=True)
@@ -70,11 +70,23 @@ def _blockers(request: CardRequest) -> tuple[str, ...]:
     """Every reason the request cannot be met, decided without searching."""
     reasons: list[str] = []
     if request.race is not None and not request.race.is_fighter:
-        reasons.append("a 7-read card is always a fighter")
+        reasons.append(
+            Said("a 7-read card is always a fighter", "7よみの カードは いつも キャラクター")
+        )
     if request.speed is not None:
-        reasons.append("a 7-read card has no speed any source records")
+        reasons.append(
+            Said(
+                "a 7-read card has no speed any source records",
+                "7よみの カードの スピードは どの しりょうにも ない",
+            )
+        )
     if _constrained(request.pp) or _constrained(request.mp):
-        reasons.append("a 7-read card carries no herbs or magic points")
+        reasons.append(
+            Said(
+                "a 7-read card carries no herbs or magic points",
+                "7よみの カードには やくそうも まほうも ない",
+            )
+        )
     for name in ("hp", "st", "df"):
         reasons += _value_blockers(name, getattr(request, name))
     return (*reasons, *_coupling_blockers(request))
@@ -84,9 +96,9 @@ def _value_blockers(name: str, constraint: Constraint) -> list[str]:
     """Reasons one number cannot be met."""
     reasons: list[str] = []
     if constraint.exact_value is not None and constraint.exact_value % DISPLAY_SCALE:
-        reasons.append(f"{name} of {constraint.exact_value} is not a multiple of 100")
+        reasons.append(not_a_multiple(name, constraint.exact_value, DISPLAY_SCALE))
     if constraint.minimum is not None and constraint.minimum > MAX_VALUE:
-        reasons.append(f"{name} of {constraint.minimum} is above the ceiling of {MAX_VALUE}")
+        reasons.append(above_ceiling(name, constraint.minimum, MAX_VALUE))
     return reasons
 
 
@@ -97,9 +109,11 @@ def _coupling_blockers(request: CardRequest) -> list[str]:
         return []
     tens, units = divmod(request.special, 10)
     return [
-        (
+        Said(
             f"special power {request.special} needs the health's thousands digit {tens} "
-            f"and hundreds digit {units}"
+            f"and hundreds digit {units}",
+            f"とくしゅのうりょく {request.special} には たいりょくの 1000の くらいが {tens}、"
+            f"100の くらいが {units} で ないと いけない",
         )
     ]
 

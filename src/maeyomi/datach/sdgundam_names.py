@@ -14,6 +14,7 @@ from dataclasses import dataclass
 from typing import Final
 
 from maeyomi.datach.sdgundam_tables import COMMAND_COSTS, FIRST_COMMAND
+from maeyomi.said import Said
 
 
 @dataclass(frozen=True, slots=True)
@@ -508,5 +509,9 @@ def card_named(typed: str) -> int:
     for number, command in COMMANDS.items():
         if folded in {command.english.casefold(), command.japanese}:
             return number + FIRST_COMMAND - 1
-    message = f"unknown SD Gundam Wars card {typed!r}; name a unit, a model number or a command"
+    message = Said(
+        f"unknown SD Gundam Wars card {typed!r}; name a unit, a model number or a command",
+        f"SDガンダム ガンダムウォーズに {typed!r} という カードは ない。"
+        "モビルスーツ、かたばん、コマンドの どれかに して",
+    )
     raise ValueError(message)

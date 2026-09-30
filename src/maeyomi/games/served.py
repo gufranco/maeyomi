@@ -63,6 +63,7 @@ from maeyomi.games.lupin import LUPIN
 from maeyomi.games.spiderman import SPIDERMAN
 from maeyomi.games.yousei import YOUSEI
 from maeyomi.romaji import romanised
+from maeyomi.said import Said
 
 type Pair = tuple[str, str]
 
@@ -109,7 +110,10 @@ def _effect_named(typed: str, game: EffectGame) -> int:
         english, japanese = effect.name
         if wanted in {english.casefold(), japanese, str(effect.ident)}:
             return effect.ident
-    message = f"unknown {game.device.english} effect {typed!r}; kinds lists them"
+    message = Said(
+        f"unknown {game.device.english} effect {typed!r}; kinds lists them",
+        f"{game.device.japanese}に {typed!r} という こうかは ない",
+    )
     raise ValueError(message)
 
 
@@ -145,7 +149,10 @@ def _excite_named(typed: str) -> int:
     for kind, (english, japanese) in ITEMS.items():
         if wanted in {english.casefold(), japanese, str(kind)}:
             return kind
-    message = f"unknown J.League Excite Stage '95 item {typed!r}; kinds lists them"
+    message = Said(
+        f"unknown J.League Excite Stage '95 item {typed!r}; kinds lists them",
+        f"J.リーグエキサイトステージ'95に {typed!r} という アイテムは ない",
+    )
     raise ValueError(message)
 
 
@@ -196,7 +203,10 @@ def _hatayama_named(typed: str) -> int:
     for ident, (english, japanese) in CLASSES.items():
         if wanted in {english.casefold(), japanese, str(ident)}:
             return ident
-    message = f"unknown Hatayama Hatch class {typed!r}; choose warrior or wizard"
+    message = Said(
+        f"unknown Hatayama Hatch class {typed!r}; choose warrior or wizard",
+        f"はた山ハッチに {typed!r} という クラスは ない。せんしか まほうつかいを えらんで",
+    )
     raise ValueError(message)
 
 
@@ -256,7 +266,10 @@ def _excite94_named(typed: str) -> int:
     for ident, (english, japanese) in named.items():
         if wanted in {english.casefold(), japanese, str(ident)}:
             return ident
-    message = f"unknown J.League Excite Stage '94 card {typed!r}; kinds lists them"
+    message = Said(
+        f"unknown J.League Excite Stage '94 card {typed!r}; kinds lists them",
+        f"J.リーグエキサイトステージ'94に {typed!r} という カードは ない",
+    )
     raise ValueError(message)
 
 
@@ -399,7 +412,10 @@ def _robot_named(typed: str) -> int:
             )
         ):
             return ident
-    message = f"unknown Datach Battle Rush robot {typed!r}; choose 0 to 63 or an opponent's name"
+    message = Said(
+        f"unknown Datach Battle Rush robot {typed!r}; choose 0 to 63 or an opponent's name",
+        f"バトルラッシュに {typed!r} という ロボットは ない。0から63か、あいての なまえに して",
+    )
     raise ValueError(message)
 
 

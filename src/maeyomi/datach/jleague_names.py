@@ -12,6 +12,8 @@ slot from 1 to 15, and 0 for the team's own card.
 
 from typing import Final
 
+from maeyomi.said import Said
+
 TEAM_SLOTS: Final = 16
 
 TEAMS: Final[dict[int, tuple[str, str]]] = {
@@ -230,5 +232,9 @@ def card_named(typed: str) -> int:
     for ident, (english, japanese) in known.items():
         if folded in {english.casefold(), japanese, japanese.replace(" ", "")}:
             return ident
-    message = f"unknown J.League card {typed!r}; name a team or a player"
+    message = Said(
+        f"unknown J.League card {typed!r}; name a team or a player",
+        f"Jリーグ スーパートッププレイヤーズに {typed!r} という カードは ない。"
+        "チームか せんしゅの なまえに して",
+    )
     raise ValueError(message)

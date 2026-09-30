@@ -32,6 +32,7 @@ from maeyomi.gameboy.monstermaker_tables import (
 )
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.device import Device
+from maeyomi.said import Said
 
 HP_KEY: Final = "GHP"
 MP_KEY: Final = "BMP"
@@ -248,7 +249,10 @@ def monster_maker_named(typed: str) -> int:
     for ident in range(1, HEROES + 1):
         if text.casefold() == CHARACTER_ENGLISH[ident - 1].casefold() or text == NAMES[ident - 1]:
             return ident
-    message = f"no Monster Maker hero named {typed!r}"
+    message = Said(
+        f"no Monster Maker hero named {typed!r}",
+        f"モンスターメーカーに {typed!r} という ゆうしゃは ない",
+    )
     raise ValueError(message)
 
 

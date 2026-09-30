@@ -107,6 +107,7 @@ from maeyomi.games.served import (
     HATAYAMA_GAME,
 )
 from maeyomi.models.device import Device
+from maeyomi.said import Said
 
 type Pair = tuple[str, str]
 
@@ -320,7 +321,11 @@ def _class_named(typed: str, device: Device) -> int:
     for ident, (english, japanese) in CLASSES.items():
         if wanted in {english.casefold(), japanese, str(ident)}:
             return ident
-    message = f"unknown {device.english} fighter {typed!r}; choose warrior or magician"
+    message = Said(
+        f"unknown {device.english} fighter {typed!r}; choose warrior or magician",
+        f"{device.japanese}に {typed!r} という キャラクターは ない。"
+        "せんしか まほうつかいを えらんで",
+    )
     raise ValueError(message)
 
 

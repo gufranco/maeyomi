@@ -9,6 +9,8 @@ because the game names them the same.
 from dataclasses import dataclass
 from typing import Final
 
+from maeyomi.said import Said
+
 
 @dataclass(frozen=True, slots=True)
 class DbzItem:
@@ -199,7 +201,10 @@ def character_id(value: str) -> int:
         return int(wanted)
     found = [identifier for identifier, names in _all_names() if wanted in names]
     if not found:
-        message = f"unknown character {value!r}; give a name the game shows or an id"
+        message = Said(
+            f"unknown character {value!r}; give a name the game shows or an id",
+            f"{value!r} という キャラクターは ない。ゲームに でる なまえか ばんごうに して",
+        )
         raise ValueError(message)
     return min(found)
 

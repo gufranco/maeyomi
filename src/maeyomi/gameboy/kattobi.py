@@ -20,6 +20,7 @@ from maeyomi.decoder.check_digit import expected_check_digit
 from maeyomi.decoder.validation import validate_barcode
 from maeyomi.gameboy.kattobi_tables import CATEGORIES, ENGLISH, MODELS, NAMES
 from maeyomi.models.device import Device
+from maeyomi.said import Said
 
 POWER_KEY: Final = "KPW"
 WEIGHT_KEY: Final = "KWT"
@@ -155,7 +156,10 @@ def kattobi_named(typed: str) -> int:
     for model in range(MODEL_COUNT):
         if text.casefold() == ENGLISH[model].casefold() or text == NAMES[model]:
             return model
-    message = f"no Kattobi Road car named {typed!r}"
+    message = Said(
+        f"no Kattobi Road car named {typed!r}",
+        f"カットビロードに {typed!r} という くるまは ない",
+    )
     raise ValueError(message)
 
 

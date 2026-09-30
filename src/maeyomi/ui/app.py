@@ -23,9 +23,9 @@ from importlib import resources
 from pathlib import Path
 from typing import Final
 
-from fastapi import BackgroundTasks, FastAPI, HTTPException
+from fastapi import BackgroundTasks, FastAPI, HTTPException, Request
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
-from fastapi.responses import FileResponse, HTMLResponse, Response
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Response
 
 from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_race
 from maeyomi.decoder.decode import decode
@@ -69,6 +69,7 @@ from maeyomi.rendering.face import summary_of
 from maeyomi.rendering.labels import UNREADABLE, UNREADABLE_KIND, Bilingual
 from maeyomi.rendering.preview import card_png, sheet_png_pages
 from maeyomi.rendering.sheet import write_sheet
+from maeyomi.said import Said, in_japanese, said_of
 from maeyomi.ui.assets import PAGE_HEADERS, CachedStaticFiles, asset_stamp, stamped
 from maeyomi.ui.devices import dbz_choices, device_views, facts_of, game_choices, game_picks
 from maeyomi.ui.schemas import (
@@ -103,6 +104,7 @@ LOOPBACK_NAMES: Final = frozenset({"127.0.0.1", "localhost"})
 ANY_HOST: Final = "*"
 BAD_REQUEST: Final = 400
 UNPROCESSABLE: Final = 422
+NO_CARDS: Final = Said("no cards were requested", "カードが えらばれて いない")
 STATIC_DIR: Final = Path(str(resources.files("maeyomi.ui") / "static"))
 PREVIEW_PAGE_LIMIT: Final = 4
 CARDS_PER_PAGE: Final = 9
@@ -138,7 +140,7 @@ def decode_one(barcode: str) -> CharacterView:
     try:
         return CharacterView.of(decode(barcode))
     except BarcodeError as error:
-        raise HTTPException(status_code=BAD_REQUEST, detail=str(error)) from error
+        raise HTTPException(status_code=BAD_REQUEST, detail=said_of(error)) from error
 
 
 def generate_one(spec: CardSpec) -> GenerateResult:
@@ -168,6 +170,7 @@ def generate_one(spec: CardSpec) -> GenerateResult:
         is_exact=False,
         distance=near.distance,
         differences=list(near.differences),
+        differences_ja=[in_japanese(line) or line for line in near.differences],
     )
 
 
@@ -186,7 +189,7 @@ def sheet_preview(spec: RandomSpec) -> SheetPreview:
 def sheet(spec: SheetSpec) -> FileResponse:
     """Build a sheet from an explicit list of cards."""
     if not spec.cards:
-        raise HTTPException(status_code=UNPROCESSABLE, detail="no cards were requested")
+        raise HTTPException(status_code=UNPROCESSABLE, detail=NO_CARDS)
     return _sheet_response([_solve_card(card) for card in spec.cards], "card.pdf")
 
 
@@ -198,7 +201,7 @@ def random_sheet(spec: RandomSpec) -> FileResponse:
 def barcode_sheet(spec: BarcodeSheetSpec) -> FileResponse:
     """Build a sheet from cards that already carry a barcode."""
     if not spec.cards:
-        raise HTTPException(status_code=UNPROCESSABLE, detail="no cards were requested")
+        raise HTTPException(status_code=UNPROCESSABLE, detail=NO_CARDS)
     return _sheet_response([_decoded_card(card) for card in spec.cards], "cards.pdf")
 
 
@@ -258,7 +261,7 @@ def lookup(barcode: str) -> LookupResult:
     try:
         name = look_up_name(barcode)
     except BarcodeError as error:
-        raise HTTPException(status_code=BAD_REQUEST, detail=str(error)) from error
+        raise HTTPException(status_code=BAD_REQUEST, detail=said_of(error)) from error
     except ProductLookupError as error:
         LOGGER.warning("product lookup for %s failed: %s", barcode, error)
         return LookupResult(barcode=barcode)
@@ -357,7 +360,7 @@ def device_cheat(spec: DeviceCheatSpec) -> DeviceReading:
     try:
         card = cheat_as(_device(spec.device), spec.name)
     except ValueError as error:
-        raise HTTPException(status_code=UNPROCESSABLE, detail=str(error)) from error
+        raise HTTPException(status_code=UNPROCESSABLE, detail=said_of(error)) from error
     partner = cheat_companion_as(_device(spec.device), spec.name)
     return DeviceReading(
         name=card.name,
@@ -390,9 +393,27 @@ def _address_of(host: str) -> ipaddress.IPv4Address | ipaddress.IPv6Address | No
         return None
 
 
+def refusal(_: Request, error: Exception) -> JSONResponse:
+    """An error's detail as FastAPI sends it, with the same detail in Japanese beside it."""
+    if not isinstance(error, HTTPException):
+        raise error
+    detail = error.detail
+    japanese = (
+        [in_japanese(line) or line for line in detail]
+        if isinstance(detail, list)
+        else in_japanese(detail) or detail
+    )
+    return JSONResponse(
+        {"detail": detail, "detail_ja": japanese},
+        status_code=error.status_code,
+        headers=error.headers,
+    )
+
+
 def create_app(bind_host: str = DEFAULT_BIND) -> FastAPI:
     """Build the application with every route attached, answering only its own host names."""
     app = FastAPI(title="maeyomi", docs_url="/docs")
+    app.add_exception_handler(HTTPException, refusal)
     app.add_middleware(TrustedHostMiddleware, allowed_hosts=allowed_hosts(bind_host))
     app.add_api_route("/", index, methods=["GET"], response_class=HTMLResponse)
     app.add_api_route("/api/races", races, methods=["GET"])
@@ -448,7 +469,7 @@ def _request(spec: CardSpec) -> CardRequest:
             special=spec.ability,
         )
     except ValueError as error:
-        raise HTTPException(status_code=UNPROCESSABLE, detail=str(error)) from error
+        raise HTTPException(status_code=UNPROCESSABLE, detail=said_of(error)) from error
 
 
 def _solve_card(spec: CardSpec) -> GeneratedCard:
@@ -464,7 +485,7 @@ def _decoded_card(spec: PreviewSpec) -> AnyCard:
     try:
         return printable_as(_device(spec.device), spec.barcode, spec.name)
     except BarcodeError as error:
-        raise HTTPException(status_code=BAD_REQUEST, detail=str(error)) from error
+        raise HTTPException(status_code=BAD_REQUEST, detail=said_of(error)) from error
 
 
 def _read(device: Device, barcode: str) -> CardResult:
@@ -472,7 +493,7 @@ def _read(device: Device, barcode: str) -> CardResult:
     try:
         return read_as(device, barcode)
     except BarcodeError as error:
-        raise HTTPException(status_code=BAD_REQUEST, detail=str(error)) from error
+        raise HTTPException(status_code=BAD_REQUEST, detail=said_of(error)) from error
 
 
 def _device(key: str) -> Device:
@@ -480,7 +501,7 @@ def _device(key: str) -> Device:
     try:
         return device_named(key)
     except ValueError as error:
-        raise HTTPException(status_code=UNPROCESSABLE, detail=str(error)) from error
+        raise HTTPException(status_code=UNPROCESSABLE, detail=said_of(error)) from error
 
 
 def _official_cards(spec: OfficialSpec) -> tuple[AnyCard, ...]:
@@ -497,7 +518,11 @@ def _official_set(spec: OfficialSpec) -> OfficialSet | None:
         return OfficialSet[spec.official_set.strip().upper()]
     except KeyError as error:
         raise HTTPException(
-            status_code=UNPROCESSABLE, detail=f"unknown set {spec.official_set!r}"
+            status_code=UNPROCESSABLE,
+            detail=Said(
+                f"unknown set {spec.official_set!r}",
+                f"{spec.official_set!r} という カードの セットは ない",
+            ),
         ) from error
 
 

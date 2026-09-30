@@ -8,6 +8,8 @@ padding is what makes the weight parity of the two cases agree.
 
 from typing import Final
 
+from maeyomi.said import Said
+
 EAN_13_LENGTH: Final = 13
 EAN_8_LENGTH: Final = 8
 _ODD_POSITION_WEIGHT: Final = 3
@@ -28,7 +30,10 @@ def expected_check_digit(code: str) -> int:
 def _body(code: str) -> str:
     """Normalise any accepted input to the twelve digits the weighting runs over."""
     if not code.isdigit():
-        message = f"barcode must contain only digits, got {code!r}"
+        message = Said(
+            f"barcode must contain only digits, got {code!r}",
+            f"バーコードは すうじだけに して。いまは {code!r}",
+        )
         raise ValueError(message)
     trimmed = {
         EAN_13_LENGTH: code[:-1],
@@ -37,6 +42,9 @@ def _body(code: str) -> str:
         EAN_8_LENGTH - 1: _PAD + code,
     }.get(len(code))
     if trimmed is None:
-        message = f"barcode must be 8 or 13 digits, got {len(code)} digits"
+        message = Said(
+            f"barcode must be 8 or 13 digits, got {len(code)} digits",
+            f"バーコードは 8けたか 13けたに して。いまは {len(code)}けた",
+        )
         raise ValueError(message)
     return trimmed
