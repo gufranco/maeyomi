@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.3.0 (2026-09-30)
+
+### Chores
+
+- **formula**: Point at v1.2.7 [skip ci]
+  ([`5a59744`](https://github.com/gufranco/maeyomi/commit/5a5974442842fadffb83994ceafc2bdb9c4857ed))
+
+### Features
+
+- Read Battle Space cards through the Barcode Boy
+  ([`a1b2a7c`](https://github.com/gufranco/maeyomi/commit/a1b2a7c454a7cc16ed02b30cae91d3534085aca6))
+
+
 ## v1.2.7 (2026-09-30)
 
 ### Bug Fixes
