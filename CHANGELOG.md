@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.2.3 (2026-09-30)
+
+### Bug Fixes
+
+- Print and read only in English and Japanese
+  ([`5e49428`](https://github.com/gufranco/maeyomi/commit/5e49428c34cd716f6abd6370f4530d3d6c60d312))
+
+### Chores
+
+- **formula**: Point at v1.2.2 [skip ci]
+  ([`0635252`](https://github.com/gufranco/maeyomi/commit/0635252e67182bb0170dd8cd1e63f8b227e4d5c8))
+
+
 ## v1.2.2 (2026-09-30)
 
 ### Bug Fixes
