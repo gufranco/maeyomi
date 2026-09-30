@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**1583** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**1584** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -397,7 +397,7 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other three tabs print a sheet of random cards, the 1583 cards Epoch,
+The other three tabs print a sheet of random cards, the 1584 cards Epoch,
 Bandai and Namco actually released, and the strongest card the chosen machine or game
 will read. The page is in English and Japanese, and switches with the
 buttons at the top.
@@ -629,7 +629,7 @@ convenience: the lookup failing changes nothing about the card.
 
 `maeyomi official --list` names the 46 card lists Epoch, Bandai and Namco released,
 how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
-candy.pdf` prints one, and leaving out `--set` prints all 1583. The web page has
+candy.pdf` prints one, and leaving out `--set` prints all 1584. The web page has
 the same thing under **The real cards**.
 
 Epoch never published a machine-readable list, so the barcodes come from the
@@ -638,8 +638,11 @@ pages where collectors typed in the cards they own, on
 its page. Five entries fail their own check digit, which means someone mistyped
 a digit. The same pages give each card's numbers, and for four of the five only
 one single-digit repair reads as those numbers on the card's own machine, so
-those four print with the repaired digit. The fifth, ガングラティ, fits no single
-repair and is listed and left out rather than repaired by guessing. The numbers printed on each card are read from
+those four print with the repaired digit. The fifth, ガングラティ, is listed as
+an enemy whose 13 digits spell its numbers rather than a barcode, and its HP of
+39600 is one no barcode gives: above 20000 the machine reads HP only in steps
+ending in 900. It prints with 3996666425073, which reads as its other numbers
+and HP 39900, the nearest. The numbers printed on each card are read from
 the barcode by this project's decoder, not copied from the wiki.
 
 Six lists were written for the first Barcode Battler: the original set, The

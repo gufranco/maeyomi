@@ -26,7 +26,9 @@ from maeyomi.games.excite94 import decode_excite94
 from maeyomi.games.excite95 import KICK_SPEED, decode_excite95
 from maeyomi.models.device import Device
 from maeyomi.official.catalogue import (
+    OfficialCard,
     OfficialSet,
+    decodes,
     device_cards,
     official_cards,
     official_catalogue,
@@ -106,7 +108,7 @@ WIKI = "https://wikiwiki.jp/barcode/"
 UK_LIST = "https://www.barcodebattler.co.uk/deeta.js"
 UK_SCANS = "https://www.barcodebattler.co.uk/scans/Japan/"
 RETROSTUFF = "https://retrostuff.org/"
-KNOWN_BAD_CHECK_DIGITS = {"3966666425072"}
+KNOWN_BAD_CHECK_DIGITS: set[str] = set()
 
 
 def test_the_catalogue_holds_every_transcribed_barcode_once_per_set() -> None:
@@ -202,7 +204,19 @@ def test_every_card_belongs_to_a_known_set() -> None:
     assert sets == set(OfficialSet)
 
 
-def test_a_transcription_with_a_wrong_check_digit_is_rejected_rather_than_repaired() -> None:
+def test_a_barcode_with_a_wrong_check_digit_does_not_decode() -> None:
+    entry = OfficialCard(
+        barcode="3966666425072",
+        name="ガングラティ",
+        official_set=OfficialSet.ORIGINAL,
+        source_url="",
+        transcribed="3966666425072",
+    )
+
+    assert decodes(entry) is False
+
+
+def test_no_transcription_is_left_out_now_every_card_prints() -> None:
     rejected = {card.barcode for card in rejected_transcriptions()}
 
     assert rejected == KNOWN_BAD_CHECK_DIGITS

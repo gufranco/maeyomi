@@ -429,13 +429,13 @@ def test_official_lists_every_set_with_its_count() -> None:
 
     assert result.exit_code == 0
     assert "Barcode Battler II board game" in result.output
-    assert "1583" in result.output
+    assert "1584" in result.output
 
 
-def test_official_names_the_transcriptions_it_rejected() -> None:
+def test_official_leaves_no_transcription_out_now_every_card_prints() -> None:
     result = runner.invoke(app, ["official", "--list"])
 
-    assert "3966666425072" in result.output
+    assert "skipped" not in result.output
 
 
 def test_official_prints_one_set(tmp_path: Path) -> None:

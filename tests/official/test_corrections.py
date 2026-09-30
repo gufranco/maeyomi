@@ -57,6 +57,7 @@ _CARDS: Final = cast(
         "cards"
     ],
 )
+STAND_INS: Final = {entry["barcode"] for entry in _CARDS if "stand_in" in entry}
 REPAIRS: Final = [
     _repair_of(entry, entry["correction"]) for entry in _CARDS if "correction" in entry
 ]
@@ -131,4 +132,4 @@ def test_the_repaired_card_is_offered_for_printing(repair: Repair) -> None:
 def test_every_repair_keeps_the_digits_the_source_published() -> None:
     kept = {card.transcribed for card in official_catalogue() if card.transcribed != card.barcode}
 
-    assert kept == {repair.transcribed for repair in REPAIRS}
+    assert kept == {repair.transcribed for repair in REPAIRS} | STAND_INS

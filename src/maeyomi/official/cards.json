@@ -1944,7 +1944,19 @@
    "barcode": "3966666425072",
    "name": "ガングラティ",
    "set": "バーコード皇帝からの挑戦状 カードリスト",
-   "source_url": "https://wikiwiki.jp/barcode/%E3%83%90%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E7%9A%87%E5%B8%9D%E3%81%8B%E3%82%89%E3%81%AE%E6%8C%91%E6%88%A6%E7%8A%B6%20%E3%82%AB%E3%83%BC%E3%83%89%E3%83%AA%E3%82%B9%E3%83%88"
+   "source_url": "https://wikiwiki.jp/barcode/%E3%83%90%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E7%9A%87%E5%B8%9D%E3%81%8B%E3%82%89%E3%81%AE%E6%8C%91%E6%88%A6%E7%8A%B6%20%E3%82%AB%E3%83%BC%E3%83%89%E3%83%AA%E3%82%B9%E3%83%88",
+   "stand_in": {
+    "barcode": "3996666425073",
+    "published": {
+     "hp": 39600,
+     "st": 6600,
+     "df": 6600,
+     "speed": 5,
+     "race": 4,
+     "job": 2,
+     "power": 7
+    }
+   }
   },
   {
    "barcode": "3998208475782",

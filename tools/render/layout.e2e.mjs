@@ -214,7 +214,7 @@ function checkRealCards() {
   expect(second.picker, 'the II has nine sets but no set picker');
   expect(second.links.length === 1 && second.links[0].includes('wikiwiki.jp'),
     `the II's real cards link ${second.links}`);
-  expect(second.skipped, 'the II hides the cards left out');
+  expect(!second.skipped, 'the II shows an empty list of cards left out');
   const dbz = realCards('dbz');
   expect(!dbz.picker, 'Dragon Ball Z has one set yet shows a set picker');
   expect(dbz.single.includes('36'), `Dragon Ball Z names its set as ${dbz.single}`);

@@ -34,8 +34,11 @@ over:
   match their other twelve digits, which means somebody mistyped a digit. The
   source also gives every card's numbers, and when exactly one single-digit
   repair reads as those numbers on the card's own machine, the entry records
-  that repair and the card prints with it. An entry no single repair fits is
-  listed by `rejected_transcriptions`, never repaired by guessing.
+  that repair and the card prints with it. The fifth, ガングラティ, is listed as
+  an enemy whose 13 digits spell its numbers rather than a barcode, and its HP
+  of 39600 is one no barcode gives, so it records a stand-in that reads as its
+  other numbers and HP 39900, the nearest. An entry nothing fits is listed by
+  `rejected_transcriptions`, never repaired by guessing.
 - A card missing from every page is missing here. The catalogue is the known
   cards, not a proof that no others were printed.
 
@@ -238,7 +241,9 @@ def official_catalogue() -> tuple[OfficialCard, ...]:
     entries = json.loads(raw)["cards"]
     return tuple(
         OfficialCard(
-            barcode=entry.get("correction", {}).get("barcode", entry["barcode"]),
+            barcode=entry.get("correction", entry.get("stand_in", {})).get(
+                "barcode", entry["barcode"]
+            ),
             name=entry["name"],
             official_set=OfficialSet(entry["set"]),
             source_url=entry["source_url"],
@@ -253,7 +258,7 @@ def official_cards(official_set: OfficialSet | None = None) -> tuple[AnyCard, ..
     return tuple(
         _card(entry)
         for entry in official_catalogue()
-        if (official_set is None or entry.official_set is official_set) and _decodes(entry)
+        if (official_set is None or entry.official_set is official_set) and decodes(entry)
     )
 
 
@@ -274,10 +279,10 @@ def device_cards(device: Device) -> tuple[AnyCard, ...]:
 
 def rejected_transcriptions() -> tuple[OfficialCard, ...]:
     """Every transcription the decoder refuses, so a reader can see what was left out."""
-    return tuple(entry for entry in official_catalogue() if not _decodes(entry))
+    return tuple(entry for entry in official_catalogue() if not decodes(entry))
 
 
-def _decodes(entry: OfficialCard) -> bool:
+def decodes(entry: OfficialCard) -> bool:
     """Whether the transcribed barcode is one the device would accept."""
     try:
         decode(entry.barcode)
