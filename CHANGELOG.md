@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.2.4 (2026-09-30)
+
+### Bug Fixes
+
+- Print every card in English and Japanese again
+  ([`2da283f`](https://github.com/gufranco/maeyomi/commit/2da283f039bc342fbbcc161df8b8067942bda52c))
+
+### Chores
+
+- **formula**: Point at v1.2.3 [skip ci]
+  ([`06f3dd6`](https://github.com/gufranco/maeyomi/commit/06f3dd6172d3f339c4af7aa197f1fd708fc01cbd))
+
+
 ## v1.2.3 (2026-09-30)
 
 ### Bug Fixes
