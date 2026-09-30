@@ -22,7 +22,7 @@ jobs:
     outputs:
       tag: ${{ steps.version.outputs.tag }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: main
           fetch-depth: 0
@@ -39,7 +39,7 @@ jobs:
             echo "main has moved past $PASSED; its own CI run will release it"
           fi
 
-      - uses: astral-sh/setup-uv@v7
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7
         if: steps.fresh.outputs.current == 'true'
 
       - name: Version, changelog, tag and GitHub release
