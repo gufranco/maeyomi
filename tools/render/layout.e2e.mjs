@@ -404,6 +404,19 @@ function checkCheatLinkShowsThatDevicesCard() {
   pickDevice('bb2');
 }
 
+function checkLanguageLeavesTheCard() {
+  browser('click', '#tab-one');
+  browser('wait', '1500');
+  const card = () => evaluate(`JSON.stringify(document.getElementById('card-image').getAttribute('src'))`);
+  const before = card();
+  browser('eval', `document.querySelector('[data-language="ja"]').click(); 'ok'`);
+  browser('wait', '1500');
+  const lang = evaluate(`JSON.stringify(document.documentElement.lang)`);
+  expect(lang === 'ja' && card() === before, `switching the page to Japanese changed the card: ${lang}`);
+  browser('eval', `document.querySelector('[data-language="en"]').click(); 'ok'`);
+  browser('wait', '1000');
+}
+
 function checkCheatTab() {
   browser('click', '#tab-cheat');
   browser('wait', '2000');
@@ -475,6 +488,7 @@ checkFoldedOptions();
 checkFreshStartOnDeviceChange();
 checkAddressAndKeys();
 checkEmptyRealCards();
+checkLanguageLeavesTheCard();
 checkCheatTab();
 checkCheatLinkShowsThatDevicesCard();
 checkPhoneTabsFit();

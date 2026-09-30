@@ -241,6 +241,15 @@ def test_a_preview_of_an_invalid_barcode_is_refused(client: TestClient) -> None:
     assert "check digit" in response.json()["detail"]
 
 
+def test_the_page_language_never_changes_a_card(client: TestClient) -> None:
+    card = {"barcode": "0401207237501", "name": "Knight"}
+    plain = client.post("/api/preview", json=card).content
+
+    in_japanese = client.post("/api/preview", json={**card, "language": "ja"})
+
+    assert in_japanese.content == plain
+
+
 def test_a_sheet_preview_returns_page_images(client: TestClient) -> None:
     response = client.post("/api/sheet-preview", json={"count": 2, "seed": 4})
 
