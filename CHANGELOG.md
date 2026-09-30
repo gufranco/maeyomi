@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.11.0 (2026-09-30)
+
+### Chores
+
+- **formula**: Point at v1.10.0 [skip ci]
+  ([`6922f6b`](https://github.com/gufranco/maeyomi/commit/6922f6b472fa52a14522f4208d25e45815400b40))
+
+### Features
+
+- Read the Excite games' PK modes and box bonus
+  ([`7610e03`](https://github.com/gufranco/maeyomi/commit/7610e036c2abc3c68663b4af4f3d9e8523b27159))
+
+
 ## v1.10.0 (2026-09-30)
 
 ### Chores
