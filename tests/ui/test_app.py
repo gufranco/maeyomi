@@ -519,21 +519,6 @@ def test_a_product_that_reads_only_at_some_speeds_says_so(client: TestClient) ->
     assert product["note"] == "Reads only at some swipe speeds"
 
 
-@pytest.mark.parametrize("language", ["zh-Hans", "zh-Hant-HK"])
-def test_the_page_can_fetch_the_card_words_of_a_chinese_language(
-    client: TestClient, language: str
-) -> None:
-    response = client.get(f"/api/card-text/{language}")
-
-    assert response.status_code == 200
-    assert response.json()["Kind"] in {"种类", "種類"}
-
-
-@pytest.mark.parametrize("language", ["en", "ja", "both", "fr"])
-def test_only_chinese_has_a_card_word_catalogue(client: TestClient, language: str) -> None:
-    assert client.get(f"/api/card-text/{language}").status_code == 404
-
-
 def test_a_request_naming_another_host_is_refused() -> None:
     rebound = TestClient(create_app(), base_url="http://attacker.example")
 

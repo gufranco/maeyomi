@@ -249,7 +249,7 @@ def _draw_band(canvas: Canvas, face: CardFace, frame: _Frame) -> None:
 def _draw_name(canvas: Canvas, card: AnyCard, frame: _Frame, top: float) -> float:
     """Draw the name on one centred line, or two when it needs them."""
     style = frame.style
-    font = font_for(card.name, bold=True, language=style.language)
+    font = font_for(card.name, bold=True)
     lines = wrap(
         card.name,
         frame.inner_width,

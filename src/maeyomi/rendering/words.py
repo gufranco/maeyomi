@@ -71,7 +71,7 @@ def draw_pair(canvas: Canvas, text: Bilingual, line: Line) -> None:
 
 def draw_single(canvas: Canvas, text: str, line: Line) -> None:
     """Set one piece of text on a line, shrinking it to fit."""
-    font = font_for(text, bold=line.bold, language=line.language)
+    font = font_for(text, bold=line.bold)
     natural = text_width_mm(text, font, line.size_pt)
     size = line.size_pt * min(1.0, line.available / natural)
     width = text_width_mm(text, font, size)
@@ -100,7 +100,7 @@ def ability_lines(
     budget = max(2, int((height - 3.4) / panel.line_mm))
     text = localise(text, panel.language)
     if text.english == text.japanese:
-        font = font_for(text.english, language=panel.language)
+        font = font_for(text.english)
         lines = wrap(text.english, available, font=font, size_pt=panel.size_pt, max_lines=budget)
         return [(line, font) for line in lines]
     english_font = font_for(text.english)

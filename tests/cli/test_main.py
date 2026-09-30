@@ -622,11 +622,10 @@ def test_cards_print_in_english_and_japanese_by_default(tmp_path: Path) -> None:
     assert "Swipe this end" in pdf_text(output)
 
 
-@pytest.mark.parametrize("language", ["ja", "zh-Hans", "zh-Hant-HK"])
-def test_a_language_prints_the_cards_without_english_labels(tmp_path: Path, language: str) -> None:
-    output = tmp_path / f"{language}.pdf"
+def test_japanese_prints_the_cards_without_english_labels(tmp_path: Path) -> None:
+    output = tmp_path / "ja.pdf"
 
-    result = runner.invoke(app, ["--language", language, "cheat", "-o", str(output)])
+    result = runner.invoke(app, ["--language", "ja", "cheat", "-o", str(output)])
 
     assert result.exit_code == 0
     assert "Swipe this end" not in pdf_text(output)

@@ -4,7 +4,7 @@
 
 <strong>Print playable cards for Barcode Battler machines and barcode games.</strong>
 
-English &nbsp;|&nbsp; [日本語](README.ja.md) &nbsp;|&nbsp; [简体中文](README.zh-Hans.md) &nbsp;|&nbsp; [香港繁體中文](README.zh-Hant-HK.md)
+English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 [![ci](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml/badge.svg)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md) &nbsp;|&nbsp; [简体中文](REA
 
 </div>
 
-**1544** official cards transcribed. **2958** Japanese groceries. **100** special powers. Cards in English, Japanese or Chinese. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**1544** official cards transcribed. **2958** Japanese groceries. **100** special powers. Cards in English, Japanese or both. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -331,9 +331,8 @@ you get.
 
 The other three tabs print a sheet of random cards, the 1544 cards Epoch and
 Bandai actually released, and the strongest card the chosen machine or game
-will read. The page is in English, Japanese, Simplified Chinese and Hong Kong
-Chinese, switched with the buttons at the top, and its cards print in the same
-language.
+will read. The page is in English and Japanese, switched with the buttons at
+the top, and its cards print in the same language.
 
 `maeyomi web --no-open` starts the server without a browser, and `maeyomi
 serve` is the same thing for a machine that has none.
@@ -763,9 +762,9 @@ everything.
 
 ## Languages and pictures
 
-A card from the web page prints in the page's language: English, Japanese,
-Simplified Chinese or Hong Kong Chinese. On the command line, `--language` before
-the command does the same with `en`, `ja`, `zh-Hans` or `zh-Hant-HK`, as in
+A card from the web page prints in the page's language: English or Japanese.
+On the command line, `--language` before the command does the same with `en` or
+`ja`, as in
 `maeyomi --language ja cheat -o cheat.pdf`; leaving it out prints English and
 Japanese side by side. The kind of creature, how it fights, the three battle
 numbers, the special power and the swipe caption all follow it. Each fact also has a picture
@@ -778,19 +777,13 @@ meaning, never its colour.
 The special power text is the published wording in both languages: the Japanese
 is copied from barcodebattler.net/page05.htm and the English is this project's
 reading of the same page. The race, class and stat names are this project's own
-translation, in the hiragana and katakana a young reader learns first. The
-Chinese of both kinds is this project's translation too; the names of
-characters, units, players and games stay as the English prints them, since
-most of these games never had a Chinese release to take a name from. A test
-renders every official card, every cheat card, every entry each game lists and
-a spread of 2000 barcodes on every device, and fails if any word they print has
-no Chinese. A player's chosen name is printed as typed, in any script.
+translation, in the hiragana and katakana a young reader learns first. A
+player's chosen name is printed as typed, in any script.
 
-The web page switches between English, Japanese, Simplified Chinese and Hong
-Kong Chinese with the buttons at the top, remembers the choice, and starts in
-the browser's language.
+The web page switches between English and Japanese with the buttons at the
+top, remembers the choice, and starts in the browser's language.
 
-Japanese and Chinese are set in fonts every PDF reader carries, which are
+Japanese is set in a font every PDF reader carries, which is
 referenced rather than embedded. For a print shop, send the page images instead of the PDF,
 `--images png`, which are 600 dpi with the lettering already drawn in.
 

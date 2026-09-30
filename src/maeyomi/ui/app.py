@@ -71,7 +71,6 @@ from maeyomi.rendering.labels import UNREADABLE, UNREADABLE_KIND, Bilingual
 from maeyomi.rendering.language import CardLanguage
 from maeyomi.rendering.preview import card_png, sheet_png_pages
 from maeyomi.rendering.sheet import write_sheet
-from maeyomi.rendering.translations import catalogue
 from maeyomi.ui.assets import PAGE_HEADERS, CachedStaticFiles, asset_stamp, stamped
 from maeyomi.ui.devices import dbz_choices, device_views, facts_of, game_choices, game_picks
 from maeyomi.ui.schemas import (
@@ -106,7 +105,6 @@ LOOPBACK_NAMES: Final = frozenset({"127.0.0.1", "localhost"})
 ANY_HOST: Final = "*"
 BAD_REQUEST: Final = 400
 UNPROCESSABLE: Final = 422
-NOT_FOUND: Final = 404
 STATIC_DIR: Final = Path(str(resources.files("maeyomi.ui") / "static"))
 PREVIEW_PAGE_LIMIT: Final = 4
 CARDS_PER_PAGE: Final = 9
@@ -317,14 +315,6 @@ def devices() -> list[DeviceView]:
     return device_views()
 
 
-def card_text(language: str) -> dict[str, str]:
-    """The Chinese card words of one language, for the page to show server text in it."""
-    chosen = next((known for known in CardLanguage if known.value == language), None)
-    if chosen is None or not chosen.is_chinese:
-        raise HTTPException(status_code=NOT_FOUND, detail=f"no card words for {language!r}")
-    return dict(catalogue(chosen))
-
-
 def dbz_characters() -> list[DbzChoiceView]:
     """Every fighter and item Datach Dragon Ball Z can produce."""
     return dbz_choices()
@@ -425,7 +415,6 @@ def create_app(bind_host: str = DEFAULT_BIND) -> FastAPI:
     app.add_api_route("/api/products", products, methods=["GET"])
     app.add_api_route("/api/lookup/{barcode}", lookup, methods=["GET"])
     app.add_api_route("/api/devices", devices, methods=["GET"])
-    app.add_api_route("/api/card-text/{language}", card_text, methods=["GET"])
     app.add_api_route("/api/dbz-characters", dbz_characters, methods=["GET"])
     app.add_api_route("/api/game-cards/{device}", game_cards, methods=["GET"])
     app.add_api_route("/api/game-picks/{device}/{ident}", game_card_picks, methods=["GET"])

@@ -685,11 +685,7 @@ function copyCode() {
 
 function setUpLanguage() {
   document.querySelectorAll('[data-language]').forEach((button) => {
-    button.addEventListener('click', () => {
-      loadCardWords(button.dataset.language)
-        .catch(() => setStatus('one-status', 'bad', 'tag.impossible', t('status.wrong')))
-        .finally(() => applyLanguage(button.dataset.language));
-    });
+    button.addEventListener('click', () => applyLanguage(button.dataset.language));
   });
   document.addEventListener('languagechange', () => {
     renderChoices();
@@ -721,8 +717,7 @@ $('shop-pdf').addEventListener('click', downloadShelf);
 $('official-pdf').addEventListener('click', downloadOfficial);
 setUpLivePreview();
 setUpOfficial();
-loadCardWords(currentLanguage)
-  .then(() => Promise.all([setUpChoices(), setUpDevices()]))
+Promise.all([setUpChoices(), setUpDevices()])
   .then(() => {
     refreshPreviewSoon();
     showCheatIfOpen();

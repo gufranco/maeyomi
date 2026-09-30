@@ -17,8 +17,6 @@ ROOT: Final = Path(__file__).parent.parent.parent
 TABLES: Final = {
     "README.md": "## What it supports",
     "README.ja.md": "## 対応している本体とゲーム",
-    "README.zh-Hans.md": "## 支持的机器和游戏",
-    "README.zh-Hant-HK.md": "## 支援的機器和遊戲",
 }
 
 

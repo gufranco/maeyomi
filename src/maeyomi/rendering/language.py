@@ -14,10 +14,3 @@ class CardLanguage(StrEnum):
     BOTH = "both"
     ENGLISH = "en"
     JAPANESE = "ja"
-    SIMPLIFIED = "zh-Hans"
-    HONG_KONG = "zh-Hant-HK"
-
-    @property
-    def is_chinese(self) -> bool:
-        """Whether the words come from a Chinese catalogue."""
-        return self in {CardLanguage.SIMPLIFIED, CardLanguage.HONG_KONG}

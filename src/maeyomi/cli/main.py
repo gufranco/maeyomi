@@ -73,7 +73,7 @@ def choose_language(
         CardLanguage,
         typer.Option(
             "--language",
-            help="Print every card in one language: en, ja, zh-Hans or zh-Hant-HK. "
+            help="Print every card in one language: en or ja. "
             "Leave it out for English and Japanese together.",
         ),
     ] = CardLanguage.BOTH,

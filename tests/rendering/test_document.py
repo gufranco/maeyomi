@@ -87,8 +87,6 @@ def test_the_document_declares_its_language(card: GeneratedCard, tmp_path: Path)
         (CardLanguage.BOTH, "en"),
         (CardLanguage.ENGLISH, "en"),
         (CardLanguage.JAPANESE, "ja"),
-        (CardLanguage.SIMPLIFIED, "zh-Hans"),
-        (CardLanguage.HONG_KONG, "zh-Hant-HK"),
     ],
 )
 def test_a_sheet_in_one_language_declares_that_language(

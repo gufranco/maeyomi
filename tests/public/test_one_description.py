@@ -112,8 +112,6 @@ def test_the_project_is_readable_in_japanese() -> None:
 EDITIONS: Final = {
     "English": README,
     "日本語": JAPANESE_README,
-    "简体中文": ROOT / "README.zh-Hans.md",
-    "香港繁體中文": ROOT / "README.zh-Hant-HK.md",
 }
 
 

@@ -1,16 +1,12 @@
 """Tests for setting English and Japanese text on a card."""
 
 import pytest
-from reportlab.pdfbase import pdfmetrics
 
-from maeyomi.rendering.language import CardLanguage
 from maeyomi.rendering.text import (
     ELLIPSIS,
     JAPANESE_FONT,
     LATIN_BOLD_FONT,
     LATIN_FONT,
-    SIMPLIFIED_FONT,
-    TRADITIONAL_FONT,
     fit_size,
     font_for,
     is_latin,
@@ -27,27 +23,6 @@ def test_latin_text_is_set_in_the_latin_face() -> None:
 def test_japanese_text_is_set_in_the_japanese_face() -> None:
     assert font_for("ロボット") == JAPANESE_FONT
     assert font_for("ロボット", bold=True) == JAPANESE_FONT
-
-
-@pytest.mark.parametrize(
-    ("language", "font"),
-    [(CardLanguage.SIMPLIFIED, SIMPLIFIED_FONT), (CardLanguage.HONG_KONG, TRADITIONAL_FONT)],
-)
-def test_chinese_text_is_set_in_its_own_face(language: CardLanguage, font: str) -> None:
-    assert font_for("攻击力", language=language) == font
-
-
-@pytest.mark.parametrize("language", [CardLanguage.SIMPLIFIED, CardLanguage.HONG_KONG])
-def test_a_name_with_kana_keeps_the_japanese_face_on_a_chinese_card(
-    language: CardLanguage,
-) -> None:
-    assert font_for("がまもと", language=language) == JAPANESE_FONT
-
-
-def test_the_traditional_face_reads_unicode_through_the_traditional_map() -> None:
-    font_for("體力", language=CardLanguage.HONG_KONG)
-
-    assert pdfmetrics.getFont(TRADITIONAL_FONT).encoding.name == "UniCNS-UCS2-H"
 
 
 def test_accented_latin_counts_as_latin() -> None:
