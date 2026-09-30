@@ -307,7 +307,9 @@ def test_ultraman_club_refuses_a_number_it_cannot_hold(client: TestClient) -> No
     response = client.post("/api/device-card", json=payload)
 
     assert response.status_code == 422
-    assert response.json()["detail"] == ["Datach Ultraman Club reads no card with those numbers"]
+    assert response.json()["detail"] == [
+        "Datach Ultraman Club reads no card like the one asked for"
+    ]
 
 
 def test_ultraman_club_refuses_a_type_it_does_not_have(client: TestClient) -> None:
@@ -356,6 +358,25 @@ def test_a_number_between_two_the_game_holds_is_marked_as_the_closest(client: Te
     body = client.post("/api/device-card", json=payload).json()
 
     assert body["is_exact"] is False
+
+
+def test_a_monster_maker_hero_is_built_exactly_with_its_later_reading(
+    client: TestClient,
+) -> None:
+    payload = {
+        "device": "monstmkb",
+        "character": "17",
+        "hp": "5000",
+        "st": "1800",
+        "df": "1200",
+        "picks": {"later": 1705},
+    }
+
+    body = client.post("/api/device-card", json=payload).json()
+
+    facts = {fact["label"]: fact["value"] for fact in body["facts"]}
+    assert body["is_exact"] is True
+    assert facts["Later in the game"].startswith("Lorian, level 5:")
 
 
 def test_a_machine_offers_no_game_picks(client: TestClient) -> None:

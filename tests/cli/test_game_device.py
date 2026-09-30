@@ -92,7 +92,7 @@ def test_generate_refuses_numbers_the_game_cannot_hold(tmp_path: Path) -> None:
     )
 
     assert result.exit_code == 1
-    assert "Datach Ultraman Club reads no card with those numbers" in result.output
+    assert "Datach Ultraman Club reads no card like the one asked for" in result.output
 
 
 def test_generate_refuses_the_dragon_ball_z_level_on_another_game(tmp_path: Path) -> None:
@@ -387,3 +387,30 @@ def test_cheat_prints_the_strongest_battle_rush_robot_as_its_two_cards(tmp_path:
 
     assert result.exit_code == 0
     assert "Wrote 2 card(s)" in result.output
+
+
+def test_a_long_heading_keeps_a_space_before_its_text() -> None:
+    result = runner.invoke(app, ["decode", "--device", "monstmkb", "9998017308336"])
+
+    assert result.exit_code == 0
+    assert "Later in the game Lorian, level 7: HP 370" in result.output
+
+
+def test_generate_refuses_a_later_reading_the_hero_cannot_have(tmp_path: Path) -> None:
+    result = runner.invoke(
+        app,
+        [
+            "generate",
+            "--device",
+            "monstmkb",
+            "--character",
+            "Lorian",
+            "--pick",
+            "later=2000",
+            "--output",
+            str(tmp_path / "x.pdf"),
+        ],
+    )
+
+    assert result.exit_code == 1
+    assert "Monster Maker: Barcode Saga reads no card like the one asked for" in result.output

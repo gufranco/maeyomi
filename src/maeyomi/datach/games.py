@@ -44,6 +44,16 @@ from maeyomi.gameboy.battlespace import (
     decode_battle_space,
     strongest_battle_space,
 )
+from maeyomi.gameboy.monstermaker import STAT_KEYS as MONSTER_MAKER_STATS
+from maeyomi.gameboy.monstermaker import (
+    build_monster_maker,
+    decode_monster_maker,
+    monster_maker_entries,
+    monster_maker_named,
+    monster_maker_picks,
+    monster_maker_text,
+    strongest_monster_maker,
+)
 from maeyomi.games.barcode_world import (
     MAGICIAN,
     WARRIOR,
@@ -395,6 +405,17 @@ GAMES: Final[dict[Device, DatachGame]] = {
         describe=battle_space_text,
         named=battle_space_named,
         stat_keys=BATTLE_SPACE_STATS,
+        datach_reader=False,
+    ),
+    Device.MONSTER_MAKER: DatachGame(
+        decode=decode_monster_maker,
+        build=build_monster_maker,
+        strongest=strongest_monster_maker,
+        entries=monster_maker_entries,
+        describe=monster_maker_text,
+        named=monster_maker_named,
+        stat_keys=MONSTER_MAKER_STATS,
+        picks=monster_maker_picks,
         datach_reader=False,
     ),
 }

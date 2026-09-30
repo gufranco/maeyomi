@@ -22,7 +22,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**1559** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**1565** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -232,6 +232,21 @@ MAME has no Barcode Boy, so a script answers the Game Boy's link port the way
 the reader does, and the decoder agrees with the game on all 668 codes it was
 given, among them one card built for each class.
 
+Monster Maker: Barcode Saga, Namco's 1993 Barcode Boy game, reads a card two
+ways, and `--device monstmkb` makes cards for it. Forming the party, a card
+gives one of 17 heroes at level 1. Later in the game the same card gives one of
+35 characters: a hero at a level from 1 to 9, or one of 18 others, monsters
+among them. A code
+starting with 9 names its hero by digits three to five, any other code by
+digits six and eight, and digits one, three and five set the later level. Pick
+the hero with `--character` and what the card gives later with `--pick later=`,
+the character's number times a hundred plus its level: `--pick later=1709`
+brings Lorian back at level 9, and `--pick later=2000` on Link gives the
+Dragon. In MAME each code is read at the party screen twice, once as a new game
+reads it and once with the flag the game sets later, and the decoder agrees
+with the game on both readings of all 830 codes, among them every card the
+program can build.
+
 ## What it supports
 
 Every machine and game below is a `--device` on the command line and an
@@ -264,6 +279,7 @@ games and their card packs are on
 | Datach Yu Yu Hakusho | データック 幽遊白書 | Famicom Datach | `yuyu` |
 | Barcode World | バーコードワールド | Famicom, through the Barcode Battler II | `barcodeworld` |
 | Battle Space | バトルスペース | Game Boy, through the Barcode Boy | `bspace` |
+| Monster Maker: Barcode Saga | モンスターメーカー バーコードサーガ | Game Boy, through the Barcode Boy | `monstmkb` |
 
 ## Install
 
@@ -310,7 +326,7 @@ Z, Datach Ultraman Club, Datach SD Gundam Wars, Datach Yu Yu Hakusho,
 Datach J.League, Barcode World, Barcode Battler Senki, Lupin III, Donald Duck,
 Spider-Man, Alice no Paint Adventure, Doraemon 2, Doraemon 3, Nobita to Yousei
 no Kuni, J.League Excite Stage '94 or '95, Dragon Slayer II, Hatayama Hatch,
-Datach Battle Rush or Battle Space. Every tab follows it: the card maker shows only the fields that device reads
+Datach Battle Rush, Battle Space or Monster Maker: Barcode Saga. Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -342,7 +358,7 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other three tabs print a sheet of random cards, the 1559 cards Epoch,
+The other three tabs print a sheet of random cards, the 1565 cards Epoch,
 Bandai and Namco actually released, and the strongest card the chosen machine or game
 will read. The page is in English and Japanese, and switches with the
 buttons at the top.
@@ -572,9 +588,9 @@ convenience: the lookup failing changes nothing about the card.
 
 ## The real cards
 
-`maeyomi official --list` names the 42 card lists Epoch, Bandai and Namco released,
+`maeyomi official --list` names the 43 card lists Epoch, Bandai and Namco released,
 how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
-candy.pdf` prints one, and leaving out `--set` prints all 1559. The web page has
+candy.pdf` prints one, and leaving out `--set` prints all 1565. The web page has
 the same thing under **The real cards**.
 
 Epoch never published a machine-readable list, so the barcodes come from the
@@ -677,10 +693,13 @@ II came with cards, and the manuals of the first four name none. The one card
 Dragon Slayer II is known to read, Selios from the Barcode Battler II pack, is
 listed under that game.
 
-Battle Space came with ten cards. Their barcodes come from
+Ten Battle Space cards and six Monster Maker cards are known. Their barcodes
+come from
 [the Barcode Boy notes of the GBE+ emulator](https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Boy.txt), which list every
-known Barcode Boy card from high-resolution scans, and each decodes to the
-class printed on its card.
+known Barcode Boy card from high-resolution scans. Each Battle Space card
+decodes to the class printed on it, and each Monster Maker card to the hero it
+is named for. Two of those heroes are named as the game shows them, エルサイス
+and ハーゲン, where the notes have エリサイス and ハーグン.
 
 Epoch printed a roster card for each of the 12 J.League clubs of 1994 for
 Excite Stage '94. Their barcodes were read off the scans
@@ -775,6 +794,9 @@ Dragon Slayer II starts with every status at its highest.
 Battle Space gets a Sorcerer King, the class with every spell, with HP 999900,
 AP 99900, DP 99400 and MP 83100. No code reads all four at their top: MP and
 AP at 999 fix six digits that HP at 9999 needs for itself.
+
+Monster Maker gets Lorian, who comes back later in the game at level 9 with HP
+460, the most any hero reaches, and AP and DP 97.
 
 Hatayama Hatch gets a wizard with stamina 99900, attack and defense 19900 and
 99 magic.

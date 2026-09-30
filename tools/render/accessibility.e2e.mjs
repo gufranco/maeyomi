@@ -7,7 +7,7 @@ const AXE_SHA384 = 'jzJDdyy7z7+/I7TeoAg0Gc8k9hD8b1xRN0W18hMptWJ0cdoiebywhPpCyP9e
 const RULES = ['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa', 'best-practice'];
 const WIDTHS = ['1280', '390'];
 const SCHEMES = ['light', 'dark'];
-const DEVICES = ['bb2', 'excite94', 'battlerush', 'doraemon3', 'hatayama', 'dslayer2', 'bspace'];
+const DEVICES = ['bb2', 'excite94', 'battlerush', 'doraemon3', 'hatayama', 'dslayer2', 'bspace', 'monstmkb'];
 const TABS = ['one', 'many', 'official', 'shop', 'read', 'cheat'];
 
 const browser = (...args) => execFileSync('agent-browser', args, { encoding: 'utf8' }).trim();

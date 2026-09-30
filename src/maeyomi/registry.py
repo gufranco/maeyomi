@@ -37,7 +37,7 @@ from maeyomi.rendering.labels import SPEED_DEPENDENT, Bilingual
 
 NOT_READ: Final = "Datach Dragon Ball Z does not read {fields}"
 GAME_NOT_READ: Final = "{game} does not read {fields}"
-NO_GAME_CARD: Final = "{game} reads no card with those numbers"
+NO_GAME_CARD: Final = "{game} reads no card like the one asked for"
 NO_DOUBLE_BACK_READ: Final = (
     "the Double reads II back-read codes the II's way; build them with --device bb2, "
     "and use --device double for its own 7-read"

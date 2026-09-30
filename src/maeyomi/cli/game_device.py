@@ -91,7 +91,7 @@ def describe_game(device: Device, card: CardResult) -> list[str]:
     ]
     numbers = [f"{STAT_LABELS[tile.key].english:<10}{tile.value}" for tile in face.tiles]
     heading = face.power_heading.english if face.power_heading else ""
-    return [*head, *numbers, f"{heading:<10}{face.power_text.english}"]
+    return [*head, *numbers, f"{heading:<9} {face.power_text.english}"]
 
 
 def generate_game(

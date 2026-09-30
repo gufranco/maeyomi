@@ -6,6 +6,7 @@ local RECORD, RECORD_LEN = tonumber(os.getenv("RECORD_ADDR") or "0xc99e"), tonum
 local STATUS = tonumber(os.getenv("STATUS_ADDR") or "0xc834")
 local READY_FRAME = tonumber(os.getenv("READY_FRAME") or "1480")
 local SETTLE = tonumber(os.getenv("SETTLE") or "90")
+local POKE_ADDR, POKE_VALUE = tonumber(os.getenv("POKE_ADDR") or ""), tonumber(os.getenv("POKE_VALUE") or "")
 local codes = {}
 for line in io.lines(os.getenv("CODES")) do if line:match("^%d+$") then codes[#codes + 1] = line end end
 local frame, internal, sb, armed, delivered = 0, 0, 0xff, false, false
@@ -43,10 +44,31 @@ end)
 pumptap = mem:install_read_tap(0xc000, 0xdfff, "pump", function(offset, data, mask)
   if scanning and armed and not delivered and sent < #stream and now() >= next_at then deliver() end
 end)
-local function dump(code)
+local function record()
   local s = ""
   for i = 0, RECORD_LEN - 1 do s = s .. string.format("%02x", mem:read_u8(RECORD + i)) end
-  print(string.format("REC %s %02x %s", code, mem:read_u8(STATUS), s))
+  return s
+end
+local CAPTURE_ADDR = tonumber(os.getenv("CAPTURE_ADDR") or "")
+local CAPTURE_PC = tonumber(os.getenv("CAPTURE_PC") or "")
+local CAPTURE_BANK = tonumber(os.getenv("CAPTURE_BANK") or "1")
+local CAPTURE_SPAN = 8
+local captured, bank = nil, 1
+if CAPTURE_ADDR and CAPTURE_PC then
+  banktap = mem:install_write_tap(0x2000, 0x3fff, "bank", function(offset, data, mask) bank = data & 0xff end)
+  capturetap = mem:install_write_tap(CAPTURE_ADDR, CAPTURE_ADDR, "capture", function(offset, data, mask)
+    local pc = cpu.state["PC"].value
+    if scanning and captured == nil and bank == CAPTURE_BANK and pc >= CAPTURE_PC and pc < CAPTURE_PC + CAPTURE_SPAN then
+      captured = record()
+    end
+  end)
+end
+local function dump(code)
+  if CAPTURE_ADDR and CAPTURE_PC then
+    print(string.format("REC %s %s %s", code, captured and "00" or "ee", captured or record()))
+    return
+  end
+  print(string.format("REC %s %02x %s", code, mem:read_u8(STATUS), record()))
 end
 local function start_next()
   index = index + 1
@@ -72,7 +94,8 @@ emu.register_frame_done(function()
     wait = wait - 1
     if wait <= 0 then
       build(codes[index])
-      armed, delivered, sent, scanning, sb = true, false, 0, true, 0xff
+      if POKE_ADDR and POKE_VALUE then mem:write_u8(POKE_ADDR, POKE_VALUE) end
+      armed, delivered, sent, scanning, sb, captured = true, false, 0, true, 0xff, nil
       mem:write_u8(STATUS, 0xee)
       next_at = now()
       phase, wait = "scanning", SETTLE
