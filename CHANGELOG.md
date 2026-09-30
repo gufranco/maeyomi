@@ -2,6 +2,24 @@
 
 <!-- version list -->
 
+## v1.8.1 (2026-09-30)
+
+### Bug Fixes
+
+- Keep each page language from showing the other
+  ([`7e9126a`](https://github.com/gufranco/maeyomi/commit/7e9126aeffce1278492e747bb0b06113906af1a8))
+
+### Chores
+
+- **formula**: Point at v1.8.0 [skip ci]
+  ([`3e64e0d`](https://github.com/gufranco/maeyomi/commit/3e64e0d35949900be3f1383499f62ce3a2b80aae))
+
+### Documentation
+
+- Reorganise the README around every machine and game
+  ([`83e04c9`](https://github.com/gufranco/maeyomi/commit/83e04c915cbb40e692a405586aa1d6faaf33eeed))
+
+
 ## v1.8.0 (2026-09-30)
 
 ### Chores
