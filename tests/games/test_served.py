@@ -42,7 +42,10 @@ def test_an_excite_item_is_described_by_its_ability_and_how_far_it_raises_it() -
     text = EXCITE95_GAME.describe(EXCITE95_GAME.decode("4957368193034"))
 
     assert text.name == ("Kick speed", "キックスピード")
-    assert text.power == ("Raises it by 76", "76 あがる")
+    assert text.power == (
+        "Raises it by 76; in PK mode keeper level +1",
+        "76 あがる・PKモードでは キーパーの レベル +1",
+    )
 
 
 def test_an_excite_item_is_found_by_name_or_number() -> None:
@@ -189,8 +192,8 @@ def test_an_excite_94_item_is_described_by_its_ability_and_how_far_it_raises_it(
 
     assert text.name == ("Kick speed", "キックスピード")
     assert text.power == (
-        "Raises it by 104; in PK mode type 11, level 1",
-        "104 あがる・PKモードでは タイプ11 レベル1",
+        "Raises it by 104; in PK mode saving, level 1",
+        "104 あがる・PKモードでは セービング レベル1",
     )
 
 

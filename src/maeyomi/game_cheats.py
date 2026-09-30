@@ -20,7 +20,7 @@ from maeyomi.datach.sdgundam import strongest_sdgundam
 from maeyomi.datach.sdgundam_names import UNITS
 from maeyomi.datach.ultraman import strongest_ultraman
 from maeyomi.gameboy.famista3 import BATTER, PICK_KEY, PITCHER, famista3_text
-from maeyomi.gameboy.famjock2 import MARE, STALLION
+from maeyomi.gameboy.famjock2 import MARE, STALLION, strongest_boxed
 from maeyomi.gameboy.kattobi import code_for, decode_kattobi, reading_of
 from maeyomi.gameboy.monstermaker import LATER_KEY, stats_of
 from maeyomi.games.barcode_world import HUNDRED
@@ -413,6 +413,12 @@ KINDS: Final[dict[Device, Callable[[], tuple[GameCheat, ...]]]] = {
             "Stallion with 9 in every number",
             "ぜんぶ 9 の しゅぼば",
             lambda: _one(Device.FAMJOCK2, STALLION),
+        ),
+        GameCheat(
+            "boxed",
+            "A 10 from a Namco box bonus",
+            "ナムコの はこで 10 に なる",
+            lambda: (strongest_boxed(),),
         ),
     ),
 }

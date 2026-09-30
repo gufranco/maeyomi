@@ -31,6 +31,7 @@ from maeyomi.games.effects import (
 )
 from maeyomi.games.excite94 import FIRST_ITEM as EXCITE94_FIRST_ITEM
 from maeyomi.games.excite94 import ITEMS as EXCITE94_ITEMS
+from maeyomi.games.excite94 import PK_ITEM_NAMES as EXCITE94_PK_ITEMS
 from maeyomi.games.excite94 import (
     build_excite94_item,
     build_excite94_player,
@@ -49,6 +50,8 @@ from maeyomi.games.excite95 import (
     decode_excite95,
     strongest_excite95,
 )
+from maeyomi.games.excite95 import PK_ITEM_NAMES as EXCITE95_PK_ITEMS
+from maeyomi.games.excite95 import pk_reading as pk95_reading
 from maeyomi.games.hatayama import (
     MP_KEY,
     TOP_MP,
@@ -140,7 +143,12 @@ def _excite_text(card: DatachCard) -> CardText:
     """The ability an item raises and by how much, or what a special card does."""
     (value,) = card.traits
     detail = SPECIAL_CARD if card.ident in SPECIAL_KINDS else ITEM_CARD
-    return CardText(ITEMS[card.ident], detail, EFFECT, (f"Raises it by {value}", f"{value} あがる"))
+    pk_english, pk_japanese = EXCITE95_PK_ITEMS[pk95_reading(card.barcode)[0]]
+    power = (
+        f"Raises it by {value}; in PK mode {pk_english.lower()} +1",
+        f"{value} あがる・PKモードでは {pk_japanese} +1",
+    )
+    return CardText(ITEMS[card.ident], detail, EFFECT, power)
 
 
 def _excite_named(typed: str) -> int:
@@ -237,9 +245,10 @@ def _excite94_text(card: DatachCard) -> CardText:
         (value,) = card.traits
         name = EXCITE94_ITEMS[card.ident - EXCITE94_FIRST_ITEM]
         pk_type, level = pk_reading(card.barcode)
+        pk_english, pk_japanese = EXCITE94_PK_ITEMS[pk_type]
         power = (
-            f"Raises it by {value}; in PK mode type {pk_type}, level {level}",
-            f"{value} あがる・PKモードでは タイプ{pk_type} レベル{level}",
+            f"Raises it by {value}; in PK mode {pk_english.lower()}, level {level}",
+            f"{value} あがる・PKモードでは {pk_japanese} レベル{level}",
         )
         return CardText(name, ITEM_CARD, EFFECT, power)
     name, grades = PLAYERS[card.ident]

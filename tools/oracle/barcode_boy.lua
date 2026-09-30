@@ -81,6 +81,12 @@ if CAPTURE_ADDR and CAPTURE_PC then
 end
 PEEKS = {}
 for item in (os.getenv("PEEK_ADDRS") or ""):gmatch("[^,]+") do PEEKS[#PEEKS + 1] = tonumber(item) end
+POST_STEPS = {}
+for item in (os.getenv("POST_STEPS") or ""):gmatch("[^,]+") do
+  local at, button = item:match("^(%d+):(.+)$")
+  POST_STEPS[tonumber(at)] = button
+end
+local post_held, post_release = nil, 0
 local function peeks()
   if #PEEKS == 0 then return "" end
   local s = ""
@@ -138,6 +144,12 @@ emu.register_frame_done(function()
     end
   elseif phase == "scanning" then
     wait = wait - 1
-    if wait <= 0 then scanning = false; dump(codes[index]); start_next() end
+    local elapsed = SETTLE - wait
+    if post_held and elapsed >= post_release then fields[post_held]:set_value(0); post_held = nil end
+    if POST_STEPS[elapsed] then post_held = POST_STEPS[elapsed]; fields[post_held]:set_value(1); post_release = elapsed + PRESS_FRAMES end
+    if wait <= 0 then
+      if post_held then fields[post_held]:set_value(0); post_held = nil end
+      scanning = false; dump(codes[index]); start_next()
+    end
   end
 end)

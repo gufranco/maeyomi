@@ -475,9 +475,10 @@ Excite Stage '95. Pick a player or an item with `--character` and an item's
 amount with `--pick value=253`. The names and grades come straight from the
 game's own tables, and every player but one, whom no code's digits can reach,
 can be printed. PK mode reads a player the same way and an item card its own
-way, as one of six PK item types and a level from 0 to 9, which the card also
-shows; what each PK type does in a match has not been traced. Both rules agree
-with the game in MAME on every code tried, 168 of them in PK mode.
+way, as one of six PK items, kick speed, control, curve shots, saving,
+quickness or instant saves, at a level from 0 to 9, which the card also shows.
+Both rules agree with the game in MAME on every code tried, 168 of them in PK
+mode.
 
 J.League Excite Stage '95 for the Super Famicom reads a code on its Barcode
 Battler II input screen before an open match, a league, a tournament or a
@@ -485,8 +486,10 @@ dream match, and `--device excite95` makes cards for it. Each code is an item
 card: overall power, dribble, pass speed, kick speed or a keeper's saving,
 raised by 0 to 253, or a special card for up to 4 handicap points or for fouls
 that show no card. Pick the item with `--character` and the amount with
-`--pick value=253`. The rule agrees with the game in MAME on every code tried.
-PK mode reads codes another way and is not modelled.
+`--pick value=253`. PK mode reads the same code as one of four PK items, ball
+speed, shot accuracy, keeper speed or keeper level, raised by one, and the card
+shows which. Both readings agree with the game in MAME on every code tried, 70
+of them in PK mode.
 
 Falcom's Dragon Slayer: Eiyuu Densetsu II, which Epoch released for the Super
 Famicom in 1993, reads a code on its title menu and in its field menu, and
@@ -828,7 +831,7 @@ is the default, the card this section describes for each device.
 | Monster Maker | `strongest`, `ap` and `mp` later in the game |
 | Kattobi Road | `strongest`, `torque` |
 | Famista 3 | `strongest`, `average`, `speed`, `era`, `pitch`, `stamina` |
-| Family Jockey 2 | `strongest`, `mare`, `stallion` |
+| Family Jockey 2 | `strongest`, `mare`, `stallion`, `boxed` for the one horse that reaches 10 once a Namco box bonus lands |
 
 A kind that would print the strongest card again is left out, so Battle Space
 has no HP or AP kind: its strongest card already has the most of both.

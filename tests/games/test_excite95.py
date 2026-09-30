@@ -12,14 +12,17 @@ from maeyomi.games.excite95 import (
     KICK_SPEED,
     NO_CARDS,
     OVERALL,
+    PK_ITEM_NAMES,
     SAVING,
     build_excite95,
     decode_excite95,
+    pk_reading,
     strongest_excite95,
 )
 
 TOP: int = 253
 FIXTURE = Path(__file__).parent.parent / "fixtures" / "oracle" / "excite95.json"
+PK_FIXTURE = Path(__file__).parent.parent / "fixtures" / "oracle" / "excite95_pk.json"
 
 
 def recorded() -> list[dict[str, object]]:
@@ -73,3 +76,17 @@ def test_the_strongest_card_raises_every_ability_by_the_most() -> None:
 def test_a_malformed_code_is_refused() -> None:
     with pytest.raises(BarcodeError):
         decode_excite95("4964262129970")
+
+
+@pytest.mark.parametrize(
+    "entry", json.loads(PK_FIXTURE.read_text(encoding="utf-8"))["cards"], ids=str
+)
+def test_every_code_reads_in_pk_mode_as_the_game_read_it_in_mame(entry: dict[str, object]) -> None:
+    assert pk_reading(str(entry["barcode"])) == (entry["pk_item"], entry["value"])
+
+
+def test_every_pk_item_is_named_in_both_languages() -> None:
+    assert sorted(PK_ITEM_NAMES) == [8, 9, 11, 12]
+    assert all(
+        english.isascii() and not japanese.isascii() for english, japanese in PK_ITEM_NAMES.values()
+    )

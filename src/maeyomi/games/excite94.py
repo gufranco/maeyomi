@@ -10,8 +10,9 @@ where N is the tenth to twelfth digits: a keeper's saving when the second and
 eighth digits add up odd, else the ability the eighth and ninth choose. PK
 mode reads a player the same way; an item there takes one of six PK types
 from the eighth and ninth digits' sum modulo 6 ($A5:9951) and a level from
-half the eleventh and twelfth digits' sum ($A7:F2E3). What each PK type does
-in play is not traced. Confirmed against the game in MAME on both screens.
+half the eleventh and twelfth digits' sum ($A7:F2E3), named on the PK screen as
+kick speed, control, curve shots, saving, quickness or instant saves. Confirmed
+against the game in MAME on both screens.
 """
 
 import itertools
@@ -69,6 +70,17 @@ def decode_excite94(code: str) -> DatachCard:
     kind = SAVING if (digits[1] + digits[7]) % 2 else (digits[7] + digits[8]) % SELECTORS
     value = ((100 * digits[9] + 10 * digits[10] + digits[11]) * SCALE) >> SHIFT
     return DatachCard(normalised, Device.EXCITE94, GameKind.ITEM, FIRST_ITEM + kind, (), (value,))
+
+
+PK_ITEM_NAMES: Final = {
+    8: ("Kick speed", "キックスピード"),
+    9: ("Control", "コントロール"),
+    10: ("Curve shots", "カーブシュートの かいすう"),
+    11: ("Saving", "セービング"),
+    12: ("Quickness", "すばやさ"),
+    13: ("Instant saves", "すぐに とめる かいすう"),
+}
+"""The PK item types, named as the game's PK screen names them."""
 
 
 def pk_item(code: str) -> tuple[int, int] | None:

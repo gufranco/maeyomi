@@ -7,8 +7,10 @@ one of four abilities, the tenth to twelfth make a number N, and the check
 digit decides the rest. Below 8, the card raises that ability by N x 65 / 256,
 or a keeper's saving when the second and eighth digits add up odd. At 8 or
 9, it is a special card: N even gives handicap points, N odd stops fouls from
-showing cards, by one to four from the ability digits. PK mode reads codes
-another way and is not modelled. Confirmed against the game in MAME.
+showing cards, by one to four from the ability digits. PK mode reads the same
+two digits through the table at $AB:AA39 as one of four PK items, ball speed,
+shot accuracy, keeper speed or keeper level, each raised by one. Confirmed
+against the game in MAME, PK mode on 70 codes.
 """
 
 import itertools
@@ -36,6 +38,9 @@ TOP_N: Final = 999
 LEAD: Final = "4"
 SPECIAL_VALUES: Final = range(1, SELECTORS + 1)
 FREE_DIGITS: Final = 3
+FIRST_PK_ITEM: Final = 8
+PK_KINDS: Final = (0, 1, 3, 4)
+PK_VALUE: Final = 1
 
 ITEMS: Final = {
     OVERALL: ("Overall power", "そうりょく"),
@@ -46,6 +51,22 @@ ITEMS: Final = {
     HANDICAP: ("Handicap points", "ハンデ ポイント"),
     NO_CARDS: ("No cards for fouls", "ファウルで カードが でない"),
 }
+
+
+PK_ITEM_NAMES: Final = {
+    8: ("Ball speed", "ボールスピード"),
+    9: ("Shot accuracy", "シュートの せいかくさ"),
+    11: ("Keeper speed", "キーパーの スピード"),
+    12: ("Keeper level", "キーパーの レベル"),
+}
+"""The PK items, named as the game's PK screen names them."""
+
+
+def pk_reading(code: str) -> tuple[int, int]:
+    """The PK item a code makes in PK mode and how far it raises it, per $AB:AA39."""
+    digits = [int(character) for character in validate_barcode(code).rjust(13, "0")]
+    selector = (10 * digits[7] + digits[8]) % SELECTORS
+    return FIRST_PK_ITEM + PK_KINDS[selector], PK_VALUE
 
 
 def decode_excite95(code: str) -> DatachCard:

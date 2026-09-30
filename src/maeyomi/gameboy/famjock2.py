@@ -43,6 +43,11 @@ FIRST_STAT: Final = 6
 STAT_COUNT: Final = 6
 BOX_PLACES: Final = 10
 DIGITS: Final = 10
+BONUS_RAISES: Final = {1: 1, 2: 0, 3: 4, 4: 2, 5: 5, 6: 3}
+"""Which of the six numbers each Namco box raises by two, per bank 2 $4119."""
+EVERY_NUMBER: Final = 7
+BONUS_CAP: Final = 10
+BOX_TAILS: Final = 100
 TOP: Final = 9
 PREFIX: Final = "49"
 FREE: Final = 4
@@ -206,3 +211,35 @@ def famjock2_text(card: DatachCard) -> CardText:
         f"{first[1]} {first_stats}、{second[1]} {second_stats}",
     )
     return CardText(KINDS[card.ident], detail, OTHER_HEADING, power)
+
+
+def after_bonus(stats: Stats, bonus: int) -> Stats:
+    """The six numbers once the player confirms the horse, per bank 2 $4114.
+
+    Each box raises its number by two and the Barcode Boy's own box every number
+    by one, each step held at 10, as the game did in MAME.
+    """
+    speed, stamina, guts, jump, turbo, kind = (
+        min(BONUS_CAP, value + (bonus == EVERY_NUMBER) + 2 * (BONUS_RAISES.get(bonus) == place))
+        for place, value in enumerate(stats)
+    )
+    return speed, stamina, guts, jump, turbo, kind
+
+
+def strongest_boxed() -> DatachCard:
+    """The racehorse a Namco box code makes strongest once its bonus lands, the only way past 9."""
+    codes = (
+        box + f"{tail:02d}" + str(expected_check_digit(box + f"{tail:02d}"))
+        for box, tail in product(BOXES, range(BOX_TAILS))
+    )
+    boxed = [(code, read_famjock2(code, RACEHORSE)) for code in codes]
+    code, _ = max(
+        ((code, horse) for code, horse in boxed if horse.bonus),
+        key=lambda pair: (sum(after_bonus(*_horse(pair[1]))), min(after_bonus(*_horse(pair[1])))),
+    )
+    return decode_famjock2(code)
+
+
+def _horse(horse: Horse) -> tuple[Stats, int]:
+    """A horse's numbers and its bonus, as `after_bonus` takes them."""
+    return horse.stats, horse.bonus

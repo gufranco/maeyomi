@@ -16,6 +16,7 @@ from maeyomi.gameboy.famjock2 import (
     STAT_KEYS,
     STAT_PICKS,
     TILE_KEYS,
+    after_bonus,
     build_famjock2,
     decode_famjock2,
     famjock2_entries,
@@ -23,6 +24,7 @@ from maeyomi.gameboy.famjock2 import (
     famjock2_picks,
     famjock2_text,
     read_famjock2,
+    strongest_boxed,
     strongest_famjock2,
 )
 from maeyomi.models.constraint import Constraint
@@ -175,3 +177,28 @@ def test_every_known_card_is_listed() -> None:
 
 def test_the_numbers_are_picked_so_nothing_is_ordered_by_slider() -> None:
     assert STAT_KEYS == ()
+
+
+def test_the_barcode_boy_bonus_raises_every_number_once_as_mame_showed() -> None:
+    assert after_bonus((2, 1, 2, 4, 8, 9), 7) == (3, 2, 3, 5, 9, 10)
+
+
+@pytest.mark.parametrize(("bonus", "raised"), [(1, 1), (2, 0), (3, 4), (4, 2), (5, 5), (6, 3)])
+def test_a_namco_box_raises_its_own_number_by_two(bonus: int, raised: int) -> None:
+    stats = (5, 5, 5, 5, 5, 5)
+
+    result = after_bonus(stats, bonus)
+
+    assert result == (*stats[:raised], 7, *stats[raised + 1 :])
+
+
+def test_no_bonus_passes_ten() -> None:
+    assert after_bonus((9, 9, 9, 9, 9, 9), 1) == (9, 10, 9, 9, 9, 9)
+    assert after_bonus((10, 10, 10, 10, 10, 10), 7) == (10, 10, 10, 10, 10, 10)
+
+
+def test_the_strongest_boxed_horse_reaches_ten() -> None:
+    card = strongest_boxed()
+
+    assert card.barcode.startswith("4907892")
+    assert max(after_bonus(read_famjock2(card.barcode, card.ident).stats, card.traits[0])) == 10

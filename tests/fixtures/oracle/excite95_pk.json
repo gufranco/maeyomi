@@ -1,0 +1,363 @@
+{
+ "game": "J.League Excite Stage '95",
+ "software": "jlexct95",
+ "rom": {
+  "sha1": "9a4f292114b6fb6deaf6a4f768345e7a7636fb71",
+  "size": 1048576
+ },
+ "emulator": "MAME 0.289, snes with barcode_battler on ctrl2, fed through every I/O bank mirror of $4017",
+ "screen": "PK mode, $7E1BE1 = 6, the Barcode Battler II entry screen for 1P's squad; an item's kind at $1B8F and value at $1B90",
+ "recorded_utc": "2026-09-28",
+ "cards": [
+  {
+   "barcode": "0000000034111",
+   "pk_item": 12,
+   "value": 1
+  },
+  {
+   "barcode": "0000000014113",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "0000000102711",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "0000700114113",
+   "pk_item": 12,
+   "value": 1
+  },
+  {
+   "barcode": "0000000291040",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "0000000024112",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "0000000261401",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "0003000054110",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "0007000004113",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "0000000823531",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "0000000391443",
+   "pk_item": 12,
+   "value": 1
+  },
+  {
+   "barcode": "0000000632171",
+   "pk_item": 12,
+   "value": 1
+  },
+  {
+   "barcode": "4900541423428",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4985459208329",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4962317159498",
+   "pk_item": 12,
+   "value": 1
+  },
+  {
+   "barcode": "4986935760508",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4528057962738",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4934372322568",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4583927454119",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "4514418046629",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4969878607918",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4989557058619",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "4939101201299",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4523040496979",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "4540217701568",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4948628898608",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "4547181303729",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4519857228919",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4521428409948",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4513499906068",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4917111504968",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4928533881858",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4566277978528",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "4582459568639",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4930748865189",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4561795004179",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4913772763348",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4970209143098",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4915465222651",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4996948211577",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "4500588954536",
+   "pk_item": 12,
+   "value": 1
+  },
+  {
+   "barcode": "4596121900368",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4987926729917",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4573954683422",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4912893103705",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4542633809583",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4904656708777",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4518534053721",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "4512294310698",
+   "pk_item": 12,
+   "value": 1
+  },
+  {
+   "barcode": "4535768431477",
+   "pk_item": 12,
+   "value": 1
+  },
+  {
+   "barcode": "4918781167873",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4584599057011",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "4581035030072",
+   "pk_item": 12,
+   "value": 1
+  },
+  {
+   "barcode": "4564422639805",
+   "pk_item": 12,
+   "value": 1
+  },
+  {
+   "barcode": "4516732100438",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4573780341664",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4599341593327",
+   "pk_item": 12,
+   "value": 1
+  },
+  {
+   "barcode": "4930539387913",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4984813202140",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4598210487958",
+   "pk_item": 8,
+   "value": 1
+  },
+  {
+   "barcode": "4955162185392",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4994237033114",
+   "pk_item": 12,
+   "value": 1
+  },
+  {
+   "barcode": "4557822062830",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4918419668925",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "4529666132925",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "66540830",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "12223848",
+   "pk_item": 11,
+   "value": 1
+  },
+  {
+   "barcode": "69651557",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "92218352",
+   "pk_item": 9,
+   "value": 1
+  },
+  {
+   "barcode": "82273859",
+   "pk_item": 12,
+   "value": 1
+  }
+ ]
+}
