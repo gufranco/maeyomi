@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.5.0 (2026-09-30)
+
+### Chores
+
+- **formula**: Point at v1.4.0 [skip ci]
+  ([`81819c5`](https://github.com/gufranco/maeyomi/commit/81819c500e83f93d1ecae0fe96b95515ffe3661c))
+
+### Features
+
+- Read Kattobi Road cards through the Barcode Boy
+  ([`984bd31`](https://github.com/gufranco/maeyomi/commit/984bd3143d5a047cd17ec02cadfaea9086259712))
+
+
 ## v1.4.0 (2026-09-30)
 
 ### Chores
