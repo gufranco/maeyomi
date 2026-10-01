@@ -140,6 +140,14 @@ from maeyomi.nds.oshare import (
     oshare_named,
     oshare_text,
 )
+from maeyomi.nds.wantame import STAT_KEYS as WANTAME_STATS
+from maeyomi.nds.wantame import (
+    build_wantame,
+    decode_wantame,
+    wantame_entries,
+    wantame_named,
+    wantame_text,
+)
 from maeyomi.said import Said
 
 type Pair = tuple[str, str]
@@ -557,6 +565,17 @@ GAMES: Final[dict[Device, DatachGame]] = {
         describe=mushiking_text,
         named=mushiking_named,
         stat_keys=MUSHIKING_STATS,
+        datach_reader=False,
+        drawable=frozenset({GameKind.FIGHTER, GameKind.ITEM, GameKind.EFFECT}),
+    ),
+    Device.WANTAME: DatachGame(
+        decode=decode_wantame,
+        build=build_wantame,
+        strongest=None,
+        entries=wantame_entries,
+        describe=wantame_text,
+        named=wantame_named,
+        stat_keys=WANTAME_STATS,
         datach_reader=False,
         drawable=frozenset({GameKind.FIGHTER, GameKind.ITEM, GameKind.EFFECT}),
     ),

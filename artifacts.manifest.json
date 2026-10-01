@@ -339,6 +339,16 @@
    "sha1": "6af360c4bdf2c770ab2fa49de1a80a52b16404b3",
    "crc32": "032f2d20",
    "used_by": "tools/oracle/record_mushiking.py and tools/oracle/extract_mushiking.py, which run the game's own comparison and read its card lists; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "nds_wantame",
+   "what": "Wantame Music Channel Doko Demo Style, Capcom 2007, which reads Code 128 cards through a scanner on the DS microphone",
+   "path": "nds/wantame.nds",
+   "size": 134217728,
+   "sha256": "13da3ced717874ee664df267cf42ebbe622933607226945f6897c1780ed294d1",
+   "sha1": "65e3116e8a89755f82bc165c6558b56f67557829",
+   "crc32": "ebd3e2b4",
+   "used_by": "tools/oracle/record_wantame.py and tools/oracle/extract_wantame.py, which run the game's own checks and read its card tables; nothing in the package or its tests reads it"
   }
  ]
 }

@@ -120,6 +120,7 @@ class OfficialSet(Enum):
     CARD_DE_ASOBU = "カードであそぶ! はじめてのDS カード"
     OSHARE_MAJO = "オシャレ魔女 ラブandベリー DSコレクション カード"
     MUSHIKING = "甲虫王者ムシキング スーパーコレクション カード"
+    WANTAME = "ワンタメ ミュージックチャンネル どこでもスタイル カード"
     IRWIN = "アーウィン版 バーコードバトラー カードリスト"
     TOMY = "トミー版 バーコードバトラー カードリスト"
     TOMY_GERMANY = "トミー版 ドイツ バーコードバトラー カードリスト"
@@ -170,6 +171,7 @@ _DEVICES: Final[dict[OfficialSet, Device]] = {
     OfficialSet.CARD_DE_ASOBU: Device.CARD_DE_ASOBU,
     OfficialSet.OSHARE_MAJO: Device.OSHARE_MAJO,
     OfficialSet.MUSHIKING: Device.MUSHIKING,
+    OfficialSet.WANTAME: Device.WANTAME,
 }
 
 _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
@@ -218,6 +220,7 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.CARD_DE_ASOBU: "Card de Asobu! Hajimete no DS cards",
     OfficialSet.OSHARE_MAJO: "Oshare Majo Love and Berry DS Collection cards",
     OfficialSet.MUSHIKING: "Mushiking Super Collection cards",
+    OfficialSet.WANTAME: "Wantame Music Channel cards",
     OfficialSet.IRWIN: "Irwin Barcode Battler, United States and Canada",
     OfficialSet.TOMY: "Tomy Barcode Battler, United Kingdom, Ireland and Italy",
     OfficialSet.TOMY_GERMANY: "Tomy Barcode Battler, Germany",

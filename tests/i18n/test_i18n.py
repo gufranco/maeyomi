@@ -22,6 +22,7 @@ THE_SAME_IN_BOTH_LANGUAGES = {
     "title",
     "read.placeholder",
     "read.placeholder.code39",
+    "read.placeholder.code128",
     "stat.pw",
     "stat.ust",
     "stat.usp",

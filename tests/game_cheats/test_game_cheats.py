@@ -12,7 +12,13 @@ from maeyomi.models.device import Device
 
 SEED = 20260930
 NUMBERLESS = frozenset(
-    {Device.DATACH_JLEAGUE, Device.CARD_DE_ASOBU, Device.OSHARE_MAJO, Device.MUSHIKING}
+    {
+        Device.DATACH_JLEAGUE,
+        Device.CARD_DE_ASOBU,
+        Device.OSHARE_MAJO,
+        Device.MUSHIKING,
+        Device.WANTAME,
+    }
 )
 SAMPLE = 3000
 BODY = 12

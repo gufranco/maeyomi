@@ -14749,6 +14749,1416 @@
    "name": "とくべつカード 11",
    "set": "甲虫王者ムシキング スーパーコレクション カード",
    "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "011112884427",
+   "name": "チワワ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011128829480",
+   "name": "ミニチュア・ダックスフンド",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011112579192",
+   "name": "ウェルッシュ・コーギー・ペンブローク",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011174226817",
+   "name": "ラブラドール・レトリバー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011120426368",
+   "name": "ヨークシャー・テリア",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011130936229",
+   "name": "しばいぬ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011118894016",
+   "name": "トイ・プードル",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011176599287",
+   "name": "シベリアン・ハスキー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011125636175",
+   "name": "アメリカン・コッカー・スパニエル",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011187367060",
+   "name": "パグ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011171721307",
+   "name": "フレンチ・ブルドッグ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011128531729",
+   "name": "ワイアー・フォックス・テリア",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011169739332",
+   "name": "にほんスピッツ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011159068297",
+   "name": "ボーダー・コリー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011117028311",
+   "name": "ミニチュア・ダックスフンド（しろ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011164628321",
+   "name": "しばいぬ（くろ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011121618426",
+   "name": "シー・ズー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011171762147",
+   "name": "ビーグル",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011181284946",
+   "name": "チワワ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011150513528",
+   "name": "ミニチュア・ダックスフンド",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011166086890",
+   "name": "ウェルッシュ・コーギー・ペンブローク",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011195654697",
+   "name": "ラブラドール・レトリバー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011115608730",
+   "name": "ヨークシャー・テリア",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011182744505",
+   "name": "しばいぬ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011114558765",
+   "name": "トイ・プードル",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011189165908",
+   "name": "シベリアン・ハスキー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011118986004",
+   "name": "アメリカン・コッカー・スパニエル",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011138545415",
+   "name": "パグ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011133757519",
+   "name": "フレンチ・ブルドッグ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011134336248",
+   "name": "ワイアー・フォックス・テリア",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011177596819",
+   "name": "にほんスピッツ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011100844029",
+   "name": "ボーダー・コリー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011109827675",
+   "name": "ミニチュア・ダックスフンド（しろ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011147084019",
+   "name": "しばいぬ（くろ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011131465669",
+   "name": "シー・ズー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "011153860873",
+   "name": "ビーグル",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012125876733",
+   "name": "スポカジロングT",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012123354574",
+   "name": "めちゃ■モテフリルカーデ×キャミ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012186011084",
+   "name": "フレカジ・デイスタイル",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012148690634",
+   "name": "ふわふわファーコート",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012187988481",
+   "name": "カッパきぐるみぃ（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012138856384",
+   "name": "キャンディポップチアガール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012173726138",
+   "name": "スカルパープルT",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012124329584",
+   "name": "おやすみギンガムチェック",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012166642301",
+   "name": "スノーホワイトプリンセス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012135240592",
+   "name": "きらりんスパンコール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012184879726",
+   "name": "スイートストロベリーエプロン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012174569940",
+   "name": "こあくまファーボレロ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012176981243",
+   "name": "トロピカルラグランT",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012154481275",
+   "name": "フリフリプリティガール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012179030465",
+   "name": "さわやかレプリカユニ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012192546600",
+   "name": "あったかカウチン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012162070830",
+   "name": "らくちんサロペットデニム",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012146788254",
+   "name": "おてんばカウガール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012163179487",
+   "name": "スマートピンクレザー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012170899957",
+   "name": "カモフラ×カーゴ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012189384956",
+   "name": "タータン＆チョコブレザー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012132239626",
+   "name": "スポカジフードパーカ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012182448929",
+   "name": "サンバ・デ・サンシャイン（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012179836715",
+   "name": "クリムゾンヴィーナス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012113186774",
+   "name": "ワン■タジスタ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012172746319",
+   "name": "しましまグリーンパジャマ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012139007452",
+   "name": "パールピンク・ドルシネア",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012142251642",
+   "name": "ざっくりボーダーニット",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012146710633",
+   "name": "ゆるかわベロアジャージ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012176987584",
+   "name": "トロピカルロゴパーカ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012196788526",
+   "name": "アメカジ・ヴィンテージ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012178640396",
+   "name": "キャラメル×ミリタリーMIX",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012140507565",
+   "name": "フローラルイエロードレス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012181344457",
+   "name": "パンダきぐるみぃ（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012120942464",
+   "name": "おすましレッドPコート",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012141672593",
+   "name": "サンバ・デ・ブルースカイ（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012123721975",
+   "name": "サイケデリックパンタロン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012138427206",
+   "name": "スカルグリーンパーカ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012144606560",
+   "name": "ゴスロリ・クラシック",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012159493645",
+   "name": "ドリーミー・クレッセント",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012193423440",
+   "name": "ハッピースマイルチアガール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012149455508",
+   "name": "おでかけノルディックセーター",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012176758297",
+   "name": "だんだんティアードワンピ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012124268705",
+   "name": "ミルキーメイドエプロン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012139796383",
+   "name": "にじいろマーメイド",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012166978302",
+   "name": "パンクロック・ディーバ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012140149711",
+   "name": "マニッシュ・シュガーホワイト",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012192764476",
+   "name": "パステルスクールニット",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012113805771",
+   "name": "フェミニンホットピンクT",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012125300024",
+   "name": "トゥインクル・スター（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012168017397",
+   "name": "ブギウギドットワンピ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012142408905",
+   "name": "パイナップル・エンジェル（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012176037409",
+   "name": "キューティー・ドラゴン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012132973256",
+   "name": "バスケタンク×アーミー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012130407539",
+   "name": "とこなつハイビスカスビキニ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012145416329",
+   "name": "ピュアホワイト・コッペリア",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012124838509",
+   "name": "パステルブルー・アンサンブル",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012136564201",
+   "name": "めちゃ■かわフリルカーデ×キャミ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012162972595",
+   "name": "ごきげんサロペットデニム",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012193207648",
+   "name": "スマートイエローレザー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012182407962",
+   "name": "ハット■トリック",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012195286863",
+   "name": "しましまレッドパジャマ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012176251171",
+   "name": "フローラルバイオレットドレス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012131807188",
+   "name": "ゆきんこノルディックセーター",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012122660997",
+   "name": "ワンタメ・CMクイーン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012152799626",
+   "name": "ワンタメ・CMグランドクイーン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012155311868",
+   "name": "フォトジェニック★アイドル（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012149441155",
+   "name": "ハッピー・スノーマン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012103460612",
+   "name": "デコレートスイーツドレス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012133995714",
+   "name": "ウエスタン・ファーベスト",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012144285846",
+   "name": "レインボーダッフルコート",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012113537680",
+   "name": "パンキッシュ・チェリー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012161552220",
+   "name": "グリッターフィッシュドレス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012173216685",
+   "name": "いなずまスパイシーガール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012158760912",
+   "name": "マッシュルームワンピ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012172067342",
+   "name": "ペンギンきぐるみぃ（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012127485697",
+   "name": "ブリリアント・スターライト",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012175929475",
+   "name": "ラブリー・シュプール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012107093114",
+   "name": "パステル・ラッピンドレス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012117306325",
+   "name": "ウエスタン・チェックネル",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012137878817",
+   "name": "おすましブルーPコート",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012106694005",
+   "name": "タータン＆グレーブレザー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012175875123",
+   "name": "グリッターフィッシュドレス（パープル）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012164379533",
+   "name": "レインボーダッフルコート（イエロー）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012168878414",
+   "name": "ハッピー・スノーマン（バイオレット）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012134626364",
+   "name": "ラッキースターチアガール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012103992389",
+   "name": "スペース・ウォーカー（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012179821583",
+   "name": "ストロベリー・パンクロリータ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012175526557",
+   "name": "フェミニンビーズカーデ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012148194855",
+   "name": "はなさきコート",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012166789527",
+   "name": "インペリアルゴールドドレス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012115604793",
+   "name": "バレンタインスイーツドレス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012171704743",
+   "name": "エレガント・ラッピンドレス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012163545775",
+   "name": "ブライトスターチアガール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012196162348",
+   "name": "レモン・パンクロリータ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012140500501",
+   "name": "はなさきコート（オレンジ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012174386296",
+   "name": "サニーオレンジフリル",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012177357750",
+   "name": "カラフルポップチアガール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012143205661",
+   "name": "フォトジェニック■アイドル（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012181162952",
+   "name": "GOGO!げんきガール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012107592307",
+   "name": "スワロウテイル・チュニック",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012123071474",
+   "name": "はりきりキュイジニエール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012149083783",
+   "name": "ワンコなでしこ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012181122449",
+   "name": "スターフィッシュ・スプラッシュ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012102755302",
+   "name": "ハイビスカスムームー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012144790071",
+   "name": "プリティピンクセーラー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012167054262",
+   "name": "ミディアムブルー・フロリナ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012131235629",
+   "name": "コケティッシュデビルガール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012181284946",
+   "name": "パピーこまち",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012150513528",
+   "name": "メタリック・コスモコール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012166086890",
+   "name": "キューティー・コンチェルト",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012195654697",
+   "name": "ローズコサージュドレス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012115608730",
+   "name": "ひつじきぐるみぃ（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012182744505",
+   "name": "サニーチェリーフリル",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012114558765",
+   "name": "はりきりキュイジニエール（イエロー）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012189165908",
+   "name": "プリティホワイトセーラー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012118986004",
+   "name": "シトラスイエロー・フロリナ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012138545415",
+   "name": "ローズコサージュドレス（ブルー）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012129388204",
+   "name": "サイクルヒット",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012112039647",
+   "name": "ケロケロスカイブルーT",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012107242113",
+   "name": "ロッキン♪ワイルドT",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012179731606",
+   "name": "フラワーガーデンプリンセス（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012187830564",
+   "name": "きょうりゅうきぐるみぃ（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012186159769",
+   "name": "てるてるレインコート",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012122441256",
+   "name": "ミッドナイト・ファンタジー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012165092010",
+   "name": "ロッキン♪カモフラベスト",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012162946820",
+   "name": "じょうねつアンダルシア",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012126511535",
+   "name": "プリンアラモードエプロン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012146810337",
+   "name": "しおかぜマリンガール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012151709209",
+   "name": "ローゼン・キューピット（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012118628531",
+   "name": "ふわりんカシュクール",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012167525349",
+   "name": "パピーこまち（すいか）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012170840192",
+   "name": "ハイランドプリンセス（ふく）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012158447937",
+   "name": "ガーガーレインコート",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012198338231",
+   "name": "じょうねつアンダルシア（オレンジ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012192565529",
+   "name": "ゆらゆら金ぎょT",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012198960506",
+   "name": "ヒミツのかぎフリル",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012236622742",
+   "name": "おしゃれデニムキャスケット",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012278099962",
+   "name": "ピンクリボンコサージュ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012257320865",
+   "name": "カッパきぐるみぃ（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012236144863",
+   "name": "B系シルバークロス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012299185868",
+   "name": "オータムエレガンスマフラー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012292080542",
+   "name": "オレンジクリスタルバンダナ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012282890767",
+   "name": "アクティブメッシュキャップ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012293777191",
+   "name": "パール＆ピンクサファイア",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012221144141",
+   "name": "サンバ・デ・ブルースカイ（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012293060394",
+   "name": "フェアリー・バタフライ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012263698972",
+   "name": "サンバ・デ・サンシャイン（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012289979959",
+   "name": "かみなりアフロ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012272500088",
+   "name": "パイナップル・エンジェル（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012213406738",
+   "name": "パンダきぐるみぃ（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012283282494",
+   "name": "トゥインクル・スター（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012297254264",
+   "name": "たれみみパイロットキャップ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012263596134",
+   "name": "おひめさまティアラ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012253824578",
+   "name": "フォトジェニック★アイドル（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012262009052",
+   "name": "リボンレースヘッドドレス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012271980640",
+   "name": "クールボーダーニットキャップ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012224349454",
+   "name": "ティアドロップ・アクアマリン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012255032604",
+   "name": "うきうきメロディバンダナ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012257793996",
+   "name": "りんごキルトキャスケット",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012216559610",
+   "name": "ぐっすりナイトキャップ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012291647191",
+   "name": "プルメリアコサージュ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012272326014",
+   "name": "モーモーテンガロンハット",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012258125778",
+   "name": "ローズ＆ベルベットチョーカー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012215046255",
+   "name": "わくわくサポーターマフラー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012243952757",
+   "name": "ペンギンきぐるみぃ（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012259797280",
+   "name": "コーデュロイ×ファーキャップ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012260982419",
+   "name": "キューティープチデビル",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012258667749",
+   "name": "ガーリーチューリップハット",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012210058754",
+   "name": "スペース・ウォーカー（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012233757519",
+   "name": "マーガレットツインリボン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012234336248",
+   "name": "クレマチスかんざし",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012277596819",
+   "name": "ハッピークローバースカーフ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012200844029",
+   "name": "フルーツフル・チェーン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012244326011",
+   "name": "フォトジェニック■アイドル（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012209827675",
+   "name": "はるいろドットカチューシャ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012247084019",
+   "name": "ロイヤルエメラルドティアラ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012231465669",
+   "name": "Bガールサングラス",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012233264590",
+   "name": "アラビアンムーン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012253860873",
+   "name": "ひつじきぐるみぃ（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012205132716",
+   "name": "ドリーミング・ドルフィン",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012251570098",
+   "name": "あでやかひめカツラ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012255386332",
+   "name": "なまいきパイレーツバンダナ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012230748626",
+   "name": "フラワーガーデンプリンセス（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012288405562",
+   "name": "キラキラ★ロゴキャップ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012269371838",
+   "name": "あじさいコサージュ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012255837398",
+   "name": "マリンボーダー・ハンチング",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012266661453",
+   "name": "ローゼン・キューピット（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012296710450",
+   "name": "ちょこっとシルクハット",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012246217061",
+   "name": "きょうりゅうきぐるみぃ（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012240077827",
+   "name": "マハラジャリボンスカーフ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012252649226",
+   "name": "ポンポンコサージュ",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012213348286",
+   "name": "アジアン・ビューティー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "012236163641",
+   "name": "ハイランドプリンセス（アクセサリ）",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "013150837239",
+   "name": "ゆらりんシャボン玉",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "013142070773",
+   "name": "キラキラスター",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "013166981764",
+   "name": "ラブリーハート",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "013171120451",
+   "name": "スプラッシュレインボー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "013192789243",
+   "name": "キューティーフラワー",
+   "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
   }
  ]
 }

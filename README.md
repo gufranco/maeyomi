@@ -34,14 +34,15 @@ armour card and it works out which barcode the device would read that way,
 then prints it. Maeyomi is the Barcode Battler's own word for the front read,
 the one that produces a fighter.
 
-It covers three standalone machines and 28 games: six Datach games for the
+It covers three standalone machines and 29 games: six Datach games for the
 Famicom, whose reader sits in the cartridge; thirteen Famicom and Super
 Famicom games that take their codes from a Barcode Battler II plugged into the
 console; five Game Boy games read through Namco's Barcode Boy; Barcode
-Taisen Bardigun, a Game Boy game with a reader of its own; and three Nintendo
+Taisen Bardigun, a Game Boy game with a reader of its own; three Nintendo
 DS games that read Code 39 cards through Sega's HCV-1000, Card de Asobu!
 Hajimete no DS, Oshare Majo Love and Berry DS Collection and Mushiking Super
-Collection. For each
+Collection; and Wantame Music Channel, a Nintendo DS game that reads Code 128
+cards through a scanner on its microphone plug. For each
 one it prints the released cards whose barcodes are known, a card made to
 order, and a cheat card: the strongest or most useful card the device will
 read.
@@ -91,6 +92,7 @@ games and their card packs are on
 | Card de Asobu! Hajimete no DS | カードであそぶ! はじめてのDS | Nintendo DS, through Sega's HCV-1000 | `cardasobu` |
 | Oshare Majo Love and Berry | オシャレ魔女 ラブandベリー DSコレクション | Nintendo DS, through Sega's HCV-1000 | `osharemajo` |
 | Mushiking Super Collection | 甲虫王者ムシキング スーパーコレクション | Nintendo DS, through Sega's HCV-1000 | `mushiking` |
+| Wantame Music Channel | ワンタメ ミュージックチャンネル どこでもスタイル | Nintendo DS, through a scanner on the microphone | `wantame` |
 
 ## Install
 
@@ -652,6 +654,26 @@ checked by running the game's own comparison routines in the Unicorn engine:
 it agrees on all 1347 codes it was given, among them every card, versions of
 the cards ending in FFF, and codes no card carries.
 
+### Wantame Music Channel
+
+Wantame Music Channel Doko Demo Style, Capcom's 2007 game for the Nintendo DS,
+reads the Wantame arcade cards through a scanner that sits in the second slot
+and talks to the DS through its microphone plug, and `--device wantame` makes
+cards for it. The scanner reads a twelve-digit Code 128 barcode and sends its
+six pairs of digits as sound, with the Code 128 checksum after them. The game
+checks the checksum, picks one of its card tables by the second pair and takes
+a card only when all six pairs match a record in it, so there is no card made
+to order and no cheat card. These cards print with their own codes, 235 of
+them: dogs, outfits, accessories and effects, each named as the game names it
+and carrying the number printed on the card. One more outfit, S36, is found
+and then answered with a message of its own in every scene that scans, with
+nothing given, so it is not printed. Pick one with `--character` by its name,
+code or number. The tables were read from the game's program and the reading
+checked by running the game's own checksum, card check and card lookup in the
+Unicorn engine: it agrees on all 390 codes it was given, among them every card
+and codes no card carries, and turns away every one sent with a wrong
+checksum.
+
 ## Checking the machine
 
 `maeyomi doctor` checks that this computer can print a card the device will
@@ -887,6 +909,11 @@ Mushiking's cards are the arcade cards the game keeps in its own lists, 535
 codes, each printed as the game stores it; a card ending in FFF prints with
 FFF, which the game reads as the card's own version.
 
+Wantame's cards are the arcade cards the game keeps in its own tables, 235
+codes, each printed as the game stores it. GBE+'s notes say the arcade game
+kept getting new cards until 2009, so some arcade cards do not read on the DS;
+only the ones the DS game takes are here.
+
 Epoch printed a roster card for each of the 12 J.League clubs of 1994 for
 Excite Stage '94. Their barcodes were read off the scans
 [barcodebattler.co.uk publishes](https://www.barcodebattler.co.uk/scans/Japan/J-League/),
@@ -895,7 +922,7 @@ MAME.
 
 ## The cheat code
 
-Every machine and game but four offers one or more kinds of cheat card, each
+Every machine and game but five offers one or more kinds of cheat card, each
 with every number it names at the most the device takes. `maeyomi cheat
 --device famista3 --kinds` lists a device's kinds, `--kind era` prints one, and
 the web page offers them on the **Cheats** tab, which shows and prints every kind
@@ -931,9 +958,9 @@ A kind that would print the strongest card again is left out, so Battle Space
 has no HP or AP kind: its strongest card already has the most of both.
 Datach J.League Super Top Players has none: its cards name players, and the
 game's program keeps a profile, a face and an appearance for each player but
-no number a card could raise. Card de Asobu, Oshare Majo and Mushiking have
-none either: a card names a kana, an item, a beetle or a move and carries
-nothing else.
+no number a card could raise. Card de Asobu, Oshare Majo, Mushiking and
+Wantame have none either: a card names a kana, an item, a beetle, a move, a
+dog or an outfit and carries nothing else.
 
 `maeyomi cheat -o cheat.pdf`, or the **Cheats** tab of the web page,
 which typing up, up, down, down, left, right, left, right, B, A anywhere on
@@ -1184,9 +1211,12 @@ under which licence:
   Oshare Majo cards. GBE+ itself, GPL-2, runs Card de Asobu in the checks,
   patched by `tools/oracle/gbe_plus/build.sh`; none of its code ships in the
   package.
+- **GBE+'s
+  [Wantame Card Scanner notes](https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt)**:
+  how the scanner sends a card's code and checksum through the microphone.
 - **[Unicorn](https://www.unicorn-engine.org/)**, GPL-2, runs Oshare Majo's own
-  card decoder and Mushiking's own card comparison in the checks; it is not a
-  dependency of the package.
+  card decoder, Mushiking's own card comparison and Wantame's own card checks
+  in the checks; it is not a dependency of the package.
 - **[MAME](https://www.mamedev.org/)** 0.289 runs every game in the checks. The
   game rules come from each game's own program; no ROM byte is shipped, and each
   ROM is named in `artifacts.manifest.json` by its checksum.

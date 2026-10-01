@@ -17,7 +17,13 @@ from maeyomi.registry import DeviceChoice, build_as, cheat_as, device_named, rea
 
 GOKU = "0022248300117"
 NUMBERLESS = frozenset(
-    {Device.DATACH_JLEAGUE, Device.CARD_DE_ASOBU, Device.OSHARE_MAJO, Device.MUSHIKING}
+    {
+        Device.DATACH_JLEAGUE,
+        Device.CARD_DE_ASOBU,
+        Device.OSHARE_MAJO,
+        Device.MUSHIKING,
+        Device.WANTAME,
+    }
 )
 
 

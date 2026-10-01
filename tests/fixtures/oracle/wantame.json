@@ -1,0 +1,2737 @@
+{
+ "game": "Wantame Music Channel Doko Demo Style",
+ "emulator": "Unicorn running the game's ARM9 program from its ROM; tools/oracle/record_wantame.py places the scanner's bits as $02053DB4 gathers them and runs $020540F0, $020430B4 and $02042AA8 in turn",
+ "recorded_utc": "2026-10-01T17:39:53Z",
+ "cards": [
+  {
+   "barcode": "011112884427",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 0
+  },
+  {
+   "barcode": "011128829480",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 1
+  },
+  {
+   "barcode": "011112579192",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 2
+  },
+  {
+   "barcode": "011174226817",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 3
+  },
+  {
+   "barcode": "011120426368",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 4
+  },
+  {
+   "barcode": "011130936229",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 5
+  },
+  {
+   "barcode": "011118894016",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 6
+  },
+  {
+   "barcode": "011176599287",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 7
+  },
+  {
+   "barcode": "011125636175",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 8
+  },
+  {
+   "barcode": "011187367060",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 9
+  },
+  {
+   "barcode": "011171721307",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 10
+  },
+  {
+   "barcode": "011128531729",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 11
+  },
+  {
+   "barcode": "011169739332",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 12
+  },
+  {
+   "barcode": "011159068297",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 13
+  },
+  {
+   "barcode": "011117028311",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 15
+  },
+  {
+   "barcode": "011164628321",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 16
+  },
+  {
+   "barcode": "011121618426",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 17
+  },
+  {
+   "barcode": "011171762147",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 19
+  },
+  {
+   "barcode": "011181284946",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 32
+  },
+  {
+   "barcode": "011150513528",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 33
+  },
+  {
+   "barcode": "011166086890",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 34
+  },
+  {
+   "barcode": "011195654697",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 35
+  },
+  {
+   "barcode": "011115608730",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 36
+  },
+  {
+   "barcode": "011182744505",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 37
+  },
+  {
+   "barcode": "011114558765",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 38
+  },
+  {
+   "barcode": "011189165908",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 39
+  },
+  {
+   "barcode": "011118986004",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 40
+  },
+  {
+   "barcode": "011138545415",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 41
+  },
+  {
+   "barcode": "011133757519",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 42
+  },
+  {
+   "barcode": "011134336248",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 43
+  },
+  {
+   "barcode": "011177596819",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 44
+  },
+  {
+   "barcode": "011100844029",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 45
+  },
+  {
+   "barcode": "011109827675",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 47
+  },
+  {
+   "barcode": "011147084019",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 48
+  },
+  {
+   "barcode": "011131465669",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 49
+  },
+  {
+   "barcode": "011153860873",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 1,
+   "index": 51
+  },
+  {
+   "barcode": "012125876733",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 1
+  },
+  {
+   "barcode": "012123354574",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 2
+  },
+  {
+   "barcode": "012186011084",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 3
+  },
+  {
+   "barcode": "012148690634",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 4
+  },
+  {
+   "barcode": "012187988481",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 5
+  },
+  {
+   "barcode": "012138856384",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 6
+  },
+  {
+   "barcode": "012173726138",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 7
+  },
+  {
+   "barcode": "012124329584",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 8
+  },
+  {
+   "barcode": "012166642301",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 9
+  },
+  {
+   "barcode": "012135240592",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 10
+  },
+  {
+   "barcode": "012184879726",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 11
+  },
+  {
+   "barcode": "012174569940",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 12
+  },
+  {
+   "barcode": "012176981243",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 13
+  },
+  {
+   "barcode": "012154481275",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 14
+  },
+  {
+   "barcode": "012179030465",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 15
+  },
+  {
+   "barcode": "012192546600",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 16
+  },
+  {
+   "barcode": "012162070830",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 17
+  },
+  {
+   "barcode": "012146788254",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 18
+  },
+  {
+   "barcode": "012163179487",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 19
+  },
+  {
+   "barcode": "012170899957",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 20
+  },
+  {
+   "barcode": "012189384956",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 21
+  },
+  {
+   "barcode": "012132239626",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 22
+  },
+  {
+   "barcode": "012182448929",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 23
+  },
+  {
+   "barcode": "012179836715",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 24
+  },
+  {
+   "barcode": "012113186774",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 25
+  },
+  {
+   "barcode": "012172746319",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 26
+  },
+  {
+   "barcode": "012139007452",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 27
+  },
+  {
+   "barcode": "012142251642",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 28
+  },
+  {
+   "barcode": "012146710633",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 29
+  },
+  {
+   "barcode": "012176987584",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 30
+  },
+  {
+   "barcode": "012196788526",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 31
+  },
+  {
+   "barcode": "012178640396",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 32
+  },
+  {
+   "barcode": "012140507565",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 33
+  },
+  {
+   "barcode": "012181344457",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 34
+  },
+  {
+   "barcode": "012120942464",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 35
+  },
+  {
+   "barcode": "012141672593",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 36
+  },
+  {
+   "barcode": "012123721975",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 37
+  },
+  {
+   "barcode": "012138427206",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 38
+  },
+  {
+   "barcode": "012144606560",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 39
+  },
+  {
+   "barcode": "012159493645",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 40
+  },
+  {
+   "barcode": "012193423440",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 41
+  },
+  {
+   "barcode": "012149455508",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 42
+  },
+  {
+   "barcode": "012176758297",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 43
+  },
+  {
+   "barcode": "012124268705",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 44
+  },
+  {
+   "barcode": "012139796383",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 45
+  },
+  {
+   "barcode": "012166978302",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 46
+  },
+  {
+   "barcode": "012140149711",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 47
+  },
+  {
+   "barcode": "012192764476",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 48
+  },
+  {
+   "barcode": "012113805771",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 49
+  },
+  {
+   "barcode": "012125300024",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 50
+  },
+  {
+   "barcode": "012168017397",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 51
+  },
+  {
+   "barcode": "012142408905",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 52
+  },
+  {
+   "barcode": "012176037409",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 53
+  },
+  {
+   "barcode": "012132973256",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 54
+  },
+  {
+   "barcode": "012130407539",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 55
+  },
+  {
+   "barcode": "012145416329",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 56
+  },
+  {
+   "barcode": "012124838509",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 60
+  },
+  {
+   "barcode": "012136564201",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 61
+  },
+  {
+   "barcode": "012162972595",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 62
+  },
+  {
+   "barcode": "012193207648",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 63
+  },
+  {
+   "barcode": "012182407962",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 64
+  },
+  {
+   "barcode": "012195286863",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 65
+  },
+  {
+   "barcode": "012176251171",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 66
+  },
+  {
+   "barcode": "012131807188",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 67
+  },
+  {
+   "barcode": "012122660997",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 68
+  },
+  {
+   "barcode": "012152799626",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 69
+  },
+  {
+   "barcode": "012155311868",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 70
+  },
+  {
+   "barcode": "012149441155",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 71
+  },
+  {
+   "barcode": "012103460612",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 72
+  },
+  {
+   "barcode": "012133995714",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 73
+  },
+  {
+   "barcode": "012144285846",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 74
+  },
+  {
+   "barcode": "012113537680",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 75
+  },
+  {
+   "barcode": "012161552220",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 76
+  },
+  {
+   "barcode": "012173216685",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 77
+  },
+  {
+   "barcode": "012158760912",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 78
+  },
+  {
+   "barcode": "012172067342",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 79
+  },
+  {
+   "barcode": "012127485697",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 80
+  },
+  {
+   "barcode": "012175929475",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 81
+  },
+  {
+   "barcode": "012107093114",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 82
+  },
+  {
+   "barcode": "012117306325",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 83
+  },
+  {
+   "barcode": "012137878817",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 85
+  },
+  {
+   "barcode": "012106694005",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 86
+  },
+  {
+   "barcode": "012175875123",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 87
+  },
+  {
+   "barcode": "012164379533",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 88
+  },
+  {
+   "barcode": "012168878414",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 89
+  },
+  {
+   "barcode": "012134626364",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 90
+  },
+  {
+   "barcode": "012103992389",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 91
+  },
+  {
+   "barcode": "012179821583",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 92
+  },
+  {
+   "barcode": "012175526557",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 93
+  },
+  {
+   "barcode": "012148194855",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 94
+  },
+  {
+   "barcode": "012166789527",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 95
+  },
+  {
+   "barcode": "012115604793",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 97
+  },
+  {
+   "barcode": "012171704743",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 98
+  },
+  {
+   "barcode": "012163545775",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 99
+  },
+  {
+   "barcode": "012196162348",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 100
+  },
+  {
+   "barcode": "012140500501",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 101
+  },
+  {
+   "barcode": "012174386296",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 102
+  },
+  {
+   "barcode": "012177357750",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 103
+  },
+  {
+   "barcode": "012143205661",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 104
+  },
+  {
+   "barcode": "012181162952",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 105
+  },
+  {
+   "barcode": "012107592307",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 106
+  },
+  {
+   "barcode": "012123071474",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 107
+  },
+  {
+   "barcode": "012149083783",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 108
+  },
+  {
+   "barcode": "012181122449",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 109
+  },
+  {
+   "barcode": "012102755302",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 110
+  },
+  {
+   "barcode": "012144790071",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 111
+  },
+  {
+   "barcode": "012167054262",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 112
+  },
+  {
+   "barcode": "012131235629",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 113
+  },
+  {
+   "barcode": "012181284946",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 114
+  },
+  {
+   "barcode": "012150513528",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 115
+  },
+  {
+   "barcode": "012166086890",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 116
+  },
+  {
+   "barcode": "012195654697",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 117
+  },
+  {
+   "barcode": "012115608730",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 118
+  },
+  {
+   "barcode": "012182744505",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 120
+  },
+  {
+   "barcode": "012114558765",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 121
+  },
+  {
+   "barcode": "012189165908",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 122
+  },
+  {
+   "barcode": "012118986004",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 123
+  },
+  {
+   "barcode": "012138545415",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 124
+  },
+  {
+   "barcode": "012129388204",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 125
+  },
+  {
+   "barcode": "012112039647",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 126
+  },
+  {
+   "barcode": "012107242113",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 128
+  },
+  {
+   "barcode": "012179731606",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 129
+  },
+  {
+   "barcode": "012187830564",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 130
+  },
+  {
+   "barcode": "012186159769",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 131
+  },
+  {
+   "barcode": "012122441256",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 132
+  },
+  {
+   "barcode": "012165092010",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 133
+  },
+  {
+   "barcode": "012162946820",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 134
+  },
+  {
+   "barcode": "012126511535",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 135
+  },
+  {
+   "barcode": "012146810337",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 136
+  },
+  {
+   "barcode": "012151709209",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 137
+  },
+  {
+   "barcode": "012118628531",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 138
+  },
+  {
+   "barcode": "012167525349",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 140
+  },
+  {
+   "barcode": "012170840192",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 142
+  },
+  {
+   "barcode": "012158447937",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 143
+  },
+  {
+   "barcode": "012198338231",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 144
+  },
+  {
+   "barcode": "012192565529",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 147
+  },
+  {
+   "barcode": "012198960506",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 155
+  },
+  {
+   "barcode": "012111818409",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 2,
+   "index": 166
+  },
+  {
+   "barcode": "012236622742",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 1
+  },
+  {
+   "barcode": "012278099962",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 2
+  },
+  {
+   "barcode": "012257320865",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 3
+  },
+  {
+   "barcode": "012236144863",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 4
+  },
+  {
+   "barcode": "012299185868",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 5
+  },
+  {
+   "barcode": "012292080542",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 6
+  },
+  {
+   "barcode": "012282890767",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 7
+  },
+  {
+   "barcode": "012293777191",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 8
+  },
+  {
+   "barcode": "012221144141",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 9
+  },
+  {
+   "barcode": "012293060394",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 10
+  },
+  {
+   "barcode": "012263698972",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 11
+  },
+  {
+   "barcode": "012289979959",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 12
+  },
+  {
+   "barcode": "012272500088",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 13
+  },
+  {
+   "barcode": "012213406738",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 14
+  },
+  {
+   "barcode": "012283282494",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 15
+  },
+  {
+   "barcode": "012297254264",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 16
+  },
+  {
+   "barcode": "012263596134",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 17
+  },
+  {
+   "barcode": "012253824578",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 18
+  },
+  {
+   "barcode": "012262009052",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 19
+  },
+  {
+   "barcode": "012271980640",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 20
+  },
+  {
+   "barcode": "012224349454",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 21
+  },
+  {
+   "barcode": "012255032604",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 22
+  },
+  {
+   "barcode": "012257793996",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 23
+  },
+  {
+   "barcode": "012216559610",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 24
+  },
+  {
+   "barcode": "012291647191",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 25
+  },
+  {
+   "barcode": "012272326014",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 26
+  },
+  {
+   "barcode": "012258125778",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 27
+  },
+  {
+   "barcode": "012215046255",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 28
+  },
+  {
+   "barcode": "012243952757",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 29
+  },
+  {
+   "barcode": "012259797280",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 30
+  },
+  {
+   "barcode": "012260982419",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 31
+  },
+  {
+   "barcode": "012258667749",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 32
+  },
+  {
+   "barcode": "012210058754",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 33
+  },
+  {
+   "barcode": "012233757519",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 34
+  },
+  {
+   "barcode": "012234336248",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 35
+  },
+  {
+   "barcode": "012277596819",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 36
+  },
+  {
+   "barcode": "012200844029",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 37
+  },
+  {
+   "barcode": "012244326011",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 38
+  },
+  {
+   "barcode": "012209827675",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 39
+  },
+  {
+   "barcode": "012247084019",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 40
+  },
+  {
+   "barcode": "012231465669",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 41
+  },
+  {
+   "barcode": "012233264590",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 42
+  },
+  {
+   "barcode": "012253860873",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 43
+  },
+  {
+   "barcode": "012205132716",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 44
+  },
+  {
+   "barcode": "012251570098",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 45
+  },
+  {
+   "barcode": "012255386332",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 46
+  },
+  {
+   "barcode": "012230748626",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 47
+  },
+  {
+   "barcode": "012288405562",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 48
+  },
+  {
+   "barcode": "012269371838",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 49
+  },
+  {
+   "barcode": "012255837398",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 50
+  },
+  {
+   "barcode": "012266661453",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 51
+  },
+  {
+   "barcode": "012296710450",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 52
+  },
+  {
+   "barcode": "012246217061",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 53
+  },
+  {
+   "barcode": "012240077827",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 54
+  },
+  {
+   "barcode": "012252649226",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 55
+  },
+  {
+   "barcode": "012213348286",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 56
+  },
+  {
+   "barcode": "012236163641",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 3,
+   "index": 68
+  },
+  {
+   "barcode": "013150837239",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 5,
+   "index": 1
+  },
+  {
+   "barcode": "013142070773",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 5,
+   "index": 2
+  },
+  {
+   "barcode": "013166981764",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 5,
+   "index": 3
+  },
+  {
+   "barcode": "013171120451",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 5,
+   "index": 4
+  },
+  {
+   "barcode": "013192789243",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 5,
+   "index": 5
+  },
+  {
+   "barcode": "000000000000",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "990000000000",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011126321517",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011126145462",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011128241091",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011101524877",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011104409615",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011123986075",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011180559246",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011170022971",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011138375045",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011171837287",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011159420991",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011172117748",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011111440823",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011107071042",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012148882807",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012190863877",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012192753672",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012104739796",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012122600966",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012124041341",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012132139871",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012154059138",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012110733844",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012179046548",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012150356738",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012152526049",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012183670341",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012152790046",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012284462941",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012271978087",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012280595200",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012214958866",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012253664260",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012231254375",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012285041012",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012290348608",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012277499734",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012251156929",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012252674467",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012270876105",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012226806157",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012206715020",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012365401753",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012324858168",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012367290150",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012336505252",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012308700395",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012327704561",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012324151897",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012319695173",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012303120292",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012388182097",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012393943743",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012350612725",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012348519623",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012312856817",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013168459489",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013179458322",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013166760762",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013174028038",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013181835429",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013178124591",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013171700880",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013164206133",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013184923866",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013187923442",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013140075670",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013131830420",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013167080749",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "013143555663",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011294218450",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011250667851",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011229228953",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011297318809",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011270819460",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011297841630",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011232868666",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011228714010",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011212817610",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011295227145",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011202991578",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011299119655",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011257667582",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011291800507",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014163872106",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014162942580",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014189691461",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014185578979",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014149781274",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014166639511",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014191471661",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014112108613",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014117378559",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014188068865",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014120845413",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014194643841",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014160737598",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "014175938073",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010046714199",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010095587265",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010057113631",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010041042987",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010041546386",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010013901684",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010072520573",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010006605668",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010024492547",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010050721019",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010065081228",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010027826035",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010042722156",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "010026063796",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "021112884427",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011112884428",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "021169739332",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011169739333",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "021114558765",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "011114558766",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022125876733",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012125876734",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022176981243",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012176981244",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022113186774",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012113186775",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022123721975",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012123721976",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022113805771",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012113805772",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022182407962",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012182407963",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022161552220",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012161552221",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022168878414",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012168878415",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022174386296",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012174386297",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022181284946",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012181284947",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022107242113",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012107242114",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022170840192",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012170840193",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022282890767",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012282890768",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022262009052",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012262009053",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022260982419",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012260982420",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022253860873",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012253860874",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "022252649226",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  },
+  {
+   "barcode": "012252649227",
+   "checked": true,
+   "wrong_check_refused": true,
+   "kind": 0,
+   "index": -1
+  }
+ ]
+}

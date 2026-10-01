@@ -614,6 +614,7 @@ function showFacts(character) {
 }
 
 const CODE39_STRAY = /[^0-9A-Z\-. $/+%]/g;
+const READ_PLACEHOLDERS = { code39: 'read.placeholder.code39', code128: 'read.placeholder.code128' };
 
 function typedBarcode() {
   const typed = $('read-barcode').value;
@@ -625,7 +626,7 @@ function syncReadInput() {
   const code39 = deviceForm()?.symbology === 'code39';
   $('read-barcode').setAttribute('inputmode', code39 ? 'text' : 'numeric');
   $('read-barcode').setAttribute('pattern', code39 ? '[0-9A-Za-z\\-. $/+%*]*' : '[0-9 ]*');
-  $('read-barcode').dataset.i18nPlaceholder = code39 ? 'read.placeholder.code39' : 'read.placeholder';
+  $('read-barcode').dataset.i18nPlaceholder = READ_PLACEHOLDERS[deviceForm()?.symbology] ?? 'read.placeholder';
   $('read-barcode').setAttribute('placeholder', t($('read-barcode').dataset.i18nPlaceholder));
 }
 
