@@ -2,6 +2,24 @@
 
 <!-- version list -->
 
+## v1.14.0 (2026-10-01)
+
+### Bug Fixes
+
+- **rasterise**: Render one PDF at a time
+  ([`5549ed4`](https://github.com/gufranco/maeyomi/commit/5549ed400561388fe476ecfac439fe62dfe1ec29))
+
+### Chores
+
+- **formula**: Point at v1.13.0 [skip ci]
+  ([`95d7ff3`](https://github.com/gufranco/maeyomi/commit/95d7ff353b2359cac0f553629c48af9fadc29e71))
+
+### Features
+
+- Show a lone card alone and name each cheat
+  ([`4c5e9e4`](https://github.com/gufranco/maeyomi/commit/4c5e9e4163e51dfe52682a2ecaff52e5ad07e485))
+
+
 ## v1.13.0 (2026-10-01)
 
 ### Bug Fixes
