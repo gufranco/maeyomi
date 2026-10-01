@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.15.0 (2026-10-01)
+
+### Chores
+
+- **formula**: Point at v1.14.0 [skip ci]
+  ([`9e35b56`](https://github.com/gufranco/maeyomi/commit/9e35b5678f266ec65fc54984e7ce13c3c4cdf1f0))
+
+### Features
+
+- Support Card de Asobu! Hajimete no DS
+  ([`630a1ed`](https://github.com/gufranco/maeyomi/commit/630a1ed3f2bf1100fa56744ea08b94965a227305))
+
+
 ## v1.14.0 (2026-10-01)
 
 ### Bug Fixes
