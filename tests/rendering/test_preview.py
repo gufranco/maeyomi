@@ -6,6 +6,7 @@ apart. These tests assert that by decoding the preview image.
 """
 
 import io
+from concurrent.futures import ThreadPoolExecutor
 
 import pytest
 from PIL import Image
@@ -17,6 +18,8 @@ from maeyomi.rendering.layout import CARD_HEIGHT_MM, CARD_WIDTH_MM
 from maeyomi.rendering.preview import card_png, sheet_png_pages
 
 BARCODE = "0401207237501"
+THREADS = 8
+ROUNDS = 6
 
 
 def sample(name: str = "Fire Knight") -> GeneratedCard:
@@ -74,3 +77,13 @@ def test_an_empty_sheet_preview_has_no_pages() -> None:
 def test_a_card_too_small_for_its_barcode_is_rejected() -> None:
     with pytest.raises(ValueError, match="too narrow"):
         card_png(sample(), width_mm=30.0, height_mm=40.0)
+
+
+def test_cards_drawn_on_many_threads_at_once_all_come_out_whole() -> None:
+    cards = [sample(f"Knight {index}") for index in range(THREADS * ROUNDS)]
+
+    with ThreadPoolExecutor(max_workers=THREADS) as pool:
+        drawn = list(pool.map(card_png, cards))
+
+    assert all(data[:8] == b"\x89PNG\r\n\x1a\n" for data in drawn)
+    assert len(drawn) == THREADS * ROUNDS
