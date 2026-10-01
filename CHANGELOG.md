@@ -2,6 +2,24 @@
 
 <!-- version list -->
 
+## v1.13.0 (2026-10-01)
+
+### Bug Fixes
+
+- **preview**: Keep Battle Rush's marked check digit
+  ([`99bb560`](https://github.com/gufranco/maeyomi/commit/99bb560bee8b0bfa998f38a112e4e167925188a8))
+
+### Chores
+
+- **formula**: Point at v1.12.0 [skip ci]
+  ([`053079c`](https://github.com/gufranco/maeyomi/commit/053079c27d33fe8605504e99bedcaaa080acfab6))
+
+### Features
+
+- Support Barcode Taisen Bardigun
+  ([`bb78264`](https://github.com/gufranco/maeyomi/commit/bb78264a43ee0e9299838397cec97d83acc8cfb0))
+
+
 ## v1.12.0 (2026-10-01)
 
 ### Chores
