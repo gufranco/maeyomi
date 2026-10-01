@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.19.0 (2026-10-01)
+
+### Chores
+
+- **formula**: Point at v1.18.0 [skip ci]
+  ([`403b97e`](https://github.com/gufranco/maeyomi/commit/403b97e5e624cfb2aedccf0a00d3f80062500ff8))
+
+### Features
+
+- **page**: Adapt every tab to card-only readers
+  ([`e53833a`](https://github.com/gufranco/maeyomi/commit/e53833a03f35b3bdac48a6ba28d7a83102a67286))
+
+
 ## v1.18.0 (2026-10-01)
 
 ### Bug Fixes
