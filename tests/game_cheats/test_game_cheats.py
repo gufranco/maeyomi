@@ -11,7 +11,7 @@ from maeyomi.game_cheats import CANDIDATES, GameCheat, game_cheats, later_number
 from maeyomi.models.device import Device
 
 SEED = 20260930
-NUMBERLESS = frozenset({Device.DATACH_JLEAGUE, Device.CARD_DE_ASOBU})
+NUMBERLESS = frozenset({Device.DATACH_JLEAGUE, Device.CARD_DE_ASOBU, Device.OSHARE_MAJO})
 SAMPLE = 3000
 BODY = 12
 

@@ -124,6 +124,14 @@ from maeyomi.nds.cardasobu import (
     cardasobu_text,
     decode_cardasobu,
 )
+from maeyomi.nds.oshare import STAT_KEYS as OSHARE_STATS
+from maeyomi.nds.oshare import (
+    build_oshare,
+    decode_oshare,
+    oshare_entries,
+    oshare_named,
+    oshare_text,
+)
 from maeyomi.said import Said
 
 type Pair = tuple[str, str]
@@ -521,6 +529,17 @@ GAMES: Final[dict[Device, DatachGame]] = {
         stat_keys=CARDASOBU_STATS,
         datach_reader=False,
         drawable=frozenset({GameKind.ITEM, GameKind.EFFECT}),
+    ),
+    Device.OSHARE_MAJO: DatachGame(
+        decode=decode_oshare,
+        build=build_oshare,
+        strongest=None,
+        entries=oshare_entries,
+        describe=oshare_text,
+        named=oshare_named,
+        stat_keys=OSHARE_STATS,
+        datach_reader=False,
+        drawable=frozenset({GameKind.ITEM}),
     ),
 }
 

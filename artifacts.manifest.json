@@ -319,6 +319,16 @@
    "sha1": "8c58ca6d1fc3ed2f73a7b0a89c21635b9d7ba569",
    "crc32": "775630d8",
    "used_by": "tools/oracle/record_cardasobu.py and tools/oracle/extract_cardasobu.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "nds_oshare",
+   "what": "Oshare Majo Love and Berry DS Collection, Sega 2006, which reads arcade cards through Sega's HCV-1000",
+   "path": "nds/oshare.nds",
+   "size": 134217728,
+   "sha256": "2053c6d5a7ec8d10809bab9ac10792a3c68b3f3f0af65366e54a2780b94a884e",
+   "sha1": "222e01c2bcefcf42f643caeb4077e624f57425fe",
+   "crc32": "8870ada6",
+   "used_by": "tools/oracle/record_oshare.py and tools/oracle/extract_oshare.py, which run the game's own decoder and read its tables; nothing in the package or its tests reads it"
   }
  ]
 }

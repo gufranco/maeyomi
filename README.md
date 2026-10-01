@@ -34,12 +34,13 @@ armour card and it works out which barcode the device would read that way,
 then prints it. Maeyomi is the Barcode Battler's own word for the front read,
 the one that produces a fighter.
 
-It covers three standalone machines and 26 games: six Datach games for the
+It covers three standalone machines and 27 games: six Datach games for the
 Famicom, whose reader sits in the cartridge; thirteen Famicom and Super
 Famicom games that take their codes from a Barcode Battler II plugged into the
 console; five Game Boy games read through Namco's Barcode Boy; Barcode
-Taisen Bardigun, a Game Boy game with a reader of its own; and Card de Asobu!
-Hajimete no DS, which reads Code 39 cards through Sega's HCV-1000. For each
+Taisen Bardigun, a Game Boy game with a reader of its own; and two Nintendo DS
+games that read Code 39 cards through Sega's HCV-1000, Card de Asobu! Hajimete
+no DS and Oshare Majo Love and Berry DS Collection. For each
 one it prints the released cards whose barcodes are known, a card made to
 order, and a cheat card: the strongest or most useful card the device will
 read.
@@ -87,6 +88,7 @@ games and their card packs are on
 | Family Jockey 2 | ファミリージョッキー2 名馬の血統 | Game Boy, through the Barcode Boy | `famjock2` |
 | Barcode Taisen Bardigun | バーコード対戦バーディガン | Game Boy, through its own reader | `bardigun` |
 | Card de Asobu! Hajimete no DS | カードであそぶ! はじめてのDS | Nintendo DS, through Sega's HCV-1000 | `cardasobu` |
+| Oshare Majo Love and Berry | オシャレ魔女 ラブandベリー DSコレクション | Nintendo DS, through Sega's HCV-1000 | `osharemajo` |
 
 ## Install
 
@@ -613,6 +615,24 @@ GBE+, built at a pinned commit with a small patch that replays a scripted swipe:
 it accepts every one of the 46 cards and refuses a wrong version, a code no
 card carries and the empty slot its table keeps for か.
 
+### Oshare Majo Love and Berry DS Collection
+
+Oshare Majo Love and Berry DS Collection, Sega's 2006 game for the Nintendo DS,
+reads the Love and Berry arcade cards through the same HCV-1000 and unlocks
+the item each one carries, and `--device osharemajo` makes cards for it. A
+card's eleven characters are a cipher: the second picks the order of four
+alphabets, the next eight spell two base-33 numbers, and the reversed nibbles
+of those numbers are a category, a code, a number and checks, a sum taken mod
+15 among them. A card that passes names an item such as CB004, a dress. The
+game keeps a card image for each item a card can give, 281 of them across
+dresses, hair and make-up, shoes and special cards, and these are the cards it
+prints; pick one with `--character` by its code. They carry no numbers, so
+there is no cheat card. The cipher was read from the game's program and
+checked by running the game's own decoder, the routine at $020022EC, in the
+Unicorn engine: the port agrees with it on all 1396 codes it was given, among
+them a card for every item, the six cards GBE+'s notes list and codes of the
+game's shorter form that starts N and ends A.
+
 ## Checking the machine
 
 `maeyomi doctor` checks that this computer can print a card the device will
@@ -838,6 +858,12 @@ give them. Three of those names cannot belong to their kana and are corrected:
 the card for ぬ is ぬいぐるみ, for ら らっぱ, and しょうぼうしゃ and むぎわらぼうし
 are spelled with ぼう. The game read every one of them in GBE+.
 
+Oshare Majo's cards are the Love and Berry arcade cards, and no list of their
+codes has been published beyond six in GBE+'s notes. The game keeps an image
+of every card it can be given, named by the item's code, so the 281 cards here
+are those images, each printed with a code the game's own decoder reads as
+that item.
+
 Epoch printed a roster card for each of the 12 J.League clubs of 1994 for
 Excite Stage '94. Their barcodes were read off the scans
 [barcodebattler.co.uk publishes](https://www.barcodebattler.co.uk/scans/Japan/J-League/),
@@ -846,7 +872,7 @@ MAME.
 
 ## The cheat code
 
-Every machine and game but two offers one or more kinds of cheat card, each
+Every machine and game but three offers one or more kinds of cheat card, each
 with every number it names at the most the device takes. `maeyomi cheat
 --device famista3 --kinds` lists a device's kinds, `--kind era` prints one, and
 the web page offers them on the **Cheats** tab, which shows and prints every kind
@@ -882,8 +908,8 @@ A kind that would print the strongest card again is left out, so Battle Space
 has no HP or AP kind: its strongest card already has the most of both.
 Datach J.League Super Top Players has none: its cards name players, and the
 game's program keeps a profile, a face and an appearance for each player but
-no number a card could raise. Card de Asobu has none either: a card names a
-kana and carries nothing else.
+no number a card could raise. Card de Asobu and Oshare Majo have none either:
+a card names a kana or an item and carries nothing else.
 
 `maeyomi cheat -o cheat.pdf`, or the **Cheats** tab of the web page,
 which typing up, up, down, down, left, right, left, right, B, A anywhere on
@@ -1130,9 +1156,12 @@ under which licence:
   checked here in MAME.
 - **GBE+'s
   [HCV-1000 notes](https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt)**:
-  the HCV-1000's registers and the 46 Card de Asobu cards with their names. GBE+
-  itself, GPL-2, runs the game in the checks, patched by
-  `tools/oracle/gbe_plus/build.sh`; none of its code ships in the package.
+  the HCV-1000's registers, the 46 Card de Asobu cards with their names and six
+  Oshare Majo cards. GBE+ itself, GPL-2, runs Card de Asobu in the checks,
+  patched by `tools/oracle/gbe_plus/build.sh`; none of its code ships in the
+  package.
+- **[Unicorn](https://www.unicorn-engine.org/)**, GPL-2, runs Oshare Majo's own
+  card decoder in the checks; it is not a dependency of the package.
 - **[MAME](https://www.mamedev.org/)** 0.289 runs every game in the checks. The
   game rules come from each game's own program; no ROM byte is shipped, and each
   ROM is named in `artifacts.manifest.json` by its checksum.

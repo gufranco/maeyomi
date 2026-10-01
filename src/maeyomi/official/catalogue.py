@@ -118,6 +118,7 @@ class OfficialSet(Enum):
     FAMJOCK2 = "ファミリージョッキー2 カード"
     EXCITE94_CLUBS = "エキサイトステージ'94 の Jリーグ 登録選手リスト カード"
     CARD_DE_ASOBU = "カードであそぶ! はじめてのDS カード"
+    OSHARE_MAJO = "オシャレ魔女 ラブandベリー DSコレクション カード"
     IRWIN = "アーウィン版 バーコードバトラー カードリスト"
     TOMY = "トミー版 バーコードバトラー カードリスト"
     TOMY_GERMANY = "トミー版 ドイツ バーコードバトラー カードリスト"
@@ -166,6 +167,7 @@ _DEVICES: Final[dict[OfficialSet, Device]] = {
     OfficialSet.FAMJOCK2: Device.FAMJOCK2,
     OfficialSet.EXCITE94_CLUBS: Device.EXCITE94,
     OfficialSet.CARD_DE_ASOBU: Device.CARD_DE_ASOBU,
+    OfficialSet.OSHARE_MAJO: Device.OSHARE_MAJO,
 }
 
 _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
@@ -212,6 +214,7 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.FAMJOCK2: "Family Jockey 2 cards",
     OfficialSet.EXCITE94_CLUBS: "J.League club roster cards",
     OfficialSet.CARD_DE_ASOBU: "Card de Asobu! Hajimete no DS cards",
+    OfficialSet.OSHARE_MAJO: "Oshare Majo Love and Berry DS Collection cards",
     OfficialSet.IRWIN: "Irwin Barcode Battler, United States and Canada",
     OfficialSet.TOMY: "Tomy Barcode Battler, United Kingdom, Ireland and Italy",
     OfficialSet.TOMY_GERMANY: "Tomy Barcode Battler, Germany",

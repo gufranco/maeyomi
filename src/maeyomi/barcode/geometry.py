@@ -155,6 +155,7 @@ def _modules(table: dict[int, int], length: int) -> int:
 
 DEVICE_SYMBOLOGIES: Final[dict[Device, tuple[Symbology, float]]] = {
     Device.CARD_DE_ASOBU: (Symbology.CODE39, CODE39_MODULE_WIDTH_MM),
+    Device.OSHARE_MAJO: (Symbology.CODE39, CODE39_MODULE_WIDTH_MM),
 }
 """Devices whose reader takes another symbology, with the module width it prints at."""
 

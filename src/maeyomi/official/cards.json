@@ -9853,6 +9853,1692 @@
    "name": "かえる",
    "set": "カードであそぶ! はじめてのDS カード",
    "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX9-A0.CN",
+   "name": "ドレス CB001",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNCIA0.2N",
+   "name": "ドレス CB002",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXDVA0.RN",
+   "name": "ドレス CB003",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNS5A0.EN",
+   "name": "ドレス CB004",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXTFA0.4N",
+   "name": "ドレス CB005",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN2QA0.TN",
+   "name": "ドレス CB006",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX12A0.GN",
+   "name": "ドレス CB007",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNK0A0.6N",
+   "name": "ドレス CB008",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKAAA0.VN",
+   "name": "ドレス CB009",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA88A0.IN",
+   "name": "ドレス CB010",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNK7IA0.8N",
+   "name": "ドレス CB011",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAETA0.WN",
+   "name": "ドレス CB012",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKF5A0.JN",
+   "name": "ドレス CB013",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKVQA0.PN",
+   "name": "ドレス CB015",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA0NA0.CN",
+   "name": "ドレス CB016",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPFQA0.2N",
+   "name": "ドレス CB017",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9OWA0.RN",
+   "name": "ドレス CB018",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPV0A0.EN",
+   "name": "ドレス CB019",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN96GA0.4N",
+   "name": "ドレス CB020",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPK8A0.TN",
+   "name": "ドレス CB021",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9G3A0.GN",
+   "name": "ドレス CB022",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONACPTA0.6N",
+   "name": "ドレス CB023",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9WOA0.VN",
+   "name": "ドレス CB024",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANNKA0.8N",
+   "name": "ドレス CB025",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNOAJA0.8N",
+   "name": "ドレス CB026",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANBWA0.WN",
+   "name": "ドレス CB027",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNOQ6A0.JN",
+   "name": "ドレス CB028",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANRGA0.NN",
+   "name": "ドレス CB029",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNO4RA0.PN",
+   "name": "ドレス CB030",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAN33A0.CN",
+   "name": "ドレス CB031",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNNFA0.2N",
+   "name": "ドレス CB032",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXOSA0.RN",
+   "name": "ドレス CB033",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN72A0.EN",
+   "name": "ドレス CB034",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX6CA0.4N",
+   "name": "ドレス CB035",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNFAA0.TN",
+   "name": "ドレス CB036",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXT-A0.GN",
+   "name": "ドレス CB037",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN2IA0.6N",
+   "name": "ドレス CB038",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX9-AN6KN",
+   "name": "ドレス CL001",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNCIAN6-N",
+   "name": "ドレス CL002",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXDVAN6SN",
+   "name": "ドレス CL003",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNS5AN6FN",
+   "name": "ドレス CL004",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXTFAN65N",
+   "name": "ドレス CL005",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN2QAN6YN",
+   "name": "ドレス CL006",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX12AN6LN",
+   "name": "ドレス CL007",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNK0AN6.N",
+   "name": "ドレス CL008",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKAAAN6QN",
+   "name": "ドレス CL009",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA88AN6DN",
+   "name": "ドレス CL010",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNK7IAN63N",
+   "name": "ドレス CL011",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAETANVAN",
+   "name": "ドレス CL012",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKF5AN6HN",
+   "name": "ドレス CL013",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAUDAN67N",
+   "name": "ドレス CL014",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA0NAN6KN",
+   "name": "ドレス CL016",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPFQAN6-N",
+   "name": "ドレス CL017",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9OWAN6SN",
+   "name": "ドレス CL018",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPV0AN6FN",
+   "name": "ドレス CL019",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN96GAN65N",
+   "name": "ドレス CL020",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPK8AN6YN",
+   "name": "ドレス CL021",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9G3AN6LN",
+   "name": "ドレス CL022",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONACPTAN6.N",
+   "name": "ドレス CL023",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9WOAN6QN",
+   "name": "ドレス CL024",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANNKAN63N",
+   "name": "ドレス CL025",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNOAJAN63N",
+   "name": "ドレス CL026",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANBWANVAN",
+   "name": "ドレス CL027",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNOQ6AN6HN",
+   "name": "ドレス CL028",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANRGAN67N",
+   "name": "ドレス CL029",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNO4RAN6XN",
+   "name": "ドレス CL030",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAN33AN6KN",
+   "name": "ドレス CL031",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNNFAN6-N",
+   "name": "ドレス CL032",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXOSAN6SN",
+   "name": "ドレス CL033",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN72AN6FN",
+   "name": "ドレス CL034",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX6CAN65N",
+   "name": "ドレス CL035",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNFAAN6YN",
+   "name": "ドレス CL036",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXT-AN6LN",
+   "name": "ドレス CL037",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN2IAN6.N",
+   "name": "ドレス CL038",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX1VAN6QN",
+   "name": "ドレス CL039",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX9-AAAIN",
+   "name": "ドレス FB001",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNCIAAA8N",
+   "name": "ドレス FB002",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXDVAAAAN",
+   "name": "ドレス FB003",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNS5AAA0N",
+   "name": "ドレス FB004",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXTFAAANN",
+   "name": "ドレス FB005",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN2QAAAPN",
+   "name": "ドレス FB006",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX12AAACN",
+   "name": "ドレス FB007",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNK0AAA2N",
+   "name": "ドレス FB008",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKAAAAARN",
+   "name": "ドレス FB009",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA88AAAEN",
+   "name": "ドレス FB010",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNK7IAAA4N",
+   "name": "ドレス FB011",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX9-AAWDN",
+   "name": "ドレス FL001",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNCIAAW9N",
+   "name": "ドレス FL002",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXDVAAWUN",
+   "name": "ドレス FL003",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNS5AAWHN",
+   "name": "ドレス FL004",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXTFAAW7N",
+   "name": "ドレス FL005",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN2QAAWXN",
+   "name": "ドレス FL006",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX12AAWKN",
+   "name": "ドレス FL007",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNK0AAW-N",
+   "name": "ドレス FL008",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKAAAAWSN",
+   "name": "ドレス FL009",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA88AAWFN",
+   "name": "ドレス FL010",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNK7IAAW5N",
+   "name": "ドレス FL011",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAETAAWYN",
+   "name": "ドレス FL012",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNCIAADNN",
+   "name": "ドレス SB002",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXDVAADPN",
+   "name": "ドレス SB003",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNS5AADCN",
+   "name": "ドレス SB004",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXTFAAD2N",
+   "name": "ドレス SB005",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN2QAADRN",
+   "name": "ドレス SB006",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX12AADEN",
+   "name": "ドレス SB007",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNK0AAD4N",
+   "name": "ドレス SB008",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKAAAADTN",
+   "name": "ドレス SB009",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA88AADGN",
+   "name": "ドレス SB010",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNK7IAAD6N",
+   "name": "ドレス SB011",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAETAADVN",
+   "name": "ドレス SB012",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKF5AADIN",
+   "name": "ドレス SB013",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAUDAAD8N",
+   "name": "ドレス SB014",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKVQAADWN",
+   "name": "ドレス SB015",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA0NAAD0N",
+   "name": "ドレス SB016",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPFQAADNN",
+   "name": "ドレス SB017",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9OWAADPN",
+   "name": "ドレス SB018",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPV0AADCN",
+   "name": "ドレス SB019",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN96GAAD2N",
+   "name": "ドレス SB020",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPK8AADRN",
+   "name": "ドレス SB021",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9G3AADEN",
+   "name": "ドレス SB022",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONACPTAAD4N",
+   "name": "ドレス SB023",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9WOAADTN",
+   "name": "ドレス SB024",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANNKAAD6N",
+   "name": "ドレス SB025",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNOAJAAD6N",
+   "name": "ドレス SB026",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANBWAADVN",
+   "name": "ドレス SB027",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNOQ6AADIN",
+   "name": "ドレス SB028",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX9-A0IHN",
+   "name": "ドレス SL001",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNCIA0I7N",
+   "name": "ドレス SL002",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXDVA0IXN",
+   "name": "ドレス SL003",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNS5A0IKN",
+   "name": "ドレス SL004",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXTFA0I-N",
+   "name": "ドレス SL005",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN2QA0ISN",
+   "name": "ドレス SL006",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX12A0IFN",
+   "name": "ドレス SL007",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNK0A0I5N",
+   "name": "ドレス SL008",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKAAA0IYN",
+   "name": "ドレス SL009",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA88A0ILN",
+   "name": "ドレス SL010",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNK7IA0I.N",
+   "name": "ドレス SL011",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAETA0IQN",
+   "name": "ドレス SL012",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKF5A0IDN",
+   "name": "ドレス SL013",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAUDA0I3N",
+   "name": "ドレス SL014",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKVQA0IUN",
+   "name": "ドレス SL015",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA0NA0IHN",
+   "name": "ドレス SL016",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPFQA0I7N",
+   "name": "ドレス SL017",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9OWA0IXN",
+   "name": "ドレス SL018",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPV0A0IKN",
+   "name": "ドレス SL019",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN96GA0I-N",
+   "name": "ドレス SL020",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPK8A0ISN",
+   "name": "ドレス SL021",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9G3A0IFN",
+   "name": "ドレス SL022",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONACPTA0I5N",
+   "name": "ドレス SL023",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9WOA0IYN",
+   "name": "ドレス SL024",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANNKA0I.N",
+   "name": "ドレス SL025",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNOAJA0I.N",
+   "name": "ドレス SL026",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXOCOHT3N",
+   "name": "くつ CS001",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN7AOHGAN",
+   "name": "くつ CS002",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXD-OHG0N",
+   "name": "くつ CS003",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNSIOHGNN",
+   "name": "くつ CS004",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXTVOHGPN",
+   "name": "くつ CS005",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN25OHGCN",
+   "name": "くつ CS006",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX1FOHG2N",
+   "name": "くつ CS007",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNKQOHGRN",
+   "name": "くつ CS008",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKA2OHGEN",
+   "name": "くつ CS009",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAP0OHG4N",
+   "name": "くつ CS010",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKQAOHGTN",
+   "name": "くつ CS011",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAE8OHGGN",
+   "name": "くつ CS012",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKFIOHG6N",
+   "name": "くつ CS013",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAUTOHTQN",
+   "name": "くつ CS014",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKV5OHTDN",
+   "name": "くつ CS015",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA0DOHT3N",
+   "name": "くつ CS016",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPF5OHGAN",
+   "name": "くつ CS017",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9BNOHG0N",
+   "name": "くつ CS018",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPVQOHGNN",
+   "name": "くつ CS019",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN96WOHGPN",
+   "name": "くつ CS020",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAC9XOHG2N",
+   "name": "くつ CS021",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9GGOHG2N",
+   "name": "くつ CS022",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONACP8OHGRN",
+   "name": "くつ CS023",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9W3OHGEN",
+   "name": "くつ CS024",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANAPOHGTN",
+   "name": "くつ CS025",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNO9OOHGTN",
+   "name": "くつ CS026",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAN8NOHGGN",
+   "name": "くつ CS027",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNOQJOHG6N",
+   "name": "くつ CS028",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANRWOHTQN",
+   "name": "くつ CS029",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNO46OHTDN",
+   "name": "くつ CS030",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAN3GOHT3N",
+   "name": "くつ CS031",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNNVOHGAN",
+   "name": "くつ CS032",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXO7OHG0N",
+   "name": "くつ CS033",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN7FOHGNN",
+   "name": "くつ CS034",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX6SOHGPN",
+   "name": "くつ CS035",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNF2OHGCN",
+   "name": "くつ CS036",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXGCOHG2N",
+   "name": "くつ CS037",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNVAOHGRN",
+   "name": "くつ CS038",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX1-OHGEN",
+   "name": "くつ CS039",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXOCOU6.N",
+   "name": "くつ FS001",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN7AOU6QN",
+   "name": "くつ FS002",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXD-OU6DN",
+   "name": "くつ FS003",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNSIOU63N",
+   "name": "くつ FS004",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXTVOUVAN",
+   "name": "くつ FS005",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN25OUV0N",
+   "name": "くつ FS006",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX1FOUVNN",
+   "name": "くつ FS007",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNKQOUVPN",
+   "name": "くつ FS008",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKA2OUVCN",
+   "name": "くつ FS009",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAP0OUV2N",
+   "name": "くつ FS010",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKQAOUVRN",
+   "name": "くつ FS011",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXOCOUY8N",
+   "name": "くつ SS001",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN7AOUYWN",
+   "name": "くつ SS002",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXD-OUYJN",
+   "name": "くつ SS003",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNSIOUY9N",
+   "name": "くつ SS004",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXTVOUYUN",
+   "name": "くつ SS005",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN25OUYHN",
+   "name": "くつ SS006",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX1FOUY7N",
+   "name": "くつ SS007",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNKQOUYXN",
+   "name": "くつ SS008",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKA2OUYKN",
+   "name": "くつ SS009",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAP0OUY-N",
+   "name": "くつ SS010",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKQAOUYSN",
+   "name": "くつ SS011",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAE8OUYFN",
+   "name": "くつ SS012",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKFIOUY5N",
+   "name": "くつ SS013",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAUTOUYYN",
+   "name": "くつ SS014",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKV5OUYIN",
+   "name": "くつ SS015",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA0DOUY8N",
+   "name": "くつ SS016",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPF5OUYWN",
+   "name": "くつ SS017",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9BNOUYJN",
+   "name": "くつ SS018",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPVQOUY9N",
+   "name": "くつ SS019",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN96WOUYUN",
+   "name": "くつ SS020",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAC9XOUY7N",
+   "name": "くつ SS021",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9GGOUY7N",
+   "name": "くつ SS022",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONACP8OUYXN",
+   "name": "くつ SS023",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9W3OUYKN",
+   "name": "くつ SS024",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANAPOUYSN",
+   "name": "くつ SS025",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNO9OOUYSN",
+   "name": "くつ SS026",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXOO0WRVN",
+   "name": "ヘアメイク Hr001",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNC90W2DN",
+   "name": "ヘアメイク Hr002",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXDJ0W23N",
+   "name": "ヘアメイク Hr003",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNSU0WRAN",
+   "name": "ヘアメイク Hr004",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXT60WR0N",
+   "name": "ヘアメイク Hr005",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN2E0WRNN",
+   "name": "ヘアメイク Hr006",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX1R0WRPN",
+   "name": "ヘアメイク Hr007",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNK10WRCN",
+   "name": "ヘアメイク Hr008",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKAB0WR2N",
+   "name": "ヘアメイク Hr009",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA8X0WRRN",
+   "name": "ヘアメイク Hr010",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNK790WREN",
+   "name": "ヘアメイク Hr011",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAEH0WR4N",
+   "name": "ヘアメイク Hr012",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKFU0WRTN",
+   "name": "ヘアメイク Hr013",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAU40WRGN",
+   "name": "ヘアメイク Hr014",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKVE0WR6N",
+   "name": "ヘアメイク Hr015",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA0P0WRVN",
+   "name": "ヘアメイク Hr016",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPFE0W2DN",
+   "name": "ヘアメイク Hr017",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9OK0W23N",
+   "name": "ヘアメイク Hr018",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPV10WRAN",
+   "name": "ヘアメイク Hr019",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9670WR0N",
+   "name": "ヘアメイク Hr020",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPKX0WRNN",
+   "name": "ヘアメイク Hr021",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONN9GS0WRPN",
+   "name": "ヘアメイク Hr022",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONACPH0WRCN",
+   "name": "ヘアメイク Hr023",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANAN0WREN",
+   "name": "ヘアメイク Hr025",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNOA-0WREN",
+   "name": "ヘアメイク Hr026",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANBK0WR4N",
+   "name": "ヘアメイク Hr027",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNOQV0WRTN",
+   "name": "ヘアメイク Hr028",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONANR70WRGN",
+   "name": "ヘアメイク Hr029",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNO4F0WR6N",
+   "name": "ヘアメイク Hr030",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAN3S0WRVN",
+   "name": "ヘアメイク Hr031",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNN60W2DN",
+   "name": "ヘアメイク Hr032",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXOG0W23N",
+   "name": "ヘアメイク Hr033",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXOO0JCAN",
+   "name": "ヘアメイク Hr501",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNC90JC0N",
+   "name": "ヘアメイク Hr502",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXDJ0JCNN",
+   "name": "ヘアメイク Hr503",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNSU0JCPN",
+   "name": "ヘアメイク Hr504",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXT60JCCN",
+   "name": "ヘアメイク Hr505",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN2E0JC2N",
+   "name": "ヘアメイク Hr506",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX1R0JCRN",
+   "name": "ヘアメイク Hr507",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNK10JCEN",
+   "name": "ヘアメイク Hr508",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKAB0JC4N",
+   "name": "ヘアメイク Hr509",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXO31S9LN",
+   "name": "スペシャル SP001",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN7B1S9.N",
+   "name": "スペシャル SP002",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX6O1S9QN",
+   "name": "スペシャル SP003",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNS91S9DN",
+   "name": "スペシャル SP004",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNXTJ1S93N",
+   "name": "スペシャル SP005",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNN2U1SUAN",
+   "name": "スペシャル SP006",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNX161SU0N",
+   "name": "スペシャル SP007",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNNKE1SUNN",
+   "name": "スペシャル SP008",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKF91SUEN",
+   "name": "スペシャル SP013",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNAUH1SU4N",
+   "name": "スペシャル SP014",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNKVU1S9YN",
+   "name": "スペシャル SP015",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONNA041S9LN",
+   "name": "スペシャル SP016",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ONAPFU1S9.N",
+   "name": "スペシャル SP017",
+   "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
   }
  ]
 }
