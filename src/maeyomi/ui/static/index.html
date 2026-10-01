@@ -257,7 +257,7 @@
       </p>
     </fieldset>
 
-    <fieldset>
+    <fieldset id="many-range">
       <legend data-i18n="many.range">Keep them in this range</legend>
       <p class="field pair">
         <label for="hp-min" data-i18n="stat.hp">Health</label>
@@ -575,6 +575,15 @@
 </section>
 
 <section id="panel-shop" role="tabpanel" aria-labelledby="tab-shop" class="columns" hidden>
+  <div class="note unavailable" id="shop-unavailable" hidden>
+    <div class="note-body">
+      <p id="shop-unavailable-text" data-i18n="unavailable.shop.code39"></p>
+      <p class="actions">
+        <button type="button" data-goto="tab-official" data-i18n="goto.official">See the real cards</button>
+        <button type="button" data-goto="tab-one" data-i18n="goto.one">Pick one card</button>
+      </p>
+    </div>
+  </div>
   <form id="shop" class="fields">
     <p class="note" data-i18n="shop.note">
       Every one of these is a real product sold in Japan. The numbers on the card
@@ -616,20 +625,20 @@
 
 <section id="panel-read" role="tabpanel" aria-labelledby="tab-read" class="columns" hidden>
   <form id="read" class="fields">
-    <p class="note" data-i18n="read.note">
+    <p class="note" id="read-note" data-i18n="read.note">
       Any product barcode works, which is how the machine was played in 1992:
       a bottle of tomato sauce is a fighter, a packet of crisps is a weapon.
       Type what is printed on the shopping and see what comes out.
     </p>
     <fieldset>
-      <legend data-i18n="read.legend">Any barcode at all</legend>
+      <legend id="read-legend" data-i18n="read.legend">Any barcode at all</legend>
 
       <p class="field">
         <label for="read-barcode" data-i18n="read.barcode">Barcode number</label>
         <input id="read-barcode" name="barcode" inputmode="numeric" pattern="[0-9 ]*"
                maxlength="20" autocomplete="off" placeholder="4901085061169"
                data-i18n-placeholder="read.placeholder">
-        <span class="hint" data-i18n="read.barcode.hint">
+        <span class="hint" id="read-barcode-hint" data-i18n="read.barcode.hint">
           The 8 or 13 digits printed under the bars. Spaces are fine.
         </span>
       </p>
@@ -665,6 +674,15 @@
 </section>
 
 <section id="panel-cheat" role="tabpanel" aria-labelledby="tab-cheat" class="columns" hidden>
+  <div class="note unavailable" id="cheat-unavailable" hidden>
+    <div class="note-body">
+      <p id="cheat-unavailable-text" data-i18n="unavailable.cheat"></p>
+      <p class="actions">
+        <button type="button" data-goto="tab-official" data-i18n="goto.official">See the real cards</button>
+        <button type="button" data-goto="tab-one" data-i18n="goto.one">Pick one card</button>
+      </p>
+    </div>
+  </div>
   <form id="cheat" class="fields">
     <p class="note" data-i18n="cheat.note">
       The strongest cards the chosen machine or game will read, with every

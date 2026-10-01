@@ -134,7 +134,7 @@ print it. The panel underneath says whether the machine will read back exactly
 the numbers you asked for, and shows the barcode it worked out.
 
 **Machine or game**, first on the page, picks what the cards are for, from the
-27 in the table under [What it supports](#what-it-supports). Every tab follows it: the card maker shows only the fields that device reads
+32 in the table under [What it supports](#what-it-supports). Every tab follows it: the card maker shows only the fields that device reads
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
@@ -146,6 +146,15 @@ opens the same one and the back button returns to the previous one; `/`
 jumps to the filter over the list, and Enter picks its first match. On the
 command line, `--device` does the same for `generate`, `decode`, `cheat`,
 `random`, `products`, `kinds`, `abilities` and `official`.
+
+The four Nintendo DS games read only their own cards, through readers that
+take Code 39 or Code 128 rather than the barcodes on the shopping, so the page
+adapts to them. Their random sheet is drawn from the game's own list, as is
+Battle Rush's, and keeps no number ranges, which the games whose cards carry
+no numbers hide too. **The supermarket** says that nothing on the shelf is a
+card for them, **Cheats** says why there is none for a game whose cards carry
+no numbers, and both point to **The real cards** and **One card**. **Read a
+barcode** asks for the code printed under a card's bars.
 
 **Any barcode you already own is also a card.** Type the digits from the
 shopping into **Read a barcode** and the page shows what the device makes of

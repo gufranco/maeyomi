@@ -595,3 +595,17 @@ def test_every_device_says_which_symbology_its_reader_takes(client: TestClient) 
     views = {view["key"]: view["symbology"] for view in client.get("/api/devices").json()}
 
     assert (views["cardasobu"], views["bb2"]) == ("code39", "ean")
+
+
+def test_every_device_says_whether_a_sheet_holds_to_number_ranges(client: TestClient) -> None:
+    views = {view["key"]: view["ranged"] for view in client.get("/api/devices").json()}
+
+    assert (views["bb2"], views["dbz"], views["monstmkb"]) == (True, True, True)
+    assert (views["wantame"], views["jleague"], views["battlerush"]) == (False, False, False)
+
+
+def test_a_ds_game_draws_a_sheet_from_its_own_cards(client: TestClient) -> None:
+    response = client.post("/api/sheet-preview", json={"count": 9, "seed": 4, "device": "wantame"})
+
+    assert response.status_code == 200
+    assert response.json()["count"] == 9

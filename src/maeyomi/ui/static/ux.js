@@ -53,7 +53,7 @@ function showProblem(input) {
 }
 
 function checkForm(form) {
-  const inputs = [...form.querySelectorAll('input[type="number"][id]')];
+  const inputs = [...form.querySelectorAll('input[type="number"][id]:enabled')];
   const failing = inputs.filter((input) => !showProblem(input));
   failing[0]?.focus();
   return failing.length === 0;

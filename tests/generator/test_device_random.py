@@ -13,6 +13,7 @@ from maeyomi.models.card_request import CardRequest
 from maeyomi.models.constraint import Constraint
 from maeyomi.models.device import Device
 from maeyomi.models.race import Race
+from maeyomi.nds.wantame import PRINTED, wantame_entries
 from maeyomi.registry import read_as
 
 RANGES = CardRequest(
@@ -155,3 +156,48 @@ def test_an_effect_game_sheet_draws_only_codes_that_set_something_off() -> None:
     for card in batch.cards:
         assert isinstance(card.character, DatachCard)
         assert card.character.kind is GameKind.EFFECT
+
+
+DS_GAMES = [Device.CARD_DE_ASOBU, Device.OSHARE_MAJO, Device.MUSHIKING, Device.WANTAME]
+
+
+@pytest.mark.parametrize("device", DS_GAMES, ids=str)
+def test_a_ds_sheet_draws_distinct_cards_from_the_games_own_list(device: Device) -> None:
+    batch = random_for(device, 9, template=CardRequest(), seed=4)
+
+    assert len({card.barcode for card in batch.cards}) == 9
+    assert batch.shortfall == 0
+    assert all(read_as(device, card.barcode) == card.character for card in batch.cards)
+
+
+def test_a_ds_card_is_named_after_the_card_it_is() -> None:
+    card = random_for(Device.WANTAME, 1, template=CardRequest(), seed=4).cards[0]
+
+    named = {
+        listed.code: entry.english for listed, entry in zip(PRINTED, wantame_entries(), strict=True)
+    }
+    assert card.name == named[card.barcode]
+
+
+def test_a_ds_sheet_repeats_with_the_same_seed() -> None:
+    first = random_for(Device.MUSHIKING, 5, template=CardRequest(), seed=11)
+    second = random_for(Device.MUSHIKING, 5, template=CardRequest(), seed=11)
+
+    assert [card.barcode for card in first.cards] == [card.barcode for card in second.cards]
+
+
+def test_a_ds_sheet_larger_than_the_games_list_reports_the_shortfall() -> None:
+    batch = random_for(Device.CARD_DE_ASOBU, 500, template=CardRequest(), seed=1)
+
+    assert 0 < len(batch.cards) < 500
+    assert f"reads only {len(batch.cards)} cards" in batch.reason
+
+
+def test_a_battle_rush_sheet_draws_units_from_the_games_own_list() -> None:
+    batch = random_for(Device.DATACH_BATTLE_RUSH, 9, template=CardRequest(), seed=3)
+
+    assert len({card.barcode for card in batch.cards}) == 9
+    assert all(
+        isinstance(card.character, DatachCard) and card.character.kind is GameKind.UNIT
+        for card in batch.cards
+    )

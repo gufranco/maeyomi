@@ -32,6 +32,7 @@ from maeyomi.double.solve import MAX_VALUE as DOUBLE_MAX
 from maeyomi.games.barcode_world import TOP_HP, TOP_STAT
 from maeyomi.games.hatayama import TOP_STAMINA
 from maeyomi.games.hatayama import TOP_STAT as HATAYAMA_TOP_STAT
+from maeyomi.generator.device_random import holds_ranges
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import CardResult
 from maeyomi.rendering.face import face_of
@@ -302,6 +303,7 @@ def device_views() -> list[DeviceView]:
                 for kind in cheat_kinds(device)
             ],
             symbology=symbology_of(device).value,
+            ranged=holds_ranges(device),
         )
         for device in Device
     ]

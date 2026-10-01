@@ -103,6 +103,12 @@ function setUpTabs() {
     const chosen = tabFromHash();
     if (chosen) select(chosen);
   });
+  document.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-goto]');
+    if (!button) return;
+    $(button.dataset.goto).focus();
+    select($(button.dataset.goto));
+  });
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => select(tab));
     tab.addEventListener('keydown', (event) => {
@@ -279,11 +285,10 @@ async function downloadOneCard() {
 
 function sheetPayload() {
   const range = (key) => `${$(`${key}-min`).value}-${$(`${key}-max`).value}`;
+  const ranges = deviceForm()?.ranged ? { hp: range('hp'), st: range('st'), df: range('df') } : {};
   return {
     count: Number($('count').value),
-    hp: range('hp'),
-    st: range('st'),
-    df: range('df'),
+    ...ranges,
     ...($('seed').value !== '' ? { seed: Number($('seed').value) } : {}),
     ...($('many-race').value && readsOnSheet('race') ? { race: $('many-race').value } : {}),
     device: currentDevice(),

@@ -315,6 +315,8 @@ function applySheetForm(form) {
     });
   });
   $('many').reset();
+  $('many-range').toggleAttribute('hidden', !form.ranged);
+  $('many-range').disabled = !form.ranged;
   document.querySelectorAll('[data-sheet-field]').forEach((node) => {
     node.toggleAttribute('hidden', !form.sheet_fields.includes(node.dataset.sheetField));
   });
@@ -348,11 +350,33 @@ function hideEmptySections() {
   $('one-more').toggleAttribute('hidden', folded.every((section) => section.hidden));
 }
 
+function showUnavailable(panel, unavailable, key) {
+  $(`${panel}-unavailable-text`).dataset.i18n = key;
+  $(`${panel}-unavailable-text`).textContent = t(key);
+  $(`${panel}-unavailable`).toggleAttribute('hidden', !unavailable);
+  $(`panel-${panel}`).toggleAttribute('data-unavailable', unavailable);
+}
+
+function retext(id, key) {
+  $(id).dataset.i18n = key;
+  $(id).textContent = t(key);
+}
+
+function applyReader(form) {
+  const products = form.symbology === 'ean';
+  showUnavailable('shop', !products, `unavailable.shop.${form.symbology}`);
+  showUnavailable('cheat', form.cheat_kinds.length === 0, 'unavailable.cheat');
+  retext('read-note', products ? 'read.note' : 'read.note.card');
+  retext('read-legend', products ? 'read.legend' : 'read.legend.card');
+  retext('read-barcode-hint', products ? 'read.barcode.hint' : `read.barcode.hint.${form.symbology}`);
+}
+
 function applyDeviceForm() {
   const form = deviceForm();
   if (!form) return;
   renderCheatKinds();
   syncReadInput();
+  applyReader(form);
   document.querySelectorAll('[data-device-field]').forEach((node) => {
     node.toggleAttribute('hidden', !form.fields.includes(node.dataset.deviceField));
   });
