@@ -2,6 +2,24 @@
 
 <!-- version list -->
 
+## v1.20.0 (2026-10-01)
+
+### Chores
+
+- **formula**: Point at v1.19.0 [skip ci]
+  ([`0b8a9c7`](https://github.com/gufranco/maeyomi/commit/0b8a9c79269e2cfe9e62365a6a5dbca5d61b2fa4))
+
+### Features
+
+- Support Ryuusei no Rockman Dragon
+  ([`febada7`](https://github.com/gufranco/maeyomi/commit/febada783ba5b048da57537647138cded7da7f29))
+
+### Testing
+
+- **e2e**: Wait for the device button before picking
+  ([`93bb887`](https://github.com/gufranco/maeyomi/commit/93bb887895a9800a7ba9621d637f63776c2da72d))
+
+
 ## v1.19.0 (2026-10-01)
 
 ### Chores
