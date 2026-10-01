@@ -1,0 +1,529 @@
+{
+ "game": "Barcode Taisen Bardigun",
+ "software": "barcode",
+ "emulator": "MAME 0.289, gameboy with the cartridge loaded directly; tools/oracle/bardigun_reader.lua answers the link port the way the Bardigun reader does",
+ "screen": "a new game's first egg, scanned at the farm's barcode prompt; species is $CAAC and record the 22 bytes copied to $CAE4 when the egg hatches",
+ "recorded_utc": "2026-10-01T00:49:31Z",
+ "cards": [
+  {
+   "barcode": "4900000000030",
+   "species": 18,
+   "record": "31e8030228161c229603a1ffff13131313070505055a"
+  },
+  {
+   "barcode": "4900000000054",
+   "species": 33,
+   "record": "22e803021c2822166e50a071ff222222220507050532"
+  },
+  {
+   "barcode": "4900000000047",
+   "species": 62,
+   "record": "24e803032e35273caa09a0ffff3f3f3f3f0505050750"
+  },
+  {
+   "barcode": "4900000000160",
+   "species": 0,
+   "record": "11e803022816221c7807a2ffff01010101070505055a"
+  },
+  {
+   "barcode": "4900000000191",
+   "species": 3,
+   "record": "11e803033c27352e7803c2ffff04040404070505055a"
+  },
+  {
+   "barcode": "4900000000122",
+   "species": 28,
+   "record": "12e803021c2822168200ffffff1d1d1d1d0507050546"
+  },
+  {
+   "barcode": "4900000000153",
+   "species": 56,
+   "record": "14e8030222161c288c07a2ffff393939550505050750"
+  },
+  {
+   "barcode": "4900000000184",
+   "species": 82,
+   "record": "13e80302221c2816b400ffffff535353530505070564"
+  },
+  {
+   "barcode": "4900000000115",
+   "species": 85,
+   "record": "13e803032e353c27b400afffff56565656050507055a"
+  },
+  {
+   "barcode": "4900000000146",
+   "species": 0,
+   "record": "11e803022816221c7807a2ffff01010101070505055a"
+  },
+  {
+   "barcode": "4900000000177",
+   "species": 56,
+   "record": "14e8030222161c288c07a2ffff393939550505050750"
+  },
+  {
+   "barcode": "4900000000108",
+   "species": 82,
+   "record": "13e80302221c2816b400ffffff535353530505070564"
+  },
+  {
+   "barcode": "4900000000139",
+   "species": 56,
+   "record": "14e8030222161c288c07a2ffff393939550505050750"
+  },
+  {
+   "barcode": "4900000000290",
+   "species": 6,
+   "record": "21e8030228161c226e09a0ffff070707070705050550"
+  },
+  {
+   "barcode": "4900000000221",
+   "species": 33,
+   "record": "22e803021c2822166e50a071ff222222220507050532"
+  },
+  {
+   "barcode": "4900000000252",
+   "species": 59,
+   "record": "24e8030122161c286e09a0ffff3c3c3c3c0505050750"
+  },
+  {
+   "barcode": "4900000000283",
+   "species": 62,
+   "record": "24e803032e35273caa09a0ffff3f3f3f3f0505050750"
+  },
+  {
+   "barcode": "4900000000214",
+   "species": 87,
+   "record": "23e80303272e3c35b498a014ff58585858050507055a"
+  },
+  {
+   "barcode": "4900000000245",
+   "species": 6,
+   "record": "21e8030228161c226e09a0ffff070707070705050550"
+  },
+  {
+   "barcode": "4900000000276",
+   "species": 33,
+   "record": "22e803021c2822166e50a071ff222222220507050532"
+  },
+  {
+   "barcode": "4900000000207",
+   "species": 59,
+   "record": "24e8030122161c286e09a0ffff3c3c3c3c0505050750"
+  },
+  {
+   "barcode": "4900000000238",
+   "species": 62,
+   "record": "24e803032e35273caa09a0ffff3f3f3f3f0505050750"
+  },
+  {
+   "barcode": "4900000000269",
+   "species": 87,
+   "record": "23e80303272e3c35b498a014ff58585858050507055a"
+  },
+  {
+   "barcode": "4900000000320",
+   "species": 18,
+   "record": "31e8030228161c229603a1ffff13131313070505055a"
+  },
+  {
+   "barcode": "4900000000351",
+   "species": 43,
+   "record": "32e803032e3c3527a0035cffff2c2c2c2c0507050546"
+  },
+  {
+   "barcode": "4900000000382",
+   "species": 45,
+   "record": "32e803032e3c35278c40c3ffff2e2e2e2e0507050532"
+  },
+  {
+   "barcode": "4900000000313",
+   "species": 71,
+   "record": "34e8030222161c289103ffffff484848480505050755"
+  },
+  {
+   "barcode": "4900000000344",
+   "species": 99,
+   "record": "33e80302221c28169663afffff64646464050507055a"
+  },
+  {
+   "barcode": "4900000000375",
+   "species": 18,
+   "record": "31e8030228161c229603a1ffff13131313070505055a"
+  },
+  {
+   "barcode": "4900000000306",
+   "species": 43,
+   "record": "32e803032e3c3527a0035cffff2c2c2c2c0507050546"
+  },
+  {
+   "barcode": "4900000000337",
+   "species": 45,
+   "record": "32e803032e3c35278c40c3ffff2e2e2e2e0507050532"
+  },
+  {
+   "barcode": "4900000000368",
+   "species": 71,
+   "record": "34e8030222161c289103ffffff484848480505050755"
+  },
+  {
+   "barcode": "4900000000399",
+   "species": 99,
+   "record": "33e80302221c28169663afffff64646464050507055a"
+  },
+  {
+   "barcode": "4900000000450",
+   "species": 14,
+   "record": "41e803022816221c9600ffffff0f0f0f0f070505055a"
+  },
+  {
+   "barcode": "4900000000481",
+   "species": 40,
+   "record": "42e803021c2822165a00afffff29292929050705053c"
+  },
+  {
+   "barcode": "4900000000412",
+   "species": 66,
+   "record": "44e803021c1622287820a1ffff43434343050505073c"
+  },
+  {
+   "barcode": "4900000000443",
+   "species": 94,
+   "record": "43e803022216281ca001b0afff5f5f5f5f0505070564"
+  },
+  {
+   "barcode": "4900000000474",
+   "species": 97,
+   "record": "43e80303352e3c27b421a1b2ff62626262050507055a"
+  },
+  {
+   "barcode": "4900000000405",
+   "species": 14,
+   "record": "41e803022816221c9600ffffff0f0f0f0f070505055a"
+  },
+  {
+   "barcode": "4900000000436",
+   "species": 40,
+   "record": "42e803021c2822165a00afffff29292929050705053c"
+  },
+  {
+   "barcode": "4900000000467",
+   "species": 66,
+   "record": "44e803021c1622287820a1ffff43434343050505073c"
+  },
+  {
+   "barcode": "4900000000498",
+   "species": 94,
+   "record": "43e803022216281ca001b0afff5f5f5f5f0505070564"
+  },
+  {
+   "barcode": "4900000000429",
+   "species": 97,
+   "record": "43e80303352e3c27b421a1b2ff62626262050507055a"
+  },
+  {
+   "barcode": "4900000000580",
+   "species": 11,
+   "record": "51e80302281c22169b01ffffff0c0c0c0c070505055f"
+  },
+  {
+   "barcode": "4900000000511",
+   "species": 38,
+   "record": "52e80303273c2e35960015ffff27272727050705053c"
+  },
+  {
+   "barcode": "4900000000542",
+   "species": 89,
+   "record": "53e803021c222816a501ffffff0924405a0505070569"
+  },
+  {
+   "barcode": "4900000000573",
+   "species": 92,
+   "record": "53e80303272e3c35be01adffff5d5d5d5d050507055a"
+  },
+  {
+   "barcode": "4900000000504",
+   "species": 11,
+   "record": "51e80302281c22169b01ffffff0c0c0c0c070505055f"
+  },
+  {
+   "barcode": "4900000000535",
+   "species": 38,
+   "record": "52e80303273c2e35960015ffff27272727050705053c"
+  },
+  {
+   "barcode": "4900000000566",
+   "species": 89,
+   "record": "53e803021c222816a501ffffff0924405a0505070569"
+  },
+  {
+   "barcode": "4900000000597",
+   "species": 92,
+   "record": "53e80303272e3c35be01adffff5d5d5d5d050507055a"
+  },
+  {
+   "barcode": "4900000000528",
+   "species": 11,
+   "record": "51e80302281c22169b01ffffff0c0c0c0c070505055f"
+  },
+  {
+   "barcode": "4900000000559",
+   "species": 89,
+   "record": "53e803021c222816a501ffffff0924405a0505070569"
+  },
+  {
+   "barcode": "4900000000610",
+   "species": 21,
+   "record": "61e803033c272e35aa727bffff161616160705050550"
+  },
+  {
+   "barcode": "4900000000641",
+   "species": 23,
+   "record": "61e803033c272e35aa70a153ff181818180705050546"
+  },
+  {
+   "barcode": "4900000000672",
+   "species": 48,
+   "record": "62e803021c2816228274ffffff313131310507050546"
+  },
+  {
+   "barcode": "4900000000603",
+   "species": 51,
+   "record": "62e803032e3c3527967214ffff34343434050705053c"
+  },
+  {
+   "barcode": "4900000000634",
+   "species": 74,
+   "record": "64e803021c16222878701b78ff4b4b4b4b050505073c"
+  },
+  {
+   "barcode": "4900000000665",
+   "species": 103,
+   "record": "63e803032216281caa70a0ffff686868680505070550"
+  },
+  {
+   "barcode": "4900000000696",
+   "species": 105,
+   "record": "63e803031c162822aa7079ffff6a6a6a6a0505070550"
+  },
+  {
+   "barcode": "4900000000627",
+   "species": 21,
+   "record": "61e803033c272e35aa727bffff161616160705050550"
+  },
+  {
+   "barcode": "4900000000658",
+   "species": 48,
+   "record": "62e803021c2816228274ffffff313131310507050546"
+  },
+  {
+   "barcode": "4900000000689",
+   "species": 103,
+   "record": "63e803032216281caa70a0ffff686868680505070550"
+  },
+  {
+   "barcode": "4900000000740",
+   "species": 53,
+   "record": "72e803021c2816227800b1ffff1836506e050705053c"
+  },
+  {
+   "barcode": "4900000000771",
+   "species": 77,
+   "record": "74e803021c221628b489a0ffff4e4e4e4e0505050746"
+  },
+  {
+   "barcode": "4900000000702",
+   "species": 107,
+   "record": "73e803021622281c9698ffffff6c6c6c6c0505070564"
+  },
+  {
+   "barcode": "4900000000733",
+   "species": 53,
+   "record": "72e803021c2816227800b1ffff1836506e050705053c"
+  },
+  {
+   "barcode": "4900000000764",
+   "species": 77,
+   "record": "74e803021c221628b489a0ffff4e4e4e4e0505050746"
+  },
+  {
+   "barcode": "4900000000795",
+   "species": 107,
+   "record": "73e803021622281c9698ffffff6c6c6c6c0505070564"
+  },
+  {
+   "barcode": "4900000000726",
+   "species": 53,
+   "record": "72e803021c2816227800b1ffff1836506e050705053c"
+  },
+  {
+   "barcode": "4900000000757",
+   "species": 77,
+   "record": "74e803021c221628b489a0ffff4e4e4e4e0505050746"
+  },
+  {
+   "barcode": "4900000000788",
+   "species": 107,
+   "record": "73e803021622281c9698ffffff6c6c6c6c0505070564"
+  },
+  {
+   "barcode": "4900000000719",
+   "species": 53,
+   "record": "72e803021c2816227800b1ffff1836506e050705053c"
+  },
+  {
+   "barcode": "4900000000870",
+   "species": 14,
+   "record": "41e803022816221c9600ffffff0f0f0f0f070505055a"
+  },
+  {
+   "barcode": "4900000000894",
+   "species": 14,
+   "record": "41e803022816221c9600ffffff0f0f0f0f070505055a"
+  },
+  {
+   "barcode": "4900000000887",
+   "species": 14,
+   "record": "41e803022816221c9600ffffff0f0f0f0f070505055a"
+  },
+  {
+   "barcode": "4900000000900",
+   "species": 0,
+   "record": "11e803022816221c7807a2ffff01010101070505055a"
+  },
+  {
+   "barcode": "4900000000924",
+   "species": 0,
+   "record": "11e803022816221c7807a2ffff01010101070505055a"
+  },
+  {
+   "barcode": "4900000000917",
+   "species": 0,
+   "record": "11e803022816221c7807a2ffff01010101070505055a"
+  },
+  {
+   "barcode": "49000009",
+   "species": 62,
+   "record": "24e803032e35273caa09a0ffff3f3f3f3f0505050750"
+  },
+  {
+   "barcode": "45678905",
+   "species": 74,
+   "record": "64e803021c16222878701b78ff4b4b4b4b050505073c"
+  },
+  {
+   "barcode": "4580245316402",
+   "species": 66,
+   "record": "44e803021c1622287820a1ffff43434343050505073c"
+  },
+  {
+   "barcode": "4900287167419",
+   "species": 97,
+   "record": "43e80303352e3c27b421a1b2ff62626262050507055a"
+  },
+  {
+   "barcode": "4901330547479",
+   "species": 97,
+   "record": "43e80303352e3c27b421a1b2ff62626262050507055a"
+  },
+  {
+   "barcode": "4983164730678",
+   "species": 48,
+   "record": "62e803021c2816228274ffffff313131310507050546"
+  },
+  {
+   "barcode": "4900753335663",
+   "species": 51,
+   "record": "62e803032e3c3527967214ffff34343434050705053c"
+  },
+  {
+   "barcode": "4900363432103",
+   "species": 56,
+   "record": "14e8030222161c288c07a2ffff393939550505050750"
+  },
+  {
+   "barcode": "4900758340136",
+   "species": 0,
+   "record": "11e803022816221c7807a2ffff01010101070505055a"
+  },
+  {
+   "barcode": "4902370501445",
+   "species": 14,
+   "record": "41e803022816221c9600ffffff0f0f0f0f070505055a"
+  },
+  {
+   "barcode": "4900269429252",
+   "species": 59,
+   "record": "24e8030122161c286e09a0ffff3c3c3c3c0505050750"
+  },
+  {
+   "barcode": "52301810",
+   "species": 18,
+   "record": "31e8030228161c229603a1ffff13131313070505055a"
+  },
+  {
+   "barcode": "90430169",
+   "species": 97,
+   "record": "43e80303352e3c27b421a1b2ff62626262050507055a"
+  },
+  {
+   "barcode": "13186098",
+   "species": 3,
+   "record": "11e803033c27352e7803c2ffff04040404070505055a"
+  },
+  {
+   "barcode": "39299604",
+   "species": 62,
+   "record": "24e803032e35273caa09a0ffff3f3f3f3f0505050750"
+  },
+  {
+   "barcode": "08146281",
+   "species": 0,
+   "record": "11e803022816221c7807a2ffff01010101070505055a"
+  },
+  {
+   "barcode": "94621990",
+   "species": 103,
+   "record": "63e803032216281caa70a0ffff686868680505070550"
+  },
+  {
+   "barcode": "35581901",
+   "species": 92,
+   "record": "53e80303272e3c35be01adffff5d5d5d5d050507055a"
+  },
+  {
+   "barcode": "37465797",
+   "species": 94,
+   "record": "43e803022216281ca001b0afff5f5f5f5f0505070564"
+  },
+  {
+   "barcode": "54323193",
+   "species": 18,
+   "record": "31e8030228161c229603a1ffff13131313070505055a"
+  },
+  {
+   "barcode": "87174915",
+   "species": 82,
+   "record": "13e80302221c2816b400ffffff535353530505070564"
+  },
+  {
+   "barcode": "86152761",
+   "species": 82,
+   "record": "13e80302221c2816b400ffffff535353530505070564"
+  },
+  {
+   "barcode": "18455595",
+   "species": 40,
+   "record": "42e803021c2822165a00afffff29292929050705053c"
+  },
+  {
+   "barcode": "97114710",
+   "species": 56,
+   "record": "14e8030222161c288c07a2ffff393939550505050750"
+  },
+  {
+   "barcode": "49446500",
+   "species": 97,
+   "record": "43e80303352e3c27b421a1b2ff62626262050507055a"
+  }
+ ]
+}

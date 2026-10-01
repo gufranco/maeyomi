@@ -299,6 +299,16 @@
    "sha1": "8bd501e31921e9601788316dbd3ce9833a97bcbc",
    "crc32": "c2f5cc97",
    "used_by": "tools/oracle/record_barcode_boy.py, record_monster_maker.py, record_kattobi.py, record_famista3.py and record_famjock2.py, which boot the Game Boy in MAME with it; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "gameboy_bardigun",
+   "what": "Barcode Taisen Bardigun, Tamsoft 1998, which reads its own barcode reader on the link port, as MAME's gbcolor software list names it",
+   "path": "gbcolor/barcode/dmg-abej-0.u1",
+   "size": 1048576,
+   "sha256": "253a0a339ec0192033cd69d9fb66b32f680c357002f1106477789db9d10bb3cf",
+   "sha1": "bc7847dee730ba274f3c3ccb511f1dad6b6a93c7",
+   "crc32": "ddfcf4b7",
+   "used_by": "tools/oracle/record_bardigun.py and tools/oracle/extract_bardigun.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
   }
  ]
 }

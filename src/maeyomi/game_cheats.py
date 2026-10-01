@@ -176,10 +176,17 @@ def _sdgundam_cards() -> Iterable[DatachCard | None]:
     return (strongest_sdgundam(unit) for unit in UNITS)
 
 
+def _bardigun_cards() -> Iterable[DatachCard | None]:
+    """Every creature a Bardigun barcode can be sure to hatch."""
+    device = Device.BARDIGUN
+    return (_build(device, species) for species in _entries(device, GameKind.FIGHTER))
+
+
 CANDIDATES: Final[dict[Device, Callable[[], Iterable[DatachCard | None]]]] = {
     Device.MONSTER_MAKER: _monster_maker_cards,
     Device.BATTLE_SPACE: _battle_space_cards,
     Device.DATACH_SD_GUNDAM: _sdgundam_cards,
+    Device.BARDIGUN: _bardigun_cards,
 }
 
 
@@ -420,6 +427,11 @@ KINDS: Final[dict[Device, Callable[[], tuple[GameCheat, ...]]]] = {
             "ナムコの はこで 10 に なる",
             lambda: (strongest_boxed(),),
         ),
+    ),
+    Device.BARDIGUN: lambda: (
+        _numbered(Device.BARDIGUN, "DPW", "Most power", "ちからが いちばん つよい"),
+        _numbered(Device.BARDIGUN, "DSM", "Most smarts", "あたまが いちばん いい"),
+        _numbered(Device.BARDIGUN, "DSD", "Most speed", "はやさが いちばん はやい"),
     ),
 }
 """Every game's kinds after its strongest card."""

@@ -87,6 +87,11 @@ GAME_STAT_LOOKS: Final[dict[str, Carried]] = {
     "HJP": Carried.MP,
     "HTB": Carried.PP,
     "HTP": Carried.ST,
+    "DPW": Carried.ST,
+    "DSM": Carried.MP,
+    "DTG": Carried.DF,
+    "DSD": Carried.PP,
+    "DHP": Carried.HP,
 }
 """Each Datach game number drawn in the colours of the Barcode Battler number closest to it."""
 GAME_ITEM_KINDS: Final = frozenset(

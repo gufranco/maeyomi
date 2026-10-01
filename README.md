@@ -34,10 +34,11 @@ armour card and it works out which barcode the device would read that way,
 then prints it. Maeyomi is the Barcode Battler's own word for the front read,
 the one that produces a fighter.
 
-It covers three standalone machines and 24 games: six Datach games for the
+It covers three standalone machines and 25 games: six Datach games for the
 Famicom, whose reader sits in the cartridge; thirteen Famicom and Super
 Famicom games that take their codes from a Barcode Battler II plugged into the
-console; and five Game Boy games read through Namco's Barcode Boy. For each
+console; five Game Boy games read through Namco's Barcode Boy; and Barcode
+Taisen Bardigun, a Game Boy game with a reader of its own. For each
 one it prints the released cards whose barcodes are known, a card made to
 order, and a cheat card: the strongest or most useful card the device will
 read.
@@ -83,6 +84,7 @@ games and their card packs are on
 | Kattobi Road | カットビロード | Game Boy, through the Barcode Boy | `kattobi` |
 | Famista 3 | ファミスタ3 | Game Boy, through the Barcode Boy | `famista3` |
 | Family Jockey 2 | ファミリージョッキー2 名馬の血統 | Game Boy, through the Barcode Boy | `famjock2` |
+| Barcode Taisen Bardigun | バーコード対戦バーディガン | Game Boy, through its own reader | `bardigun` |
 
 ## Install
 
@@ -581,6 +583,19 @@ for the Barcode Boy's own card, one more of all six. No number passes 10.
 The decoder agrees with the game in MAME on all 459 codes it was given in each
 of the three menus.
 
+### Barcode Taisen Bardigun
+
+Barcode Taisen Bardigun, Tamsoft's 1998 Game Boy game, came with its own
+barcode reader on the link port and hatches a creature, a Barloid, from every
+barcode scanned at the farm. `--device bardigun` makes cards for it. In a
+thirteen-digit code the eleventh digit, 1 to 7, picks one of seven tables of
+ten Barloids and the check digit picks one of them; an eight-digit code is read
+the same way from its third and first digits. When the table digit is 0, 8 or
+9, the egg hatches at random. A Barloid hatches with its own power, smarts,
+toughness, speed and HP, which the card shows. Pick one of the 35 Barloids a
+code can be sure to hatch with `--character`. The decoder agrees with the game
+in MAME on all 104 codes it was given, among them every table and check digit.
+
 ## Checking the machine
 
 `maeyomi doctor` checks that this computer can print a card the device will
@@ -833,6 +848,7 @@ is the default, the card this section describes for each device.
 | Kattobi Road | `strongest`, `torque` |
 | Famista 3 | `strongest`, `average`, `speed`, `era`, `pitch`, `stamina` |
 | Family Jockey 2 | `strongest`, `mare`, `stallion`, `boxed` for the one horse that reaches 10 once a Namco box bonus lands |
+| Barcode Taisen Bardigun | `strongest`, `power`, `smarts`, `speed` |
 
 A kind that would print the strongest card again is left out, so Battle Space
 has no HP or AP kind: its strongest card already has the most of both.
@@ -936,6 +952,11 @@ Famista 3 gets a rookie who bats left and hits 60 home runs, the most any code
 gives, at a .204 average.
 
 Family Jockey 2 gets a racehorse with 9 in all six numbers.
+
+Barcode Taisen Bardigun gets オマメ, Omame, who hatches with HP 105, the most
+of any Barloid, and toughness 7. Its other kinds hatch the Barloid with the
+most power, smarts or speed; toughness has no kind of its own, since Omame
+already has the most.
 
 Hatayama Hatch gets a wizard with stamina 99900, attack and defense 19900 and
 99 magic.
@@ -1074,6 +1095,10 @@ under which licence:
 - **[MAME's Game Boy software list](https://github.com/mamedev/mame/blob/master/hash/gameboy.xml)**:
   the barcodes and names of the Kattobi Road, Famista 3 and Family Jockey 2
   cards.
+- **GBE+'s
+  [Bardigun notes](https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Taisen_Bardigun.txt)**:
+  the Bardigun reader's protocol and nine barcodes with what they hatch, each
+  checked here in MAME.
 - **[MAME](https://www.mamedev.org/)** 0.289 runs every game in the checks. The
   game rules come from each game's own program; no ROM byte is shipped, and each
   ROM is named in `artifacts.manifest.json` by its checksum.

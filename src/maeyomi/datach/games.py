@@ -35,6 +35,15 @@ from maeyomi.datach.yuyu_names import ITEMS as YUYU_ITEMS
 from maeyomi.datach.yuyu_names import TECHNIQUE_NAMES, bonus_text
 from maeyomi.datach.yuyu_names import card_named as yuyu_named
 from maeyomi.datach.yuyu_tables import SECRET_CHARACTER
+from maeyomi.gameboy.bardigun import STAT_KEYS as BARDIGUN_STATS
+from maeyomi.gameboy.bardigun import (
+    bardigun_entries,
+    bardigun_named,
+    bardigun_text,
+    build_bardigun,
+    decode_bardigun,
+    strongest_bardigun,
+)
 from maeyomi.gameboy.battlespace import STAT_KEYS as BATTLE_SPACE_STATS
 from maeyomi.gameboy.battlespace import (
     battle_space_entries,
@@ -482,6 +491,16 @@ GAMES: Final[dict[Device, DatachGame]] = {
         named=famjock2_named,
         stat_keys=FAMJOCK2_STATS,
         picks=famjock2_picks,
+        datach_reader=False,
+    ),
+    Device.BARDIGUN: DatachGame(
+        decode=decode_bardigun,
+        build=build_bardigun,
+        strongest=strongest_bardigun,
+        entries=bardigun_entries,
+        describe=bardigun_text,
+        named=bardigun_named,
+        stat_keys=BARDIGUN_STATS,
         datach_reader=False,
     ),
 }

@@ -58,7 +58,7 @@ function checkDeviceMenu() {
     'Super Famicom, through the Barcode Battler II',
     'Famicom Datach',
     'Famicom, through the Barcode Battler II',
-    'Game Boy, through the Barcode Boy',
+    'Game Boy',
   ]), `the device list is grouped as ${JSON.stringify(headings)}`);
   const machines = menu[0]?.[1] ?? [];
   const sorted = machines.toSorted((first, second) => first.localeCompare(second, 'en'));

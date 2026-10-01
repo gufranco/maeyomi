@@ -216,6 +216,7 @@ FORMS: Final[dict[Device, DeviceForm]] = {
     Device.KATTOBI: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.FAMISTA3: DeviceForm(("game", "picks"), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.FAMJOCK2: DeviceForm(("game", "picks"), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
+    Device.BARDIGUN: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.HATAYAMA: DeviceForm(
         ("game", "picks", "stats"),
         HATAYAMA_MAX_HP,
@@ -246,6 +247,7 @@ GAME_BOY_GAMES: Final = frozenset(
         Device.KATTOBI,
         Device.FAMISTA3,
         Device.FAMJOCK2,
+        Device.BARDIGUN,
     }
 )
 

@@ -101,6 +101,11 @@ STAT_LABELS: Final[dict[str, Bilingual]] = {
     "HJP": Bilingual("Jump", "ジャンプ"),
     "HTB": Bilingual("Turbo", "ターボ"),
     "HTP": Bilingual("Type", "タイプ"),
+    "DPW": Bilingual("Power", "ちから"),
+    "DSM": Bilingual("Smarts", "あたま"),
+    "DTG": Bilingual("Toughness", "じょうぶ"),
+    "DSD": Bilingual("Speed", "はやさ"),
+    "DHP": Bilingual("HP", "HP"),
 }
 
 RACE_DESCRIPTIONS: Final[dict[Race, str]] = {
