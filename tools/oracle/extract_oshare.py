@@ -19,15 +19,14 @@ from typing import Final
 
 sys.path.insert(0, str(Path(__file__).parent))
 
+from nitro_fs import files
 from record_game import verify_artifact
 
 ARTIFACT: Final = "nds_oshare"
 ROM_PATH: Final = "nds/oshare.nds"
 FIELD_SIZE: Final = 4
-SHORT_SIZE: Final = 2
 ARM9_OFFSET_FIELD: Final = 0x20
 ARM9_ADDRESS_FIELD: Final = 0x28
-FNT_OFFSET_FIELD: Final = 0x40
 ALPHABETS_ADDRESS: Final = 0x0209DFC0
 ALPHABET_SIZE: Final = 44
 ALPHABETS: Final = 4
@@ -48,12 +47,8 @@ CODE_COUNTS: Final = {
     "short_special": 4,
 }
 CODE_SIZE: Final = 2
-MAIN_ENTRY: Final = 8
-DIRECTORY_FLAG: Final = 0x80
-DIRECTORY_BASE: Final = 0xF000
 CARD_FOLDER: Final = "card"
 CARD_SUFFIX: Final = ".crd"
-MAX_DEPTH: Final = 8
 
 
 def main() -> None:
@@ -118,35 +113,8 @@ def code_table(rom: bytes, name: str, count: int) -> tuple[str, ...]:
     )
 
 
-def _entries(rom: bytes, fnt: int, directory: int) -> list[tuple[str, int | None]]:
-    """The names in one directory, each with its own directory number or None for a file."""
-    place = fnt + _number(rom, fnt + MAIN_ENTRY * (directory - DIRECTORY_BASE))
-    found: list[tuple[str, int | None]] = []
-    while rom[place]:
-        size = rom[place] & ~DIRECTORY_FLAG
-        is_directory = bool(rom[place] & DIRECTORY_FLAG)
-        name = rom[place + 1 : place + 1 + size].decode("latin1")
-        place += 1 + size
-        child = _number(rom, place, SHORT_SIZE) if is_directory else None
-        place += SHORT_SIZE if is_directory else 0
-        found = [*found, (name, child)]
-    return found
-
-
-def _walk(rom: bytes, fnt: int, directory: int, path: tuple[str, ...]) -> list[tuple[str, ...]]:
-    """Every file path under a directory, depth first, in table order."""
-    if len(path) > MAX_DEPTH:
-        return []
-    paths: list[tuple[str, ...]] = []
-    for name, child in _entries(rom, fnt, directory):
-        paths = paths + (
-            [(*path, name)] if child is None else _walk(rom, fnt, child, (*path, name))
-        )
-    return paths
-
-
 def card_files(rom: bytes) -> tuple[tuple[str, str], ...]:
-    paths = _walk(rom, _number(rom, FNT_OFFSET_FIELD), DIRECTORY_BASE, ())
+    paths = [path for path, _ in files(rom)]
     return tuple(
         (path[-2], path[-1].removesuffix(CARD_SUFFIX))
         for path in paths

@@ -1,0 +1,8089 @@
+{
+ "game": "Kouchuu Ouja Mushiking Super Collection",
+ "emulator": "Unicorn running the game's ARM9 program from its ROM with m_barcode.bin loaded and the table at $021291FC filled as its loader does; tools/oracle/record_mushiking.py tries the comparisons in the order $0201ECAC does",
+ "recorded_utc": "2026-10-01T16:19:00Z",
+ "cards": [
+  {
+   "barcode": "GRFCT20K03W02",
+   "list": 0,
+   "index": 0,
+   "variant": -1
+  },
+  {
+   "barcode": "HLSPT20K03W03",
+   "list": 0,
+   "index": 1,
+   "variant": -1
+  },
+  {
+   "barcode": "GRDGT18K04W01",
+   "list": 0,
+   "index": 2,
+   "variant": -1
+  },
+  {
+   "barcode": "CCSPT18K04W03",
+   "list": 0,
+   "index": 3,
+   "variant": -1
+  },
+  {
+   "barcode": "EZOGT16K06W04",
+   "list": 0,
+   "index": 4,
+   "variant": -1
+  },
+  {
+   "barcode": "OOKGT14K07W04",
+   "list": 0,
+   "index": 5,
+   "variant": -1
+  },
+  {
+   "barcode": "GHDGT12K09W07",
+   "list": 0,
+   "index": 6,
+   "variant": -1
+  },
+  {
+   "barcode": "MKWGT10K10W07",
+   "list": 0,
+   "index": 7,
+   "variant": -1
+  },
+  {
+   "barcode": "KKWGT10K10W10",
+   "list": 0,
+   "index": 8,
+   "variant": -1
+  },
+  {
+   "barcode": "SAKCT16K06W05",
+   "list": 0,
+   "index": 9,
+   "variant": -1
+  },
+  {
+   "barcode": "MYMCT14K07W05",
+   "list": 0,
+   "index": 10,
+   "variant": -1
+  },
+  {
+   "barcode": "HRTCT12K09W08",
+   "list": 0,
+   "index": 11,
+   "variant": -1
+  },
+  {
+   "barcode": "NOKCT12K09W11",
+   "list": 0,
+   "index": 12,
+   "variant": -1
+  },
+  {
+   "barcode": "EHACT10K10W08",
+   "list": 0,
+   "index": 13,
+   "variant": -1
+  },
+  {
+   "barcode": "KABPT12K09W09",
+   "list": 0,
+   "index": 14,
+   "variant": -1
+  },
+  {
+   "barcode": "TGDPT12K09W12",
+   "list": 0,
+   "index": 15,
+   "variant": -1
+  },
+  {
+   "barcode": "GSRPT10K10W09",
+   "list": 0,
+   "index": 16,
+   "variant": -1
+  },
+  {
+   "barcode": "NTDPT10K10W12",
+   "list": 0,
+   "index": 17,
+   "variant": -1
+  },
+  {
+   "barcode": "ACTGT20K03W01",
+   "list": 0,
+   "index": 18,
+   "variant": -1
+  },
+  {
+   "barcode": "PWNCT18K04W02",
+   "list": 0,
+   "index": 19,
+   "variant": -1
+  },
+  {
+   "barcode": "MKBGT12K09W10",
+   "list": 0,
+   "index": 20,
+   "variant": -1
+  },
+  {
+   "barcode": "SPSCT10K10W11",
+   "list": 0,
+   "index": 21,
+   "variant": -1
+  },
+  {
+   "barcode": "NEPPT16K06W06",
+   "list": 0,
+   "index": 22,
+   "variant": -1
+  },
+  {
+   "barcode": "ATLPT14K07W06",
+   "list": 0,
+   "index": 23,
+   "variant": -1
+  },
+  {
+   "barcode": "QNNAKT0BXLN7J",
+   "list": 0,
+   "index": 24,
+   "variant": -1
+  },
+  {
+   "barcode": "961LDTLBHS4UT",
+   "list": 0,
+   "index": 25,
+   "variant": -1
+  },
+  {
+   "barcode": "9NAJQTKRHS87J",
+   "list": 0,
+   "index": 26,
+   "variant": -1
+  },
+  {
+   "barcode": "9P1LDTLRXG4MM",
+   "list": 0,
+   "index": 27,
+   "variant": -1
+  },
+  {
+   "barcode": "EKAJQT8FXGDMU",
+   "list": 0,
+   "index": 28,
+   "variant": -1
+  },
+  {
+   "barcode": "QKIHFT81XGGM5",
+   "list": 0,
+   "index": 29,
+   "variant": -1
+  },
+  {
+   "barcode": "84IHFTZNXI8OJ",
+   "list": 0,
+   "index": 30,
+   "variant": -1
+  },
+  {
+   "barcode": "9X1N3TZHXS64D",
+   "list": 0,
+   "index": 31,
+   "variant": -1
+  },
+  {
+   "barcode": "9CDMNAWHXIGVE",
+   "list": 0,
+   "index": 32,
+   "variant": -1
+  },
+  {
+   "barcode": "Q9SKGT4FX329C",
+   "list": 0,
+   "index": 33,
+   "variant": -1
+  },
+  {
+   "barcode": "QHD5QT41XI6GD",
+   "list": 0,
+   "index": 34,
+   "variant": -1
+  },
+  {
+   "barcode": "9IMD1TVNXSVZT",
+   "list": 0,
+   "index": 35,
+   "variant": -1
+  },
+  {
+   "barcode": "9AMD1AKNXSZVR",
+   "list": 0,
+   "index": 36,
+   "variant": -1
+  },
+  {
+   "barcode": "9GTL3TVHXS6OH",
+   "list": 0,
+   "index": 37,
+   "variant": -1
+  },
+  {
+   "barcode": "9HMGRT2NXS7QE",
+   "list": 0,
+   "index": 38,
+   "variant": -1
+  },
+  {
+   "barcode": "9GLHTA0NXI84F",
+   "list": 0,
+   "index": 39,
+   "variant": -1
+  },
+  {
+   "barcode": "QKTNCT2HXS67C",
+   "list": 0,
+   "index": 40,
+   "variant": -1
+  },
+  {
+   "barcode": "QILHTA0HFL65R",
+   "list": 0,
+   "index": 41,
+   "variant": -1
+  },
+  {
+   "barcode": "Q0KLCTKBHSM5X",
+   "list": 0,
+   "index": 42,
+   "variant": -1
+  },
+  {
+   "barcode": "EP1CCT0RXGJC7",
+   "list": 0,
+   "index": 43,
+   "variant": -1
+  },
+  {
+   "barcode": "8W1N3AWNX3C4D",
+   "list": 0,
+   "index": 44,
+   "variant": -1
+  },
+  {
+   "barcode": "9KEJNAKHXI6VC",
+   "list": 0,
+   "index": 45,
+   "variant": -1
+  },
+  {
+   "barcode": "EYDJ4TPFXG7JR",
+   "list": 0,
+   "index": 46,
+   "variant": -1
+  },
+  {
+   "barcode": "QNDJ4TP1XIJ5X",
+   "list": 0,
+   "index": 47,
+   "variant": -1
+  },
+  {
+   "barcode": "94LHTA4NXIP5T",
+   "list": 0,
+   "index": 48,
+   "variant": -1
+  },
+  {
+   "barcode": "9IEMQA4HXI6ZC",
+   "list": 0,
+   "index": 49,
+   "variant": -1
+  },
+  {
+   "barcode": "Q0D5QA8FXG65S",
+   "list": 0,
+   "index": 50,
+   "variant": -1
+  },
+  {
+   "barcode": "9CMD1A81X394E",
+   "list": 0,
+   "index": 51,
+   "variant": -1
+  },
+  {
+   "barcode": "E901KALBXL6MF",
+   "list": 0,
+   "index": 52,
+   "variant": -1
+  },
+  {
+   "barcode": "QW3TGALRXL0MJ",
+   "list": 0,
+   "index": 53,
+   "variant": -1
+  },
+  {
+   "barcode": "5X3JVS72IW1GM",
+   "list": 0,
+   "index": 54,
+   "variant": -1
+  },
+  {
+   "barcode": "R2FSMBE7D4IVH",
+   "list": 0,
+   "index": 55,
+   "variant": -1
+  },
+  {
+   "barcode": "3TPR8GUIA06TO",
+   "list": 0,
+   "index": 56,
+   "variant": -1
+  },
+  {
+   "barcode": "Y77J8M2LPR16Y",
+   "list": 0,
+   "index": 57,
+   "variant": -1
+  },
+  {
+   "barcode": "NC37PH5NODUHP",
+   "list": 0,
+   "index": 58,
+   "variant": -1
+  },
+  {
+   "barcode": "H1I6HJG5JEIVX",
+   "list": 0,
+   "index": 59,
+   "variant": -1
+  },
+  {
+   "barcode": "BIRWNVG02T87L",
+   "list": 0,
+   "index": 60,
+   "variant": -1
+  },
+  {
+   "barcode": "B7S2AY0DSI7BR",
+   "list": 0,
+   "index": 61,
+   "variant": -1
+  },
+  {
+   "barcode": "B82F90GXSMELP",
+   "list": 0,
+   "index": 62,
+   "variant": -1
+  },
+  {
+   "barcode": "BXNN4ESQY3GV7",
+   "list": 0,
+   "index": 63,
+   "variant": -1
+  },
+  {
+   "barcode": "BEIZAPIMS3WY0",
+   "list": 0,
+   "index": 64,
+   "variant": -1
+  },
+  {
+   "barcode": "BNX70SUEGCJQZ",
+   "list": 0,
+   "index": 65,
+   "variant": -1
+  },
+  {
+   "barcode": "BYD24JRCNGA9G",
+   "list": 0,
+   "index": 66,
+   "variant": -1
+  },
+  {
+   "barcode": "BDXA3MSTB6YDL",
+   "list": 0,
+   "index": 67,
+   "variant": -1
+  },
+  {
+   "barcode": "BCF23FUXPVN5H",
+   "list": 0,
+   "index": 68,
+   "variant": -1
+  },
+  {
+   "barcode": "B2QY3HFD1Y2ET",
+   "list": 0,
+   "index": 69,
+   "variant": -1
+  },
+  {
+   "barcode": "BP91X4Q9YE6XJ",
+   "list": 0,
+   "index": 70,
+   "variant": -1
+  },
+  {
+   "barcode": "BN6SESTJB2BQE",
+   "list": 0,
+   "index": 71,
+   "variant": -1
+  },
+  {
+   "barcode": "B6Q7I3JLQDT8H",
+   "list": 0,
+   "index": 72,
+   "variant": -1
+  },
+  {
+   "barcode": "BPHLG11BTEBY3",
+   "list": 0,
+   "index": 73,
+   "variant": -1
+  },
+  {
+   "barcode": "B8TKY1WCRZAA2",
+   "list": 0,
+   "index": 74,
+   "variant": -1
+  },
+  {
+   "barcode": "BX0P17967VQ4P",
+   "list": 0,
+   "index": 75,
+   "variant": -1
+  },
+  {
+   "barcode": "BA3O91GK71I1V",
+   "list": 0,
+   "index": 76,
+   "variant": -1
+  },
+  {
+   "barcode": "B5BVJVUAL2SR7",
+   "list": 0,
+   "index": 77,
+   "variant": -1
+  },
+  {
+   "barcode": "B8EFIRZ4HUGCT",
+   "list": 0,
+   "index": 78,
+   "variant": -1
+  },
+  {
+   "barcode": "BES46XDDLR3Z5",
+   "list": 0,
+   "index": 79,
+   "variant": -1
+  },
+  {
+   "barcode": "BIG5AYSOCY5JA",
+   "list": 0,
+   "index": 80,
+   "variant": -1
+  },
+  {
+   "barcode": "BG735FLSHGHZY",
+   "list": 0,
+   "index": 81,
+   "variant": -1
+  },
+  {
+   "barcode": "BM2NCAL8Z76CI",
+   "list": 0,
+   "index": 82,
+   "variant": -1
+  },
+  {
+   "barcode": "BXP7V4KYUCSAY",
+   "list": 0,
+   "index": 83,
+   "variant": -1
+  },
+  {
+   "barcode": "BV9855L1B54FZ",
+   "list": 0,
+   "index": 84,
+   "variant": -1
+  },
+  {
+   "barcode": "B62V3SV8XDW6M",
+   "list": 0,
+   "index": 85,
+   "variant": -1
+  },
+  {
+   "barcode": "BGEFB1Y9SL36U",
+   "list": 0,
+   "index": 86,
+   "variant": -1
+  },
+  {
+   "barcode": "B1KB4NR1VGWMY",
+   "list": 0,
+   "index": 87,
+   "variant": -1
+  },
+  {
+   "barcode": "BZT6ML58NQ2K0",
+   "list": 0,
+   "index": 88,
+   "variant": -1
+  },
+  {
+   "barcode": "BH6BZXOK620M5",
+   "list": 0,
+   "index": 89,
+   "variant": -1
+  },
+  {
+   "barcode": "B9NR4JT7626SW",
+   "list": 0,
+   "index": 90,
+   "variant": -1
+  },
+  {
+   "barcode": "BGHFYPHKYNVUN",
+   "list": 0,
+   "index": 91,
+   "variant": -1
+  },
+  {
+   "barcode": "B8KU7VEQ7LBKT",
+   "list": 0,
+   "index": 92,
+   "variant": -1
+  },
+  {
+   "barcode": "BGG5XB8ZJFZ2Y",
+   "list": 0,
+   "index": 93,
+   "variant": -1
+  },
+  {
+   "barcode": "BD0XB2BAJSQEL",
+   "list": 0,
+   "index": 94,
+   "variant": -1
+  },
+  {
+   "barcode": "BEB1KRPSVDPUA",
+   "list": 0,
+   "index": 95,
+   "variant": -1
+  },
+  {
+   "barcode": "BW5N3WRNEEQ1E",
+   "list": 0,
+   "index": 96,
+   "variant": -1
+  },
+  {
+   "barcode": "BCD16HH9MSNLL",
+   "list": 0,
+   "index": 97,
+   "variant": -1
+  },
+  {
+   "barcode": "B5KTGREAK06TN",
+   "list": 0,
+   "index": 98,
+   "variant": -1
+  },
+  {
+   "barcode": "BYS17ABS2B61A",
+   "list": 0,
+   "index": 99,
+   "variant": -1
+  },
+  {
+   "barcode": "B5NTDJNXK5EB6",
+   "list": 0,
+   "index": 100,
+   "variant": -1
+  },
+  {
+   "barcode": "BZRDID2RFYMU5",
+   "list": 0,
+   "index": 101,
+   "variant": -1
+  },
+  {
+   "barcode": "BX3DGUHVVWGV9",
+   "list": 0,
+   "index": 102,
+   "variant": -1
+  },
+  {
+   "barcode": "BRITJYHT7NGKL",
+   "list": 0,
+   "index": 103,
+   "variant": -1
+  },
+  {
+   "barcode": "BMGEOUOHQ7X7G",
+   "list": 0,
+   "index": 104,
+   "variant": -1
+  },
+  {
+   "barcode": "MDBTLOW8ANDS1",
+   "list": 0,
+   "index": 105,
+   "variant": -1
+  },
+  {
+   "barcode": "MB1RLBZQYBFFF",
+   "list": 0,
+   "index": 106,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1EFF1K3HFFF",
+   "list": 0,
+   "index": 107,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1CKPMZ3WFFF",
+   "list": 0,
+   "index": 108,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1GVI25OQFFF",
+   "list": 0,
+   "index": 109,
+   "variant": 17
+  },
+  {
+   "barcode": "MB19D7HQIMFFF",
+   "list": 0,
+   "index": 110,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1LWE2EUEFFF",
+   "list": 0,
+   "index": 111,
+   "variant": 17
+  },
+  {
+   "barcode": "MB173D2PQWFFF",
+   "list": 0,
+   "index": 112,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1GNCSA3BFFF",
+   "list": 0,
+   "index": 113,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1IBHQMPPFFF",
+   "list": 0,
+   "index": 114,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1SI2AG8TFFF",
+   "list": 0,
+   "index": 115,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1LPE2C6AFFF",
+   "list": 0,
+   "index": 116,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1SNW7MSJFFF",
+   "list": 0,
+   "index": 117,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1HWESSMTFFF",
+   "list": 0,
+   "index": 118,
+   "variant": 17
+  },
+  {
+   "barcode": "MB14UR86VUFFF",
+   "list": 0,
+   "index": 119,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1B81CLS5FFF",
+   "list": 0,
+   "index": 120,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1A17YGT9FFF",
+   "list": 0,
+   "index": 121,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1RLNASX7FFF",
+   "list": 0,
+   "index": 122,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1K9PWE2ZFFF",
+   "list": 0,
+   "index": 123,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1RTSYXH4FFF",
+   "list": 0,
+   "index": 124,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1YWYLAG7FFF",
+   "list": 0,
+   "index": 125,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1S5QB7NIFFF",
+   "list": 0,
+   "index": 126,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1EPQU2HLFFF",
+   "list": 0,
+   "index": 127,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1YU5F97LFFF",
+   "list": 0,
+   "index": 128,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1RKUP3H9FFF",
+   "list": 0,
+   "index": 129,
+   "variant": 17
+  },
+  {
+   "barcode": "MB17BZUGZ4FFF",
+   "list": 0,
+   "index": 130,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1U43NYV2FFF",
+   "list": 0,
+   "index": 131,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1H9FHZYKFFF",
+   "list": 0,
+   "index": 132,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1T05RFGOFFF",
+   "list": 0,
+   "index": 133,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1N3OZR49FFF",
+   "list": 0,
+   "index": 134,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1B3N2X1HFFF",
+   "list": 0,
+   "index": 135,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1P3XRJVKFFF",
+   "list": 0,
+   "index": 136,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1WGP36EYFFF",
+   "list": 0,
+   "index": 137,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1AOL4J96FFF",
+   "list": 0,
+   "index": 138,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1GYZ7J2IFFF",
+   "list": 0,
+   "index": 139,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1U715IFLFFF",
+   "list": 0,
+   "index": 140,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1KK4VANTFFF",
+   "list": 0,
+   "index": 141,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1TLET71TFFF",
+   "list": 0,
+   "index": 142,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1CJ9AJYSFFF",
+   "list": 0,
+   "index": 143,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1K0SEFIBFFF",
+   "list": 0,
+   "index": 144,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1TFK77L0FFF",
+   "list": 0,
+   "index": 145,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1RL766TLFFF",
+   "list": 0,
+   "index": 146,
+   "variant": 17
+  },
+  {
+   "barcode": "MB15NJ15PDFFF",
+   "list": 0,
+   "index": 147,
+   "variant": 17
+  },
+  {
+   "barcode": "MB17EWH5M3FFF",
+   "list": 0,
+   "index": 148,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1BED7NKGFFF",
+   "list": 0,
+   "index": 149,
+   "variant": 17
+  },
+  {
+   "barcode": "MB17S3B2FKFFF",
+   "list": 0,
+   "index": 150,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1IFAUBCBFFF",
+   "list": 0,
+   "index": 151,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1FL1NKC9FFF",
+   "list": 0,
+   "index": 152,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1I6FHDZ2FFF",
+   "list": 0,
+   "index": 153,
+   "variant": 17
+  },
+  {
+   "barcode": "MB17Z3M0E5FFF",
+   "list": 0,
+   "index": 154,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1H2OVI1RFFF",
+   "list": 0,
+   "index": 155,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1EXOGMBQFFF",
+   "list": 0,
+   "index": 156,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1B15MAO9FFF",
+   "list": 0,
+   "index": 157,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1RZVO8KYFFF",
+   "list": 0,
+   "index": 158,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1XNNJVHSFFF",
+   "list": 0,
+   "index": 159,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1VF2M7KCFFF",
+   "list": 0,
+   "index": 160,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1RCFX6MOFFF",
+   "list": 0,
+   "index": 161,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1ZUZG38OFFF",
+   "list": 0,
+   "index": 162,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1YV6P07DFFF",
+   "list": 0,
+   "index": 163,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1SGI8AERFFF",
+   "list": 0,
+   "index": 164,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1KXWQPYTFFF",
+   "list": 0,
+   "index": 165,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1B39UGDSFFF",
+   "list": 0,
+   "index": 166,
+   "variant": 17
+  },
+  {
+   "barcode": "MB11B5KC0TFFF",
+   "list": 0,
+   "index": 167,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1EZFBENCFFF",
+   "list": 0,
+   "index": 168,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1MTXMYHSFFF",
+   "list": 0,
+   "index": 169,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1GMVMDUAFFF",
+   "list": 0,
+   "index": 170,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1R7X9HZ0FFF",
+   "list": 0,
+   "index": 171,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1KS28JCFFFF",
+   "list": 0,
+   "index": 172,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1ZX9RHXZFFF",
+   "list": 0,
+   "index": 173,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1K6L4ZCLFFF",
+   "list": 0,
+   "index": 174,
+   "variant": 17
+  },
+  {
+   "barcode": "MB19GPAU72FFF",
+   "list": 0,
+   "index": 175,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1KIHQWLKFFF",
+   "list": 0,
+   "index": 176,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1U8FVGY4FFF",
+   "list": 0,
+   "index": 177,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1B8XUAZFFFF",
+   "list": 0,
+   "index": 178,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1IKB7KXTFFF",
+   "list": 0,
+   "index": 179,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1DYXIGH2FFF",
+   "list": 0,
+   "index": 180,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1MVMSK7DFFF",
+   "list": 0,
+   "index": 181,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1CVKY14RFFF",
+   "list": 0,
+   "index": 182,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1TYAVXVBFFF",
+   "list": 0,
+   "index": 183,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1RNXDE8YFFF",
+   "list": 0,
+   "index": 184,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1Q4UIT8CFFF",
+   "list": 0,
+   "index": 185,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1JKF475QFFF",
+   "list": 0,
+   "index": 186,
+   "variant": 17
+  },
+  {
+   "barcode": "MB18R1LOMTFFF",
+   "list": 0,
+   "index": 187,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1VP2MJ5HFFF",
+   "list": 0,
+   "index": 188,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1HSFGZQBFFF",
+   "list": 0,
+   "index": 189,
+   "variant": 17
+  },
+  {
+   "barcode": "LNAVM1K34E3F3",
+   "list": 1,
+   "index": 0,
+   "variant": -1
+  },
+  {
+   "barcode": "LKG5BUDKEHKFB",
+   "list": 1,
+   "index": 1,
+   "variant": -1
+  },
+  {
+   "barcode": "LTGG1QJX8GRHZ",
+   "list": 1,
+   "index": 2,
+   "variant": -1
+  },
+  {
+   "barcode": "LRQTLZ96G1PYD",
+   "list": 1,
+   "index": 3,
+   "variant": -1
+  },
+  {
+   "barcode": "LXLYS0I59E3XT",
+   "list": 1,
+   "index": 4,
+   "variant": -1
+  },
+  {
+   "barcode": "LOHD1BC1LRTQV",
+   "list": 1,
+   "index": 5,
+   "variant": -1
+  },
+  {
+   "barcode": "L3OK42CAS7L6R",
+   "list": 1,
+   "index": 6,
+   "variant": -1
+  },
+  {
+   "barcode": "L7NLKCYSKJX91",
+   "list": 1,
+   "index": 7,
+   "variant": -1
+  },
+  {
+   "barcode": "LPRVCU1VHREGN",
+   "list": 1,
+   "index": 8,
+   "variant": -1
+  },
+  {
+   "barcode": "L1NRUGFF04TW6",
+   "list": 1,
+   "index": 9,
+   "variant": -1
+  },
+  {
+   "barcode": "LS6NZKM6PUX1U",
+   "list": 1,
+   "index": 10,
+   "variant": -1
+  },
+  {
+   "barcode": "LEIPJ8MH1GEXI",
+   "list": 1,
+   "index": 11,
+   "variant": -1
+  },
+  {
+   "barcode": "LIX5WZX19MS5W",
+   "list": 1,
+   "index": 12,
+   "variant": -1
+  },
+  {
+   "barcode": "LDSVE14P2HEPE",
+   "list": 1,
+   "index": 13,
+   "variant": -1
+  },
+  {
+   "barcode": "LSGUQGALWVQ51",
+   "list": 1,
+   "index": 14,
+   "variant": -1
+  },
+  {
+   "barcode": "LCS5W8KY313RZ",
+   "list": 1,
+   "index": 15,
+   "variant": -1
+  },
+  {
+   "barcode": "L4CG9XJ9PW090",
+   "list": 1,
+   "index": 16,
+   "variant": -1
+  },
+  {
+   "barcode": "LYSHMD8UBPH90",
+   "list": 1,
+   "index": 17,
+   "variant": -1
+  },
+  {
+   "barcode": "LQKBK17BNWPOE",
+   "list": 1,
+   "index": 18,
+   "variant": -1
+  },
+  {
+   "barcode": "LB6J0AB93BLZP",
+   "list": 1,
+   "index": 19,
+   "variant": -1
+  },
+  {
+   "barcode": "LW3CIPZ7GG4FP",
+   "list": 1,
+   "index": 20,
+   "variant": -1
+  },
+  {
+   "barcode": "LVNIKZVBSWWEN",
+   "list": 1,
+   "index": 21,
+   "variant": -1
+  },
+  {
+   "barcode": "LEOKN9WQJAYY3",
+   "list": 1,
+   "index": 22,
+   "variant": -1
+  },
+  {
+   "barcode": "L87WLZZ0AFM9Q",
+   "list": 1,
+   "index": 23,
+   "variant": -1
+  },
+  {
+   "barcode": "LJC8M9EYY9YX9",
+   "list": 1,
+   "index": 24,
+   "variant": -1
+  },
+  {
+   "barcode": "L2N9VDDB6IX5Y",
+   "list": 1,
+   "index": 25,
+   "variant": -1
+  },
+  {
+   "barcode": "LKPCY3DRH0LQD",
+   "list": 1,
+   "index": 26,
+   "variant": -1
+  },
+  {
+   "barcode": "LPIJ46C9M1TBO",
+   "list": 1,
+   "index": 27,
+   "variant": -1
+  },
+  {
+   "barcode": "LSXAIBITQIWJA",
+   "list": 1,
+   "index": 28,
+   "variant": -1
+  },
+  {
+   "barcode": "LIAOQUU4XS4Y6",
+   "list": 1,
+   "index": 29,
+   "variant": -1
+  },
+  {
+   "barcode": "LKNONUTYMX04G",
+   "list": 1,
+   "index": 30,
+   "variant": -1
+  },
+  {
+   "barcode": "LB8IW2N728FJV",
+   "list": 1,
+   "index": 31,
+   "variant": -1
+  },
+  {
+   "barcode": "LY9VHMOSR13NE",
+   "list": 1,
+   "index": 32,
+   "variant": -1
+  },
+  {
+   "barcode": "LM3RHLQBSM3KA",
+   "list": 1,
+   "index": 33,
+   "variant": -1
+  },
+  {
+   "barcode": "L0N0Y3BRGQYCW",
+   "list": 1,
+   "index": 34,
+   "variant": -1
+  },
+  {
+   "barcode": "LP9NP9APWE5RH",
+   "list": 1,
+   "index": 35,
+   "variant": -1
+  },
+  {
+   "barcode": "LBJV8Y7IT70ZN",
+   "list": 1,
+   "index": 36,
+   "variant": -1
+  },
+  {
+   "barcode": "LOX29CIE3THFB",
+   "list": 1,
+   "index": 37,
+   "variant": -1
+  },
+  {
+   "barcode": "LASFOCF34AHYK",
+   "list": 1,
+   "index": 38,
+   "variant": -1
+  },
+  {
+   "barcode": "LDJ2BW74OL384",
+   "list": 1,
+   "index": 39,
+   "variant": -1
+  },
+  {
+   "barcode": "LUGSIIOV11E3Y",
+   "list": 1,
+   "index": 40,
+   "variant": -1
+  },
+  {
+   "barcode": "LN2BJL1MCP2GX",
+   "list": 1,
+   "index": 41,
+   "variant": -1
+  },
+  {
+   "barcode": "LMB3T77IEAH82",
+   "list": 1,
+   "index": 42,
+   "variant": -1
+  },
+  {
+   "barcode": "L7ZX3G6QUZ21B",
+   "list": 1,
+   "index": 43,
+   "variant": -1
+  },
+  {
+   "barcode": "LZN9LR3IWRSWA",
+   "list": 1,
+   "index": 44,
+   "variant": -1
+  },
+  {
+   "barcode": "LYXKPOIYUDPF7",
+   "list": 1,
+   "index": 45,
+   "variant": -1
+  },
+  {
+   "barcode": "L5CXXOLNPOAVC",
+   "list": 1,
+   "index": 46,
+   "variant": -1
+  },
+  {
+   "barcode": "LDROOEUVVFP73",
+   "list": 1,
+   "index": 47,
+   "variant": -1
+  },
+  {
+   "barcode": "LQRY0IMAIZJAD",
+   "list": 1,
+   "index": 48,
+   "variant": -1
+  },
+  {
+   "barcode": "LA3E3B737IKK9",
+   "list": 1,
+   "index": 49,
+   "variant": -1
+  },
+  {
+   "barcode": "LG2AJXBQABJ90",
+   "list": 1,
+   "index": 50,
+   "variant": -1
+  },
+  {
+   "barcode": "LQGKQX4B6HLS1",
+   "list": 1,
+   "index": 51,
+   "variant": -1
+  },
+  {
+   "barcode": "LUZU4SBV0IRQ8",
+   "list": 1,
+   "index": 52,
+   "variant": -1
+  },
+  {
+   "barcode": "LT56C8XQERSQE",
+   "list": 1,
+   "index": 53,
+   "variant": -1
+  },
+  {
+   "barcode": "LJZPOZFR7JIU0",
+   "list": 1,
+   "index": 54,
+   "variant": -1
+  },
+  {
+   "barcode": "LHDATI6EE9EIT",
+   "list": 1,
+   "index": 55,
+   "variant": -1
+  },
+  {
+   "barcode": "L4AE9IHURQH31",
+   "list": 1,
+   "index": 56,
+   "variant": -1
+  },
+  {
+   "barcode": "LDK21O5KBRWVI",
+   "list": 1,
+   "index": 57,
+   "variant": -1
+  },
+  {
+   "barcode": "LDYTI69JM4NCK",
+   "list": 1,
+   "index": 58,
+   "variant": -1
+  },
+  {
+   "barcode": "LRWV2VQ3TOKQD",
+   "list": 1,
+   "index": 59,
+   "variant": -1
+  },
+  {
+   "barcode": "QXD5QTVNFLVZT",
+   "list": 2,
+   "index": 0,
+   "variant": -1
+  },
+  {
+   "barcode": "Z9NB32VLEM0UJ",
+   "list": 2,
+   "index": 1,
+   "variant": -1
+  },
+  {
+   "barcode": "KM4YED3CQW7JZ",
+   "list": 2,
+   "index": 2,
+   "variant": -1
+  },
+  {
+   "barcode": "1UELN6TW2KE8U",
+   "list": 2,
+   "index": 3,
+   "variant": -1
+  },
+  {
+   "barcode": "7S1FCEXLDR8X8",
+   "list": 2,
+   "index": 4,
+   "variant": -1
+  },
+  {
+   "barcode": "PF1E8OEUKCTGU",
+   "list": 2,
+   "index": 5,
+   "variant": -1
+  },
+  {
+   "barcode": "7KLTX13I9ZYAB",
+   "list": 2,
+   "index": 6,
+   "variant": -1
+  },
+  {
+   "barcode": "BQ3KVBC7780W5",
+   "list": 2,
+   "index": 7,
+   "variant": -1
+  },
+  {
+   "barcode": "BNEN2AWXFH4RQ",
+   "list": 2,
+   "index": 8,
+   "variant": -1
+  },
+  {
+   "barcode": "ME1KAFKUSZFFF",
+   "list": 2,
+   "index": 9,
+   "variant": 17
+  },
+  {
+   "barcode": "ME1EOMAPHDFFF",
+   "list": 2,
+   "index": 10,
+   "variant": 17
+  },
+  {
+   "barcode": "ME1B69SBI4FFF",
+   "list": 2,
+   "index": 11,
+   "variant": 17
+  },
+  {
+   "barcode": "ME1AP67KL2FFF",
+   "list": 2,
+   "index": 12,
+   "variant": 17
+  },
+  {
+   "barcode": "ME1GH3CRPFFFF",
+   "list": 2,
+   "index": 13,
+   "variant": 17
+  },
+  {
+   "barcode": "ME1TLK37R1FFF",
+   "list": 2,
+   "index": 14,
+   "variant": 17
+  },
+  {
+   "barcode": "ME1CJ15KMFFFF",
+   "list": 2,
+   "index": 15,
+   "variant": 17
+  },
+  {
+   "barcode": "ME1N3EW231FFF",
+   "list": 2,
+   "index": 16,
+   "variant": 17
+  },
+  {
+   "barcode": "ME1LGWKYNOFFF",
+   "list": 2,
+   "index": 17,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1GH3CRPFFFF",
+   "list": 2,
+   "index": 18,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1POPB2MNFFF",
+   "list": 2,
+   "index": 19,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1TMH73TSFFF",
+   "list": 2,
+   "index": 20,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1UMY7R4WFFF",
+   "list": 2,
+   "index": 21,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1A61XG5QFFF",
+   "list": 2,
+   "index": 22,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1NPIE7CMFFF",
+   "list": 2,
+   "index": 23,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1R1X4VGMFFF",
+   "list": 2,
+   "index": 24,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1CUWI2BJFFF",
+   "list": 2,
+   "index": 25,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1F6HVNPZFFF",
+   "list": 2,
+   "index": 26,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1VDKL8QYFFF",
+   "list": 2,
+   "index": 27,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1O7K4EPHFFF",
+   "list": 2,
+   "index": 28,
+   "variant": 17
+  },
+  {
+   "barcode": "G0L01W001M000",
+   "list": 3,
+   "index": 0,
+   "variant": -1
+  },
+  {
+   "barcode": "G0L02W004M000",
+   "list": 3,
+   "index": 1,
+   "variant": -1
+  },
+  {
+   "barcode": "G0L03W007M000",
+   "list": 3,
+   "index": 2,
+   "variant": -1
+  },
+  {
+   "barcode": "G0L03W010M000",
+   "list": 3,
+   "index": 3,
+   "variant": -1
+  },
+  {
+   "barcode": "G0L01W000M001",
+   "list": 3,
+   "index": 4,
+   "variant": -1
+  },
+  {
+   "barcode": "G0L02W000M004",
+   "list": 3,
+   "index": 5,
+   "variant": -1
+  },
+  {
+   "barcode": "C0L01W002M000",
+   "list": 3,
+   "index": 6,
+   "variant": -1
+  },
+  {
+   "barcode": "C0L02W005M000",
+   "list": 3,
+   "index": 7,
+   "variant": -1
+  },
+  {
+   "barcode": "C0L03W008M000",
+   "list": 3,
+   "index": 8,
+   "variant": -1
+  },
+  {
+   "barcode": "C0L03W011M000",
+   "list": 3,
+   "index": 9,
+   "variant": -1
+  },
+  {
+   "barcode": "C0L03W000M002",
+   "list": 3,
+   "index": 10,
+   "variant": -1
+  },
+  {
+   "barcode": "C0L01W000M005",
+   "list": 3,
+   "index": 11,
+   "variant": -1
+  },
+  {
+   "barcode": "P0L01W003M000",
+   "list": 3,
+   "index": 12,
+   "variant": -1
+  },
+  {
+   "barcode": "P0L02W006M000",
+   "list": 3,
+   "index": 13,
+   "variant": -1
+  },
+  {
+   "barcode": "P0L03W009M000",
+   "list": 3,
+   "index": 14,
+   "variant": -1
+  },
+  {
+   "barcode": "P0L03W012M000",
+   "list": 3,
+   "index": 15,
+   "variant": -1
+  },
+  {
+   "barcode": "P0L01W000M003",
+   "list": 3,
+   "index": 16,
+   "variant": -1
+  },
+  {
+   "barcode": "P0L02W000M006",
+   "list": 3,
+   "index": 17,
+   "variant": -1
+  },
+  {
+   "barcode": "VAUVE1BLFSTIV",
+   "list": 3,
+   "index": 18,
+   "variant": -1
+  },
+  {
+   "barcode": "U6UVEKDLFSTDV",
+   "list": 3,
+   "index": 19,
+   "variant": -1
+  },
+  {
+   "barcode": "V7UVOTBLFSS3V",
+   "list": 3,
+   "index": 20,
+   "variant": -1
+  },
+  {
+   "barcode": "U6UVEW1LFST3V",
+   "list": 3,
+   "index": 21,
+   "variant": -1
+  },
+  {
+   "barcode": "UXKVE31LFSTIV",
+   "list": 3,
+   "index": 22,
+   "variant": -1
+  },
+  {
+   "barcode": "U0KVES1LFSTIV",
+   "list": 3,
+   "index": 23,
+   "variant": -1
+  },
+  {
+   "barcode": "U9KVEHDLFSTIV",
+   "list": 3,
+   "index": 24,
+   "variant": -1
+  },
+  {
+   "barcode": "UPKVEQDLFSTIV",
+   "list": 3,
+   "index": 25,
+   "variant": -1
+  },
+  {
+   "barcode": "UIKVVABLFSTIV",
+   "list": 3,
+   "index": 26,
+   "variant": -1
+  },
+  {
+   "barcode": "UHKVVTBLFSTIV",
+   "list": 3,
+   "index": 27,
+   "variant": -1
+  },
+  {
+   "barcode": "UCKVVEBLFSTIV",
+   "list": 3,
+   "index": 28,
+   "variant": -1
+  },
+  {
+   "barcode": "GQ3JI7PNYPVTU",
+   "list": 3,
+   "index": 29,
+   "variant": -1
+  },
+  {
+   "barcode": "Q4N6NFO9GB5EI",
+   "list": 3,
+   "index": 30,
+   "variant": -1
+  },
+  {
+   "barcode": "3BGLOIAWWQHGR",
+   "list": 3,
+   "index": 31,
+   "variant": -1
+  },
+  {
+   "barcode": "9UTQHIGDPWZVG",
+   "list": 3,
+   "index": 32,
+   "variant": -1
+  },
+  {
+   "barcode": "I9E5LQFZ6A9GW",
+   "list": 3,
+   "index": 33,
+   "variant": -1
+  },
+  {
+   "barcode": "51SPCNTCYWXEN",
+   "list": 3,
+   "index": 34,
+   "variant": -1
+  },
+  {
+   "barcode": "G82YWFJAV4PK0",
+   "list": 3,
+   "index": 35,
+   "variant": -1
+  },
+  {
+   "barcode": "MQY5XT9GLHRLM",
+   "list": 3,
+   "index": 36,
+   "variant": -1
+  },
+  {
+   "barcode": "EUGE30X2MIHTR",
+   "list": 3,
+   "index": 37,
+   "variant": -1
+  },
+  {
+   "barcode": "PGAOBTLIIVLO2",
+   "list": 3,
+   "index": 38,
+   "variant": -1
+  },
+  {
+   "barcode": "U162DBKOPE6Z4",
+   "list": 3,
+   "index": 39,
+   "variant": -1
+  },
+  {
+   "barcode": "A6XDBT2DL67U7",
+   "list": 3,
+   "index": 40,
+   "variant": -1
+  },
+  {
+   "barcode": "5VTXWA2Y587E2",
+   "list": 3,
+   "index": 41,
+   "variant": -1
+  },
+  {
+   "barcode": "AVAXXQDK1LBQP",
+   "list": 3,
+   "index": 42,
+   "variant": -1
+  },
+  {
+   "barcode": "TD76QIRH2ANJ8",
+   "list": 3,
+   "index": 43,
+   "variant": -1
+  },
+  {
+   "barcode": "K8DYWSHRMHCYK",
+   "list": 3,
+   "index": 44,
+   "variant": -1
+  },
+  {
+   "barcode": "2GS5TPIHTIVBU",
+   "list": 3,
+   "index": 45,
+   "variant": -1
+  },
+  {
+   "barcode": "RQ6472BDZL39S",
+   "list": 3,
+   "index": 46,
+   "variant": -1
+  },
+  {
+   "barcode": "6PP3PSI57PWO5",
+   "list": 3,
+   "index": 47,
+   "variant": -1
+  },
+  {
+   "barcode": "NHW25DYQFUO7S",
+   "list": 3,
+   "index": 48,
+   "variant": -1
+  },
+  {
+   "barcode": "3MYA1Z3J06819",
+   "list": 3,
+   "index": 49,
+   "variant": -1
+  },
+  {
+   "barcode": "UWTKXIMI1NV91",
+   "list": 3,
+   "index": 50,
+   "variant": -1
+  },
+  {
+   "barcode": "RW6YCQRHH921G",
+   "list": 3,
+   "index": 51,
+   "variant": -1
+  },
+  {
+   "barcode": "A8GU8YOK0TCBD",
+   "list": 3,
+   "index": 52,
+   "variant": -1
+  },
+  {
+   "barcode": "HTISVGH1Q545Q",
+   "list": 3,
+   "index": 53,
+   "variant": -1
+  },
+  {
+   "barcode": "K1AJQTRISGGQH",
+   "list": 3,
+   "index": 54,
+   "variant": -1
+  },
+  {
+   "barcode": "YJU0YO4XTNE7Q",
+   "list": 3,
+   "index": 55,
+   "variant": -1
+  },
+  {
+   "barcode": "I7EB9TFI5CH96",
+   "list": 3,
+   "index": 56,
+   "variant": -1
+  },
+  {
+   "barcode": "AL33DF5EN7W6S",
+   "list": 3,
+   "index": 57,
+   "variant": -1
+  },
+  {
+   "barcode": "JXS704SOJ67WF",
+   "list": 3,
+   "index": 58,
+   "variant": -1
+  },
+  {
+   "barcode": "E27MUEAU8KYA1",
+   "list": 3,
+   "index": 59,
+   "variant": -1
+  },
+  {
+   "barcode": "EGRW0179JGOI7",
+   "list": 3,
+   "index": 60,
+   "variant": -1
+  },
+  {
+   "barcode": "TV2TSJLRDRU6F",
+   "list": 3,
+   "index": 61,
+   "variant": -1
+  },
+  {
+   "barcode": "Q9L6JLX3FOE8U",
+   "list": 3,
+   "index": 62,
+   "variant": -1
+  },
+  {
+   "barcode": "DILPBA5IQR91J",
+   "list": 3,
+   "index": 63,
+   "variant": -1
+  },
+  {
+   "barcode": "AZDJRWBZ01X1N",
+   "list": 3,
+   "index": 64,
+   "variant": -1
+  },
+  {
+   "barcode": "7XZ0X57B86174",
+   "list": 3,
+   "index": 65,
+   "variant": -1
+  },
+  {
+   "barcode": "R0GGKAG3EIC1T",
+   "list": 3,
+   "index": 66,
+   "variant": -1
+  },
+  {
+   "barcode": "YGQ1NQCTMH6UV",
+   "list": 3,
+   "index": 67,
+   "variant": -1
+  },
+  {
+   "barcode": "H4TPPK452T2S2",
+   "list": 3,
+   "index": 68,
+   "variant": -1
+  },
+  {
+   "barcode": "5EKV2U780QUAJ",
+   "list": 3,
+   "index": 69,
+   "variant": -1
+  },
+  {
+   "barcode": "ZXKRF3QJYADDG",
+   "list": 3,
+   "index": 70,
+   "variant": -1
+  },
+  {
+   "barcode": "FK512ZE381GC7",
+   "list": 3,
+   "index": 71,
+   "variant": -1
+  },
+  {
+   "barcode": "WEGTKDI3CG6G7",
+   "list": 3,
+   "index": 72,
+   "variant": -1
+  },
+  {
+   "barcode": "WTYIEHIVOETJB",
+   "list": 3,
+   "index": 73,
+   "variant": -1
+  },
+  {
+   "barcode": "W54EE3ANJ9MZF",
+   "list": 3,
+   "index": 74,
+   "variant": -1
+  },
+  {
+   "barcode": "WIGC3AUXOKE9I",
+   "list": 3,
+   "index": 75,
+   "variant": -1
+  },
+  {
+   "barcode": "WZBKGZOMELR9F",
+   "list": 3,
+   "index": 76,
+   "variant": -1
+  },
+  {
+   "barcode": "WVBOTMNJ0VZDA",
+   "list": 3,
+   "index": 77,
+   "variant": -1
+  },
+  {
+   "barcode": "W7LUNKHGXSRIE",
+   "list": 3,
+   "index": 78,
+   "variant": -1
+  },
+  {
+   "barcode": "WHDCIB7M4DY5D",
+   "list": 3,
+   "index": 79,
+   "variant": -1
+  },
+  {
+   "barcode": "WBEWH85NHDJGB",
+   "list": 3,
+   "index": 80,
+   "variant": -1
+  },
+  {
+   "barcode": "WUZZ03DPVQ6E8",
+   "list": 3,
+   "index": 81,
+   "variant": -1
+  },
+  {
+   "barcode": "W9CIMEX2SYVTO",
+   "list": 3,
+   "index": 82,
+   "variant": -1
+  },
+  {
+   "barcode": "WG970AC35QF7P",
+   "list": 3,
+   "index": 83,
+   "variant": -1
+  },
+  {
+   "barcode": "WKUVURDCMLVBG",
+   "list": 3,
+   "index": 84,
+   "variant": -1
+  },
+  {
+   "barcode": "W5LW6TZC234ME",
+   "list": 3,
+   "index": 85,
+   "variant": -1
+  },
+  {
+   "barcode": "WQ7L4TCZENK65",
+   "list": 3,
+   "index": 86,
+   "variant": -1
+  },
+  {
+   "barcode": "WRABF50H5L3M8",
+   "list": 3,
+   "index": 87,
+   "variant": -1
+  },
+  {
+   "barcode": "WPPVLPQ4CBY30",
+   "list": 3,
+   "index": 88,
+   "variant": -1
+  },
+  {
+   "barcode": "W68TTI69KW7BL",
+   "list": 3,
+   "index": 89,
+   "variant": -1
+  },
+  {
+   "barcode": "W78UAJM402EP0",
+   "list": 3,
+   "index": 90,
+   "variant": -1
+  },
+  {
+   "barcode": "W7A68RBX923TM",
+   "list": 3,
+   "index": 91,
+   "variant": -1
+  },
+  {
+   "barcode": "WDESHYINAEH9I",
+   "list": 3,
+   "index": 92,
+   "variant": -1
+  },
+  {
+   "barcode": "WUHL0PYH60MQT",
+   "list": 3,
+   "index": 93,
+   "variant": -1
+  },
+  {
+   "barcode": "WBXGQWL0OR6IX",
+   "list": 3,
+   "index": 94,
+   "variant": -1
+  },
+  {
+   "barcode": "WTDPISK3S7QJ8",
+   "list": 3,
+   "index": 95,
+   "variant": -1
+  },
+  {
+   "barcode": "WEL9LOG5ZDKFC",
+   "list": 3,
+   "index": 96,
+   "variant": -1
+  },
+  {
+   "barcode": "WDS68TN7HIS1A",
+   "list": 3,
+   "index": 97,
+   "variant": -1
+  },
+  {
+   "barcode": "WJGKRJVIH97TX",
+   "list": 3,
+   "index": 98,
+   "variant": -1
+  },
+  {
+   "barcode": "WG6IZ5EQ23FV0",
+   "list": 3,
+   "index": 99,
+   "variant": -1
+  },
+  {
+   "barcode": "WXGDL91AEJQND",
+   "list": 3,
+   "index": 100,
+   "variant": -1
+  },
+  {
+   "barcode": "WRM86VHH51ND2",
+   "list": 3,
+   "index": 101,
+   "variant": -1
+  },
+  {
+   "barcode": "WERJXW6VMERLO",
+   "list": 3,
+   "index": 102,
+   "variant": -1
+  },
+  {
+   "barcode": "WD3NOC68UGH3S",
+   "list": 3,
+   "index": 103,
+   "variant": -1
+  },
+  {
+   "barcode": "WQUBW7IARX4SN",
+   "list": 3,
+   "index": 104,
+   "variant": -1
+  },
+  {
+   "barcode": "WK598MVUR7746",
+   "list": 3,
+   "index": 105,
+   "variant": -1
+  },
+  {
+   "barcode": "WDVQ0W3M46JHF",
+   "list": 3,
+   "index": 106,
+   "variant": -1
+  },
+  {
+   "barcode": "WQGDVDT41TN71",
+   "list": 3,
+   "index": 107,
+   "variant": -1
+  },
+  {
+   "barcode": "WAEQI9C8YJPTS",
+   "list": 3,
+   "index": 108,
+   "variant": -1
+  },
+  {
+   "barcode": "MDWF7X4CWDDS1",
+   "list": 3,
+   "index": 109,
+   "variant": -1
+  },
+  {
+   "barcode": "MDWIUZAVAGDS1",
+   "list": 3,
+   "index": 110,
+   "variant": -1
+  },
+  {
+   "barcode": "MDWKIXK21TDS1",
+   "list": 3,
+   "index": 111,
+   "variant": -1
+  },
+  {
+   "barcode": "MW1VIP2P2AFFF",
+   "list": 3,
+   "index": 112,
+   "variant": 17
+  },
+  {
+   "barcode": "MW148SW0XAFFF",
+   "list": 3,
+   "index": 113,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1H53B4JLFFF",
+   "list": 3,
+   "index": 114,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1ZNHUVQ8FFF",
+   "list": 3,
+   "index": 115,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1LW6SUEFFFF",
+   "list": 3,
+   "index": 116,
+   "variant": 17
+  },
+  {
+   "barcode": "MT1EIAXVJ4FFF",
+   "list": 3,
+   "index": 117,
+   "variant": 17
+  },
+  {
+   "barcode": "MT12GJKNMUFFF",
+   "list": 3,
+   "index": 118,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1NTO5G1JFFF",
+   "list": 3,
+   "index": 119,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1WTMWBG3FFF",
+   "list": 3,
+   "index": 120,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1T36JYDLFFF",
+   "list": 3,
+   "index": 121,
+   "variant": 17
+  },
+  {
+   "barcode": "MW18G5W4RRFFF",
+   "list": 3,
+   "index": 122,
+   "variant": 17
+  },
+  {
+   "barcode": "MT1NQ6AC6MFFF",
+   "list": 3,
+   "index": 123,
+   "variant": 17
+  },
+  {
+   "barcode": "MT1DVAYWD5FFF",
+   "list": 3,
+   "index": 124,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1HSH2MMYFFF",
+   "list": 3,
+   "index": 125,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1BJ3HCMTFFF",
+   "list": 3,
+   "index": 126,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1ME4X6KBFFF",
+   "list": 3,
+   "index": 127,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1X85HCEGFFF",
+   "list": 3,
+   "index": 128,
+   "variant": 17
+  },
+  {
+   "barcode": "MT1LZS0S6GFFF",
+   "list": 3,
+   "index": 129,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1SMFHA55FFF",
+   "list": 3,
+   "index": 130,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1CBKVO1NFFF",
+   "list": 3,
+   "index": 131,
+   "variant": 17
+  },
+  {
+   "barcode": "MT1AL7ZV59FFF",
+   "list": 3,
+   "index": 132,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1BOKJMYPFFF",
+   "list": 3,
+   "index": 133,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1N4FNRTOFFF",
+   "list": 3,
+   "index": 134,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1CDJEPTGFFF",
+   "list": 3,
+   "index": 135,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1GUAG90DFFF",
+   "list": 3,
+   "index": 136,
+   "variant": 17
+  },
+  {
+   "barcode": "MT1HPC2U3KFFF",
+   "list": 3,
+   "index": 137,
+   "variant": 17
+  },
+  {
+   "barcode": "MT1V574XO4FFF",
+   "list": 3,
+   "index": 138,
+   "variant": 17
+  },
+  {
+   "barcode": "MT1SWNHK7EFFF",
+   "list": 3,
+   "index": 139,
+   "variant": 17
+  },
+  {
+   "barcode": "MT16US3G45FFF",
+   "list": 3,
+   "index": 140,
+   "variant": 17
+  },
+  {
+   "barcode": "MT19HQCBDFFFF",
+   "list": 3,
+   "index": 141,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1QFNZQBAFFF",
+   "list": 3,
+   "index": 142,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1Z3QCX5ZFFF",
+   "list": 3,
+   "index": 143,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1EAQYRBWFFF",
+   "list": 3,
+   "index": 144,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1CRSJ82IFFF",
+   "list": 3,
+   "index": 145,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1DAN356OFFF",
+   "list": 3,
+   "index": 146,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1HGBTHX0FFF",
+   "list": 3,
+   "index": 147,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1PD8E3T5FFF",
+   "list": 3,
+   "index": 148,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1NDREN1SFFF",
+   "list": 3,
+   "index": 149,
+   "variant": 17
+  },
+  {
+   "barcode": "MW16P9HVGKFFF",
+   "list": 3,
+   "index": 150,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1HFJPL6YFFF",
+   "list": 3,
+   "index": 151,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1G6VIZ94FFF",
+   "list": 3,
+   "index": 152,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1E2LXL68FFF",
+   "list": 3,
+   "index": 153,
+   "variant": 17
+  },
+  {
+   "barcode": "MW14VF2J1PFFF",
+   "list": 3,
+   "index": 154,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1TOECVGEFFF",
+   "list": 3,
+   "index": 155,
+   "variant": 17
+  },
+  {
+   "barcode": "MW187GQORDFFF",
+   "list": 3,
+   "index": 156,
+   "variant": 17
+  },
+  {
+   "barcode": "MW16RQ27UWFFF",
+   "list": 3,
+   "index": 157,
+   "variant": 17
+  },
+  {
+   "barcode": "MT1ZVWJJTSFFF",
+   "list": 3,
+   "index": 158,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1LAMIWS6FFF",
+   "list": 3,
+   "index": 159,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1HX4VFWUFFF",
+   "list": 3,
+   "index": 160,
+   "variant": 17
+  },
+  {
+   "barcode": "MW12DO5D81FFF",
+   "list": 3,
+   "index": 161,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1OUF53ORFFF",
+   "list": 3,
+   "index": 162,
+   "variant": 17
+  },
+  {
+   "barcode": "MT1DU6TIAQFFF",
+   "list": 3,
+   "index": 163,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1XEPMYX7FFF",
+   "list": 3,
+   "index": 164,
+   "variant": 17
+  },
+  {
+   "barcode": "MW11MN3548FFF",
+   "list": 3,
+   "index": 165,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1VOTG40EFFF",
+   "list": 3,
+   "index": 166,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1LAEMUTWFFF",
+   "list": 3,
+   "index": 167,
+   "variant": 17
+  },
+  {
+   "barcode": "MW16SEPLVMFFF",
+   "list": 3,
+   "index": 168,
+   "variant": 17
+  },
+  {
+   "barcode": "MW18D4YGP7FFF",
+   "list": 3,
+   "index": 169,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1UCJVWBIFFF",
+   "list": 3,
+   "index": 170,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1TODQ24ZFFF",
+   "list": 3,
+   "index": 171,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1TLQF1D1FFF",
+   "list": 3,
+   "index": 172,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1SCQ98JUFFF",
+   "list": 3,
+   "index": 173,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1R34YZ1HFFF",
+   "list": 3,
+   "index": 174,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1OXJ8GI5FFF",
+   "list": 3,
+   "index": 175,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1RGNLWODFFF",
+   "list": 3,
+   "index": 176,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1DQYUPVCFFF",
+   "list": 3,
+   "index": 177,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1OWH25H4FFF",
+   "list": 3,
+   "index": 178,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1J4YUFV7FFF",
+   "list": 3,
+   "index": 179,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1CKLTTK3FFF",
+   "list": 3,
+   "index": 180,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1TENF9NLFFF",
+   "list": 3,
+   "index": 181,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1NBD2Z9OFFF",
+   "list": 3,
+   "index": 182,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1CN6PWYWFFF",
+   "list": 3,
+   "index": 183,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1W3PD6JOFFF",
+   "list": 3,
+   "index": 184,
+   "variant": 17
+  },
+  {
+   "barcode": "MT1GAHIXIZFFF",
+   "list": 3,
+   "index": 185,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1MPW95ESFFF",
+   "list": 3,
+   "index": 186,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1UT8JNYFFFF",
+   "list": 3,
+   "index": 187,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1LSD9HLBFFF",
+   "list": 3,
+   "index": 188,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1G93HJF8FFF",
+   "list": 3,
+   "index": 189,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1KL6H4QLFFF",
+   "list": 3,
+   "index": 190,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1HPEACJEFFF",
+   "list": 3,
+   "index": 191,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1GIJYH8AFFF",
+   "list": 3,
+   "index": 192,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1BE69TPUFFF",
+   "list": 3,
+   "index": 193,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1HX4WALFFFF",
+   "list": 3,
+   "index": 194,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1VPMYENSFFF",
+   "list": 3,
+   "index": 195,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1L2K6YV4FFF",
+   "list": 3,
+   "index": 196,
+   "variant": 17
+  },
+  {
+   "barcode": "MS14W8SI1RFFF",
+   "list": 3,
+   "index": 197,
+   "variant": 17
+  },
+  {
+   "barcode": "MS166T05X9FFF",
+   "list": 3,
+   "index": 198,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1A5YMYPDFFF",
+   "list": 3,
+   "index": 199,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1WNVXZXGFFF",
+   "list": 3,
+   "index": 200,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1X0IE8VXFFF",
+   "list": 3,
+   "index": 201,
+   "variant": 17
+  },
+  {
+   "barcode": "MS18NK7MSGFFF",
+   "list": 3,
+   "index": 202,
+   "variant": 17
+  },
+  {
+   "barcode": "MS122W4ZIBFFF",
+   "list": 3,
+   "index": 203,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1KZNZLQXFFF",
+   "list": 3,
+   "index": 204,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1AVD4HR0FFF",
+   "list": 3,
+   "index": 205,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1F28TVCWFFF",
+   "list": 3,
+   "index": 206,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1UE6WPRSFFF",
+   "list": 3,
+   "index": 207,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1L39OD4GFFF",
+   "list": 3,
+   "index": 208,
+   "variant": 17
+  },
+  {
+   "barcode": "MS14BXCBA5FFF",
+   "list": 3,
+   "index": 209,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1TNS0LUGFFF",
+   "list": 3,
+   "index": 210,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1W482UDCFFF",
+   "list": 3,
+   "index": 211,
+   "variant": 17
+  },
+  {
+   "barcode": "MS13TMP695FFF",
+   "list": 3,
+   "index": 212,
+   "variant": 17
+  },
+  {
+   "barcode": "MS17IOFTAFFFF",
+   "list": 3,
+   "index": 213,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1MHBZJYHFFF",
+   "list": 3,
+   "index": 214,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1JU2AC76FFF",
+   "list": 3,
+   "index": 215,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1X203WQ1FFF",
+   "list": 3,
+   "index": 216,
+   "variant": 17
+  },
+  {
+   "barcode": "MS16AY9UKSFFF",
+   "list": 3,
+   "index": 217,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1OJ5KSSEFFF",
+   "list": 3,
+   "index": 218,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1P8WFYK9FFF",
+   "list": 3,
+   "index": 219,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1KCBRE2GFFF",
+   "list": 3,
+   "index": 220,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1AX4JO3OFFF",
+   "list": 3,
+   "index": 221,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1JJD9PWOFFF",
+   "list": 3,
+   "index": 222,
+   "variant": 17
+  },
+  {
+   "barcode": "MS18W4KR0DFFF",
+   "list": 3,
+   "index": 223,
+   "variant": 17
+  },
+  {
+   "barcode": "MS19LN560FFFF",
+   "list": 3,
+   "index": 224,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1MB2KDTKFFF",
+   "list": 3,
+   "index": 225,
+   "variant": 17
+  },
+  {
+   "barcode": "MS12WNS9EZFFF",
+   "list": 3,
+   "index": 226,
+   "variant": 17
+  },
+  {
+   "barcode": "MS17QU4VSXFFF",
+   "list": 3,
+   "index": 227,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1P75VTUFFFF",
+   "list": 3,
+   "index": 228,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1SPMHXSHFFF",
+   "list": 3,
+   "index": 229,
+   "variant": 17
+  },
+  {
+   "barcode": "MS12NC24QYFFF",
+   "list": 3,
+   "index": 230,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1ESVX3NNFFF",
+   "list": 3,
+   "index": 231,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1E4NYT66FFF",
+   "list": 3,
+   "index": 232,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1IM5A9PRFFF",
+   "list": 3,
+   "index": 233,
+   "variant": 17
+  },
+  {
+   "barcode": "MS17BLU4UWFFF",
+   "list": 3,
+   "index": 234,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1NQYPAIRFFF",
+   "list": 3,
+   "index": 235,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1CXBL0T9FFF",
+   "list": 3,
+   "index": 236,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1KZIX1QHFFF",
+   "list": 3,
+   "index": 237,
+   "variant": 17
+  },
+  {
+   "barcode": "MT1NWT5VNUFFF",
+   "list": 3,
+   "index": 238,
+   "variant": 17
+  },
+  {
+   "barcode": "LICENSEPMAHCG",
+   "list": 4,
+   "index": 0,
+   "variant": -1
+  },
+  {
+   "barcode": "LICENSEGRTEST",
+   "list": 4,
+   "index": 1,
+   "variant": -1
+  },
+  {
+   "barcode": "EDYVEGJTVUJHR",
+   "list": 4,
+   "index": 2,
+   "variant": -1
+  },
+  {
+   "barcode": "GBA6T2SOC5Z1J",
+   "list": 4,
+   "index": 3,
+   "variant": -1
+  },
+  {
+   "barcode": "GBAKRQJCRBGMX",
+   "list": 4,
+   "index": 4,
+   "variant": -1
+  },
+  {
+   "barcode": "GBA8ITXWKDPMT",
+   "list": 4,
+   "index": 5,
+   "variant": -1
+  },
+  {
+   "barcode": "MDXY9CY4F6DS1",
+   "list": 5,
+   "index": 0,
+   "variant": 0
+  },
+  {
+   "barcode": "MDXHKY73D2DS1",
+   "list": 5,
+   "index": 1,
+   "variant": 0
+  },
+  {
+   "barcode": "MDXBNUF5JQDS1",
+   "list": 5,
+   "index": 2,
+   "variant": 0
+  },
+  {
+   "barcode": "V111OMY0IOMDS",
+   "list": 6,
+   "index": 0,
+   "variant": 0
+  },
+  {
+   "barcode": "V2ZHNZZ5BZMDS",
+   "list": 6,
+   "index": 1,
+   "variant": 0
+  },
+  {
+   "barcode": "V549K8MNBVMDS",
+   "list": 6,
+   "index": 2,
+   "variant": 0
+  },
+  {
+   "barcode": "VCQ7KB3DNKMDS",
+   "list": 6,
+   "index": 3,
+   "variant": 0
+  },
+  {
+   "barcode": "VRNIJZNZMMMDS",
+   "list": 6,
+   "index": 4,
+   "variant": 0
+  },
+  {
+   "barcode": "V2EEV1G4T7MDS",
+   "list": 6,
+   "index": 5,
+   "variant": 0
+  },
+  {
+   "barcode": "V1LBPFC82LMDS",
+   "list": 6,
+   "index": 6,
+   "variant": 0
+  },
+  {
+   "barcode": "VOMLM80ZP0MDS",
+   "list": 6,
+   "index": 7,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1RLBZQYBMKF",
+   "list": 0,
+   "index": 106,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1EFF1K3HMKF",
+   "list": 0,
+   "index": 107,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1CKPMZ3WMKF",
+   "list": 0,
+   "index": 108,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1GVI25OQMKF",
+   "list": 0,
+   "index": 109,
+   "variant": 10
+  },
+  {
+   "barcode": "MB19D7HQIMMKF",
+   "list": 0,
+   "index": 110,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1LWE2EUEMKF",
+   "list": 0,
+   "index": 111,
+   "variant": 10
+  },
+  {
+   "barcode": "MB173D2PQWMKF",
+   "list": 0,
+   "index": 112,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1GNCSA3BMKF",
+   "list": 0,
+   "index": 113,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1IBHQMPPMKF",
+   "list": 0,
+   "index": 114,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1SI2AG8TMKF",
+   "list": 0,
+   "index": 115,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1LPE2C6AMKF",
+   "list": 0,
+   "index": 116,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1SNW7MSJMKF",
+   "list": 0,
+   "index": 117,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1HWESSMTMKF",
+   "list": 0,
+   "index": 118,
+   "variant": 10
+  },
+  {
+   "barcode": "MB14UR86VUMKF",
+   "list": 0,
+   "index": 119,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1B81CLS5MKF",
+   "list": 0,
+   "index": 120,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1A17YGT9MKF",
+   "list": 0,
+   "index": 121,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1RLNASX7MKF",
+   "list": 0,
+   "index": 122,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1K9PWE2ZMKF",
+   "list": 0,
+   "index": 123,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1RTSYXH4MKF",
+   "list": 0,
+   "index": 124,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1YWYLAG7MKF",
+   "list": 0,
+   "index": 125,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1S5QB7NIMKF",
+   "list": 0,
+   "index": 126,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1EPQU2HLMKF",
+   "list": 0,
+   "index": 127,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1YU5F97LMKF",
+   "list": 0,
+   "index": 128,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1RKUP3H9MKF",
+   "list": 0,
+   "index": 129,
+   "variant": 10
+  },
+  {
+   "barcode": "MB17BZUGZ4MKF",
+   "list": 0,
+   "index": 130,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1U43NYV2MKF",
+   "list": 0,
+   "index": 131,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1H9FHZYKMKF",
+   "list": 0,
+   "index": 132,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1T05RFGOMKF",
+   "list": 0,
+   "index": 133,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1N3OZR49MKF",
+   "list": 0,
+   "index": 134,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1B3N2X1HMKF",
+   "list": 0,
+   "index": 135,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1P3XRJVKMKF",
+   "list": 0,
+   "index": 136,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1WGP36EYMKF",
+   "list": 0,
+   "index": 137,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1AOL4J96MKF",
+   "list": 0,
+   "index": 138,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1GYZ7J2IMKF",
+   "list": 0,
+   "index": 139,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1U715IFLMKF",
+   "list": 0,
+   "index": 140,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1KK4VANTMKF",
+   "list": 0,
+   "index": 141,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1TLET71TMKF",
+   "list": 0,
+   "index": 142,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1CJ9AJYSMKF",
+   "list": 0,
+   "index": 143,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1K0SEFIBMKF",
+   "list": 0,
+   "index": 144,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1TFK77L0MKF",
+   "list": 0,
+   "index": 145,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1RL766TLMKF",
+   "list": 0,
+   "index": 146,
+   "variant": 10
+  },
+  {
+   "barcode": "MB15NJ15PDMKF",
+   "list": 0,
+   "index": 147,
+   "variant": 10
+  },
+  {
+   "barcode": "MB17EWH5M3MKF",
+   "list": 0,
+   "index": 148,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1BED7NKGMKF",
+   "list": 0,
+   "index": 149,
+   "variant": 10
+  },
+  {
+   "barcode": "MB17S3B2FKMKF",
+   "list": 0,
+   "index": 150,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1IFAUBCBMKF",
+   "list": 0,
+   "index": 151,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1FL1NKC9MKF",
+   "list": 0,
+   "index": 152,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1I6FHDZ2MKF",
+   "list": 0,
+   "index": 153,
+   "variant": 10
+  },
+  {
+   "barcode": "MB17Z3M0E5MKF",
+   "list": 0,
+   "index": 154,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1H2OVI1RMKF",
+   "list": 0,
+   "index": 155,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1EXOGMBQMKF",
+   "list": 0,
+   "index": 156,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1B15MAO9MKF",
+   "list": 0,
+   "index": 157,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1RZVO8KYMKF",
+   "list": 0,
+   "index": 158,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1XNNJVHSMKF",
+   "list": 0,
+   "index": 159,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1VF2M7KCMKF",
+   "list": 0,
+   "index": 160,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1RCFX6MOMKF",
+   "list": 0,
+   "index": 161,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1ZUZG38OMKF",
+   "list": 0,
+   "index": 162,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1YV6P07DMKF",
+   "list": 0,
+   "index": 163,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1SGI8AERMKF",
+   "list": 0,
+   "index": 164,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1KXWQPYTMKF",
+   "list": 0,
+   "index": 165,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1B39UGDSMKF",
+   "list": 0,
+   "index": 166,
+   "variant": 10
+  },
+  {
+   "barcode": "MB11B5KC0TMKF",
+   "list": 0,
+   "index": 167,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1EZFBENCMKF",
+   "list": 0,
+   "index": 168,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1MTXMYHSMKF",
+   "list": 0,
+   "index": 169,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1GMVMDUAMKF",
+   "list": 0,
+   "index": 170,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1R7X9HZ0MKF",
+   "list": 0,
+   "index": 171,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1KS28JCFMKF",
+   "list": 0,
+   "index": 172,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1ZX9RHXZMKF",
+   "list": 0,
+   "index": 173,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1K6L4ZCLMKF",
+   "list": 0,
+   "index": 174,
+   "variant": 10
+  },
+  {
+   "barcode": "MB19GPAU72MKF",
+   "list": 0,
+   "index": 175,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1KIHQWLKMKF",
+   "list": 0,
+   "index": 176,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1U8FVGY4MKF",
+   "list": 0,
+   "index": 177,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1B8XUAZFMKF",
+   "list": 0,
+   "index": 178,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1IKB7KXTMKF",
+   "list": 0,
+   "index": 179,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1DYXIGH2MKF",
+   "list": 0,
+   "index": 180,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1MVMSK7DMKF",
+   "list": 0,
+   "index": 181,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1CVKY14RMKF",
+   "list": 0,
+   "index": 182,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1TYAVXVBMKF",
+   "list": 0,
+   "index": 183,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1RNXDE8YMKF",
+   "list": 0,
+   "index": 184,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1Q4UIT8CMKF",
+   "list": 0,
+   "index": 185,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1JKF475QMKF",
+   "list": 0,
+   "index": 186,
+   "variant": 10
+  },
+  {
+   "barcode": "MB18R1LOMTMKF",
+   "list": 0,
+   "index": 187,
+   "variant": 10
+  },
+  {
+   "barcode": "MC1VP2MJ5HMKF",
+   "list": 0,
+   "index": 188,
+   "variant": 10
+  },
+  {
+   "barcode": "MC1HSFGZQBMKF",
+   "list": 0,
+   "index": 189,
+   "variant": 10
+  },
+  {
+   "barcode": "ME1KAFKUSZMKF",
+   "list": 2,
+   "index": 9,
+   "variant": 10
+  },
+  {
+   "barcode": "ME1EOMAPHDMKF",
+   "list": 2,
+   "index": 10,
+   "variant": 10
+  },
+  {
+   "barcode": "ME1B69SBI4MKF",
+   "list": 2,
+   "index": 11,
+   "variant": 10
+  },
+  {
+   "barcode": "ME1AP67KL2MKF",
+   "list": 2,
+   "index": 12,
+   "variant": 10
+  },
+  {
+   "barcode": "ME1GH3CRPFMKF",
+   "list": 2,
+   "index": 13,
+   "variant": 10
+  },
+  {
+   "barcode": "ME1TLK37R1MKF",
+   "list": 2,
+   "index": 14,
+   "variant": 10
+  },
+  {
+   "barcode": "ME1CJ15KMFMKF",
+   "list": 2,
+   "index": 15,
+   "variant": 10
+  },
+  {
+   "barcode": "ME1N3EW231MKF",
+   "list": 2,
+   "index": 16,
+   "variant": 10
+  },
+  {
+   "barcode": "ME1LGWKYNOMKF",
+   "list": 2,
+   "index": 17,
+   "variant": 10
+  },
+  {
+   "barcode": "MC1GH3CRPFMKF",
+   "list": 2,
+   "index": 18,
+   "variant": 10
+  },
+  {
+   "barcode": "MC1POPB2MNMKF",
+   "list": 2,
+   "index": 19,
+   "variant": 10
+  },
+  {
+   "barcode": "MC1TMH73TSMKF",
+   "list": 2,
+   "index": 20,
+   "variant": 10
+  },
+  {
+   "barcode": "MC1UMY7R4WMKF",
+   "list": 2,
+   "index": 21,
+   "variant": 10
+  },
+  {
+   "barcode": "MC1A61XG5QMKF",
+   "list": 2,
+   "index": 22,
+   "variant": 10
+  },
+  {
+   "barcode": "MC1NPIE7CMMKF",
+   "list": 2,
+   "index": 23,
+   "variant": 10
+  },
+  {
+   "barcode": "MC1R1X4VGMMKF",
+   "list": 2,
+   "index": 24,
+   "variant": 10
+  },
+  {
+   "barcode": "MC1CUWI2BJMKF",
+   "list": 2,
+   "index": 25,
+   "variant": 10
+  },
+  {
+   "barcode": "MC1F6HVNPZMKF",
+   "list": 2,
+   "index": 26,
+   "variant": 10
+  },
+  {
+   "barcode": "MC1VDKL8QYMKF",
+   "list": 2,
+   "index": 27,
+   "variant": 10
+  },
+  {
+   "barcode": "MC1O7K4EPHMKF",
+   "list": 2,
+   "index": 28,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1VIP2P2AMKF",
+   "list": 3,
+   "index": 112,
+   "variant": 10
+  },
+  {
+   "barcode": "MW148SW0XAMKF",
+   "list": 3,
+   "index": 113,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1H53B4JLMKF",
+   "list": 3,
+   "index": 114,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1ZNHUVQ8MKF",
+   "list": 3,
+   "index": 115,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1LW6SUEFMKF",
+   "list": 3,
+   "index": 116,
+   "variant": 10
+  },
+  {
+   "barcode": "MT1EIAXVJ4MKF",
+   "list": 3,
+   "index": 117,
+   "variant": 10
+  },
+  {
+   "barcode": "MT12GJKNMUMKF",
+   "list": 3,
+   "index": 118,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1NTO5G1JMKF",
+   "list": 3,
+   "index": 119,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1WTMWBG3MKF",
+   "list": 3,
+   "index": 120,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1T36JYDLMKF",
+   "list": 3,
+   "index": 121,
+   "variant": 10
+  },
+  {
+   "barcode": "MW18G5W4RRMKF",
+   "list": 3,
+   "index": 122,
+   "variant": 10
+  },
+  {
+   "barcode": "MT1NQ6AC6MMKF",
+   "list": 3,
+   "index": 123,
+   "variant": 10
+  },
+  {
+   "barcode": "MT1DVAYWD5MKF",
+   "list": 3,
+   "index": 124,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1HSH2MMYMKF",
+   "list": 3,
+   "index": 125,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1BJ3HCMTMKF",
+   "list": 3,
+   "index": 126,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1ME4X6KBMKF",
+   "list": 3,
+   "index": 127,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1X85HCEGMKF",
+   "list": 3,
+   "index": 128,
+   "variant": 10
+  },
+  {
+   "barcode": "MT1LZS0S6GMKF",
+   "list": 3,
+   "index": 129,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1SMFHA55MKF",
+   "list": 3,
+   "index": 130,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1CBKVO1NMKF",
+   "list": 3,
+   "index": 131,
+   "variant": 10
+  },
+  {
+   "barcode": "MT1AL7ZV59MKF",
+   "list": 3,
+   "index": 132,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1BOKJMYPMKF",
+   "list": 3,
+   "index": 133,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1N4FNRTOMKF",
+   "list": 3,
+   "index": 134,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1CDJEPTGMKF",
+   "list": 3,
+   "index": 135,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1GUAG90DMKF",
+   "list": 3,
+   "index": 136,
+   "variant": 10
+  },
+  {
+   "barcode": "MT1HPC2U3KMKF",
+   "list": 3,
+   "index": 137,
+   "variant": 10
+  },
+  {
+   "barcode": "MT1V574XO4MKF",
+   "list": 3,
+   "index": 138,
+   "variant": 10
+  },
+  {
+   "barcode": "MT1SWNHK7EMKF",
+   "list": 3,
+   "index": 139,
+   "variant": 10
+  },
+  {
+   "barcode": "MT16US3G45MKF",
+   "list": 3,
+   "index": 140,
+   "variant": 10
+  },
+  {
+   "barcode": "MT19HQCBDFMKF",
+   "list": 3,
+   "index": 141,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1QFNZQBAMKF",
+   "list": 3,
+   "index": 142,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1Z3QCX5ZMKF",
+   "list": 3,
+   "index": 143,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1EAQYRBWMKF",
+   "list": 3,
+   "index": 144,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1CRSJ82IMKF",
+   "list": 3,
+   "index": 145,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1DAN356OMKF",
+   "list": 3,
+   "index": 146,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1HGBTHX0MKF",
+   "list": 3,
+   "index": 147,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1PD8E3T5MKF",
+   "list": 3,
+   "index": 148,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1NDREN1SMKF",
+   "list": 3,
+   "index": 149,
+   "variant": 10
+  },
+  {
+   "barcode": "MW16P9HVGKMKF",
+   "list": 3,
+   "index": 150,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1HFJPL6YMKF",
+   "list": 3,
+   "index": 151,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1G6VIZ94MKF",
+   "list": 3,
+   "index": 152,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1E2LXL68MKF",
+   "list": 3,
+   "index": 153,
+   "variant": 10
+  },
+  {
+   "barcode": "MW14VF2J1PMKF",
+   "list": 3,
+   "index": 154,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1TOECVGEMKF",
+   "list": 3,
+   "index": 155,
+   "variant": 10
+  },
+  {
+   "barcode": "MW187GQORDMKF",
+   "list": 3,
+   "index": 156,
+   "variant": 10
+  },
+  {
+   "barcode": "MW16RQ27UWMKF",
+   "list": 3,
+   "index": 157,
+   "variant": 10
+  },
+  {
+   "barcode": "MT1ZVWJJTSMKF",
+   "list": 3,
+   "index": 158,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1LAMIWS6MKF",
+   "list": 3,
+   "index": 159,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1HX4VFWUMKF",
+   "list": 3,
+   "index": 160,
+   "variant": 10
+  },
+  {
+   "barcode": "MW12DO5D81MKF",
+   "list": 3,
+   "index": 161,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1OUF53ORMKF",
+   "list": 3,
+   "index": 162,
+   "variant": 10
+  },
+  {
+   "barcode": "MT1DU6TIAQMKF",
+   "list": 3,
+   "index": 163,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1XEPMYX7MKF",
+   "list": 3,
+   "index": 164,
+   "variant": 10
+  },
+  {
+   "barcode": "MW11MN3548MKF",
+   "list": 3,
+   "index": 165,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1VOTG40EMKF",
+   "list": 3,
+   "index": 166,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1LAEMUTWMKF",
+   "list": 3,
+   "index": 167,
+   "variant": 10
+  },
+  {
+   "barcode": "MW16SEPLVMMKF",
+   "list": 3,
+   "index": 168,
+   "variant": 10
+  },
+  {
+   "barcode": "MW18D4YGP7MKF",
+   "list": 3,
+   "index": 169,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1UCJVWBIMKF",
+   "list": 3,
+   "index": 170,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1TODQ24ZMKF",
+   "list": 3,
+   "index": 171,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1TLQF1D1MKF",
+   "list": 3,
+   "index": 172,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1SCQ98JUMKF",
+   "list": 3,
+   "index": 173,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1R34YZ1HMKF",
+   "list": 3,
+   "index": 174,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1OXJ8GI5MKF",
+   "list": 3,
+   "index": 175,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1RGNLWODMKF",
+   "list": 3,
+   "index": 176,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1DQYUPVCMKF",
+   "list": 3,
+   "index": 177,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1OWH25H4MKF",
+   "list": 3,
+   "index": 178,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1J4YUFV7MKF",
+   "list": 3,
+   "index": 179,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1CKLTTK3MKF",
+   "list": 3,
+   "index": 180,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1TENF9NLMKF",
+   "list": 3,
+   "index": 181,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1NBD2Z9OMKF",
+   "list": 3,
+   "index": 182,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1CN6PWYWMKF",
+   "list": 3,
+   "index": 183,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1W3PD6JOMKF",
+   "list": 3,
+   "index": 184,
+   "variant": 10
+  },
+  {
+   "barcode": "MT1GAHIXIZMKF",
+   "list": 3,
+   "index": 185,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1MPW95ESMKF",
+   "list": 3,
+   "index": 186,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1UT8JNYFMKF",
+   "list": 3,
+   "index": 187,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1LSD9HLBMKF",
+   "list": 3,
+   "index": 188,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1G93HJF8MKF",
+   "list": 3,
+   "index": 189,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1KL6H4QLMKF",
+   "list": 3,
+   "index": 190,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1HPEACJEMKF",
+   "list": 3,
+   "index": 191,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1GIJYH8AMKF",
+   "list": 3,
+   "index": 192,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1BE69TPUMKF",
+   "list": 3,
+   "index": 193,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1HX4WALFMKF",
+   "list": 3,
+   "index": 194,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1VPMYENSMKF",
+   "list": 3,
+   "index": 195,
+   "variant": 10
+  },
+  {
+   "barcode": "MW1L2K6YV4MKF",
+   "list": 3,
+   "index": 196,
+   "variant": 10
+  },
+  {
+   "barcode": "MS14W8SI1RMKF",
+   "list": 3,
+   "index": 197,
+   "variant": 10
+  },
+  {
+   "barcode": "MS166T05X9MKF",
+   "list": 3,
+   "index": 198,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1A5YMYPDMKF",
+   "list": 3,
+   "index": 199,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1WNVXZXGMKF",
+   "list": 3,
+   "index": 200,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1X0IE8VXMKF",
+   "list": 3,
+   "index": 201,
+   "variant": 10
+  },
+  {
+   "barcode": "MS18NK7MSGMKF",
+   "list": 3,
+   "index": 202,
+   "variant": 10
+  },
+  {
+   "barcode": "MS122W4ZIBMKF",
+   "list": 3,
+   "index": 203,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1KZNZLQXMKF",
+   "list": 3,
+   "index": 204,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1AVD4HR0MKF",
+   "list": 3,
+   "index": 205,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1F28TVCWMKF",
+   "list": 3,
+   "index": 206,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1UE6WPRSMKF",
+   "list": 3,
+   "index": 207,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1L39OD4GMKF",
+   "list": 3,
+   "index": 208,
+   "variant": 10
+  },
+  {
+   "barcode": "MS14BXCBA5MKF",
+   "list": 3,
+   "index": 209,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1TNS0LUGMKF",
+   "list": 3,
+   "index": 210,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1W482UDCMKF",
+   "list": 3,
+   "index": 211,
+   "variant": 10
+  },
+  {
+   "barcode": "MS13TMP695MKF",
+   "list": 3,
+   "index": 212,
+   "variant": 10
+  },
+  {
+   "barcode": "MS17IOFTAFMKF",
+   "list": 3,
+   "index": 213,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1MHBZJYHMKF",
+   "list": 3,
+   "index": 214,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1JU2AC76MKF",
+   "list": 3,
+   "index": 215,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1X203WQ1MKF",
+   "list": 3,
+   "index": 216,
+   "variant": 10
+  },
+  {
+   "barcode": "MS16AY9UKSMKF",
+   "list": 3,
+   "index": 217,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1OJ5KSSEMKF",
+   "list": 3,
+   "index": 218,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1P8WFYK9MKF",
+   "list": 3,
+   "index": 219,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1KCBRE2GMKF",
+   "list": 3,
+   "index": 220,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1AX4JO3OMKF",
+   "list": 3,
+   "index": 221,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1JJD9PWOMKF",
+   "list": 3,
+   "index": 222,
+   "variant": 10
+  },
+  {
+   "barcode": "MS18W4KR0DMKF",
+   "list": 3,
+   "index": 223,
+   "variant": 10
+  },
+  {
+   "barcode": "MS19LN560FMKF",
+   "list": 3,
+   "index": 224,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1MB2KDTKMKF",
+   "list": 3,
+   "index": 225,
+   "variant": 10
+  },
+  {
+   "barcode": "MS12WNS9EZMKF",
+   "list": 3,
+   "index": 226,
+   "variant": 10
+  },
+  {
+   "barcode": "MS17QU4VSXMKF",
+   "list": 3,
+   "index": 227,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1P75VTUFMKF",
+   "list": 3,
+   "index": 228,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1SPMHXSHMKF",
+   "list": 3,
+   "index": 229,
+   "variant": 10
+  },
+  {
+   "barcode": "MS12NC24QYMKF",
+   "list": 3,
+   "index": 230,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1ESVX3NNMKF",
+   "list": 3,
+   "index": 231,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1E4NYT66MKF",
+   "list": 3,
+   "index": 232,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1IM5A9PRMKF",
+   "list": 3,
+   "index": 233,
+   "variant": 10
+  },
+  {
+   "barcode": "MS17BLU4UWMKF",
+   "list": 3,
+   "index": 234,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1NQYPAIRMKF",
+   "list": 3,
+   "index": 235,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1CXBL0T9MKF",
+   "list": 3,
+   "index": 236,
+   "variant": 10
+  },
+  {
+   "barcode": "MS1KZIX1QHMKF",
+   "list": 3,
+   "index": 237,
+   "variant": 10
+  },
+  {
+   "barcode": "MT1NWT5VNUMKF",
+   "list": 3,
+   "index": 238,
+   "variant": 10
+  },
+  {
+   "barcode": "MB1KS28JCFRH5",
+   "list": 0,
+   "index": 172,
+   "variant": 11
+  },
+  {
+   "barcode": "MB1DYXIGH2RH5",
+   "list": 0,
+   "index": 180,
+   "variant": 11
+  },
+  {
+   "barcode": "MW1CN6PWYWRH5",
+   "list": 3,
+   "index": 183,
+   "variant": 11
+  },
+  {
+   "barcode": "MS17IOFTAFRH5",
+   "list": 3,
+   "index": 213,
+   "variant": 11
+  },
+  {
+   "barcode": "MS1MB2KDTKRH5",
+   "list": 3,
+   "index": 225,
+   "variant": 11
+  },
+  {
+   "barcode": "MS1NQYPAIRRH5",
+   "list": 3,
+   "index": 235,
+   "variant": 11
+  },
+  {
+   "barcode": "MB1I6FHDZ2RH5",
+   "list": 0,
+   "index": 153,
+   "variant": 11
+  },
+  {
+   "barcode": "MW1R34YZ1HRH5",
+   "list": 3,
+   "index": 174,
+   "variant": 11
+  },
+  {
+   "barcode": "MB1KXWQPYTRH5",
+   "list": 0,
+   "index": 165,
+   "variant": 11
+  },
+  {
+   "barcode": "MW1OWH25H4RH5",
+   "list": 3,
+   "index": 178,
+   "variant": 11
+  },
+  {
+   "barcode": "MB1CJ9AJYSRH5",
+   "list": 0,
+   "index": 143,
+   "variant": 11
+  },
+  {
+   "barcode": "MS12NC24QYRH5",
+   "list": 3,
+   "index": 230,
+   "variant": 11
+  },
+  {
+   "barcode": "MB1YV6P07DRH5",
+   "list": 0,
+   "index": 163,
+   "variant": 11
+  },
+  {
+   "barcode": "MW1TLQF1D1RH5",
+   "list": 3,
+   "index": 172,
+   "variant": 11
+  },
+  {
+   "barcode": "MW1VPMYENSRH5",
+   "list": 3,
+   "index": 195,
+   "variant": 11
+  },
+  {
+   "barcode": "MB1GYZ7J2IRH5",
+   "list": 0,
+   "index": 139,
+   "variant": 11
+  },
+  {
+   "barcode": "MB1RTSYXH4RH5",
+   "list": 0,
+   "index": 124,
+   "variant": 11
+  },
+  {
+   "barcode": "MW1EAQYRBWRH5",
+   "list": 3,
+   "index": 144,
+   "variant": 11
+  },
+  {
+   "barcode": "MS19LN560FRH5",
+   "list": 3,
+   "index": 224,
+   "variant": 11
+  },
+  {
+   "barcode": "MB1VF2M7KCRH5",
+   "list": 0,
+   "index": 160,
+   "variant": 11
+  },
+  {
+   "barcode": "MS166T05X9NCI",
+   "list": 3,
+   "index": 198,
+   "variant": 12
+  },
+  {
+   "barcode": "MB1MVMSK7DNCI",
+   "list": 0,
+   "index": 181,
+   "variant": 12
+  },
+  {
+   "barcode": "MB1GNCSA3BNCI",
+   "list": 0,
+   "index": 113,
+   "variant": 12
+  },
+  {
+   "barcode": "MT12GJKNMUNCI",
+   "list": 3,
+   "index": 118,
+   "variant": 12
+  },
+  {
+   "barcode": "MB1AOL4J96NCI",
+   "list": 0,
+   "index": 138,
+   "variant": 12
+  },
+  {
+   "barcode": "MS1JJD9PWONCI",
+   "list": 3,
+   "index": 222,
+   "variant": 12
+  },
+  {
+   "barcode": "MW1CN6PWYWNCI",
+   "list": 3,
+   "index": 183,
+   "variant": 12
+  },
+  {
+   "barcode": "MT1DU6TIAQNCI",
+   "list": 3,
+   "index": 163,
+   "variant": 12
+  },
+  {
+   "barcode": "MB1GVI25OQNCI",
+   "list": 0,
+   "index": 109,
+   "variant": 12
+  },
+  {
+   "barcode": "MB1KIHQWLKNCI",
+   "list": 0,
+   "index": 176,
+   "variant": 12
+  },
+  {
+   "barcode": "MS1AX4JO3ONCI",
+   "list": 3,
+   "index": 221,
+   "variant": 12
+  },
+  {
+   "barcode": "MB1CJ9AJYSNCI",
+   "list": 0,
+   "index": 143,
+   "variant": 12
+  },
+  {
+   "barcode": "MB1EPQU2HLNCI",
+   "list": 0,
+   "index": 127,
+   "variant": 12
+  },
+  {
+   "barcode": "MS1ESVX3NNNCI",
+   "list": 3,
+   "index": 231,
+   "variant": 12
+  },
+  {
+   "barcode": "MS1W482UDCNCI",
+   "list": 3,
+   "index": 211,
+   "variant": 12
+  },
+  {
+   "barcode": "MS1JU2AC76NCI",
+   "list": 3,
+   "index": 215,
+   "variant": 12
+  },
+  {
+   "barcode": "MS1NQYPAIRNCI",
+   "list": 3,
+   "index": 235,
+   "variant": 12
+  },
+  {
+   "barcode": "MS1MHBZJYHNCI",
+   "list": 3,
+   "index": 214,
+   "variant": 12
+  },
+  {
+   "barcode": "MB1ZX9RHXZNCI",
+   "list": 0,
+   "index": 173,
+   "variant": 12
+  },
+  {
+   "barcode": "MS1P8WFYK9NCI",
+   "list": 3,
+   "index": 219,
+   "variant": 12
+  },
+  {
+   "barcode": "MT1NQ6AC6MBTF",
+   "list": 3,
+   "index": 123,
+   "variant": 13
+  },
+  {
+   "barcode": "MS166T05X9BTF",
+   "list": 3,
+   "index": 198,
+   "variant": 13
+  },
+  {
+   "barcode": "MW1NTO5G1JBTF",
+   "list": 3,
+   "index": 119,
+   "variant": 13
+  },
+  {
+   "barcode": "MB1KK4VANTBTF",
+   "list": 0,
+   "index": 141,
+   "variant": 13
+  },
+  {
+   "barcode": "MS1W482UDCBTF",
+   "list": 3,
+   "index": 211,
+   "variant": 13
+  },
+  {
+   "barcode": "MS1E4NYT66BTF",
+   "list": 3,
+   "index": 232,
+   "variant": 13
+  },
+  {
+   "barcode": "MB1R7X9HZ0BTF",
+   "list": 0,
+   "index": 171,
+   "variant": 13
+  },
+  {
+   "barcode": "ME1N3EW231BTF",
+   "list": 2,
+   "index": 16,
+   "variant": 13
+  },
+  {
+   "barcode": "MS1MB2KDTKBTF",
+   "list": 3,
+   "index": 225,
+   "variant": 13
+  },
+  {
+   "barcode": "MB1KXWQPYTBTF",
+   "list": 0,
+   "index": 165,
+   "variant": 13
+  },
+  {
+   "barcode": "MT1AL7ZV59BTF",
+   "list": 3,
+   "index": 132,
+   "variant": 13
+  },
+  {
+   "barcode": "MS1KZIX1QHBTF",
+   "list": 3,
+   "index": 237,
+   "variant": 13
+  },
+  {
+   "barcode": "MS1X0IE8VXBTF",
+   "list": 3,
+   "index": 201,
+   "variant": 13
+  },
+  {
+   "barcode": "MW1PD8E3T5BTF",
+   "list": 3,
+   "index": 148,
+   "variant": 13
+  },
+  {
+   "barcode": "MW1G6VIZ94BTF",
+   "list": 3,
+   "index": 152,
+   "variant": 13
+  },
+  {
+   "barcode": "MT1EIAXVJ4BTF",
+   "list": 3,
+   "index": 117,
+   "variant": 13
+  },
+  {
+   "barcode": "MW1J4YUFV7BTF",
+   "list": 3,
+   "index": 179,
+   "variant": 13
+  },
+  {
+   "barcode": "MC1GH3CRPFBTF",
+   "list": 2,
+   "index": 18,
+   "variant": 13
+  },
+  {
+   "barcode": "MS1NQYPAIRBTF",
+   "list": 3,
+   "index": 235,
+   "variant": 13
+  },
+  {
+   "barcode": "MT12GJKNMUBTF",
+   "list": 3,
+   "index": 118,
+   "variant": 13
+  },
+  {
+   "barcode": "MW1TODQ24ZKWG",
+   "list": 3,
+   "index": 171,
+   "variant": 14
+  },
+  {
+   "barcode": "MB1JKF475QKWG",
+   "list": 0,
+   "index": 186,
+   "variant": 14
+  },
+  {
+   "barcode": "MW1OXJ8GI5KWG",
+   "list": 3,
+   "index": 175,
+   "variant": 14
+  },
+  {
+   "barcode": "MB1P3XRJVKKWG",
+   "list": 0,
+   "index": 136,
+   "variant": 14
+  },
+  {
+   "barcode": "ME1GH3CRPFKWG",
+   "list": 2,
+   "index": 13,
+   "variant": 14
+  },
+  {
+   "barcode": "MS16AY9UKSKWG",
+   "list": 3,
+   "index": 217,
+   "variant": 14
+  },
+  {
+   "barcode": "MW1HX4VFWUKWG",
+   "list": 3,
+   "index": 160,
+   "variant": 14
+  },
+  {
+   "barcode": "MS13TMP695KWG",
+   "list": 3,
+   "index": 212,
+   "variant": 14
+  },
+  {
+   "barcode": "MW1UCJVWBIKWG",
+   "list": 3,
+   "index": 170,
+   "variant": 14
+  },
+  {
+   "barcode": "MB1ZX9RHXZKWG",
+   "list": 0,
+   "index": 173,
+   "variant": 14
+  },
+  {
+   "barcode": "MW1W3PD6JOKWG",
+   "list": 3,
+   "index": 184,
+   "variant": 14
+  },
+  {
+   "barcode": "MW18G5W4RRKWG",
+   "list": 3,
+   "index": 122,
+   "variant": 14
+  },
+  {
+   "barcode": "MW1NDREN1SKWG",
+   "list": 3,
+   "index": 149,
+   "variant": 14
+  },
+  {
+   "barcode": "MW1XEPMYX7KWG",
+   "list": 3,
+   "index": 164,
+   "variant": 14
+  },
+  {
+   "barcode": "MS1A5YMYPDKWG",
+   "list": 3,
+   "index": 199,
+   "variant": 14
+  },
+  {
+   "barcode": "MB1U715IFLKWG",
+   "list": 0,
+   "index": 140,
+   "variant": 14
+  },
+  {
+   "barcode": "MW1WTMWBG3KWG",
+   "list": 3,
+   "index": 120,
+   "variant": 14
+  },
+  {
+   "barcode": "MW1TENF9NLKWG",
+   "list": 3,
+   "index": 181,
+   "variant": 14
+  },
+  {
+   "barcode": "MW1HX4WALFKWG",
+   "list": 3,
+   "index": 194,
+   "variant": 14
+  },
+  {
+   "barcode": "MW1T36JYDLKWG",
+   "list": 3,
+   "index": 121,
+   "variant": 14
+  },
+  {
+   "barcode": "MW1CRSJ82IXYZ",
+   "list": 3,
+   "index": 145,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1IFAUBCBXYZ",
+   "list": 0,
+   "index": 151,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1MVMSK7DXYZ",
+   "list": 0,
+   "index": 181,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1B15MAO9XYZ",
+   "list": 0,
+   "index": 157,
+   "variant": 17
+  },
+  {
+   "barcode": "MT19HQCBDFXYZ",
+   "list": 3,
+   "index": 141,
+   "variant": 17
+  },
+  {
+   "barcode": "ME1N3EW231XYZ",
+   "list": 2,
+   "index": 16,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1GMVMDUAXYZ",
+   "list": 0,
+   "index": 170,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1TMH73TSXYZ",
+   "list": 2,
+   "index": 20,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1HSH2MMYXYZ",
+   "list": 3,
+   "index": 125,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1ZX9RHXZXYZ",
+   "list": 0,
+   "index": 173,
+   "variant": 17
+  },
+  {
+   "barcode": "MT1DU6TIAQXYZ",
+   "list": 3,
+   "index": 163,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1U8FVGY4XYZ",
+   "list": 0,
+   "index": 177,
+   "variant": 17
+  },
+  {
+   "barcode": "MC1F6HVNPZXYZ",
+   "list": 2,
+   "index": 26,
+   "variant": 17
+  },
+  {
+   "barcode": "MS1NQYPAIRXYZ",
+   "list": 3,
+   "index": 235,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1GYZ7J2IXYZ",
+   "list": 0,
+   "index": 139,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1TOECVGEXYZ",
+   "list": 3,
+   "index": 155,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1BOKJMYPXYZ",
+   "list": 3,
+   "index": 133,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1PD8E3T5XYZ",
+   "list": 3,
+   "index": 148,
+   "variant": 17
+  },
+  {
+   "barcode": "MB1B39UGDSXYZ",
+   "list": 0,
+   "index": 166,
+   "variant": 17
+  },
+  {
+   "barcode": "MW1G6VIZ94XYZ",
+   "list": 3,
+   "index": 152,
+   "variant": 17
+  },
+  {
+   "barcode": "FCN84RTO0R2E9",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "VSGAQGMCNX8FV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "D22MLBICAZ7EA",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "4RZY2SL5X08J7",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "QJH4UXN20KL9V",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "ZYXUEDI2OWA9G",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "RDGRFMFIRDMR2",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "KPT5420JCSUZO",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "L3IXR8937NADJ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "JOI2M86NVSR2M",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "YI83KAY80F95U",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "N4MGD3FFXSCP3",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "Z378YNYPJ9YJG",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "5N31A06XH5LRA",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "I276JPOUOH99S",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "J0X1YGHLEFNQA",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "UQG9TYTCOUC12",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "UWB8608J5VX3D",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "R1Y19J93WRGEV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "16FKXW0SLE3XR",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "FW06N9TM8MEI5",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "G88B63Y9W1TMO",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "VWQ4SXHLO7DKO",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "4UQJ1SOQU35GD",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "09YKJXDRZI0D5",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "784ZODKA1AB33",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "ERBQ5VW973M3X",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "XB5RJQJFGIZQI",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "HD65A37G9EJ66",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "VS62YQ8UEULN7",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "0V56HS0Q80X8F",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "M9RR1MNLMC69A",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "AR3R7VQZD9O1P",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "PLRPI5ZFPAZ3T",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "S6YWS9Z2ZC1FR",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "2VHR2MCTPASDR",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "P3PPECRD221SX",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "PPW8T5VVS5YWW",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "03VBF71QZDTU2",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "Q2CHVX9991B4I",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "AUCV0F4T744OX",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BC31ODSL9SB8F",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "X4WRWAPQFJIS0",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "6STFBG1TDZHY0",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "8RLFS1PH682LS",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "1447N5BVT0TW1",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LZM5QQ5DL9794",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "OIVIQCVC6YOJ2",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "4JSCU03RX4UJD",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "7K0JU1AXL2IR0",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "R8R3N9ANOFJWU",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "D16KA3FEIMPXI",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "00CG4ZF86QPSI",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "KZG4RIER7UF64",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "D7LDA5MPFCWK7",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "5KQTQOP4NQWBG",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "IOUY4Y94M0LMQ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "QXOA6DPW6D7PQ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "VXDP4HSS0NCIV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "HBNILGB2K59EG",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "IN1U5BOTRMQ61",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "GBF4016QFBDTB",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "L6YRX57RP3SI4",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "JGD7U4T2ISANV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "CGTXQKHO9KZ25",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "VDRYIMRDO3UQW",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "0LHJ4R5Z3JFD4",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "ZS18TVD006B2W",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "8IJ2SS6IOE20V",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "HUXB9B61LYX12",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "HAHKOMEDIZEKK",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "4OB28YCTUG253",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "4HU6UMGU18KXI",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BIOGMQTYPAD4A",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "TFXR992K9L6ZW",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "SLWN0D0XQWJO9",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "GW23QEKA737UB",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "8QARGDXW02QET",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "FSHXIDV3QHW7M",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "KSSFK8LEGCKOB",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LYLT2TPNP7V27",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "6XZV6E25T5TRY",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "H71ZDLV2YJL7H",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "B8YZPD8BBGWZX",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "VCKGS7M6N3FLF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "17LD1XY0I37FB",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "2S9L4Y5OLDZLQ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "AY3JMEV038S65",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "4GDNUUJ9LW8MY",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "6S6T7NY3TVH1F",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "G3UUTJEHW2IT9",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "KME1NWC8DW77H",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "YD5YVHJ9QOOJ8",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "7L4G0AZUY7UDW",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "DO9NFA7U0ONVH",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "FYF3GWB2E9OLU",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "TXXESGZ99JIY5",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "4BW9HIGJXUWO9",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "3N5TZMQ8IKOKW",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WO6TISSF00B4H",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "A98A53D3PSLNO",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "1CPPAOM7A5NSR",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "PX8EDRL57J2EW",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "24DG1BOYAWOUN",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LS2S6742JO63L",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "PR6ITLWWSQNX3",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "IFKLWBVQ1LDE9",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MU1T9HKPW8XDH",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "6SWX3O8HVUUH5",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "I34PXESXNSZ6D",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "E6TGFN9W0NIZ7",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MRRPDCWB7EZ5M",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "0ZDHN1ATZA8UJ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "A8Z8EHPE1MQNH",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "1QVCDN59ATMN8",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "9FHKHHF30YX8L",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "4WAZ91J66D907",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "AZIIPH2UN1PUN",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "GRB13ZNRLKIP8",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "Q50J3SB7L0KIK",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "PUUZCE03S30QU",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "S6WF84B9LBYML",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "EPQ96TIQAS8Z2",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MWSZLAWW5MFII",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "JJ7PYFCQS5HYQ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "O8WNVD7DV94CV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "96HKDUOZI0DRJ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "6G0PDJ9J3QMS3",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "ORJ7MI7WAC09R",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "E3DE28EF9PIZS",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "ZZMYB33SEILQA",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "YQSG4C6BUNX44",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BM7RWM6FI4FNA",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "V84M6N1DM4Q7D",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "TSMGKGAURQMKD",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "AA9T5YQLNK2FO",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "CVR0LSQ86YHXL",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "M8KIBX3WYZCOA",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "W7LSAIJ9PX39A",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "0QP5KGIBL9R55",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "J5LLLAPKX9CRC",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "76WKHEIJUVZG1",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "YFH9VDE8TY13U",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "X2MRPYBYQSVSJ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "ZPY05SDT9UB9J",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "E6X0E4DVQP68Z",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "Y9QMPTPL6UDC0",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "YH3TZM20UPVTJ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "8VUAXB2RIIL99",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "Z2LKV8IMB1AH0",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "2KVAFS0LEEZ7Y",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "RZSE1O556DWDB",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "UKGMWP7TLWND4",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "88A8ILHXOZ8CR",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "HV8ZD635GMMOX",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "ZZDT28URF9271",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "IVJTCE5RIHKWU",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "YFNCVK33F23OO",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "SZW8NQ0ZHZ4SW",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "3Z5UHRRFAIFBT",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "XBKDPLEZ364Q2",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "PD8XT7JV8D2WF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "TND0YMTLQSARN",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "PFSWSKFX38QNT",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "V6GKOD73YLYN1",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "KUDGT3IKXALU7",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BYHWQO17EJTYW",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "N2210106OYE7A",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "DQQUOJE7SN3O7",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "1WNDFBSEY3954",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "9Z9AWE2ID1FDH",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "73KV8EA0F6L08",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "SIJ8KHXA17BOM",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "AO6QEB704AQ57",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "XQ1972IHUKOIK",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "B74F8CIUPTA4J",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "4S2HZ6CD789OI",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "DGX2IBYBVPTQW",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "6O4DF61M59ACP",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "VDO33NWRUSVI3",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "5XUDGXVTH0JEQ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "B1UQV6IMGZLF3",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "0YRAMQHW59HNA",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WCKV9CZ7ZVN5P",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "I7SSJAG1YKS38",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "X9C3RAZXGS5HJ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "FAUI5H9NU1K88",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "2DEJGECDIGFZ1",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "S0KPEL40NJT3T",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "9K07CYZSJT6Q5",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "Q39EL7GWOSZ7V",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MXW5M9OJWE26I",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "YP31QHXSFLC85",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WXIFN1K361DMR",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "3Q4VI1ZJKPVVK",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "FDQ95GRYC71OO",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "2RO10SLS31RV8",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "HMFV8LQ4RE1KR",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "S4FLTZ8BX66NW",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "VYR1UNVGRP3KQ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "P88DWQMFXAWY0",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "A2KL88ES4RW86",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "TTJ0KJN91WOZS",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "04J7I2XLTLQWB",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MZ9EA25KT9NE1",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "IRN61KRAFBPAT",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "18L377OY32UV8",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "VQ8OY0B2C1SCL",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WVLLP6X1UF29U",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "HOEQQU5R24Q7L",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "G5A9STD40TRKM",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "2PBCEUWIZOQZ1",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "PM1N049MM0RNL",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "CGHW02P3N0S2M",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "1VN5CUCWB4G89",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "DR52JPTUBO9MQ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "5JZU09MFNJ2BB",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WWJRCWUQDSKCL",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "X0WPWS4D1VCKI",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "D6UC9VDLP719K",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "PX38LTOLCTVCT",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "OL2J8SAJMW23P",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "4FZ33UTO5OVG3",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "UD6A8F4AJFQ2Z",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "X4D5GXT8TP0LG",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "YA0MQX9JXH36I",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "5MYLZJ84JSCAM",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "R06MGUNC3GZNK",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "1SUGUNC4C9YI7",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "TUXUZA9EU729B",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MTV36H7ANAPTQ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "EMIX2E1AS8693",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "YR3YGTTXB984J",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "2T122T9NIJHO0",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "L7XF9THEAG210",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "S8WOZSJQ3W2JD",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "SRXRZYWBNAIT1",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "VEIEDCJ3VCCN3",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "IWOCUDGJWULN3",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "P2KU5XYKMC88X",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "USYKKTYFWXF5M",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WIF33J2JBK8VB",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "EC675ZYNKHKBO",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "66PLHLGF18JI6",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "AU6P81GYEW1J5",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1DYL1N44N3B",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "2R7ACG2LFMRV3",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "DJEI999ECX67T",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "DPFHMCT9TKYFB",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "QSNMYNV73XZY1",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MBLAOL4J96FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BQ3KOBC7780W5",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS1F28TVNWFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BH6BZXOKX20M5",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "EZDGT16K06W04",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "9AMX1AKNXSZVR",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LA3E3B7H7IKK9",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1QL766TLFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS1IM5A9P8FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "KM4YED3CVW7JZ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB3TLET71TFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BXNN4E1QY3GV7",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "UPKVEQDL9STIV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "TV2SSJLRDRU6F",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1RGNLWKDFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "RW6PCQRHH921G",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "U6UVEW1CFST3V",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WZBKGZOMFLR9F",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LO7D1BC1LRTQV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "7O1FCEXLDR8X8",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1B15MPO9FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "90L01W000M001",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "AOHD1BC1LRTQV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB17Z3B0E5FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1KVI25OQFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1NDRENRSFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LYSHMD8UBVH90",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WQGNVDT41TN71",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW16SEPL5MFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LXNIKZVBSWWEN",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LYNONUTYMX04G",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "YB1GNCSA3BFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LYSJMD8UBPH90",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "SB1XNNJVHSFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "B82F90QXSMELP",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "L0N0Y3BRG6YCW",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS16OT05X9FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1WP9HVGKFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS1AVDQHR0FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1KDHQWLKFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1ZZFBENCFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1T0FRFGOFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "961LDT8BHS4UT",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WUHLMPYH60MQT",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "GSRPT10KC0W09",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LIX5WZX1GMS5W",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MA1T05RFGOFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "L87WLQZ0AFM9Q",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LPRVCV1VHREGN",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1N8OZR49FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "C0L0UW008M000",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MWF6P9HVGKFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1T36JYALFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "NHW25D8QFUO7S",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "Q4N5NFO9GB5EI",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "W6EQI9C8YJPTS",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LZ09LR3IWRSWA",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS14W8SIYRFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "9UTQHIGIPWZVG",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WJGKR1VIH97TX",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MX1JU2AC76FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "5X3JVSD2IW1GM",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1HX9WALFFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1TE7F9NLFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "GXL03W007M000",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "FM3RHLQBSM3KA",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS1R5YMYPDFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MK1EIAXVJ4FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MC1F6HVNVZFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "M31BE69TPUFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LA2E3B737IKK9",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1NTO5G16FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "GRFCT25K03W02",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "HTISVSH1Q545Q",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "HRTDT12K09W08",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "7XZ0W57B86174",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "NE1PT16K06W06",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS1XB03WQ1FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "L87WFZZ0AFM9Q",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BYS17ABSAB61A",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "U6UVEKDLFRTDV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "E9Y1KALBXL6MF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "UIKJVABLFSTIV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "R0GGKA63EIC1T",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB14UR86V9FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "QKIHFT8PXGGM5",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS1YQYPAIRFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1SSW7MSJFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1NBD2ZUOFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1H5BTHX0FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "S82YWFJAV4PK0",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "OPKGT14K07W04",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LCS5W8K9313RZ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "94LHTA4N4IP5T",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "NC37PH5NO3UHP",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WXGDL9EAEJQND",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1Y0YLAG7FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1K6D4ZCLFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS18NK7MS3FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS1AVDYHR0FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MC1F6HVBPZFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1DQYU8VCFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1IKB7KXJFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "AL33DFTEN7W6S",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS122W49IBFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1B1WMAO9FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1BEB9TPUFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1MVMSK1DFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "G0L03W0W7M000",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS1CXBL0M9FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "1B1RLBZQYBFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BGEFC1Y9SL36U",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "OEB1KRPSVDPUA",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "9IEMQA4LXI6ZC",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "HRTNT12K09W08",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1NZOZR49FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BNE52AWXFH4RQ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "GHDDT12K09W07",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "B82690GXSMELP",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BES46LDDLR3Z5",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "UCKVVEDLFSTIV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "B2QY3HFDCY2ET",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "M91W482UDCFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1TEDF9NLFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "L7B3T77IEAH82",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW4HGBTHX0FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LUZQ4SBV0IRQ8",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MT1V574XO9FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS1NQYPABRFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "A5KTGREAK06TN",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "UHKVVT7LFSTIV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LP9NP93PWE5RH",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1HSZ2MMYFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1536JYDLFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "B8BU7VEQ7LBKT",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BV9F55L1B54FZ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "B54VJVUAL2SR7",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "B13KVBC7780W5",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1SPEACJEFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LP9NP9A3WE5RH",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BNJN2AWXFH4RQ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "YGQ1NQCYMH6UV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LM3RHGQBSM3KA",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BZSDID2RFYMU5",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "UXKNE31LFSTIV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "61I6HJG5JEIVX",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS17I6FTAFFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "FAEQI9C8YJPTS",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BC1UMY7R4WFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BM2NCAL8Z06CI",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LM8RHLQBSM3KA",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "ZCKVVEBLFSTIV",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1CN6PWYBFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LT56C8XQE4SQE",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "U0L03W012M000",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "C0L0EW002M000",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1DPYUPVCFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS180K7MSGFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LTGG1EJX8GRHZ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1SKPMZ3WFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "ML1GVI25OQFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "ME13TMP695FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "84IHFTZNII8OJ",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "KABPP12K09W09",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW18MGQORDFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1NTO5GXJFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1BOKJM2PFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "V1L5PFC82LMDS",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "961LETLBHS4UT",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MV1KCBRE2GFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "G0L01H000M001",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "8JC8M9EYY9YX9",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW12DP5D81FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "P0L12W000M006",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WUHL0PJH60MQT",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "5X3JVS71IW1GM",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LYSHMD8UBMH90",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MS1NQYPAI1FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MT1V574XQ4FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1LWE2EUGFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LXGSIIOV11E3Y",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LDROOEWVVFP73",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "Y7JJ8M2LPR16Y",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MT1HPC2U32FFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "B5NTDGNXK5EB6",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "B2QR3HFD1Y2ET",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "4B1GYZ7J2IFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MBX1B5KC0TFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WJGKRJV6H97TX",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MW1UCJ0WBIFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MB1TYAVXVZFFF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WHDCIB7M4DMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LN2BJL1MCPMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "G0L01W000MMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WDS68TN7HIMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "P0L01W000MMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "AL33DF5EN7MKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BZRDID2RFYMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MQY5XT9GLHMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "GBA8ITXWKDMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BGEFB1Y9SLMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "C0L01W000MMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "B8TKY1WCRZMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "51SPCNTCYWMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "5VTXWA2Y58MKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "MDXHKY73D2MKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "YGQ1NQCTMHMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "CCSPT18K04MKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "RQ6472BDZLMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BIG5AYSOCYMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "TD76QIRH2AMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LKPCY3DRH0MKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "A6XDBT2DL6MKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "NEPPT16K06MKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "K1AJQTRISGMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BXP7V4KYUCMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LZN9LR3IWRMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "PWNCT18K04MKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "L7ZX3G6QUZMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "H1I6HJG5JEMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BNEN2AWXFHMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "GQ3JI7PNYPMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "B1KB4NR1VGMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "L7NLKCYSKJMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WG970AC35QMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BXNN4ESQY3MKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "LOHD1BC1LRMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "BH6BZXOK62MKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "WERJXW6VMEMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "9P1LDTLRXGMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  },
+  {
+   "barcode": "QNDJ4TP1XIMKF",
+   "list": -1,
+   "index": -1,
+   "variant": 0
+  }
+ ]
+}

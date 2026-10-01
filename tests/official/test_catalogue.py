@@ -26,6 +26,7 @@ from maeyomi.games.excite94 import decode_excite94
 from maeyomi.games.excite95 import KICK_SPEED, decode_excite95
 from maeyomi.models.device import Device
 from maeyomi.nds.cardasobu import decode_cardasobu
+from maeyomi.nds.mushiking import decode_mushiking
 from maeyomi.nds.oshare import decode_oshare
 from maeyomi.official.catalogue import (
     OfficialCard,
@@ -59,6 +60,7 @@ FAMISTA3_CARDS = 4
 FAMJOCK2_CARDS = 8
 CARD_DE_ASOBU_CARDS = 46
 OSHARE_MAJO_CARDS = 281
+MUSHIKING_CARDS = 535
 MAME_LIST = "https://github.com/mamedev/mame/"
 GBE_PLUS = "https://github.com/shonumi/gbe-plus/"
 TRANSCRIBED = (
@@ -82,6 +84,7 @@ TRANSCRIBED = (
     + FAMJOCK2_CARDS
     + CARD_DE_ASOBU_CARDS
     + OSHARE_MAJO_CARDS
+    + MUSHIKING_CARDS
 )
 EXCITE_CLUB_BARCODES = {
     "0000000034111",
@@ -187,6 +190,7 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.FAMJOCK2: MAME_LIST,
         OfficialSet.CARD_DE_ASOBU: GBE_PLUS,
         OfficialSet.OSHARE_MAJO: GBE_PLUS,
+        OfficialSet.MUSHIKING: GBE_PLUS,
         OfficialSet.EXCITE94_CLUBS: UK_SCANS,
         OfficialSet.IRWIN: UK_PAGES,
         OfficialSet.TOMY: UK_PAGES,
@@ -252,6 +256,7 @@ def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
             Device.FAMJOCK2: decode_famjock2,
             Device.CARD_DE_ASOBU: decode_cardasobu,
             Device.OSHARE_MAJO: decode_oshare,
+            Device.MUSHIKING: decode_mushiking,
         }
         for card in official_cards(official_set):
             assert readers[official_set.device](card.barcode) == card.character

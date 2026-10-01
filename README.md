@@ -34,13 +34,14 @@ armour card and it works out which barcode the device would read that way,
 then prints it. Maeyomi is the Barcode Battler's own word for the front read,
 the one that produces a fighter.
 
-It covers three standalone machines and 27 games: six Datach games for the
+It covers three standalone machines and 28 games: six Datach games for the
 Famicom, whose reader sits in the cartridge; thirteen Famicom and Super
 Famicom games that take their codes from a Barcode Battler II plugged into the
 console; five Game Boy games read through Namco's Barcode Boy; Barcode
-Taisen Bardigun, a Game Boy game with a reader of its own; and two Nintendo DS
-games that read Code 39 cards through Sega's HCV-1000, Card de Asobu! Hajimete
-no DS and Oshare Majo Love and Berry DS Collection. For each
+Taisen Bardigun, a Game Boy game with a reader of its own; and three Nintendo
+DS games that read Code 39 cards through Sega's HCV-1000, Card de Asobu!
+Hajimete no DS, Oshare Majo Love and Berry DS Collection and Mushiking Super
+Collection. For each
 one it prints the released cards whose barcodes are known, a card made to
 order, and a cheat card: the strongest or most useful card the device will
 read.
@@ -89,6 +90,7 @@ games and their card packs are on
 | Barcode Taisen Bardigun | バーコード対戦バーディガン | Game Boy, through its own reader | `bardigun` |
 | Card de Asobu! Hajimete no DS | カードであそぶ! はじめてのDS | Nintendo DS, through Sega's HCV-1000 | `cardasobu` |
 | Oshare Majo Love and Berry | オシャレ魔女 ラブandベリー DSコレクション | Nintendo DS, through Sega's HCV-1000 | `osharemajo` |
+| Mushiking Super Collection | 甲虫王者ムシキング スーパーコレクション | Nintendo DS, through Sega's HCV-1000 | `mushiking` |
 
 ## Install
 
@@ -633,6 +635,23 @@ Unicorn engine: the port agrees with it on all 1396 codes it was given, among
 them a card for every item, the six cards GBE+'s notes list and codes of the
 game's shorter form that starts N and ends A.
 
+### Mushiking Super Collection
+
+Kouchuu Ouja Mushiking Super Collection, Sega's 2007 game for the Nintendo DS,
+reads the Mushiking arcade cards through the HCV-1000, and `--device mushiking`
+makes cards for it. The game keeps its cards as lists of thirteen-character
+codes, five in a file of its own and two in its program, and takes the first
+card in them whose code matches. A code ending in FFF matches on its first ten
+characters, and the last three pick a version: MKF, RH5, NCI, BTF and KWG each
+name one, and anything else the card's own. These cards print with their own
+codes, 535 of them: beetle and partner cards named after the beetle or
+character on them, and move, license and extra cards by their number. Pick one
+with `--character` by its name, code or number. They carry no numbers, so
+there is no cheat card. The lists were read from the game and the matching
+checked by running the game's own comparison routines in the Unicorn engine:
+it agrees on all 1347 codes it was given, among them every card, versions of
+the cards ending in FFF, and codes no card carries.
+
 ## Checking the machine
 
 `maeyomi doctor` checks that this computer can print a card the device will
@@ -864,6 +883,10 @@ of every card it can be given, named by the item's code, so the 281 cards here
 are those images, each printed with a code the game's own decoder reads as
 that item.
 
+Mushiking's cards are the arcade cards the game keeps in its own lists, 535
+codes, each printed as the game stores it; a card ending in FFF prints with
+FFF, which the game reads as the card's own version.
+
 Epoch printed a roster card for each of the 12 J.League clubs of 1994 for
 Excite Stage '94. Their barcodes were read off the scans
 [barcodebattler.co.uk publishes](https://www.barcodebattler.co.uk/scans/Japan/J-League/),
@@ -872,7 +895,7 @@ MAME.
 
 ## The cheat code
 
-Every machine and game but three offers one or more kinds of cheat card, each
+Every machine and game but four offers one or more kinds of cheat card, each
 with every number it names at the most the device takes. `maeyomi cheat
 --device famista3 --kinds` lists a device's kinds, `--kind era` prints one, and
 the web page offers them on the **Cheats** tab, which shows and prints every kind
@@ -908,8 +931,9 @@ A kind that would print the strongest card again is left out, so Battle Space
 has no HP or AP kind: its strongest card already has the most of both.
 Datach J.League Super Top Players has none: its cards name players, and the
 game's program keeps a profile, a face and an appearance for each player but
-no number a card could raise. Card de Asobu and Oshare Majo have none either:
-a card names a kana or an item and carries nothing else.
+no number a card could raise. Card de Asobu, Oshare Majo and Mushiking have
+none either: a card names a kana, an item, a beetle or a move and carries
+nothing else.
 
 `maeyomi cheat -o cheat.pdf`, or the **Cheats** tab of the web page,
 which typing up, up, down, down, left, right, left, right, B, A anywhere on
@@ -1161,7 +1185,8 @@ under which licence:
   patched by `tools/oracle/gbe_plus/build.sh`; none of its code ships in the
   package.
 - **[Unicorn](https://www.unicorn-engine.org/)**, GPL-2, runs Oshare Majo's own
-  card decoder in the checks; it is not a dependency of the package.
+  card decoder and Mushiking's own card comparison in the checks; it is not a
+  dependency of the package.
 - **[MAME](https://www.mamedev.org/)** 0.289 runs every game in the checks. The
   game rules come from each game's own program; no ROM byte is shipped, and each
   ROM is named in `artifacts.manifest.json` by its checksum.

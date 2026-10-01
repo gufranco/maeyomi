@@ -124,6 +124,14 @@ from maeyomi.nds.cardasobu import (
     cardasobu_text,
     decode_cardasobu,
 )
+from maeyomi.nds.mushiking import STAT_KEYS as MUSHIKING_STATS
+from maeyomi.nds.mushiking import (
+    build_mushiking,
+    decode_mushiking,
+    mushiking_entries,
+    mushiking_named,
+    mushiking_text,
+)
 from maeyomi.nds.oshare import STAT_KEYS as OSHARE_STATS
 from maeyomi.nds.oshare import (
     build_oshare,
@@ -540,6 +548,17 @@ GAMES: Final[dict[Device, DatachGame]] = {
         stat_keys=OSHARE_STATS,
         datach_reader=False,
         drawable=frozenset({GameKind.ITEM}),
+    ),
+    Device.MUSHIKING: DatachGame(
+        decode=decode_mushiking,
+        build=build_mushiking,
+        strongest=None,
+        entries=mushiking_entries,
+        describe=mushiking_text,
+        named=mushiking_named,
+        stat_keys=MUSHIKING_STATS,
+        datach_reader=False,
+        drawable=frozenset({GameKind.FIGHTER, GameKind.ITEM, GameKind.EFFECT}),
     ),
 }
 

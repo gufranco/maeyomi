@@ -11539,6 +11539,3216 @@
    "name": "スペシャル SP017",
    "set": "オシャレ魔女 ラブandベリー DSコレクション カード",
    "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "GRFCT20K03W02",
+   "name": "ギラファノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "HLSPT20K03W03",
+   "name": "ヘルクレスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "GRDGT18K04W01",
+   "name": "グランディスオオクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "CCSPT18K04W03",
+   "name": "コーカサスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "EZOGT16K06W04",
+   "name": "エレファスゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "OOKGT14K07W04",
+   "name": "オオクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "GHDGT12K09W07",
+   "name": "ゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MKWGT10K10W07",
+   "name": "メンガタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "KKWGT10K10W10",
+   "name": "コクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "SAKCT16K06W05",
+   "name": "セアカフタマタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MYMCT14K07W05",
+   "name": "ミヤマクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "HRTCT12K09W08",
+   "name": "ヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "NOKCT12K09W11",
+   "name": "ノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "EHACT10K10W08",
+   "name": "エラフスホソアカクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "KABPT12K09W09",
+   "name": "カブトムシ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "TGDPT12K09W12",
+   "name": "タイゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "GSRPT10K10W09",
+   "name": "グラントシロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "NTDPT10K10W12",
+   "name": "ノコギリタテヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ACTGT20K03W01",
+   "name": "アクティオンゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "PWNCT18K04W02",
+   "name": "パラワンオオヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MKBGT12K09W10",
+   "name": "メンガタカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "SPSCT10K10W11",
+   "name": "スペキオシスシカクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "NEPPT16K06W06",
+   "name": "ネプチューンオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ATLPT14K07W06",
+   "name": "アトラスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "QNNAKT0BXLN7J",
+   "name": "ギラファノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "961LDTLBHS4UT",
+   "name": "ヘルクレスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "9NAJQTKRHS87J",
+   "name": "グランディスオオクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "9P1LDTLRXG4MM",
+   "name": "コーカサスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "EKAJQT8FXGDMU",
+   "name": "エレファスゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "QKIHFT81XGGM5",
+   "name": "オオクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "84IHFTZNXI8OJ",
+   "name": "ゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "9X1N3TZHXS64D",
+   "name": "メンガタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "9CDMNAWHXIGVE",
+   "name": "コクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "Q9SKGT4FX329C",
+   "name": "セアカフタマタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "QHD5QT41XI6GD",
+   "name": "ミヤマクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "9IMD1TVNXSVZT",
+   "name": "ヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "9AMD1AKNXSZVR",
+   "name": "ノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "9GTL3TVHXS6OH",
+   "name": "エラフスホソアカクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "9HMGRT2NXS7QE",
+   "name": "カブトムシ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "9GLHTA0NXI84F",
+   "name": "タイゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "QKTNCT2HXS67C",
+   "name": "グラントシロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "QILHTA0HFL65R",
+   "name": "ノコギリタテヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "Q0KLCTKBHSM5X",
+   "name": "アクティオンゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "EP1CCT0RXGJC7",
+   "name": "パラワンオオヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "8W1N3AWNX3C4D",
+   "name": "メンガタカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "9KEJNAKHXI6VC",
+   "name": "スペキオシスシカクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "EYDJ4TPFXG7JR",
+   "name": "ネプチューンオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "QNDJ4TP1XIJ5X",
+   "name": "アトラスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "94LHTA4NXIP5T",
+   "name": "ヒルトゥスヘラヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "9IEMQA4HXI6ZC",
+   "name": "サビイロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "Q0D5QA8FXG65S",
+   "name": "ラコダールツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "9CMD1A81X394E",
+   "name": "コガシラクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "E901KALBXL6MF",
+   "name": "タランドゥスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "QW3TGALRXL0MJ",
+   "name": "オウゴンオニクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "5X3JVS72IW1GM",
+   "name": "ブルマイスターツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "R2FSMBE7D4IVH",
+   "name": "モーレンカンプオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "3TPR8GUIA06TO",
+   "name": "ヒメカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "Y77J8M2LPR16Y",
+   "name": "マンディブラリスフタマタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "NC37PH5NODUHP",
+   "name": "ケンタウルスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "H1I6HJG5JEIVX",
+   "name": "マキシムスマルバネクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BIRWNVG02T87L",
+   "name": "サタンオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "B7S2AY0DSI7BR",
+   "name": "アルキデスオオヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "B82F90GXSMELP",
+   "name": "インペリアリスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BXNN4ESQY3GV7",
+   "name": "ヘルクレスリッキーブルー",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BEIZAPIMS3WY0",
+   "name": "アヌビスゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BNX70SUEGCJQZ",
+   "name": "ファブリースノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BYD24JRCNGA9G",
+   "name": "アクティオンゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BDXA3MSTB6YDL",
+   "name": "ディディエールシカクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BCF23FUXPVN5H",
+   "name": "ハスタートノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "B2QY3HFD1Y2ET",
+   "name": "ケブカヒメカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BP91X4Q9YE6XJ",
+   "name": "フェイスタメルシワバネクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BN6SESTJB2BQE",
+   "name": "サンボンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "B6Q7I3JLQDT8H",
+   "name": "ムナコブクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BPHLG11BTEBY3",
+   "name": "ムシキング",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "B8TKY1WCRZAA2",
+   "name": "ギラファノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BX0P17967VQ4P",
+   "name": "パラワンオオヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BA3O91GK71I1V",
+   "name": "ヒルスシロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "B5BVJVUAL2SR7",
+   "name": "カンターゴカクサイカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "B8EFIRZ4HUGCT",
+   "name": "ミクラミヤマクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BES46XDDLR3Z5",
+   "name": "ヒメゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BIG5AYSOCY5JA",
+   "name": "キプルツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BG735FLSHGHZY",
+   "name": "プラティオドンネブトクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BM2NCAL8Z76CI",
+   "name": "ヘルクレスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BXP7V4KYUCSAY",
+   "name": "コーカサスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BV9855L1B54FZ",
+   "name": "ギアスゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "B62V3SV8XDW6M",
+   "name": "バックレイコフキカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BGEFB1Y9SL36U",
+   "name": "ギガスサイカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "B1KB4NR1VGWMY",
+   "name": "パプアキンイロクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BZT6ML58NQ2K0",
+   "name": "ウォレスノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BH6BZXOK620M5",
+   "name": "ヒシガタタテヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "B9NR4JT7626SW",
+   "name": "オオクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BGHFYPHKYNVUN",
+   "name": "タランドゥスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "B8KU7VEQ7LBKT",
+   "name": "マルスゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BGG5XB8ZJFZ2Y",
+   "name": "アルケスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BD0XB2BAJSQEL",
+   "name": "フォルスターフタマタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BEB1KRPSVDPUA",
+   "name": "ティティウスヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BW5N3WRNEEQ1E",
+   "name": "クロゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BCD16HH9MSNLL",
+   "name": "クロパプアサンボンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "B5KTGREAK06TN",
+   "name": "スティーブンスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BYS17ABS2B61A",
+   "name": "マンディブラリスミツノサイカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "B5NTDJNXK5EB6",
+   "name": "ティティウスシロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BZRDID2RFYMU5",
+   "name": "パプアミツノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BX3DGUHVVWGV9",
+   "name": "アカアシクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BRITJYHT7NGKL",
+   "name": "デリカトゥスマルバネクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BMGEOUOHQ7X7G",
+   "name": "スジブトヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MDBTLOW8ANDS1",
+   "name": "ホペイオオクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1RLBZQYBFFF",
+   "name": "ムシキング",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1EFF1K3HFFF",
+   "name": "ギラファノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1CKPMZ3WFFF",
+   "name": "ヘルクレスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1GVI25OQFFF",
+   "name": "グランディスオオクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB19D7HQIMFFF",
+   "name": "コーカサスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1LWE2EUEFFF",
+   "name": "エレファスゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB173D2PQWFFF",
+   "name": "オオクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1GNCSA3BFFF",
+   "name": "ゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1IBHQMPPFFF",
+   "name": "メンガタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1SI2AG8TFFF",
+   "name": "コクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1LPE2C6AFFF",
+   "name": "セアカフタマタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1SNW7MSJFFF",
+   "name": "ミヤマクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1HWESSMTFFF",
+   "name": "ヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB14UR86VUFFF",
+   "name": "ノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1B81CLS5FFF",
+   "name": "エラフスホソアカクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1A17YGT9FFF",
+   "name": "カブトムシ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1RLNASX7FFF",
+   "name": "タイゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1K9PWE2ZFFF",
+   "name": "グラントシロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1RTSYXH4FFF",
+   "name": "ノコギリタテヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1YWYLAG7FFF",
+   "name": "アクティオンゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1S5QB7NIFFF",
+   "name": "パラワンオオヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1EPQU2HLFFF",
+   "name": "メンガタカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1YU5F97LFFF",
+   "name": "スペキオシスシカクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1RKUP3H9FFF",
+   "name": "ネプチューンオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB17BZUGZ4FFF",
+   "name": "アトラスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1U43NYV2FFF",
+   "name": "ヒルトゥスヘラヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1H9FHZYKFFF",
+   "name": "サビイロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1T05RFGOFFF",
+   "name": "ラコダールツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1N3OZR49FFF",
+   "name": "コガシラクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1B3N2X1HFFF",
+   "name": "タランドゥスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1P3XRJVKFFF",
+   "name": "オウゴンオニクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1WGP36EYFFF",
+   "name": "ブルマイスターツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1AOL4J96FFF",
+   "name": "モーレンカンプオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1GYZ7J2IFFF",
+   "name": "ヒメカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1U715IFLFFF",
+   "name": "マンディブラリスフタマタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1KK4VANTFFF",
+   "name": "ケンタウルスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1TLET71TFFF",
+   "name": "マキシムスマルバネクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1CJ9AJYSFFF",
+   "name": "サタンオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1K0SEFIBFFF",
+   "name": "アルキデスオオヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1TFK77L0FFF",
+   "name": "インペリアリスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1RL766TLFFF",
+   "name": "ヘルクレスリッキーブルー",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB15NJ15PDFFF",
+   "name": "アヌビスゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB17EWH5M3FFF",
+   "name": "ファブリースノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1BED7NKGFFF",
+   "name": "ディディエールシカクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB17S3B2FKFFF",
+   "name": "ハスタートノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1IFAUBCBFFF",
+   "name": "ケブカヒメカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1FL1NKC9FFF",
+   "name": "フェイスタメルシワバネクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1I6FHDZ2FFF",
+   "name": "サンボンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB17Z3M0E5FFF",
+   "name": "ムナコブクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1H2OVI1RFFF",
+   "name": "ヒルスシロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1EXOGMBQFFF",
+   "name": "カンターゴカクサイカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1B15MAO9FFF",
+   "name": "ミクラミヤマクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1RZVO8KYFFF",
+   "name": "ヒメゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1XNNJVHSFFF",
+   "name": "キプルツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1VF2M7KCFFF",
+   "name": "プラティオドンネブトクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1RCFX6MOFFF",
+   "name": "ギアスゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1ZUZG38OFFF",
+   "name": "バックレイコフキカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1YV6P07DFFF",
+   "name": "ギガスサイカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1SGI8AERFFF",
+   "name": "パプアキンイロクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1KXWQPYTFFF",
+   "name": "ウォレスノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1B39UGDSFFF",
+   "name": "ヒシガタタテヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB11B5KC0TFFF",
+   "name": "マルスゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1EZFBENCFFF",
+   "name": "アルケスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1MTXMYHSFFF",
+   "name": "フォルスターフタマタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1GMVMDUAFFF",
+   "name": "ティティウスヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1R7X9HZ0FFF",
+   "name": "クロゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1KS28JCFFFF",
+   "name": "クロパプアサンボンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1ZX9RHXZFFF",
+   "name": "スティーブンスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1K6L4ZCLFFF",
+   "name": "マンディブラリスミツノサイカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB19GPAU72FFF",
+   "name": "ティティウスシロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1KIHQWLKFFF",
+   "name": "パプアミツノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1U8FVGY4FFF",
+   "name": "アカアシクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1B8XUAZFFFF",
+   "name": "デリカトゥスマルバネクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1IKB7KXTFFF",
+   "name": "パンカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1DYXIGH2FFF",
+   "name": "ヘルクレスオキシデンタリス",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1MVMSK7DFFF",
+   "name": "パリーオオクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1CVKY14RFFF",
+   "name": "ヘルマンミヤマクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1TYAVXVBFFF",
+   "name": "フェモラリスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1RNXDE8YFFF",
+   "name": "ストリアータツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1Q4UIT8CFFF",
+   "name": "ドウイロクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB1JKF475QFFF",
+   "name": "オキナワカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MB18R1LOMTFFF",
+   "name": "ラティペニスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MC1VP2MJ5HFFF",
+   "name": "ヘルクレスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MC1HSFGZQBFFF",
+   "name": "ヘルクレスオキシデンタリス",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LNAVM1K34E3F3",
+   "name": "オオクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LKG5BUDKEHKFB",
+   "name": "ゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LTGG1QJX8GRHZ",
+   "name": "メンガタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LRQTLZ96G1PYD",
+   "name": "コクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LXLYS0I59E3XT",
+   "name": "ミヤマクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LOHD1BC1LRTQV",
+   "name": "ヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "L3OK42CAS7L6R",
+   "name": "ノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "L7NLKCYSKJX91",
+   "name": "エラフスホソアカクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LPRVCU1VHREGN",
+   "name": "カブトムシ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "L1NRUGFF04TW6",
+   "name": "タイゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LS6NZKM6PUX1U",
+   "name": "グラントシロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LEIPJ8MH1GEXI",
+   "name": "ノコギリタテヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LIX5WZX19MS5W",
+   "name": "メンガタカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LDSVE14P2HEPE",
+   "name": "スペキオシスシカクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LSGUQGALWVQ51",
+   "name": "アトラスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LCS5W8KY313RZ",
+   "name": "ヒルトゥスヘラヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "L4CG9XJ9PW090",
+   "name": "サビイロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LYSHMD8UBPH90",
+   "name": "コガシラクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LQKBK17BNWPOE",
+   "name": "ヒメカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LB6J0AB93BLZP",
+   "name": "ケンタウルスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LW3CIPZ7GG4FP",
+   "name": "マキシムスマルバネクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LVNIKZVBSWWEN",
+   "name": "インペリアリスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LEOKN9WQJAYY3",
+   "name": "アヌビスゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "L87WLZZ0AFM9Q",
+   "name": "ファブリースノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LJC8M9EYY9YX9",
+   "name": "ハスタートノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "L2N9VDDB6IX5Y",
+   "name": "ケブカヒメカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LKPCY3DRH0LQD",
+   "name": "フェイスタメルシワバネクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LPIJ46C9M1TBO",
+   "name": "サンボンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LSXAIBITQIWJA",
+   "name": "ムナコブクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LIAOQUU4XS4Y6",
+   "name": "エレファスゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LKNONUTYMX04G",
+   "name": "マンディブラリスフタマタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LB8IW2N728FJV",
+   "name": "サタンオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LY9VHMOSR13NE",
+   "name": "カンターゴカクサイカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LM3RHLQBSM3KA",
+   "name": "ミクラミヤマクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "L0N0Y3BRGQYCW",
+   "name": "ヒメゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LP9NP9APWE5RH",
+   "name": "キプルツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LBJV8Y7IT70ZN",
+   "name": "プラティオドンネブトクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LOX29CIE3THFB",
+   "name": "グランディスオオクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LASFOCF34AHYK",
+   "name": "ラコダールツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LDJ2BW74OL384",
+   "name": "ヘルクレスリッキーブルー",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LUGSIIOV11E3Y",
+   "name": "バックレイコフキカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LN2BJL1MCP2GX",
+   "name": "ギガスサイカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LMB3T77IEAH82",
+   "name": "パプアキンイロクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "L7ZX3G6QUZ21B",
+   "name": "ウォレスノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LZN9LR3IWRSWA",
+   "name": "ヒシガタタテヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LYXKPOIYUDPF7",
+   "name": "オオクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "L5CXXOLNPOAVC",
+   "name": "アクティオンゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LDROOEUVVFP73",
+   "name": "パラワンオオヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LQRY0IMAIZJAD",
+   "name": "モーレンカンプオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LA3E3B737IKK9",
+   "name": "アルキデスオオヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LG2AJXBQABJ90",
+   "name": "フォルスターフタマタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LQGKQX4B6HLS1",
+   "name": "ティティウスヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LUZU4SBV0IRQ8",
+   "name": "クロゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LT56C8XQERSQE",
+   "name": "クロパプアサンボンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LJZPOZFR7JIU0",
+   "name": "スティーブンスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LHDATI6EE9EIT",
+   "name": "マンディブラリスミツノサイカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "L4AE9IHURQH31",
+   "name": "ティティウスシロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LDK21O5KBRWVI",
+   "name": "パプアミツノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LDYTI69JM4NCK",
+   "name": "アカアシクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LRWV2VQ3TOKQD",
+   "name": "デリカトゥスマルバネクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "QXD5QTVNFLVZT",
+   "name": "ヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "Z9NB32VLEM0UJ",
+   "name": "キング",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "KM4YED3CQW7JZ",
+   "name": "カブト丸",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "1UELN6TW2KE8U",
+   "name": "ヒメカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "7S1FCEXLDR8X8",
+   "name": "ジョー",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "PF1E8OEUKCTGU",
+   "name": "ヤイバ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "7KLTX13I9ZYAB",
+   "name": "グラントシロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BQ3KVBC7780W5",
+   "name": "ジャンボ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "BNEN2AWXFH4RQ",
+   "name": "チャン・Ｇ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ME1KAFKUSZFFF",
+   "name": "ヒラタクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ME1EOMAPHDFFF",
+   "name": "ヒメカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ME1B69SBI4FFF",
+   "name": "ジョー",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ME1AP67KL2FFF",
+   "name": "ヤイバ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ME1GH3CRPFFFF",
+   "name": "グラントシロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ME1TLK37R1FFF",
+   "name": "ジャンボ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ME1CJ15KMFFFF",
+   "name": "チャン・Ｇ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ME1N3EW231FFF",
+   "name": "キング",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ME1LGWKYNOFFF",
+   "name": "カブト丸",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MC1GH3CRPFFFF",
+   "name": "グラントシロカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MC1POPB2MNFFF",
+   "name": "ゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MC1TMH73TSFFF",
+   "name": "エラフスホソアカクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MC1UMY7R4WFFF",
+   "name": "タイゴホンヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MC1A61XG5QFFF",
+   "name": "アクティオンゾウカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MC1NPIE7CMFFF",
+   "name": "ギラファノコギリクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MC1R1X4VGMFFF",
+   "name": "ヘルクレスオオカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MC1CUWI2BJFFF",
+   "name": "タランドゥスツヤクワガタ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MC1F6HVNPZFFF",
+   "name": "カブトムシ",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MC1VDKL8QYFFF",
+   "name": "メンガタカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MC1O7K4EPHFFF",
+   "name": "ヒルトゥスヘラヅノカブト",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "G0L01W001M000",
+   "name": "わざカード 1",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "G0L02W004M000",
+   "name": "わざカード 2",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "G0L03W007M000",
+   "name": "わざカード 3",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "G0L03W010M000",
+   "name": "わざカード 4",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "G0L01W000M001",
+   "name": "わざカード 5",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "G0L02W000M004",
+   "name": "わざカード 6",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "C0L01W002M000",
+   "name": "わざカード 7",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "C0L02W005M000",
+   "name": "わざカード 8",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "C0L03W008M000",
+   "name": "わざカード 9",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "C0L03W011M000",
+   "name": "わざカード 10",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "C0L03W000M002",
+   "name": "わざカード 11",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "C0L01W000M005",
+   "name": "わざカード 12",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "P0L01W003M000",
+   "name": "わざカード 13",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "P0L02W006M000",
+   "name": "わざカード 14",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "P0L03W009M000",
+   "name": "わざカード 15",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "P0L03W012M000",
+   "name": "わざカード 16",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "P0L01W000M003",
+   "name": "わざカード 17",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "P0L02W000M006",
+   "name": "わざカード 18",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "VAUVE1BLFSTIV",
+   "name": "わざカード 19",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "U6UVEKDLFSTDV",
+   "name": "わざカード 20",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "V7UVOTBLFSS3V",
+   "name": "わざカード 21",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "U6UVEW1LFST3V",
+   "name": "わざカード 22",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "UXKVE31LFSTIV",
+   "name": "わざカード 23",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "U0KVES1LFSTIV",
+   "name": "わざカード 24",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "U9KVEHDLFSTIV",
+   "name": "わざカード 25",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "UPKVEQDLFSTIV",
+   "name": "わざカード 26",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "UIKVVABLFSTIV",
+   "name": "わざカード 27",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "UHKVVTBLFSTIV",
+   "name": "わざカード 28",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "UCKVVEBLFSTIV",
+   "name": "わざカード 29",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "GQ3JI7PNYPVTU",
+   "name": "わざカード 30",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "Q4N6NFO9GB5EI",
+   "name": "わざカード 31",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "3BGLOIAWWQHGR",
+   "name": "わざカード 32",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "9UTQHIGDPWZVG",
+   "name": "わざカード 33",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "I9E5LQFZ6A9GW",
+   "name": "わざカード 34",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "51SPCNTCYWXEN",
+   "name": "わざカード 35",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "G82YWFJAV4PK0",
+   "name": "わざカード 36",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MQY5XT9GLHRLM",
+   "name": "わざカード 37",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "EUGE30X2MIHTR",
+   "name": "わざカード 38",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "PGAOBTLIIVLO2",
+   "name": "わざカード 39",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "U162DBKOPE6Z4",
+   "name": "わざカード 40",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "A6XDBT2DL67U7",
+   "name": "わざカード 41",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "5VTXWA2Y587E2",
+   "name": "わざカード 42",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AVAXXQDK1LBQP",
+   "name": "わざカード 43",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "TD76QIRH2ANJ8",
+   "name": "わざカード 44",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "K8DYWSHRMHCYK",
+   "name": "わざカード 45",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "2GS5TPIHTIVBU",
+   "name": "わざカード 46",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "RQ6472BDZL39S",
+   "name": "わざカード 47",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "6PP3PSI57PWO5",
+   "name": "わざカード 48",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "NHW25DYQFUO7S",
+   "name": "わざカード 49",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "3MYA1Z3J06819",
+   "name": "わざカード 50",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "UWTKXIMI1NV91",
+   "name": "わざカード 51",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "RW6YCQRHH921G",
+   "name": "わざカード 52",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "A8GU8YOK0TCBD",
+   "name": "わざカード 53",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "HTISVGH1Q545Q",
+   "name": "わざカード 54",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "K1AJQTRISGGQH",
+   "name": "わざカード 55",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "YJU0YO4XTNE7Q",
+   "name": "わざカード 56",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "I7EB9TFI5CH96",
+   "name": "わざカード 57",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AL33DF5EN7W6S",
+   "name": "わざカード 58",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "JXS704SOJ67WF",
+   "name": "わざカード 59",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "E27MUEAU8KYA1",
+   "name": "わざカード 60",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "EGRW0179JGOI7",
+   "name": "わざカード 61",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "TV2TSJLRDRU6F",
+   "name": "わざカード 62",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "Q9L6JLX3FOE8U",
+   "name": "わざカード 63",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "DILPBA5IQR91J",
+   "name": "わざカード 64",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AZDJRWBZ01X1N",
+   "name": "わざカード 65",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "7XZ0X57B86174",
+   "name": "わざカード 66",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "R0GGKAG3EIC1T",
+   "name": "わざカード 67",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "YGQ1NQCTMH6UV",
+   "name": "わざカード 68",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "H4TPPK452T2S2",
+   "name": "わざカード 69",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "5EKV2U780QUAJ",
+   "name": "わざカード 70",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "ZXKRF3QJYADDG",
+   "name": "わざカード 71",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "FK512ZE381GC7",
+   "name": "わざカード 72",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WEGTKDI3CG6G7",
+   "name": "わざカード 73",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WTYIEHIVOETJB",
+   "name": "わざカード 74",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "W54EE3ANJ9MZF",
+   "name": "わざカード 75",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WIGC3AUXOKE9I",
+   "name": "わざカード 76",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WZBKGZOMELR9F",
+   "name": "わざカード 77",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WVBOTMNJ0VZDA",
+   "name": "わざカード 78",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "W7LUNKHGXSRIE",
+   "name": "わざカード 79",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WHDCIB7M4DY5D",
+   "name": "わざカード 80",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WBEWH85NHDJGB",
+   "name": "わざカード 81",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WUZZ03DPVQ6E8",
+   "name": "わざカード 82",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "W9CIMEX2SYVTO",
+   "name": "わざカード 83",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WG970AC35QF7P",
+   "name": "わざカード 84",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WKUVURDCMLVBG",
+   "name": "わざカード 85",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "W5LW6TZC234ME",
+   "name": "わざカード 86",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WQ7L4TCZENK65",
+   "name": "わざカード 87",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WRABF50H5L3M8",
+   "name": "わざカード 88",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WPPVLPQ4CBY30",
+   "name": "わざカード 89",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "W68TTI69KW7BL",
+   "name": "わざカード 90",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "W78UAJM402EP0",
+   "name": "わざカード 91",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "W7A68RBX923TM",
+   "name": "わざカード 92",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WDESHYINAEH9I",
+   "name": "わざカード 93",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WUHL0PYH60MQT",
+   "name": "わざカード 94",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WBXGQWL0OR6IX",
+   "name": "わざカード 95",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WTDPISK3S7QJ8",
+   "name": "わざカード 96",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WEL9LOG5ZDKFC",
+   "name": "わざカード 97",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WDS68TN7HIS1A",
+   "name": "わざカード 98",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WJGKRJVIH97TX",
+   "name": "わざカード 99",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WG6IZ5EQ23FV0",
+   "name": "わざカード 100",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WXGDL91AEJQND",
+   "name": "わざカード 101",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WRM86VHH51ND2",
+   "name": "わざカード 102",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WERJXW6VMERLO",
+   "name": "わざカード 103",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WD3NOC68UGH3S",
+   "name": "わざカード 104",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WQUBW7IARX4SN",
+   "name": "わざカード 105",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WK598MVUR7746",
+   "name": "わざカード 106",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WDVQ0W3M46JHF",
+   "name": "わざカード 107",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WQGDVDT41TN71",
+   "name": "わざカード 108",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "WAEQI9C8YJPTS",
+   "name": "わざカード 109",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MDWF7X4CWDDS1",
+   "name": "わざカード 110",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MDWIUZAVAGDS1",
+   "name": "わざカード 111",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MDWKIXK21TDS1",
+   "name": "わざカード 112",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1VIP2P2AFFF",
+   "name": "わざカード 113",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW148SW0XAFFF",
+   "name": "わざカード 114",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1H53B4JLFFF",
+   "name": "わざカード 115",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1ZNHUVQ8FFF",
+   "name": "わざカード 116",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1LW6SUEFFFF",
+   "name": "わざカード 117",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT1EIAXVJ4FFF",
+   "name": "わざカード 118",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT12GJKNMUFFF",
+   "name": "わざカード 119",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1NTO5G1JFFF",
+   "name": "わざカード 120",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1WTMWBG3FFF",
+   "name": "わざカード 121",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1T36JYDLFFF",
+   "name": "わざカード 122",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW18G5W4RRFFF",
+   "name": "わざカード 123",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT1NQ6AC6MFFF",
+   "name": "わざカード 124",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT1DVAYWD5FFF",
+   "name": "わざカード 125",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1HSH2MMYFFF",
+   "name": "わざカード 126",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1BJ3HCMTFFF",
+   "name": "わざカード 127",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1ME4X6KBFFF",
+   "name": "わざカード 128",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1X85HCEGFFF",
+   "name": "わざカード 129",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT1LZS0S6GFFF",
+   "name": "わざカード 130",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1SMFHA55FFF",
+   "name": "わざカード 131",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1CBKVO1NFFF",
+   "name": "わざカード 132",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT1AL7ZV59FFF",
+   "name": "わざカード 133",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1BOKJMYPFFF",
+   "name": "わざカード 134",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1N4FNRTOFFF",
+   "name": "わざカード 135",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1CDJEPTGFFF",
+   "name": "わざカード 136",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1GUAG90DFFF",
+   "name": "わざカード 137",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT1HPC2U3KFFF",
+   "name": "わざカード 138",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT1V574XO4FFF",
+   "name": "わざカード 139",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT1SWNHK7EFFF",
+   "name": "わざカード 140",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT16US3G45FFF",
+   "name": "わざカード 141",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT19HQCBDFFFF",
+   "name": "わざカード 142",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1QFNZQBAFFF",
+   "name": "わざカード 143",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1Z3QCX5ZFFF",
+   "name": "わざカード 144",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1EAQYRBWFFF",
+   "name": "わざカード 145",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1CRSJ82IFFF",
+   "name": "わざカード 146",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1DAN356OFFF",
+   "name": "わざカード 147",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1HGBTHX0FFF",
+   "name": "わざカード 148",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1PD8E3T5FFF",
+   "name": "わざカード 149",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1NDREN1SFFF",
+   "name": "わざカード 150",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW16P9HVGKFFF",
+   "name": "わざカード 151",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1HFJPL6YFFF",
+   "name": "わざカード 152",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1G6VIZ94FFF",
+   "name": "わざカード 153",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1E2LXL68FFF",
+   "name": "わざカード 154",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW14VF2J1PFFF",
+   "name": "わざカード 155",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1TOECVGEFFF",
+   "name": "わざカード 156",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW187GQORDFFF",
+   "name": "わざカード 157",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW16RQ27UWFFF",
+   "name": "わざカード 158",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT1ZVWJJTSFFF",
+   "name": "わざカード 159",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1LAMIWS6FFF",
+   "name": "わざカード 160",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1HX4VFWUFFF",
+   "name": "わざカード 161",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW12DO5D81FFF",
+   "name": "わざカード 162",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1OUF53ORFFF",
+   "name": "わざカード 163",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT1DU6TIAQFFF",
+   "name": "わざカード 164",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1XEPMYX7FFF",
+   "name": "わざカード 165",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW11MN3548FFF",
+   "name": "わざカード 166",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1VOTG40EFFF",
+   "name": "わざカード 167",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1LAEMUTWFFF",
+   "name": "わざカード 168",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW16SEPLVMFFF",
+   "name": "わざカード 169",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW18D4YGP7FFF",
+   "name": "わざカード 170",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1UCJVWBIFFF",
+   "name": "わざカード 171",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1TODQ24ZFFF",
+   "name": "わざカード 172",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1TLQF1D1FFF",
+   "name": "わざカード 173",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1SCQ98JUFFF",
+   "name": "わざカード 174",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1R34YZ1HFFF",
+   "name": "わざカード 175",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1OXJ8GI5FFF",
+   "name": "わざカード 176",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1RGNLWODFFF",
+   "name": "わざカード 177",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1DQYUPVCFFF",
+   "name": "わざカード 178",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1OWH25H4FFF",
+   "name": "わざカード 179",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1J4YUFV7FFF",
+   "name": "わざカード 180",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1CKLTTK3FFF",
+   "name": "わざカード 181",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1TENF9NLFFF",
+   "name": "わざカード 182",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1NBD2Z9OFFF",
+   "name": "わざカード 183",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1CN6PWYWFFF",
+   "name": "わざカード 184",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1W3PD6JOFFF",
+   "name": "わざカード 185",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT1GAHIXIZFFF",
+   "name": "わざカード 186",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1MPW95ESFFF",
+   "name": "わざカード 187",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1UT8JNYFFFF",
+   "name": "わざカード 188",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1LSD9HLBFFF",
+   "name": "わざカード 189",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1G93HJF8FFF",
+   "name": "わざカード 190",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1KL6H4QLFFF",
+   "name": "わざカード 191",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1HPEACJEFFF",
+   "name": "わざカード 192",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1GIJYH8AFFF",
+   "name": "わざカード 193",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1BE69TPUFFF",
+   "name": "わざカード 194",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1HX4WALFFFF",
+   "name": "わざカード 195",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1VPMYENSFFF",
+   "name": "わざカード 196",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MW1L2K6YV4FFF",
+   "name": "わざカード 197",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS14W8SI1RFFF",
+   "name": "わざカード 198",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS166T05X9FFF",
+   "name": "わざカード 199",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1A5YMYPDFFF",
+   "name": "わざカード 200",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1WNVXZXGFFF",
+   "name": "わざカード 201",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1X0IE8VXFFF",
+   "name": "わざカード 202",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS18NK7MSGFFF",
+   "name": "わざカード 203",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS122W4ZIBFFF",
+   "name": "わざカード 204",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1KZNZLQXFFF",
+   "name": "わざカード 205",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1AVD4HR0FFF",
+   "name": "わざカード 206",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1F28TVCWFFF",
+   "name": "わざカード 207",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1UE6WPRSFFF",
+   "name": "わざカード 208",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1L39OD4GFFF",
+   "name": "わざカード 209",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS14BXCBA5FFF",
+   "name": "わざカード 210",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1TNS0LUGFFF",
+   "name": "わざカード 211",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1W482UDCFFF",
+   "name": "わざカード 212",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS13TMP695FFF",
+   "name": "わざカード 213",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS17IOFTAFFFF",
+   "name": "わざカード 214",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1MHBZJYHFFF",
+   "name": "わざカード 215",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1JU2AC76FFF",
+   "name": "わざカード 216",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1X203WQ1FFF",
+   "name": "わざカード 217",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS16AY9UKSFFF",
+   "name": "わざカード 218",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1OJ5KSSEFFF",
+   "name": "わざカード 219",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1P8WFYK9FFF",
+   "name": "わざカード 220",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1KCBRE2GFFF",
+   "name": "わざカード 221",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1AX4JO3OFFF",
+   "name": "わざカード 222",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1JJD9PWOFFF",
+   "name": "わざカード 223",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS18W4KR0DFFF",
+   "name": "わざカード 224",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS19LN560FFFF",
+   "name": "わざカード 225",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1MB2KDTKFFF",
+   "name": "わざカード 226",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS12WNS9EZFFF",
+   "name": "わざカード 227",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS17QU4VSXFFF",
+   "name": "わざカード 228",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1P75VTUFFFF",
+   "name": "わざカード 229",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1SPMHXSHFFF",
+   "name": "わざカード 230",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS12NC24QYFFF",
+   "name": "わざカード 231",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1ESVX3NNFFF",
+   "name": "わざカード 232",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1E4NYT66FFF",
+   "name": "わざカード 233",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1IM5A9PRFFF",
+   "name": "わざカード 234",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS17BLU4UWFFF",
+   "name": "わざカード 235",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1NQYPAIRFFF",
+   "name": "わざカード 236",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1CXBL0T9FFF",
+   "name": "わざカード 237",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MS1KZIX1QHFFF",
+   "name": "わざカード 238",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MT1NWT5VNUFFF",
+   "name": "わざカード 239",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LICENSEPMAHCG",
+   "name": "ライセンスカード 1",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "LICENSEGRTEST",
+   "name": "ライセンスカード 2",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "EDYVEGJTVUJHR",
+   "name": "ライセンスカード 3",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "GBA6T2SOC5Z1J",
+   "name": "ライセンスカード 4",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "GBAKRQJCRBGMX",
+   "name": "ライセンスカード 5",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "GBA8ITXWKDPMT",
+   "name": "ライセンスカード 6",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MDXY9CY4F6DS1",
+   "name": "とくべつカード 1",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MDXHKY73D2DS1",
+   "name": "とくべつカード 2",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "MDXBNUF5JQDS1",
+   "name": "とくべつカード 3",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "V111OMY0IOMDS",
+   "name": "とくべつカード 4",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "V2ZHNZZ5BZMDS",
+   "name": "とくべつカード 5",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "V549K8MNBVMDS",
+   "name": "とくべつカード 6",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "VCQ7KB3DNKMDS",
+   "name": "とくべつカード 7",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "VRNIJZNZMMMDS",
+   "name": "とくべつカード 8",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "V2EEV1G4T7MDS",
+   "name": "とくべつカード 9",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "V1LBPFC82LMDS",
+   "name": "とくべつカード 10",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "VOMLM80ZP0MDS",
+   "name": "とくべつカード 11",
+   "set": "甲虫王者ムシキング スーパーコレクション カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
   }
  ]
 }

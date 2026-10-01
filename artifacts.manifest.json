@@ -329,6 +329,16 @@
    "sha1": "222e01c2bcefcf42f643caeb4077e624f57425fe",
    "crc32": "8870ada6",
    "used_by": "tools/oracle/record_oshare.py and tools/oracle/extract_oshare.py, which run the game's own decoder and read its tables; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "nds_mushiking",
+   "what": "Kouchuu Ouja Mushiking Super Collection, Sega 2007, which reads arcade cards through Sega's HCV-1000",
+   "path": "nds/mushiking.nds",
+   "size": 134217728,
+   "sha256": "8ec470020112a0fafe7c37a1fed13b6230d0ca6aa7222556a46b8ea6437dfcaa",
+   "sha1": "6af360c4bdf2c770ab2fa49de1a80a52b16404b3",
+   "crc32": "032f2d20",
+   "used_by": "tools/oracle/record_mushiking.py and tools/oracle/extract_mushiking.py, which run the game's own comparison and read its card lists; nothing in the package or its tests reads it"
   }
  ]
 }
