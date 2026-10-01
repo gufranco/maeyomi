@@ -89,7 +89,7 @@ def _draw_page(
             y_mm=y_mm,
             width_mm=layout.card_width_mm,
             height_mm=layout.card_height_mm,
-            geometry=_geometry_for(card, geometry),
+            geometry=geometry_for(card, geometry),
             style=style,
             bleed_mm=layout.bleed_mm,
         )
@@ -104,7 +104,7 @@ def _draw_page(
         )
 
 
-def _geometry_for(card: AnyCard, geometry: BarcodeGeometry) -> BarcodeGeometry:
+def geometry_for(card: AnyCard, geometry: BarcodeGeometry) -> BarcodeGeometry:
     """The sheet's geometry, keeping the check digit of a card whose game wants it wrong."""
     marked = isinstance(card.character, DatachCard) and card.character.game in MARKED_CHECK
     return replace(geometry, kept_check=True) if marked else geometry

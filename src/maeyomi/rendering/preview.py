@@ -25,7 +25,7 @@ from maeyomi.rendering.layout import (
     POKER_CARD_WIDTH_MM,
     SheetLayout,
 )
-from maeyomi.rendering.sheet import write_sheet
+from maeyomi.rendering.sheet import geometry_for, write_sheet
 
 CARD_PREVIEW_DPI: Final = 150
 SHEET_PREVIEW_DPI: Final = 96
@@ -51,7 +51,7 @@ def card_png(
             y_mm=0,
             width_mm=width_mm,
             height_mm=height_mm,
-            geometry=geometry or BarcodeGeometry(),
+            geometry=geometry_for(card, geometry or BarcodeGeometry()),
             style=style,
         )
         canvas.showPage()

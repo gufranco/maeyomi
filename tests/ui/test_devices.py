@@ -176,6 +176,15 @@ def test_a_preview_is_drawn_with_the_chosen_device(client: TestClient) -> None:
     assert response.headers["content-type"] == "image/png"
 
 
+def test_a_battle_rush_preview_keeps_the_check_digit_the_game_marks(client: TestClient) -> None:
+    response = client.post(
+        "/api/preview", json={"barcode": "0000000000009", "device": "battlerush"}
+    )
+
+    assert response.status_code == 200
+    assert response.headers["content-type"] == "image/png"
+
+
 def test_a_sheet_prints_cards_for_the_chosen_device(client: TestClient, tmp_path: object) -> None:
     response = client.post(
         "/api/barcode-sheet", json={"cards": [{"barcode": GOKU, "name": "G", "device": "dbz"}]}
