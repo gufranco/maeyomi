@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.12.0 (2026-10-01)
+
+### Chores
+
+- **formula**: Point at v1.11.0 [skip ci]
+  ([`a01a40a`](https://github.com/gufranco/maeyomi/commit/a01a40a71e29d85baf8799fc3b5b04912ec4451a))
+
+### Features
+
+- Show and print every cheat card together
+  ([`131fe0f`](https://github.com/gufranco/maeyomi/commit/131fe0fdb9514011ed13eb1727e7d5324b901a54))
+
+
 ## v1.11.0 (2026-09-30)
 
 ### Chores
