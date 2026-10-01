@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.17.0 (2026-10-01)
+
+### Chores
+
+- **formula**: Point at v1.16.0 [skip ci]
+  ([`4a7f711`](https://github.com/gufranco/maeyomi/commit/4a7f7119afd1d957f003db73c65d8d54523455ce))
+
+### Features
+
+- Support Mushiking Super Collection
+  ([`8b4e873`](https://github.com/gufranco/maeyomi/commit/8b4e873743c0125d414cdb5818f8de98ee8df275))
+
+
 ## v1.16.0 (2026-10-01)
 
 ### Chores
