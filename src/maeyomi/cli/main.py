@@ -380,9 +380,13 @@ def kinds(device: DeviceOption = Device.BB2) -> None:
 @app.command()
 def cheat(
     output: Annotated[Path | None, typer.Option("--output", "-o", help="PDF to write.")] = None,
-    name: Annotated[str, typer.Option("--name", help="Printed on the card only.")] = (
-        DEFAULT_CHEAT_NAME
-    ),
+    name: Annotated[
+        str | None,
+        typer.Option(
+            "--name",
+            help="Printed on the card only. One kind at a time; every kind is named kind by kind.",
+        ),
+    ] = None,
     kind: Annotated[
         str | None, typer.Option("--kind", help="One cheat kind, by the key --kinds prints.")
     ] = None,
@@ -412,9 +416,15 @@ def cheat(
         return
     if device is not Device.BB2:
         cheat = _CHEAT[device]
-        cheat(name, items=items, output=output, images=images, print_shop=print_shop)
+        cheat(
+            name or DEFAULT_CHEAT_NAME,
+            items=items,
+            output=output,
+            images=images,
+            print_shop=print_shop,
+        )
         return
-    card = strongest_card(name)
+    card = strongest_card(name or DEFAULT_CHEAT_NAME)
     character = card.character
     typer.echo(f"{card.name}: HP {character.hp}, ST {character.st}, DF {character.df}")
     typer.echo(f"Fights with ST {character.fighting_st}, DF {character.fighting_df}")

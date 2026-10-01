@@ -1,5 +1,6 @@
 """Tests for the local web interface."""
 
+import base64
 import io
 import tempfile
 from pathlib import Path
@@ -11,6 +12,13 @@ import maeyomi.ui.app as app_module
 from maeyomi.barcode.verify import decode_pdf
 from maeyomi.products.lookup import ProductLookupError
 from maeyomi.ui.app import allowed_hosts, create_app
+
+SHEET_WIDTH = 700
+
+
+def image_width(data_url: str) -> int:
+    png = base64.b64decode(data_url.split(",", 1)[1])
+    return int.from_bytes(png[16:20], "big")
 
 
 @pytest.fixture(name="client")
@@ -258,6 +266,23 @@ def test_a_sheet_preview_returns_page_images(client: TestClient) -> None:
     assert body["count"] == 2
     assert len(body["pages"]) == 1
     assert body["pages"][0].startswith("data:image/png;base64,")
+
+
+def test_a_sheet_preview_of_one_card_shows_that_card_alone(client: TestClient) -> None:
+    response = client.post("/api/sheet-preview", json={"count": 1, "seed": 4})
+
+    body = response.json()
+    assert body["count"] == 1
+    assert body["single"] is True
+    assert image_width(body["pages"][0]) < SHEET_WIDTH
+
+
+def test_a_sheet_preview_of_several_cards_shows_the_sheet(client: TestClient) -> None:
+    response = client.post("/api/sheet-preview", json={"count": 2, "seed": 4})
+
+    body = response.json()
+    assert body["single"] is False
+    assert image_width(body["pages"][0]) >= SHEET_WIDTH
 
 
 def test_a_sheet_preview_that_cannot_be_filled_reports_the_shortfall(client: TestClient) -> None:

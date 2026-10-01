@@ -487,6 +487,42 @@ function checkCheatTab() {
   pickDevice('bb2');
 }
 
+function checkOneCheatCardStandsAlone() {
+  pickDevice('bardigun');
+  browser('click', '#tab-cheat');
+  browser('wait', '2500');
+  const together = evaluate(`JSON.stringify([
+    document.getElementById('cheat-frame').classList.contains('single'),
+    document.getElementById('cheat-name-field').hidden,
+    document.getElementById('cheat-name-all').hidden,
+  ])`);
+  expect(!together[0] && together[1] && !together[2], `every kind together is not a named sheet: ${together}`);
+  browser('select', '#cheat-kind', 'power');
+  browser('wait', '2500');
+  const alone = evaluate(`JSON.stringify([
+    document.getElementById('cheat-frame').classList.contains('single'),
+    document.querySelectorAll('#cheat-frame img').length,
+    document.getElementById('cheat-name-field').hidden,
+    document.getElementById('cheat-name').placeholder,
+  ])`);
+  expect(alone[0] && alone[1] === 1 && !alone[2] && alone[3] === 'Most power', `one cheat card is not shown alone: ${alone}`);
+  pickDevice('bb2');
+}
+
+function checkOneCardSheetStandsAlone() {
+  browser('click', '#tab-many');
+  browser('wait', '800');
+  browser('eval', "document.getElementById('count').value = '1'; document.getElementById('many').requestSubmit(); 'ok'");
+  browser('wait', '3000');
+  const shown = evaluate(`JSON.stringify([
+    document.getElementById('sheet-frame').classList.contains('single'),
+    document.querySelectorAll('#sheet-frame img').length,
+  ])`);
+  expect(shown[0] && shown[1] === 1, `a one-card sheet is not shown alone: ${shown}`);
+  browser('eval', "document.getElementById('count').value = '9'; 'ok'");
+  browser('click', '#tab-one');
+}
+
 function checkPhoneDeviceMenu() {
   browser('set', 'viewport', '390', '844');
   const closed = evaluate(`JSON.stringify([
@@ -544,6 +580,8 @@ checkEmptyRealCards();
 checkNothingIsFocusedOnOpen();
 checkLanguageLeavesTheCard();
 checkCheatTab();
+checkOneCheatCardStandsAlone();
+checkOneCardSheetStandsAlone();
 checkCheatLinkShowsThatDevicesCard();
 checkCheatKindsFollowThePickAndTheLanguage();
 checkPhoneTabsFit();

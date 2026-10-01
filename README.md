@@ -831,6 +831,12 @@ the web page offers them on the **Cheats** tab, which shows and prints every kin
 together or one at a time. The first kind
 is the default, the card this section describes for each device.
 
+A card is named Maximus Cheatimus for the default kind and after its kind for
+the others, such as Most power. `--name`, or the Name field on the page, gives
+one kind a name of your own; every kind together keeps a name per kind, so the
+sheet never repeats one name on every card. Wherever only one card is shown,
+the page shows that card alone rather than a sheet.
+
 | Machine or game | Kinds |
 |---|---|
 | Barcode Battler II | `fighter`, `warrior` who can hold every item, `items` |

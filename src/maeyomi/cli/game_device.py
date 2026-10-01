@@ -166,7 +166,7 @@ def cheat_kind_lines(device: Device) -> list[str]:
 def cheat_of_kind(
     device: Device,
     key: str,
-    name: str,
+    name: str | None,
     *,
     output: Path,
     images: ImageFormat | None,

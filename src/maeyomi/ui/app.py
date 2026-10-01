@@ -31,7 +31,6 @@ from maeyomi.cheat_kinds import cheat_cards
 from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_race
 from maeyomi.decoder.decode import decode
 from maeyomi.decoder.errors import BarcodeError
-from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME
 from maeyomi.generator.device_random import random_for
 from maeyomi.generator.nearest import solve_nearest
 from maeyomi.generator.solve import solve
@@ -183,8 +182,7 @@ def preview(spec: PreviewSpec) -> Response:
 def sheet_preview(spec: RandomSpec) -> SheetPreview:
     """Draw the first pages of a random sheet, as images the page can show."""
     cards = _random_cards(spec)
-    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE])
-    return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
+    return _preview_of(cards)
 
 
 def sheet(spec: SheetSpec) -> FileResponse:
@@ -241,8 +239,7 @@ def official_sheet(spec: OfficialSpec) -> FileResponse:
 def official_preview(spec: OfficialSpec) -> SheetPreview:
     """Draw the first pages of an official set."""
     cards = _official_cards(spec)
-    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE])
-    return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
+    return _preview_of(cards)
 
 
 def products(q: str = "", limit: int = SHELF_PAGE, device: str = "bb2") -> ProductShelf:
@@ -360,7 +357,7 @@ def device_cheat(spec: DeviceCheatSpec) -> DeviceReading:
     """A cheat kind's cards on the chosen device, or why it has none."""
     device = _device(spec.device)
     try:
-        cards = cheat_cards(device, spec.kind, spec.name or DEFAULT_CHEAT_NAME)
+        cards = cheat_cards(device, spec.kind, spec.name)
     except ValueError as error:
         raise HTTPException(status_code=UNPROCESSABLE, detail=said_of(error)) from error
     first = cards[0]
@@ -377,16 +374,15 @@ def device_cheat(spec: DeviceCheatSpec) -> DeviceReading:
 def _cheat_sheet_cards(spec: DeviceCheatSpec) -> tuple[AnyCard, ...]:
     """A cheat kind's cards, or every kind's, or the reason a device has none."""
     try:
-        return cheat_cards(_device(spec.device), spec.kind, spec.name or DEFAULT_CHEAT_NAME)
+        return cheat_cards(_device(spec.device), spec.kind, spec.name)
     except ValueError as error:
         raise HTTPException(status_code=UNPROCESSABLE, detail=said_of(error)) from error
 
 
 def cheat_preview(spec: DeviceCheatSpec) -> SheetPreview:
-    """Draw the cheat cards asked for, a whole sheet of them when several kinds are."""
+    """Draw the cheat cards asked for: one alone, or the sheet several fill."""
     cards = _cheat_sheet_cards(spec)
-    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE])
-    return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
+    return _preview_of(cards)
 
 
 def cheat_sheet(spec: DeviceCheatSpec) -> FileResponse:
@@ -473,6 +469,14 @@ def _random_cards(spec: RandomSpec) -> tuple[AnyCard, ...]:
     if batch.shortfall:
         raise HTTPException(status_code=UNPROCESSABLE, detail=batch.reason)
     return batch.cards
+
+
+def _preview_of(cards: Sequence[AnyCard]) -> SheetPreview:
+    """One card drawn alone, or the first pages of the sheet the cards fill."""
+    if len(cards) == 1:
+        return SheetPreview(count=1, pages=[_data_url(card_png(cards[0]))], single=True)
+    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE])
+    return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages], single=False)
 
 
 def _data_url(png: bytes) -> str:

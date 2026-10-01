@@ -230,10 +230,14 @@ class GenerateResult(BaseModel):
 
 
 class SheetPreview(BaseModel):
-    """Page images for a sheet, as data URLs the page can show directly."""
+    """Page images for a sheet, or one card's image when only one card is asked for.
+
+    `single` says the one image is a card drawn alone rather than a page.
+    """
 
     count: int
     pages: list[str]
+    single: bool
 
 
 class DeviceCardSpec(CardSpec):
@@ -259,6 +263,7 @@ class CheatKindView(BaseModel):
     key: str
     english: str
     japanese: str
+    default_name: str
 
 
 class DeviceView(BaseModel):

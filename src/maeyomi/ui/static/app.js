@@ -290,16 +290,14 @@ function sheetPayload() {
   };
 }
 
-function showPages(frameId, pages, label) {
+function showPages(frameId, pages, label, single = false) {
+  const describe = (index) =>
+    single ? t('alt.single', { label }) : t('alt.page', { label, page: index + 1 });
   $(frameId).replaceChildren();
+  $(frameId).classList.toggle('single', single);
   $(frameId).insertAdjacentHTML(
     'afterbegin',
-    pages
-      .map(
-        (page, index) =>
-          `<img src="${page}" alt="${escapeHtml(t('alt.page', { label, page: index + 1 }))}">`,
-      )
-      .join(''),
+    pages.map((page, index) => `<img src="${page}" alt="${escapeHtml(describe(index))}">`).join(''),
   );
 }
 
@@ -314,7 +312,7 @@ async function makeSheet(event) {
       refuse('many-status', body);
       return false;
     }
-    showPages('sheet-frame', body.pages, t('label.sheet'));
+    showPages('sheet-frame', body.pages, t('label.sheet'), body.single);
     const pages = body.pages.length;
     const message = () =>
       pages === 1
@@ -450,7 +448,7 @@ async function showOfficial(event) {
       refuse('official-status', body, 'status.again');
       return;
     }
-    showPages('official-frame', body.pages, t('label.official'));
+    showPages('official-frame', body.pages, t('label.official'), body.single);
     const shown = body.pages.length * CARDS_PER_PAGE;
     const message = () =>
       body.count > shown
@@ -474,9 +472,19 @@ async function downloadOfficial() {
 }
 
 function cheatPayload() {
-  const typed = $('cheat-name').value.trim();
   const kind = $('cheat-kind').value;
+  const typed = kind === 'all' ? '' : $('cheat-name').value.trim();
   return { device: currentDevice(), ...(typed ? { name: typed } : {}), ...(kind ? { kind } : {}) };
+}
+
+function syncCheatName() {
+  const kinds = deviceForm()?.cheat_kinds ?? [];
+  const select = $('cheat-kind');
+  const every = select.value === 'all';
+  const chosen = kinds.find((entry) => entry.key === select.value) ?? kinds[0];
+  $('cheat-name-field').toggleAttribute('hidden', every);
+  $('cheat-name-all').toggleAttribute('hidden', !every);
+  $('cheat-name').setAttribute('placeholder', chosen?.default_name ?? '');
 }
 
 function cheatHeadline(body) {
@@ -490,6 +498,9 @@ function cheatHeadline(body) {
     return t('status.deviceCheat', { name: body.name, device: deviceName() });
   }
   const label = isJapanese() ? kind.japanese : kind.english;
+  if (body.name === kind.default_name) {
+    return t('status.cheatKindOnly', { kind: label, device: deviceName() });
+  }
   return t('status.cheatKind', { name: body.name, kind: label, device: deviceName() });
 }
 
@@ -502,6 +513,7 @@ function renderCheatKinds() {
   select.innerHTML = every + kinds.map((kind) => `<option value="${escapeHtml(kind.key)}">${name(kind)}</option>`).join('');
   if ([...select.options].some((option) => option.value === chosen)) select.value = chosen;
   $('cheat-kind-field').toggleAttribute('hidden', kinds.length < 2);
+  syncCheatName();
 }
 
 async function showCheatCard() {
@@ -518,7 +530,7 @@ async function showCheatCard() {
     return;
   }
   $('cheat-code-value').textContent = body.barcode;
-  showPages('cheat-frame', preview.body.pages, t('tab.cheat'));
+  showPages('cheat-frame', preview.body.pages, t('tab.cheat'), preview.body.single);
   setStatus('cheat-status', 'cheat', 'tag.cheat', () => cheatHeadline(body),
     () => (body.cards.length > 1 ? [] : factLines(body.facts)));
 }
@@ -545,7 +557,10 @@ function setUpCheat() {
     typing = setTimeout(refresh, SEARCH_DELAY_MS);
   });
   $('cheat-pdf').addEventListener('click', downloadCheatCard);
-  $('cheat-kind').addEventListener('change', refresh);
+  $('cheat-kind').addEventListener('change', () => {
+    syncCheatName();
+    refresh();
+  });
   let progress = 0;
   document.addEventListener('keydown', (event) => {
     const inField =

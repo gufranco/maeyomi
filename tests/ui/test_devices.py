@@ -515,6 +515,30 @@ def test_every_cheat_kind_is_previewed_together(client: TestClient) -> None:
     assert body["pages"][0].startswith("data:image/png;base64,")
 
 
+def test_one_cheat_card_is_previewed_alone(client: TestClient) -> None:
+    response = client.post("/api/cheat-preview", json={"device": "bardigun", "kind": "power"})
+
+    body = response.json()
+    assert (body["count"], body["single"], len(body["pages"])) == (1, True, 1)
+
+
+def test_one_cheat_kind_with_no_name_is_named_after_itself(
+    client: TestClient,
+) -> None:
+    response = client.post("/api/device-cheat", json={"device": "bardigun", "kind": "power"})
+
+    assert response.json()["name"] == "Most power"
+
+
+def test_a_name_typed_for_every_kind_at_once_is_refused(client: TestClient) -> None:
+    response = client.post(
+        "/api/cheat-preview", json={"device": "bardigun", "kind": "all", "name": "Rex"}
+    )
+
+    assert response.status_code == 422
+    assert "one kind" in response.json()["detail"]
+
+
 def test_every_cheat_kind_prints_on_one_sheet(client: TestClient) -> None:
     response = client.post("/api/cheat-sheet", json={"device": "bb2", "kind": "all"})
 

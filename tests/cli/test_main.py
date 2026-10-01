@@ -452,6 +452,27 @@ def test_cheat_refuses_a_kind_the_device_does_not_offer(tmp_path: Path) -> None:
     assert "its kinds are fighter, warrior, items" in result.output
 
 
+def test_cheat_refuses_one_name_for_every_kind(tmp_path: Path) -> None:
+    result = runner.invoke(
+        app,
+        ["cheat", "--kind", "all", "--name", "Rex", "--output", str(tmp_path / "x.pdf")],
+    )
+
+    assert result.exit_code == 2
+    assert "one kind" in result.output
+
+
+def test_cheat_prints_every_kind_named_kind_by_kind(tmp_path: Path) -> None:
+    output = tmp_path / "all.pdf"
+
+    result = runner.invoke(
+        app, ["cheat", "--device", "bardigun", "--kind", "all", "--output", str(output)]
+    )
+
+    assert result.exit_code == 0
+    assert len(decode_pdf(output)) == 4
+
+
 def test_cheat_needs_an_output_unless_it_lists_kinds() -> None:
     result = runner.invoke(app, ["cheat"])
 

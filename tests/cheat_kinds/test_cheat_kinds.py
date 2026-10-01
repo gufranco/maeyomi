@@ -2,7 +2,7 @@
 
 import pytest
 
-from maeyomi.cheat_kinds import ALL, cheat_cards, cheat_kind, cheat_kinds
+from maeyomi.cheat_kinds import ALL, cheat_cards, cheat_kind, cheat_kinds, kind_name
 from maeyomi.models.character import BarcodeBattlerCharacter
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.device import Device
@@ -78,7 +78,7 @@ def test_a_game_whose_cards_carry_no_numbers_says_so(device: Device) -> None:
 
 
 def test_every_kind_together_prints_each_card_once() -> None:
-    cards = cheat_cards(Device.BB2, ALL, NAME)
+    cards = cheat_cards(Device.BB2, ALL, None)
 
     barcodes = [card.barcode for card in cards]
     assert len(barcodes) == len(set(barcodes)) == 7
@@ -86,3 +86,31 @@ def test_every_kind_together_prints_each_card_once() -> None:
 
 def test_one_kind_prints_only_its_cards() -> None:
     assert len(cheat_cards(Device.BB2, "items", NAME)) == 5
+
+
+def test_every_kind_together_names_each_card_after_its_kind() -> None:
+    cards = cheat_cards(Device.BARDIGUN, ALL, None)
+
+    assert [card.name for card in cards] == [
+        "Maximus Cheatimus",
+        "Most power",
+        "Most smarts",
+        "Most speed",
+    ]
+
+
+def test_one_kind_with_no_name_typed_is_named_after_its_kind() -> None:
+    cards = cheat_cards(Device.BARDIGUN, "smarts", None)
+
+    assert cards[0].name == "Most smarts"
+
+
+def test_the_default_kind_keeps_the_cheat_name() -> None:
+    assert kind_name(Device.BARDIGUN, cheat_kind(Device.BARDIGUN, None)) == "Maximus Cheatimus"
+
+
+def test_a_name_for_every_kind_at_once_is_refused_in_both_languages() -> None:
+    with pytest.raises(ValueError, match="one kind") as raised:
+        cheat_cards(Device.BARDIGUN, ALL, NAME)
+
+    assert in_japanese(raised.value.args[0])

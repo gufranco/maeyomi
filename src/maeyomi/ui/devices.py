@@ -16,7 +16,7 @@ from typing import Final
 from maeyomi.bb1.solve import ENEMY_DF, ENEMY_HP, ENEMY_ST
 from maeyomi.bb1.solve import MAX_HP as FIRST_MAX_HP
 from maeyomi.bb1.solve import MAX_STAT as FIRST_MAX_STAT
-from maeyomi.cheat_kinds import cheat_kinds
+from maeyomi.cheat_kinds import cheat_kinds, kind_name
 from maeyomi.datach.dbz import BONUS, UNIT
 from maeyomi.datach.dbz_names import FIGHTERS, ITEMS
 from maeyomi.datach.dbz_solve import (
@@ -282,7 +282,12 @@ def device_views() -> list[DeviceView]:
             ranges=[list(bounds) for bounds in FORMS[device].ranges],
             back_ranges=_listed(FORMS[device].back_ranges),
             cheat_kinds=[
-                CheatKindView(key=kind.key, english=kind.english, japanese=kind.japanese)
+                CheatKindView(
+                    key=kind.key,
+                    english=kind.english,
+                    japanese=kind.japanese,
+                    default_name=kind_name(device, kind),
+                )
                 for kind in cheat_kinds(device)
             ],
         )

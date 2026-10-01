@@ -2,7 +2,9 @@
 
 The page and the command line both read this one list. The first kind is the
 default. A machine offers its strongest fighter and its items at their top; a
-game offers the kinds `game_cheats` builds from the game's own tables.
+game offers the kinds `game_cheats` builds from the game's own tables. A card
+with no name typed is named after its kind, the default kind keeping the cheat
+name, so a sheet of every kind never repeats one name on all its cards.
 """
 
 from collections.abc import Callable
@@ -13,7 +15,7 @@ from maeyomi.bb1.cheat import strongest_first_card, strongest_first_items
 from maeyomi.datach.dbz_cheat import strongest_dbz_card, strongest_dbz_items
 from maeyomi.double.cheat import strongest_double_card, strongest_double_items
 from maeyomi.game_cheats import GameCheat, game_cheats
-from maeyomi.generator.cheat import strongest_card
+from maeyomi.generator.cheat import DEFAULT_CHEAT_NAME, strongest_card
 from maeyomi.generator.cheat_items import strongest_items
 from maeyomi.models.character import HIGHEST_WARRIOR_JOB
 from maeyomi.models.device import Device
@@ -99,12 +101,26 @@ def cheat_kind(device: Device, key: str | None) -> CheatKind:
     raise ValueError(message)
 
 
-def cheat_cards(device: Device, key: str | None, name: str) -> tuple[AnyCard, ...]:
-    """The cards of one kind, or of every kind once each when the key is `all`."""
+def kind_name(device: Device, kind: CheatKind) -> str:
+    """The name a kind's cards carry when none is typed: the cheat name, or the kind's own."""
+    return DEFAULT_CHEAT_NAME if kind.key == cheat_kind(device, None).key else kind.english
+
+
+def cheat_cards(device: Device, key: str | None, name: str | None) -> tuple[AnyCard, ...]:
+    """The cards of one kind, or of every kind once each, each under its own name, for `all`."""
     if (key or "").strip().lower() != ALL:
-        return cheat_kind(device, key).cards(name)
+        chosen = cheat_kind(device, key)
+        return chosen.cards(name or kind_name(device, chosen))
+    if name:
+        message = Said(
+            "a name is printed on one kind of cheat card; "
+            "every kind together is named kind by kind",
+            "なまえは 1しゅるいの チートカードに つけられる。"
+            "ぜんぶ いっしょの ときは しゅるいの なまえに なる",
+        )
+        raise ValueError(message)
     kinds = cheat_kinds(device) or (cheat_kind(device, None),)
-    every = [card for kind in kinds for card in kind.cards(name)]
+    every = [card for kind in kinds for card in kind.cards(kind_name(device, kind))]
     return tuple(
         card for place, card in enumerate(every) if card.barcode not in _barcodes(every[:place])
     )
