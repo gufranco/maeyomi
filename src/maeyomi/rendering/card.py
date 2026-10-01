@@ -427,8 +427,10 @@ def _ability_lines(
     """Share the panel's lines between the two languages, English first.
 
     Japanese always keeps at least one line. Whatever English does not use goes
-    to Japanese.
+    to Japanese. Text that reads the same in both languages is printed once.
     """
+    if text.japanese == text.english:
+        text = Bilingual(text.english, "")
     budget = max(2, int((height - 3.4) / style.ability_line_mm))
     english_font = font_for(text.english)
     japanese_font = font_for(text.japanese)
