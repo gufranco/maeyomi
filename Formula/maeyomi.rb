@@ -3,8 +3,8 @@ class Maeyomi < Formula
 
   desc "Print playable cards for Barcode Battler machines and barcode games"
   homepage "https://github.com/gufranco/maeyomi"
-  url "https://github.com/gufranco/maeyomi/archive/refs/tags/v1.12.0.tar.gz"
-  sha256 "7fe396a04fa6a240b4f01e24a4925215f461f40b60bafa0fcc7571b9d8451b56"
+  url "https://github.com/gufranco/maeyomi/archive/refs/tags/v1.13.0.tar.gz"
+  sha256 "8819f294cc6311863b9ca7ffea6de8e21063f78cd9d3cadfe03139fcfb1053bd"
   license "MIT"
   head "https://github.com/gufranco/maeyomi.git", branch: "main"
 
