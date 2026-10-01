@@ -65,7 +65,7 @@
     <button role="tab" id="tab-read" aria-controls="panel-read" aria-selected="false"
             data-i18n="tab.read">Read a barcode</button>
     <button role="tab" id="tab-cheat" aria-controls="panel-cheat" aria-selected="false"
-            data-i18n="tab.cheat">Cheat card</button>
+            data-i18n="tab.cheat">Cheats</button>
   </div>
 
   <div class="panel" id="main-panel">
@@ -635,11 +635,11 @@
 <section id="panel-cheat" role="tabpanel" aria-labelledby="tab-cheat" class="columns" hidden>
   <form id="cheat" class="fields">
     <p class="note" data-i18n="cheat.note">
-      The strongest card the chosen machine or game will read, with every
-      number at the most it allows.
+      The strongest cards the chosen machine or game will read, with every
+      number at the most it allows. Print one kind, or every kind together.
     </p>
     <p class="field" id="cheat-kind-field">
-      <label for="cheat-kind" data-i18n="cheat.kind">Kind of cheat card</label>
+      <label for="cheat-kind" data-i18n="cheat.kind">Which cheats</label>
       <select id="cheat-kind" name="kind"></select>
       <span class="hint" data-i18n="cheat.kind.hint">
         Each kind puts a different number, or every card of one kind, at the top.
@@ -658,11 +658,10 @@
   </form>
 
   <aside class="preview" aria-live="polite">
-    <h2 data-i18n="cheat.preview">The cheat card</h2>
-    <div class="card-frame">
-      <img id="cheat-image" alt="" width="381" height="533">
-      <p class="placeholder" id="cheat-placeholder" data-i18n="cheat.placeholder">
-        The card appears here.
+    <h2 data-i18n="cheat.preview">The cheat cards</h2>
+    <div class="sheet-frame" id="cheat-frame">
+      <p class="placeholder" data-i18n="cheat.placeholder">
+        The cards appear here.
       </p>
     </div>
     <p class="code" id="cheat-code" hidden>

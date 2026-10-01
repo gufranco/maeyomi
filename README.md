@@ -128,7 +128,7 @@ the numbers you asked for, and shows the barcode it worked out.
 and stops its sliders at the device's limits, the random sheet and the
 supermarket read each barcode the way that device does, **The real cards**
 lists only that device's sets and hides the set picker when there is one, and
-**Cheat card** shows that device's strongest card. The same barcode is a
+**Cheats** shows that device's cheat cards, every kind together by default. The same barcode is a
 different card on each device. Choosing another one clears every tab and
 returns to the card maker, whose card redraws as the numbers change. The
 choice is kept in the address, as in `?device=dbz`, so a link or a reload
@@ -812,7 +812,8 @@ MAME.
 Every machine and game but one offers one or more kinds of cheat card, each
 with every number it names at the most the device takes. `maeyomi cheat
 --device famista3 --kinds` lists a device's kinds, `--kind era` prints one, and
-the web page offers them in a picker on the **Cheat card** tab. The first kind
+the web page offers them on the **Cheats** tab, which shows and prints every kind
+together or one at a time. The first kind
 is the default, the card this section describes for each device.
 
 | Machine or game | Kinds |
@@ -839,7 +840,7 @@ Datach J.League Super Top Players has none: its cards name players, and the
 game's program keeps a profile, a face and an appearance for each player but
 no number a card could raise.
 
-`maeyomi cheat -o cheat.pdf`, or the **Cheat card** tab of the web page,
+`maeyomi cheat -o cheat.pdf`, or the **Cheats** tab of the web page,
 which typing up, up, down, down, left, right, left, right, B, A anywhere on
 the page also opens. The card is a mechanical magician with 99900 health and its
 attack doubled. The device displays 14600 attack and 19900 defence, and fights

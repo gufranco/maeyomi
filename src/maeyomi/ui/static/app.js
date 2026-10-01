@@ -473,11 +473,20 @@ async function downloadOfficial() {
   setStatus('official-status', 'good', 'tag.done', () => t('status.saved'));
 }
 
+function cheatPayload() {
+  const typed = $('cheat-name').value.trim();
+  const kind = $('cheat-kind').value;
+  return { device: currentDevice(), ...(typed ? { name: typed } : {}), ...(kind ? { kind } : {}) };
+}
+
 function cheatHeadline(body) {
   const select = $('cheat-kind');
   const kinds = deviceForm()?.cheat_kinds ?? [];
+  if (body.cards.length > 1) {
+    return t('status.cheatSheet', { count: body.cards.length, device: deviceName() });
+  }
   const kind = kinds.find((entry) => entry.key === select.value);
-  if (!kind || select.selectedIndex <= 0) {
+  if (!kind || kinds.length < 2) {
     return t('status.deviceCheat', { name: body.name, device: deviceName() });
   }
   const label = isJapanese() ? kind.japanese : kind.english;
@@ -488,45 +497,40 @@ function renderCheatKinds() {
   const kinds = deviceForm()?.cheat_kinds ?? [];
   const select = $('cheat-kind');
   const chosen = select.value;
-  select.innerHTML = kinds
-    .map((kind) => `<option value="${escapeHtml(kind.key)}">${escapeHtml(isJapanese() ? kind.japanese : kind.english)}</option>`)
-    .join('');
-  if (kinds.some((kind) => kind.key === chosen)) select.value = chosen;
+  const name = (kind) => escapeHtml(isJapanese() ? kind.japanese : kind.english);
+  const every = kinds.length > 1 ? `<option value="all">${escapeHtml(t('cheat.kind.all'))}</option>` : '';
+  select.innerHTML = every + kinds.map((kind) => `<option value="${escapeHtml(kind.key)}">${name(kind)}</option>`).join('');
+  if ([...select.options].some((option) => option.value === chosen)) select.value = chosen;
   $('cheat-kind-field').toggleAttribute('hidden', kinds.length < 2);
 }
 
 async function showCheatCard() {
-  const typed = $('cheat-name').value.trim();
-  const kind = $('cheat-kind').value;
-  const { ok, body } = await postJson('/api/device-cheat', {
-    device: currentDevice(),
-    ...(typed ? { name: typed } : {}),
-    ...(kind ? { kind } : {}),
-  });
-  cheatCard = ok
-    ? { barcode: body.barcode, name: body.name, device: currentDevice(), companion: body.companion, cards: body.cards }
-    : null;
-  $('cheat-code').toggleAttribute('hidden', !ok);
-  if (!ok) {
-    clearCardImage('cheat-image', 'cheat-placeholder');
-    refuse('cheat-status', body);
+  const payload = cheatPayload();
+  const [{ ok, body }, preview] = await Promise.all([
+    postJson('/api/device-cheat', payload),
+    postJson('/api/cheat-preview', payload),
+  ]);
+  cheatCard = ok ? payload : null;
+  $('cheat-code').toggleAttribute('hidden', !ok || body.cards.length > 1);
+  if (!ok || !preview.ok) {
+    clearFrame('cheat-frame', 'cheat.placeholder');
+    refuse('cheat-status', ok ? preview.body : body);
     return;
   }
   $('cheat-code-value').textContent = body.barcode;
-  setStatus('cheat-status', 'cheat', 'tag.cheat',
-    () => cheatHeadline(body) +
-      (body.cards.length > 1 ? ` ${t('status.cheatMore', { count: body.cards.length })}` : ''),
-    () => factLines(body.facts));
-  await showPreview(body.barcode, body.name, 'cheat-image', 'cheat-placeholder');
+  showPages('cheat-frame', preview.body.pages, t('tab.cheat'));
+  setStatus('cheat-status', 'cheat', 'tag.cheat', () => cheatHeadline(body),
+    () => (body.cards.length > 1 ? [] : factLines(body.facts)));
 }
 
 async function downloadCheatCard() {
   if (!cheatCard) return;
-  const { cards, companion, ...first } = cheatCard;
-  const sheet = cards.length > 1
-    ? cards.map((barcode) => ({ ...first, barcode }))
-    : withCompanion({ ...first, companion });
-  await downloadBarcodes(sheet, 'cheat-card.pdf', 'cheat-status');
+  const { ok, body, response } = await postJson('/api/cheat-sheet', cheatCard);
+  if (!ok) {
+    refuse('cheat-status', body, 'status.again');
+    return;
+  }
+  download(await response.blob(), 'cheat-cards.pdf');
 }
 
 function setUpCheat() {

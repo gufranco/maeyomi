@@ -32,7 +32,7 @@ The two known divergences from the simulator are recorded at the top of
 | It survives the print shop | Bleed, gutter, corner crop marks, a calibration ruler, a one-card-per-page shop file |
 | It survives a screen reader | The page and the PDFs both. See the accessibility section below |
 | Everything on the page exists in the CLI | A feature added to one is added to the other in the same change |
-| Every device has cheat cards | Every machine and game offers at least one cheat card with every number it reads at the most the device will take. Where a game has more than one way to be strongest, such as fastest, hardest hitting or toughest, or more than one kind of card, each gets its own cheat card, offered on the page and by `maeyomi cheat --kind`. A ceiling comes from the game's own program when no document states it; a new device is not done until its cheat cards are |
+| Every device has cheat cards | Every machine and game offers at least one cheat card with every number it reads at the most the device will take. Where a game has more than one way to be strongest, such as fastest, hardest hitting or toughest, or more than one kind of card, each gets its own cheat card, offered on the page and by `maeyomi cheat --kind`. The Cheats tab previews and prints every kind together on one sheet by default, the way the other tabs show a whole sheet, and `--kind all` does the same on the command line. A ceiling comes from the game's own program when no document states it; a new device is not done until its cheat cards are |
 
 Every language shown on the page is one language at a time: a message, a list or a name the server sends carries its Japanese beside its English, and the page redraws everything it drew when the language changes.
 

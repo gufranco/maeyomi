@@ -11,7 +11,7 @@ from typing import Final
 
 import typer
 
-from maeyomi.cheat_kinds import cheat_kind, cheat_kinds
+from maeyomi.cheat_kinds import ALL, cheat_cards, cheat_kinds
 from maeyomi.cli.common import sheet_layout, write_cards
 from maeyomi.datach.dbz_solve import unread_fields
 from maeyomi.decoder.errors import BarcodeError
@@ -159,7 +159,8 @@ def cheat_game(
 
 def cheat_kind_lines(device: Device) -> list[str]:
     """Every cheat kind the device offers, its key first, the default at the top."""
-    return [f"{kind.key}: {kind.english}" for kind in cheat_kinds(device)]
+    kinds = [f"{kind.key}: {kind.english}" for kind in cheat_kinds(device)]
+    return [*kinds, f"{ALL}: Every kind together"] if len(kinds) > 1 else kinds
 
 
 def cheat_of_kind(
@@ -173,7 +174,7 @@ def cheat_of_kind(
 ) -> None:
     """Print every card of one cheat kind, a line for each, or say why the kind does not exist."""
     try:
-        cards = cheat_kind(device, key).cards(name)
+        cards = cheat_cards(device, key, name)
     except ValueError as error:
         typer.echo(str(error), err=True)
         raise typer.Exit(code=2) from error

@@ -428,7 +428,12 @@ def test_cheat_lists_the_kinds_a_device_offers() -> None:
     result = runner.invoke(app, ["cheat", "--device", "bspace", "--kinds"])
 
     assert result.exit_code == 0
-    assert result.output.splitlines() == ["strongest: Strongest card", "dp: Most DP", "mp: Most MP"]
+    assert result.output.splitlines() == [
+        "strongest: Strongest card",
+        "dp: Most DP",
+        "mp: Most MP",
+        "all: Every kind together",
+    ]
 
 
 def test_cheat_prints_the_kind_asked_for(tmp_path: Path) -> None:

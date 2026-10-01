@@ -495,3 +495,26 @@ def test_a_cheat_kind_the_device_lacks_is_refused_in_both_languages(client: Test
     assert response.status_code == 422
     assert "its kinds are" in response.json()["detail"]
     assert "えらべるのは" in response.json()["detail_ja"]
+
+
+def test_every_cheat_kind_is_previewed_together(client: TestClient) -> None:
+    response = client.post("/api/cheat-preview", json={"device": "bb2", "kind": "all"})
+
+    body = response.json()
+    assert response.status_code == 200
+    assert body["count"] == 7
+    assert body["pages"][0].startswith("data:image/png;base64,")
+
+
+def test_every_cheat_kind_prints_on_one_sheet(client: TestClient) -> None:
+    response = client.post("/api/cheat-sheet", json={"device": "bb2", "kind": "all"})
+
+    assert response.status_code == 200
+    assert response.headers["content-type"] == "application/pdf"
+
+
+def test_a_game_with_no_cheat_previews_nothing(client: TestClient) -> None:
+    response = client.post("/api/cheat-preview", json={"device": "jleague", "kind": "all"})
+
+    assert response.status_code == 422
+    assert "carry no numbers" in response.json()["detail"]

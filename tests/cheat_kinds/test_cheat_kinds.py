@@ -2,7 +2,7 @@
 
 import pytest
 
-from maeyomi.cheat_kinds import cheat_kind, cheat_kinds
+from maeyomi.cheat_kinds import ALL, cheat_cards, cheat_kind, cheat_kinds
 from maeyomi.models.character import BarcodeBattlerCharacter
 from maeyomi.models.character_class import CharacterClass
 from maeyomi.models.device import Device
@@ -75,3 +75,14 @@ def test_a_game_whose_cards_carry_no_numbers_says_so(device: Device) -> None:
         cheat_kind(device, None)
 
     assert in_japanese(raised.value.args[0])
+
+
+def test_every_kind_together_prints_each_card_once() -> None:
+    cards = cheat_cards(Device.BB2, ALL, NAME)
+
+    barcodes = [card.barcode for card in cards]
+    assert len(barcodes) == len(set(barcodes)) == 7
+
+
+def test_one_kind_prints_only_its_cards() -> None:
+    assert len(cheat_cards(Device.BB2, "items", NAME)) == 5

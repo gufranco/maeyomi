@@ -27,7 +27,7 @@ from fastapi import BackgroundTasks, FastAPI, HTTPException, Request
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Response
 
-from maeyomi.cheat_kinds import cheat_kind
+from maeyomi.cheat_kinds import cheat_cards
 from maeyomi.cli.parsing import parse_character_class, parse_constraint, parse_race
 from maeyomi.decoder.decode import decode
 from maeyomi.decoder.errors import BarcodeError
@@ -360,7 +360,7 @@ def device_cheat(spec: DeviceCheatSpec) -> DeviceReading:
     """A cheat kind's cards on the chosen device, or why it has none."""
     device = _device(spec.device)
     try:
-        cards = cheat_kind(device, spec.kind).cards(spec.name or DEFAULT_CHEAT_NAME)
+        cards = cheat_cards(device, spec.kind, spec.name or DEFAULT_CHEAT_NAME)
     except ValueError as error:
         raise HTTPException(status_code=UNPROCESSABLE, detail=said_of(error)) from error
     first = cards[0]
@@ -372,6 +372,26 @@ def device_cheat(spec: DeviceCheatSpec) -> DeviceReading:
         companion=None if partner is None else partner.barcode,
         cards=[card.barcode for card in cards],
     )
+
+
+def _cheat_sheet_cards(spec: DeviceCheatSpec) -> tuple[AnyCard, ...]:
+    """A cheat kind's cards, or every kind's, or the reason a device has none."""
+    try:
+        return cheat_cards(_device(spec.device), spec.kind, spec.name or DEFAULT_CHEAT_NAME)
+    except ValueError as error:
+        raise HTTPException(status_code=UNPROCESSABLE, detail=said_of(error)) from error
+
+
+def cheat_preview(spec: DeviceCheatSpec) -> SheetPreview:
+    """Draw the cheat cards asked for, a whole sheet of them when several kinds are."""
+    cards = _cheat_sheet_cards(spec)
+    pages = sheet_png_pages(cards[: PREVIEW_PAGE_LIMIT * CARDS_PER_PAGE])
+    return SheetPreview(count=len(cards), pages=[_data_url(page) for page in pages])
+
+
+def cheat_sheet(spec: DeviceCheatSpec) -> FileResponse:
+    """Print the cheat cards asked for on one sheet."""
+    return _sheet_response(list(_cheat_sheet_cards(spec)), "cheat-cards.pdf")
 
 
 def allowed_hosts(bind_host: str) -> list[str]:
@@ -441,6 +461,8 @@ def create_app(bind_host: str = DEFAULT_BIND) -> FastAPI:
     app.add_api_route("/api/read/{device}/{barcode}", read_on, methods=["GET"])
     app.add_api_route("/api/device-card", device_card, methods=["POST"])
     app.add_api_route("/api/device-cheat", device_cheat, methods=["POST"])
+    app.add_api_route("/api/cheat-preview", cheat_preview, methods=["POST"])
+    app.add_api_route("/api/cheat-sheet", cheat_sheet, methods=["POST"])
     app.mount("/static", CachedStaticFiles(directory=STATIC_DIR), name="static")
     return app
 

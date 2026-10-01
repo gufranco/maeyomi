@@ -398,15 +398,15 @@ function checkCheatLinkShowsThatDevicesCard() {
   browser('open', `${URL.replace(/#.*$/, '')}?device=battlerush#tab-cheat`);
   browser('wait', '3000');
   const pair = evaluate(`(async () => {
-    const response = await fetch('/api/device-cheat', {
+    const response = await fetch('/api/cheat-preview', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ device: 'battlerush' }),
+      body: JSON.stringify({ device: 'battlerush', kind: 'all' }),
     });
-    const expected = (await response.json()).barcode;
-    return JSON.stringify([document.getElementById('cheat-code-value').textContent, expected]);
+    const expected = (await response.json()).pages.length;
+    return JSON.stringify([document.querySelectorAll('#cheat-frame img').length, expected]);
   })()`);
-  expect(pair[0] === pair[1], `a link to the cheat tab shows another device's card: ${pair}`);
+  expect(pair[0] === pair[1] && pair[0] > 0, `a link to the cheat tab shows another device's cards: ${pair}`);
   browser('open', URL.replace(/#.*$/, ''));
   browser('wait', '1500');
   browser('set', 'viewport', '1280', '900');
@@ -434,7 +434,7 @@ function checkCheatKindsFollowThePickAndTheLanguage() {
     document.querySelector('[data-language="en"]').click();
     return JSON.stringify([keys.join(','), document.getElementById('cheat-code-value').textContent, expected, japanese]);
   })()`);
-  expect(state[0] === 'strongest,average,speed,era,pitch,stamina', `Famista 3 offers other cheat kinds: ${state[0]}`);
+  expect(state[0] === 'all,strongest,average,speed,era,pitch,stamina', `Famista 3 offers other cheat kinds: ${state[0]}`);
   expect(state[1] === state[2], `picking a cheat kind shows another card: ${state}`);
   expect(/[\u3040-\u30ff]/.test(state[3]), `a cheat kind stays in English on the Japanese page: ${state[3]}`);
   browser('open', URL.replace(/#.*$/, ''));
@@ -473,14 +473,15 @@ function checkCheatTab() {
   browser('click', '#tab-cheat');
   browser('wait', '2000');
   const shown = evaluate(`JSON.stringify([
-    document.getElementById('cheat-image').hasAttribute('src'),
-    document.getElementById('cheat-code-value').textContent,
+    document.querySelectorAll('#cheat-frame img').length,
+    document.getElementById('cheat-kind').value,
+    document.getElementById('tab-cheat').textContent.trim(),
   ])`);
-  expect(shown[0] && /^\d{13}$/.test(shown[1]), `the cheat tab shows no card: ${shown}`);
+  expect(shown[0] > 0 && shown[1] === 'all' && shown[2] === 'Cheats', `the cheat tab shows no sheet of every kind: ${shown}`);
   pickDevice('dbz');
   const after = evaluate(`JSON.stringify([
     document.getElementById('tab-one').getAttribute('aria-selected'),
-    document.getElementById('cheat-image').hasAttribute('src'),
+    document.querySelectorAll('#cheat-frame img').length > 0,
   ])`);
   expect(after[0] === 'true' && !after[1], `changing device leaves the cheat card: ${after}`);
   pickDevice('bb2');

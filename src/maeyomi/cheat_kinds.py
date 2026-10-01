@@ -31,6 +31,8 @@ class CheatKind:
     cards: Callable[[str], tuple[AnyCard, ...]]
 
 
+ALL: Final = "all"
+"""The key that asks for every kind at once."""
 FIGHTER: Final = ("fighter", "Strongest fighter", "いちばん つよい キャラクター")
 ITEMS: Final = ("items", "Every item at its top", "アイテム ぜんぶ さいだい")
 WARRIOR: Final = ("warrior", "Strongest warrior, who can hold every item", "いちばん つよい せんし")
@@ -95,3 +97,19 @@ def cheat_kind(device: Device, key: str | None) -> CheatKind:
         f"{device.japanese} に {key!r} という チートカードは ない。えらべるのは {listed}",
     )
     raise ValueError(message)
+
+
+def cheat_cards(device: Device, key: str | None, name: str) -> tuple[AnyCard, ...]:
+    """The cards of one kind, or of every kind once each when the key is `all`."""
+    if (key or "").strip().lower() != ALL:
+        return cheat_kind(device, key).cards(name)
+    kinds = cheat_kinds(device) or (cheat_kind(device, None),)
+    every = [card for kind in kinds for card in kind.cards(name)]
+    return tuple(
+        card for place, card in enumerate(every) if card.barcode not in _barcodes(every[:place])
+    )
+
+
+def _barcodes(cards: list[AnyCard]) -> frozenset[str]:
+    """The barcodes of the cards already chosen."""
+    return frozenset(card.barcode for card in cards)

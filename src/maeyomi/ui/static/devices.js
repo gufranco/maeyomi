@@ -201,7 +201,7 @@ function startFresh() {
   ['one', 'read'].forEach((form) => $(form).reset());
   clearCardImage('card-image', 'card-placeholder');
   clearCardImage('read-image', 'read-placeholder');
-  clearCardImage('cheat-image', 'cheat-placeholder');
+  clearFrame('cheat-frame', 'cheat.placeholder');
   $('cheat-code').toggleAttribute('hidden', true);
   clearFrame('sheet-frame', 'many.placeholder');
   ['one-status', 'many-status', 'read-status', 'cheat-status'].forEach((id) => {
