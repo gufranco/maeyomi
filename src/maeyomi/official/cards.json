@@ -16159,6 +16159,1272 @@
    "name": "キューティーフラワー",
    "set": "ワンタメ ミュージックチャンネル どこでもスタイル カード",
    "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt"
+  },
+  {
+   "barcode": "040000060019",
+   "name": "キャノン",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060026",
+   "name": "プラスキャノン",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060031",
+   "name": "ヘビーキャノン",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060044",
+   "name": "プラズマガン 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060055",
+   "name": "プラズマガン 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060100",
+   "name": "プラズマガン 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060107",
+   "name": "ガトリング 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060122",
+   "name": "ガトリング 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060135",
+   "name": "ガトリング 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060136",
+   "name": "エアスプレッド",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060154",
+   "name": "レーダーミサイル 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060160",
+   "name": "レーダーミサイル 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060210",
+   "name": "レーダーミサイル 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000000212",
+   "name": "ヒートボール 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000000222",
+   "name": "ヒートボール 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000000240",
+   "name": "ヒートボール 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060246",
+   "name": "アイスメテオ 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060260",
+   "name": "アイスメテオ 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060262",
+   "name": "アイスメテオ 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060317",
+   "name": "スタンナックル",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060325",
+   "name": "ポイズンナックル",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060330",
+   "name": "フリーズナックル",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060343",
+   "name": "ソード",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060354",
+   "name": "ワイドソード",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060363",
+   "name": "ロングソード",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060406",
+   "name": "リュウエンザン",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060421",
+   "name": "スイゲツザン",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060424",
+   "name": "ライメイザン",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060435",
+   "name": "タイボクゼン",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060444",
+   "name": "ブレイクサーベル",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060460",
+   "name": "グランドウェーブ 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060500",
+   "name": "グランドウェーブ 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060512",
+   "name": "グランドウェーブ 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060522",
+   "name": "ジェットアタック 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060530",
+   "name": "ジェットアタック 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060546",
+   "name": "ジェットアタック 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060550",
+   "name": "パワーボム 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060562",
+   "name": "パワーボム 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060608",
+   "name": "パワーボム 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060616",
+   "name": "ゴーストパルス 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060631",
+   "name": "ゴーストパルス 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060644",
+   "name": "ゴーストパルス 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060655",
+   "name": "モエリング 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060700",
+   "name": "モエリング 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060707",
+   "name": "モエリング 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060712",
+   "name": "カウントボム 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060725",
+   "name": "カウントボム 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060736",
+   "name": "カウントボム 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060745",
+   "name": "ファイアバズーカ 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060752",
+   "name": "ファイアバズーカ 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060802",
+   "name": "ファイアバズーカ 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060814",
+   "name": "テイルバーナー 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060824",
+   "name": "テイルバーナー 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060832",
+   "name": "テイルバーナー 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060838",
+   "name": "ワイドワェーブ 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060852",
+   "name": "ワイドワェーブ 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060900",
+   "name": "ワイドワェーブ 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060910",
+   "name": "チェインバブル 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060918",
+   "name": "チェインバブル 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060924",
+   "name": "チェインバブル 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060937",
+   "name": "グリーンインク",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060948",
+   "name": "ブルーインク",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000060957",
+   "name": "パープルインク",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061000",
+   "name": "ネバーレイン 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061015",
+   "name": "ネバーレイン 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061028",
+   "name": "ネバーレイン 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061039",
+   "name": "クラウドシュート 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061048",
+   "name": "クラウドシュート 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061055",
+   "name": "クラウドシュート 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061060",
+   "name": "サンダーボール 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061108",
+   "name": "サンダーボール 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061118",
+   "name": "サンダーボール 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061126",
+   "name": "ボルティックアイ 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061142",
+   "name": "ボルティックアイ 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061146",
+   "name": "ボルティックアイ 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061158",
+   "name": "ホタルゲリ 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061204",
+   "name": "ホタルゲリ 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061212",
+   "name": "ホタルゲリ 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061228",
+   "name": "ジャンボハンマー 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061232",
+   "name": "ジャンボハンマー 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061243",
+   "name": "ジャンボハンマー 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061252",
+   "name": "モジャランス 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061305",
+   "name": "モジャランス 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061310",
+   "name": "モジャランス 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061323",
+   "name": "ヘンゲノジュツ 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061334",
+   "name": "ヘンゲノジュツ 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061343",
+   "name": "ヘンゲノジュツ 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061350",
+   "name": "バルカンシード 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061401",
+   "name": "バルカンシード 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061404",
+   "name": "バルカンシード 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061414",
+   "name": "ブレイブソード 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061432",
+   "name": "ブレイブソード 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061438",
+   "name": "ブレイブソード 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061452",
+   "name": "ジャンクキューブ 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061454",
+   "name": "ジャンクキューブ 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061500",
+   "name": "ジャンクキューブ 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061518",
+   "name": "シンクロフック 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061524",
+   "name": "シンクロフック 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061538",
+   "name": "シンクロフック 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061540",
+   "name": "パワーソング",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061550",
+   "name": "クエイクソング",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061562",
+   "name": "トリップソング",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061612",
+   "name": "モアイフォール 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061618",
+   "name": "モアイフォール 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061626",
+   "name": "モアイフォール 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061636",
+   "name": "ビッグアックス 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061648",
+   "name": "ビッグアックス 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061662",
+   "name": "ビッグアックス 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061704",
+   "name": "マジクリスタル 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061712",
+   "name": "マジクリスタル 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061723",
+   "name": "マジクリスタル 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061736",
+   "name": "ブラックホール 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061751",
+   "name": "ブラックホール 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061758",
+   "name": "ブラックホール 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061803",
+   "name": "ベルセルカソード 1",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061814",
+   "name": "ベルセルカソード 2",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061827",
+   "name": "ベルセルカソード 3",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061832",
+   "name": "グリーンバースト",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061839",
+   "name": "アイスバースト",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061848",
+   "name": "ポイズンバースト",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061860",
+   "name": "タイフーンダンス",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061910",
+   "name": "ジャミングパンチ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061916",
+   "name": "ジャミングマシンガン",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061924",
+   "name": "ホイッスル",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061934",
+   "name": "ボムライザー",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061946",
+   "name": "シラハドリ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000061960",
+   "name": "リカバリー 10",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062002",
+   "name": "リカバリー 30",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062010",
+   "name": "リカバリー 50",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062020",
+   "name": "リカバリー 80",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062033",
+   "name": "リカバリー 120",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062048",
+   "name": "リカバリー 150",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062055",
+   "name": "リカバリー 200",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062100",
+   "name": "リカバリー 300",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062111",
+   "name": "バリア",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062118",
+   "name": "バリア 100",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062129",
+   "name": "バリア 200",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062136",
+   "name": "オーラ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062155",
+   "name": "インビジブル",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062156",
+   "name": "セイレイノイカリ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062206",
+   "name": "ドクリンゴ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062212",
+   "name": "ウラギリノススメ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062230",
+   "name": "ギガマイン",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062240",
+   "name": "クサムラステージ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062242",
+   "name": "アイスステージ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062256",
+   "name": "グラビティステージ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062262",
+   "name": "ゼシエンステージ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062316",
+   "name": "ホーリーパネル",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062326",
+   "name": "マビプラス",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062328",
+   "name": "アタック+10",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062826",
+   "name": "オックスファイア",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062836",
+   "name": "オックスファイア EX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062838",
+   "name": "オックスファイア SP",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062852",
+   "name": "キグナスウィング",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062858",
+   "name": "キグナスウィング EX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062912",
+   "name": "キグナスウィング SP",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062922",
+   "name": "ハープ・ノート",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062924",
+   "name": "ハープ・ノート EX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062938",
+   "name": "ハープ・ノート SP",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062944",
+   "name": "リブラ・バランス",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000062963",
+   "name": "リブラ・バランス EX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063000",
+   "name": "リブラ・バランス SP",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063013",
+   "name": "オヒュカスクイーン",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063028",
+   "name": "オヒュカスクイーン EX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063056",
+   "name": "オヒュカスクイーン SP",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063044",
+   "name": "ジェミニスパーク",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063055",
+   "name": "ジェミニスパーク EX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063104",
+   "name": "ジェミニスパーク SP",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063109",
+   "name": "キャンサバブル",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063116",
+   "name": "キャンサバブル EX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063127",
+   "name": "キャンサバブル SP",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063140",
+   "name": "ウルフフォレスト",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063155",
+   "name": "ウルフフォレスト EX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063162",
+   "name": "ウルフフォレスト SP",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063207",
+   "name": "クラウンサンダー",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063218",
+   "name": "クラウンサンダー EX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063231",
+   "name": "クラウンサンダー SP",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063236",
+   "name": "ペガサスマジック",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063243",
+   "name": "ペガサスマジック EX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063252",
+   "name": "ペガサスマジック SP",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063301",
+   "name": "レオキングダム",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063316",
+   "name": "レオキングダム EX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063323",
+   "name": "レオキングダム SP",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063332",
+   "name": "ドラゴンスカイ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063343",
+   "name": "ドラゴンスカイ EX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063356",
+   "name": "ドラゴンスカイ SP",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063613",
+   "name": "ペガサスマジック GX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063622",
+   "name": "アクア+50",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063633",
+   "name": "オックスタックル",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063636",
+   "name": "ブレイクカウントボム",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063651",
+   "name": "ダークソード",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063658",
+   "name": "レオキングダム GX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063703",
+   "name": "ファイア+50",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063714",
+   "name": "ジェミニサンダー",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063727",
+   "name": "ダークネスホール",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063732",
+   "name": "ドリームオーラ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063751",
+   "name": "ドラゴンスカイ GX",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063752",
+   "name": "ウッド+50",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063801",
+   "name": "ゴルゴンアイ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063816",
+   "name": "デストロイミサイル",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063823",
+   "name": "ポイズンファラオ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000063843",
+   "name": "アンドロメダ",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000240020",
+   "name": "オックスファイア",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000240027",
+   "name": "キグナスウィング",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000240032",
+   "name": "ハープ・ノート",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000240045",
+   "name": "リブラ・バランス",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000240056",
+   "name": "オヒュカス・クイーン",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000240101",
+   "name": "ジェミ・スパーク",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000240108",
+   "name": "キャンサ・バブル",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000240123",
+   "name": "ウルフ・フォレスト",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "040000240136",
+   "name": "クラウン・サンダー",
+   "set": "流星のロックマン ドラゴン ウェーブカード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
   }
  ]
 }

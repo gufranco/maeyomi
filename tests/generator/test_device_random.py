@@ -158,7 +158,13 @@ def test_an_effect_game_sheet_draws_only_codes_that_set_something_off() -> None:
         assert card.character.kind is GameKind.EFFECT
 
 
-DS_GAMES = [Device.CARD_DE_ASOBU, Device.OSHARE_MAJO, Device.MUSHIKING, Device.WANTAME]
+DS_GAMES = [
+    Device.CARD_DE_ASOBU,
+    Device.OSHARE_MAJO,
+    Device.MUSHIKING,
+    Device.WANTAME,
+    Device.ROCKMAN_DRAGON,
+]
 
 
 @pytest.mark.parametrize("device", DS_GAMES, ids=str)

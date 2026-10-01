@@ -34,15 +34,16 @@ armour card and it works out which barcode the device would read that way,
 then prints it. Maeyomi is the Barcode Battler's own word for the front read,
 the one that produces a fighter.
 
-It covers three standalone machines and 29 games: six Datach games for the
+It covers three standalone machines and 30 games: six Datach games for the
 Famicom, whose reader sits in the cartridge; thirteen Famicom and Super
 Famicom games that take their codes from a Barcode Battler II plugged into the
 console; five Game Boy games read through Namco's Barcode Boy; Barcode
 Taisen Bardigun, a Game Boy game with a reader of its own; three Nintendo
 DS games that read Code 39 cards through Sega's HCV-1000, Card de Asobu!
 Hajimete no DS, Oshare Majo Love and Berry DS Collection and Mushiking Super
-Collection; and Wantame Music Channel, a Nintendo DS game that reads Code 128
-cards through a scanner on its microphone plug. For each
+Collection; and Wantame Music Channel and Ryuusei no Rockman Dragon, two
+Nintendo DS games that read Code 128 cards through a scanner on the microphone
+plug. For each
 one it prints the released cards whose barcodes are known, a card made to
 order, and a cheat card: the strongest or most useful card the device will
 read.
@@ -93,6 +94,7 @@ games and their card packs are on
 | Oshare Majo Love and Berry | オシャレ魔女 ラブandベリー DSコレクション | Nintendo DS, through Sega's HCV-1000 | `osharemajo` |
 | Mushiking Super Collection | 甲虫王者ムシキング スーパーコレクション | Nintendo DS, through Sega's HCV-1000 | `mushiking` |
 | Wantame Music Channel | ワンタメ ミュージックチャンネル どこでもスタイル | Nintendo DS, through a scanner on the microphone | `wantame` |
+| Ryuusei no Rockman Dragon | 流星のロックマン ドラゴン | Nintendo DS, through the Wave Scanner on the microphone | `rockman` |
 
 ## Install
 
@@ -147,7 +149,7 @@ jumps to the filter over the list, and Enter picks its first match. On the
 command line, `--device` does the same for `generate`, `decode`, `cheat`,
 `random`, `products`, `kinds`, `abilities` and `official`.
 
-The four Nintendo DS games read only their own cards, through readers that
+The five Nintendo DS games read only their own cards, through readers that
 take Code 39 or Code 128 rather than the barcodes on the shopping, so the page
 adapts to them. Their random sheet is drawn from the game's own list, as is
 Battle Rush's, and keeps no number ranges, which the games whose cards carry
@@ -683,6 +685,24 @@ Unicorn engine: it agrees on all 390 codes it was given, among them every card
 and codes no card carries, and turns away every one sent with a wrong
 checksum.
 
+### Ryuusei no Rockman Dragon
+
+Ryuusei no Rockman Dragon, Capcom's 2006 game for the Nintendo DS, reads Wave
+Cards through the Wave Scanner, a toy with its own screen that sits in the
+second slot and talks to the DS through its microphone plug, and `--device
+rockman` makes cards for it. A Wave Card carries a twelve-digit Code 128
+barcode that starts 040000, and the Wave Scanner sends the game only the last
+three pairs, each as a number up to 63, after a constant and before a check
+byte. These cards print with their own codes, 211 of them: standard, mega,
+giga and character cards, named and numbered as GBE+'s notes list them. Three
+character cards carry the code of a battle card and are named beside it. Pick
+one with `--character` by its name, its code, its card number such as S-001,
+or its place in the list. They carry no numbers, so there is no cheat card.
+The list and the scanner's layout come from GBE+'s notes, and unlike every
+other device here, the game's own reading of them has not been checked yet:
+the routine that decodes the scanner has not been found in the game's
+program.
+
 ## Checking the machine
 
 `maeyomi doctor` checks that this computer can print a card the device will
@@ -923,6 +943,11 @@ codes, each printed as the game stores it. GBE+'s notes say the arcade game
 kept getting new cards until 2009, so some arcade cards do not read on the DS;
 only the ones the DS game takes are here.
 
+Rockman's Wave Cards are the 211 distinct codes in GBE+'s Wave Scanner notes,
+printed with the 040000 every Wave Card starts with. Five barcodes in the notes
+have those first six digits transposed, which changes nothing the scanner
+sends.
+
 Epoch printed a roster card for each of the 12 J.League clubs of 1994 for
 Excite Stage '94. Their barcodes were read off the scans
 [barcodebattler.co.uk publishes](https://www.barcodebattler.co.uk/scans/Japan/J-League/),
@@ -931,7 +956,7 @@ MAME.
 
 ## The cheat code
 
-Every machine and game but five offers one or more kinds of cheat card, each
+Every machine and game but six offers one or more kinds of cheat card, each
 with every number it names at the most the device takes. `maeyomi cheat
 --device famista3 --kinds` lists a device's kinds, `--kind era` prints one, and
 the web page offers them on the **Cheats** tab, which shows and prints every kind
@@ -967,9 +992,9 @@ A kind that would print the strongest card again is left out, so Battle Space
 has no HP or AP kind: its strongest card already has the most of both.
 Datach J.League Super Top Players has none: its cards name players, and the
 game's program keeps a profile, a face and an appearance for each player but
-no number a card could raise. Card de Asobu, Oshare Majo, Mushiking and
-Wantame have none either: a card names a kana, an item, a beetle, a move, a
-dog or an outfit and carries nothing else.
+no number a card could raise. Card de Asobu, Oshare Majo, Mushiking,
+Wantame and Rockman have none either: a card names a kana, an item, a beetle,
+a move, a dog, an outfit or a battle card and carries nothing else.
 
 `maeyomi cheat -o cheat.pdf`, or the **Cheats** tab of the web page,
 which typing up, up, down, down, left, right, left, right, B, A anywhere on
@@ -1220,6 +1245,10 @@ under which licence:
   Oshare Majo cards. GBE+ itself, GPL-2, runs Card de Asobu in the checks,
   patched by `tools/oracle/gbe_plus/build.sh`; none of its code ships in the
   package.
+- **GBE+'s
+  [Wave Scanner notes](https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt)**:
+  the Wave Scanner's layout and the 214 Wave Cards with their numbers, barcodes
+  and English and Japanese names, which Rockman prints.
 - **GBE+'s
   [Wantame Card Scanner notes](https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wantame_Card_Scanner.txt)**:
   how the scanner sends a card's code and checksum through the microphone.

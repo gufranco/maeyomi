@@ -140,6 +140,14 @@ from maeyomi.nds.oshare import (
     oshare_named,
     oshare_text,
 )
+from maeyomi.nds.rockman import STAT_KEYS as ROCKMAN_STATS
+from maeyomi.nds.rockman import (
+    build_rockman,
+    decode_rockman,
+    rockman_entries,
+    rockman_named,
+    rockman_text,
+)
 from maeyomi.nds.wantame import STAT_KEYS as WANTAME_STATS
 from maeyomi.nds.wantame import (
     build_wantame,
@@ -578,6 +586,17 @@ GAMES: Final[dict[Device, DatachGame]] = {
         stat_keys=WANTAME_STATS,
         datach_reader=False,
         drawable=frozenset({GameKind.FIGHTER, GameKind.ITEM, GameKind.EFFECT}),
+    ),
+    Device.ROCKMAN_DRAGON: DatachGame(
+        decode=decode_rockman,
+        build=build_rockman,
+        strongest=None,
+        entries=rockman_entries,
+        describe=rockman_text,
+        named=rockman_named,
+        stat_keys=ROCKMAN_STATS,
+        datach_reader=False,
+        drawable=frozenset({GameKind.FIGHTER, GameKind.ITEM}),
     ),
 }
 
