@@ -2,6 +2,24 @@
 
 <!-- version list -->
 
+## v1.18.0 (2026-10-01)
+
+### Bug Fixes
+
+- **card**: Print a same-in-both line once
+  ([`05d1966`](https://github.com/gufranco/maeyomi/commit/05d19663eb339d629487ea9512d9331e1adab26e))
+
+### Chores
+
+- **formula**: Point at v1.17.0 [skip ci]
+  ([`ea67e45`](https://github.com/gufranco/maeyomi/commit/ea67e45203aaaf0d908e6a4e340a5f68e9d4bcc7))
+
+### Features
+
+- Support Wantame Music Channel
+  ([`010b51c`](https://github.com/gufranco/maeyomi/commit/010b51c172a9173706933bd598466fd3b2376fb7))
+
+
 ## v1.17.0 (2026-10-01)
 
 ### Chores
