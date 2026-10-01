@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.16.0 (2026-10-01)
+
+### Chores
+
+- **formula**: Point at v1.15.0 [skip ci]
+  ([`f667bdd`](https://github.com/gufranco/maeyomi/commit/f667bdd4d36618f87a50b5adf93ccda6d18a999c))
+
+### Features
+
+- Support Oshare Majo Love and Berry
+  ([`b899bf1`](https://github.com/gufranco/maeyomi/commit/b899bf1b9f8f4f7786bc43966962f77e89887458))
+
+
 ## v1.15.0 (2026-10-01)
 
 ### Chores
