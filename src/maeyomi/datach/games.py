@@ -116,6 +116,14 @@ from maeyomi.games.served import (
     HATAYAMA_GAME,
 )
 from maeyomi.models.device import Device
+from maeyomi.nds.cardasobu import STAT_KEYS as CARDASOBU_STATS
+from maeyomi.nds.cardasobu import (
+    build_cardasobu,
+    cardasobu_entries,
+    cardasobu_named,
+    cardasobu_text,
+    decode_cardasobu,
+)
 from maeyomi.said import Said
 
 type Pair = tuple[str, str]
@@ -502,6 +510,17 @@ GAMES: Final[dict[Device, DatachGame]] = {
         named=bardigun_named,
         stat_keys=BARDIGUN_STATS,
         datach_reader=False,
+    ),
+    Device.CARD_DE_ASOBU: DatachGame(
+        decode=decode_cardasobu,
+        build=build_cardasobu,
+        strongest=None,
+        entries=cardasobu_entries,
+        describe=cardasobu_text,
+        named=cardasobu_named,
+        stat_keys=CARDASOBU_STATS,
+        datach_reader=False,
+        drawable=frozenset({GameKind.ITEM, GameKind.EFFECT}),
     ),
 }
 

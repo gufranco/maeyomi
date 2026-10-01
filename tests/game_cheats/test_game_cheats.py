@@ -11,6 +11,7 @@ from maeyomi.game_cheats import CANDIDATES, GameCheat, game_cheats, later_number
 from maeyomi.models.device import Device
 
 SEED = 20260930
+NUMBERLESS = frozenset({Device.DATACH_JLEAGUE, Device.CARD_DE_ASOBU})
 SAMPLE = 3000
 BODY = 12
 
@@ -40,7 +41,7 @@ def numbered() -> list[tuple[Device, GameCheat]]:
     ]
 
 
-@pytest.mark.parametrize("device", [d for d in GAMES if d is not Device.DATACH_JLEAGUE], ids=str)
+@pytest.mark.parametrize("device", [d for d in GAMES if d not in NUMBERLESS], ids=str)
 def test_every_game_offers_a_cheat(device: Device) -> None:
     cheats = game_cheats(device)
 

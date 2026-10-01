@@ -1,0 +1,216 @@
+{
+ "game": "Card de Asobu! Hajimete no DS",
+ "emulator": "GBE+ at 05a05e93 built by tools/oracle/gbe_plus/build.sh, whose patch replays a frame-timed script and emulates the HCV-1000 with its own slot-2 device",
+ "screen": "the practice scan the game opens with; screen is a fingerprint of both screens 150 frames after the swipe",
+ "recorded_utc": "2026-10-01T14:42:12Z",
+ "cards": [
+  {
+   "barcode": "*AA01C0RD00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA02D0NC00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA0380GC00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA04F0T000V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA05A0RB00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*ZZZZZZZZZZV01*",
+   "screen": "5b7b2f41a9630806"
+  },
+  {
+   "barcode": "*AA07DK0E00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA082KRC00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA099KSG00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA104KRC00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA110SRF00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA121SYE00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA132SKB00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA149SMG00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA15MSMB00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA16OTKA00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA17DTPF00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA18KTMD00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA199TSG00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA20GTRA00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA21CNSB00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA227NRD00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA238NM000V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA24RNKC00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA25ANR000V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA26OHTD00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA277HRF00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA28KHNE00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA293HTE00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA30GHRG00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA310MR000V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA327MTG00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA338MS000V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA34LMN000V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA35YM0A00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA366YGC00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA378YRF00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA38SYTE00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA390RPA00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA40PRGB00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA418RB000V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA42XR0B00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA43SRTE00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA446WNC00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA45SWW000V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA46Z00000V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA47CKRC00V01*",
+   "screen": "0372d3024e7e6209"
+  },
+  {
+   "barcode": "*AA01C0RD00V02*",
+   "screen": "5b7b2f41a9630806"
+  },
+  {
+   "barcode": "*AA01C0RD00*",
+   "screen": "5b7b2f41a9630806"
+  },
+  {
+   "barcode": "AA01C0RD00V01",
+   "screen": "5b7b2f41a9630806"
+  },
+  {
+   "barcode": "*AA06K0RC00V01*",
+   "screen": "5b7b2f41a9630806"
+  },
+  {
+   "barcode": "*AA47CKRC00V02*",
+   "screen": "5b7b2f41a9630806"
+  }
+ ]
+}

@@ -284,6 +284,7 @@ class DeviceView(BaseModel):
     ranges: list[list[int]]
     back_ranges: list[list[int]] | None
     cheat_kinds: list[CheatKindView]
+    symbology: str
 
 
 class FactView(BaseModel):

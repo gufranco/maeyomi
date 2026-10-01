@@ -27,14 +27,26 @@ treats the published height as a floor rather than a suggestion.
 Nothing here scales an image. The module width is set and the drawing follows
 from it, because a rendered symbol scaled to fit a layout rounds its modules
 unevenly and stops scanning.
+
+A few readers take another symbology. Sega's HCV-1000 reads Code 39, whose
+thirteen characters run 217 modules, so its cards print at 0.22 mm with quiet
+zones of ten modules to fit the card; the DS microphone readers take Code 128.
+Neither has the EAN magnification range, so they share a common 0.19 mm floor.
 """
 
 from dataclasses import dataclass
+from enum import StrEnum
 from typing import Final
+
+from maeyomi.models.device import Device
 
 NOMINAL_MODULE_WIDTH_MM: Final = 0.330
 MIN_MODULE_WIDTH_MM: Final = NOMINAL_MODULE_WIDTH_MM * 0.8
 MAX_MODULE_WIDTH_MM: Final = NOMINAL_MODULE_WIDTH_MM * 2.0
+
+MIN_LINEAR_MODULE_WIDTH_MM: Final = 0.19
+CODE39_MODULE_WIDTH_MM: Final = 0.22
+QUIET_MODULES: Final = 10
 
 NOMINAL_BAR_HEIGHT_MM: Final = 22.85
 NOMINAL_TOTAL_HEIGHT_MM: Final = 25.93
@@ -60,6 +72,14 @@ the published total, which costs nothing.
 """
 
 
+class Symbology(StrEnum):
+    """The kind of symbol a card's reader takes."""
+
+    EAN = "ean"
+    CODE39 = "code39"
+    CODE128 = "code128"
+
+
 @dataclass(frozen=True, slots=True)
 class BarcodeGeometry:
     """How large a symbol is printed, in millimetres.
@@ -77,13 +97,17 @@ class BarcodeGeometry:
     bar_height_mm: float = NOMINAL_BAR_HEIGHT_MM
     show_digits: bool = True
     kept_check: bool = False
+    symbology: Symbology = Symbology.EAN
 
     def __post_init__(self) -> None:
         """Reject a size outside what the specification permits."""
-        if not MIN_MODULE_WIDTH_MM <= self.module_width_mm <= MAX_MODULE_WIDTH_MM:
+        floor = (
+            MIN_MODULE_WIDTH_MM if self.symbology is Symbology.EAN else MIN_LINEAR_MODULE_WIDTH_MM
+        )
+        if not floor <= self.module_width_mm <= MAX_MODULE_WIDTH_MM:
             message = (
                 f"module width of {self.module_width_mm} mm is outside the permitted "
-                f"{MIN_MODULE_WIDTH_MM:.3f} to {MAX_MODULE_WIDTH_MM:.3f} mm"
+                f"{floor:.3f} to {MAX_MODULE_WIDTH_MM:.3f} mm"
             )
             raise ValueError(message)
         if self.bar_height_mm < MIN_BAR_HEIGHT_MM:
@@ -127,3 +151,14 @@ def _modules(table: dict[int, int], length: int) -> int:
     except KeyError:
         message = f"barcode must be {EAN_8_LENGTH} or {EAN_13_LENGTH} digits, got {length}"
         raise ValueError(message) from None
+
+
+DEVICE_SYMBOLOGIES: Final[dict[Device, tuple[Symbology, float]]] = {
+    Device.CARD_DE_ASOBU: (Symbology.CODE39, CODE39_MODULE_WIDTH_MM),
+}
+"""Devices whose reader takes another symbology, with the module width it prints at."""
+
+
+def symbology_of(device: Device) -> Symbology:
+    """The symbology the device's reader takes."""
+    return DEVICE_SYMBOLOGIES.get(device, (Symbology.EAN, NOMINAL_MODULE_WIDTH_MM))[0]

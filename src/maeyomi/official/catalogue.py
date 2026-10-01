@@ -61,7 +61,6 @@ from functools import cache
 from importlib import resources
 from typing import Final
 
-from maeyomi.decoder.decode import decode
 from maeyomi.decoder.errors import BarcodeError
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import AnyCard
@@ -118,6 +117,7 @@ class OfficialSet(Enum):
     FAMISTA3 = "ファミスタ3 カード"
     FAMJOCK2 = "ファミリージョッキー2 カード"
     EXCITE94_CLUBS = "エキサイトステージ'94 の Jリーグ 登録選手リスト カード"
+    CARD_DE_ASOBU = "カードであそぶ! はじめてのDS カード"
     IRWIN = "アーウィン版 バーコードバトラー カードリスト"
     TOMY = "トミー版 バーコードバトラー カードリスト"
     TOMY_GERMANY = "トミー版 ドイツ バーコードバトラー カードリスト"
@@ -165,6 +165,7 @@ _DEVICES: Final[dict[OfficialSet, Device]] = {
     OfficialSet.FAMISTA3: Device.FAMISTA3,
     OfficialSet.FAMJOCK2: Device.FAMJOCK2,
     OfficialSet.EXCITE94_CLUBS: Device.EXCITE94,
+    OfficialSet.CARD_DE_ASOBU: Device.CARD_DE_ASOBU,
 }
 
 _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
@@ -210,6 +211,7 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.FAMISTA3: "Famista 3 cards",
     OfficialSet.FAMJOCK2: "Family Jockey 2 cards",
     OfficialSet.EXCITE94_CLUBS: "J.League club roster cards",
+    OfficialSet.CARD_DE_ASOBU: "Card de Asobu! Hajimete no DS cards",
     OfficialSet.IRWIN: "Irwin Barcode Battler, United States and Canada",
     OfficialSet.TOMY: "Tomy Barcode Battler, United Kingdom, Ireland and Italy",
     OfficialSet.TOMY_GERMANY: "Tomy Barcode Battler, Germany",
@@ -283,9 +285,9 @@ def rejected_transcriptions() -> tuple[OfficialCard, ...]:
 
 
 def decodes(entry: OfficialCard) -> bool:
-    """Whether the transcribed barcode is one the device would accept."""
+    """Whether the transcribed barcode is one the set's own device would accept."""
     try:
-        decode(entry.barcode)
+        printable_as(entry.official_set.device, entry.barcode, entry.name)
     except BarcodeError:
         return False
     return True

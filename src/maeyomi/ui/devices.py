@@ -13,6 +13,7 @@ from dataclasses import dataclass
 from enum import StrEnum
 from typing import Final
 
+from maeyomi.barcode.geometry import symbology_of
 from maeyomi.bb1.solve import ENEMY_DF, ENEMY_HP, ENEMY_ST
 from maeyomi.bb1.solve import MAX_HP as FIRST_MAX_HP
 from maeyomi.bb1.solve import MAX_STAT as FIRST_MAX_STAT
@@ -217,6 +218,7 @@ FORMS: Final[dict[Device, DeviceForm]] = {
     Device.FAMISTA3: DeviceForm(("game", "picks"), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.FAMJOCK2: DeviceForm(("game", "picks"), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.BARDIGUN: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
+    Device.CARD_DE_ASOBU: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.HATAYAMA: DeviceForm(
         ("game", "picks", "stats"),
         HATAYAMA_MAX_HP,
@@ -236,6 +238,7 @@ class Platform(StrEnum):
     FAMICOM = "famicom"
     SUPER_FAMICOM = "super_famicom"
     GAME_BOY = "game_boy"
+    NINTENDO_DS = "nintendo_ds"
 
 
 DATACH_PREFIX: Final = "DATACH_"
@@ -250,6 +253,7 @@ GAME_BOY_GAMES: Final = frozenset(
         Device.BARDIGUN,
     }
 )
+NINTENDO_DS_GAMES: Final = frozenset({Device.CARD_DE_ASOBU})
 
 
 def platform_of(device: Device) -> Platform:
@@ -260,6 +264,8 @@ def platform_of(device: Device) -> Platform:
         return Platform.DATACH
     if device in GAME_BOY_GAMES:
         return Platform.GAME_BOY
+    if device in NINTENDO_DS_GAMES:
+        return Platform.NINTENDO_DS
     return Platform.FAMICOM if device in FAMICOM_GAMES else Platform.SUPER_FAMICOM
 
 
@@ -290,6 +296,7 @@ def device_views() -> list[DeviceView]:
                 )
                 for kind in cheat_kinds(device)
             ],
+            symbology=symbology_of(device).value,
         )
         for device in Device
     ]

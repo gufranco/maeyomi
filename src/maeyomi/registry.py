@@ -13,6 +13,7 @@ from collections.abc import Sequence
 from dataclasses import dataclass
 from typing import Final
 
+from maeyomi.barcode.geometry import Symbology, symbology_of
 from maeyomi.bb1.decode import decode_first
 from maeyomi.bb1.solve import solve_first
 from maeyomi.cheat_kinds import cheat_kind
@@ -99,7 +100,9 @@ def read_as(device: Device, barcode: str) -> CardResult:
 
 
 def readable_as(device: Device, barcode: str) -> CardResult | None:
-    """The card, or None when the device's reader can never read this valid code."""
+    """The card a printed EAN symbol makes, or None when the device's reader can never read it."""
+    if symbology_of(device) is not Symbology.EAN:
+        return None
     try:
         return read_as(device, barcode)
     except ReaderRefusalError:

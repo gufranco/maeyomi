@@ -17,21 +17,41 @@ measure the data bars off a rendered page rather than trusting the setting to
 reach them.
 """
 
+import re
 from typing import Final
 
 from reportlab.graphics import renderPDF
 from reportlab.graphics.barcode.eanbc import Ean8BarcodeWidget, Ean13BarcodeWidget
+from reportlab.graphics.barcode.widgets import BarcodeCode128, BarcodeStandard39
 from reportlab.graphics.shapes import Drawing
 from reportlab.lib.attrmap import AttrMap, AttrMapValue
 from reportlab.lib.units import mm
 from reportlab.lib.validators import isString
 from reportlab.pdfgen.canvas import Canvas
 
-from maeyomi.barcode.geometry import EAN_8_LENGTH, EAN_13_LENGTH, BarcodeGeometry
-from maeyomi.decoder.errors import InvalidCharacterError, InvalidLengthError
+from maeyomi.barcode.geometry import (
+    EAN_8_LENGTH,
+    EAN_13_LENGTH,
+    QUIET_MODULES,
+    BarcodeGeometry,
+    Symbology,
+)
+from maeyomi.decoder.errors import (
+    InvalidCharacterError,
+    InvalidLengthError,
+    UnsupportedBarcodeError,
+)
 from maeyomi.decoder.validation import validate_barcode
+from maeyomi.said import Said
 
 _WIDGETS: Final = {EAN_13_LENGTH: Ean13BarcodeWidget, EAN_8_LENGTH: Ean8BarcodeWidget}
+CODE39_CHARACTERS: Final = re.compile(r"[0-9A-Z\-. $/+%]+")
+CODE39_FRAME: Final = "*"
+CODE39_RATIO: Final = 2.5
+CODE39_ONLY: Final = Said(
+    "Code 39 carries only capital letters, digits and - . space $ / + %",
+    "Code 39 に つかえるのは おおもじの アルファベット、すうじ、- . スペース $ / + % だけ",
+)
 
 
 class KeptCheckEan13(Ean13BarcodeWidget):
@@ -62,11 +82,54 @@ def draw_symbol(
 
 def _drawing(code: str, geometry: BarcodeGeometry) -> Drawing:
     """Build the symbol, rejecting a code the device itself would reject."""
-    widget = kept_widget(code, geometry) if geometry.kept_check else _checked_widget(code, geometry)
+    widget = _widget(code, geometry)
     left, bottom, right, top = widget.getBounds()
     drawing = Drawing(right - left, top - bottom)
     drawing.add(widget)
     return drawing
+
+
+def _widget(
+    code: str, geometry: BarcodeGeometry
+) -> Ean13BarcodeWidget | BarcodeStandard39 | BarcodeCode128:
+    """The widget the geometry's symbology draws the code with."""
+    if geometry.symbology is Symbology.CODE39:
+        return code39_widget(code, geometry)
+    if geometry.symbology is Symbology.CODE128:
+        return code128_widget(code, geometry)
+    return kept_widget(code, geometry) if geometry.kept_check else _checked_widget(code, geometry)
+
+
+def code39_widget(code: str, geometry: BarcodeGeometry) -> BarcodeStandard39:
+    """A Code 39 symbol for the text, framed by its start and stop characters."""
+    text = code.strip(CODE39_FRAME)
+    if not CODE39_CHARACTERS.fullmatch(text):
+        raise UnsupportedBarcodeError(barcode=code, reason=CODE39_ONLY)
+    return BarcodeStandard39(
+        value=text, ratio=CODE39_RATIO, checksum=0, stop=1, **_linear_sizes(geometry)
+    )
+
+
+def code128_widget(code: str, geometry: BarcodeGeometry) -> BarcodeCode128:
+    """A Code 128 symbol for an even run of digits, which it carries as pairs."""
+    if not code.isdigit():
+        raise InvalidCharacterError(barcode=code)
+    if len(code) % 2:
+        raise InvalidLengthError(length=len(code))
+    return BarcodeCode128(value=code, **_linear_sizes(geometry))
+
+
+def _linear_sizes(geometry: BarcodeGeometry) -> dict[str, float | bool]:
+    """The settings a Code 39 or Code 128 widget takes from the geometry."""
+    module = geometry.module_width_mm * mm
+    return {
+        "barWidth": module,
+        "barHeight": geometry.bar_height_mm * mm,
+        "humanReadable": geometry.show_digits,
+        "quiet": True,
+        "lquiet": QUIET_MODULES * module,
+        "rquiet": QUIET_MODULES * module,
+    }
 
 
 def _checked_widget(code: str, geometry: BarcodeGeometry) -> Ean13BarcodeWidget:

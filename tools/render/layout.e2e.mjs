@@ -59,6 +59,7 @@ function checkDeviceMenu() {
     'Famicom Datach',
     'Famicom, through the Barcode Battler II',
     'Game Boy',
+    'Nintendo DS',
   ]), `the device list is grouped as ${JSON.stringify(headings)}`);
   const machines = menu[0]?.[1] ?? [];
   const sorted = machines.toSorted((first, second) => first.localeCompare(second, 'en'));
@@ -523,6 +524,23 @@ function checkOneCardSheetStandsAlone() {
   browser('click', '#tab-one');
 }
 
+function checkCode39ReadTab() {
+  pickDevice('cardasobu');
+  browser('click', '#tab-read');
+  browser('wait', '800');
+  browser('fill', '#read-barcode', '*aa082krc00v01*');
+  browser('eval', "document.getElementById('read').requestSubmit(); 'ok'");
+  browser('wait', '2500');
+  const read = evaluate(`JSON.stringify([
+    document.getElementById('read-barcode').getAttribute('inputmode'),
+    document.getElementById('read-status').textContent.includes('This is what the machine sees'),
+    document.getElementById('read-facts').textContent.includes('Whale'),
+  ])`);
+  expect(read[0] === 'text' && read[1] && read[2], `a Code 39 card is not read on the Read tab: ${read}`);
+  browser('click', '#tab-one');
+  pickDevice('bb2');
+}
+
 function checkPhoneDeviceMenu() {
   browser('set', 'viewport', '390', '844');
   const closed = evaluate(`JSON.stringify([
@@ -582,6 +600,7 @@ checkLanguageLeavesTheCard();
 checkCheatTab();
 checkOneCheatCardStandsAlone();
 checkOneCardSheetStandsAlone();
+checkCode39ReadTab();
 checkCheatLinkShowsThatDevicesCard();
 checkCheatKindsFollowThePickAndTheLanguage();
 checkPhoneTabsFit();

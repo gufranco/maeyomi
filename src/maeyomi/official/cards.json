@@ -9577,6 +9577,282 @@
    "name": "種馬 C",
    "set": "ファミリージョッキー2 カード",
    "source_url": "https://github.com/mamedev/mame/blob/master/hash/gameboy.xml"
+  },
+  {
+   "barcode": "AA01C0RD00V01",
+   "name": "あひる",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA02D0NC00V01",
+   "name": "いぬ",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA0380GC00V01",
+   "name": "うさぎ",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA04F0T000V01",
+   "name": "えんぴつ",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA05A0RB00V01",
+   "name": "おにぎり",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA07DK0E00V01",
+   "name": "ききゅう",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA082KRC00V01",
+   "name": "くじら",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA099KSG00V01",
+   "name": "けむし",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA104KRC00V01",
+   "name": "こあら",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA110SRF00V01",
+   "name": "さくら",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA121SYE00V01",
+   "name": "しょうぼうしゃ",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA132SKB00V01",
+   "name": "すいか",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA149SMG00V01",
+   "name": "せみ",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA15MSMB00V01",
+   "name": "そらまめ",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA16OTKA00V01",
+   "name": "たいこ",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA17DTPF00V01",
+   "name": "ちゅーりっぷ",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA18KTMD00V01",
+   "name": "つばめ",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA199TSG00V01",
+   "name": "てんとうむし",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA20GTRA00V01",
+   "name": "とらいあんぐる",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA21CNSB00V01",
+   "name": "なす",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA227NRD00V01",
+   "name": "にわとり",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA238NM000V01",
+   "name": "ぬいぐるみ",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA24RNKC00V01",
+   "name": "ねこ",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA25ANR000V01",
+   "name": "のこぎり",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA26OHTD00V01",
+   "name": "はと",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA277HRF00V01",
+   "name": "ひまわり",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA28KHNE00V01",
+   "name": "ふね",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA293HTE00V01",
+   "name": "へりこぷたー",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA30GHRG00V01",
+   "name": "ほたる",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA310MR000V01",
+   "name": "まくら",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA327MTG00V01",
+   "name": "みつばち",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA338MS000V01",
+   "name": "むぎわらぼうし",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA34LMN000V01",
+   "name": "めがね",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA35YM0A00V01",
+   "name": "もっきん",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA366YGC00V01",
+   "name": "やぎ",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA378YRF00V01",
+   "name": "ゆり",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA38SYTE00V01",
+   "name": "よっと",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA390RPA00V01",
+   "name": "らっぱ",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA40PRGB00V01",
+   "name": "りんご",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA418RB000V01",
+   "name": "るびー",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA42XR0B00V01",
+   "name": "れもん",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA43SRTE00V01",
+   "name": "ろけっと",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA446WNC00V01",
+   "name": "わに",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA45SWW000V01",
+   "name": "カードをさがす",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA46Z00000V01",
+   "name": "ん",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
+  },
+  {
+   "barcode": "AA47CKRC00V01",
+   "name": "かえる",
+   "set": "カードであそぶ! はじめてのDS カード",
+   "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt"
   }
  ]
 }

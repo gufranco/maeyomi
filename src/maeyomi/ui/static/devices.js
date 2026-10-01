@@ -131,6 +131,7 @@ const DEVICE_GROUPS = [
   ['datach', 'device.datach'],
   ['famicom', 'device.famicom'],
   ['game_boy', 'device.game_boy'],
+  ['nintendo_ds', 'device.nintendo_ds'],
 ];
 
 function deviceButtonHtml(device) {
@@ -351,6 +352,7 @@ function applyDeviceForm() {
   const form = deviceForm();
   if (!form) return;
   renderCheatKinds();
+  syncReadInput();
   document.querySelectorAll('[data-device-field]').forEach((node) => {
     node.toggleAttribute('hidden', !form.fields.includes(node.dataset.deviceField));
   });

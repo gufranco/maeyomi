@@ -17,7 +17,9 @@ from maeyomi.datach.battlerush import strongest_robot
 from maeyomi.generator.random_cards import generate_random
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.constraint import Constraint
+from maeyomi.models.device import Device
 from maeyomi.models.generated_card import GeneratedCard
+from maeyomi.registry import printable_as
 from maeyomi.rendering.calibration import REFERENCE_LENGTH_MM
 from maeyomi.rendering.layout import SheetLayout
 from maeyomi.rendering.sheet import write_sheet
@@ -120,6 +122,15 @@ def test_the_measuring_marks_name_the_expected_barcode_width(tmp_path: Path) -> 
     write_sheet(cards(1), path)
 
     assert "37.3 mm wide" in page_text(path)
+
+
+def test_the_measuring_marks_name_the_width_of_the_cards_own_symbol(tmp_path: Path) -> None:
+    path = tmp_path / "code39.pdf"
+    card = printable_as(Device.CARD_DE_ASOBU, "AA082KRC00V01", "くじら")
+
+    write_sheet([card], path)
+
+    assert "52.0 mm wide" in page_text(path)
 
 
 def test_the_measuring_marks_can_be_turned_off(tmp_path: Path) -> None:

@@ -64,7 +64,7 @@ def test_the_palette_is_rechecked_rather_than_trusted() -> None:
 
 
 def test_both_card_lists_are_counted() -> None:
-    assert "1586" in named(package(), "official cards").detail
+    assert "1632" in named(package(), "official cards").detail
     assert named(package(), "supermarket").state is State.OK
 
 

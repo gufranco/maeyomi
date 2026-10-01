@@ -10,7 +10,7 @@ from maeyomi.registry import readable_as
 from maeyomi.said import in_japanese
 
 NAME = "Tester"
-NUMBERLESS = frozenset({Device.DATACH_JLEAGUE})
+NUMBERLESS = frozenset({Device.DATACH_JLEAGUE, Device.CARD_DE_ASOBU})
 """Games whose cards carry nothing to raise: a J.League card names a player and no more."""
 WITH_CHEATS = [device for device in Device if device not in NUMBERLESS]
 

@@ -613,7 +613,21 @@ function showFacts(character) {
   $('read-facts').toggleAttribute('hidden', false);
 }
 
-const typedBarcode = () => $('read-barcode').value.replace(/\D/g, '');
+const CODE39_STRAY = /[^0-9A-Z\-. $/+%]/g;
+
+function typedBarcode() {
+  const typed = $('read-barcode').value;
+  if (deviceForm()?.symbology === 'code39') return typed.toUpperCase().replace(CODE39_STRAY, '').trim();
+  return typed.replace(/\D/g, '');
+}
+
+function syncReadInput() {
+  const code39 = deviceForm()?.symbology === 'code39';
+  $('read-barcode').setAttribute('inputmode', code39 ? 'text' : 'numeric');
+  $('read-barcode').setAttribute('pattern', code39 ? '[0-9A-Za-z\\-. $/+%*]*' : '[0-9 ]*');
+  $('read-barcode').dataset.i18nPlaceholder = code39 ? 'read.placeholder.code39' : 'read.placeholder';
+  $('read-barcode').setAttribute('placeholder', t($('read-barcode').dataset.i18nPlaceholder));
+}
 
 const typedName = () => $('read-name').value.trim() || t('read.name.placeholder');
 
@@ -624,7 +638,8 @@ async function readBarcode(event) {
     setStatus('read-status', 'bad', 'tag.impossible', () => t('read.empty'));
     return null;
   }
-  const url = isSecond() ? `/api/decode/${barcode}` : `/api/read/${currentDevice()}/${barcode}`;
+  const code = encodeURIComponent(barcode);
+  const url = isSecond() ? `/api/decode/${code}` : `/api/read/${currentDevice()}/${code}`;
   const response = await fetch(url);
   const body = await response.json();
   if (!response.ok) {

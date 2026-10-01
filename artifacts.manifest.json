@@ -309,6 +309,16 @@
    "sha1": "bc7847dee730ba274f3c3ccb511f1dad6b6a93c7",
    "crc32": "ddfcf4b7",
    "used_by": "tools/oracle/record_bardigun.py and tools/oracle/extract_bardigun.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "nds_cardasobu",
+   "what": "Card de Asobu! Hajimete no DS, Sega 2007, which reads cards through Sega's HCV-1000, the No-Intro dump",
+   "path": "nds/cardasobu.nds",
+   "size": 67108864,
+   "sha256": "5e401ec07ba2be4e630b87a8f19a7da375ddebe6cb433857eb474a61fb0c4f30",
+   "sha1": "8c58ca6d1fc3ed2f73a7b0a89c21635b9d7ba569",
+   "crc32": "775630d8",
+   "used_by": "tools/oracle/record_cardasobu.py and tools/oracle/extract_cardasobu.py, which run and read the game to record and extract its reading; nothing in the package or its tests reads it"
   }
  ]
 }

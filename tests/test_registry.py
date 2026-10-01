@@ -16,6 +16,7 @@ from maeyomi.models.read_type import ReadType
 from maeyomi.registry import DeviceChoice, build_as, cheat_as, device_named, read_as
 
 GOKU = "0022248300117"
+NUMBERLESS = frozenset({Device.DATACH_JLEAGUE, Device.CARD_DE_ASOBU})
 
 
 @pytest.mark.parametrize(
@@ -69,11 +70,12 @@ def test_the_second_barcode_battler_builds_a_back_read_when_asked() -> None:
     assert outcome.card.read_type is ReadType.BACK
 
 
-@pytest.mark.parametrize("device", [device for device in Device if device != Device.DATACH_JLEAGUE])
+@pytest.mark.parametrize("device", [device for device in Device if device not in NUMBERLESS])
 def test_every_device_whose_cards_carry_numbers_has_a_cheat(device: Device) -> None:
     assert cheat_as(device, None).name == "Maximus Cheatimus"
 
 
-def test_a_game_whose_cards_carry_no_numbers_says_it_has_no_cheat() -> None:
+@pytest.mark.parametrize("device", sorted(NUMBERLESS), ids=str)
+def test_a_game_whose_cards_carry_no_numbers_says_it_has_no_cheat(device: Device) -> None:
     with pytest.raises(ValueError, match="carry no numbers"):
-        cheat_as(Device.DATACH_JLEAGUE, None)
+        cheat_as(device, None)

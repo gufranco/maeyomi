@@ -1,13 +1,19 @@
 """Tests for the web page's device switch: every device and game, one set of routes."""
 
+import io
+
 import pytest
 from fastapi.testclient import TestClient
+from PIL import Image
 
-from maeyomi.barcode.verify import decode_pdf
+from maeyomi.barcode.geometry import PRINT_DPI
+from maeyomi.barcode.verify import decode_image, decode_pdf
 from maeyomi.bb1.decode import decode_first
 from maeyomi.datach.dbz import decode_dbz
 from maeyomi.double.decode import decode_double
 from maeyomi.models.device import Device
+from maeyomi.registry import printable_as
+from maeyomi.rendering.preview import card_png
 from maeyomi.ui.app import create_app
 from maeyomi.ui.devices import FORMS, facts_of
 
@@ -551,3 +557,41 @@ def test_a_game_with_no_cheat_previews_nothing(client: TestClient) -> None:
 
     assert response.status_code == 422
     assert "carry no numbers" in response.json()["detail"]
+
+
+def test_a_code39_card_is_read_on_its_own_device(client: TestClient) -> None:
+    response = client.get("/api/read/cardasobu/AA082KRC00V01")
+
+    body = response.json()
+    assert body["barcode"] == "AA082KRC00V01"
+    assert any(fact["value"] == "Whale" for fact in body["facts"])
+
+
+def test_a_code39_text_with_a_slash_is_refused_rather_than_lost(client: TestClient) -> None:
+    response = client.get("/api/read/cardasobu/AA/01")
+
+    assert response.status_code == 400
+    assert "no Card de Asobu card" in response.json()["detail"]
+
+
+def test_a_code39_card_previews_as_a_card(client: TestClient) -> None:
+    response = client.post(
+        "/api/preview", json={"barcode": "AA082KRC00V01", "name": "くじら", "device": "cardasobu"}
+    )
+
+    assert response.status_code == 200
+    assert response.headers["content-type"] == "image/png"
+
+
+def test_a_code39_card_prints_a_symbol_that_scans() -> None:
+    card = printable_as(Device.CARD_DE_ASOBU, "AA082KRC00V01", "くじら")
+
+    image = Image.open(io.BytesIO(card_png(card, dpi=PRINT_DPI))).convert("RGB")
+
+    assert decode_image(image) == ["AA082KRC00V01"]
+
+
+def test_every_device_says_which_symbology_its_reader_takes(client: TestClient) -> None:
+    views = {view["key"]: view["symbology"] for view in client.get("/api/devices").json()}
+
+    assert (views["cardasobu"], views["bb2"]) == ("code39", "ean")

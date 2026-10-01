@@ -3,14 +3,17 @@
 import pytest
 
 from maeyomi.barcode.geometry import (
+    CODE39_MODULE_WIDTH_MM,
     MAX_MODULE_WIDTH_MM,
     MIN_BAR_HEIGHT_MM,
+    MIN_LINEAR_MODULE_WIDTH_MM,
     MIN_MODULE_WIDTH_MM,
     NOMINAL_BAR_HEIGHT_MM,
     NOMINAL_MODULE_WIDTH_MM,
     NOMINAL_TOTAL_HEIGHT_MM,
     TEXT_ZONE_MM,
     BarcodeGeometry,
+    Symbology,
 )
 
 
@@ -93,3 +96,20 @@ def test_the_total_width_includes_both_quiet_zones() -> None:
 def test_an_unsupported_length_is_rejected() -> None:
     with pytest.raises(ValueError, match="8 or 13"):
         BarcodeGeometry().symbol_width_mm(12)
+
+
+def test_a_linear_symbology_accepts_a_module_narrower_than_ean_allows() -> None:
+    geometry = BarcodeGeometry(module_width_mm=CODE39_MODULE_WIDTH_MM, symbology=Symbology.CODE39)
+
+    assert geometry.module_width_mm < MIN_MODULE_WIDTH_MM
+
+
+def test_a_linear_symbology_still_has_a_floor() -> None:
+    with pytest.raises(ValueError, match="module width"):
+        BarcodeGeometry(
+            module_width_mm=MIN_LINEAR_MODULE_WIDTH_MM - 0.01, symbology=Symbology.CODE39
+        )
+
+
+def test_ean_is_the_default_symbology() -> None:
+    assert BarcodeGeometry().symbology is Symbology.EAN

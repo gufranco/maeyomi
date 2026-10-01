@@ -21,6 +21,7 @@ DICTIONARIES = (STATIC_DIR / "i18n.js").read_text(encoding="utf-8")
 THE_SAME_IN_BOTH_LANGUAGES = {
     "title",
     "read.placeholder",
+    "read.placeholder.code39",
     "stat.pw",
     "stat.ust",
     "stat.usp",

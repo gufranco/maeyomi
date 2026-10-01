@@ -12,7 +12,8 @@ from typing import Final
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
-from maeyomi.barcode.geometry import BarcodeGeometry
+from maeyomi.barcode.geometry import DEVICE_SYMBOLOGIES, BarcodeGeometry
+from maeyomi.barcode.symbol import symbol_size_mm
 from maeyomi.datach.game_card import DatachCard
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import AnyCard
@@ -100,14 +101,19 @@ def _draw_page(
             canvas,
             page_width_mm=layout.page_width_mm,
             page_height_mm=layout.page_height_mm,
-            symbol_width_mm=geometry.total_width_mm(13),
+            symbol_width_mm=symbol_size_mm(cards[0].barcode, geometry_for(cards[0], geometry))[0],
         )
 
 
 def geometry_for(card: AnyCard, geometry: BarcodeGeometry) -> BarcodeGeometry:
-    """The sheet's geometry, keeping the check digit of a card whose game wants it wrong."""
-    marked = isinstance(card.character, DatachCard) and card.character.game in MARKED_CHECK
-    return replace(geometry, kept_check=True) if marked else geometry
+    """The sheet's geometry, in the card's own symbology, keeping a check digit its game marks."""
+    if not isinstance(card.character, DatachCard):
+        return geometry
+    game = card.character.game
+    if game in DEVICE_SYMBOLOGIES:
+        symbology, module = DEVICE_SYMBOLOGIES[game]
+        return replace(geometry, symbology=symbology, module_width_mm=module)
+    return replace(geometry, kept_check=True) if game in MARKED_CHECK else geometry
 
 
 def _draw_cut_marks(canvas: Canvas, layout: SheetLayout) -> None:

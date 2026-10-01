@@ -35,6 +35,7 @@ class Device(StrEnum):
     FAMISTA3 = "famista3"
     FAMJOCK2 = "famjock2"
     BARDIGUN = "bardigun"
+    CARD_DE_ASOBU = "cardasobu"
 
     @property
     def is_game(self) -> bool:
@@ -83,4 +84,5 @@ _NAMES: Final[dict[Device, tuple[str, str]]] = {
     Device.FAMISTA3: ("Famista 3", "ファミスタ3"),
     Device.FAMJOCK2: ("Family Jockey 2", "ファミリージョッキー2 名馬の血統"),
     Device.BARDIGUN: ("Barcode Taisen Bardigun", "バーコード対戦バーディガン"),
+    Device.CARD_DE_ASOBU: ("Card de Asobu! Hajimete no DS", "カードであそぶ! はじめてのDS"),
 }

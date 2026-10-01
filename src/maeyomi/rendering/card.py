@@ -288,7 +288,9 @@ def _draw_single(
     bold: bool,
     centred: bool,
 ) -> None:
-    """Set one piece of text on a line, shrinking it to fit."""
+    """Set one piece of text on a line, shrinking it to fit; an empty one sets nothing."""
+    if not text:
+        return
     font = font_for(text, bold=bold)
     natural = text_width_mm(text, font, size_pt)
     size = size_pt * min(1.0, available / natural)

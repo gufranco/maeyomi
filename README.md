@@ -34,11 +34,12 @@ armour card and it works out which barcode the device would read that way,
 then prints it. Maeyomi is the Barcode Battler's own word for the front read,
 the one that produces a fighter.
 
-It covers three standalone machines and 25 games: six Datach games for the
+It covers three standalone machines and 26 games: six Datach games for the
 Famicom, whose reader sits in the cartridge; thirteen Famicom and Super
 Famicom games that take their codes from a Barcode Battler II plugged into the
-console; five Game Boy games read through Namco's Barcode Boy; and Barcode
-Taisen Bardigun, a Game Boy game with a reader of its own. For each
+console; five Game Boy games read through Namco's Barcode Boy; Barcode
+Taisen Bardigun, a Game Boy game with a reader of its own; and Card de Asobu!
+Hajimete no DS, which reads Code 39 cards through Sega's HCV-1000. For each
 one it prints the released cards whose barcodes are known, a card made to
 order, and a cheat card: the strongest or most useful card the device will
 read.
@@ -85,6 +86,7 @@ games and their card packs are on
 | Famista 3 | ファミスタ3 | Game Boy, through the Barcode Boy | `famista3` |
 | Family Jockey 2 | ファミリージョッキー2 名馬の血統 | Game Boy, through the Barcode Boy | `famjock2` |
 | Barcode Taisen Bardigun | バーコード対戦バーディガン | Game Boy, through its own reader | `bardigun` |
+| Card de Asobu! Hajimete no DS | カードであそぶ! はじめてのDS | Nintendo DS, through Sega's HCV-1000 | `cardasobu` |
 
 ## Install
 
@@ -596,6 +598,21 @@ toughness, speed and HP, which the card shows. Pick one of the 35 Barloids a
 code can be sure to hatch with `--character`. The decoder agrees with the game
 in MAME on all 104 codes it was given, among them every table and check digit.
 
+### Card de Asobu! Hajimete no DS
+
+Card de Asobu! Hajimete no DS, Sega's 2007 game for the Nintendo DS, reads
+cards through Sega's HCV-1000, a reader that plugs into the second slot and
+takes Code 39, and `--device cardasobu` makes cards for it. Each card teaches
+one kana, and one more starts the card search. The game takes a card when the
+first ten characters of its text match one in its own table and the rest is
+V01, so these cards carry no numbers and there is no cheat card. Pick one of the
+46 cards with `--character`, by its kana order, its English name or its
+Japanese one. A card prints its Code 39 symbol at 0.22 mm a module, the widest
+that fits the card. No other emulator has the HCV-1000, so the game runs in
+GBE+, built at a pinned commit with a small patch that replays a scripted swipe:
+it accepts every one of the 46 cards and refuses a wrong version, a code no
+card carries and the empty slot its table keeps for か.
+
 ## Checking the machine
 
 `maeyomi doctor` checks that this computer can print a card the device will
@@ -816,6 +833,11 @@ stallions, listed under the names MAME's software list gives them. The GBE+
 notes found that five of them give other numbers than the ones printed on the
 card, and these print what the game reads.
 
+Card de Asobu came with 46 cards, listed under the names GBE+'s HCV-1000 notes
+give them. Three of those names cannot belong to their kana and are corrected:
+the card for ぬ is ぬいぐるみ, for ら らっぱ, and しょうぼうしゃ and むぎわらぼうし
+are spelled with ぼう. The game read every one of them in GBE+.
+
 Epoch printed a roster card for each of the 12 J.League clubs of 1994 for
 Excite Stage '94. Their barcodes were read off the scans
 [barcodebattler.co.uk publishes](https://www.barcodebattler.co.uk/scans/Japan/J-League/),
@@ -824,7 +846,7 @@ MAME.
 
 ## The cheat code
 
-Every machine and game but one offers one or more kinds of cheat card, each
+Every machine and game but two offers one or more kinds of cheat card, each
 with every number it names at the most the device takes. `maeyomi cheat
 --device famista3 --kinds` lists a device's kinds, `--kind era` prints one, and
 the web page offers them on the **Cheats** tab, which shows and prints every kind
@@ -860,7 +882,8 @@ A kind that would print the strongest card again is left out, so Battle Space
 has no HP or AP kind: its strongest card already has the most of both.
 Datach J.League Super Top Players has none: its cards name players, and the
 game's program keeps a profile, a face and an appearance for each player but
-no number a card could raise.
+no number a card could raise. Card de Asobu has none either: a card names a
+kana and carries nothing else.
 
 `maeyomi cheat -o cheat.pdf`, or the **Cheats** tab of the web page,
 which typing up, up, down, down, left, right, left, right, B, A anywhere on
@@ -1105,6 +1128,11 @@ under which licence:
   [Bardigun notes](https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Barcode_Taisen_Bardigun.txt)**:
   the Bardigun reader's protocol and nine barcodes with what they hatch, each
   checked here in MAME.
+- **GBE+'s
+  [HCV-1000 notes](https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/HCV_1000.txt)**:
+  the HCV-1000's registers and the 46 Card de Asobu cards with their names. GBE+
+  itself, GPL-2, runs the game in the checks, patched by
+  `tools/oracle/gbe_plus/build.sh`; none of its code ships in the package.
 - **[MAME](https://www.mamedev.org/)** 0.289 runs every game in the checks. The
   game rules come from each game's own program; no ROM byte is shipped, and each
   ROM is named in `artifacts.manifest.json` by its checksum.

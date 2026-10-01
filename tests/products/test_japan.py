@@ -2,6 +2,7 @@
 
 import pytest
 
+from maeyomi.barcode.geometry import Symbology, symbology_of
 from maeyomi.decoder.decode import decode
 from maeyomi.models.device import Device
 from maeyomi.models.race import Race
@@ -104,7 +105,7 @@ def test_a_random_handful_is_repeatable(count: int) -> None:
     assert len(random_products(count, seed=7)) == count
 
 
-@pytest.mark.parametrize("device", list(Device))
+@pytest.mark.parametrize("device", [d for d in Device if symbology_of(d) is Symbology.EAN])
 def test_every_product_is_a_card_on_every_device(device: Device) -> None:
     cards = product_cards(japanese_products()[:20], device=device)
 
@@ -119,3 +120,9 @@ def test_a_product_the_game_cannot_read_is_left_off_the_sheet() -> None:
     cards = product_cards(shelf, device=Device.DATACH_DBZ)
 
     assert [card.barcode for card in cards] == ["4536471112837"]
+
+
+def test_a_reader_of_another_symbology_reads_no_product() -> None:
+    cards = product_cards(japanese_products()[:20], device=Device.CARD_DE_ASOBU)
+
+    assert cards == ()

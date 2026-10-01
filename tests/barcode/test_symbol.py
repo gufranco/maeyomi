@@ -8,15 +8,25 @@ from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
 from maeyomi.barcode.geometry import (
+    CODE39_MODULE_WIDTH_MM,
     MIN_BAR_HEIGHT_MM,
     NOMINAL_BAR_HEIGHT_MM,
     NOMINAL_TOTAL_HEIGHT_MM,
     BarcodeGeometry,
+    Symbology,
 )
 from maeyomi.barcode.rasterise import ink_box, render_pdf_pages
 from maeyomi.barcode.symbol import KeptCheckEan13, draw_symbol, kept_widget, symbol_size_mm
 from maeyomi.barcode.verify import decode_pdf
-from maeyomi.decoder.errors import BarcodeError, CheckDigitError
+from maeyomi.decoder.errors import (
+    BarcodeError,
+    CheckDigitError,
+    InvalidCharacterError,
+    InvalidLengthError,
+    UnsupportedBarcodeError,
+)
+from maeyomi.rendering.card import CardStyle
+from maeyomi.rendering.layout import CARD_WIDTH_MM
 
 MARGIN_MM = 10.0
 MEASURE_DPI = 600
@@ -212,3 +222,57 @@ def test_a_kept_check_digit_draws_the_same_width_as_a_correct_one() -> None:
     kept = symbol_size_mm("0021495637396", BarcodeGeometry(kept_check=True))
 
     assert kept == symbol_size_mm("0021495637397", BarcodeGeometry())
+
+
+CODE39 = BarcodeGeometry(module_width_mm=CODE39_MODULE_WIDTH_MM, symbology=Symbology.CODE39)
+CODE128 = BarcodeGeometry(symbology=Symbology.CODE128)
+HCV_TEXT = "AA01C0RD00V01"
+WAVE_CODE = "040000060019"
+
+
+def test_a_code39_symbol_decodes_back_to_its_text(tmp_path: Path) -> None:
+    path = tmp_path / "code39.pdf"
+    write_pdf(path, HCV_TEXT, CODE39)
+
+    found = decode_pdf(path)
+
+    assert found == [HCV_TEXT]
+
+
+def test_a_code39_text_framed_by_its_start_and_stop_reads_the_same(tmp_path: Path) -> None:
+    path = tmp_path / "framed.pdf"
+    write_pdf(path, f"*{HCV_TEXT}*", CODE39)
+
+    found = decode_pdf(path)
+
+    assert found == [HCV_TEXT]
+
+
+def test_a_code39_symbol_fits_a_card() -> None:
+    width, _ = symbol_size_mm(HCV_TEXT, CODE39)
+
+    assert width < CARD_WIDTH_MM - 2 * CardStyle().padding_mm
+
+
+def test_a_character_code39_cannot_carry_is_rejected() -> None:
+    with pytest.raises(UnsupportedBarcodeError, match="Code 39"):
+        symbol_size_mm("aa01", CODE39)
+
+
+def test_a_code128_symbol_decodes_back_to_its_digits(tmp_path: Path) -> None:
+    path = tmp_path / "code128.pdf"
+    write_pdf(path, WAVE_CODE, CODE128)
+
+    found = decode_pdf(path)
+
+    assert found == [WAVE_CODE]
+
+
+def test_a_code128_code_with_a_letter_is_rejected() -> None:
+    with pytest.raises(InvalidCharacterError):
+        symbol_size_mm("04000006001A", CODE128)
+
+
+def test_a_code128_code_of_odd_length_is_rejected() -> None:
+    with pytest.raises(InvalidLengthError):
+        symbol_size_mm("04000006001", CODE128)

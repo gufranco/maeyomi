@@ -25,6 +25,7 @@ from maeyomi.games.barcode_world import decode_barcode_world
 from maeyomi.games.excite94 import decode_excite94
 from maeyomi.games.excite95 import KICK_SPEED, decode_excite95
 from maeyomi.models.device import Device
+from maeyomi.nds.cardasobu import decode_cardasobu
 from maeyomi.official.catalogue import (
     OfficialCard,
     OfficialSet,
@@ -55,6 +56,7 @@ MONSTER_MAKER_CARDS = 8
 KATTOBI_CARDS = 6
 FAMISTA3_CARDS = 4
 FAMJOCK2_CARDS = 8
+CARD_DE_ASOBU_CARDS = 46
 MAME_LIST = "https://github.com/mamedev/mame/"
 GBE_PLUS = "https://github.com/shonumi/gbe-plus/"
 TRANSCRIBED = (
@@ -76,6 +78,7 @@ TRANSCRIBED = (
     + KATTOBI_CARDS
     + FAMISTA3_CARDS
     + FAMJOCK2_CARDS
+    + CARD_DE_ASOBU_CARDS
 )
 EXCITE_CLUB_BARCODES = {
     "0000000034111",
@@ -179,6 +182,7 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.KATTOBI: MAME_LIST,
         OfficialSet.FAMISTA3: MAME_LIST,
         OfficialSet.FAMJOCK2: MAME_LIST,
+        OfficialSet.CARD_DE_ASOBU: GBE_PLUS,
         OfficialSet.EXCITE94_CLUBS: UK_SCANS,
         OfficialSet.IRWIN: UK_PAGES,
         OfficialSet.TOMY: UK_PAGES,
@@ -242,6 +246,7 @@ def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
             Device.KATTOBI: decode_kattobi,
             Device.FAMISTA3: decode_famista3,
             Device.FAMJOCK2: decode_famjock2,
+            Device.CARD_DE_ASOBU: decode_cardasobu,
         }
         for card in official_cards(official_set):
             assert readers[official_set.device](card.barcode) == card.character
