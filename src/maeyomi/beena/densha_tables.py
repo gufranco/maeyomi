@@ -1,7 +1,7 @@
 """The cards Densha Daishuugou! Card de Asobou reads.
 
-Written from MAME's Beena software list by tools/oracle/extract_beena.py;
-regenerate rather than edit. Each card is its number and its twelve bar
+Written from MAME's hash/sega_beena_cart.xml by tools/oracle/extract_beena.py;
+regenerate rather than edit. Each card is its number and its 12 bar
 places, 1 for a bar, in the order they run along the card.
 """
 

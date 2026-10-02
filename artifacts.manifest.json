@@ -389,6 +389,16 @@
    "sha1": "1f575821a7d4ac2af96f1af031b10367ba6ade98",
    "crc32": "c08872bf",
    "used_by": "tools/oracle/record_beena.py, which scans its stripe cards in MAME; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "tvochken_flash",
+   "what": "TV Ocha-Ken, Sega Toys 2005, the flash chip holding the game, which MAME names m5m29gt320vp-80.u3; the machine boots it from the Beena's BIOS and MIDI sample ROM",
+   "path": "tvochken/m5m29gt320vp-80.u3",
+   "size": 4194304,
+   "sha256": "d8a34a48a777daa6f56378ebbc8d51bbb78c9b481f09feaadf32bdfe0328adda",
+   "sha1": "b07adcabaadb8b684335f52dd953f4696585c819",
+   "crc32": "75c1fbc1",
+   "used_by": "tools/oracle/record_beena.py, which scans its stripe cards in MAME; nothing in the package or its tests reads it"
   }
  ]
 }

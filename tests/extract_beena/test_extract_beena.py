@@ -1,4 +1,4 @@
-"""Tests for the tool that writes a Beena game's card list from MAME's software list."""
+"""Tests for the tool that writes a stripe card game's card list from MAME's software lists."""
 
 import importlib.util
 import sys
@@ -37,11 +37,11 @@ def load() -> ModuleType:
 
 
 def test_every_card_of_the_game_is_read_with_its_number_and_bars() -> None:
-    assert load().cards(LISTING, "denshaca") == ((4, "100010110011"), (51, "101110111011"))
+    assert load().cards(LISTING, "denshaca", 12) == ((4, "100010110011"), (51, "101110111011"))
 
 
 def test_a_game_the_list_does_not_have_has_no_cards() -> None:
-    assert load().cards(LISTING, "missing") == ()
+    assert load().cards(LISTING, "missing", 12) == ()
 
 
 def test_the_game_is_named_as_the_list_describes_it() -> None:
@@ -54,11 +54,21 @@ def test_the_game_is_named_as_the_list_describes_it() -> None:
 
 
 def test_a_value_is_written_as_its_bars_the_lowest_bit_first() -> None:
-    assert load().bars(0xCD1) == "100010110011"
+    assert load().bars(0xCD1, 12) == "100010110011"
+
+
+def test_a_sixteen_place_value_keeps_its_high_places() -> None:
+    assert load().bars(0x900A, 16) == "0101000000001001"
 
 
 def test_the_tables_module_names_the_game_and_lists_the_cards() -> None:
-    text = load().render(LISTING, "denshaca")
+    text = load().render(LISTING, "denshaca", 12)
 
     assert '"""The cards Densha Daishuugou! Card de Asobou reads.' in text
     assert "CARDS: Final[tuple[tuple[int, str], ...]] = ((4, '100010110011')," in text
+    assert "its 12 bar" in text
+    assert "hash/sega_beena_cart.xml" in text
+
+
+def test_a_listing_with_no_name_names_no_list() -> None:
+    assert load().list_name("<softwarelist>") == ""

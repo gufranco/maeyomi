@@ -1,4 +1,4 @@
-"""Record which stripe cards an Advanced Pico Beena game reads, scanning each in MAME.
+"""Record which stripe cards a Sega Toys card game reads, scanning each in MAME.
 
 Usage: uv run python tools/oracle/record_beena.py --rompath DIR --game densha --codes FILE --out FILE
 
@@ -17,6 +17,12 @@ the word at $C00CD500 is where the game keeps the number less one of the card
 it took. It is set to 255 before the swipe, and 300 frames later a code the
 game read has replaced it while one it ignored has left it alone. The scene
 itself also follows the console's clock, so only that byte is compared.
+
+TV Ocha-Ken is a machine of its own rather than a cartridge: the same BIOS
+boots a game held in flash, and its RD1831 reader takes cards with sixteen
+places. Pressing its B button on the title starts a new day, and the room then
+asks for a card; it is judged like Densha Daishuugou, against a blank card,
+since a card it takes leaves the room for that card's scene.
 """
 
 import argparse
@@ -44,13 +50,14 @@ from record_game import HEADLESS, verify_artifact
 
 BIOS: Final = ("beena_bios", "beena_midipcm")
 BIOS_DIRECTORY: Final = "beena"
+BEENA: Final = "beena"
 LIST: Final = "sega_beena_cart"
+BUTTON_HOLD: Final = 8
 SOFTWARE: Final = "probe"
 TIMEOUT_SECONDS: Final = 300
 WORKERS: Final = 6
 FINGERPRINT_LENGTH: Final = 16
 FINGERPRINT_SIZE: Final = (16, 16)
-BLANK: Final = "0" * 12
 CHANGE_FLOOR: Final = 24
 SHARE_DIGITS: Final = 2
 MARK: Final = re.compile(r"MARK (\d+)")
@@ -67,7 +74,7 @@ local space = manager.machine.devices[":maincpu"].spaces["program"]
 emu.register_frame_done(function()
   frame = frame + 1
 {prime}
-  if frame == {page_frame} then manager.machine.ioport.ports[":PAGE"].fields["Selected Page"]:set_value({page}) end
+{start}
   if frame == {before_frame} then manager.machine.video:snapshot() end
   if frame == {scan_frame} then scan:set_value(1) end
   if frame == {scan_frame} + 10 then scan:set_value(0) end
@@ -82,11 +89,11 @@ end)
 
 @dataclass(frozen=True, slots=True)
 class Game:
-    """Where a game's cartridge sits, which reader it takes and where it scans."""
+    """Which machine runs a game, where its program sits, which reader it takes and where it scans."""
 
     title: str
-    cartridge: str
-    cart_path: str
+    media: str
+    media_path: str
     reader: str
     page: int
     page_frame: int
@@ -95,13 +102,17 @@ class Game:
     shot_every: int
     judge: str
     index: int = 0
+    machine: str = BEENA
+    software_list: str = LIST
+    places: int = 12
+    presses: tuple[int, ...] = ()
 
 
 GAMES: Final = {
     "densha": Game(
         title="Densha Daishuugou! Card de Asobou",
-        cartridge="beena_densha",
-        cart_path="beena_carts/denshaca.bin",
+        media="beena_densha",
+        media_path="beena_carts/denshaca.bin",
         reader="rd2061",
         page=1,
         page_frame=2300,
@@ -112,8 +123,8 @@ GAMES: Final = {
     ),
     "anpanman": Game(
         title="Soreike! Anpanman Card de Tanoshiku ABC",
-        cartridge="beena_anpanman",
-        cart_path="beena_carts/anpaabc.bin",
+        media="beena_anpanman",
+        media_path="beena_carts/anpaabc.bin",
         reader="rd2061",
         page=1,
         page_frame=2300,
@@ -122,6 +133,22 @@ GAMES: Final = {
         shot_every=300,
         judge=MEMORY,
         index=0xC00CD500,
+    ),
+    "tvochken": Game(
+        title="TV Ocha-Ken",
+        media="tvochken_flash",
+        media_path="tvochken/m5m29gt320vp-80.u3",
+        reader="rd1831",
+        page=0,
+        page_frame=0,
+        scan_frame=3000,
+        after_frame=3600,
+        shot_every=100,
+        judge=SCREEN,
+        machine="tvochken",
+        software_list="tvochken",
+        places=16,
+        presses=(900, 1500, 2100),
     ),
 }
 
@@ -134,16 +161,16 @@ def main() -> None:
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     game = GAMES[args.game]
-    for artifact in (*BIOS, game.cartridge):
+    for artifact in (*BIOS, game.media):
         verify_artifact(args.rompath, artifact, "place the dump from your own hardware there")
     codes = [line.strip() for line in args.codes.read_text().splitlines() if line.strip()]
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         blank, *readings = pool.map(
-            lambda code: run_session(args.rompath, game, code), (BLANK, *codes)
+            lambda code: run_session(args.rompath, game, code), (blank_code(game), *codes)
         )
     fixture = {
         "game": game.title,
-        "emulator": f"MAME 0.289 beena with the {game.reader} reader, page {game.page}",
+        "emulator": f"MAME 0.289 {game.machine} with the {game.reader} reader, {where(game)}",
         "recorded_utc": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "ignored_screen": blank["screen"],
         "cards": marked(readings, str(blank["screen"]), game),
@@ -151,8 +178,20 @@ def main() -> None:
     args.out.write_text(json.dumps(fixture, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def blank_code(game: Game) -> str:
+    """A card with every place of the game's track empty."""
+    return "0" * game.places
+
+
+def where(game: Game) -> str:
+    """Where in the game the cards were scanned."""
+    if game.machine == BEENA:
+        return f"page {game.page}"
+    return "the room after a new day starts"
+
+
 def value(code: str) -> int:
-    """The twelve bits the reader hands the console, the leftmost bar lowest."""
+    """The bits the reader hands the console, the leftmost bar lowest."""
     return int(code[::-1], 2)
 
 
@@ -162,10 +201,10 @@ def _blank() -> bytes:
     return buffer.getvalue()
 
 
-def write_list(here: Path, codes: tuple[str, ...]) -> None:
-    """A software list holding one card per code, each beside a blank card image."""
+def write_list(here: Path, codes: tuple[str, ...], name: str) -> None:
+    """A software list of the given name holding one card per code, each beside a blank card image."""
     image = _blank()
-    cards = here / "roms" / LIST / SOFTWARE
+    cards = here / "roms" / name / SOFTWARE
     cards.mkdir(parents=True, exist_ok=True)
     parts = []
     for number, code in enumerate(codes, 1):
@@ -178,12 +217,12 @@ def write_list(here: Path, codes: tuple[str, ...]) -> None:
             f'sha1="{hashlib.sha1(image).hexdigest()}"/></dataarea></part>'  # noqa: S324
         )
     listing = (
-        f'<?xml version="1.0"?><softwarelist name="{LIST}" description="{SOFTWARE}">'
+        f'<?xml version="1.0"?><softwarelist name="{name}" description="{SOFTWARE}">'
         f'<software name="{SOFTWARE}"><description>{SOFTWARE}</description><year>2026</year>'
         f"<publisher>{SOFTWARE}</publisher>{''.join(parts)}</software></softwarelist>"
     )
     (here / "hash").mkdir(exist_ok=True)
-    (here / "hash" / f"{LIST}.xml").write_text(listing, encoding="utf-8")
+    (here / "hash" / f"{name}.xml").write_text(listing, encoding="utf-8")
 
 
 def changed(before: Path, after: Path) -> float:
@@ -256,55 +295,85 @@ def judged(code: str, shots: list[Path], memory: int) -> dict[str, str | float |
     return reading(code, share, fingerprint(after), memory)
 
 
+def start(game: Game) -> str:
+    """The Lua that brings a game to where it scans: a page turned, or a button pressed."""
+    if game.machine == BEENA:
+        return (
+            f"  if frame == {game.page_frame} then manager.machine.ioport.ports"
+            f'[":PAGE"].fields["Selected Page"]:set_value({game.page}) end'
+        )
+    button = 'manager.machine.ioport.ports[":BUTTONS"].fields["B"]'
+    return "\n".join(
+        f"  if frame == {at} then {button}:set_value(1) end\n"
+        f"  if frame == {at + BUTTON_HOLD} then {button}:set_value(0) end"
+        for at in game.presses
+    )
+
+
+def script(game: Game) -> str:
+    """The Lua session that scans one card and snapshots what the game does."""
+    prime, report = lines(game)
+    return SCRIPT.format(
+        reader=game.reader,
+        start=start(game),
+        before_frame=game.scan_frame - 10,
+        scan_frame=game.scan_frame,
+        after_frame=game.after_frame,
+        shot_every=game.shot_every,
+        prime=prime,
+        report=report,
+    )
+
+
+def stage(rompath: Path, here: Path, game: Game) -> None:
+    """The BIOS, and a machine's own flash, where MAME looks for the machine's ROMs."""
+    shutil.copytree(rompath / BIOS_DIRECTORY, here / "roms" / game.machine, dirs_exist_ok=True)
+    if game.machine != BEENA:
+        shutil.copy2(rompath / game.media_path, here / "roms" / game.machine)
+
+
+def arguments(game: Game, here: Path, rompath: Path) -> list[str]:
+    """The MAME command line for one scanning session."""
+    media = [] if game.machine != BEENA else ["-cart", str((rompath / game.media_path).resolve())]
+    return [
+        "mame",
+        game.machine,
+        "-rompath",
+        str(here / "roms"),
+        "-hashpath",
+        str(here / "hash"),
+        *media,
+        "-cardslot",
+        game.reader,
+        "-card",
+        f"{game.software_list}:{SOFTWARE}:card1",
+        "-window",
+        "-video",
+        "none" if game.judge == MEMORY else "soft",
+        "-sound",
+        "none",
+        "-nothrottle",
+        "-seconds_to_run",
+        "120",
+        "-snapshot_directory",
+        str(here / "snap"),
+        "-nvram_directory",
+        str(here / "nv"),
+        "-cfg_directory",
+        str(here / "cfg"),
+        "-autoboot_script",
+        str(here / "scan.lua"),
+    ]
+
+
 def run_session(rompath: Path, game: Game, code: str) -> dict[str, str | float | bool]:
     with tempfile.TemporaryDirectory() as scratch:
         here = Path(scratch)
-        write_list(here, (code,))
-        shutil.copytree(rompath / BIOS_DIRECTORY, here / "roms" / BIOS_DIRECTORY)
-        (here / "scan.lua").write_text(
-            SCRIPT.format(
-                reader=game.reader,
-                page=game.page,
-                page_frame=game.page_frame,
-                before_frame=game.scan_frame - 10,
-                scan_frame=game.scan_frame,
-                after_frame=game.after_frame,
-                shot_every=game.shot_every,
-                prime=lines(game)[0],
-                report=lines(game)[1],
-            )
-        )
+        write_list(here, (code,), game.software_list)
+        stage(rompath, here, game)
+        (here / "scan.lua").write_text(script(game))
         finished = subprocess.run(  # noqa: S603
-            [
-                "mame",
-                "beena",
-                "-rompath",
-                str(here / "roms"),
-                "-hashpath",
-                str(here / "hash"),
-                "-cart",
-                str((rompath / game.cart_path).resolve()),
-                "-cardslot",
-                game.reader,
-                "-card",
-                f"{LIST}:{SOFTWARE}:card1",
-                "-window",
-                "-video",
-                "none" if game.judge == MEMORY else "soft",
-                "-sound",
-                "none",
-                "-nothrottle",
-                "-seconds_to_run",
-                "120",
-                "-snapshot_directory",
-                str(here / "snap"),
-                "-nvram_directory",
-                str(here / "nv"),
-                "-cfg_directory",
-                str(here / "cfg"),
-                "-autoboot_script",
-                str(here / "scan.lua"),
-            ],
+            arguments(game, here, rompath),
             cwd=here,
             env={**os.environ, **HEADLESS},
             capture_output=True,
