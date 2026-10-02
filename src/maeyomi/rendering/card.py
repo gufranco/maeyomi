@@ -24,6 +24,7 @@ from maeyomi.barcode.geometry import BarcodeGeometry
 from maeyomi.barcode.symbol import draw_symbol, symbol_size_mm
 from maeyomi.models.generated_card import AnyCard
 from maeyomi.rendering.ability_icons import draw_icon
+from maeyomi.rendering.card_style import CardStyle
 from maeyomi.rendering.face import CardFace, face_of
 from maeyomi.rendering.icons import INK, STAT_STYLES, WHITE, Colour
 from maeyomi.rendering.labels import SPECIAL_POWER, STAT_LABELS, SWIPE, Bilingual
@@ -34,32 +35,6 @@ PANEL_FILL: Final[Colour] = (0.94, 0.95, 0.96)
 MAX_NAME_LINES: Final = 2
 PAIR_GAP_MM: Final = 1.6
 SWIPE_GAP_MM: Final = 2.4
-
-
-@dataclass(frozen=True, slots=True)
-class CardStyle:
-    """Sizes and spacing for one card face, in millimetres and points."""
-
-    padding_mm: float = 4.0
-    band_height_mm: float = 11.5
-    stat_block_mm: float = 15.0
-    min_ability_block_mm: float = 10.5
-    block_gap_mm: float = 0.8
-    swipe_block_mm: float = 2.8
-    title_size_pt: float = 12.0
-    name_line_mm: float = 4.5
-    band_title_size_pt: float = 9.0
-    band_detail_size_pt: float = 7.0
-    stat_size_pt: float = 15.0
-    stat_label_size_pt: float = 5.5
-    stat_icon_mm: float = 4.6
-    ability_icon_mm: float = 8.0
-    ability_label_size_pt: float = 5.5
-    ability_size_pt: float = 6.5
-    ability_line_mm: float = 2.75
-    swipe_size_pt: float = 5.5
-    corner_mm: float = 2.4
-    border: bool = True
 
 
 @dataclass(frozen=True, slots=True)

@@ -25,7 +25,7 @@ from maeyomi.decoder.errors import (
     InvalidLengthError,
     UnsupportedBarcodeError,
 )
-from maeyomi.rendering.card import CardStyle
+from maeyomi.rendering.card_style import CardStyle
 from maeyomi.rendering.layout import CARD_WIDTH_MM
 
 MARGIN_MM = 10.0

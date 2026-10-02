@@ -18,7 +18,8 @@ from maeyomi.datach.game_card import DatachCard
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import AnyCard
 from maeyomi.rendering.calibration import draw_calibration
-from maeyomi.rendering.card import CardStyle, draw_card
+from maeyomi.rendering.card import draw_card
+from maeyomi.rendering.card_style import CardStyle
 from maeyomi.rendering.document import describe
 from maeyomi.rendering.layout import CUT_MARK_LENGTH_MM, SheetLayout
 

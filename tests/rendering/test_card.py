@@ -14,7 +14,8 @@ from maeyomi.datach.ultraman import decode_ultraman
 from maeyomi.decoder.decode import decode
 from maeyomi.models.generated_card import AnyCard, GeneratedCard
 from maeyomi.nds.wantame import decode_wantame
-from maeyomi.rendering.card import CardStyle, draw_card
+from maeyomi.rendering.card import draw_card
+from maeyomi.rendering.card_style import CardStyle
 from maeyomi.rendering.layout import (
     CARD_WIDTH_MM,
     POKER_CARD_HEIGHT_MM,

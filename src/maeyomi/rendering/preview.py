@@ -19,7 +19,8 @@ from reportlab.pdfgen.canvas import Canvas
 from maeyomi.barcode.geometry import BarcodeGeometry
 from maeyomi.barcode.rasterise import render_pdf_pages
 from maeyomi.models.generated_card import AnyCard
-from maeyomi.rendering.card import CardStyle, draw_card
+from maeyomi.rendering.card import draw_card
+from maeyomi.rendering.card_style import CardStyle
 from maeyomi.rendering.layout import (
     POKER_CARD_HEIGHT_MM,
     POKER_CARD_WIDTH_MM,
