@@ -21,7 +21,7 @@ from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
 from maeyomi.barcode.geometry import BarcodeGeometry, Symbology
-from maeyomi.barcode.stripes import TRACK_CLEARANCE_MM, TRACK_DEPTH_MM, draw_stripes
+from maeyomi.barcode.stripes import TRACK_CLEARANCE_MM, draw_stripes, track_of
 from maeyomi.barcode.symbol import draw_symbol, symbol_size_mm
 from maeyomi.models.generated_card import AnyCard
 from maeyomi.rendering.ability_icons import draw_icon
@@ -83,9 +83,7 @@ def draw_card(
     """
     outline = _Frame(x_mm, y_mm, width_mm, height_mm, style or CardStyle())
     striped = geometry.symbology is Symbology.STRIPES
-    beside = TRACK_DEPTH_MM + TRACK_CLEARANCE_MM
-    frame = replace(outline, x=x_mm + beside, width=width_mm - beside)
-    frame = frame if striped else outline
+    frame = _beside_track(outline, card.barcode) if striped else outline
     face = face_of(card.character)
     symbol_width, symbol_height = (0.0, 0.0) if striped else symbol_size_mm(card.barcode, geometry)
     _check_fits(frame, symbol_width, symbol_height)
@@ -114,6 +112,12 @@ def draw_card(
         canvas.roundRect(
             x_mm * mm, y_mm * mm, width_mm * mm, height_mm * mm, frame.style.corner_mm * mm, 1, 0
         )
+
+
+def _beside_track(outline: _Frame, code: str) -> _Frame:
+    """The part of a card its face may fill, clear of the stripe track down its left edge."""
+    beside = track_of(code).depth_mm + TRACK_CLEARANCE_MM
+    return replace(outline, x=outline.x + beside, width=outline.width - beside)
 
 
 def _draw_bleed(canvas: Canvas, face: CardFace, frame: _Frame, bleed: float) -> None:

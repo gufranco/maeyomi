@@ -9,7 +9,7 @@ from reportlab.pdfgen.canvas import Canvas
 
 from maeyomi.barcode.geometry import BarcodeGeometry, Symbology
 from maeyomi.barcode.rasterise import render_pdf_pages
-from maeyomi.barcode.stripes import read_stripes
+from maeyomi.barcode.stripes import BEENA_TRACK, read_stripes
 from maeyomi.barcode.verify import decode_image, decode_pdf
 from maeyomi.beena.densha import decode_densha
 from maeyomi.datach.ultraman import decode_ultraman
@@ -453,4 +453,4 @@ def test_a_stripe_card_reads_back_with_its_empty_places_left_white(tmp_path: Pat
 
     image = render_pdf_pages(path, dpi=300)[0]
 
-    assert read_stripes(image, dpi=300) == code
+    assert read_stripes(image, dpi=300, track=BEENA_TRACK) == code

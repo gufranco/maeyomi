@@ -14,6 +14,7 @@ around it can darken a place left empty.
 """
 
 import re
+from dataclasses import dataclass
 from typing import Final
 
 from PIL.Image import Image
@@ -23,18 +24,38 @@ from reportlab.pdfgen.canvas import Canvas
 from maeyomi.decoder.errors import UnsupportedBarcodeError
 from maeyomi.said import Said
 
-SLOTS: Final = 12
-PITCH_MM: Final = 6.28
-BAR_THICKNESS_MM: Final = 2.88
-FIRST_SLOT_MM: Final = 10.07
-BAR_LENGTH_MM: Final = 15.0
-EDGE_GAP_MM: Final = 0.4
-TRACK_DEPTH_MM: Final = EDGE_GAP_MM + BAR_LENGTH_MM
+
+@dataclass(frozen=True, slots=True)
+class Track:
+    """Where a card's places sit: how many, how far apart, how wide and how long its bars are."""
+
+    places: int
+    pitch_mm: float
+    bar_thickness_mm: float
+    first_slot_mm: float
+    bar_length_mm: float
+    edge_gap_mm: float
+
+    @property
+    def depth_mm(self) -> float:
+        """How far in from the edge the bars reach."""
+        return self.edge_gap_mm + self.bar_length_mm
+
+
+BEENA_TRACK: Final = Track(
+    places=12,
+    pitch_mm=6.28,
+    bar_thickness_mm=2.88,
+    first_slot_mm=10.07,
+    bar_length_mm=15.0,
+    edge_gap_mm=0.4,
+)
+TRACKS: Final = {track.places: track for track in (BEENA_TRACK,)}
 TRACK_CLEARANCE_MM: Final = 2.0
 BAR: Final = "1"
 INK_LEVEL: Final = 128
 MM_PER_INCH: Final = 25.4
-STRIPES: Final = re.compile(r"[01]{12}")
+STRIPES: Final = re.compile(r"[01]+")
 WRONG_FORM: Final = Said(
     "a Beena card carries 12 places, each 1 for a bar or 0 for none",
     "ビーナの カードは 12この ばしょに バーが あれば 1、なければ 0",
@@ -42,30 +63,36 @@ WRONG_FORM: Final = Said(
 
 
 def validate_stripes(code: str) -> str:
-    """The code with spaces trimmed, or a refusal when it is not twelve ones and zeros."""
+    """The code with spaces trimmed, or a refusal when it is not a track's ones and zeros."""
     body = code.strip()
-    if not STRIPES.fullmatch(body):
+    if not (STRIPES.fullmatch(body) and len(body) in TRACKS):
         raise UnsupportedBarcodeError(barcode=code, reason=WRONG_FORM)
     return body
 
 
+def track_of(code: str) -> Track:
+    """The track a code's length names."""
+    return TRACKS[len(validate_stripes(code))]
+
+
 def stripes_size_mm(code: str) -> tuple[float, float]:
     """How long the bars are and how far the track runs, in millimetres."""
-    validate_stripes(code)
-    return BAR_LENGTH_MM, (SLOTS - 1) * PITCH_MM + BAR_THICKNESS_MM
+    track = track_of(code)
+    return track.bar_length_mm, (track.places - 1) * track.pitch_mm + track.bar_thickness_mm
 
 
 def bar_boxes(
     code: str, *, x_mm: float, y_mm: float, height_mm: float
 ) -> tuple[tuple[float, float, float, float], ...]:
     """Each bar as left, bottom, width and height, for a card whose lower left corner is given."""
+    track = track_of(code)
     top = y_mm + height_mm
     return tuple(
         (
-            x_mm + EDGE_GAP_MM,
-            top - FIRST_SLOT_MM - place * PITCH_MM - BAR_THICKNESS_MM / 2,
-            BAR_LENGTH_MM,
-            BAR_THICKNESS_MM,
+            x_mm + track.edge_gap_mm,
+            top - track.first_slot_mm - place * track.pitch_mm - track.bar_thickness_mm / 2,
+            track.bar_length_mm,
+            track.bar_thickness_mm,
         )
         for place, bit in enumerate(validate_stripes(code))
         if bit == BAR
@@ -79,10 +106,13 @@ def draw_stripes(canvas: Canvas, code: str, *, x_mm: float, y_mm: float, height_
         canvas.rect(left * mm, bottom * mm, width * mm, height * mm, stroke=0, fill=1)
 
 
-def read_stripes(image: Image, *, dpi: int) -> str:
+def read_stripes(image: Image, *, dpi: int, track: Track) -> str:
     """The code a card's track spells, sampled at each place on an image of the whole card."""
     gray = image.convert("L")
-    column = round((EDGE_GAP_MM + BAR_LENGTH_MM / 2) / MM_PER_INCH * dpi)
-    rows = (round((FIRST_SLOT_MM + place * PITCH_MM) / MM_PER_INCH * dpi) for place in range(SLOTS))
+    column = round((track.edge_gap_mm + track.bar_length_mm / 2) / MM_PER_INCH * dpi)
+    rows = (
+        round((track.first_slot_mm + place * track.pitch_mm) / MM_PER_INCH * dpi)
+        for place in range(track.places)
+    )
     levels = (gray.getpixel((column, row)) for row in rows)
     return "".join(BAR if isinstance(level, int) and level < INK_LEVEL else "0" for level in levels)
