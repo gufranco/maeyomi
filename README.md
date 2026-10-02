@@ -155,14 +155,16 @@ jumps to the filter over the list, and Enter picks its first match. On the
 command line, `--device` does the same for `generate`, `decode`, `cheat`,
 `random`, `products`, `kinds`, `abilities` and `official`.
 
-The five Nintendo DS games and the two Beena games read only their own cards,
-through readers that take Code 39, Code 128 or stripes rather than the barcodes
-on the shopping, so the page adapts to them. Their random sheet is drawn from the game's own list, as is
+The five Nintendo DS games, the two Beena games and TV Ocha-Ken read only their
+own cards, through readers that take Code 39, Code 128 or stripes rather than
+the barcodes on the shopping, so the page adapts to them. Their random sheet is drawn from the game's own list, as is
 Battle Rush's, and keeps no number ranges, which the games whose cards carry
 no numbers hide too. **The supermarket** says that nothing on the shelf is a
 card for them, **Cheats** says why there is none for a game whose cards carry
 no numbers, and both point to **The real cards** and **One card**. **Read a
-barcode** asks for the code printed under a card's bars.
+barcode** asks for the code printed under a card's bars. A stripe card prints
+no digits there, so it is read by the card number printed on it, or by pressing
+one button per place to match its bars; `--character` takes that number too.
 
 **Any barcode you already own is also a card.** Type the digits from the
 shopping into **Read a barcode** and the page shows what the device makes of

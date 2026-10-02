@@ -640,7 +640,8 @@ function syncReadInput() {
   $('read-barcode').setAttribute('placeholder', t($('read-barcode').dataset.i18nPlaceholder));
 }
 
-const typedName = () => $('read-name').value.trim() || t('read.name.placeholder');
+let readCardName = '';
+const typedName = () => $('read-name').value.trim() || readCardName || t('read.name.placeholder');
 
 async function readBarcode(event) {
   event?.preventDefault();
@@ -664,9 +665,12 @@ async function readBarcode(event) {
   } else {
     showDeviceFacts(body.facts);
   }
-  await nameItFromShopping(barcode);
-  await showReadPreview(barcode, typedName());
-  return barcode;
+  const read = body.barcode ?? barcode;
+  readCardName = body.name ?? '';
+  syncReadBars(read);
+  if (deviceForm()?.reader === 'ean') await nameItFromShopping(barcode);
+  await showReadPreview(read, typedName());
+  return read;
 }
 
 async function nameItFromShopping(barcode) {
@@ -811,6 +815,7 @@ $('many').addEventListener('submit', makeSheet);
 $('many-pdf').addEventListener('click', downloadSheet);
 $('official').addEventListener('submit', showOfficial);
 $('read').addEventListener('submit', readBarcode);
+$('read-barcode').addEventListener('input', () => syncReadBars($('read-barcode').value));
 $('read-pdf').addEventListener('click', downloadRead);
 $('shop').addEventListener('submit', searchShelf);
 setUpSearchAsYouType($('shop-query'), searchShelf);

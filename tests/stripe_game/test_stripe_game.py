@@ -74,6 +74,18 @@ def test_a_typed_number_is_the_number_printed_on_the_card_not_its_place() -> Non
     assert (GAME.named("1"), GAME.named("01")) == (0, 0)
 
 
+@pytest.mark.parametrize("typed", ["4", "04", "004", " 4 "])
+def test_a_card_is_read_by_the_number_printed_on_it(typed: str) -> None:
+    card = GAME.decode(typed)
+
+    assert (card.ident, card.barcode) == (1, "100010110011")
+
+
+def test_a_number_no_card_carries_is_refused_as_an_unknown_card() -> None:
+    with pytest.raises(UnsupportedBarcodeError, match="no Sample card"):
+        GAME.decode("7")
+
+
 def test_a_name_no_card_has_is_refused() -> None:
     with pytest.raises(ValueError, match="no Sample card named"):
         GAME.named("Pikachu")

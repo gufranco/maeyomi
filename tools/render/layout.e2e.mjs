@@ -542,6 +542,34 @@ function checkCode39ReadTab() {
   pickDevice('bb2');
 }
 
+function checkStripeReadTab() {
+  pickDevice('ochaken');
+  browser('click', '#tab-read');
+  browser('wait', '800');
+  browser('fill', '#read-barcode', '13');
+  browser('eval', "document.getElementById('read').requestSubmit(); 'ok'");
+  browser('wait', '2500');
+  const byNumber = evaluate(`JSON.stringify([
+    [...document.querySelectorAll('#read-bars button')].length,
+    [...document.querySelectorAll('#read-bars button')]
+      .map((bar) => (bar.getAttribute('aria-pressed') === 'true' ? '1' : '0')).join(''),
+    document.getElementById('read-facts').textContent.includes('Medicine'),
+  ])`);
+  expect(byNumber[0] === 16 && byNumber[1] === '0100100011000101' && byNumber[2],
+    `a TV Ocha-Ken card is not read by its number: ${byNumber}`);
+  browser('fill', '#read-barcode', '');
+  browser('eval', `[...document.querySelectorAll('#read-bars button')]
+    .filter((bar) => ['2', '4', '13', '16'].includes(bar.textContent)).forEach((bar) => bar.click()); 'ok'`);
+  const byBars = evaluate("JSON.stringify(document.getElementById('read-barcode').value)");
+  expect(byBars === '0101000000001001', `pressing the bars of card 01 types ${byBars}`);
+  const size = evaluate(`JSON.stringify(document.querySelector('#read-bars button').getBoundingClientRect().height)`);
+  expect(size >= 44, `a bar place is ${size}px tall`);
+  browser('click', '#tab-one');
+  pickDevice('bb2');
+  const hidden = evaluate("JSON.stringify(document.getElementById('read-bars-field').hidden)");
+  expect(hidden, 'the bar places stay on the Read tab of a barcode reader');
+}
+
 function checkPhoneDeviceMenu() {
   browser('set', 'viewport', '390', '844');
   const closed = evaluate(`JSON.stringify([
@@ -602,6 +630,7 @@ checkCheatTab();
 checkOneCheatCardStandsAlone();
 checkOneCardSheetStandsAlone();
 checkCode39ReadTab();
+checkStripeReadTab();
 checkCheatLinkShowsThatDevicesCard();
 checkCheatKindsFollowThePickAndTheLanguage();
 checkPhoneTabsFit();

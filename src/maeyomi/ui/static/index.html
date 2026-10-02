@@ -666,7 +666,7 @@
       <legend id="read-legend" data-i18n="read.legend">Any barcode at all</legend>
 
       <p class="field">
-        <label for="read-barcode" data-i18n="read.barcode">Barcode number</label>
+        <label for="read-barcode" id="read-barcode-label" data-i18n="read.barcode">Barcode number</label>
         <input id="read-barcode" name="barcode" inputmode="numeric" pattern="[0-9 ]*"
                maxlength="20" autocomplete="off" placeholder="4901085061169"
                data-i18n-placeholder="read.placeholder">
@@ -674,6 +674,10 @@
           The 8 or 13 digits printed under the bars. Spaces are fine.
         </span>
       </p>
+      <div class="field" id="read-bars-field" hidden>
+        <span id="read-bars-label" data-i18n="read.bars">The bars on the card, from the first place</span>
+        <div class="bar-strip" id="read-bars" role="group" aria-labelledby="read-bars-label"></div>
+      </div>
 
       <p class="field">
         <label for="read-name" data-i18n="read.name">Name it</label>

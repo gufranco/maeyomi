@@ -36,6 +36,7 @@ function pickDevice(device) {
 }
 
 function violationsOn(axe, tab) {
+  browser('wait', `#tab-${tab}`);
   browser('click', `#tab-${tab}`);
   const run = `(async () => {
     const result = await axe.run(document, { runOnly: ${JSON.stringify(RULES)} });

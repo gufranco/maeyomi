@@ -654,6 +654,35 @@ footer p { margin: 0 auto .5rem; max-width: 46rem; }
   color: var(--accent-ink);
 }
 
+.bar-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.bar-place {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 2px;
+  border: 1px solid var(--ink-soft);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: .75rem;
+  cursor: pointer;
+}
+
+.bar-place[aria-pressed="true"] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--card);
+}
+
 @media (max-width: 62rem) {
   .layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .sidebar { padding: 10px 12px; }

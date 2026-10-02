@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from enum import StrEnum
 from typing import Final
 
-from maeyomi.barcode.geometry import symbology_of
+from maeyomi.barcode.geometry import Symbology, symbology_of
 from maeyomi.bb1.solve import ENEMY_DF, ENEMY_HP, ENEMY_ST
 from maeyomi.bb1.solve import MAX_HP as FIRST_MAX_HP
 from maeyomi.bb1.solve import MAX_STAT as FIRST_MAX_STAT
@@ -24,6 +24,8 @@ from maeyomi.datach.dbz_solve import (
     MAX_HALVED,
     MAX_HP,
 )
+from maeyomi.datach.game_card import DatachCard
+from maeyomi.datach.game_types import GameOrder
 from maeyomi.datach.games import game_for
 from maeyomi.datach.sdgundam_tables import AP_BONUS, BASES, DP_BONUS, HP_BONUS
 from maeyomi.datach.ultraman import HUNDRED, STRONGEST_HUNDREDS
@@ -33,6 +35,7 @@ from maeyomi.games.barcode_world import TOP_HP, TOP_STAT
 from maeyomi.games.hatayama import TOP_STAMINA
 from maeyomi.games.hatayama import TOP_STAT as HATAYAMA_TOP_STAT
 from maeyomi.generator.device_random import holds_ranges
+from maeyomi.models.constraint import Constraint
 from maeyomi.models.device import Device
 from maeyomi.models.generated_card import CardResult
 from maeyomi.rendering.face import face_of
@@ -320,10 +323,29 @@ def device_views() -> list[DeviceView]:
             ],
             symbology=symbology_of(device).value,
             reader=READERS.get(device, symbology_of(device).value),
+            places=places_of(device),
             ranged=holds_ranges(device),
         )
         for device in Device
     ]
+
+
+def places_of(device: Device) -> int:
+    """How many bar places a stripe reader's cards carry, or 0 for a reader of printed codes."""
+    game = game_for(device)
+    if game is None or symbology_of(device) is not Symbology.STRIPES:
+        return 0
+    anything = Constraint.anything()
+    first = game.build(GameOrder(None, (anything, anything, anything)))
+    return 0 if first is None else len(first.barcode)
+
+
+def card_name(device: Device, result: CardResult) -> str:
+    """The name a card-only reader's card prints, or nothing for a reader of any barcode."""
+    game = game_for(device)
+    if game is None or symbology_of(device) is Symbology.EAN or not isinstance(result, DatachCard):
+        return ""
+    return game.describe(result).name[1]
 
 
 def _listed(ranges: tuple[Range, Range, Range] | None) -> list[list[int]] | None:

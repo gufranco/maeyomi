@@ -3,8 +3,10 @@
 A Beena game takes a card only when its twelve bar places spell one of the
 codes in its own list, so a game is its list: each card's number, its places,
 its name and what kind of card it is. A game may leave some places unread, and
-then a code matches a card whatever those places hold. The functions a surface
-needs are the same for every game and are bound to that list.
+then a code matches a card whatever those places hold. A real card prints no
+digits under its bars, only its card number, so a card is also read by that
+number. The functions a surface needs are the same for every game and are bound
+to that list.
 """
 
 from dataclasses import dataclass
@@ -19,6 +21,7 @@ from maeyomi.said import Said
 
 NUMBER_HEADING: Final[Pair] = ("Card number", "カードばんごう")
 ANY_BAR: Final = "x"
+NUMBER_DIGITS: Final = 3
 
 
 @dataclass(frozen=True, slots=True)
@@ -62,9 +65,19 @@ class StripeGame:
         place = self._place(code)
         return None if place is None else self.cards[place].number
 
+    def _numbered(self, text: str) -> str | None:
+        """The places of the card printed with a number, or None when the text is no number."""
+        if not (text.isdecimal() and len(text) <= NUMBER_DIGITS):
+            return None
+        card = next((card for card in self.cards if card.number == int(text)), None)
+        if card is None:
+            raise UnsupportedBarcodeError(barcode=text, reason=self.unknown)
+        return card.code
+
     def decode(self, code: str) -> DatachCard:
-        """A card's twelve bar places as the game reads them."""
-        body = validate_stripes(code)
+        """A card's bar places, or the number printed on it, as the game reads it."""
+        text = code.strip()
+        body = self._numbered(text) or validate_stripes(text)
         ident = self._place(body)
         if ident is None:
             raise UnsupportedBarcodeError(barcode=code, reason=self.unknown)

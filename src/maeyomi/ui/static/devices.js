@@ -367,9 +367,41 @@ function applyReader(form) {
   const products = form.symbology === 'ean';
   showUnavailable('shop', !products, `unavailable.shop.${form.reader}`);
   showUnavailable('cheat', form.cheat_kinds.length === 0, 'unavailable.cheat');
-  retext('read-note', products ? 'read.note' : 'read.note.card');
+  retext('read-note', products ? 'read.note' : readNote(form));
   retext('read-legend', products ? 'read.legend' : 'read.legend.card');
   retext('read-barcode-hint', products ? 'read.barcode.hint' : `read.barcode.hint.${form.reader}`);
+  retext('read-barcode-label', form.places > 0 ? 'read.barcode.stripes' : 'read.barcode');
+  renderReadBars(form.places);
+}
+
+const readNote = (form) => (form.places > 0 ? 'read.note.stripes' : 'read.note.card');
+
+function renderReadBars(places) {
+  $('read-bars').replaceChildren(...Array.from({ length: places }, (_, index) => barButton(index + 1)));
+  $('read-bars-field').toggleAttribute('hidden', places === 0);
+  syncReadBars($('read-barcode').value);
+}
+
+function barButton(place) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'bar-place';
+  button.textContent = String(place);
+  button.setAttribute('aria-pressed', 'false');
+  button.addEventListener('click', () => {
+    button.setAttribute('aria-pressed', String(button.getAttribute('aria-pressed') !== 'true'));
+    $('read-barcode').value = [...$('read-bars').children]
+      .map((bar) => (bar.getAttribute('aria-pressed') === 'true' ? '1' : '0'))
+      .join('');
+  });
+  return button;
+}
+
+function syncReadBars(typed) {
+  const code = typed.replace(/\D/g, '');
+  const bars = [...$('read-bars').children];
+  if (code.length !== bars.length && code.length > 0) return;
+  bars.forEach((bar, index) => bar.setAttribute('aria-pressed', String(code[index] === '1')));
 }
 
 function applyDeviceForm() {

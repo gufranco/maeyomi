@@ -603,6 +603,32 @@ def test_every_device_names_the_reader_its_page_text_describes(client: TestClien
     assert (views["bb2"], views["densha"], views["ochaken"]) == ("ean", "stripes", "ochaken")
 
 
+def test_a_stripe_reader_says_how_many_places_its_cards_carry(client: TestClient) -> None:
+    views = {view["key"]: view["places"] for view in client.get("/api/devices").json()}
+
+    assert (views["bb2"], views["densha"], views["ochaken"]) == (0, 12, 16)
+
+
+def test_a_stripe_card_is_read_by_the_number_printed_on_it(client: TestClient) -> None:
+    response = client.get("/api/read/ochaken/13")
+
+    body = response.json()
+    assert (response.status_code, body["barcode"], body["name"]) == (
+        200,
+        "0100100011000101",
+        "のみ薬",
+    )
+
+
+def test_a_card_only_reader_names_the_card_it_read(client: TestClient) -> None:
+    names = [
+        client.get(f"/api/read/{device}/{code}").json()["name"]
+        for device, code in (("densha", "100010110011"), ("bb2", "4901085061169"))
+    ]
+
+    assert names == ["E1系 Maxたにがわ", ""]
+
+
 def test_a_built_in_game_is_listed_among_the_machines(client: TestClient) -> None:
     views = {view["key"]: view["platform"] for view in client.get("/api/devices").json()}
 

@@ -286,6 +286,7 @@ class DeviceView(BaseModel):
     cheat_kinds: list[CheatKindView]
     symbology: str
     reader: str
+    places: int
     ranged: bool
 
 

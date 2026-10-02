@@ -71,7 +71,14 @@ from maeyomi.rendering.preview import card_png, sheet_png_pages
 from maeyomi.rendering.sheet import write_sheet
 from maeyomi.said import Said, in_japanese, said_of
 from maeyomi.ui.assets import PAGE_HEADERS, CachedStaticFiles, asset_stamp, stamped
-from maeyomi.ui.devices import dbz_choices, device_views, facts_of, game_choices, game_picks
+from maeyomi.ui.devices import (
+    card_name,
+    dbz_choices,
+    device_views,
+    facts_of,
+    game_choices,
+    game_picks,
+)
 from maeyomi.ui.schemas import (
     AbilityView,
     BarcodeSheetSpec,
@@ -328,8 +335,9 @@ def game_card_picks(device: str, ident: int) -> list[PickView]:
 
 def read_on(device: str, barcode: str) -> DeviceReading:
     """Read a barcode the way the chosen device reads it."""
-    card = _read(_device(device), barcode)
-    return DeviceReading(barcode=card.barcode, facts=facts_of(card))
+    reader = _device(device)
+    card = _read(reader, barcode)
+    return DeviceReading(name=card_name(reader, card), barcode=card.barcode, facts=facts_of(card))
 
 
 def device_card(spec: DeviceCardSpec) -> DeviceReading:
