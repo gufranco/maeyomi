@@ -36,6 +36,7 @@ from maeyomi.barcode.geometry import (
     BarcodeGeometry,
     Symbology,
 )
+from maeyomi.barcode.stripes import stripes_size_mm
 from maeyomi.decoder.errors import (
     InvalidCharacterError,
     InvalidLengthError,
@@ -67,6 +68,8 @@ class KeptCheckEan13(Ean13BarcodeWidget):
 
 def symbol_size_mm(code: str, geometry: BarcodeGeometry) -> tuple[float, float]:
     """Return the width and height in millimetres the drawn symbol occupies."""
+    if geometry.symbology is Symbology.STRIPES:
+        return stripes_size_mm(code)
     drawing = _drawing(code, geometry)
     return drawing.width / mm, drawing.height / mm
 

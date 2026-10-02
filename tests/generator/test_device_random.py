@@ -164,6 +164,7 @@ DS_GAMES = [
     Device.MUSHIKING,
     Device.WANTAME,
     Device.ROCKMAN_DRAGON,
+    Device.DENSHA,
 ]
 
 

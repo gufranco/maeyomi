@@ -619,7 +619,11 @@ function showFacts(character) {
 }
 
 const CODE39_STRAY = /[^0-9A-Z\-. $/+%]/g;
-const READ_PLACEHOLDERS = { code39: 'read.placeholder.code39', code128: 'read.placeholder.code128' };
+const READ_PLACEHOLDERS = {
+  code39: 'read.placeholder.code39',
+  code128: 'read.placeholder.code128',
+  stripes: 'read.placeholder.stripes',
+};
 
 function typedBarcode() {
   const typed = $('read-barcode').value;

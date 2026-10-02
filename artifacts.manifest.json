@@ -349,6 +349,36 @@
    "sha1": "65e3116e8a89755f82bc165c6558b56f67557829",
    "crc32": "ebd3e2b4",
    "used_by": "tools/oracle/record_wantame.py and tools/oracle/extract_wantame.py, which run the game's own checks and read its card tables; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "beena_bios",
+   "what": "The Advanced Pico Beena's BIOS, Sega Toys 2005, the 9H0-0008 chip MAME names 9h0-0008.bios.ic1",
+   "path": "beena/9h0-0008.bios.ic1",
+   "size": 131072,
+   "sha256": "1be2d836ca9d73019483f3d8d6e1ccaf6a62935f3dc883f3d37dc9773e3c43c4",
+   "sha1": "33d756b6c64afb0fa377b3f85ab74505e9ae2f9c",
+   "crc32": "5471aaf8",
+   "used_by": "tools/oracle/record_beena.py, which runs Beena games in MAME; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "beena_midipcm",
+   "what": "The Advanced Pico Beena's MIDI sample ROM, 9h0-0008.midipcm.ic1",
+   "path": "beena/9h0-0008.midipcm.ic1",
+   "size": 32768,
+   "sha256": "0a6e6f7370e8b87e3c7cc47db9eaf8309ca2722ac91e1b5fca5020dfd9881070",
+   "sha1": "4af7b7cf7fc4fe8b7a514cde91f930a582742509",
+   "crc32": "ed336d29",
+   "used_by": "tools/oracle/record_beena.py, which runs Beena games in MAME; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "beena_densha",
+   "what": "Densha Daishuugou! Card de Asobou, Sega Toys 2006, a cartridge for the Advanced Pico Beena",
+   "path": "beena_carts/denshaca.bin",
+   "size": 8388608,
+   "sha256": "abb55df797b23e816bac239c5ba6025f6fe49829b74a5131dd5c7bbeffc9bc07",
+   "sha1": "069977d6c00f4360ab2ca026e0bb60bf261edf29",
+   "crc32": "a4a7697a",
+   "used_by": "tools/oracle/record_beena.py, which scans its stripe cards in MAME; nothing in the package or its tests reads it"
   }
  ]
 }

@@ -7,6 +7,14 @@ game added to this table is a game every surface supports.
 
 from typing import Final
 
+from maeyomi.beena.densha import STAT_KEYS as DENSHA_STATS
+from maeyomi.beena.densha import (
+    build_densha,
+    decode_densha,
+    densha_entries,
+    densha_named,
+    densha_text,
+)
 from maeyomi.datach.game_card import DatachCard, GameKind
 from maeyomi.datach.game_types import CardText, DatachGame, GameEntry, GameOrder
 from maeyomi.datach.jleague import build_jleague, decode_jleague
@@ -597,6 +605,17 @@ GAMES: Final[dict[Device, DatachGame]] = {
         stat_keys=ROCKMAN_STATS,
         datach_reader=False,
         drawable=frozenset({GameKind.FIGHTER, GameKind.ITEM}),
+    ),
+    Device.DENSHA: DatachGame(
+        decode=decode_densha,
+        build=build_densha,
+        strongest=None,
+        entries=densha_entries,
+        describe=densha_text,
+        named=densha_named,
+        stat_keys=DENSHA_STATS,
+        datach_reader=False,
+        drawable=frozenset({GameKind.ITEM}),
     ),
 }
 

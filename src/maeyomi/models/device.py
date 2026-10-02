@@ -40,6 +40,7 @@ class Device(StrEnum):
     MUSHIKING = "mushiking"
     WANTAME = "wantame"
     ROCKMAN_DRAGON = "rockman"
+    DENSHA = "densha"
 
     @property
     def is_game(self) -> bool:
@@ -93,4 +94,5 @@ _NAMES: Final[dict[Device, tuple[str, str]]] = {
     Device.MUSHIKING: ("Mushiking Super Collection", "甲虫王者ムシキング スーパーコレクション"),
     Device.WANTAME: ("Wantame Music Channel", "ワンタメ ミュージックチャンネル どこでもスタイル"),
     Device.ROCKMAN_DRAGON: ("Ryuusei no Rockman Dragon", "流星のロックマン ドラゴン"),
+    Device.DENSHA: ("Densha Daishuugou", "電車大集合! カードであそぼう"),
 }

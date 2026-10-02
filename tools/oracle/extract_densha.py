@@ -1,0 +1,65 @@
+"""Write Densha Daishuugou! Card de Asobou's card list from MAME's Beena software list.
+
+Usage: uv run python tools/oracle/extract_densha.py --listing PATH --out PATH
+
+MAME 0.289's hash/sega_beena_cart.xml lists the game's 50 cards and its test
+card 51, each with its number and the twelve-bit value its stripes give the
+console. A value becomes the card's twelve bar places, the lowest bit first,
+which is the order the places run along the card.
+"""
+
+import argparse
+import re
+from pathlib import Path
+from typing import Final
+
+SOFTWARE: Final = re.compile(r'<software name="denshaca".*?</software>', re.DOTALL)
+CARD: Final = re.compile(
+    r'<feature name="part_id" value="(?:Test )?Card (\d+)"/>\s*'
+    r'<feature name="barcode" value="0x([0-9a-f]+)"/>'
+)
+PLACES: Final = 12
+HEX: Final = 16
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--listing", type=Path, required=True)
+    parser.add_argument("--out", type=Path, required=True)
+    args = parser.parse_args()
+    args.out.write_text(render(args.listing.read_text(encoding="utf-8")), encoding="utf-8")
+
+
+def render(listing: str) -> str:
+    lines = [
+        '"""The cards Densha Daishuugou! Card de Asobou reads.',
+        "",
+        "Written from MAME's Beena software list by tools/oracle/extract_densha.py;",
+        "regenerate rather than edit. Each card is its number and its twelve bar",
+        "places, 1 for a bar, in the order they run along the card.",
+        '"""',
+        "",
+        "from typing import Final",
+        "",
+        f"CARDS: Final[tuple[tuple[int, str], ...]] = {cards(listing)!r}",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def bars(value: int) -> str:
+    """A value's twelve bar places, its lowest bit first."""
+    return "".join(str(value >> place & 1) for place in range(PLACES))
+
+
+def cards(listing: str) -> tuple[tuple[int, str], ...]:
+    software = SOFTWARE.search(listing)
+    if software is None:
+        return ()
+    return tuple(
+        (int(number), bars(int(value, HEX))) for number, value in CARD.findall(software.group(0))
+    )
+
+
+if __name__ == "__main__":
+    main()

@@ -17425,6 +17425,312 @@
    "name": "クラウン・サンダー",
    "set": "流星のロックマン ドラゴン ウェーブカード",
    "source_url": "https://github.com/shonumi/gbe-plus/blob/master/src/docs/technical/Wave_Scanner.txt"
+  },
+  {
+   "barcode": "101000110011",
+   "name": "でんしゃカード 01",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100100110011",
+   "name": "でんしゃカード 02",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101100110011",
+   "name": "でんしゃカード 03",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100010110011",
+   "name": "でんしゃカード 04",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101010110011",
+   "name": "でんしゃカード 05",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100110110011",
+   "name": "でんしゃカード 06",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101110110011",
+   "name": "でんしゃカード 07",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100001110011",
+   "name": "でんしゃカード 08",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101001110011",
+   "name": "でんしゃカード 09",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100101110011",
+   "name": "でんしゃカード 10",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101101110011",
+   "name": "でんしゃカード 11",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100000001011",
+   "name": "でんしゃカード 12",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101000001011",
+   "name": "でんしゃカード 13",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100100001011",
+   "name": "でんしゃカード 14",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101100001011",
+   "name": "でんしゃカード 15",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100001001011",
+   "name": "でんしゃカード 16",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101001001011",
+   "name": "でんしゃカード 17",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100101001011",
+   "name": "でんしゃカード 18",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101101001011",
+   "name": "でんしゃカード 19",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100000101011",
+   "name": "でんしゃカード 20",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101000101011",
+   "name": "でんしゃカード 21",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100100101011",
+   "name": "でんしゃカード 22",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101100101011",
+   "name": "でんしゃカード 23",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100010101011",
+   "name": "でんしゃカード 24",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101010101011",
+   "name": "でんしゃカード 25",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100110101011",
+   "name": "でんしゃカード 26",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101110101011",
+   "name": "でんしゃカード 27",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100001101011",
+   "name": "でんしゃカード 28",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101001101011",
+   "name": "でんしゃカード 29",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100101101011",
+   "name": "でんしゃカード 30",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101101101011",
+   "name": "でんしゃカード 31",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100011101011",
+   "name": "でんしゃカード 32",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101011101011",
+   "name": "でんしゃカード 33",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100111101011",
+   "name": "でんしゃカード 34",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101111101011",
+   "name": "でんしゃカード 35",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100000011011",
+   "name": "でんしゃカード 36",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101000011011",
+   "name": "でんしゃカード 37",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100100011011",
+   "name": "でんしゃカード 38",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101100011011",
+   "name": "でんしゃカード 39",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100010011011",
+   "name": "でんしゃカード 40",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101010011011",
+   "name": "でんしゃカード 41",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100110011011",
+   "name": "でんしゃカード 42",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101110011011",
+   "name": "でんしゃカード 43",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100001011011",
+   "name": "でんしゃカード 44",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101001011011",
+   "name": "でんしゃカード 45",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100101011011",
+   "name": "でんしゃカード 46",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101101011011",
+   "name": "でんしゃカード 47",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100000111011",
+   "name": "でんしゃカード 48",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101000111011",
+   "name": "でんしゃカード 49",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "100100111011",
+   "name": "でんしゃカード 50",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "101110111011",
+   "name": "テストカード",
+   "set": "電車大集合! カードであそぼう カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
   }
  ]
 }

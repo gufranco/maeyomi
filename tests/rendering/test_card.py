@@ -9,7 +9,9 @@ from reportlab.pdfgen.canvas import Canvas
 
 from maeyomi.barcode.geometry import BarcodeGeometry, Symbology
 from maeyomi.barcode.rasterise import render_pdf_pages
+from maeyomi.barcode.stripes import read_stripes
 from maeyomi.barcode.verify import decode_image, decode_pdf
+from maeyomi.beena.densha import decode_densha
 from maeyomi.datach.ultraman import decode_ultraman
 from maeyomi.decoder.decode import decode
 from maeyomi.models.generated_card import AnyCard, GeneratedCard
@@ -429,3 +431,26 @@ def test_a_line_that_reads_the_same_in_both_languages_is_printed_once(tmp_path: 
     canvas.save()
 
     assert pdf_text(path).count("001") == 1
+
+
+def test_a_stripe_card_reads_back_with_its_empty_places_left_white(tmp_path: Path) -> None:
+    path = tmp_path / "stripes.pdf"
+    code = "100010110011"
+    card = GeneratedCard(name="Train", barcode=code, character=decode_densha(code))
+    canvas = Canvas(str(path), pagesize=(POKER_CARD_WIDTH_MM * mm, POKER_CARD_HEIGHT_MM * mm))
+    stripes = BarcodeGeometry(symbology=Symbology.STRIPES)
+    draw_card(
+        canvas,
+        card,
+        x_mm=0,
+        y_mm=0,
+        width_mm=POKER_CARD_WIDTH_MM,
+        height_mm=POKER_CARD_HEIGHT_MM,
+        geometry=stripes,
+        bleed_mm=1.5,
+    )
+    canvas.save()
+
+    image = render_pdf_pages(path, dpi=300)[0]
+
+    assert read_stripes(image, dpi=300) == code

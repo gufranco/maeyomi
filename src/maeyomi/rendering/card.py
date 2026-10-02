@@ -14,13 +14,14 @@ squeeze it. The name takes one line when it fits and two when it does not, and
 the special power gets whatever height the name leaves.
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import Final
 
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
-from maeyomi.barcode.geometry import BarcodeGeometry
+from maeyomi.barcode.geometry import BarcodeGeometry, Symbology
+from maeyomi.barcode.stripes import TRACK_CLEARANCE_MM, TRACK_DEPTH_MM, draw_stripes
 from maeyomi.barcode.symbol import draw_symbol, symbol_size_mm
 from maeyomi.models.generated_card import AnyCard
 from maeyomi.rendering.ability_icons import draw_icon
@@ -80,9 +81,13 @@ def draw_card(
     `bleed_mm` extends the background past the trim line on every side, so a cut
     that lands a fraction off still finds ink rather than white paper.
     """
-    frame = _Frame(x_mm, y_mm, width_mm, height_mm, style or CardStyle())
+    outline = _Frame(x_mm, y_mm, width_mm, height_mm, style or CardStyle())
+    striped = geometry.symbology is Symbology.STRIPES
+    beside = TRACK_DEPTH_MM + TRACK_CLEARANCE_MM
+    frame = replace(outline, x=x_mm + beside, width=width_mm - beside)
+    frame = frame if striped else outline
     face = face_of(card.character)
-    symbol_width, symbol_height = symbol_size_mm(card.barcode, geometry)
+    symbol_width, symbol_height = (0.0, 0.0) if striped else symbol_size_mm(card.barcode, geometry)
     _check_fits(frame, symbol_width, symbol_height)
     if bleed_mm > 0:
         _draw_bleed(canvas, face, frame, bleed_mm)
@@ -92,14 +97,17 @@ def draw_card(
     cursor = _draw_name(canvas, card, frame, cursor)
     cursor = _draw_stats(canvas, face, frame, cursor)
     _draw_ability(canvas, face, frame, top=cursor, bottom=bottom_of_text)
-    _draw_barcode(
-        canvas,
-        card,
-        frame,
-        symbol_width=symbol_width,
-        symbol_height=symbol_height,
-        geometry=geometry,
-    )
+    if striped:
+        draw_stripes(canvas, card.barcode, x_mm=x_mm, y_mm=y_mm, height_mm=height_mm)
+    else:
+        _draw_barcode(
+            canvas,
+            card,
+            frame,
+            symbol_width=symbol_width,
+            symbol_height=symbol_height,
+            geometry=geometry,
+        )
     if frame.style.border:
         canvas.setStrokeColorRGB(*MUTED_INK)
         canvas.setLineWidth(0.4)

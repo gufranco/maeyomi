@@ -8,6 +8,7 @@ import pytest
 
 from maeyomi.bb1.card import FirstBattlerCard
 from maeyomi.bb1.decode import decode_first
+from maeyomi.beena.densha import decode_densha
 from maeyomi.datach.dbz import decode_dbz
 from maeyomi.datach.game_card import DatachCard
 from maeyomi.datach.jleague import decode_jleague
@@ -65,6 +66,7 @@ OSHARE_MAJO_CARDS = 281
 MUSHIKING_CARDS = 535
 WANTAME_CARDS = 235
 ROCKMAN_CARDS = 211
+DENSHA_CARDS = 51
 MAME_LIST = "https://github.com/mamedev/mame/"
 GBE_PLUS = "https://github.com/shonumi/gbe-plus/"
 TRANSCRIBED = (
@@ -91,6 +93,7 @@ TRANSCRIBED = (
     + MUSHIKING_CARDS
     + WANTAME_CARDS
     + ROCKMAN_CARDS
+    + DENSHA_CARDS
 )
 EXCITE_CLUB_BARCODES = {
     "0000000034111",
@@ -199,6 +202,7 @@ def test_every_card_names_the_page_it_came_from() -> None:
         OfficialSet.MUSHIKING: GBE_PLUS,
         OfficialSet.WANTAME: GBE_PLUS,
         OfficialSet.ROCKMAN_DRAGON: GBE_PLUS,
+        OfficialSet.DENSHA: MAME_LIST,
         OfficialSet.EXCITE94_CLUBS: UK_SCANS,
         OfficialSet.IRWIN: UK_PAGES,
         OfficialSet.TOMY: UK_PAGES,
@@ -267,6 +271,7 @@ def test_every_printable_card_decodes_to_the_character_it_carries() -> None:
             Device.MUSHIKING: decode_mushiking,
             Device.WANTAME: decode_wantame,
             Device.ROCKMAN_DRAGON: decode_rockman,
+            Device.DENSHA: decode_densha,
         }
         for card in official_cards(official_set):
             assert readers[official_set.device](card.barcode) == card.character

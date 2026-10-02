@@ -1,0 +1,973 @@
+{
+ "game": "Densha Daishuugou! Card de Asobou",
+ "emulator": "MAME 0.289 beena with the rd2061 reader, page 1",
+ "recorded_utc": "2026-10-02T03:49:49Z",
+ "cards": [
+  {
+   "barcode": "100000000011",
+   "value": "0xc01",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101000000011",
+   "value": "0xc05",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100100000011",
+   "value": "0xc09",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101100000011",
+   "value": "0xc0d",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100010000011",
+   "value": "0xc11",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101010000011",
+   "value": "0xc15",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100110000011",
+   "value": "0xc19",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101110000011",
+   "value": "0xc1d",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100001000011",
+   "value": "0xc21",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101001000011",
+   "value": "0xc25",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100101000011",
+   "value": "0xc29",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101101000011",
+   "value": "0xc2d",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100011000011",
+   "value": "0xc31",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101011000011",
+   "value": "0xc35",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100111000011",
+   "value": "0xc39",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101111000011",
+   "value": "0xc3d",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100000100011",
+   "value": "0xc41",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101000100011",
+   "value": "0xc45",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100100100011",
+   "value": "0xc49",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101100100011",
+   "value": "0xc4d",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100010100011",
+   "value": "0xc51",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101010100011",
+   "value": "0xc55",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100110100011",
+   "value": "0xc59",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101110100011",
+   "value": "0xc5d",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100001100011",
+   "value": "0xc61",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101001100011",
+   "value": "0xc65",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100101100011",
+   "value": "0xc69",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101101100011",
+   "value": "0xc6d",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100011100011",
+   "value": "0xc71",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101011100011",
+   "value": "0xc75",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100111100011",
+   "value": "0xc79",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101111100011",
+   "value": "0xc7d",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100000010011",
+   "value": "0xc81",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101000010011",
+   "value": "0xc85",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100100010011",
+   "value": "0xc89",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101100010011",
+   "value": "0xc8d",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100010010011",
+   "value": "0xc91",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101010010011",
+   "value": "0xc95",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100110010011",
+   "value": "0xc99",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101110010011",
+   "value": "0xc9d",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100001010011",
+   "value": "0xca1",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101001010011",
+   "value": "0xca5",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100101010011",
+   "value": "0xca9",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101101010011",
+   "value": "0xcad",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100011010011",
+   "value": "0xcb1",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101011010011",
+   "value": "0xcb5",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100111010011",
+   "value": "0xcb9",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101111010011",
+   "value": "0xcbd",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100000110011",
+   "value": "0xcc1",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101000110011",
+   "value": "0xcc5",
+   "read": true,
+   "changed": 0.04,
+   "screen": "ad56e7e68aaf7759"
+  },
+  {
+   "barcode": "100100110011",
+   "value": "0xcc9",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101100110011",
+   "value": "0xccd",
+   "read": true,
+   "changed": 0.05,
+   "screen": "3c7aaf23475458e0"
+  },
+  {
+   "barcode": "100010110011",
+   "value": "0xcd1",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101010110011",
+   "value": "0xcd5",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100110110011",
+   "value": "0xcd9",
+   "read": true,
+   "changed": 0.04,
+   "screen": "0a210e2fe436b792"
+  },
+  {
+   "barcode": "101110110011",
+   "value": "0xcdd",
+   "read": true,
+   "changed": 0.06,
+   "screen": "d8b2c39a4afcf326"
+  },
+  {
+   "barcode": "100001110011",
+   "value": "0xce1",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101001110011",
+   "value": "0xce5",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100101110011",
+   "value": "0xce9",
+   "read": true,
+   "changed": 0.47,
+   "screen": "ba84f94c43e7c7fb"
+  },
+  {
+   "barcode": "101101110011",
+   "value": "0xced",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100011110011",
+   "value": "0xcf1",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101011110011",
+   "value": "0xcf5",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100111110011",
+   "value": "0xcf9",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101111110011",
+   "value": "0xcfd",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100000001011",
+   "value": "0xd01",
+   "read": true,
+   "changed": 0.47,
+   "screen": "0e2de3d3c214313d"
+  },
+  {
+   "barcode": "101000001011",
+   "value": "0xd05",
+   "read": true,
+   "changed": 0.47,
+   "screen": "603bb929fbc9d028"
+  },
+  {
+   "barcode": "100100001011",
+   "value": "0xd09",
+   "read": true,
+   "changed": 0.47,
+   "screen": "d69a6f25fb2cc094"
+  },
+  {
+   "barcode": "101100001011",
+   "value": "0xd0d",
+   "read": true,
+   "changed": 0.47,
+   "screen": "de8cdf424d8768f8"
+  },
+  {
+   "barcode": "100010001011",
+   "value": "0xd11",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101010001011",
+   "value": "0xd15",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100110001011",
+   "value": "0xd19",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101110001011",
+   "value": "0xd1d",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100001001011",
+   "value": "0xd21",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101001001011",
+   "value": "0xd25",
+   "read": true,
+   "changed": 0.47,
+   "screen": "727b58b7f47977bc"
+  },
+  {
+   "barcode": "100101001011",
+   "value": "0xd29",
+   "read": true,
+   "changed": 0.47,
+   "screen": "253bd0b939d2d974"
+  },
+  {
+   "barcode": "101101001011",
+   "value": "0xd2d",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100011001011",
+   "value": "0xd31",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101011001011",
+   "value": "0xd35",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100111001011",
+   "value": "0xd39",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101111001011",
+   "value": "0xd3d",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100000101011",
+   "value": "0xd41",
+   "read": true,
+   "changed": 0.47,
+   "screen": "fd029075277e9ee4"
+  },
+  {
+   "barcode": "101000101011",
+   "value": "0xd45",
+   "read": true,
+   "changed": 0.47,
+   "screen": "c3221d822889756d"
+  },
+  {
+   "barcode": "100100101011",
+   "value": "0xd49",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101100101011",
+   "value": "0xd4d",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100010101011",
+   "value": "0xd51",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101010101011",
+   "value": "0xd55",
+   "read": true,
+   "changed": 0.47,
+   "screen": "30895b5b457cc8c1"
+  },
+  {
+   "barcode": "100110101011",
+   "value": "0xd59",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101110101011",
+   "value": "0xd5d",
+   "read": true,
+   "changed": 0.47,
+   "screen": "6149cf1e953bc09a"
+  },
+  {
+   "barcode": "100001101011",
+   "value": "0xd61",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101001101011",
+   "value": "0xd65",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100101101011",
+   "value": "0xd69",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101101101011",
+   "value": "0xd6d",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100011101011",
+   "value": "0xd71",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101011101011",
+   "value": "0xd75",
+   "read": true,
+   "changed": 0.47,
+   "screen": "efb4940239ce27d6"
+  },
+  {
+   "barcode": "100111101011",
+   "value": "0xd79",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101111101011",
+   "value": "0xd7d",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100000011011",
+   "value": "0xd81",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101000011011",
+   "value": "0xd85",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100100011011",
+   "value": "0xd89",
+   "read": true,
+   "changed": 0.47,
+   "screen": "ac1f0980a83d9826"
+  },
+  {
+   "barcode": "101100011011",
+   "value": "0xd8d",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100010011011",
+   "value": "0xd91",
+   "read": true,
+   "changed": 0.47,
+   "screen": "525ea41e98ecdae1"
+  },
+  {
+   "barcode": "101010011011",
+   "value": "0xd95",
+   "read": true,
+   "changed": 0.47,
+   "screen": "4673c69dd6ae58c3"
+  },
+  {
+   "barcode": "100110011011",
+   "value": "0xd99",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101110011011",
+   "value": "0xd9d",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100001011011",
+   "value": "0xda1",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101001011011",
+   "value": "0xda5",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100101011011",
+   "value": "0xda9",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101101011011",
+   "value": "0xdad",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100011011011",
+   "value": "0xdb1",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101011011011",
+   "value": "0xdb5",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100111011011",
+   "value": "0xdb9",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101111011011",
+   "value": "0xdbd",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100000111011",
+   "value": "0xdc1",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101000111011",
+   "value": "0xdc5",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "100100111011",
+   "value": "0xdc9",
+   "read": true,
+   "changed": 0.47,
+   "screen": "7a163a323d35f6bd"
+  },
+  {
+   "barcode": "101100111011",
+   "value": "0xdcd",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100010111011",
+   "value": "0xdd1",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101010111011",
+   "value": "0xdd5",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100110111011",
+   "value": "0xdd9",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101110111011",
+   "value": "0xddd",
+   "read": true,
+   "changed": 0.48,
+   "screen": "5341e6b2646979a7"
+  },
+  {
+   "barcode": "100001111011",
+   "value": "0xde1",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101001111011",
+   "value": "0xde5",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100101111011",
+   "value": "0xde9",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101101111011",
+   "value": "0xded",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100011111011",
+   "value": "0xdf1",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101011111011",
+   "value": "0xdf5",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100111111011",
+   "value": "0xdf9",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101111111011",
+   "value": "0xdfd",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100000000000",
+   "value": "0x1",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100000000010",
+   "value": "0x401",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100000000001",
+   "value": "0x801",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "100000000111",
+   "value": "0xe01",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "101111111111",
+   "value": "0xffd",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "001000110011",
+   "value": "0xcc4",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "011000110011",
+   "value": "0xcc6",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "111000110011",
+   "value": "0xcc7",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "000010110011",
+   "value": "0xcd0",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  },
+  {
+   "barcode": "110010110011",
+   "value": "0xcd3",
+   "read": false,
+   "changed": 0.0,
+   "screen": "e3c8bfd48e7598e0"
+  }
+ ]
+}

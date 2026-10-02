@@ -224,6 +224,7 @@ FORMS: Final[dict[Device, DeviceForm]] = {
     Device.MUSHIKING: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.WANTAME: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.ROCKMAN_DRAGON: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
+    Device.DENSHA: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.HATAYAMA: DeviceForm(
         ("game", "picks", "stats"),
         HATAYAMA_MAX_HP,
@@ -244,6 +245,7 @@ class Platform(StrEnum):
     SUPER_FAMICOM = "super_famicom"
     GAME_BOY = "game_boy"
     NINTENDO_DS = "nintendo_ds"
+    BEENA = "beena"
 
 
 DATACH_PREFIX: Final = "DATACH_"
@@ -267,6 +269,7 @@ NINTENDO_DS_GAMES: Final = frozenset(
         Device.ROCKMAN_DRAGON,
     }
 )
+BEENA_GAMES: Final = frozenset({Device.DENSHA})
 
 
 def platform_of(device: Device) -> Platform:
@@ -279,6 +282,8 @@ def platform_of(device: Device) -> Platform:
         return Platform.GAME_BOY
     if device in NINTENDO_DS_GAMES:
         return Platform.NINTENDO_DS
+    if device in BEENA_GAMES:
+        return Platform.BEENA
     return Platform.FAMICOM if device in FAMICOM_GAMES else Platform.SUPER_FAMICOM
 
 

@@ -122,6 +122,7 @@ class OfficialSet(Enum):
     MUSHIKING = "甲虫王者ムシキング スーパーコレクション カード"
     WANTAME = "ワンタメ ミュージックチャンネル どこでもスタイル カード"
     ROCKMAN_DRAGON = "流星のロックマン ドラゴン ウェーブカード"
+    DENSHA = "電車大集合! カードであそぼう カード"
     IRWIN = "アーウィン版 バーコードバトラー カードリスト"
     TOMY = "トミー版 バーコードバトラー カードリスト"
     TOMY_GERMANY = "トミー版 ドイツ バーコードバトラー カードリスト"
@@ -174,6 +175,7 @@ _DEVICES: Final[dict[OfficialSet, Device]] = {
     OfficialSet.MUSHIKING: Device.MUSHIKING,
     OfficialSet.WANTAME: Device.WANTAME,
     OfficialSet.ROCKMAN_DRAGON: Device.ROCKMAN_DRAGON,
+    OfficialSet.DENSHA: Device.DENSHA,
 }
 
 _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
@@ -224,6 +226,7 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.MUSHIKING: "Mushiking Super Collection cards",
     OfficialSet.WANTAME: "Wantame Music Channel cards",
     OfficialSet.ROCKMAN_DRAGON: "Ryuusei no Rockman Dragon Wave Cards",
+    OfficialSet.DENSHA: "Densha Daishuugou! Card de Asobou cards",
     OfficialSet.IRWIN: "Irwin Barcode Battler, United States and Canada",
     OfficialSet.TOMY: "Tomy Barcode Battler, United Kingdom, Ireland and Italy",
     OfficialSet.TOMY_GERMANY: "Tomy Barcode Battler, Germany",

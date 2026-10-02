@@ -485,7 +485,7 @@ def test_official_lists_every_set_with_its_count() -> None:
 
     assert result.exit_code == 0
     assert "Barcode Battler II board game" in result.output
-    assert "2894" in result.output
+    assert "2945" in result.output
 
 
 def test_official_leaves_no_transcription_out_now_every_card_prints() -> None:

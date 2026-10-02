@@ -132,6 +132,7 @@ const DEVICE_GROUPS = [
   ['famicom', 'device.famicom'],
   ['game_boy', 'device.game_boy'],
   ['nintendo_ds', 'device.nintendo_ds'],
+  ['beena', 'device.beena'],
 ];
 
 function deviceButtonHtml(device) {

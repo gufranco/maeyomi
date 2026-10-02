@@ -276,3 +276,9 @@ def test_a_code128_code_with_a_letter_is_rejected() -> None:
 def test_a_code128_code_of_odd_length_is_rejected() -> None:
     with pytest.raises(InvalidLengthError):
         symbol_size_mm("04000006001", CODE128)
+
+
+def test_a_stripe_track_is_sized_by_its_bars_and_span() -> None:
+    width, height = symbol_size_mm("100010110011", BarcodeGeometry(symbology=Symbology.STRIPES))
+
+    assert (width, round(height, 2)) == (15.0, 71.96)
