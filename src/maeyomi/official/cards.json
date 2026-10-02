@@ -17554,7 +17554,7 @@
   },
   {
    "barcode": "100100101011",
-   "name": "でんしゃカード 22",
+   "name": "485系 やまなみ",
    "set": "電車大集合! カードであそぼう カード",
    "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
   },
@@ -17566,7 +17566,7 @@
   },
   {
    "barcode": "100010101011",
-   "name": "でんしゃカード 24",
+   "name": "485系 NO.DO.KA",
    "set": "電車大集合! カードであそぼう カード",
    "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
   },

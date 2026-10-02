@@ -72,6 +72,15 @@ def test_a_card_whose_name_is_unknown_keeps_its_number() -> None:
     assert sixteen.name == ("Train card 16", "でんしゃカード 16")
 
 
+def test_a_card_is_named_as_its_scan_prints_its_train() -> None:
+    names = {card.number: card.name for card in PRINTED}
+
+    assert (names[22], names[24]) == (
+        ("485 Series Yamanami", "485系 やまなみ"),
+        ("485 Series NO.DO.KA", "485系 NO.DO.KA"),
+    )
+
+
 def test_the_test_card_says_what_it_is() -> None:
     assert densha_text(decode_densha(TEST_CARD)).name == ("Test card", "テストカード")
 

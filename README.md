@@ -721,7 +721,7 @@ one, the first place at the top, and the face starts 2 mm clear of the track so
 no colour darkens an empty place. The game reads 50 train cards and a test card
 and nothing else, so there is no card made to order and no cheat card. Each
 card is named as it prints its train, such as 200系 やまびこ, the 200 Series
-Yamabiko; cards 16, 22 and 24 keep their numbers until their names are known.
+Yamabiko; card 16 keeps its number, since MAME has no scan of it.
 Pick one with `--character` by its name or card number, such as 04. Each card was scanned in
 MAME with the Beena's RD2061 reader on the station page, where a card brings up
 its train or changes the scene: of the 138 codes tried, MAME's 50 cards and

@@ -5,8 +5,8 @@ only when its places spell one of its 50 trains or its test card. The list
 comes from MAME's software list; the stripe layout was measured on the scans
 of real cards, and every code was scanned in MAME, where the game brought up a
 train for each listed card and stayed on its page for every other code tried.
-The names are printed on the cards, read off those scans; cards 16, 22 and 24
-keep their numbers until their names are known, since MAME has no scan of 16.
+The names are printed on the cards, read off those scans; card 16 keeps its
+number, since MAME has no scan of it.
 """
 
 from typing import Final
@@ -44,7 +44,9 @@ NAMES: Final[dict[int, Pair]] = {
     19: ("24 Series Akebono", "24系 あけぼの"),
     20: ("24 Series Hokutosei and Yume Kukan", "24系 北斗星・夢空間"),
     21: ("E751 Series Tsugaru", "E751系 つがる"),
+    22: ("485 Series Yamanami", "485系 やまなみ"),
     23: ("485 Series Seseragi", "485系 せせらぎ"),
+    24: ("485 Series NO.DO.KA", "485系 NO.DO.KA"),
     25: ("14 Series Yutori", "14系 ゆとり"),
     26: ("485 Series Utage", "485系 宴"),
     27: ("485 Series Hana", "485系 華"),
