@@ -118,7 +118,7 @@ def test_a_number_past_the_list_builds_nothing() -> None:
 
 def test_a_card_is_found_by_place_code_or_card_number() -> None:
     assert densha_named(E1) == 3
-    assert densha_named("3") == 3
+    assert densha_named("4") == 3
     assert densha_named("04") == 3
     with pytest.raises(ValueError, match="Densha Daishuugou"):
         densha_named("Pikachu")

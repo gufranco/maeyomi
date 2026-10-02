@@ -65,9 +65,13 @@ def test_every_card_is_listed_with_its_name() -> None:
     ]
 
 
-@pytest.mark.parametrize("typed", ["1", "100010110011", "04", "d", "ディー"])
-def test_a_card_is_found_by_place_code_number_or_name(typed: str) -> None:
+@pytest.mark.parametrize("typed", ["4", "100010110011", "04", "d", "ディー"])
+def test_a_card_is_found_by_code_number_or_name(typed: str) -> None:
     assert GAME.named(typed) == 1
+
+
+def test_a_typed_number_is_the_number_printed_on_the_card_not_its_place() -> None:
+    assert (GAME.named("1"), GAME.named("01")) == (0, 0)
 
 
 def test_a_name_no_card_has_is_refused() -> None:

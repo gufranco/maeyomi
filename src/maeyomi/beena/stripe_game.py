@@ -84,11 +84,13 @@ class StripeGame:
         )
 
     def named(self, typed: str) -> int:
-        """A card typed by its place in the list, its places, its card number or its name."""
+        """A card typed by its places, the number printed on it or its name."""
         text = typed.strip()
         for ident, card in enumerate(self.cards):
-            names = {str(ident), card.code, card.label, card.name[1]}
-            if text in names or text.casefold() == card.name[0].casefold():
+            numbered = text.isdecimal() and int(text) == card.number
+            if numbered or text in {card.code, card.name[1]}:
+                return ident
+            if text.casefold() == card.name[0].casefold():
                 return ident
         english, japanese = self.title
         message = Said(
