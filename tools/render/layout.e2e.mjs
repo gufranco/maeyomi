@@ -60,6 +60,7 @@ function checkDeviceMenu() {
     'Famicom, through the Barcode Battler II',
     'Game Boy',
     'Nintendo DS',
+    'Advanced Pico Beena',
   ]), `the device list is grouped as ${JSON.stringify(headings)}`);
   const machines = menu[0]?.[1] ?? [];
   const sorted = machines.toSorted((first, second) => first.localeCompare(second, 'en'));
@@ -301,7 +302,7 @@ function checkBehaviour() {
 function checkFreshStartOnDeviceChange() {
   browser('click', '#tab-one');
   browser('click', '#one button[type=submit]');
-  browser('wait', '1500');
+  browser('wait', '--fn', "document.getElementById('card-image').hasAttribute('src')");
   const made = evaluate(`JSON.stringify(document.getElementById('card-image').hasAttribute('src'))`);
   browser('click', '#tab-many');
   pickDevice('bb1');
