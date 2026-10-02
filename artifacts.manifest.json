@@ -379,6 +379,16 @@
    "sha1": "069977d6c00f4360ab2ca026e0bb60bf261edf29",
    "crc32": "a4a7697a",
    "used_by": "tools/oracle/record_beena.py, which scans its stripe cards in MAME; nothing in the package or its tests reads it"
+  },
+  {
+   "id": "beena_anpanman",
+   "what": "Soreike! Anpanman Card de Tanoshiku ABC, Sega Toys 2006, a cartridge for the Advanced Pico Beena",
+   "path": "beena_carts/anpaabc.bin",
+   "size": 8388608,
+   "sha256": "9631e25a149c881c603815bff727b2bd5749368f846ec2172dcd82bf906cc187",
+   "sha1": "1f575821a7d4ac2af96f1af031b10367ba6ade98",
+   "crc32": "c08872bf",
+   "used_by": "tools/oracle/record_beena.py, which scans its stripe cards in MAME; nothing in the package or its tests reads it"
   }
  ]
 }
