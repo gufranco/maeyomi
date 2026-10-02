@@ -2,6 +2,29 @@
 
 <!-- version list -->
 
+## v1.22.0 (2026-10-02)
+
+### Chores
+
+- **formula**: Point at v1.21.0 [skip ci]
+  ([`a5b6147`](https://github.com/gufranco/maeyomi/commit/a5b6147102f5b17bf920680198c655bcca0a3c8c))
+
+### Features
+
+- Support Anpanman Card de Tanoshiku ABC
+  ([`9377256`](https://github.com/gufranco/maeyomi/commit/9377256df7a6d7220ef08f74922854192e888c1e))
+
+### Refactoring
+
+- **beena**: Share the stripe game across Beena games
+  ([`8080f7e`](https://github.com/gufranco/maeyomi/commit/8080f7e781a18b06e2e7fe99e0ed805f611bce1e))
+
+### Testing
+
+- **oracle**: Judge Beena scans by each game's own sign
+  ([`2ea23ac`](https://github.com/gufranco/maeyomi/commit/2ea23ac7f5dc6e1bd20882d8d587f0b610e8659b))
+
+
 ## v1.21.0 (2026-10-02)
 
 ### Chores
