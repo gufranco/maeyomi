@@ -7,6 +7,14 @@ game added to this table is a game every surface supports.
 
 from typing import Final
 
+from maeyomi.beena.anpanman import STAT_KEYS as ANPANMAN_STATS
+from maeyomi.beena.anpanman import (
+    anpanman_entries,
+    anpanman_named,
+    anpanman_text,
+    build_anpanman,
+    decode_anpanman,
+)
 from maeyomi.beena.densha import STAT_KEYS as DENSHA_STATS
 from maeyomi.beena.densha import (
     build_densha,
@@ -614,6 +622,17 @@ GAMES: Final[dict[Device, DatachGame]] = {
         describe=densha_text,
         named=densha_named,
         stat_keys=DENSHA_STATS,
+        datach_reader=False,
+        drawable=frozenset({GameKind.ITEM}),
+    ),
+    Device.ANPANMAN: DatachGame(
+        decode=decode_anpanman,
+        build=build_anpanman,
+        strongest=None,
+        entries=anpanman_entries,
+        describe=anpanman_text,
+        named=anpanman_named,
+        stat_keys=ANPANMAN_STATS,
         datach_reader=False,
         drawable=frozenset({GameKind.ITEM}),
     ),

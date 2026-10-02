@@ -1,0 +1,2792 @@
+{
+ "game": "Soreike! Anpanman Card de Tanoshiku ABC",
+ "emulator": "MAME 0.289 beena with the rd2061 reader, page 1",
+ "recorded_utc": "2026-10-02T13:07:21Z",
+ "ignored_screen": "1257737347f4f5ea",
+ "cards": [
+  {
+   "barcode": "100000001011",
+   "value": "0xd01",
+   "changed": 0.04,
+   "screen": "1257737347f4f5ea",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101000001011",
+   "value": "0xd05",
+   "changed": 0.04,
+   "screen": "1257737347f4f5ea",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100100001011",
+   "value": "0xd09",
+   "changed": 0.04,
+   "screen": "1257737347f4f5ea",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101100001011",
+   "value": "0xd0d",
+   "changed": 0.04,
+   "screen": "1257737347f4f5ea",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100010001011",
+   "value": "0xd11",
+   "changed": 0.04,
+   "screen": "1257737347f4f5ea",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101010001011",
+   "value": "0xd15",
+   "changed": 0.05,
+   "screen": "5fcf42527cec5f36",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100110001011",
+   "value": "0xd19",
+   "changed": 0.05,
+   "screen": "5fcf42527cec5f36",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101110001011",
+   "value": "0xd1d",
+   "changed": 0.05,
+   "screen": "5fcf42527cec5f36",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100001001011",
+   "value": "0xd21",
+   "changed": 0.05,
+   "screen": "5fcf42527cec5f36",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101001001011",
+   "value": "0xd25",
+   "changed": 0.05,
+   "screen": "5fcf42527cec5f36",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100101001011",
+   "value": "0xd29",
+   "changed": 0.05,
+   "screen": "5fcf42527cec5f36",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101101001011",
+   "value": "0xd2d",
+   "changed": 0.04,
+   "screen": "b7c4d14fd425a839",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100011001011",
+   "value": "0xd31",
+   "changed": 0.04,
+   "screen": "b7c4d14fd425a839",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101011001011",
+   "value": "0xd35",
+   "changed": 0.04,
+   "screen": "b7c4d14fd425a839",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100111001011",
+   "value": "0xd39",
+   "changed": 0.04,
+   "screen": "b7c4d14fd425a839",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101111001011",
+   "value": "0xd3d",
+   "changed": 0.04,
+   "screen": "b7c4d14fd425a839",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100000101011",
+   "value": "0xd41",
+   "changed": 0.04,
+   "screen": "b7c4d14fd425a839",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101000101011",
+   "value": "0xd45",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100100101011",
+   "value": "0xd49",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101100101011",
+   "value": "0xd4d",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100010101011",
+   "value": "0xd51",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101010101011",
+   "value": "0xd55",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100110101011",
+   "value": "0xd59",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101110101011",
+   "value": "0xd5d",
+   "changed": 0.05,
+   "screen": "da2841e541501b5d",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100001101011",
+   "value": "0xd61",
+   "changed": 0.05,
+   "screen": "da2841e541501b5d",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101001101011",
+   "value": "0xd65",
+   "changed": 0.05,
+   "screen": "da2841e541501b5d",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100101101011",
+   "value": "0xd69",
+   "changed": 0.05,
+   "screen": "da2841e541501b5d",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101101101011",
+   "value": "0xd6d",
+   "changed": 0.05,
+   "screen": "50b081e3881da12c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100011101011",
+   "value": "0xd71",
+   "changed": 0.05,
+   "screen": "50b081e3881da12c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101011101011",
+   "value": "0xd75",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100111101011",
+   "value": "0xd79",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101111101011",
+   "value": "0xd7d",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100000011011",
+   "value": "0xd81",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101000011011",
+   "value": "0xd85",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100100011011",
+   "value": "0xd89",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101100011011",
+   "value": "0xd8d",
+   "changed": 0.05,
+   "screen": "c67e44a256b04909",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100010011011",
+   "value": "0xd91",
+   "changed": 0.05,
+   "screen": "5f996cd162486b3c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101010011011",
+   "value": "0xd95",
+   "changed": 0.05,
+   "screen": "5f996cd162486b3c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100110011011",
+   "value": "0xd99",
+   "changed": 0.05,
+   "screen": "5f996cd162486b3c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101110011011",
+   "value": "0xd9d",
+   "changed": 0.05,
+   "screen": "5f996cd162486b3c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100001011011",
+   "value": "0xda1",
+   "changed": 0.05,
+   "screen": "5f996cd162486b3c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101001011011",
+   "value": "0xda5",
+   "changed": 0.05,
+   "screen": "5cadad518f4d1f6c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100101011011",
+   "value": "0xda9",
+   "changed": 0.05,
+   "screen": "6c32f8a4ff40b691",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101101011011",
+   "value": "0xdad",
+   "changed": 0.05,
+   "screen": "6c32f8a4ff40b691",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100011011011",
+   "value": "0xdb1",
+   "changed": 0.05,
+   "screen": "6c32f8a4ff40b691",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101011011011",
+   "value": "0xdb5",
+   "changed": 0.05,
+   "screen": "6c32f8a4ff40b691",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100111011011",
+   "value": "0xdb9",
+   "changed": 0.05,
+   "screen": "6c32f8a4ff40b691",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101111011011",
+   "value": "0xdbd",
+   "changed": 0.05,
+   "screen": "6c3d1477f3ef7874",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100000111011",
+   "value": "0xdc1",
+   "changed": 0.05,
+   "screen": "6c3d1477f3ef7874",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101000111011",
+   "value": "0xdc5",
+   "changed": 0.05,
+   "screen": "6c3d1477f3ef7874",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100100111011",
+   "value": "0xdc9",
+   "changed": 0.05,
+   "screen": "6c3d1477f3ef7874",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101100111011",
+   "value": "0xdcd",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 49,
+   "read": true
+  },
+  {
+   "barcode": "100010111011",
+   "value": "0xdd1",
+   "changed": 0.05,
+   "screen": "6c3d1477f3ef7874",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101010111011",
+   "value": "0xdd5",
+   "changed": 0.31,
+   "screen": "a38b2a8bb2aa4a13",
+   "index": 50,
+   "read": true
+  },
+  {
+   "barcode": "100110111011",
+   "value": "0xdd9",
+   "changed": 0.05,
+   "screen": "e5d05e9f4ba245a0",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101110111011",
+   "value": "0xddd",
+   "changed": 0.05,
+   "screen": "e5d05e9f4ba245a0",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100001111011",
+   "value": "0xde1",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 0,
+   "read": true
+  },
+  {
+   "barcode": "101001111011",
+   "value": "0xde5",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 1,
+   "read": true
+  },
+  {
+   "barcode": "100101111011",
+   "value": "0xde9",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 2,
+   "read": true
+  },
+  {
+   "barcode": "101101111011",
+   "value": "0xded",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 3,
+   "read": true
+  },
+  {
+   "barcode": "100011111011",
+   "value": "0xdf1",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 4,
+   "read": true
+  },
+  {
+   "barcode": "101011111011",
+   "value": "0xdf5",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 5,
+   "read": true
+  },
+  {
+   "barcode": "100111111011",
+   "value": "0xdf9",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 6,
+   "read": true
+  },
+  {
+   "barcode": "101111111011",
+   "value": "0xdfd",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 7,
+   "read": true
+  },
+  {
+   "barcode": "100000000111",
+   "value": "0xe01",
+   "changed": 0.05,
+   "screen": "73bf7f1dd8ce4f3d",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101000000111",
+   "value": "0xe05",
+   "changed": 0.05,
+   "screen": "e9134f2fffba8dc2",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100100000111",
+   "value": "0xe09",
+   "changed": 0.05,
+   "screen": "e9134f2fffba8dc2",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101100000111",
+   "value": "0xe0d",
+   "changed": 0.05,
+   "screen": "e9134f2fffba8dc2",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100010000111",
+   "value": "0xe11",
+   "changed": 0.05,
+   "screen": "27ee9dfe7f2925ef",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101010000111",
+   "value": "0xe15",
+   "changed": 0.05,
+   "screen": "27ee9dfe7f2925ef",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100110000111",
+   "value": "0xe19",
+   "changed": 0.05,
+   "screen": "27ee9dfe7f2925ef",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101110000111",
+   "value": "0xe1d",
+   "changed": 0.05,
+   "screen": "b5eb0be6b53f9263",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100001000111",
+   "value": "0xe21",
+   "changed": 0.05,
+   "screen": "b5eb0be6b53f9263",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101001000111",
+   "value": "0xe25",
+   "changed": 0.05,
+   "screen": "b5eb0be6b53f9263",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100101000111",
+   "value": "0xe29",
+   "changed": 0.05,
+   "screen": "b5eb0be6b53f9263",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101101000111",
+   "value": "0xe2d",
+   "changed": 0.05,
+   "screen": "b5eb0be6b53f9263",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100011000111",
+   "value": "0xe31",
+   "changed": 0.05,
+   "screen": "b5eb0be6b53f9263",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101011000111",
+   "value": "0xe35",
+   "changed": 0.05,
+   "screen": "deddb964d124da8a",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100111000111",
+   "value": "0xe39",
+   "changed": 0.05,
+   "screen": "deddb964d124da8a",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101111000111",
+   "value": "0xe3d",
+   "changed": 0.05,
+   "screen": "deddb964d124da8a",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100000100111",
+   "value": "0xe41",
+   "changed": 0.05,
+   "screen": "deddb964d124da8a",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101000100111",
+   "value": "0xe45",
+   "changed": 0.05,
+   "screen": "deddb964d124da8a",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100100100111",
+   "value": "0xe49",
+   "changed": 0.05,
+   "screen": "deddb964d124da8a",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101100100111",
+   "value": "0xe4d",
+   "changed": 0.05,
+   "screen": "1fae8f2af05f1756",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100010100111",
+   "value": "0xe51",
+   "changed": 0.05,
+   "screen": "1fae8f2af05f1756",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101010100111",
+   "value": "0xe55",
+   "changed": 0.05,
+   "screen": "1fae8f2af05f1756",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100110100111",
+   "value": "0xe59",
+   "changed": 0.05,
+   "screen": "1fae8f2af05f1756",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101110100111",
+   "value": "0xe5d",
+   "changed": 0.05,
+   "screen": "5c08772ff0ebb091",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100001100111",
+   "value": "0xe61",
+   "changed": 0.05,
+   "screen": "5c08772ff0ebb091",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101001100111",
+   "value": "0xe65",
+   "changed": 0.04,
+   "screen": "4420ec747683e9c6",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100101100111",
+   "value": "0xe69",
+   "changed": 0.04,
+   "screen": "4420ec747683e9c6",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101101100111",
+   "value": "0xe6d",
+   "changed": 0.05,
+   "screen": "da2841e541501b5d",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100011100111",
+   "value": "0xe71",
+   "changed": 0.05,
+   "screen": "da2841e541501b5d",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101011100111",
+   "value": "0xe75",
+   "changed": 0.05,
+   "screen": "da2841e541501b5d",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100111100111",
+   "value": "0xe79",
+   "changed": 0.05,
+   "screen": "da2841e541501b5d",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101111100111",
+   "value": "0xe7d",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100000010111",
+   "value": "0xe81",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101000010111",
+   "value": "0xe85",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100100010111",
+   "value": "0xe89",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101100010111",
+   "value": "0xe8d",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100010010111",
+   "value": "0xe91",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101010010111",
+   "value": "0xe95",
+   "changed": 0.05,
+   "screen": "5f996cd162486b3c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100110010111",
+   "value": "0xe99",
+   "changed": 0.05,
+   "screen": "5f996cd162486b3c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101110010111",
+   "value": "0xe9d",
+   "changed": 0.05,
+   "screen": "5f996cd162486b3c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100001010111",
+   "value": "0xea1",
+   "changed": 0.05,
+   "screen": "5f996cd162486b3c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101001010111",
+   "value": "0xea5",
+   "changed": 0.05,
+   "screen": "5f996cd162486b3c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100101010111",
+   "value": "0xea9",
+   "changed": 0.05,
+   "screen": "5f996cd162486b3c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101101010111",
+   "value": "0xead",
+   "changed": 0.05,
+   "screen": "6c32f8a4ff40b691",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100011010111",
+   "value": "0xeb1",
+   "changed": 0.05,
+   "screen": "6c32f8a4ff40b691",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101011010111",
+   "value": "0xeb5",
+   "changed": 0.05,
+   "screen": "6c32f8a4ff40b691",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100111010111",
+   "value": "0xeb9",
+   "changed": 0.05,
+   "screen": "6c32f8a4ff40b691",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101111010111",
+   "value": "0xebd",
+   "changed": 0.05,
+   "screen": "6c32f8a4ff40b691",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100000110111",
+   "value": "0xec1",
+   "changed": 0.05,
+   "screen": "81da955ec47289d2",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101000110111",
+   "value": "0xec5",
+   "changed": 0.05,
+   "screen": "4be88ec0fd04b305",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100100110111",
+   "value": "0xec9",
+   "changed": 0.05,
+   "screen": "4be88ec0fd04b305",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101100110111",
+   "value": "0xecd",
+   "changed": 0.05,
+   "screen": "4be88ec0fd04b305",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100010110111",
+   "value": "0xed1",
+   "changed": 0.05,
+   "screen": "4be88ec0fd04b305",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101010110111",
+   "value": "0xed5",
+   "changed": 0.05,
+   "screen": "4be88ec0fd04b305",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100110110111",
+   "value": "0xed9",
+   "changed": 0.05,
+   "screen": "4be88ec0fd04b305",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101110110111",
+   "value": "0xedd",
+   "changed": 0.05,
+   "screen": "14d5262d656f7d74",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100001110111",
+   "value": "0xee1",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 8,
+   "read": true
+  },
+  {
+   "barcode": "101001110111",
+   "value": "0xee5",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 9,
+   "read": true
+  },
+  {
+   "barcode": "100101110111",
+   "value": "0xee9",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 10,
+   "read": true
+  },
+  {
+   "barcode": "101101110111",
+   "value": "0xeed",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 11,
+   "read": true
+  },
+  {
+   "barcode": "100011110111",
+   "value": "0xef1",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 12,
+   "read": true
+  },
+  {
+   "barcode": "101011110111",
+   "value": "0xef5",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 13,
+   "read": true
+  },
+  {
+   "barcode": "100111110111",
+   "value": "0xef9",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 14,
+   "read": true
+  },
+  {
+   "barcode": "101111110111",
+   "value": "0xefd",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 15,
+   "read": true
+  },
+  {
+   "barcode": "100000001111",
+   "value": "0xf01",
+   "changed": 0.05,
+   "screen": "73bf7f1dd8ce4f3d",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101000001111",
+   "value": "0xf05",
+   "changed": 0.05,
+   "screen": "73bf7f1dd8ce4f3d",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100100001111",
+   "value": "0xf09",
+   "changed": 0.05,
+   "screen": "73bf7f1dd8ce4f3d",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101100001111",
+   "value": "0xf0d",
+   "changed": 0.05,
+   "screen": "27ee9dfe7f2925ef",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100010001111",
+   "value": "0xf11",
+   "changed": 0.05,
+   "screen": "27ee9dfe7f2925ef",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101010001111",
+   "value": "0xf15",
+   "changed": 0.05,
+   "screen": "27ee9dfe7f2925ef",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100110001111",
+   "value": "0xf19",
+   "changed": 0.05,
+   "screen": "27ee9dfe7f2925ef",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101110001111",
+   "value": "0xf1d",
+   "changed": 0.05,
+   "screen": "27ee9dfe7f2925ef",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100001001111",
+   "value": "0xf21",
+   "changed": 0.05,
+   "screen": "4236878ba1fe9ae8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101001001111",
+   "value": "0xf25",
+   "changed": 0.05,
+   "screen": "b5eb0be6b53f9263",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100101001111",
+   "value": "0xf29",
+   "changed": 0.05,
+   "screen": "b5eb0be6b53f9263",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101101001111",
+   "value": "0xf2d",
+   "changed": 0.05,
+   "screen": "2a5fdd34a825b5d6",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100011001111",
+   "value": "0xf31",
+   "changed": 0.05,
+   "screen": "2a5fdd34a825b5d6",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101011001111",
+   "value": "0xf35",
+   "changed": 0.05,
+   "screen": "2a5fdd34a825b5d6",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100111001111",
+   "value": "0xf39",
+   "changed": 0.05,
+   "screen": "2a5fdd34a825b5d6",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101111001111",
+   "value": "0xf3d",
+   "changed": 0.05,
+   "screen": "cd03ee330a9aff24",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100000101111",
+   "value": "0xf41",
+   "changed": 0.05,
+   "screen": "cd03ee330a9aff24",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101000101111",
+   "value": "0xf45",
+   "changed": 0.05,
+   "screen": "cd03ee330a9aff24",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100100101111",
+   "value": "0xf49",
+   "changed": 0.05,
+   "screen": "cd03ee330a9aff24",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101100101111",
+   "value": "0xf4d",
+   "changed": 0.05,
+   "screen": "cd03ee330a9aff24",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100010101111",
+   "value": "0xf51",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 16,
+   "read": true
+  },
+  {
+   "barcode": "101010101111",
+   "value": "0xf55",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 17,
+   "read": true
+  },
+  {
+   "barcode": "100110101111",
+   "value": "0xf59",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 18,
+   "read": true
+  },
+  {
+   "barcode": "101110101111",
+   "value": "0xf5d",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 19,
+   "read": true
+  },
+  {
+   "barcode": "100001101111",
+   "value": "0xf61",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 20,
+   "read": true
+  },
+  {
+   "barcode": "101001101111",
+   "value": "0xf65",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 21,
+   "read": true
+  },
+  {
+   "barcode": "100101101111",
+   "value": "0xf69",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 22,
+   "read": true
+  },
+  {
+   "barcode": "101101101111",
+   "value": "0xf6d",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 23,
+   "read": true
+  },
+  {
+   "barcode": "100011101111",
+   "value": "0xf71",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 24,
+   "read": true
+  },
+  {
+   "barcode": "101011101111",
+   "value": "0xf75",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 25,
+   "read": true
+  },
+  {
+   "barcode": "100111101111",
+   "value": "0xf79",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 26,
+   "read": true
+  },
+  {
+   "barcode": "101111101111",
+   "value": "0xf7d",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 27,
+   "read": true
+  },
+  {
+   "barcode": "100000011111",
+   "value": "0xf81",
+   "changed": 0.05,
+   "screen": "da2841e541501b5d",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101000011111",
+   "value": "0xf85",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100100011111",
+   "value": "0xf89",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101100011111",
+   "value": "0xf8d",
+   "changed": 0.04,
+   "screen": "33dfd839d093d057",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100010011111",
+   "value": "0xf91",
+   "changed": 0.04,
+   "screen": "1f07f998a8a4a3ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101010011111",
+   "value": "0xf95",
+   "changed": 0.04,
+   "screen": "1f07f998a8a4a3ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100110011111",
+   "value": "0xf99",
+   "changed": 0.04,
+   "screen": "1f07f998a8a4a3ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101110011111",
+   "value": "0xf9d",
+   "changed": 0.05,
+   "screen": "5f996cd162486b3c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100001011111",
+   "value": "0xfa1",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 28,
+   "read": true
+  },
+  {
+   "barcode": "101001011111",
+   "value": "0xfa5",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 29,
+   "read": true
+  },
+  {
+   "barcode": "100101011111",
+   "value": "0xfa9",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 30,
+   "read": true
+  },
+  {
+   "barcode": "101101011111",
+   "value": "0xfad",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 31,
+   "read": true
+  },
+  {
+   "barcode": "100011011111",
+   "value": "0xfb1",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 32,
+   "read": true
+  },
+  {
+   "barcode": "101011011111",
+   "value": "0xfb5",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 33,
+   "read": true
+  },
+  {
+   "barcode": "100111011111",
+   "value": "0xfb9",
+   "changed": 0.04,
+   "screen": "47327fa749ec20bc",
+   "index": 34,
+   "read": true
+  },
+  {
+   "barcode": "101111011111",
+   "value": "0xfbd",
+   "changed": 0.05,
+   "screen": "90a51aeef402a975",
+   "index": 35,
+   "read": true
+  },
+  {
+   "barcode": "100000111111",
+   "value": "0xfc1",
+   "changed": 0.05,
+   "screen": "6c32f8a4ff40b691",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101000111111",
+   "value": "0xfc5",
+   "changed": 0.05,
+   "screen": "81da955ec47289d2",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100100111111",
+   "value": "0xfc9",
+   "changed": 0.05,
+   "screen": "15489aff679bd3d4",
+   "index": 36,
+   "read": true
+  },
+  {
+   "barcode": "101100111111",
+   "value": "0xfcd",
+   "changed": 0.05,
+   "screen": "241e0357ea603b34",
+   "index": 37,
+   "read": true
+  },
+  {
+   "barcode": "100010111111",
+   "value": "0xfd1",
+   "changed": 0.05,
+   "screen": "348d92e4a6887da3",
+   "index": 38,
+   "read": true
+  },
+  {
+   "barcode": "101010111111",
+   "value": "0xfd5",
+   "changed": 0.05,
+   "screen": "e95ff48d4fba5370",
+   "index": 39,
+   "read": true
+  },
+  {
+   "barcode": "100110111111",
+   "value": "0xfd9",
+   "changed": 0.03,
+   "screen": "972a48292a7ee526",
+   "index": 40,
+   "read": true
+  },
+  {
+   "barcode": "101110111111",
+   "value": "0xfdd",
+   "changed": 0.03,
+   "screen": "6b0223e5cd0039bf",
+   "index": 41,
+   "read": true
+  },
+  {
+   "barcode": "100001111111",
+   "value": "0xfe1",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 42,
+   "read": true
+  },
+  {
+   "barcode": "101001111111",
+   "value": "0xfe5",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 43,
+   "read": true
+  },
+  {
+   "barcode": "100101111111",
+   "value": "0xfe9",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 44,
+   "read": true
+  },
+  {
+   "barcode": "101101111111",
+   "value": "0xfed",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 45,
+   "read": true
+  },
+  {
+   "barcode": "100011111111",
+   "value": "0xff1",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 46,
+   "read": true
+  },
+  {
+   "barcode": "101011111111",
+   "value": "0xff5",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 47,
+   "read": true
+  },
+  {
+   "barcode": "100111111111",
+   "value": "0xff9",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 48,
+   "read": true
+  },
+  {
+   "barcode": "101111111111",
+   "value": "0xffd",
+   "changed": 0.05,
+   "screen": "613d342c802f0149",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "000001111011",
+   "value": "0xde0",
+   "changed": 0.05,
+   "screen": "613d342c802f0149",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010001111011",
+   "value": "0xde2",
+   "changed": 0.05,
+   "screen": "613d342c802f0149",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110001111011",
+   "value": "0xde3",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 0,
+   "read": true
+  },
+  {
+   "barcode": "001001111011",
+   "value": "0xde4",
+   "changed": 0.05,
+   "screen": "613d342c802f0149",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011001111011",
+   "value": "0xde6",
+   "changed": 0.05,
+   "screen": "d8317b61033c65de",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111001111011",
+   "value": "0xde7",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 1,
+   "read": true
+  },
+  {
+   "barcode": "000101111011",
+   "value": "0xde8",
+   "changed": 0.05,
+   "screen": "4236878ba1fe9ae8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010101111011",
+   "value": "0xdea",
+   "changed": 0.05,
+   "screen": "4236878ba1fe9ae8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110101111011",
+   "value": "0xdeb",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 2,
+   "read": true
+  },
+  {
+   "barcode": "001101111011",
+   "value": "0xdec",
+   "changed": 0.05,
+   "screen": "4236878ba1fe9ae8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011101111011",
+   "value": "0xdee",
+   "changed": 0.05,
+   "screen": "4236878ba1fe9ae8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111101111011",
+   "value": "0xdef",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 3,
+   "read": true
+  },
+  {
+   "barcode": "000011111011",
+   "value": "0xdf0",
+   "changed": 0.05,
+   "screen": "2a5fdd34a825b5d6",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010011111011",
+   "value": "0xdf2",
+   "changed": 0.05,
+   "screen": "514031daa43f73b8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110011111011",
+   "value": "0xdf3",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 4,
+   "read": true
+  },
+  {
+   "barcode": "001011111011",
+   "value": "0xdf4",
+   "changed": 0.05,
+   "screen": "514031daa43f73b8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011011111011",
+   "value": "0xdf6",
+   "changed": 0.05,
+   "screen": "514031daa43f73b8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111011111011",
+   "value": "0xdf7",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 5,
+   "read": true
+  },
+  {
+   "barcode": "000111111011",
+   "value": "0xdf8",
+   "changed": 0.05,
+   "screen": "cd03ee330a9aff24",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010111111011",
+   "value": "0xdfa",
+   "changed": 0.05,
+   "screen": "d7ad1bedd5a587ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110111111011",
+   "value": "0xdfb",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 6,
+   "read": true
+  },
+  {
+   "barcode": "001111111011",
+   "value": "0xdfc",
+   "changed": 0.05,
+   "screen": "d7ad1bedd5a587ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011111111011",
+   "value": "0xdfe",
+   "changed": 0.05,
+   "screen": "d7ad1bedd5a587ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111111111011",
+   "value": "0xdff",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 7,
+   "read": true
+  },
+  {
+   "barcode": "000001110111",
+   "value": "0xee0",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010001110111",
+   "value": "0xee2",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110001110111",
+   "value": "0xee3",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 8,
+   "read": true
+  },
+  {
+   "barcode": "001001110111",
+   "value": "0xee4",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011001110111",
+   "value": "0xee6",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111001110111",
+   "value": "0xee7",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 9,
+   "read": true
+  },
+  {
+   "barcode": "000101110111",
+   "value": "0xee8",
+   "changed": 0.05,
+   "screen": "50b081e3881da12c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010101110111",
+   "value": "0xeea",
+   "changed": 0.05,
+   "screen": "50b081e3881da12c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110101110111",
+   "value": "0xeeb",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 10,
+   "read": true
+  },
+  {
+   "barcode": "001101110111",
+   "value": "0xeec",
+   "changed": 0.05,
+   "screen": "50b081e3881da12c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011101110111",
+   "value": "0xeee",
+   "changed": 0.05,
+   "screen": "50b081e3881da12c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111101110111",
+   "value": "0xeef",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 11,
+   "read": true
+  },
+  {
+   "barcode": "000011110111",
+   "value": "0xef0",
+   "changed": 0.04,
+   "screen": "1f07f998a8a4a3ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010011110111",
+   "value": "0xef2",
+   "changed": 0.04,
+   "screen": "1f07f998a8a4a3ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110011110111",
+   "value": "0xef3",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 12,
+   "read": true
+  },
+  {
+   "barcode": "001011110111",
+   "value": "0xef4",
+   "changed": 0.04,
+   "screen": "1f07f998a8a4a3ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011011110111",
+   "value": "0xef6",
+   "changed": 0.04,
+   "screen": "1f07f998a8a4a3ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111011110111",
+   "value": "0xef7",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 13,
+   "read": true
+  },
+  {
+   "barcode": "000111110111",
+   "value": "0xef8",
+   "changed": 0.04,
+   "screen": "cbfbb09f40b2c7b6",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010111110111",
+   "value": "0xefa",
+   "changed": 0.04,
+   "screen": "cbfbb09f40b2c7b6",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110111110111",
+   "value": "0xefb",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 14,
+   "read": true
+  },
+  {
+   "barcode": "001111110111",
+   "value": "0xefc",
+   "changed": 0.04,
+   "screen": "cbfbb09f40b2c7b6",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011111110111",
+   "value": "0xefe",
+   "changed": 0.05,
+   "screen": "d226105b1a4a5f39",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111111110111",
+   "value": "0xeff",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 15,
+   "read": true
+  },
+  {
+   "barcode": "000010101111",
+   "value": "0xf50",
+   "changed": 0.05,
+   "screen": "81da955ec47289d2",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010010101111",
+   "value": "0xf52",
+   "changed": 0.05,
+   "screen": "81da955ec47289d2",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110010101111",
+   "value": "0xf53",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 16,
+   "read": true
+  },
+  {
+   "barcode": "001010101111",
+   "value": "0xf54",
+   "changed": 0.04,
+   "screen": "bec0526beae128d9",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011010101111",
+   "value": "0xf56",
+   "changed": 0.04,
+   "screen": "bec0526beae128d9",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111010101111",
+   "value": "0xf57",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 17,
+   "read": true
+  },
+  {
+   "barcode": "000110101111",
+   "value": "0xf58",
+   "changed": 0.05,
+   "screen": "4be88ec0fd04b305",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010110101111",
+   "value": "0xf5a",
+   "changed": 0.05,
+   "screen": "e995ba468794575b",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110110101111",
+   "value": "0xf5b",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 18,
+   "read": true
+  },
+  {
+   "barcode": "001110101111",
+   "value": "0xf5c",
+   "changed": 0.05,
+   "screen": "e995ba468794575b",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011110101111",
+   "value": "0xf5e",
+   "changed": 0.05,
+   "screen": "e995ba468794575b",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111110101111",
+   "value": "0xf5f",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 19,
+   "read": true
+  },
+  {
+   "barcode": "000001101111",
+   "value": "0xf60",
+   "changed": 0.05,
+   "screen": "dd0c96629d712a27",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010001101111",
+   "value": "0xf62",
+   "changed": 0.05,
+   "screen": "dd0c96629d712a27",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110001101111",
+   "value": "0xf63",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 20,
+   "read": true
+  },
+  {
+   "barcode": "001001101111",
+   "value": "0xf64",
+   "changed": 0.04,
+   "screen": "f7f34a5a9fda7884",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011001101111",
+   "value": "0xf66",
+   "changed": 0.04,
+   "screen": "f7f34a5a9fda7884",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111001101111",
+   "value": "0xf67",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 21,
+   "read": true
+  },
+  {
+   "barcode": "000101101111",
+   "value": "0xf68",
+   "changed": 0.05,
+   "screen": "613d342c802f0149",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010101101111",
+   "value": "0xf6a",
+   "changed": 0.05,
+   "screen": "d8317b61033c65de",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110101101111",
+   "value": "0xf6b",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 22,
+   "read": true
+  },
+  {
+   "barcode": "001101101111",
+   "value": "0xf6c",
+   "changed": 0.05,
+   "screen": "d8317b61033c65de",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011101101111",
+   "value": "0xf6e",
+   "changed": 0.05,
+   "screen": "d8317b61033c65de",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111101101111",
+   "value": "0xf6f",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 23,
+   "read": true
+  },
+  {
+   "barcode": "000011101111",
+   "value": "0xf70",
+   "changed": 0.05,
+   "screen": "4236878ba1fe9ae8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010011101111",
+   "value": "0xf72",
+   "changed": 0.05,
+   "screen": "0d7ca2eab39fa2c7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110011101111",
+   "value": "0xf73",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 24,
+   "read": true
+  },
+  {
+   "barcode": "001011101111",
+   "value": "0xf74",
+   "changed": 0.05,
+   "screen": "0d7ca2eab39fa2c7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011011101111",
+   "value": "0xf76",
+   "changed": 0.05,
+   "screen": "0d7ca2eab39fa2c7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111011101111",
+   "value": "0xf77",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 25,
+   "read": true
+  },
+  {
+   "barcode": "000111101111",
+   "value": "0xf78",
+   "changed": 0.05,
+   "screen": "2a5fdd34a825b5d6",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010111101111",
+   "value": "0xf7a",
+   "changed": 0.05,
+   "screen": "514031daa43f73b8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110111101111",
+   "value": "0xf7b",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 26,
+   "read": true
+  },
+  {
+   "barcode": "001111101111",
+   "value": "0xf7c",
+   "changed": 0.05,
+   "screen": "514031daa43f73b8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011111101111",
+   "value": "0xf7e",
+   "changed": 0.05,
+   "screen": "514031daa43f73b8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111111101111",
+   "value": "0xf7f",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 27,
+   "read": true
+  },
+  {
+   "barcode": "000001011111",
+   "value": "0xfa0",
+   "changed": 0.05,
+   "screen": "d7ad1bedd5a587ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010001011111",
+   "value": "0xfa2",
+   "changed": 0.05,
+   "screen": "d7ad1bedd5a587ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110001011111",
+   "value": "0xfa3",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 28,
+   "read": true
+  },
+  {
+   "barcode": "001001011111",
+   "value": "0xfa4",
+   "changed": 0.05,
+   "screen": "d7ad1bedd5a587ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011001011111",
+   "value": "0xfa6",
+   "changed": 0.05,
+   "screen": "d7ad1bedd5a587ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111001011111",
+   "value": "0xfa7",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 29,
+   "read": true
+  },
+  {
+   "barcode": "000101011111",
+   "value": "0xfa8",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010101011111",
+   "value": "0xfaa",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110101011111",
+   "value": "0xfab",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 30,
+   "read": true
+  },
+  {
+   "barcode": "001101011111",
+   "value": "0xfac",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011101011111",
+   "value": "0xfae",
+   "changed": 0.05,
+   "screen": "050a72498d4cd0f7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111101011111",
+   "value": "0xfaf",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 31,
+   "read": true
+  },
+  {
+   "barcode": "000011011111",
+   "value": "0xfb0",
+   "changed": 0.05,
+   "screen": "50b081e3881da12c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010011011111",
+   "value": "0xfb2",
+   "changed": 0.05,
+   "screen": "a7567d74c0469a0e",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110011011111",
+   "value": "0xfb3",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 32,
+   "read": true
+  },
+  {
+   "barcode": "001011011111",
+   "value": "0xfb4",
+   "changed": 0.05,
+   "screen": "a7567d74c0469a0e",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011011011111",
+   "value": "0xfb6",
+   "changed": 0.05,
+   "screen": "a7567d74c0469a0e",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111011011111",
+   "value": "0xfb7",
+   "changed": 0.04,
+   "screen": "46899446393f1926",
+   "index": 33,
+   "read": true
+  },
+  {
+   "barcode": "000111011111",
+   "value": "0xfb8",
+   "changed": 0.04,
+   "screen": "1f07f998a8a4a3ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010111011111",
+   "value": "0xfba",
+   "changed": 0.05,
+   "screen": "5ea5f8351dae7f6c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110111011111",
+   "value": "0xfbb",
+   "changed": 0.04,
+   "screen": "5db0641cb5a6dd7a",
+   "index": 34,
+   "read": true
+  },
+  {
+   "barcode": "001111011111",
+   "value": "0xfbc",
+   "changed": 0.05,
+   "screen": "5ea5f8351dae7f6c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011111011111",
+   "value": "0xfbe",
+   "changed": 0.05,
+   "screen": "5ea5f8351dae7f6c",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111111011111",
+   "value": "0xfbf",
+   "changed": 0.04,
+   "screen": "a13f0a51a17d3365",
+   "index": 35,
+   "read": true
+  },
+  {
+   "barcode": "000100111111",
+   "value": "0xfc8",
+   "changed": 0.05,
+   "screen": "d226105b1a4a5f39",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010100111111",
+   "value": "0xfca",
+   "changed": 0.05,
+   "screen": "d226105b1a4a5f39",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110100111111",
+   "value": "0xfcb",
+   "changed": 0.04,
+   "screen": "15f4c16fbca9c694",
+   "index": 36,
+   "read": true
+  },
+  {
+   "barcode": "001100111111",
+   "value": "0xfcc",
+   "changed": 0.05,
+   "screen": "d226105b1a4a5f39",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011100111111",
+   "value": "0xfce",
+   "changed": 0.05,
+   "screen": "d226105b1a4a5f39",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111100111111",
+   "value": "0xfcf",
+   "changed": 0.05,
+   "screen": "f9a119ca48b7d571",
+   "index": 37,
+   "read": true
+  },
+  {
+   "barcode": "000010111111",
+   "value": "0xfd0",
+   "changed": 0.04,
+   "screen": "bec0526beae128d9",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010010111111",
+   "value": "0xfd2",
+   "changed": 0.04,
+   "screen": "bec0526beae128d9",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110010111111",
+   "value": "0xfd3",
+   "changed": 0.04,
+   "screen": "b831e2d74c1df47c",
+   "index": 38,
+   "read": true
+  },
+  {
+   "barcode": "001010111111",
+   "value": "0xfd4",
+   "changed": 0.04,
+   "screen": "bec0526beae128d9",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011010111111",
+   "value": "0xfd6",
+   "changed": 0.04,
+   "screen": "bec0526beae128d9",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111010111111",
+   "value": "0xfd7",
+   "changed": 0.04,
+   "screen": "fc14c5c999a62721",
+   "index": 39,
+   "read": true
+  },
+  {
+   "barcode": "000110111111",
+   "value": "0xfd8",
+   "changed": 0.05,
+   "screen": "e995ba468794575b",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010110111111",
+   "value": "0xfda",
+   "changed": 0.05,
+   "screen": "e995ba468794575b",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110110111111",
+   "value": "0xfdb",
+   "changed": 0.03,
+   "screen": "7b6ffdd8a9bb82ea",
+   "index": 40,
+   "read": true
+  },
+  {
+   "barcode": "001110111111",
+   "value": "0xfdc",
+   "changed": 0.05,
+   "screen": "1a6cdb76e2eb415e",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011110111111",
+   "value": "0xfde",
+   "changed": 0.05,
+   "screen": "1a6cdb76e2eb415e",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111110111111",
+   "value": "0xfdf",
+   "changed": 0.03,
+   "screen": "2cea6410cf84c76b",
+   "index": 41,
+   "read": true
+  },
+  {
+   "barcode": "000001111111",
+   "value": "0xfe0",
+   "changed": 0.05,
+   "screen": "dd0c96629d712a27",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010001111111",
+   "value": "0xfe2",
+   "changed": 0.05,
+   "screen": "dd0c96629d712a27",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110001111111",
+   "value": "0xfe3",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 42,
+   "read": true
+  },
+  {
+   "barcode": "001001111111",
+   "value": "0xfe4",
+   "changed": 0.04,
+   "screen": "f7f34a5a9fda7884",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011001111111",
+   "value": "0xfe6",
+   "changed": 0.04,
+   "screen": "f7f34a5a9fda7884",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111001111111",
+   "value": "0xfe7",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 43,
+   "read": true
+  },
+  {
+   "barcode": "000101111111",
+   "value": "0xfe8",
+   "changed": 0.05,
+   "screen": "613d342c802f0149",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010101111111",
+   "value": "0xfea",
+   "changed": 0.05,
+   "screen": "613d342c802f0149",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110101111111",
+   "value": "0xfeb",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 44,
+   "read": true
+  },
+  {
+   "barcode": "001101111111",
+   "value": "0xfec",
+   "changed": 0.05,
+   "screen": "d8317b61033c65de",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011101111111",
+   "value": "0xfee",
+   "changed": 0.05,
+   "screen": "d8317b61033c65de",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111101111111",
+   "value": "0xfef",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 45,
+   "read": true
+  },
+  {
+   "barcode": "000011111111",
+   "value": "0xff0",
+   "changed": 0.05,
+   "screen": "0d7ca2eab39fa2c7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010011111111",
+   "value": "0xff2",
+   "changed": 0.05,
+   "screen": "0d7ca2eab39fa2c7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110011111111",
+   "value": "0xff3",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 46,
+   "read": true
+  },
+  {
+   "barcode": "001011111111",
+   "value": "0xff4",
+   "changed": 0.05,
+   "screen": "0d7ca2eab39fa2c7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011011111111",
+   "value": "0xff6",
+   "changed": 0.05,
+   "screen": "0d7ca2eab39fa2c7",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111011111111",
+   "value": "0xff7",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 47,
+   "read": true
+  },
+  {
+   "barcode": "000111111111",
+   "value": "0xff8",
+   "changed": 0.05,
+   "screen": "2a5fdd34a825b5d6",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "010111111111",
+   "value": "0xffa",
+   "changed": 0.05,
+   "screen": "2a5fdd34a825b5d6",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "110111111111",
+   "value": "0xffb",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 48,
+   "read": true
+  },
+  {
+   "barcode": "001100111011",
+   "value": "0xdcc",
+   "changed": 0.05,
+   "screen": "514031daa43f73b8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011100111011",
+   "value": "0xdce",
+   "changed": 0.05,
+   "screen": "514031daa43f73b8",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111100111011",
+   "value": "0xdcf",
+   "changed": 0.04,
+   "screen": "1654fca196ce4a03",
+   "index": 49,
+   "read": true
+  },
+  {
+   "barcode": "001010111011",
+   "value": "0xdd4",
+   "changed": 0.05,
+   "screen": "cd03ee330a9aff24",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "011010111011",
+   "value": "0xdd6",
+   "changed": 0.05,
+   "screen": "cd03ee330a9aff24",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "111010111011",
+   "value": "0xdd7",
+   "changed": 0.31,
+   "screen": "bc8b6b64ea64bffe",
+   "index": 50,
+   "read": true
+  },
+  {
+   "barcode": "100000000000",
+   "value": "0x1",
+   "changed": 0.05,
+   "screen": "d7ad1bedd5a587ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "100000000011",
+   "value": "0xc01",
+   "changed": 0.05,
+   "screen": "d7ad1bedd5a587ee",
+   "index": 255,
+   "read": false
+  },
+  {
+   "barcode": "101000110011",
+   "value": "0xcc5",
+   "changed": 0.05,
+   "screen": "5c08772ff0ebb091",
+   "index": 255,
+   "read": false
+  }
+ ]
+}

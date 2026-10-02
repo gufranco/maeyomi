@@ -55,14 +55,21 @@ def test_the_game_has_fifty_cards_and_a_test_card() -> None:
     assert len(PRINTED) == 51
 
 
-def test_a_card_is_named_by_its_number() -> None:
+def test_a_card_is_named_as_it_prints_its_train() -> None:
     card = decode_densha(E1)
 
     text = densha_text(card)
 
     assert card.kind is GameKind.ITEM
+    assert text.name == ("E1 Series Max Tanigawa", "E1系 Maxたにがわ")
     assert text.detail == ("Train card", "でんしゃの カード")
     assert text.power == ("04", "04")
+
+
+def test_a_card_whose_name_is_unknown_keeps_its_number() -> None:
+    sixteen = next(card for card in PRINTED if card.number == 16)
+
+    assert sixteen.name == ("Train card 16", "でんしゃカード 16")
 
 
 def test_the_test_card_says_what_it_is() -> None:

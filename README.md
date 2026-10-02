@@ -34,7 +34,7 @@ armour card and it works out which barcode the device would read that way,
 then prints it. Maeyomi is the Barcode Battler's own word for the front read,
 the one that produces a fighter.
 
-It covers three standalone machines and 31 games: six Datach games for the
+It covers three standalone machines and 32 games: six Datach games for the
 Famicom, whose reader sits in the cartridge; thirteen Famicom and Super
 Famicom games that take their codes from a Barcode Battler II plugged into the
 console; five Game Boy games read through Namco's Barcode Boy; Barcode
@@ -43,8 +43,9 @@ DS games that read Code 39 cards through Sega's HCV-1000, Card de Asobu!
 Hajimete no DS, Oshare Majo Love and Berry DS Collection and Mushiking Super
 Collection; Wantame Music Channel and Ryuusei no Rockman Dragon, two
 Nintendo DS games that read Code 128 cards through a scanner on the microphone
-plug; and Densha Daishuugou! Card de Asobou for Sega Toys' Advanced Pico Beena,
-whose cards carry a track of stripes. For each
+plug; and Densha Daishuugou! Card de Asobou and Soreike! Anpanman Card de
+Tanoshiku ABC for Sega Toys' Advanced Pico Beena, whose cards carry a track of
+stripes. For each
 one it prints the released cards whose barcodes are known, a card made to
 order, and a cheat card: the strongest or most useful card the device will
 read.
@@ -97,6 +98,7 @@ games and their card packs are on
 | Wantame Music Channel | ワンタメ ミュージックチャンネル どこでもスタイル | Nintendo DS, through a scanner on the microphone | `wantame` |
 | Ryuusei no Rockman Dragon | 流星のロックマン ドラゴン | Nintendo DS, through the Wave Scanner on the microphone | `rockman` |
 | Densha Daishuugou | 電車大集合! カードであそぼう | Advanced Pico Beena, through its card reader | `densha` |
+| Anpanman Card de Tanoshiku ABC | それいけ! アンパンマン カードでたのしく ABC | Advanced Pico Beena, through its card reader | `anpanman` |
 
 ## Install
 
@@ -151,7 +153,7 @@ jumps to the filter over the list, and Enter picks its first match. On the
 command line, `--device` does the same for `generate`, `decode`, `cheat`,
 `random`, `products`, `kinds`, `abilities` and `official`.
 
-The five Nintendo DS games and the Beena game read only their own cards,
+The five Nintendo DS games and the two Beena games read only their own cards,
 through readers that take Code 39, Code 128 or stripes rather than the barcodes
 on the shopping, so the page adapts to them. Their random sheet is drawn from the game's own list, as is
 Battle Rush's, and keeps no number ranges, which the games whose cards carry
@@ -717,12 +719,32 @@ cards in MAME's software list: the bars are 2.88 mm wide, their centres
 first 10.07 mm from the end. Printed on a portrait card, that edge is the left
 one, the first place at the top, and the face starts 2 mm clear of the track so
 no colour darkens an empty place. The game reads 50 train cards and a test card
-and nothing else, so there is no card made to order and no cheat card. Pick one
-with `--character` by its card number, such as 04. Each card was scanned in
+and nothing else, so there is no card made to order and no cheat card. Each
+card is named as it prints its train, such as 200系 やまびこ, the 200 Series
+Yamabiko; cards 16, 22 and 24 keep their numbers until their names are known.
+Pick one with `--character` by its name or card number, such as 04. Each card was scanned in
 MAME with the Beena's RD2061 reader on the station page, where a card brings up
 its train or changes the scene: of the 138 codes tried, MAME's 50 cards and
 its test card read and the other 87 leave the page exactly as it was. A card's code is written as its twelve places, 1 for a bar, such as
 100010110011 for card 04.
+
+### Soreike! Anpanman Card de Tanoshiku ABC
+
+Soreike! Anpanman Card de Tanoshiku ABC, Sega Toys' 2006 Beena game, reads
+cards with the same twelve bar places through the same reader, and
+`--device anpanman` makes cards for it. The bars on every one of the 50 scans
+in MAME's software list spell the value MAME gives that card, at the same
+spacing as Densha Daishuugou's within 0.05 mm, so the cards print with the same
+track. The game reads 26 cards for the letters A to Z, 24 picture cards for
+English words from Apple to Chimpanzee, and a test card that brings up its
+congratulations screen, each named as the card prints it. Pick one with
+`--character` by its letter, word or card number. Each card was scanned in
+MAME on the game's first page, and the game's own memory said which card it
+took: the byte where it keeps the card's number was set to 255 before the
+swipe, and of the 348 codes tried the game replaced it with the right number
+for the 51 cards and for the same 51 with their second bar place flipped, and
+left it alone for the other 246. The game reads a card whatever that second
+place holds, so the decoder does too.
 
 ## Checking the machine
 
@@ -972,7 +994,8 @@ sends.
 Densha Daishuugou's cards are the 50 trains and the test card that
 [MAME's Beena software list](https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml) gives with their values. Read off the
 scans in that list, the bars of every card scanned spell the value MAME lists
-for it.
+for it. Anpanman ABC's 50 cards and test card come from the same list, named as
+the scans print them.
 
 Epoch printed a roster card for each of the 12 J.League clubs of 1994 for
 Excite Stage '94. Their barcodes were read off the scans
@@ -982,7 +1005,7 @@ MAME.
 
 ## The cheat code
 
-Every machine and game but seven offers one or more kinds of cheat card, each
+Every machine and game but eight offers one or more kinds of cheat card, each
 with every number it names at the most the device takes. `maeyomi cheat
 --device famista3 --kinds` lists a device's kinds, `--kind era` prints one, and
 the web page offers them on the **Cheats** tab, which shows and prints every kind
@@ -1019,9 +1042,9 @@ has no HP or AP kind: its strongest card already has the most of both.
 Datach J.League Super Top Players has none: its cards name players, and the
 game's program keeps a profile, a face and an appearance for each player but
 no number a card could raise. Card de Asobu, Oshare Majo, Mushiking,
-Wantame, Rockman and Densha Daishuugou have none either: a card names a
-kana, an item, a beetle, a move, a dog, an outfit, a battle card or a train and
-carries nothing else.
+Wantame, Rockman, Densha Daishuugou and Anpanman ABC have none either: a card
+names a kana, an item, a beetle, a move, a dog, an outfit, a battle card, a
+train or a letter and carries nothing else.
 
 `maeyomi cheat -o cheat.pdf`, or the **Cheats** tab of the web page,
 which typing up, up, down, down, left, right, left, right, B, A anywhere on
@@ -1283,8 +1306,8 @@ under which licence:
   card decoder, Mushiking's own card comparison and Wantame's own card checks
   in the checks; it is not a dependency of the package.
 - **[MAME's Beena software list](https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml)**, in MAME
-  0.289: Densha Daishuugou's 50 cards and test card with their values, and the
-  card scans the stripe layout was measured on.
+  0.289: Densha Daishuugou's and Anpanman ABC's cards with their values, and the
+  card scans the stripe layout and the Anpanman names were read from.
 - **[MAME](https://www.mamedev.org/)** 0.289 runs every game in the checks. The
   game rules come from each game's own program; no ROM byte is shipped, and each
   ROM is named in `artifacts.manifest.json` by its checksum.

@@ -161,6 +161,7 @@ DEVICE_SYMBOLOGIES: Final[dict[Device, tuple[Symbology, float]]] = {
     Device.WANTAME: (Symbology.CODE128, NOMINAL_MODULE_WIDTH_MM),
     Device.ROCKMAN_DRAGON: (Symbology.CODE128, NOMINAL_MODULE_WIDTH_MM),
     Device.DENSHA: (Symbology.STRIPES, NOMINAL_MODULE_WIDTH_MM),
+    Device.ANPANMAN: (Symbology.STRIPES, NOMINAL_MODULE_WIDTH_MM),
 }
 """Devices whose reader takes another symbology, with the module width it prints at."""
 

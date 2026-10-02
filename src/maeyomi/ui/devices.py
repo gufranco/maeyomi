@@ -225,6 +225,7 @@ FORMS: Final[dict[Device, DeviceForm]] = {
     Device.WANTAME: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.ROCKMAN_DRAGON: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.DENSHA: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
+    Device.ANPANMAN: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.HATAYAMA: DeviceForm(
         ("game", "picks", "stats"),
         HATAYAMA_MAX_HP,
@@ -269,7 +270,7 @@ NINTENDO_DS_GAMES: Final = frozenset(
         Device.ROCKMAN_DRAGON,
     }
 )
-BEENA_GAMES: Final = frozenset({Device.DENSHA})
+BEENA_GAMES: Final = frozenset({Device.DENSHA, Device.ANPANMAN})
 
 
 def platform_of(device: Device) -> Platform:

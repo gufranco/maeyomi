@@ -41,6 +41,7 @@ class Device(StrEnum):
     WANTAME = "wantame"
     ROCKMAN_DRAGON = "rockman"
     DENSHA = "densha"
+    ANPANMAN = "anpanman"
 
     @property
     def is_game(self) -> bool:
@@ -95,4 +96,8 @@ _NAMES: Final[dict[Device, tuple[str, str]]] = {
     Device.WANTAME: ("Wantame Music Channel", "ワンタメ ミュージックチャンネル どこでもスタイル"),
     Device.ROCKMAN_DRAGON: ("Ryuusei no Rockman Dragon", "流星のロックマン ドラゴン"),
     Device.DENSHA: ("Densha Daishuugou", "電車大集合! カードであそぼう"),
+    Device.ANPANMAN: (
+        "Anpanman Card de Tanoshiku ABC",
+        "それいけ! アンパンマン カードでたのしく ABC",
+    ),
 }
