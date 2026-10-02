@@ -2,6 +2,24 @@
 
 <!-- version list -->
 
+## v1.24.0 (2026-10-02)
+
+### Bug Fixes
+
+- **stripes**: Read a typed number as the card's number
+  ([`6dfe2ab`](https://github.com/gufranco/maeyomi/commit/6dfe2ab245a8a943572c35e8bdecdd3e0f2c918c))
+
+### Chores
+
+- **formula**: Point at v1.23.0 [skip ci]
+  ([`48f9641`](https://github.com/gufranco/maeyomi/commit/48f9641841fd4b38a62749db7f65f39fc39d303e))
+
+### Features
+
+- **ui**: Read stripe cards by number or by bars
+  ([`fdbbe67`](https://github.com/gufranco/maeyomi/commit/fdbbe674289a487f69838879474761717f275218))
+
+
 ## v1.23.0 (2026-10-02)
 
 ### Chores
