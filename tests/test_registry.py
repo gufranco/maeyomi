@@ -26,6 +26,7 @@ NUMBERLESS = frozenset(
         Device.ROCKMAN_DRAGON,
         Device.DENSHA,
         Device.ANPANMAN,
+        Device.OCHAKEN,
     }
 )
 

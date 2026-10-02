@@ -285,6 +285,7 @@ class DeviceView(BaseModel):
     back_ranges: list[list[int]] | None
     cheat_kinds: list[CheatKindView]
     symbology: str
+    reader: str
     ranged: bool
 
 

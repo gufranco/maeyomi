@@ -226,6 +226,7 @@ FORMS: Final[dict[Device, DeviceForm]] = {
     Device.ROCKMAN_DRAGON: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.DENSHA: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.ANPANMAN: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
+    Device.OCHAKEN: DeviceForm(("game",), YUYU_MAX, YUYU_MAX, YUYU_MAX, sheet_fields=()),
     Device.HATAYAMA: DeviceForm(
         ("game", "picks", "stats"),
         HATAYAMA_MAX_HP,
@@ -271,11 +272,13 @@ NINTENDO_DS_GAMES: Final = frozenset(
     }
 )
 BEENA_GAMES: Final = frozenset({Device.DENSHA, Device.ANPANMAN})
+BUILT_IN_GAMES: Final = frozenset({Device.OCHAKEN})
+READERS: Final[dict[Device, str]] = {Device.OCHAKEN: Device.OCHAKEN.value}
 
 
 def platform_of(device: Device) -> Platform:
     """The platform a device is listed under on the page."""
-    if not device.is_game:
+    if not device.is_game or device in BUILT_IN_GAMES:
         return Platform.MACHINE
     if device.name.startswith(DATACH_PREFIX):
         return Platform.DATACH
@@ -316,6 +319,7 @@ def device_views() -> list[DeviceView]:
                 for kind in cheat_kinds(device)
             ],
             symbology=symbology_of(device).value,
+            reader=READERS.get(device, symbology_of(device).value),
             ranged=holds_ranges(device),
         )
         for device in Device

@@ -365,11 +365,11 @@ function retext(id, key) {
 
 function applyReader(form) {
   const products = form.symbology === 'ean';
-  showUnavailable('shop', !products, `unavailable.shop.${form.symbology}`);
+  showUnavailable('shop', !products, `unavailable.shop.${form.reader}`);
   showUnavailable('cheat', form.cheat_kinds.length === 0, 'unavailable.cheat');
   retext('read-note', products ? 'read.note' : 'read.note.card');
   retext('read-legend', products ? 'read.legend' : 'read.legend.card');
-  retext('read-barcode-hint', products ? 'read.barcode.hint' : `read.barcode.hint.${form.symbology}`);
+  retext('read-barcode-hint', products ? 'read.barcode.hint' : `read.barcode.hint.${form.reader}`);
 }
 
 function applyDeviceForm() {

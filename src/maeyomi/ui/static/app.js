@@ -623,6 +623,7 @@ const READ_PLACEHOLDERS = {
   code39: 'read.placeholder.code39',
   code128: 'read.placeholder.code128',
   stripes: 'read.placeholder.stripes',
+  ochaken: 'read.placeholder.ochaken',
 };
 
 function typedBarcode() {
@@ -635,7 +636,7 @@ function syncReadInput() {
   const code39 = deviceForm()?.symbology === 'code39';
   $('read-barcode').setAttribute('inputmode', code39 ? 'text' : 'numeric');
   $('read-barcode').setAttribute('pattern', code39 ? '[0-9A-Za-z\\-. $/+%*]*' : '[0-9 ]*');
-  $('read-barcode').dataset.i18nPlaceholder = READ_PLACEHOLDERS[deviceForm()?.symbology] ?? 'read.placeholder';
+  $('read-barcode').dataset.i18nPlaceholder = READ_PLACEHOLDERS[deviceForm()?.reader] ?? 'read.placeholder';
   $('read-barcode').setAttribute('placeholder', t($('read-barcode').dataset.i18nPlaceholder));
 }
 

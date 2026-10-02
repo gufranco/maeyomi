@@ -23,6 +23,14 @@ from maeyomi.beena.densha import (
     densha_named,
     densha_text,
 )
+from maeyomi.beena.ochaken import STAT_KEYS as OCHAKEN_STATS
+from maeyomi.beena.ochaken import (
+    build_ochaken,
+    decode_ochaken,
+    ochaken_entries,
+    ochaken_named,
+    ochaken_text,
+)
 from maeyomi.datach.game_card import DatachCard, GameKind
 from maeyomi.datach.game_types import CardText, DatachGame, GameEntry, GameOrder
 from maeyomi.datach.jleague import build_jleague, decode_jleague
@@ -633,6 +641,17 @@ GAMES: Final[dict[Device, DatachGame]] = {
         describe=anpanman_text,
         named=anpanman_named,
         stat_keys=ANPANMAN_STATS,
+        datach_reader=False,
+        drawable=frozenset({GameKind.ITEM}),
+    ),
+    Device.OCHAKEN: DatachGame(
+        decode=decode_ochaken,
+        build=build_ochaken,
+        strongest=None,
+        entries=ochaken_entries,
+        describe=ochaken_text,
+        named=ochaken_named,
+        stat_keys=OCHAKEN_STATS,
         datach_reader=False,
         drawable=frozenset({GameKind.ITEM}),
     ),

@@ -166,6 +166,7 @@ DS_GAMES = [
     Device.ROCKMAN_DRAGON,
     Device.DENSHA,
     Device.ANPANMAN,
+    Device.OCHAKEN,
 ]
 
 

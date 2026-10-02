@@ -18037,6 +18037,306 @@
    "name": "テストカード",
    "set": "それいけ! アンパンマン カードでたのしく ABC カード",
    "source_url": "https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml"
+  },
+  {
+   "barcode": "0101000000001001",
+   "name": "和のお茶",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101101000000101",
+   "name": "洋のお茶",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101010100001101",
+   "name": "色々なのみもの",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001100001001",
+   "name": "和菓子",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000010001001",
+   "name": "洋菓子",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001010001001",
+   "name": "スナック菓子",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000110001001",
+   "name": "日本料理",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001110001001",
+   "name": "西洋料理",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000001001001",
+   "name": "中華料理",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101101001000101",
+   "name": "内装をかえる",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000101001001",
+   "name": "家具をかえる",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001101001001",
+   "name": "小物をかえる",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0100100011000101",
+   "name": "のみ薬",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001011001001",
+   "name": "注射",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000111001001",
+   "name": "星占い",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001111001001",
+   "name": "カードおみくじ",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101100000100101",
+   "name": "お茶犬占い",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001000101001",
+   "name": "神経衰弱",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000100101001",
+   "name": "絵合わせスロット",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101101100101101",
+   "name": "リョクをさがせ!",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0100100010101101",
+   "name": "庭に行く",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101101010100101",
+   "name": "縁側に行く",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000110101001",
+   "name": "公園に行く",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001110101001",
+   "name": "大通りに行く",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000001101001",
+   "name": "商店街に行く",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001001101001",
+   "name": "原っぱに行く",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101100101101101",
+   "name": "お花畑に行く",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001101101001",
+   "name": "川辺に行く",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000011101001",
+   "name": "海辺に行く",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001011101001",
+   "name": "温泉に行く",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000111101001",
+   "name": "きせかえあそび",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001111101001",
+   "name": "おやすみなさい",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000000011001",
+   "name": "部屋そうじ",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001000011001",
+   "name": "庭そうじ",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0100100100010101",
+   "name": "テレビをみる",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101101100010101",
+   "name": "トイレに行く",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101100010010101",
+   "name": "手紙を読む",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0100101010010101",
+   "name": "アイテムを見る",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000110011001",
+   "name": "おいしいお茶いれよう?",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101101110011101",
+   "name": "リョクをなでなで",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101100001010101",
+   "name": "緑茶犬〈リョク〉",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001001011001",
+   "name": "紅茶犬〈アール〉",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000101011001",
+   "name": "烏龍茶犬〈ロン〉",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001101011001",
+   "name": "ハーブ茶犬〈ハナ〉",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0100100011010101",
+   "name": "紅茶犬〈チャイ〉",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0100101011010101",
+   "name": "コーヒー犬〈カフェ〉",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0100010111011101",
+   "name": "麦茶犬〈ムハ〉",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0100101111010101",
+   "name": "さくら茶猫〈サクラ〉",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101000000111001",
+   "name": "ラベンダー茶猫〈ラン〉",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
+  },
+  {
+   "barcode": "0101001000111001",
+   "name": "ジャスミン茶猫〈ミン〉",
+   "set": "テレビとお茶札 お茶犬「ほっ」と生活 カード",
+   "source_url": "https://github.com/mamedev/mame/blob/master/hash/tvochken.xml"
   }
  ]
 }

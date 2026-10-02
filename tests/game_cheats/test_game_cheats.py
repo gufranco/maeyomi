@@ -21,6 +21,7 @@ NUMBERLESS = frozenset(
         Device.ROCKMAN_DRAGON,
         Device.DENSHA,
         Device.ANPANMAN,
+        Device.OCHAKEN,
     }
 )
 SAMPLE = 3000

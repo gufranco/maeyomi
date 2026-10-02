@@ -34,7 +34,8 @@ armour card and it works out which barcode the device would read that way,
 then prints it. Maeyomi is the Barcode Battler's own word for the front read,
 the one that produces a fighter.
 
-It covers three standalone machines and 32 games: six Datach games for the
+It covers four standalone machines, the three Barcode Battlers and Sega Toys'
+TV Ocha-Ken, and 32 games: six Datach games for the
 Famicom, whose reader sits in the cartridge; thirteen Famicom and Super
 Famicom games that take their codes from a Barcode Battler II plugged into the
 console; five Game Boy games read through Namco's Barcode Boy; Barcode
@@ -67,6 +68,7 @@ games and their card packs are on
 | Barcode Battler | バーコードバトラー | Standalone machine | `bb1` |
 | Barcode Battler 2 | バーコードバトラー2 | Standalone machine | `bb2` |
 | Barcode Battler 2 Double | バーコードバトラー2 ダブル | Standalone machine | `double` |
+| TV Ocha-Ken | テレビとお茶札 お茶犬「ほっ」と生活 | Standalone machine, through its card reader | `ochaken` |
 | Alice no Paint Adventure | アリスのペイントアドベンチャー | Super Famicom, through the Barcode Battler II | `alice` |
 | Barcode Battler Senki | バーコードバトラー戦記 | Super Famicom, through the Barcode Battler II | `senki` |
 | Donald Duck no Mahou no Boushi | ドナルドダックの魔法のぼうし | Super Famicom, through the Barcode Battler II | `donald` |
@@ -747,6 +749,28 @@ for the 51 cards and for the same 51 with their second bar place flipped, and
 left it alone for the other 246. The game reads a card whatever that second
 place holds, so the decoder does too.
 
+### TV Ocha-Ken
+
+TV Ocha-Ken, Sega Toys' 2005 machine that plugs into a television, reads
+Ocha-Ken cards through its RD1831 card reader, and `--device ochaken` makes
+cards for it. It boots the Beena's BIOS but keeps its game, テレビとお茶札
+お茶犬「ほっ」と生活, in its own flash, and its cards carry sixteen bar places
+rather than twelve. On all 50 scans in MAME's TV Ocha-Ken software list the
+bars spell the value MAME gives that card. Measured across them, the bars are
+3.93 mm wide and their centres 4 mm apart, so neighbouring bars nearly touch;
+each is 8.17 mm long and ends 0.28 mm short of the edge, and the first sits
+14.23 mm from the end, the middle of a spread of about half a millimetre from
+card to card. The machine reads its 50 cards and nothing else, so there is no
+card made to order and no cheat card. Each card is named as it prints its
+title, such as 和のお茶, Japanese tea, or 麦茶犬〈ムハ〉, Muha, the barley tea
+dog. Pick one with `--character` by its name or card number. Each card was
+scanned in MAME in the room a new day opens on, after B starts a new game: of
+the 661 codes tried, each of the 50 cards brought up a scene of its own, and
+the other 611, every card with one place flipped, left the room exactly where a
+blank card does. The machine reads all sixteen places, so the decoder does too.
+A card's code is written as its sixteen places, 1 for a bar, such as
+0101000000001001 for card 01.
+
 ## Checking the machine
 
 `maeyomi doctor` checks that this computer can print a card the device will
@@ -765,7 +789,7 @@ magnification. A scaled page still looks correct and still stops reading,
 because the module width is what a scanner measures.
 
 Cards print standing up, poker sized at 63.5 by 88.9 mm, nine to an A4 sheet;
-the Beena's stripe cards lie down, eight to a sheet.
+the stripe cards of the Beena and TV Ocha-Ken lie down, eight to a sheet.
 That is the size card sleeves and guillotines are built for. It is this
 project's choice: Epoch never published the size of its own cards, and no
 collector page, auction listing or wiki records it. The size lives in
@@ -997,7 +1021,10 @@ Densha Daishuugou's cards are the 50 trains and the test card that
 [MAME's Beena software list](https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml) gives with their values. Read off the
 scans in that list, the bars of every card scanned spell the value MAME lists
 for it. Anpanman ABC's 50 cards and test card come from the same list, named as
-the scans print them.
+the scans print them. TV Ocha-Ken's 50 cards come from
+[MAME's TV Ocha-Ken software list](https://github.com/mamedev/mame/blob/master/hash/tvochken.xml),
+named as its scans print them, and the bars of every scan spell the value MAME
+lists for that card.
 
 Epoch printed a roster card for each of the 12 J.League clubs of 1994 for
 Excite Stage '94. Their barcodes were read off the scans
@@ -1007,7 +1034,7 @@ MAME.
 
 ## The cheat code
 
-Every machine and game but eight offers one or more kinds of cheat card, each
+Every machine and game but nine offers one or more kinds of cheat card, each
 with every number it names at the most the device takes. `maeyomi cheat
 --device famista3 --kinds` lists a device's kinds, `--kind era` prints one, and
 the web page offers them on the **Cheats** tab, which shows and prints every kind
@@ -1044,9 +1071,10 @@ has no HP or AP kind: its strongest card already has the most of both.
 Datach J.League Super Top Players has none: its cards name players, and the
 game's program keeps a profile, a face and an appearance for each player but
 no number a card could raise. Card de Asobu, Oshare Majo, Mushiking,
-Wantame, Rockman, Densha Daishuugou and Anpanman ABC have none either: a card
-names a kana, an item, a beetle, a move, a dog, an outfit, a battle card, a
-train or a letter and carries nothing else.
+Wantame, Rockman, Densha Daishuugou, Anpanman ABC and TV Ocha-Ken have none
+either: a card names a kana, an item, a beetle, a move, a dog, an outfit, a
+battle card, a train, a letter or something for the Ocha-Ken to do and carries
+nothing else.
 
 `maeyomi cheat -o cheat.pdf`, or the **Cheats** tab of the web page,
 which typing up, up, down, down, left, right, left, right, B, A anywhere on
@@ -1310,6 +1338,9 @@ under which licence:
 - **[MAME's Beena software list](https://github.com/mamedev/mame/blob/master/hash/sega_beena_cart.xml)**, in MAME
   0.289: Densha Daishuugou's and Anpanman ABC's cards with their values, and the
   card scans the stripe layout and the Anpanman names were read from.
+- **[MAME's TV Ocha-Ken software list](https://github.com/mamedev/mame/blob/master/hash/tvochken.xml)**,
+  in MAME 0.289: TV Ocha-Ken's cards with their values, and the card scans its
+  stripe layout and card names were read from.
 - **[MAME](https://www.mamedev.org/)** 0.289 runs every game in the checks. The
   game rules come from each game's own program; no ROM byte is shipped, and each
   ROM is named in `artifacts.manifest.json` by its checksum.

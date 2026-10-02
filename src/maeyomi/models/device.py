@@ -42,6 +42,7 @@ class Device(StrEnum):
     ROCKMAN_DRAGON = "rockman"
     DENSHA = "densha"
     ANPANMAN = "anpanman"
+    OCHAKEN = "ochaken"
 
     @property
     def is_game(self) -> bool:
@@ -100,4 +101,5 @@ _NAMES: Final[dict[Device, tuple[str, str]]] = {
         "Anpanman Card de Tanoshiku ABC",
         "それいけ! アンパンマン カードでたのしく ABC",
     ),
+    Device.OCHAKEN: ("TV Ocha-Ken", "テレビとお茶札 お茶犬「ほっ」と生活"),
 }

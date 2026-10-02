@@ -1,16 +1,19 @@
-"""The stripe track an Advanced Pico Beena card carries along one long edge.
+"""The stripe track a Sega Toys card carries along one long edge.
 
-A Beena card has twelve places for a bar along its bottom edge. A bar is a one
-and an empty place a zero, read from the left end, and the console's reader
-hands the game the twelve bits they spell with the leftmost lowest. The
-positions were measured on the scans of real cards in MAME's software list, at
-600 dots per inch: the bars are 2.88 mm wide, their centres 6.28 mm apart, the
+An Advanced Pico Beena card has twelve places for a bar along its bottom edge,
+and a TV Ocha-Ken card sixteen. A bar is a one and an empty place a zero, read
+from the left end, and the reader hands the game the bits they spell with the
+leftmost lowest, so a code's length names its track. The positions were
+measured on the scans of real cards in MAME's software lists, at 600 dots per
+inch. A Beena card's bars are 2.88 mm wide, their centres 6.28 mm apart, the
 first 10.07 mm from the left edge, each 15 mm tall and ending 0.4 mm short of
-the edge. The real cards are landscape, and so is the printed card: the track
-runs along its bottom edge with the first place at the left. A code is written
-as the twelve places in that order, 1 for a bar. The card's face starts 2 mm
-above the track, so neither its colour nor the bleed around it can darken a
-place left empty.
+the edge. A TV Ocha-Ken card's are 3.93 mm wide and 4 mm apart, so neighbours
+almost touch, the first 14.23 mm from the left edge, each 8.17 mm tall and
+ending 0.28 mm short of it. Both kinds of card are landscape, and so is the
+printed card: the track runs along its bottom edge with the first place at the
+left. A code is written as the places in that order, 1 for a bar. The card's
+face starts 2 mm above the track, so neither its colour nor the bleed around it
+can darken a place left empty.
 """
 
 import re
@@ -50,15 +53,24 @@ BEENA_TRACK: Final = Track(
     bar_length_mm=15.0,
     edge_gap_mm=0.4,
 )
-TRACKS: Final = {track.places: track for track in (BEENA_TRACK,)}
+OCHAKEN_TRACK: Final = Track(
+    places=16,
+    pitch_mm=4.0,
+    bar_thickness_mm=3.93,
+    first_slot_mm=14.23,
+    bar_length_mm=8.17,
+    edge_gap_mm=0.28,
+)
+TRACKS: Final = {track.places: track for track in (BEENA_TRACK, OCHAKEN_TRACK)}
 TRACK_CLEARANCE_MM: Final = 2.0
 BAR: Final = "1"
 INK_LEVEL: Final = 128
 MM_PER_INCH: Final = 25.4
 STRIPES: Final = re.compile(r"[01]+")
 WRONG_FORM: Final = Said(
-    "a Beena card carries 12 places, each 1 for a bar or 0 for none",
-    "ビーナの カードは 12この ばしょに バーが あれば 1、なければ 0",
+    "a stripe card carries 12 places, or 16 for TV Ocha-Ken, each 1 for a bar or 0 for none",
+    "しまもようの カードは 12この ばしょ、お茶犬の カードなら 16この ばしょに、"
+    "バーが あれば 1、なければ 0",
 )
 
 

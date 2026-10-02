@@ -20,6 +20,7 @@ NUMBERLESS = frozenset(
         Device.ROCKMAN_DRAGON,
         Device.DENSHA,
         Device.ANPANMAN,
+        Device.OCHAKEN,
     }
 )
 """Games whose cards carry nothing to raise: a J.League card names a player and no more."""

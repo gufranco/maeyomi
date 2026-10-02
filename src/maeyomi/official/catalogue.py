@@ -124,6 +124,7 @@ class OfficialSet(Enum):
     ROCKMAN_DRAGON = "流星のロックマン ドラゴン ウェーブカード"
     DENSHA = "電車大集合! カードであそぼう カード"
     ANPANMAN = "それいけ! アンパンマン カードでたのしく ABC カード"
+    OCHAKEN = "テレビとお茶札 お茶犬「ほっ」と生活 カード"
     IRWIN = "アーウィン版 バーコードバトラー カードリスト"
     TOMY = "トミー版 バーコードバトラー カードリスト"
     TOMY_GERMANY = "トミー版 ドイツ バーコードバトラー カードリスト"
@@ -178,6 +179,7 @@ _DEVICES: Final[dict[OfficialSet, Device]] = {
     OfficialSet.ROCKMAN_DRAGON: Device.ROCKMAN_DRAGON,
     OfficialSet.DENSHA: Device.DENSHA,
     OfficialSet.ANPANMAN: Device.ANPANMAN,
+    OfficialSet.OCHAKEN: Device.OCHAKEN,
 }
 
 _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
@@ -230,6 +232,7 @@ _ENGLISH_TITLES: Final[dict[OfficialSet, str]] = {
     OfficialSet.ROCKMAN_DRAGON: "Ryuusei no Rockman Dragon Wave Cards",
     OfficialSet.DENSHA: "Densha Daishuugou! Card de Asobou cards",
     OfficialSet.ANPANMAN: "Soreike! Anpanman Card de Tanoshiku ABC cards",
+    OfficialSet.OCHAKEN: "TV Ocha-Ken cards",
     OfficialSet.IRWIN: "Irwin Barcode Battler, United States and Canada",
     OfficialSet.TOMY: "Tomy Barcode Battler, United Kingdom, Ireland and Italy",
     OfficialSet.TOMY_GERMANY: "Tomy Barcode Battler, Germany",

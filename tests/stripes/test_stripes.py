@@ -1,4 +1,4 @@
-"""Tests for the stripe track an Advanced Pico Beena card carries along one long edge."""
+"""Tests for the stripe track a Sega Toys card carries along one long edge."""
 
 from itertools import pairwise
 from pathlib import Path
@@ -10,6 +10,8 @@ from reportlab.pdfgen.canvas import Canvas
 from maeyomi.barcode.rasterise import render_pdf_pages
 from maeyomi.barcode.stripes import (
     BEENA_TRACK,
+    OCHAKEN_TRACK,
+    Track,
     bar_boxes,
     draw_stripes,
     read_stripes,
@@ -21,6 +23,7 @@ from maeyomi.decoder.errors import UnsupportedBarcodeError
 from maeyomi.said import in_japanese
 
 CODE = "100010110011"
+OCHAKEN_CODE = "0101000000001001"
 CARD_WIDTH = 88.9
 CARD_HEIGHT = 63.5
 DPI = 300
@@ -38,46 +41,57 @@ def test_a_bar_is_drawn_for_every_one_and_none_for_a_zero() -> None:
     assert len(boxes) == CODE.count("1")
 
 
-def test_the_first_bar_sits_along_the_bottom_edge_where_the_cards_does() -> None:
-    x, y, width, height = bar_boxes(CODE, x_mm=0, y_mm=0)[0]
+@pytest.mark.parametrize(("code", "track"), [(CODE, BEENA_TRACK), (OCHAKEN_CODE, OCHAKEN_TRACK)])
+def test_the_first_bar_sits_along_the_bottom_edge_where_the_cards_does(
+    code: str, track: Track
+) -> None:
+    first = code.index("1")
 
-    assert x + width / 2 == pytest.approx(BEENA_TRACK.first_slot_mm)
+    x, y, width, height = bar_boxes(code, x_mm=0, y_mm=0)[0]
+
+    assert x + width / 2 == pytest.approx(track.first_slot_mm + first * track.pitch_mm)
     assert (width, y, y + height) == pytest.approx(
-        (BEENA_TRACK.bar_thickness_mm, BEENA_TRACK.edge_gap_mm, BEENA_TRACK.depth_mm)
+        (track.bar_thickness_mm, track.edge_gap_mm, track.depth_mm)
     )
 
 
-def test_bars_are_one_pitch_apart_left_to_right() -> None:
-    boxes = bar_boxes("1" * BEENA_TRACK.places, x_mm=0, y_mm=0)
+@pytest.mark.parametrize("track", [BEENA_TRACK, OCHAKEN_TRACK])
+def test_bars_are_one_pitch_apart_left_to_right(track: Track) -> None:
+    boxes = bar_boxes("1" * track.places, x_mm=0, y_mm=0)
 
     gaps = {round(right[0] - left[0], 6) for left, right in pairwise(boxes)}
-    assert gaps == {round(BEENA_TRACK.pitch_mm, 6)}
+    assert gaps == {round(track.pitch_mm, 6)}
 
 
-def test_a_drawn_track_reads_back_as_its_code(tmp_path: Path) -> None:
+@pytest.mark.parametrize(("code", "track"), [(CODE, BEENA_TRACK), (OCHAKEN_CODE, OCHAKEN_TRACK)])
+def test_a_drawn_track_reads_back_as_its_code(tmp_path: Path, code: str, track: Track) -> None:
     path = tmp_path / "track.pdf"
-    page(path, CODE)
+    page(path, code)
 
     image = render_pdf_pages(path, dpi=DPI)[0]
 
-    assert read_stripes(image, dpi=DPI, track=BEENA_TRACK) == CODE
+    assert read_stripes(image, dpi=DPI, track=track) == code
 
 
 def test_a_codes_length_names_its_track() -> None:
-    assert track_of(CODE) == BEENA_TRACK
+    assert (track_of(CODE), track_of(OCHAKEN_CODE)) == (BEENA_TRACK, OCHAKEN_TRACK)
 
 
-@pytest.mark.parametrize("code", ["1000101100", "10001011001A", "1000101100110", ""])
-def test_a_code_that_is_not_twelve_ones_and_zeros_is_refused_in_both_languages(code: str) -> None:
-    with pytest.raises(UnsupportedBarcodeError, match="12") as raised:
+@pytest.mark.parametrize(
+    "code", ["1000101100", "10001011001A", "1000101100110", "", "10001011001100110"]
+)
+def test_a_code_no_track_carries_is_refused_in_both_languages(code: str) -> None:
+    with pytest.raises(UnsupportedBarcodeError, match="12 places, or 16") as raised:
         validate_stripes(code)
 
     assert in_japanese(raised.value.args[0])
 
 
-def test_a_valid_code_is_returned_unchanged() -> None:
-    assert validate_stripes(f" {CODE} ") == CODE
+@pytest.mark.parametrize("code", [CODE, OCHAKEN_CODE])
+def test_a_valid_code_is_returned_unchanged(code: str) -> None:
+    assert validate_stripes(f" {code} ") == code
 
 
 def test_the_track_is_as_long_as_its_bars_and_spans_every_place() -> None:
     assert stripes_size_mm(CODE) == pytest.approx((11 * 6.28 + 2.88, 15.0))
+    assert stripes_size_mm(OCHAKEN_CODE) == pytest.approx((15 * 4.0 + 3.93, 8.17))

@@ -597,6 +597,18 @@ def test_every_device_says_which_symbology_its_reader_takes(client: TestClient) 
     assert (views["cardasobu"], views["bb2"]) == ("code39", "ean")
 
 
+def test_every_device_names_the_reader_its_page_text_describes(client: TestClient) -> None:
+    views = {view["key"]: view["reader"] for view in client.get("/api/devices").json()}
+
+    assert (views["bb2"], views["densha"], views["ochaken"]) == ("ean", "stripes", "ochaken")
+
+
+def test_a_built_in_game_is_listed_among_the_machines(client: TestClient) -> None:
+    views = {view["key"]: view["platform"] for view in client.get("/api/devices").json()}
+
+    assert (views["ochaken"], views["densha"]) == ("machine", "beena")
+
+
 def test_every_device_says_whether_a_sheet_holds_to_number_ranges(client: TestClient) -> None:
     views = {view["key"]: view["ranged"] for view in client.get("/api/devices").json()}
 
