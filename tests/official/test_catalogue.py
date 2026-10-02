@@ -1,6 +1,7 @@
 """Tests for the officially released cards, as transcribed by the community."""
 
 import json
+import re
 from functools import partial
 from pathlib import Path
 
@@ -315,6 +316,25 @@ def test_exactly_the_five_first_device_lists_use_that_device() -> None:
 
 def test_the_printable_cards_are_every_transcription_that_decodes() -> None:
     assert len(official_cards()) == TRANSCRIBED - len(KNOWN_BAD_CHECK_DIGITS)
+
+
+@pytest.mark.parametrize(
+    ("readme", "lists", "cards"),
+    [
+        ("README.md", r"names the (\d+) card lists", r"prints all (\d+)"),
+        ("README.ja.md", r"発売された(\d+)のカードリスト", r"(\d+)枚すべてを印刷"),
+    ],
+)
+def test_the_readme_counts_the_lists_and_cards_the_catalogue_holds(
+    readme: str, lists: str, cards: str
+) -> None:
+    text = (Path(__file__).parent.parent.parent / readme).read_text(encoding="utf-8")
+
+    counted = tuple(
+        int(match.group(1)) for match in (re.search(lists, text), re.search(cards, text)) if match
+    )
+
+    assert counted == (len(OfficialSet), len(official_cards()))
 
 
 @pytest.mark.parametrize("official_set", list(OfficialSet))

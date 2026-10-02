@@ -456,7 +456,7 @@ def official(
     images: ImagesOption = None,
     print_shop: PrintShopOption = False,
 ) -> None:
-    """Print the cards Epoch, Bandai and Namco released, as the community transcribed them."""
+    """Print the cards released for these devices, as the community transcribed them."""
     if listing:
         for line in official_lines(device):
             typer.echo(line)

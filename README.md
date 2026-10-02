@@ -857,9 +857,9 @@ convenience: the lookup failing changes nothing about the card.
 
 ## The real cards
 
-`maeyomi official --list` names the 46 card lists Epoch, Bandai and Namco released,
+`maeyomi official --list` names the 54 card lists released for these devices,
 how many cards of each will print, and which device each list was written for; `maeyomi official --set candy -o
-candy.pdf` prints one, and leaving out `--set` prints all 1586. The web page has
+candy.pdf` prints one, and leaving out `--set` prints all 3046. The web page has
 the same thing under **The real cards**.
 
 Epoch never published a machine-readable list, so the barcodes come from the
