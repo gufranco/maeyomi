@@ -2,6 +2,29 @@
 
 <!-- version list -->
 
+## v1.21.0 (2026-10-02)
+
+### Chores
+
+- **formula**: Point at v1.20.0 [skip ci]
+  ([`d1f74e4`](https://github.com/gufranco/maeyomi/commit/d1f74e45bf8b2a41c920f4e9acda214101af566b))
+
+### Features
+
+- Support Densha Daishuugou! Card de Asobou
+  ([`d403276`](https://github.com/gufranco/maeyomi/commit/d4032766db83489dd303924530c7e833879306eb))
+
+### Refactoring
+
+- **card**: Move CardStyle into its own module
+  ([`804a473`](https://github.com/gufranco/maeyomi/commit/804a473f64c4de54faf59b0c22e8a9292299bba1))
+
+### Testing
+
+- **e2e**: Wait for the made card before checking it
+  ([`7892764`](https://github.com/gufranco/maeyomi/commit/789276449e3b68eef7e789df261a8d05e92d8f26))
+
+
 ## v1.20.0 (2026-10-01)
 
 ### Chores
