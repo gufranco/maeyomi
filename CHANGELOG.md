@@ -2,6 +2,40 @@
 
 <!-- version list -->
 
+## v1.23.0 (2026-10-02)
+
+### Chores
+
+- **formula**: Point at v1.22.0 [skip ci]
+  ([`b52198a`](https://github.com/gufranco/maeyomi/commit/b52198a9f6d7eb08225b5350b0b1f916e7d35674))
+
+### Documentation
+
+- Count the real card lists and cards
+  ([`24729b0`](https://github.com/gufranco/maeyomi/commit/24729b0d5a52086a453b5dab45e3e866e39fef50))
+
+### Features
+
+- Support TV Ocha-Ken
+  ([`ef77a17`](https://github.com/gufranco/maeyomi/commit/ef77a17335fd48a80f6e9347d7a84b35ce7d3172))
+
+- **cards**: Print stripe cards lying down
+  ([`faff156`](https://github.com/gufranco/maeyomi/commit/faff156644c03452d29f59b7560ffb1fa37da719))
+
+- **densha**: Name cards 22 and 24
+  ([`0d6b745`](https://github.com/gufranco/maeyomi/commit/0d6b745f15265117e56bbdbe429feb64f6e63fe5))
+
+### Refactoring
+
+- **stripes**: Describe a stripe track as a value
+  ([`e03dd03`](https://github.com/gufranco/maeyomi/commit/e03dd032d282b36460cd4bc1058d335ab17862bb))
+
+### Testing
+
+- **oracle**: Record TV Ocha-Ken cards in MAME
+  ([`9288b20`](https://github.com/gufranco/maeyomi/commit/9288b20ea080e06c10139768d080e9b4a4a51c2d))
+
+
 ## v1.22.0 (2026-10-02)
 
 ### Chores
