@@ -716,8 +716,9 @@ edge: a bar is a one and an empty place a zero, and the reader hands the game
 the twelve bits they spell. The places were measured on the scans of real
 cards in MAME's software list: the bars are 2.88 mm wide, their centres
 6.28 mm apart, each 15 mm long and ending 0.4 mm short of the edge, with the
-first 10.07 mm from the end. Printed on a portrait card, that edge is the left
-one, the first place at the top, and the face starts 2 mm clear of the track so
+first 10.07 mm from the end. The real cards are landscape, so a stripe card
+prints lying down, eight to an A4 sheet, with the track along its bottom edge
+and the first place at the left, and the face starts 2 mm above the track so
 no colour darkens an empty place. The game reads 50 train cards and a test card
 and nothing else, so there is no card made to order and no cheat card. Each
 card is named as it prints its train, such as 200系 やまびこ, the 200 Series
@@ -763,7 +764,8 @@ Print at 100 percent. Turn off "fit to page", "shrink to fit" and any other
 magnification. A scaled page still looks correct and still stops reading,
 because the module width is what a scanner measures.
 
-Cards print standing up, poker sized at 63.5 by 88.9 mm, nine to an A4 sheet.
+Cards print standing up, poker sized at 63.5 by 88.9 mm, nine to an A4 sheet;
+the Beena's stripe cards lie down, eight to a sheet.
 That is the size card sleeves and guillotines are built for. It is this
 project's choice: Epoch never published the size of its own cards, and no
 collector page, auction listing or wiki records it. The size lives in

@@ -83,10 +83,10 @@ def draw_card(
     """
     outline = _Frame(x_mm, y_mm, width_mm, height_mm, style or CardStyle())
     striped = geometry.symbology is Symbology.STRIPES
-    frame = _beside_track(outline, card.barcode) if striped else outline
+    frame = _above_track(outline, card.barcode) if striped else outline
     face = face_of(card.character)
     symbol_width, symbol_height = (0.0, 0.0) if striped else symbol_size_mm(card.barcode, geometry)
-    _check_fits(frame, symbol_width, symbol_height)
+    _check_fits(frame, symbol_width, symbol_height, needs=_needs(face, striped=striped))
     if bleed_mm > 0:
         _draw_bleed(canvas, face, frame, bleed_mm)
     _draw_band(canvas, face, frame)
@@ -96,7 +96,7 @@ def draw_card(
     cursor = _draw_stats(canvas, face, frame, cursor)
     _draw_ability(canvas, face, frame, top=cursor, bottom=bottom_of_text)
     if striped:
-        draw_stripes(canvas, card.barcode, x_mm=x_mm, y_mm=y_mm, height_mm=height_mm)
+        draw_stripes(canvas, card.barcode, x_mm=x_mm, y_mm=y_mm)
     else:
         _draw_barcode(
             canvas,
@@ -114,10 +114,23 @@ def draw_card(
         )
 
 
-def _beside_track(outline: _Frame, code: str) -> _Frame:
-    """The part of a card its face may fill, clear of the stripe track down its left edge."""
-    beside = track_of(code).depth_mm + TRACK_CLEARANCE_MM
-    return replace(outline, x=outline.x + beside, width=outline.width - beside)
+def _above_track(outline: _Frame, code: str) -> _Frame:
+    """The part of a card its face may fill, clear of the stripe track along its bottom edge."""
+    below = track_of(code).depth_mm + TRACK_CLEARANCE_MM
+    return replace(outline, y=outline.y + below, height=outline.height - below)
+
+
+@dataclass(frozen=True, slots=True)
+class _Needs:
+    """Which blocks a card's face must find room for."""
+
+    tiles: bool
+    caption: bool
+
+
+def _needs(face: CardFace, *, striped: bool) -> _Needs:
+    """A face needs its tiles only when it has numbers, and a caption only under a barcode."""
+    return _Needs(tiles=bool(face.tiles), caption=not striped)
 
 
 def _draw_bleed(canvas: Canvas, face: CardFace, frame: _Frame, bleed: float) -> None:
@@ -145,7 +158,7 @@ def _draw_bleed(canvas: Canvas, face: CardFace, frame: _Frame, bleed: float) -> 
     canvas.restoreState()
 
 
-def _check_fits(frame: _Frame, symbol_width: float, symbol_height: float) -> None:
+def _check_fits(frame: _Frame, symbol_width: float, symbol_height: float, *, needs: _Needs) -> None:
     """Reject a card that cannot hold its own barcode at the required module width."""
     style = frame.style
     if frame.width < symbol_width + 2 * style.padding_mm:
@@ -157,9 +170,9 @@ def _check_fits(frame: _Frame, symbol_width: float, symbol_height: float) -> Non
     needed = (
         style.padding_mm
         + symbol_height
-        + style.swipe_block_mm
+        + (style.swipe_block_mm if needs.caption else 0.0)
         + style.min_ability_block_mm
-        + style.stat_block_mm
+        + (style.stat_block_mm if needs.tiles else 0.0)
         + MAX_NAME_LINES * style.name_line_mm
         + style.band_height_mm
         + 3 * style.block_gap_mm

@@ -6,11 +6,11 @@ hands the game the twelve bits they spell with the leftmost lowest. The
 positions were measured on the scans of real cards in MAME's software list, at
 600 dots per inch: the bars are 2.88 mm wide, their centres 6.28 mm apart, the
 first 10.07 mm from the left edge, each 15 mm tall and ending 0.4 mm short of
-the edge. Printed on a portrait card, the card's bottom edge becomes its left
-edge, so the track runs down the left side with the first place at the top.
-A code is written as the twelve places in that order, 1 for a bar. The card's
-face starts 2 mm clear of the track, so neither its colour nor the bleed
-around it can darken a place left empty.
+the edge. The real cards are landscape, and so is the printed card: the track
+runs along its bottom edge with the first place at the left. A code is written
+as the twelve places in that order, 1 for a bar. The card's face starts 2 mm
+above the track, so neither its colour nor the bleed around it can darken a
+place left empty.
 """
 
 import re
@@ -76,43 +76,42 @@ def track_of(code: str) -> Track:
 
 
 def stripes_size_mm(code: str) -> tuple[float, float]:
-    """How long the bars are and how far the track runs, in millimetres."""
+    """How far the track runs and how tall its bars are, in millimetres."""
     track = track_of(code)
-    return track.bar_length_mm, (track.places - 1) * track.pitch_mm + track.bar_thickness_mm
+    return (track.places - 1) * track.pitch_mm + track.bar_thickness_mm, track.bar_length_mm
 
 
 def bar_boxes(
-    code: str, *, x_mm: float, y_mm: float, height_mm: float
+    code: str, *, x_mm: float, y_mm: float
 ) -> tuple[tuple[float, float, float, float], ...]:
     """Each bar as left, bottom, width and height, for a card whose lower left corner is given."""
     track = track_of(code)
-    top = y_mm + height_mm
     return tuple(
         (
-            x_mm + track.edge_gap_mm,
-            top - track.first_slot_mm - place * track.pitch_mm - track.bar_thickness_mm / 2,
-            track.bar_length_mm,
+            x_mm + track.first_slot_mm + place * track.pitch_mm - track.bar_thickness_mm / 2,
+            y_mm + track.edge_gap_mm,
             track.bar_thickness_mm,
+            track.bar_length_mm,
         )
         for place, bit in enumerate(validate_stripes(code))
         if bit == BAR
     )
 
 
-def draw_stripes(canvas: Canvas, code: str, *, x_mm: float, y_mm: float, height_mm: float) -> None:
-    """Draw the track down the left edge of a card whose lower left corner is given."""
+def draw_stripes(canvas: Canvas, code: str, *, x_mm: float, y_mm: float) -> None:
+    """Draw the track along the bottom edge of a card whose lower left corner is given."""
     canvas.setFillColorRGB(0, 0, 0)
-    for left, bottom, width, height in bar_boxes(code, x_mm=x_mm, y_mm=y_mm, height_mm=height_mm):
+    for left, bottom, width, height in bar_boxes(code, x_mm=x_mm, y_mm=y_mm):
         canvas.rect(left * mm, bottom * mm, width * mm, height * mm, stroke=0, fill=1)
 
 
 def read_stripes(image: Image, *, dpi: int, track: Track) -> str:
     """The code a card's track spells, sampled at each place on an image of the whole card."""
     gray = image.convert("L")
-    column = round((track.edge_gap_mm + track.bar_length_mm / 2) / MM_PER_INCH * dpi)
-    rows = (
+    row = gray.height - 1 - round((track.edge_gap_mm + track.bar_length_mm / 2) / MM_PER_INCH * dpi)
+    columns = (
         round((track.first_slot_mm + place * track.pitch_mm) / MM_PER_INCH * dpi)
         for place in range(track.places)
     )
-    levels = (gray.getpixel((column, row)) for row in rows)
+    levels = (gray.getpixel((column, row)) for column in columns)
     return "".join(BAR if isinstance(level, int) and level < INK_LEVEL else "0" for level in levels)

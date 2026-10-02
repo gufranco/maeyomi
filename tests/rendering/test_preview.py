@@ -12,6 +12,7 @@ import pytest
 from PIL import Image
 
 from maeyomi.barcode.verify import decode_image
+from maeyomi.beena.densha import decode_densha
 from maeyomi.decoder.decode import decode
 from maeyomi.models.generated_card import GeneratedCard
 from maeyomi.rendering.layout import CARD_HEIGHT_MM, CARD_WIDTH_MM
@@ -46,6 +47,16 @@ def test_a_card_preview_has_the_aspect_ratio_of_the_printed_card() -> None:
         ratio = image.width / image.height
 
     assert ratio == pytest.approx(CARD_WIDTH_MM / CARD_HEIGHT_MM, abs=0.02)
+
+
+def test_a_stripe_card_preview_is_landscape() -> None:
+    code = "100010110011"
+    card = GeneratedCard(name="Train", barcode=code, character=decode_densha(code))
+
+    with opened(card_png(card)) as image:
+        ratio = image.width / image.height
+
+    assert ratio == pytest.approx(CARD_HEIGHT_MM / CARD_WIDTH_MM, abs=0.02)
 
 
 def test_a_higher_resolution_preview_is_larger() -> None:

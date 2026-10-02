@@ -15,7 +15,7 @@ to the card plus its bleed, which is what a commercial printer's own
 instructions ask for.
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import Final
 
 from maeyomi.rendering.calibration import FOOT_BAND_MM
@@ -87,6 +87,28 @@ class SheetLayout:
             bleed_mm=bleed,
             marks=False,
         )
+
+    def turned(self) -> SheetLayout:
+        """The same sheet holding cards turned on their side.
+
+        A page sized to one card turns with it; a page holding a grid keeps its
+        shape and fits a different grid.
+        """
+        page = (self.page_width_mm, self.page_height_mm)
+        if self.one_card_per_page:
+            page = (self.page_height_mm, self.page_width_mm)
+        return replace(
+            self,
+            page_width_mm=page[0],
+            page_height_mm=page[1],
+            card_width_mm=self.card_height_mm,
+            card_height_mm=self.card_width_mm,
+        )
+
+    @property
+    def one_card_per_page(self) -> bool:
+        """Whether the page is the card plus its bleed, with no margin or marks."""
+        return self.margin_mm == 0 and self.gutter_mm == 0 and not self.marks
 
     def __post_init__(self) -> None:
         """Reject a grid that cannot be printed."""

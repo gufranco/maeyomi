@@ -22,11 +22,9 @@ from maeyomi.models.generated_card import AnyCard
 from maeyomi.rendering.card import draw_card
 from maeyomi.rendering.card_style import CardStyle
 from maeyomi.rendering.layout import (
-    POKER_CARD_HEIGHT_MM,
-    POKER_CARD_WIDTH_MM,
     SheetLayout,
 )
-from maeyomi.rendering.sheet import geometry_for, write_sheet
+from maeyomi.rendering.sheet import card_layout, geometry_for, write_sheet
 
 CARD_PREVIEW_DPI: Final = 150
 SHEET_PREVIEW_DPI: Final = 96
@@ -36,12 +34,15 @@ def card_png(
     card: AnyCard,
     *,
     dpi: int = CARD_PREVIEW_DPI,
-    width_mm: float = POKER_CARD_WIDTH_MM,
-    height_mm: float = POKER_CARD_HEIGHT_MM,
+    width_mm: float | None = None,
+    height_mm: float | None = None,
     geometry: BarcodeGeometry | None = None,
     style: CardStyle | None = None,
 ) -> bytes:
-    """Render one card on its own and return it as PNG bytes."""
+    """Render one card on its own and return it as PNG bytes, in the shape it prints."""
+    shape = card_layout(card, SheetLayout(), geometry or BarcodeGeometry())
+    width_mm = shape.card_width_mm if width_mm is None else width_mm
+    height_mm = shape.card_height_mm if height_mm is None else height_mm
     with tempfile.TemporaryDirectory(prefix="maeyomi-preview-") as directory:
         path = Path(directory) / "card.pdf"
         canvas = Canvas(str(path), pagesize=(width_mm * mm, height_mm * mm))

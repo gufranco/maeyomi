@@ -146,3 +146,23 @@ def test_the_lowest_cut_mark_stays_clear_of_the_marks_below_it() -> None:
     lowest_tick = min(y for _, y in layout.positions()) - CUT_MARK_LENGTH_MM
 
     assert lowest_tick >= MARK_BAND_MM + MARK_CLEARANCE_MM
+
+
+def test_a_turned_layout_holds_landscape_cards_on_the_same_page() -> None:
+    turned = SheetLayout().turned()
+
+    assert (turned.card_width_mm, turned.card_height_mm) == (CARD_HEIGHT_MM, CARD_WIDTH_MM)
+    assert (turned.page_width_mm, turned.page_height_mm) == (A4_WIDTH_MM, A4_HEIGHT_MM)
+    assert (turned.columns, turned.rows) == (2, 4)
+
+
+def test_a_turned_print_shop_page_turns_with_its_card() -> None:
+    shop = SheetLayout.print_shop()
+
+    turned = shop.turned()
+
+    assert (turned.page_width_mm, turned.page_height_mm) == (
+        shop.page_height_mm,
+        shop.page_width_mm,
+    )
+    assert turned.cards_per_page == 1

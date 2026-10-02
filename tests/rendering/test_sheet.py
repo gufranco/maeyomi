@@ -12,8 +12,11 @@ import pypdfium2 as pdfium
 import pytest
 
 from maeyomi.barcode.rasterise import render_pdf_pages
+from maeyomi.barcode.stripes import BEENA_TRACK, read_stripes
 from maeyomi.barcode.verify import decode_image, decode_pdf
+from maeyomi.beena.densha import PRINTED, decode_densha
 from maeyomi.datach.battlerush import strongest_robot
+from maeyomi.datach.game_card import DatachCard
 from maeyomi.generator.random_cards import generate_random
 from maeyomi.models.card_request import CardRequest
 from maeyomi.models.constraint import Constraint
@@ -203,3 +206,42 @@ def test_a_battle_rush_pair_is_drawn_with_the_last_digits_the_game_wants(tmp_pat
     pages = write_sheet(cards, tmp_path / "robot.pdf")
 
     assert pages == 1
+
+
+def stripe_cards(count: int) -> tuple[GeneratedCard[DatachCard], ...]:
+    return tuple(
+        GeneratedCard(name=card.name[1], barcode=card.code, character=decode_densha(card.code))
+        for card in PRINTED[:count]
+    )
+
+
+def test_stripe_cards_are_laid_out_landscape_eight_to_a_page(tmp_path: Path) -> None:
+    path = tmp_path / "stripes.pdf"
+
+    pages = write_sheet(stripe_cards(9), path)
+
+    page = pdfium.PdfDocument(str(path))[0]
+    assert (pages, page.get_width() < page.get_height()) == (2, True)
+
+
+def test_a_landscape_stripe_card_reads_back_from_its_bottom_edge(tmp_path: Path) -> None:
+    path = tmp_path / "shop.pdf"
+    card = stripe_cards(1)[0]
+
+    write_sheet((card,), path, layout=SheetLayout.print_shop(), calibration=False)
+
+    image = render_pdf_pages(path, dpi=300)[0]
+    bleed = round(SheetLayout.print_shop().bleed_mm / 25.4 * 300)
+    trimmed = image.crop((bleed, bleed, image.width - bleed, image.height - bleed))
+    assert (image.width > image.height, read_stripes(trimmed, dpi=300, track=BEENA_TRACK)) == (
+        True,
+        card.barcode,
+    )
+
+
+def test_a_sheet_mixing_both_shapes_turns_the_page_layout_at_the_change(tmp_path: Path) -> None:
+    path = tmp_path / "mixed.pdf"
+
+    pages = write_sheet((*cards(9), *stripe_cards(1)), path)
+
+    assert (pages, decode_pdf(path)) == (2, [card.barcode for card in cards(9)])

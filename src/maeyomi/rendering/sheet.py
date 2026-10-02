@@ -6,13 +6,14 @@ there is one renderer, one geometry and one thing to verify.
 
 from collections.abc import Sequence
 from dataclasses import replace
+from itertools import groupby
 from pathlib import Path
 from typing import Final
 
 from reportlab.lib.units import mm
 from reportlab.pdfgen.canvas import Canvas
 
-from maeyomi.barcode.geometry import DEVICE_SYMBOLOGIES, BarcodeGeometry
+from maeyomi.barcode.geometry import DEVICE_SYMBOLOGIES, BarcodeGeometry, Symbology
 from maeyomi.barcode.symbol import symbol_size_mm
 from maeyomi.datach.game_card import DatachCard
 from maeyomi.models.device import Device
@@ -43,28 +44,42 @@ def write_sheet(
     """Write every card across as many pages as it takes, and return the page count."""
     if not cards:
         return 0
-    resolved_layout = layout or SheetLayout()
     resolved_geometry = geometry or BarcodeGeometry()
-    canvas = Canvas(
-        str(path),
-        pagesize=(resolved_layout.page_width_mm * mm, resolved_layout.page_height_mm * mm),
-    )
+    sheets = _sheets(cards, layout or SheetLayout(), resolved_geometry)
+    canvas = Canvas(str(path))
     describe(canvas, title or _title(cards))
-    pages = 0
-    for page in _pages(cards, resolved_layout.cards_per_page):
+    for page, page_layout in sheets:
+        canvas.setPageSize((page_layout.page_width_mm * mm, page_layout.page_height_mm * mm))
         _draw_page(
             canvas,
             page,
-            resolved_layout,
+            page_layout,
             resolved_geometry,
             style,
             cut_marks=cut_marks,
             calibration=calibration,
         )
         canvas.showPage()
-        pages += 1
     canvas.save()
-    return pages
+    return len(sheets)
+
+
+def card_layout(card: AnyCard, layout: SheetLayout, geometry: BarcodeGeometry) -> SheetLayout:
+    """The layout a card prints in: turned on its side for a stripe card, as the real ones are."""
+    striped = geometry_for(card, geometry).symbology is Symbology.STRIPES
+    return layout.turned() if striped else layout
+
+
+def _sheets(
+    cards: Sequence[AnyCard], layout: SheetLayout, geometry: BarcodeGeometry
+) -> list[tuple[Sequence[AnyCard], SheetLayout]]:
+    """Each page's cards with the layout it prints in, a run of one shape at a time."""
+    runs = groupby(cards, key=lambda card: card_layout(card, layout, geometry))
+    return [
+        (page, run_layout)
+        for run_layout, run in runs
+        for page in _pages(tuple(run), run_layout.cards_per_page)
+    ]
 
 
 def _pages(cards: Sequence[AnyCard], per_page: int) -> list[Sequence[AnyCard]]:
