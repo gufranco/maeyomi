@@ -23,7 +23,7 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 
 </div>
 
-**1586** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
+**3046** official cards transcribed. **2958** Japanese groceries. **100** special powers. Two languages on every card. **100%** test coverage. Barcode Battler II cards verified on the real machine.
 
 ---
 
@@ -185,8 +185,8 @@ you get.
   <img alt="The supermarket tab, listing real Japanese groceries with the stats the device reads from each barcode" src="assets/screenshots/supermarket-light.png">
 </picture>
 
-The other three tabs print a sheet of random cards, the 1586 cards Epoch,
-Bandai and Namco actually released, and the strongest card the chosen machine or game
+The other three tabs print a sheet of random cards, the 3046 cards released
+for these machines and games, and the strongest card the chosen machine or game
 will read. The page is in English and Japanese, and switches with the
 buttons at the top.
 
@@ -828,7 +828,9 @@ barcode, and `-o card.pdf --name "Tomato sauce"` prints the card as well. The
 web page has the same thing under **Read a barcode**: type the digits printed
 under the bars, and it shows the kind of card, the three numbers, the special
 power and whether the device reads it from the front or the back, with a card
-you can print.
+you can print. A stripe card has no digits under its bars, so it is read by the
+number printed on it, as in `maeyomi decode --device ochaken 13`, and the page
+also offers a button per place to match its bars.
 
 `maeyomi kinds` lists every kind of card the device knows, in both
 languages, with what each one does.

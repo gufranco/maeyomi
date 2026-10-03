@@ -321,20 +321,34 @@ def test_the_printable_cards_are_every_transcription_that_decodes() -> None:
 @pytest.mark.parametrize(
     ("readme", "lists", "cards"),
     [
-        ("README.md", r"names the (\d+) card lists", r"prints all (\d+)"),
-        ("README.ja.md", r"発売された(\d+)のカードリスト", r"(\d+)枚すべてを印刷"),
+        (
+            "README.md",
+            r"names the (\d+) card lists",
+            (r"prints all (\d+)", r"\*\*(\d+)\*\* official cards", r"the (\d+) cards released"),
+        ),
+        (
+            "README.ja.md",
+            r"発売された(\d+)のカードリスト",
+            (
+                r"(\d+)枚すべてを印刷",
+                r"公式カード \*\*(\d+)枚\*\*",
+                r"向けに発売された(\d+)枚を印刷",
+            ),
+        ),
     ],
 )
 def test_the_readme_counts_the_lists_and_cards_the_catalogue_holds(
-    readme: str, lists: str, cards: str
+    readme: str, lists: str, cards: tuple[str, ...]
 ) -> None:
     text = (Path(__file__).parent.parent.parent / readme).read_text(encoding="utf-8")
 
-    counted = tuple(
-        int(match.group(1)) for match in (re.search(lists, text), re.search(cards, text)) if match
-    )
+    counted = [
+        int(match.group(1))
+        for match in (re.search(pattern, text) for pattern in (lists, *cards))
+        if match
+    ]
 
-    assert counted == (len(OfficialSet), len(official_cards()))
+    assert counted == [len(OfficialSet), *[len(official_cards())] * len(cards)]
 
 
 @pytest.mark.parametrize("official_set", list(OfficialSet))
