@@ -4,7 +4,7 @@
 
 <strong>バーコードバトラーの本体やバーコードで遊ぶゲームで使えるカードを印刷します。</strong>
 
-[English](README.md) &nbsp;|&nbsp; 日本語
+[English](README.md) | 日本語
 
 [![ci](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml/badge.svg)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
@@ -12,12 +12,12 @@
 [![python](https://img.shields.io/badge/python-3.14-blue)](pyproject.toml)
 
 <p align="center">
-  <a href="#対応している本体とゲーム">対応している本体とゲーム</a> &nbsp;|&nbsp;
-  <a href="#インストール">インストール</a> &nbsp;|&nbsp;
-  <a href="#起動する">起動する</a> &nbsp;|&nbsp;
-  <a href="#コマンドラインから">コマンドライン</a> &nbsp;|&nbsp;
-  <a href="#本体とゲーム">本体とゲーム</a> &nbsp;|&nbsp;
-  <a href="#実在のカード">実在のカード</a> &nbsp;|&nbsp;
+  <a href="#対応している本体とゲーム">対応している本体とゲーム</a> |
+  <a href="#インストール">インストール</a> |
+  <a href="#起動する">起動する</a> |
+  <a href="#コマンドラインから">コマンドライン</a> |
+  <a href="#本体とゲーム">本体とゲーム</a> |
+  <a href="#実在のカード">実在のカード</a> |
   <a href="#出典">出典</a>
 </p>
 

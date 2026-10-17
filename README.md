@@ -4,7 +4,7 @@
 
 <strong>Print playable cards for Barcode Battler machines and barcode games.</strong>
 
-English &nbsp;|&nbsp; [日本語](README.ja.md)
+English | [日本語](README.ja.md)
 
 [![ci](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml/badge.svg)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
@@ -12,12 +12,12 @@ English &nbsp;|&nbsp; [日本語](README.ja.md)
 [![python](https://img.shields.io/badge/python-3.14-blue)](pyproject.toml)
 
 <p align="center">
-  <a href="#what-it-supports">What it supports</a> &nbsp;|&nbsp;
-  <a href="#install">Install</a> &nbsp;|&nbsp;
-  <a href="#open-it">Open it</a> &nbsp;|&nbsp;
-  <a href="#from-the-command-line">Command line</a> &nbsp;|&nbsp;
-  <a href="#the-machines-and-games">Machines and games</a> &nbsp;|&nbsp;
-  <a href="#the-real-cards">The real cards</a> &nbsp;|&nbsp;
+  <a href="#what-it-supports">What it supports</a> |
+  <a href="#install">Install</a> |
+  <a href="#open-it">Open it</a> |
+  <a href="#from-the-command-line">Command line</a> |
+  <a href="#the-machines-and-games">Machines and games</a> |
+  <a href="#the-real-cards">The real cards</a> |
   <a href="#where-this-came-from">Sources</a>
 </p>
 
