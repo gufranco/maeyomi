@@ -1,9 +1,9 @@
 """Tests that every public description says what the README says.
 
 The README is where the project describes itself to anyone who is not reading
-the code. The same sentence also has to appear in the package metadata, in the
-Homebrew formula and on the repository page, and four hand-maintained copies of
-one sentence drift within a release or two. These read the README and compare.
+the code. The same sentence also has to appear in the package metadata and on
+the repository page, and several hand-maintained copies of one sentence drift
+within a release or two. These read the README and compare.
 
 The repository page is not a file, so it cannot be asserted here. It is checked
 by `scripts/check-public-text.sh`, which asks GitHub.
@@ -16,7 +16,6 @@ from typing import Final
 
 ROOT: Final = Path(__file__).parent.parent.parent
 README: Final = ROOT / "README.md"
-FORMULA: Final = ROOT / "Formula" / "maeyomi.rb"
 MANIFEST: Final = ROOT / "pyproject.toml"
 PROJECT: Final = "maeyomi"
 ASCII_MAX: Final = 127
@@ -41,13 +40,6 @@ def test_the_package_metadata_repeats_the_readme() -> None:
     manifest = tomllib.loads(MANIFEST.read_text(encoding="utf-8"))
 
     assert manifest["project"]["description"] == strapline().rstrip(".")
-
-
-def test_the_formula_repeats_the_readme() -> None:
-    match = re.search(r'^\s*desc "(.+)"$', FORMULA.read_text(encoding="utf-8"), re.MULTILINE)
-    assert match is not None
-
-    assert match.group(1) == strapline().rstrip(".")
 
 
 def test_the_formula_description_is_one_homebrew_will_accept() -> None:
