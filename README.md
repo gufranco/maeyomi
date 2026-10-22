@@ -105,13 +105,12 @@ games and their card packs are on
 ## Install
 
 ```bash
-brew tap gufranco/maeyomi https://github.com/gufranco/maeyomi
-brew install gufranco/maeyomi/maeyomi
+brew install gufranco/tap/maeyomi
 ```
 
-The tap is this repository. Homebrew wants the explicit URL because the repo is
-not called `homebrew-maeyomi`, which keeps the formula, the source and the
-release beside each other instead of in a second repo that drifts.
+The formula lives in [gufranco/homebrew-tap](https://github.com/gufranco/homebrew-tap),
+a small formula-only tap shared across my tools, so tapping it is a fast clone and
+every release opens a pull request there automatically.
 
 Installing pulls in Python 3.14 and builds an isolated environment from the
 committed lockfile, so you get the versions the tests ran against and nothing

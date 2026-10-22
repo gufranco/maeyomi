@@ -79,11 +79,10 @@
 ## インストール
 
 ```bash
-brew tap gufranco/maeyomi https://github.com/gufranco/maeyomi
-brew install gufranco/maeyomi/maeyomi
+brew install gufranco/tap/maeyomi
 ```
 
-tap はこのリポジトリそのものです。リポジトリ名が `homebrew-maeyomi` ではないため Homebrew には URL を明示します。こうしておくと formula とソースとリリースが同じ場所に揃い、別リポジトリに分かれて食い違うことがありません。
+formula は共有の formula 専用タップ [gufranco/homebrew-tap](https://github.com/gufranco/homebrew-tap) にあります。クローンが軽く、リリースごとに自動でプルリクエストが開きます。
 
 インストールすると Python 3.14 が入り、コミット済みのロックファイルから独立した環境を作ります。テストが通ったのと同じバージョンが入り、手元の Python には何も足しません。
 
