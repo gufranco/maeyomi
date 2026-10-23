@@ -7,32 +7,32 @@ authors = [{ name = "Gustavo Franco", email = "gufranco@users.noreply.github.com
 requires-python = ">=3.14"
 license = "MIT"
 dependencies = [
-    "pydantic==2.13.5",
-    "pillow==12.3.0",
+    "pydantic==2.14.1",
+    "pillow==13.0.0",
     "reportlab==5.0.1",
-    "typer==0.27.2",
+    "typer==0.27.3",
     "zxing-cpp==3.1.1",
-    "pypdfium2==5.13.0",
+    "pypdfium2==5.14.0",
 ]
 
 [project.scripts]
 maeyomi = "maeyomi.cli.main:app"
 
 [project.optional-dependencies]
-ui = ["fastapi==0.142.2", "uvicorn==0.54.0"]
+ui = ["fastapi==0.143.3", "uvicorn==0.54.0"]
 
 [dependency-groups]
 dev = [
     "pytest==9.1.1",
     "pytest-cov==7.1.0",
-    "hypothesis==6.168.3",
-    "ruff==0.16.9",
+    "hypothesis==6.170.1",
+    "ruff==0.17.1",
     "pyright==1.1.414",
     "httpx2==2.13.1",
 ]
 
 [build-system]
-requires = ["uv_build>=0.12.17,<0.13.0"]
+requires = ["uv_build>=0.12.17,<0.14.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
