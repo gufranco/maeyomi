@@ -1,0 +1,8 @@
+[cosmic-ray]
+module-path = "src/maeyomi/generator"
+timeout = 30.0
+excluded-modules = []
+test-command = ".venv/bin/python -m pytest tests/generator -q -p no:randomly -x"
+
+[cosmic-ray.distributor]
+name = "local"

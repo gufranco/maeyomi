@@ -1,0 +1,15 @@
+title = "maeyomi gitleaks configuration"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Paths never committed to git: local workspace, caches, generated fixtures, and build output"
+paths = [
+  '''(^|/)\.hypothesis/''',
+  '''(^|/)specs/''',
+  '''(^|/)docs/''',
+  '''(^|/)\.work/''',
+  '''(^|/)dist/''',
+  '''(^|/)nvram/''',
+]

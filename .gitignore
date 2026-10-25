@@ -9,6 +9,7 @@ dist/
 build/
 *.egg-info/
 out/
+node_modules/
 *.pdf
 *.png
 !assets/screenshots/*.png

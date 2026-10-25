@@ -1,0 +1,38 @@
+---
+name: mutation
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mutation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  decoder:
+    name: mutation testing of the decoder arithmetic
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7
+        with:
+          enable-cache: true
+
+      - name: Install
+        run: uv sync --frozen --extra ui
+
+      - name: Mutate the decoder arithmetic
+        run: |
+          set -euo pipefail
+          uv run cosmic-ray init tools/mutation/decoder.toml "${RUNNER_TEMP}/decoder.sqlite"
+          uv run cosmic-ray exec tools/mutation/decoder.toml "${RUNNER_TEMP}/decoder.sqlite"
+          uv run cr-report "${RUNNER_TEMP}/decoder.sqlite"
+
+      - name: Fail if the survival rate rose above the baseline
+        run: uv run cr-rate --fail-over 15.84 "${RUNNER_TEMP}/decoder.sqlite"
