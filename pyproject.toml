@@ -8,7 +8,7 @@ requires-python = ">=3.14"
 license = "MIT"
 dependencies = [
     "pydantic==2.13.5",
-    "pillow==12.3.0",
+    "pillow==13.0.0",
     "reportlab==5.0.1",
     "typer==0.27.2",
     "zxing-cpp==3.1.1",
@@ -29,11 +29,17 @@ dev = [
     "ruff==0.16.9",
     "pyright==1.1.414",
     "httpx2==2.13.1",
+    "import-linter==2.15",
+    "cosmic-ray==8.7.0",
+    "pip-audit==2.10.1",
 ]
 
 [build-system]
 requires = ["uv_build>=0.12.17,<0.13.0"]
 build-backend = "uv_build"
+
+[tool.uv]
+constraint-dependencies = ["opentelemetry-api>=1.45.1"]
 
 [tool.uv.build-backend]
 module-name = "maeyomi"
@@ -88,6 +94,38 @@ venv = ".venv"
 pythonVersion = "3.14"
 typeCheckingMode = "strict"
 reportMissingTypeStubs = false
+
+[tool.importlinter]
+root_package = "maeyomi"
+
+[[tool.importlinter.contracts]]
+name = "The decoder stays a pure port"
+type = "forbidden"
+source_modules = ["maeyomi.decoder"]
+forbidden_modules = [
+    "maeyomi.barcode",
+    "maeyomi.cli",
+    "maeyomi.generator",
+    "maeyomi.games",
+    "maeyomi.official",
+    "maeyomi.products",
+    "maeyomi.rendering",
+    "maeyomi.ui",
+]
+
+[[tool.importlinter.contracts]]
+name = "The domain core avoids transport and presentation"
+type = "forbidden"
+source_modules = ["maeyomi.models", "maeyomi.barcode"]
+forbidden_modules = [
+    "maeyomi.cli",
+    "maeyomi.generator",
+    "maeyomi.games",
+    "maeyomi.official",
+    "maeyomi.products",
+    "maeyomi.rendering",
+    "maeyomi.ui",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
