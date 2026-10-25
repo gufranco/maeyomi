@@ -96,6 +96,22 @@ drift into a compliance claim.
 - A layout claim names the viewport it holds at.
 - The device was tested with real hardware. Record what was actually observed;
   never invent a count to make the record look fuller.
+- CI runs more than the suite. `pip-audit` fails on any advisory in the locked
+  runtime dependencies, and `gitleaks` scans the tree for secrets with the
+  allowlist in [`.gitleaks.toml`](.gitleaks.toml) covering the never-committed
+  paths. The import boundaries in `[tool.importlinter]` are checked by
+  [`tests/architecture`](tests/architecture), and every CLI command keeps an
+  end-to-end invocation enforced by [`tests/e2e`](tests/e2e). A separate CI job
+  runs the Playwright accessibility sweep in
+  [`tools/render/accessibility.playwright.e2e.mjs`](tools/render/accessibility.playwright.e2e.mjs)
+  against a booted server.
+- Mutation testing lives in [`tools/mutation`](tools/mutation) and runs on a
+  schedule, not on every push, because one mutant costs a full test run. It
+  targets the decoder arithmetic only, excluding the data registry, and fails
+  when the survival rate rises above the baseline recorded at the head of
+  [`tools/mutation/baseline.txt`](tools/mutation/baseline.txt), which also lists
+  the surviving mutants for triage. The baseline is a starting point, not a
+  target, and 100% line coverage does not imply a zero survival rate.
 
 ## House style
 
