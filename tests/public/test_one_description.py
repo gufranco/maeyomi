@@ -89,32 +89,75 @@ def test_the_page_says_what_the_readme_says_it_says() -> None:
     assert lede() in README.read_text(encoding="utf-8")
 
 
-JAPANESE_README: Final = ROOT / "README.ja.md"
+TRANSLATIONS: Final = {
+    "README.ja.md": ROOT / "README.ja.md",
+    "README.zh-Hans.md": ROOT / "README.zh-Hans.md",
+    "README.zh-HK.md": ROOT / "README.zh-HK.md",
+}
+ALL_READMES: Final = [README, *TRANSLATIONS.values()]
+SWITCHER_LINKS: Final = {
+    "README.md": "[English](README.md)",
+    "README.ja.md": "[日本語](README.ja.md)",
+    "README.zh-Hans.md": "[简体中文](README.zh-Hans.md)",
+    "README.zh-HK.md": "[繁體中文 (香港)](README.zh-HK.md)",
+}
 
 
-def test_the_project_is_readable_in_japanese() -> None:
-    japanese = JAPANESE_README.read_text(encoding="utf-8")
-    kana_and_kanji = sum(1 for character in japanese if ord(character) > ASCII_MAX)
+def test_every_translation_is_mostly_han_or_kana() -> None:
+    # Arrange
+    texts = {name: path.read_text(encoding="utf-8") for name, path in TRANSLATIONS.items()}
 
-    assert kana_and_kanji / len(japanese) > JAPANESE_SHARE
-
-
-def test_the_two_readmes_cover_the_same_ground() -> None:
-    sections = {
-        path: len(re.findall(r"^## ", path.read_text(encoding="utf-8"), re.MULTILINE))
-        for path in (README, JAPANESE_README)
+    # Act
+    shares = {
+        name: sum(1 for character in text if ord(character) > ASCII_MAX) / len(text)
+        for name, text in texts.items()
     }
 
+    # Assert
+    assert all(share > JAPANESE_SHARE for share in shares.values()), shares
+
+
+def test_every_readme_covers_the_same_ground() -> None:
+    # Arrange
+    readmes = ALL_READMES
+
+    # Act
+    sections = {
+        path: len(re.findall(r"^## ", path.read_text(encoding="utf-8"), re.MULTILINE))
+        for path in readmes
+    }
+
+    # Assert
     assert len(set(sections.values())) == 1, sections
 
 
-def test_both_readmes_show_the_same_screenshots() -> None:
-    def shots(path: Path) -> set[str]:
-        return set(re.findall(r'(?:src|srcset)="(assets/[^"]+)"', path.read_text(encoding="utf-8")))
+def test_every_readme_shows_the_same_screenshots() -> None:
+    # Arrange
+    pattern = r'(?:src|srcset)="(assets/[^"]+)"'
 
-    assert shots(README) == shots(JAPANESE_README)
+    # Act
+    found = {
+        path: frozenset(re.findall(pattern, path.read_text(encoding="utf-8")))
+        for path in ALL_READMES
+    }
+
+    # Assert
+    assert len(set(found.values())) == 1, {
+        str(path): sorted(shots) for path, shots in found.items()
+    }
 
 
-def test_each_readme_offers_the_other_language() -> None:
-    assert "[日本語](README.ja.md)" in README.read_text(encoding="utf-8")
-    assert "[English](README.md)" in JAPANESE_README.read_text(encoding="utf-8")
+def test_each_readme_offers_every_other_language() -> None:
+    # Arrange
+    readmes = {"README.md": README, **TRANSLATIONS}
+
+    # Act
+    texts = {name: path.read_text(encoding="utf-8") for name, path in readmes.items()}
+
+    # Assert
+    assert all(
+        SWITCHER_LINKS[other] in texts[name]
+        for name in readmes
+        for other in SWITCHER_LINKS
+        if other != name
+    ), "a switcher link is missing"

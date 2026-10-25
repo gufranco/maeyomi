@@ -55,12 +55,16 @@ let a release note say something the README does not.
 push. Adding a new public surface means adding it to one of those two, or it
 will drift the moment the wording changes.
 
-The README comes as a pair: `README.md` in English and `README.ja.md` in
-Japanese. The device was sold in Japan, so the Japanese one is the whole
-document rather than a summary, and it uses the terms the device uses, 前読み
-and 後読み for the two read types. A section added to one is added to the
-other. The same tests check that they carry the same sections, the same
-screenshots, and a link to each other.
+The README ships in four languages: `README.md` in English, `README.ja.md`
+in Japanese, `README.zh-Hans.md` in Simplified Chinese and `README.zh-HK.md`
+in Hong Kong Traditional Chinese. The device was sold in Japan, so the
+Japanese one uses the terms the device uses, 前読み and 後読み for the two read
+types. Every translation is the whole document, translated from the English
+one, never converted from another translation. A section added to one is added
+to every other, in the same order. A language switcher under the tagline links
+the other three from each file. The same tests check that all four carry the
+same sections and the same screenshots, each links to every other, and each
+translation is mostly Han or kana.
 
 `docs/` and `specs/` are working notes and are ignored. They stay on disk and
 never reach GitHub, so nothing published may link into them.

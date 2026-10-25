@@ -4,7 +4,7 @@
 
 <strong>バーコードバトラーの本体やバーコードで遊ぶゲームで使えるカードを印刷します。</strong>
 
-[English](README.md) | 日本語
+[English](README.md) | 日本語 | [简体中文](README.zh-Hans.md) | [繁體中文 (香港)](README.zh-HK.md)
 
 [![ci](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml/badge.svg)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
