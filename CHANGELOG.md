@@ -1,3 +1,10 @@
+## [1.24.1](https://github.com/gufranco/maeyomi/compare/v1.24.0...v1.24.1) (2026-10-25)
+
+
+### Bug Fixes
+
+* **deps:** patch pillow and opentelemetry CVEs ([49f4fd0](https://github.com/gufranco/maeyomi/commit/49f4fd0aec88d5a903a2d9a41b0a84513463b999))
+
 # CHANGELOG
 
 <!-- version list -->
