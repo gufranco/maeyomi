@@ -19,14 +19,14 @@ dependencies = [
 maeyomi = "maeyomi.cli.main:app"
 
 [project.optional-dependencies]
-ui = ["fastapi==0.159.1", "uvicorn==0.54.0"]
+ui = ["fastapi==0.162.0", "uvicorn==0.54.0"]
 
 [dependency-groups]
 dev = [
     "pytest==9.1.1",
     "pytest-cov==7.1.0",
-    "hypothesis==6.170.5",
-    "ruff==0.17.1",
+    "hypothesis==6.170.9",
+    "ruff==0.17.2",
     "pyright==1.1.414",
     "httpx2==2.16.0",
     "import-linter==2.15",
