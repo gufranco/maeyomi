@@ -6,10 +6,10 @@
 
 [English](README.md) | [日本語](README.ja.md) | [简体中文](README.zh-Hans.md) | 繁體中文 (香港)
 
-[![ci](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml/badge.svg)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
-[![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
-[![python](https://img.shields.io/badge/python-3.14-blue)](pyproject.toml)
+[![ci](https://img.shields.io/github/actions/workflow/status/gufranco/maeyomi/ci.yml?branch=main&style=flat-square&label=ci)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
+[![release](https://img.shields.io/github/v/release/gufranco/maeyomi?style=flat-square&label=release)](https://github.com/gufranco/maeyomi/releases/latest)
+[![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen?style=flat-square)](https://github.com/gufranco/maeyomi/actions/workflows/ci.yml)
+[![license](https://img.shields.io/github/license/gufranco/maeyomi?style=flat-square&label=license)](LICENSE)
 
 <p align="center">
   <a href="#支援的主機和遊戲">支援的主機和遊戲</a> |
