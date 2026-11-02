@@ -44,7 +44,7 @@ jobs:
             echo "current=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e  # v7.3.0
+      - uses: astral-sh/setup-uv@eac588ad8def6316056a12d4907a9d4d84ff7a3b  # v7.3.0
         if: steps.fresh.outputs.current == 'true'
 
       - name: Run semantic-release
