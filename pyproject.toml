@@ -25,7 +25,7 @@ ui = ["fastapi==0.162.0", "uvicorn==0.54.0"]
 dev = [
     "pytest==9.1.1",
     "pytest-cov==7.1.0",
-    "hypothesis==6.170.9",
+    "hypothesis==6.170.14",
     "ruff==0.17.3",
     "pyright==1.1.414",
     "httpx2==2.16.0",
