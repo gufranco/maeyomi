@@ -30,7 +30,7 @@ dev = [
     "pyright==1.1.414",
     "httpx2==2.16.0",
     "import-linter==2.16",
-    "cosmic-ray==8.7.0",
+    "cosmic-ray==8.8.0",
     "pip-audit==2.10.1",
 ]
 
