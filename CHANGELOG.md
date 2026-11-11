@@ -1,3 +1,21 @@
+## [1.24.2](https://github.com/gufranco/maeyomi/compare/v1.24.1...v1.24.2) (2026-11-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fastapi to v0.162.1 ([#31](https://github.com/gufranco/maeyomi/issues/31)) ([3a99c04](https://github.com/gufranco/maeyomi/commit/3a99c040b9f3a4259ab38c71f114c4d64beffefe))
+* **deps:** update dependency fastapi to v0.162.2 ([#32](https://github.com/gufranco/maeyomi/issues/32)) ([0840f50](https://github.com/gufranco/maeyomi/commit/0840f50f0838f5c6970000892ea319777e810f32))
+* **deps:** update dependency fastapi to v0.162.3 ([#37](https://github.com/gufranco/maeyomi/issues/37)) ([f37b00f](https://github.com/gufranco/maeyomi/commit/f37b00f5b33bad43ef5ebe84c931c5cd313c403c))
+* **deps:** update dependency fastapi to v0.162.4 ([#38](https://github.com/gufranco/maeyomi/issues/38)) ([23f64a0](https://github.com/gufranco/maeyomi/commit/23f64a03daa939a015cd138278c195a3ec34b172))
+* **deps:** update dependency playwright to v1.65.0 ([#25](https://github.com/gufranco/maeyomi/issues/25)) ([e9af168](https://github.com/gufranco/maeyomi/commit/e9af168f15285b2a38d179233955830edc3c4cf7))
+* **deps:** update dependency pydantic to v2.14.2 ([#15](https://github.com/gufranco/maeyomi/issues/15)) ([b3a8d77](https://github.com/gufranco/maeyomi/commit/b3a8d777954e6fb7777d0aeef054772f76de4ea1))
+* **deps:** update dependency pydantic to v2.14.3 ([#24](https://github.com/gufranco/maeyomi/issues/24)) ([69efc6d](https://github.com/gufranco/maeyomi/commit/69efc6da22c76f775fb4c0b150d24b758da0a254))
+* **deps:** update dependency pypdfium2 to v5.15.0 ([#30](https://github.com/gufranco/maeyomi/issues/30)) ([50b6f4b](https://github.com/gufranco/maeyomi/commit/50b6f4b9a38d4cc623425b2c8baf4f85c6924a54))
+* **deps:** update dependency pypdfium2 to v5.15.1 ([#33](https://github.com/gufranco/maeyomi/issues/33)) ([68b1c78](https://github.com/gufranco/maeyomi/commit/68b1c78a5842085d804357c39f9199765a2a9e5a))
+* **deps:** update dependency pypdfium2 to v5.15.2 ([#35](https://github.com/gufranco/maeyomi/issues/35)) ([6a7e9e0](https://github.com/gufranco/maeyomi/commit/6a7e9e0313adb136f134fbf5f20657c6ad62cf3e))
+* **deps:** update dependency typer to v0.28.0 ([#27](https://github.com/gufranco/maeyomi/issues/27)) ([96241af](https://github.com/gufranco/maeyomi/commit/96241af405e5ac905bb009ef5a8e3e7136d1ea0e))
+* **deps:** update dependency typer to v0.29.0 ([#36](https://github.com/gufranco/maeyomi/issues/36)) ([4cbc955](https://github.com/gufranco/maeyomi/commit/4cbc9557ef3e824294382f28e9217c351b99e16f))
+
 ## [1.24.1](https://github.com/gufranco/maeyomi/compare/v1.24.0...v1.24.1) (2026-10-25)
 
 
