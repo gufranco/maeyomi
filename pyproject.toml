@@ -19,7 +19,7 @@ dependencies = [
 maeyomi = "maeyomi.cli.main:app"
 
 [project.optional-dependencies]
-ui = ["fastapi==0.162.3", "uvicorn==0.54.0"]
+ui = ["fastapi==0.162.4", "uvicorn==0.54.0"]
 
 [dependency-groups]
 dev = [
