@@ -5,7 +5,7 @@ root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 cd "$root"
 
 repo=${MAEYOMI_REPO:-gufranco/maeyomi}
-account=${MAEYOMI_GH_ACCOUNT:-gufranco}
+account=${MAEYOMI_GH_ACCOUNT:-}
 
 strapline=$(sed -n 's/^<strong>\(.*\)<\/strong>$/\1/p' README.md | head -1)
 if [[ -z "$strapline" ]]; then
@@ -14,7 +14,7 @@ if [[ -z "$strapline" ]]; then
 fi
 readme_says=${strapline%.}
 
-if [[ -z "${GH_TOKEN:-}" ]]; then
+if [[ -z "${GH_TOKEN:-}" && -n "$account" ]]; then
 	GH_TOKEN=$(gh auth token --user "$account")
 	export GH_TOKEN
 fi
